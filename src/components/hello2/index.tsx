@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export default class Hello extends React.Component {
-    render(){
+    render() {
         return <h1 className={'hello2'}>Hello</h1>
     }
 }
