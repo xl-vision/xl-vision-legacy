@@ -60,7 +60,7 @@ const webpackConfig = {
             use: [
                 {
                     loader: 'babel-loader',
-                    options: babelConfig
+                    options: babelConfig,
                 },
                 {
                     loader: 'ts-loader',
@@ -75,8 +75,7 @@ const webpackConfig = {
 }
 
 
-module.exports = () => {
-    const isProd = process.env.NODE_ENV === 'production'
+module.exports = (isProd) => {
 
     const mergeConfig = webpackMerge(webpackConfig, {
         mode: isProd ? 'production' : 'development',

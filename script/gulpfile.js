@@ -25,8 +25,8 @@ const sources = {
         'src/**/*.jsx',
     ],
     scss: [
-        'src/**/style/index.scss'
-    ]
+        'src/**/style/index.scss',
+    ],
 }
 
 
@@ -42,7 +42,7 @@ function buildTs(modules) {
             tsDefaultReporter.error(err, ts)
             error = true
         },
-        finish: tsDefaultReporter.finish
+        finish: tsDefaultReporter.finish,
     }))
 
     function check() {
@@ -81,52 +81,54 @@ function compile(modules) {
 function runTslint() {
     return gulp.src(sources.ts)
         .pipe(tslint({
-            formatter: "verbose"
+            formatter: 'verbose',
         }))
         .pipe(tslint.report())
 }
 
-function buildDist(done) {
+function buildDist(isProd) {
 
-    webpack(getWebpackConfig(), (err, stats) => {
-            if (err) {
-                console.error(err.stack || err)
-                if (err.details) {
-                    console.error(err.details)
+    return new Promise((resolve, reject) => {
+        webpack(getWebpackConfig(isProd), (err, stats) => {
+                if (err) {
+                    console.error(err.stack || err)
+                    if (err.details) {
+                        console.error(err.details)
+                    }
+                    reject(err)
+                    return
                 }
-                done(err)
-                return
-            }
 
-            const info = stats.toJson()
+                const info = stats.toJson()
 
-            if (stats.hasErrors()) {
-                console.error(info.errors)
-            }
+                if (stats.hasErrors()) {
+                    console.error(info.errors)
+                }
 
-            if (stats.hasWarnings()) {
-                console.warn(info.warnings)
-            }
+                if (stats.hasWarnings()) {
+                    console.warn(info.warnings)
+                }
 
-            const buildInfo = stats.toString({
-                colors: true,
-                children: true,
-                chunks: false,
-                modules: false,
-                chunkModules: false,
-                hash: false,
-                version: false,
-            })
-            console.log(buildInfo)
-            done()
-        }
-    )
+                const buildInfo = stats.toString({
+                    colors: true,
+                    children: true,
+                    chunks: false,
+                    modules: false,
+                    chunkModules: false,
+                    hash: false,
+                    version: false,
+                })
+                console.log(buildInfo)
+                resolve()
+            },
+        )
+    })
+
 }
 
-function buildDistCss() {
-    const isProd = process.env.NODE_ENV === 'production'
+function buildDistCss(isProd) {
 
-    return gulp.src("src/style/index.scss").pipe(sass())
+    return gulp.src('src/style/index.scss').pipe(sass())
         .on('error', function (error) {
             console.error(error.toString())
             this.emit('end')
@@ -144,15 +146,22 @@ function buildDistCss() {
         .pipe(gulp.dest(distDir))
 }
 
-gulp.task('compile-es', gulp.series([runTslint, () => {
+gulp.task('tslint', runTslint)
+
+gulp.task('compile:es', gulp.series(['tslint', () => {
     return compile(false)
 }]))
 
 
-gulp.task('compile', gulp.series(['compile-es', () => {
+gulp.task('compile', gulp.series(['compile:es', () => {
     return compile('commonjs')
 }]))
 
-gulp.task('dist', gulp.series([()=>{
-    return fs.removeSync(distDir)
-},buildDist, buildDistCss]))
+gulp.task('dist:prod', gulp.series([() => buildDist(true), () => buildDistCss(true)]))
+gulp.task('dist:dev', gulp.series([() => buildDist(false), () => buildDistCss(false)]))
+
+
+gulp.task('dist', gulp.series([done => {
+    fs.removeSync(distDir)
+    done()
+}, gulp.parallel(['dist:prod', 'dist:dev'])]))
