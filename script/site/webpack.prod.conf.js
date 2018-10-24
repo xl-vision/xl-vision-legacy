@@ -1,6 +1,4 @@
 const webpackMerge = require('webpack-merge')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -10,17 +8,6 @@ const webpackConfig = {
     devtool: 'source-map',
     output: {
         publicPath: 'xl-vision',
-    },
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true,
-            }),
-            new OptimizeCSSAssetsPlugin({})
-        ],
-
     },
     module: {
         rules: [{
@@ -62,7 +49,7 @@ const webpackConfig = {
             },
             // necessary to consistently work with multiple chunks via CommonsChunkPlugin
             chunksSortMode: 'dependency'
-        })
+        }),
     ]
 }
 

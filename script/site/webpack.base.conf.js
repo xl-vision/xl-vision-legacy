@@ -1,4 +1,6 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const babelConfig = require('../lib/getBabelConfig')(false)
 
@@ -11,6 +13,16 @@ const webpackConfig = {
     output: {
         path: path.join(process.cwd(), 'docs-dist'),
         filename: `js/[name].[hash].js`,
+    },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true,
+            }),
+            new OptimizeCSSAssetsPlugin({})
+        ],
     },
     module: {
         rules: [{
