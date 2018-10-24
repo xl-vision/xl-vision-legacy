@@ -2,21 +2,132 @@ const gulp = require('gulp')
 const sass = require('gulp-sass')
 const postcss = require('gulp-postcss')
 const cleanCSS = require('gulp-clean-css')
-const through2 = require('through2')
 const path = require('path')
-const webpack = require('webpack')
-const getWebpackConfig = require('./lib/getWebpackConfig')
-const glob = require('glob')
-const chalk = require('chalk')
-const typescript = require('gulp-typescript')
+const through2 = require('through2')
+const ts = require('gulp-typescript')
+const tsDefaultReporter = ts.reporter.defaultReporter()
 const babel = require('gulp-babel')
+const tslint = require('gulp-tslint')
+const merge2 = require('merge2')
+const getBabelConfig = require('./lib/getBabelConfig')
+const fs = require('fs-extra')
+const getWebpackConfig = require('./lib/getWebpackConfig')
+const webpack = require('webpack')
 
-gulp.task('build-css', () => {
+const sources = {
+    ts: [
+        'src/**/*.ts',
+        'src/**/*.tsx',
+        'src/**/*.d.ts',
+    ],
+    js: [
+        'src/**/*.js',
+        'src/**/*.jsx',
+    ],
+    scss: [
+        'src/**/style/index.scss'
+    ]
+}
+
+
+const esDir = path.join(process.cwd(), 'es')
+const libDir = path.join(process.cwd(), 'lib')
+const distDir = path.join(process.cwd(), 'dist')
+
+function buildTs(modules) {
+    const tsProject = ts.createProject('tsconfig.json')
+    let error = false
+    const tsResult = gulp.src(sources.ts).pipe(tsProject({
+        error(err, ts) {
+            tsDefaultReporter.error(err, ts)
+            error = true
+        },
+        finish: tsDefaultReporter.finish
+    }))
+
+    function check() {
+        if (error) {
+            this.emit('end')
+        }
+    }
+
+    tsResult.on('finish', check)
+    tsResult.on('end', check)
+
+    const tsd = tsResult.dts.pipe(gulp.dest(modules ? libDir : esDir))
+    const js = tsResult.js.pipe(babel(getBabelConfig(modules))).pipe(gulp.dest(modules ? libDir : esDir))
+    return merge2([tsd, js])
+}
+
+function buildCss(modules) {
+    return gulp.src(sources.scss).pipe(sass())
+        .on('error', function (error) {
+            console.error(error.toString())
+            this.emit('end')
+        })
+        .pipe(postcss())
+        .pipe(cleanCSS({
+            level: 2,
+            format: 'beautify',
+        }))
+        .pipe(gulp.dest(modules ? libDir : esDir))
+}
+
+function compile(modules) {
+    fs.removeSync(modules ? libDir : esDir)
+    return merge2(buildTs(modules), buildCss(modules))
+}
+
+function runTslint() {
+    return gulp.src(sources.ts)
+        .pipe(tslint({
+            formatter: "verbose"
+        }))
+        .pipe(tslint.report())
+}
+
+function buildDist(done) {
+
+    webpack(getWebpackConfig(), (err, stats) => {
+            if (err) {
+                console.error(err.stack || err)
+                if (err.details) {
+                    console.error(err.details)
+                }
+                done(err)
+                return
+            }
+
+            const info = stats.toJson()
+
+            if (stats.hasErrors()) {
+                console.error(info.errors)
+            }
+
+            if (stats.hasWarnings()) {
+                console.warn(info.warnings)
+            }
+
+            const buildInfo = stats.toString({
+                colors: true,
+                children: true,
+                chunks: false,
+                modules: false,
+                chunkModules: false,
+                hash: false,
+                version: false,
+            })
+            console.log(buildInfo)
+            done()
+        }
+    )
+}
+
+function buildDistCss() {
     const isProd = process.env.NODE_ENV === 'production'
 
-    return gulp.src(['src/components/**/style/index.scss'])
-        .pipe(sass())
-        .on('error', error => {
+    return gulp.src("src/style/index.scss").pipe(sass())
+        .on('error', function (error) {
             console.error(error.toString())
             this.emit('end')
         })
@@ -26,64 +137,22 @@ gulp.task('build-css', () => {
             format: isProd ? 'none' : 'beautify',
         }))
         .pipe(through2.obj(function (file, encoding, next) {
-            file.path = file.path.replace(/.css$/, match => {
-                return `${isProd ? '.min' : ''}.css`
-            })
+            file.path = file.path.replace(/.css$/, `${isProd ? '.min' : ''}.css`)
             this.push(file)
             next()
         }))
-        .pipe(gulp.dest('dist'))
-})
+        .pipe(gulp.dest(distDir))
+}
+
+gulp.task('compile-es', gulp.series([runTslint, () => {
+    return compile(false)
+}]))
 
 
-gulp.task('build-js', (done) => {
+gulp.task('compile', gulp.series(['compile-es', () => {
+    return compile('commonjs')
+}]))
 
-    process.env.NODE_ENV = 'production'
-    const files = glob('src/components/**/index.tsx', { sync: true })
-
-    const entries = {}
-
-    for (const file of files) {
-        const key = file.replace(/^src\/components\//, '').replace(/.tsx$/, '')
-        entries[key] = path.join(process.cwd(), file)
-    }
-
-    webpack(getWebpackConfig(entries), (err, stats) => {
-        if (err) {
-            console.error(chalk.red(err.stack || err))
-            if (err.details) {
-                console.log(chalk.red(err.details))
-            }
-            done(err)
-            return
-        }
-        const info = stats.toJson()
-
-        if (stats.hasErrors()) {
-            console.error(chalk.red(info.errors))
-        }
-
-        if (stats.hasWarnings()) {
-            console.warn(chalk.yellow(info.warnings))
-        }
-
-        const buildInfo = stats.toString({
-            colors: true,
-            children: true,
-            chunks: false,
-            modules: false,
-            chunkModules: false,
-            hash: false,
-            version: false,
-        })
-
-        console.log(buildInfo)
-        done()
-    })
-})
-
-gulp.task('build-ts', done => {
-    const tsProject = typescript.createProject('tsconfig.json')
-    const tsResult = gulp.src(['src/**/*.tsx', 'src/**/*.ts', 'src/**/*.d.ts'])
-        .pipe(tsProject())
-})
+gulp.task('dist', gulp.series([()=>{
+    return fs.removeSync(distDir)
+},buildDist, buildDistCss]))

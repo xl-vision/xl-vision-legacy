@@ -5,13 +5,14 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
 const fs = require('fs')
 
+const babelConfig = require('./getBabelConfig')(false)
 
 const webpackConfig = {
     devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     },
-    // entry: {},
+    entry: path.join(process.cwd(), 'src/index.tsx'),
     output: {
         path: path.join(process.cwd(), 'dist'),
         // publicPath: config.src.publicPath,
@@ -59,6 +60,7 @@ const webpackConfig = {
             use: [
                 {
                     loader: 'babel-loader',
+                    options: babelConfig
                 },
                 {
                     loader: 'ts-loader',
@@ -69,25 +71,21 @@ const webpackConfig = {
             ],
         }],
     },
-    plugins: [],
+
 }
 
 
-module.exports = (entries) => {
-
+module.exports = () => {
     const isProd = process.env.NODE_ENV === 'production'
 
-    webpackConfig.mode = isProd ? 'production' : 'development'
-
     const mergeConfig = webpackMerge(webpackConfig, {
-        entry: entries,
+        mode: isProd ? 'production' : 'development',
         output: {
-            filename: `[name]${isProd ? '.min' : ''}.js`,
+            filename: `xl-vision${isProd ? '.min' : ''}.js`,
         },
     })
 
-
     return mergeConfig
-
-
 }
+
+
