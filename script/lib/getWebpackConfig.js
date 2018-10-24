@@ -1,9 +1,6 @@
 const webpackMerge = require('webpack-merge')
-const webpack = require('webpack')
-const chalk = require('chalk')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
-const fs = require('fs')
 
 const babelConfig = require('./getBabelConfig')(false)
 
@@ -75,8 +72,8 @@ const webpackConfig = {
 }
 
 
-module.exports = (isProd) => {
-
+module.exports = () => {
+    const isProd = process.env.NODE_ENV === 'production'
     const mergeConfig = webpackMerge(webpackConfig, {
         mode: isProd ? 'production' : 'development',
         output: {

@@ -13,6 +13,7 @@ const getBabelConfig = require('./lib/getBabelConfig')
 const fs = require('fs-extra')
 const getWebpackConfig = require('./lib/getWebpackConfig')
 const webpack = require('webpack')
+const webpackDevServer = require('webpack-dev-server')
 
 const sources = {
     ts: [
@@ -86,47 +87,48 @@ function runTslint() {
         .pipe(tslint.report())
 }
 
-function buildDist(isProd) {
-
+function buildDist() {
     return new Promise((resolve, reject) => {
-        webpack(getWebpackConfig(isProd), (err, stats) => {
-                if (err) {
-                    console.error(err.stack || err)
-                    if (err.details) {
-                        console.error(err.details)
-                    }
-                    reject(err)
-                    return
+        webpack(getWebpackConfig(), (err, stats) => {
+            if (err) {
+                console.error(err.stack || err)
+                if (err.details) {
+                    console.error(err.details)
                 }
+                reject(err)
+                return
+            }
 
-                const info = stats.toJson()
+            const info = stats.toJson()
 
-                if (stats.hasErrors()) {
-                    console.error(info.errors)
-                }
+            if (stats.hasErrors()) {
+                console.error(info.errors)
+            }
 
-                if (stats.hasWarnings()) {
-                    console.warn(info.warnings)
-                }
+            if (stats.hasWarnings()) {
+                console.warn(info.warnings)
+            }
 
-                const buildInfo = stats.toString({
-                    colors: true,
-                    children: true,
-                    chunks: false,
-                    modules: false,
-                    chunkModules: false,
-                    hash: false,
-                    version: false,
-                })
-                console.log(buildInfo)
-                resolve()
-            },
+            const buildInfo = stats.toString({
+                colors: true,
+                children: true,
+                chunks: false,
+                modules: false,
+                chunkModules: false,
+                hash: false,
+                version: false,
+            })
+            console.log(buildInfo)
+            resolve()
+        },
         )
     })
 
 }
 
-function buildDistCss(isProd) {
+function buildDistCss() {
+
+    const isProd = process.env.NODE_ENV === 'production'
 
     return gulp.src('src/style/index.scss').pipe(sass())
         .on('error', function (error) {
@@ -146,6 +148,89 @@ function buildDistCss(isProd) {
         .pipe(gulp.dest(distDir))
 }
 
+function buildSite() {
+    fs.removeSync(path.join(process.cwd(), 'docs-dist'))
+    return new Promise((resolve, reject) => {
+        webpack(require('./site/webpack.prod.conf'), (err, stats) => {
+            if (err) {
+                console.error(err.stack || err)
+                if (err.details) {
+                    console.error(err.details)
+                }
+                reject(err)
+                return
+            }
+
+            const info = stats.toJson()
+
+            if (stats.hasErrors()) {
+                console.error(info.errors)
+            }
+
+            if (stats.hasWarnings()) {
+                console.warn(info.warnings)
+            }
+
+            const buildInfo = stats.toString({
+                colors: true,
+                children: true,
+                chunks: false,
+                modules: false,
+                chunkModules: false,
+                hash: false,
+                version: false,
+            })
+            console.log(buildInfo)
+            resolve()
+        },
+        )
+    })
+}
+
+function startSite() {
+    const options = {
+        host: 'localhost',
+        port: 8080,
+        clientLogLevel: 'warning',
+        historyApiFallback: {
+            rewrites: [{
+                from: /.*/,
+                to: '/index.html'
+            }]
+        },
+        hot: true,
+        // contentBase: false, // since we use CopyWebpackPlugin.
+        contentBase: 'docs-dist',
+        compress: false,
+        // open: true,
+        overlay: {
+            warnings: false,
+            errors: true
+        },
+        publicPath: '/',
+        proxy: {},
+        // quiet: true, // necessary for FriendlyErrorsPlugin
+        watchOptions: {
+            poll: false
+        }
+    }
+    const config = require('./site/webpack.dev.conf')
+    webpackDevServer.addDevServerEntrypoints(config, options)
+    const compiler = webpack(config)
+    const server = new webpackDevServer(compiler, options)
+    return new Promise((resolve, reject) => {
+        server.listen(options.port, options.host, err => {
+            if (err) {
+                console.error(err)
+                reject(err)
+                return
+            }
+            console.log(`Server starts sucessful, you can open in http://${options.host}:${options.port}`)
+            resolve()
+        })
+    })
+}
+
 gulp.task('tslint', runTslint)
 
 gulp.task('compile:es', gulp.series(['tslint', () => {
@@ -157,11 +242,23 @@ gulp.task('compile', gulp.series(['compile:es', () => {
     return compile('commonjs')
 }]))
 
-gulp.task('dist:prod', gulp.series([() => buildDist(true), () => buildDistCss(true)]))
-gulp.task('dist:dev', gulp.series([() => buildDist(false), () => buildDistCss(false)]))
+gulp.task('dist:prod', gulp.series(done => {
+    process.env.NODE_ENV = 'production'
+    done()
+}, [buildDist, buildDistCss]))
+
+gulp.task('dist:dev', gulp.series(done => {
+    process.env.NODE_ENV = 'development'
+    done()
+}, [buildDist, buildDistCss]))
 
 
 gulp.task('dist', gulp.series([done => {
     fs.removeSync(distDir)
     done()
-}, gulp.parallel(['dist:prod', 'dist:dev'])]))
+}, 'dist:prod', 'dist:dev']))
+
+
+gulp.task('site:prod', buildSite)
+
+gulp.task('site:dev', startSite)
