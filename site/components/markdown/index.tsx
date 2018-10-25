@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import Md2Jsx from 'markdown-to-jsx'
 import * as MarkdownIt from 'markdown-it'
 import DemoBox from './demo-box'
 
@@ -8,8 +9,7 @@ const md = new MarkdownIt({
 })
 
 export interface MarkdownProps extends React.HTMLProps<HTMLDivElement> {
-    document: string
-
+    children: string
 }
 
 export interface MarkdownState {
@@ -20,44 +20,32 @@ export interface MarkdownState {
 export default class Markdown extends React.Component<MarkdownProps, MarkdownState> {
     constructor(props) {
         super(props)
-        this.state = {
-            components: [],
-            html: ''
-
-        }
-    }
-
-
-    componentDidMount() {
-        this.resolveMarkdown()
-    }
-
-    resolveMarkdown() {
-        const {document} = this.props
-        const components = []
-        const mdSource = document.replace(/:::[^:::]*:::/g, (match, offset) => {
-            const id = `demo_${offset}`
-            const node = ReactDOM.createPortal(<DemoBox source={match}/>, window.document.body)
-            components.push(node)
-            return `<div id=${id}></div>`
-        })
-        const html = md.render(mdSource)
-        this.setState({
-            components,
-            html
-        })
-
     }
 
     render() {
-        const {components, html} = this.state
+        const {children} = this.props
+        const md = children.replace(/:::[^:::]*:::/g, (match, offset) => {
+            const title = match.match(/:::[\x20\t\v\f]*demo([\x20\t\v\f]+([^\s]*)|)\s/)[2] || ''
+
+            const desc = match.match(/:::[^\n]*\n([^```]*)```/)[1]
+            // const code = match.match(/```([^```]*)```/)[1].replace(/\n/g,';')
+
+            const code = "render()(return (<div>123</div>))"
+
+            console.log(code)
+
+            return `<DemoBox title={'${title}'} code={'${code}'} desc={'${desc}'} ></DemoBox>`
+
+        })
 
         return (
-            <div>
-                <div dangerouslySetInnerHTML={{__html: html}}/>
-                {components}
-            </div>
+            <Md2Jsx options={{
+                overrides: {
+                    DemoBox: {
+                        component: DemoBox
+                    }
+                }
+            }}>{md}</Md2Jsx>
         )
-
     }
 }

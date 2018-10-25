@@ -6,10 +6,11 @@ import Markdown from './components/markdown'
 ReactDOM.render((
     <div>
         <Header />
-        <Markdown document={`
+        <Markdown children={`
 ## 123
 asdas
 12345
+
 :::demo title
 123
 sadfdgs
@@ -22,6 +23,7 @@ sadfdgs
 
 ## 123
 asdas
+
 :::demo
 123
 \`\`\`

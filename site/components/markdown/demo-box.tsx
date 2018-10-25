@@ -3,40 +3,23 @@ import * as ReactDOM from 'react-dom'
 import { transform } from 'babel-standalone'
 import XlVision from '../../../src'
 
-export interface DemoBoxProps {
-    source: string
-}
-
-export interface DemoBoxState {
+export interface DemoBoxProps extends React.HTMLProps<HTMLDivElement>{
     title: string,
     desc: string,
     code: string
 }
 
+export interface DemoBoxState {
+
+}
+
 export default class DemoBox extends React.Component<DemoBoxProps, DemoBoxState> {
     constructor(props) {
         super(props)
-        this.state = {
-            title: '',
-            desc: '',
-            code: 'render(){return <div></div>}'
-        }
     }
 
-    componentDidMount() {
-        this.resolveSource()
-    }
-
-    resolveSource() {
-        const {source} = this.props
-        const title = source.match(/:::[\x20\t\v\f]*demo([\x20\t\v\f]+([^\s]*)|)\s/)[3]
-        const desc = source.match(/:::[^\n]*\n([^```]*)```/)[1]
-        const code = source.match(/```([^```]*)```/)[1]
-        this.setState({
-            title,
-            desc,
-            code
-        })
+    componentWillMount() {
+        // this.resolveSource()
     }
 
     getDemo() {
@@ -51,7 +34,10 @@ export default class DemoBox extends React.Component<DemoBoxProps, DemoBoxState>
 
         const code = transform(`
                 class Demo extends React.Component{
-                    ${this.state.code}
+                    // ${this.props.code}
+                    render() {
+                        return <div>123</div>
+                    }
                 }
             `, {
             presets: ['es2015', 'react']
@@ -62,6 +48,10 @@ export default class DemoBox extends React.Component<DemoBoxProps, DemoBoxState>
     }
 
     render() {
+        const {title,desc, code} = this.props
+        // console.log(title)
+        // console.log(desc)
+        console.log(code)
         const Demo = this.getDemo()
 
         return (
