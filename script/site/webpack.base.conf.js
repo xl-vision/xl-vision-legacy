@@ -2,7 +2,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const babelConfig = require('../lib/getBabelConfig')(false)
+const babelConfig = require('../lib/getBabelConfig')('commonjs')
+
 
 const webpackConfig = {
     devtool: 'source-map',
@@ -31,7 +32,8 @@ const webpackConfig = {
             enforce: 'pre',
             loader: 'tslint-loader',
             options: {
-                // typeCheck: true,
+                typeCheck: true,
+                tsConfigFile: 'tsconfig.site.json'
             },
         }, {
             test: /\.tsx?$/,
@@ -45,6 +47,8 @@ const webpackConfig = {
                     loader: 'ts-loader',
                     options: {
                         transpileOnly: true,
+                        configFile: 'tsconfig.site.json'
+
                     },
                 },
             ],
