@@ -28,13 +28,12 @@ export default class Markdown extends React.Component<MarkdownProps, MarkdownSta
             const title = match.match(/:::[\x20\t\v\f]*demo([\x20\t\v\f]+([^\s]*)|)\s/)[2] || ''
 
             const desc = match.match(/:::[^\n]*\n([^```]*)```/)[1]
-            // const code = match.match(/```([^```]*)```/)[1].replace(/\n/g,';')
+            let code = match.match(/```([^```]*)```/)[1]
 
-            const code = "render()(return (<div>123</div>))"
+            // code = code.replace(/\n/g,';')
+                // .replace(/</g,'&lt;').replace(/>/g,'&gt;')
 
-            console.log(code)
-
-            return `<DemoBox title={'${title}'} code={'${code}'} desc={'${desc}'} ></DemoBox>`
+            return `<DemoBox title='${title}' code='${code}' desc='${desc}' />`
 
         })
 

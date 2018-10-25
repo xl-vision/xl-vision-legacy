@@ -34,10 +34,7 @@ export default class DemoBox extends React.Component<DemoBoxProps, DemoBoxState>
 
         const code = transform(`
                 class Demo extends React.Component{
-                    // ${this.props.code}
-                    render() {
-                        return <div>123</div>
-                    }
+                    ${this.props.code}
                 }
             `, {
             presets: ['es2015', 'react']
@@ -48,10 +45,6 @@ export default class DemoBox extends React.Component<DemoBoxProps, DemoBoxState>
     }
 
     render() {
-        const {title,desc, code} = this.props
-        // console.log(title)
-        // console.log(desc)
-        console.log(code)
         const Demo = this.getDemo()
 
         return (
