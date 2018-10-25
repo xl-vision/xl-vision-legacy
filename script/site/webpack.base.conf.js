@@ -1,9 +1,10 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const babelConfig = require('../lib/getBabelConfig')('commonjs')
 
+babelConfig.plugins.push('@babel/plugin-syntax-dynamic-import')
 
 const webpackConfig = {
     devtool: 'source-map',
@@ -22,7 +23,7 @@ const webpackConfig = {
                 parallel: true,
                 sourceMap: true,
             }),
-            new OptimizeCSSAssetsPlugin({})
+            new OptimizeCSSAssetsPlugin({}),
         ],
     },
     module: {
@@ -33,7 +34,7 @@ const webpackConfig = {
             loader: 'tslint-loader',
             options: {
                 typeCheck: true,
-                tsConfigFile: 'tsconfig.site.json'
+                tsConfigFile: 'tsconfig.site.json',
             },
         }, {
             test: /\.tsx?$/,
@@ -47,18 +48,30 @@ const webpackConfig = {
                     loader: 'ts-loader',
                     options: {
                         transpileOnly: true,
-                        configFile: 'tsconfig.site.json'
+                        configFile: 'tsconfig.site.json',
 
                     },
                 },
             ],
+        }, {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            use: [
+                {
+                    loader: 'babel-loader',
+                    options: babelConfig,
+                },
+            ],
+        }, {
+            test: /\.md$/,
+            loader: 'raw-loader',
         }],
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: `css/[name].[hash].css`
-        })
-    ]
+            filename: `css/[name].[hash].css`,
+        }),
+    ],
 }
 
 

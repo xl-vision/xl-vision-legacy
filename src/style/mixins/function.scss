@@ -1,0 +1,30 @@
+@function color-yiq($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  @if ($yiq >=$--yiq-contrasted-threshold) {
+    @return $--yiq-text-dark;
+  }
+  @else {
+    @return $--yiq-text-light;
+  }
+}
+
+@function color($key: "blue") {
+  @return map-get($--colors, $key);
+}
+
+@function theme-color($key: "primary") {
+  @return map-get($--theme-colors, $key);
+}
+
+@function gray($key: "100") {
+  @return map-get($--grays, $key);
+}
+
+@function color-level($color, $level: 0, $interval: $--theme-color-interval) {
+  $color-base: if($level > 0, #000, #fff);
+  $level: abs($level);
+  @return mix($color-base, $color, $level * $interval);
+}

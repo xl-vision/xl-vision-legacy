@@ -1,11 +1,11 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { transform } from 'babel-standalone'
-import XlVision from '../../../src'
+import XlVision from '../../../src/index'
 
-export interface DemoBoxProps extends React.HTMLProps<HTMLDivElement>{
-    title: string,
-    desc: string,
+export interface DemoBoxProps extends React.HTMLProps<HTMLDivElement> {
+    title: string
+    desc: string
     code: string
 }
 
@@ -17,11 +17,6 @@ export default class DemoBox extends React.Component<DemoBoxProps, DemoBoxState>
     constructor(props) {
         super(props)
     }
-
-    componentWillMount() {
-        // this.resolveSource()
-    }
-
     getDemo() {
         const args = ['context', 'React', 'ReactDOM']
         const argv = [this, React, ReactDOM]
@@ -49,7 +44,7 @@ export default class DemoBox extends React.Component<DemoBoxProps, DemoBoxState>
 
         return (
             <div>
-                <Demo></Demo>
+                <Demo/>
             </div>
         )
     }
