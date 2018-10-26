@@ -1,10 +1,7 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { transform } from 'babel-standalone'
-import XlVision from '../../../src/index'
-import './index.scss'
-
 import Editor from './editor'
+import Viewer from './viewer'
+import './index.scss'
 
 export interface DemoBoxProps {
     title: string
@@ -13,8 +10,7 @@ export interface DemoBoxProps {
 }
 
 export interface DemoBoxState {
-    code: string,
-    component: React.ComponentType
+    code: string
 }
 
 export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxState> {
@@ -23,7 +19,6 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
         super(props)
         this.state = {
             code: props.code,
-            component: translateCode(props.code, this)
         }
     }
 
@@ -34,41 +29,27 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
             }))
         }
     }
-
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.code === this.state.code) {
-            return
-        }
-
-        this.setState(() => ({
-            component: translateCode(this.state.code, this)
-        }))
-    }
-
     render() {
 
-        const {title, desc} = this.props
+        const { title, desc } = this.props
 
         const transformDesc = desc.replace(/`([^`]*)`/, '<code class="demo-desc-code">$1</code>')
 
         return (
             <div className={'demo-box'}>
                 <div className={'demo-view'}>
-                    {
-                        React.createElement(this.state.component)
-                    }
+                    <Viewer code={this.state.code} />
                 </div>
                 <div className={'demo-info'}>
                     <div className={'demo-title'}>{title}</div>
-                    <div className={'demo-desc'} dangerouslySetInnerHTML={{__html: transformDesc}}/>
+                    <div className={'demo-desc'} dangerouslySetInnerHTML={{ __html: transformDesc }} />
                 </div>
                 <div className={'demo-code'}>
                     <Editor code={this.state.code} change={code => {
                         this.setState(() => ({
                             code
                         }))
-                    }}/>
+                    }} />
                 </div>
             </div>
         )
@@ -90,8 +71,8 @@ function translateCode(codeStr, self) {
             ${codeStr}
         }
      `, {
-        presets: ['es2015', 'react']
-    }).code
+            presets: ['es2015', 'react']
+        }).code
 
     code += `
         return Demo

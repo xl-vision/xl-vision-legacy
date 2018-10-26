@@ -1,0 +1,8 @@
+@import "../../../styles/var";
+
+.CodeMirror{
+    height: inherit;
+}
+.CodeMirror-gutters{
+    background-color: $--bg-color;
+}

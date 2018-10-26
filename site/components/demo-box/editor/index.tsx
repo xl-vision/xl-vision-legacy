@@ -1,7 +1,13 @@
 import * as React from 'react'
-import { transform } from 'babel-standalone'
 import * as CodeMirror from 'codemirror'
 import 'codemirror/mode/jsx/jsx'
+import 'codemirror/addon/selection/active-line'
+import 'codemirror/addon/edit/matchbrackets'
+import 'codemirror/addon/edit/closebrackets'
+import 'codemirror/addon/edit/matchtags'
+import 'codemirror/addon/edit/closetag'
+import 'codemirror/addon/comment/continuecomment'
+
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/idea.css'
 import './index.scss'
@@ -34,6 +40,10 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
         this.editor.setValue(props.code)
     }
 
+    componentWillUnmount() {
+        //destory the editor
+        this.editor.toTextArea()
+    }
     shouldComponentUpdate() {
         return false
     }
@@ -45,6 +55,14 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
             mode: 'jsx',
             theme: 'idea',
             tabSize: 2,
+            styleActiveLine: true,
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            matchTags: true,
+            autoCloseTags: true,
+            fodeCode: true,
+            continueComments: true
+
         })
 
         this.editor.on('change', instance => {
@@ -55,8 +73,12 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
     }
 
     render() {
-        return <textarea ref={ele => {
-            this.textarea = ele
-        }} defaultValue={this.props.code}/>
+        return (
+            <div>
+                <textarea ref={ele => {
+                    this.textarea = ele
+                }} defaultValue={this.props.code} />
+            </div>
+        )
     }
 }
