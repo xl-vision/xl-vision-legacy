@@ -1,3 +1,4 @@
-.demo{
-    color: red;
+@import "../../styles/var";
+.c-content{
+    background-color: $--bg-color;
 }

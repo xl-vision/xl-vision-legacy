@@ -11,7 +11,7 @@ const webpackConfig = {
     },
     module: {
         rules: [{
-            test: /.scss$/,
+            test: /\.scss$/,
             use: [{
                 loader: MiniCssExtractPlugin.loader,
                 options: {
@@ -29,6 +29,24 @@ const webpackConfig = {
                 }
             }, {
                 loader: 'sass-loader',
+                options: {
+                    sourceMap: true
+                }
+            },]
+        }, {
+            test: /\.css$/,
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    sourceMap: true
+                }
+            }, {
+                loader: 'css-loader',
+                options: {
+                    sourceMap: true
+                }
+            }, {
+                loader: 'postcss-loader',
                 options: {
                     sourceMap: true
                 }

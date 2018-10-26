@@ -15,7 +15,7 @@ const Routes = routes.map((it, index) => {
 export default class Content extends React.Component {
     render() {
         return (
-            <div>
+            <div className={'c-content'}>
                 {Routes}
             </div>
         )

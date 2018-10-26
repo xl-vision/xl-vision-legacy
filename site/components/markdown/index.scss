@@ -1,6 +1,16 @@
 @import "../../styles/var";
+
 .markdown{
-  code_inline {
+  .md-a{
+    text-decoration: none;
+    color: $--color-primary;
+  }
+  .md-code-block{
+    line-height: 1.8;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .md-code-inline {
     background-color: #e6effb; // color: $--bg-color;
     display: inline-block;
     margin: 0 0.2rem;
@@ -10,8 +20,8 @@
     border-radius: $--border-radius / 2;
   }
 
-  ul,
-  ol {
+  .md-ul,
+  .md-ol {
     li {
       margin-bottom: 0.5rem;
     }
@@ -25,14 +35,8 @@
     background-color: lighten($--color-primary, 40%);
   }
 
-  code {
-    background-color: #f8f8f8;
-    line-height: 1.8;
-    font-size: 1rem;
-    padding: 1rem;
-  }
 
-  table {
+  .md-table {
     border-collapse: collapse;
     width: 100%;
     font-size: 14px;
@@ -58,9 +62,4 @@
       padding-left: 10px;
     }
   }
-
-  h2 {
-    margin: 2.5rem 0 1rem 0;
-  }
-
 }
