@@ -16,7 +16,7 @@ export interface MarkdownState {
 }
 
 
-export default class Markdown extends React.Component<MarkdownProps, MarkdownState> {
+export default class Markdown extends React.PureComponent<MarkdownProps, MarkdownState> {
     constructor(props) {
         super(props)
     }
@@ -25,8 +25,7 @@ export default class Markdown extends React.Component<MarkdownProps, MarkdownSta
         const {children} = this.props
         const md = children.replace(/:::[\x20\t\v\f]*demo[^:::]*\n:::/g, (match, offset) => {
             const title = match.match(/:::[\x20\t\v\f]*demo([\x20\t\v\f]+([^\s]*)|)\s/)[2] || ''
-
-            const desc = match.match(/:::[^\n]*\n([^```]*)```/)[1]
+            const desc = match.match(/:::[^\n]*\n(([\s\S](?!```))*)\n```*/)[1]
             const code = match.match(/```([^```]*)```/)[1]
 
             // code = code.replace(/\n/g,';')
@@ -71,7 +70,7 @@ const preCmp = props => {
 }
 
 const codeCmp = props => {
-    let children = props.children
+    const children = props.children
     const className = props.className
     let language = (className || '').replace(/^lang-/, '')
 

@@ -3,9 +3,9 @@ import './index.scss'
 import * as React from 'react'
 import routes from '../../routes'
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-export default class Aside extends React.Component {
+export default class Aside extends React.PureComponent {
     render() {
         return (
             <ul>

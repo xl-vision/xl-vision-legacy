@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const babelConfig = require('../lib/getBabelConfig')('commonjs')
 
 babelConfig.plugins.push('@babel/plugin-syntax-dynamic-import')
+babelConfig.plugins.push('react-hot-loader/babel')
 
 const webpackConfig = {
     devtool: 'source-map',

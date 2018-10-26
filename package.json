@@ -71,6 +71,7 @@
     "raw-loader": "^0.5.1",
     "react": "^16.5.2",
     "react-dom": "^16.6.0",
+    "react-hot-loader": "^4.3.11",
     "react-router-dom": "^4.3.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
