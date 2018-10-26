@@ -55,31 +55,3 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
         )
     }
 }
-
-
-function translateCode(codeStr, self) {
-    const args = ['context', 'React', 'ReactDOM']
-    const argv = [self, React, ReactDOM]
-
-    for (const key in XlVision) {
-        args.push(key)
-        argv.push(XlVision[key])
-    }
-
-    let code = transform(`
-        class Demo extends React.Component{
-            ${codeStr}
-        }
-     `, {
-            presets: ['es2015', 'react']
-        }).code
-
-    code += `
-        return Demo
-    `
-
-
-    args.push(code)
-    return new Function(...args).apply(undefined, argv)
-
-}
