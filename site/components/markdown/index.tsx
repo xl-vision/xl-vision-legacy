@@ -24,9 +24,9 @@ export default class Markdown extends React.PureComponent<MarkdownProps, Markdow
     render() {
         const {children} = this.props
         const md = children.replace(/:::[\x20\t\v\f]*demo[^:::]*\n:::/g, (match, offset) => {
-            const title = match.match(/:::[\x20\t\v\f]*demo([\x20\t\v\f]+([^\s]*)|)\s/)[2] || ''
-            const desc = match.match(/:::[^\n]*\n(([\s\S](?!```))*)\n```*/)[1]
-            const code = match.match(/```([^```]*)```/)[1]
+            const title = (match.match(/:::[\x20\t\v\f]*demo([\x20\t\v\f]+([^\s]*)|)\s/)[2] || '').trim()
+            const desc = match.match(/:::[^\n]*\n(([\s\S](?!```))*)\n```*/)[1].trim()
+            const code = match.match(/```([^```]*)```/)[1].trim()
 
             // code = code.replace(/\n/g,';')
             // .replace(/</g,'&lt;').replace(/>/g,'&gt;')

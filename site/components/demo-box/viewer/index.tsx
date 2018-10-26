@@ -27,20 +27,19 @@ export default class Viewer extends React.PureComponent<ViewerProps, {}> {
         }
 
         let code = transform(`
-            class Demo extends React.Component{
                 ${this.props.code}
-            }
          `, {
                 presets: ['es2015', 'react']
             }).code
 
-        code += `
-            return Demo
+        code = `
+            var exports = {}
+            ${code}
+            return exports.default || exports
         `
         args.push(code)
         return new Function(...args).apply(undefined, argv)
     }
-
 
     render() {
 

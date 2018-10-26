@@ -7,8 +7,12 @@ import 'codemirror/addon/edit/closebrackets'
 import 'codemirror/addon/edit/matchtags'
 import 'codemirror/addon/edit/closetag'
 import 'codemirror/addon/comment/continuecomment'
+import 'codemirror/addon/fold/foldcode'
+import 'codemirror/addon/fold/foldgutter'
+import 'codemirror/addon/fold/brace-fold'
 
 import 'codemirror/lib/codemirror.css'
+import 'codemirror/addon/fold/foldgutter.css'
 import 'codemirror/theme/idea.css'
 import './index.scss'
 
@@ -60,8 +64,9 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
             autoCloseBrackets: true,
             matchTags: true,
             autoCloseTags: true,
-            fodeCode: true,
-            continueComments: true
+            continueComments: true,
+            foldGutter: true,
+            gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter']
 
         })
 
