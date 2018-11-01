@@ -24,4 +24,4 @@ class Layout extends React.PureComponent {
     }
 }
 
-export default hot(module)(Layout)
+export default Layout

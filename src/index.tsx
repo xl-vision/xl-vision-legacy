@@ -1,9 +1,9 @@
-import Hello from './components/hello'
-import Hello2 from './components/hello2'
+import Row from './components/row'
+import Col from './components/col'
 
 const compoents = {
-    Hello,
-    Hello2
+    Row,
+    Col
 }
 export default compoents
 

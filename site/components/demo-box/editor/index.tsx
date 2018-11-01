@@ -45,9 +45,10 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
     }
 
     componentWillUnmount() {
-        //destory the editor
+        // destory the editor
         this.editor.toTextArea()
     }
+
     shouldComponentUpdate() {
         return false
     }
@@ -82,7 +83,7 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
             <div>
                 <textarea ref={ele => {
                     this.textarea = ele
-                }} defaultValue={this.props.code} />
+                }} defaultValue={this.props.code}/>
             </div>
         )
     }
