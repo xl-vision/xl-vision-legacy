@@ -17,14 +17,14 @@ const webpackDevServer = require('webpack-dev-server')
 
 const sources = {
     ts: [
-        'src/**/*.ts',
-        'src/**/*.tsx',
-        'src/**/*.d.ts',
+        'src/**/!(test|doc)/*.ts',
+        'src/**/!(test|doc)/*.tsx',
+        'src/**/!(test|doc)/*.d.ts',
     ],
-    js: [
-        'src/**/*.js',
-        'src/**/*.jsx',
-    ],
+    // js: [
+    //     'src/**/*.js',
+    //     'src/**/*.jsx',
+    // ],
     scss: [
         'src/**/style/index.scss',
     ],
