@@ -3,3 +3,4 @@ script/
 site/
 src/
 docs-dist/
+coverage/

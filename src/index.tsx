@@ -1,10 +1,10 @@
 import Row from './components/row'
 import Col from './components/col'
 
-const compoents = {
+const components = {
     Row,
     Col
 }
-export default compoents
+export default components
 
-module.exports = compoents
+module.exports = components

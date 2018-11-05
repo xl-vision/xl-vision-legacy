@@ -2,6 +2,7 @@
 node_modules/
 dist/
 docs-dist/
+coverage/
 es/
 lib/
 npm-debug.log*
