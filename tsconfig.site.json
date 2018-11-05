@@ -2,7 +2,12 @@
   "compilerOptions": {
     "target": "es6",
     "jsx": "react",
-//    "module": "commonjs",
+    //    "module": "commonjs",
+    "strictNullChecks": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    // "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {

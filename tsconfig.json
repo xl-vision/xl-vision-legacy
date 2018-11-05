@@ -1,10 +1,19 @@
 {
   "compilerOptions": {
+    "strictNullChecks": true,
     "target": "es6",
     "jsx": "react",
     "moduleResolution": "node",
     "declaration": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    // "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "lib": [
+      "dom",
+      "es7"
+    ],
     "paths": {
       "*": [
         "node_modules/*",
