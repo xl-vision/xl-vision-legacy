@@ -10,4 +10,5 @@ matrix:
   include:
     - env: REACT=16 TEST_TYPE=test:dom
 
-script: ./script/ci/travis-script.sh
+script: 
+  - script/ci/travis-script.sh
