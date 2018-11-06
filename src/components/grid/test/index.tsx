@@ -4,24 +4,24 @@ import * as Enzyme from 'enzyme'
 
 describe('Grid Test', () => {
 
-  const matchMedia = window.matchMedia
+  // const matchMedia = window.matchMedia
 
-  beforeAll(() => {
-    window.matchMedia = (mediaQuery: string) => {
-      return {
-        media: mediaQuery,
-        matches: mediaQuery === responsiveMap.lg,
-        addListener() {
-        },
-        removeListener() {
-        },
-      }
-    }
-  })
+  // beforeAll(() => {
+  //   window.matchMedia = (mediaQuery: string) => {
+  //     return {
+  //       media: mediaQuery,
+  //       matches: mediaQuery === responsiveMap.lg,
+  //       addListener() {
+  //       },
+  //       removeListener() {
+  //       },
+  //     }
+  //   }
+  // })
 
-  afterAll(() => {
-    window.matchMedia = matchMedia
-  })
+  // afterAll(() => {
+  //   window.matchMedia = matchMedia
+  // })
 
   it('renders row', () => {
     const row = Enzyme.shallow(
