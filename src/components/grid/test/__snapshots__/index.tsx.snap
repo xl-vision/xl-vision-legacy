@@ -4,12 +4,32 @@ exports[`Grid Test renders row 1`] = `
 <ContextProvider
   value={
     Object {
+      "gutter": 10,
+    }
+  }
+>
+  <div
+    className="xl-row xl-row-flex xl-row-flex-center xl-row-flex-top"
+    style={
+      Object {
+        "marginLeft": -5,
+        "marginRight": -5,
+      }
+    }
+  />
+</ContextProvider>
+`;
+
+exports[`Grid Test renders row responsibly 1`] = `
+<ContextProvider
+  value={
+    Object {
       "gutter": 0,
     }
   }
 >
   <div
-    className="xl-row"
+    className="xl-row xl-row-flex xl-row-flex-center xl-row-flex-top"
   />
 </ContextProvider>
 `;

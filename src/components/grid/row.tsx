@@ -29,14 +29,14 @@ export type BreakpointMap = Partial<Record<Breakpoint, string>>
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     gutter?: number | Partial<Record<Breakpoint, number>>
-    type?: false
+    type?: 'flex'
     align?: 'top' | 'midle' | 'bottom'
     justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
 
 }
 
 // 顺序不能颠倒
-const responsiveMap: BreakpointMap = {
+export const responsiveMap: BreakpointMap = {
     xxl: '(min-width: 1600px)',
     xl: '(min-width: 1200px)',
     lg: '(min-width: 992px)',
@@ -69,7 +69,7 @@ export default class Row extends React.Component<RowProps, RowState> {
             'xs': PropTypes.number,
         })])
     }
-    static state: RowState = {
+    state: RowState = {
         breakpoints: {}
     }
     componentDidMount() {
@@ -123,14 +123,15 @@ export default class Row extends React.Component<RowProps, RowState> {
 
     render() {
         const {
-            type, justify, align, className, style, children, ...others
+            type, justify, align, className, style, ...others
         } = this.props
         const gutter = this.getGutter()
+        delete others.gutter
         const classes = classnames({
             [clsPrefix]: true,
-            [`${clsPrefix}--${type}`]: type,
-            [`${clsPrefix}--${justify}`]: type && justify,
-            [`${clsPrefix}--${align}`]: type && align
+            [`${clsPrefix}-${type}`]: type,
+            [`${clsPrefix}-${type}-${justify}`]: type && justify,
+            [`${clsPrefix}-${type}-${align}`]: type && align
         }, className)
 
         const styles = gutter > 0 ? {
@@ -139,13 +140,9 @@ export default class Row extends React.Component<RowProps, RowState> {
             ...style
         } : style
 
-        const otherProps = { ...others }
-        delete otherProps.gutter
         return (
             <Context.Provider value={{ gutter }}>
-                <div {...otherProps} className={classes} style={styles}>
-                    {children}
-                </div>
+                <div {...others} className={classes} style={styles} />
             </Context.Provider>
         )
     }

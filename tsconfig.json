@@ -8,7 +8,6 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    // "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "lib": [
       "dom",
