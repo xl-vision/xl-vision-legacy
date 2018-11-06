@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { default as Row, responsiveMap } from '../row'
+import Row from '../row'
+// import { default as Row, responsiveMap } from '../row'
 import * as Enzyme from 'enzyme'
 
 describe('Grid Test', () => {
