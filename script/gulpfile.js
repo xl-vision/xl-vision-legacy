@@ -19,14 +19,12 @@ const sources = {
     ts: [
         'src/**/*.ts?(x)',
         'src/**/*.d.ts',
-        '!(src/**/test/*.ts?(x))'
+        '!src/**/test/*.ts?(x)'
     ],
-    test: [],
-    // js: [
-    //     'src/**/*.js',
-    //     'src/**/*.jsx',
-    // ],
-    scss: [
+    test: [
+        'src/**/test/*.ts?(x)'
+    ],
+    style: [
         'src/**/style/index.scss',
     ],
 }
@@ -61,8 +59,8 @@ function buildTs(modules) {
     return merge2([tsd, js])
 }
 
-function buildCss(modules) {
-    return gulp.src(sources.scss).pipe(sass())
+function buildStyle(modules) {
+    return gulp.src(sources.style).pipe(sass())
         .on('error', function (error) {
             console.error(error.toString())
             this.emit('end')
@@ -77,16 +75,25 @@ function buildCss(modules) {
 
 function compile(modules) {
     fs.removeSync(modules ? libDir : esDir)
-    return merge2(buildTs(modules), buildCss(modules))
+    return merge2(buildTs(modules), buildStyle(modules))
 }
 
 function runTslint() {
-    return gulp.src(sources.ts)
+    const srcTslint = gulp.src(sources.ts)
         .pipe(tslint({
             formatter: "verbose",
             configuration: 'tslint.json',
         }))
         .pipe(tslint.report())
+
+    const testTslint = gulp.src(sources.test)
+        .pipe(tslint({
+            formatter: "verbose",
+            configuration: 'tslint.json',
+        }))
+        .pipe(tslint.report())
+
+    return merge2(srcTslint, testTslint)
 }
 
 function buildDist() {
@@ -128,7 +135,7 @@ function buildDist() {
 
 }
 
-function buildDistCss() {
+function buildDistStyle() {
 
     const isProd = process.env.NODE_ENV === 'production'
 
@@ -247,12 +254,12 @@ gulp.task('compile', gulp.series(['compile:es', () => {
 gulp.task('dist:prod', gulp.series(done => {
     process.env.NODE_ENV = 'production'
     done()
-}, [buildDist, buildDistCss]))
+}, [buildDist, buildDistStyle]))
 
 gulp.task('dist:dev', gulp.series(done => {
     process.env.NODE_ENV = 'development'
     done()
-}, [buildDist, buildDistCss]))
+}, [buildDist, buildDistStyle]))
 
 
 gulp.task('dist', gulp.series([done => {

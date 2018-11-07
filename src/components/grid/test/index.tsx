@@ -8,7 +8,7 @@ describe('Grid Test', () => {
     const matchMedia = window.matchMedia
 
     beforeAll(() => {
-        const listeners:Array<((this: MediaQueryList, ev: MediaQueryListEvent) => any)> = []
+        const listeners: Array<((this: MediaQueryList, ev: MediaQueryListEvent) => any)> = []
         window.matchMedia = (mediaQuery: string) => {
             return {
                 media: mediaQuery,
@@ -36,8 +36,8 @@ describe('Grid Test', () => {
     })
 
     it('renders row', () => {
-        const row = Enzyme.shallow(
-            <Row gutter={10} type={'flex'} align={'top'} justify={'center'}/>
+        const row = Enzyme.mount(
+            <Row gutter={10} type={'flex'} align={'top'} justify={'center'} />
         )
         expect(row).toMatchSnapshot()
     })
@@ -51,7 +51,7 @@ describe('Grid Test', () => {
                 md: 4,
                 sm: 5,
                 xs: 6
-            }} type={'flex'} align={'top'} justify={'center'}/>
+            }} type={'flex'} align={'top'} justify={'center'} />
         )
         expect(row).toMatchSnapshot()
     })
