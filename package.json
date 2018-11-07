@@ -104,5 +104,10 @@
     "classnames": "^2.2.6",
     "enquire.js": "^2.1.6",
     "prop-types": "^15.6.2"
-  }
+  },
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*"
+  ]
 }
