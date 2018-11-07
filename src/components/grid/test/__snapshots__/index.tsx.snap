@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid Test renders row 1`] = `
-<ContextProvider
-  value={
-    Object {
-      "gutter": 10,
-    }
-  }
+exports[`Grid Test renders basically 1`] = `
+<Row
+  align="top"
+  gutter={10}
+  justify="center"
+  type="flex"
 >
   <div
     className="xl-row xl-row-flex xl-row-flex-center xl-row-flex-top"
@@ -16,20 +15,67 @@ exports[`Grid Test renders row 1`] = `
         "marginRight": -5,
       }
     }
-  />
-</ContextProvider>
+  >
+    <Col
+      offset={1}
+      pull={3}
+      push={2}
+      span={10}
+    >
+      <div
+        className="xl-col-span-10 xl-col-offset-1 xl-col-push-2 xl-col-pull-3"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        renders row
+      </div>
+    </Col>
+  </div>
+</Row>
 `;
 
-exports[`Grid Test renders row responsibly 1`] = `
-<ContextProvider
-  value={
+exports[`Grid Test renders responsibly 1`] = `
+<Row
+  align="top"
+  gutter={
     Object {
-      "gutter": 0,
+      "lg": 3,
+      "md": 4,
+      "sm": 5,
+      "xl": 2,
+      "xs": 6,
+      "xxl": 1,
     }
   }
+  justify="center"
+  type="flex"
 >
   <div
     className="xl-row xl-row-flex xl-row-flex-center xl-row-flex-top"
-  />
-</ContextProvider>
+    style={
+      Object {
+        "marginLeft": -1.5,
+        "marginRight": -1.5,
+      }
+    }
+  >
+    <Col>
+      <div
+        className=""
+        style={
+          Object {
+            "marginLeft": -1.5,
+            "marginRight": -1.5,
+          }
+        }
+      >
+        renders row responsibly
+      </div>
+    </Col>
+  </div>
+</Row>
 `;

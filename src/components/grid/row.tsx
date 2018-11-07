@@ -119,12 +119,12 @@ export default class Row extends React.Component<RowProps, RowState> {
     getGutter(): number {
         const {gutter} = this.props
         if (typeof gutter === 'object') {
-            Object.keys(responsiveMap)
-                .forEach((key: Breakpoint) => {
-                    if (this.state.breakpoints[key as Breakpoint] && gutter[key as Breakpoint] !== undefined) {
-                        return gutter[key]
-                    }
-                })
+            for (const breakpoint in responsiveMap) {
+                console.log(breakpoint)
+                if (this.state.breakpoints[breakpoint as Breakpoint] && gutter[breakpoint as Breakpoint] !== undefined) {
+                    return gutter[breakpoint as Breakpoint] as number
+                }
+            }
             return 0
         }
         return gutter as number
