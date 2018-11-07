@@ -14,6 +14,14 @@ if (typeof window !== 'undefined') {
             },
             removeListener() {
             },
+            onchange: null,
+            addEventListener() {
+            },
+            removeEventListener() {
+            },
+            dispatchEvent() {
+                return true
+            }
         }
     }
     window.matchMedia = window.matchMedia || matchMediaPolyfill
@@ -72,8 +80,9 @@ export default class Row extends React.Component<RowProps, RowState> {
     state: RowState = {
         breakpoints: {}
     }
+
     componentDidMount() {
-        const { gutter } = this.props
+        const {gutter} = this.props
 
         Object.keys(responsiveMap)
             .map((breakpoint: Breakpoint) => enquire.register(responsiveMap[breakpoint], {
@@ -108,7 +117,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
 
     getGutter(): number {
-        const { gutter } = this.props
+        const {gutter} = this.props
         if (typeof gutter === 'object') {
             Object.keys(responsiveMap)
                 .forEach((key: Breakpoint) => {
@@ -141,8 +150,8 @@ export default class Row extends React.Component<RowProps, RowState> {
         } : style
 
         return (
-            <Context.Provider value={{ gutter }}>
-                <div {...others} className={classes} style={styles} />
+            <Context.Provider value={{gutter}}>
+                <div {...others} className={classes} style={styles}/>
             </Context.Provider>
         )
     }

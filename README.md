@@ -8,6 +8,7 @@
 [![npm package](https://img.shields.io/npm/v/xl-vision-react.svg?style=flat-square)](https://www.npmjs.org/package/xl-vision-react)
 [![Node Version](https://img.shields.io/node/v/xl-vision-react.svg)](https://www.npmjs.org/package/xl-vision-react)
 [![NPM downloads](http://img.shields.io/npm/dm/xl-vision-react.svg?style=flat-square)](http://npmjs.com/xl-vision-react)
+
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/RhysXia/xl-vision-react.svg)](http://isitmaintained.com/project/RhysXia/xl-vision-react "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/RhysXia/xl-vision-react.svg)](http://isitmaintained.com/project/RhysXia/xl-vision-react "Percentage of issues still open")
 [![License used](https://img.shields.io/github/license/RhysXia/xl-vision-react.svg)](https://mit-license.org/)
