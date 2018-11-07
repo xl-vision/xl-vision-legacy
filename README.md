@@ -5,9 +5,9 @@
 [![Dependencies](https://img.shields.io/david/RhysXia/xl-vision-react.svg)](https://david-dm.org/RhysXia/xl-vision-react)
 [![DevDependencies](https://img.shields.io/david/dev/RhysXia/xl-vision-react.svg)](https://david-dm.org/RhysXia/xl-vision-react?type=dev)
 
-[![npm package](https://img.shields.io/npm/v/xl-vision-react.svg?style=flat-square)](https://www.npmjs.org/package/xl-vision-react)
+[![npm package](https://img.shields.io/npm/v/xl-vision-react.svg)](https://www.npmjs.org/package/xl-vision-react)
 [![Node Version](https://img.shields.io/node/v/xl-vision-react.svg)](https://www.npmjs.org/package/xl-vision-react)
-[![NPM downloads](http://img.shields.io/npm/dm/xl-vision-react.svg?style=flat-square)](http://npmjs.com/xl-vision-react)
+[![NPM downloads](http://img.shields.io/npm/dm/xl-vision-react.svg)](http://npmjs.com/xl-vision-react)
 
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/RhysXia/xl-vision-react.svg)](http://isitmaintained.com/project/RhysXia/xl-vision-react "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/RhysXia/xl-vision-react.svg)](http://isitmaintained.com/project/RhysXia/xl-vision-react "Percentage of issues still open")
