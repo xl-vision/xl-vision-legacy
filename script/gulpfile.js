@@ -21,6 +21,7 @@ const sources = {
         'src/**/!(test|doc)/*.tsx',
         'src/**/!(test|doc)/*.d.ts',
     ],
+    test: [],
     // js: [
     //     'src/**/*.js',
     //     'src/**/*.jsx',
@@ -82,7 +83,8 @@ function compile(modules) {
 function runTslint() {
     return gulp.src(sources.ts)
         .pipe(tslint({
-            formatter: 'verbose',
+            formatter: "verbose",
+            configuration: 'tslint.json',
         }))
         .pipe(tslint.report())
 }
@@ -90,37 +92,37 @@ function runTslint() {
 function buildDist() {
     return new Promise((resolve, reject) => {
         webpack(getWebpackConfig(), (err, stats) => {
-            if (err) {
-                console.error(err.stack || err)
-                if (err.details) {
-                    console.error(err.details)
+                if (err) {
+                    console.error(err.stack || err)
+                    if (err.details) {
+                        console.error(err.details)
+                    }
+                    reject(err)
+                    return
                 }
-                reject(err)
-                return
-            }
 
-            const info = stats.toJson()
+                const info = stats.toJson()
 
-            if (stats.hasErrors()) {
-                console.error(info.errors)
-            }
+                if (stats.hasErrors()) {
+                    console.error(info.errors)
+                }
 
-            if (stats.hasWarnings()) {
-                console.warn(info.warnings)
-            }
+                if (stats.hasWarnings()) {
+                    console.warn(info.warnings)
+                }
 
-            const buildInfo = stats.toString({
-                colors: true,
-                children: true,
-                chunks: false,
-                modules: false,
-                chunkModules: false,
-                hash: false,
-                version: false,
-            })
-            console.log(buildInfo)
-            resolve()
-        },
+                const buildInfo = stats.toString({
+                    colors: true,
+                    children: true,
+                    chunks: false,
+                    modules: false,
+                    chunkModules: false,
+                    hash: false,
+                    version: false,
+                })
+                console.log(buildInfo)
+                resolve()
+            },
         )
     })
 
@@ -152,37 +154,37 @@ function buildSite() {
     fs.removeSync(path.join(process.cwd(), 'docs-dist'))
     return new Promise((resolve, reject) => {
         webpack(require('./site/webpack.prod.conf'), (err, stats) => {
-            if (err) {
-                console.error(err.stack || err)
-                if (err.details) {
-                    console.error(err.details)
+                if (err) {
+                    console.error(err.stack || err)
+                    if (err.details) {
+                        console.error(err.details)
+                    }
+                    reject(err)
+                    return
                 }
-                reject(err)
-                return
-            }
 
-            const info = stats.toJson()
+                const info = stats.toJson()
 
-            if (stats.hasErrors()) {
-                console.error(info.errors)
-            }
+                if (stats.hasErrors()) {
+                    console.error(info.errors)
+                }
 
-            if (stats.hasWarnings()) {
-                console.warn(info.warnings)
-            }
+                if (stats.hasWarnings()) {
+                    console.warn(info.warnings)
+                }
 
-            const buildInfo = stats.toString({
-                colors: true,
-                children: true,
-                chunks: false,
-                modules: false,
-                chunkModules: false,
-                hash: false,
-                version: false,
-            })
-            console.log(buildInfo)
-            resolve()
-        },
+                const buildInfo = stats.toString({
+                    colors: true,
+                    children: true,
+                    chunks: false,
+                    modules: false,
+                    chunkModules: false,
+                    hash: false,
+                    version: false,
+                })
+                console.log(buildInfo)
+                resolve()
+            },
         )
     })
 }

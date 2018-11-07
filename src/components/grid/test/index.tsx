@@ -1,28 +1,28 @@
 import * as React from 'react'
-import Row from '../row'
+import { default as Row, responsiveMap } from '../row'
 // import { default as Row, responsiveMap } from '../row'
 import * as Enzyme from 'enzyme'
 
 describe('Grid Test', () => {
 
-  // const matchMedia = window.matchMedia
+  const matchMedia = window.matchMedia
 
-  // beforeAll(() => {
-  //   window.matchMedia = (mediaQuery: string) => {
-  //     return {
-  //       media: mediaQuery,
-  //       matches: mediaQuery === responsiveMap.lg,
-  //       addListener() {
-  //       },
-  //       removeListener() {
-  //       },
-  //     }
-  //   }
-  // })
+  beforeAll(() => {
+      window.matchMedia = window.matchMedia || ((mediaQuery: string) => {
+      return {
+        media: mediaQuery,
+        matches: mediaQuery === responsiveMap.lg,
+        addListener() {
+        },
+        removeListener() {
+        },
+      }
+    })
+  })
 
-  // afterAll(() => {
-  //   window.matchMedia = matchMedia
-  // })
+  afterAll(() => {
+      window.matchMedia = matchMedia
+  })
 
   it('renders row', () => {
     const row = Enzyme.shallow(

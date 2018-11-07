@@ -15,13 +15,9 @@ const objectOrNumber = PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
     pull: PropTypes.number
 })])
 
-export interface ColSize {
-    span?: number
-    order?: number
-    offset?: number
-    push?: number
-    pull?: number
-}
+export type ColOption = 'span' | 'order' | 'offset' | 'push' | 'pull'
+
+export type ColSize = Partial<Record<ColOption, number>>
 
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,6 +33,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
     sm?: number | ColSize
     xs?: number | ColSize
 }
+
 export default class Col extends React.Component<ColProps, {}> {
     static propTypes = {
         span: PropTypes.number,
@@ -59,14 +56,15 @@ export default class Col extends React.Component<ColProps, {}> {
 
 
         const arr = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl']
-        const classArray = []
+        const classArray: Array<string> = []
         arr.forEach((breakpoint: Breakpoint) => {
             if (typeof others[breakpoint] === 'number') {
                 classArray.push(`${clsPrefix}-${breakpoint}-span-${others[breakpoint]}`)
             } else if (typeof others[breakpoint] === 'object') {
-                Object.keys(others[breakpoint])
-                    .forEach(key => {
-                        classArray.push(`${clsPrefix}-${breakpoint}-${key}-${others[breakpoint][key]}`)
+                const colSize = others[breakpoint] as ColSize
+                Object.keys(colSize)
+                    .forEach((key: ColOption) => {
+                        classArray.push(`${clsPrefix}-${breakpoint}-${key}-${colSize[key]}`)
                     })
             }
             delete others[breakpoint]
@@ -88,7 +86,7 @@ export default class Col extends React.Component<ColProps, {}> {
                     } : style
 
                     return (
-                        <div className={classes} style={styles} {...others}/>
+                        <div className={classes} style={styles} {...others} />
                     )
                 }}
             </Context.Consumer>

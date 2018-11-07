@@ -31,7 +31,8 @@
     "dist": "gulp dist --gulpfile script/gulpfile.js --cwd .",
     "site:prod": "gulp site:prod --gulpfile script/gulpfile.js --cwd .",
     "site:dev": "gulp site:dev --gulpfile script/gulpfile.js --cwd .",
-    "test": "jest"
+    "tslint": "gulp tslint --gulpfile script/gulpfile.js --cwd .",
+    "test": "jest --config jest.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
