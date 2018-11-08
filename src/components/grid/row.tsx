@@ -120,9 +120,9 @@ export default class Row extends React.Component<RowProps, RowState> {
         const {gutter} = this.props
         if (typeof gutter === 'object') {
             for (const breakpoint in responsiveMap) {
-                console.log(breakpoint)
-                if (this.state.breakpoints[breakpoint as Breakpoint] && gutter[breakpoint as Breakpoint] !== undefined) {
-                    return gutter[breakpoint as Breakpoint] as number
+                const key = breakpoint as Breakpoint
+                if (this.state.breakpoints[key] && gutter[key] !== undefined) {
+                    return gutter[key] as number
                 }
             }
             return 0

@@ -70,6 +70,7 @@ export default class Col extends React.Component<ColProps, {}> {
             delete others[breakpoint]
         })
         const classes = classnames({
+            [`${clsPrefix}`]: true,
             [`${clsPrefix}-span-${span}`]: typeof span === 'number',
             [`${clsPrefix}-order-${order}`]: typeof order === 'number',
             [`${clsPrefix}-offset-${offset}`]: typeof offset === 'number',
