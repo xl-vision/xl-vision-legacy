@@ -11,6 +11,7 @@ module.exports = {
     collectCoverageFrom: [
         'src/components/**/*.{ts,tsx}',
         '!src/components/**/test/*.{ts,tsx}',
+        '!src/components/**/doc/*.{ts,tsx}',
     ],
     snapshotSerializers: [
         'enzyme-to-json/serializer',

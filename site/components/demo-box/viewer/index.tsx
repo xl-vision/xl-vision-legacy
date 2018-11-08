@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { transform } from 'babel-standalone'
-import XlVision from '../../../../src/index'
+import * as XlVision from '../../../../src/index'
 import './index.scss'
 
 

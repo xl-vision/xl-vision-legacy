@@ -19,10 +19,15 @@ const sources = {
     ts: [
         'src/**/*.ts?(x)',
         'src/**/*.d.ts',
-        '!src/**/test/*.ts?(x)'
+        '!src/**/test/*.ts?(x)',
+        '!src/**/doc/*.ts?(x)'
     ],
     test: [
         'src/**/test/*.ts?(x)'
+    ],
+    tslint: [
+        'src/**/*.ts?(x)',
+        'src/**/*.d.ts'
     ],
     style: [
         'src/**/style/index.scss',
@@ -79,21 +84,12 @@ function compile(modules) {
 }
 
 function runTslint() {
-    const srcTslint = gulp.src(sources.ts)
+    return gulp.src(sources.tslint)
         .pipe(tslint({
             formatter: "verbose",
             configuration: 'tslint.json',
         }))
         .pipe(tslint.report())
-
-    const testTslint = gulp.src(sources.test)
-        .pipe(tslint({
-            formatter: "verbose",
-            configuration: 'tslint.json',
-        }))
-        .pipe(tslint.report())
-
-    return merge2(srcTslint, testTslint)
 }
 
 function buildDist() {

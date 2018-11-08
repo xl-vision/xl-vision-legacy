@@ -8,7 +8,7 @@ describe('Grid Test', () => {
 
     let ret: MediaQueryList
     const matchMedia = window.matchMedia
-    let listenersMap: Record<string, Array<((this: MediaQueryList, ev: MediaQueryListEvent) => any)>> = {}
+    const listenersMap: Record<string, Array<((this: MediaQueryList, ev: MediaQueryListEvent) => any)>> = {}
 
     beforeAll(() => {
         window.matchMedia = function (mediaQuery: string) {
