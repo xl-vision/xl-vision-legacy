@@ -1,11 +1,12 @@
 import * as React from 'react'
 import Editor from './editor'
 import Viewer from './viewer'
+import MdTransform from '../md-transform'
 import './index.scss'
 
 export interface DemoBoxProps {
-    title: string
-    desc: string
+    title: React.ComponentType
+    desc: React.ComponentType
     code: string
 }
 
@@ -29,27 +30,30 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
             }))
         }
     }
+
     render() {
 
-        const { title, desc } = this.props
-
-        const transformDesc = desc.replace(/`([^`]*)`/, '<code class="demo-desc-code">$1</code>')
+        const {title, desc} = this.props
 
         return (
             <div className={'demo-box'}>
                 <div className={'demo-view'}>
-                    <Viewer code={this.state.code} />
+                    <Viewer code={this.state.code}/>
                 </div>
                 <div className={'demo-info'}>
-                    <div className={'demo-title'}>{title}</div>
-                    <div className={'demo-desc'} dangerouslySetInnerHTML={{ __html: transformDesc }} />
+                    <div className={'demo-title'}>
+                        <MdTransform>{title}</MdTransform>
+                    </div>
+                    <div className={'demo-desc'}>
+                        <MdTransform>{desc}</MdTransform>
+                    </div>
                 </div>
                 <div className={'demo-code'}>
                     <Editor code={this.state.code} change={code => {
                         this.setState(() => ({
                             code
                         }))
-                    }} />
+                    }}/>
                 </div>
             </div>
         )

@@ -3,6 +3,6 @@
 
 .#{$--cls-prefix}-row {
   position: relative;
-  // box-sizing: border-box;
+  box-sizing: border-box;
   @include clearfix;
 }

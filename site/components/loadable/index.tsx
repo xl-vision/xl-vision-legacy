@@ -11,13 +11,13 @@ export interface LoadableState {
     component: React.ComponentType
 }
 
-function resolve(obj): string {
+function resolve(obj: any): string {
     return obj && obj.__esModule ? obj.default : obj
 }
 
 export default class Loadable extends React.PureComponent<LoadableProps, LoadableState> {
 
-    constructor(props) {
+    constructor(props: LoadableProps) {
         super(props)
 
         this.state = {

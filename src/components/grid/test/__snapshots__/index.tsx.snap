@@ -74,8 +74,8 @@ exports[`Grid Test renders basically 1`] = `
         className="xl-col xl-col-span-10 xl-col-offset-1 xl-col-push-2 xl-col-pull-3 xl-col-xs-span-21 xl-col-xs-offset-22 xl-col-xs-push-23 xl-col-xs-pull-24 xl-col-sm-span-17 xl-col-sm-offset-18 xl-col-sm-push-19 xl-col-sm-pull-20 xl-col-md-span-13 xl-col-md-offset-14 xl-col-md-push-15 xl-col-md-pull-16 xl-col-lg-span-9 xl-col-lg-offset-10 xl-col-lg-push-11 xl-col-lg-pull-12 xl-col-xl-span-5 xl-col-xl-offset-6 xl-col-xl-push-7 xl-col-xl-pull-8 xl-col-xxl-span-1 xl-col-xxl-offset-2 xl-col-xxl-push-3 xl-col-xxl-pull-4"
         style={
           Object {
-            "marginLeft": 5,
-            "marginRight": 5,
+            "paddingLeft": 5,
+            "paddingRight": 5,
           }
         }
       >

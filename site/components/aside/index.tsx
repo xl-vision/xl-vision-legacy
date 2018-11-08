@@ -9,7 +9,7 @@ export default class Aside extends React.PureComponent {
     render() {
         return (
             <ul>
-                {routes.map((it, index) => {
+                {routes.filter(it => !it.redirect).map((it, index) => {
                     return (
                         <li key={index}>
                             <Link to={it.path}>{it.name}</Link>

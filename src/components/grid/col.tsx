@@ -52,7 +52,7 @@ export default class Col extends React.Component<ColProps, {}> {
     }
 
     render() {
-        const { span, order, offset, push, pull, className, style, ...others } = this.props
+        const {span, order, offset, push, pull, className, style, ...others} = this.props
 
 
         const arr = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl']
@@ -79,10 +79,10 @@ export default class Col extends React.Component<ColProps, {}> {
         }, classArray, className)
         return (
             <Context.Consumer>
-                {({ gutter }) => {
+                {({gutter}) => {
                     const styles = gutter > 0 ? {
-                        marginLeft: gutter / 2,
-                        marginRight: gutter / 2,
+                        paddingLeft: gutter / 2,
+                        paddingRight: gutter / 2,
                         ...style
                     } : style
 

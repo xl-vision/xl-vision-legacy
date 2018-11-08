@@ -1,7 +1,21 @@
 @import '../../../style/commons/var';
 
-
-
 .#{$--cls-prefix}-col {
   float: left;
+  box-sizing: border-box;
+  @for $num from 1 through $--grid-span {
+    &-span-#{$num} {
+      width: 100% * $num/ $--grid-span;
+    }
+    &-offset-#{$num} {
+      margin-left: 100% * $num/ $--grid-span;
+    }
+    &-push-#{$num} {
+      left: 100% * $num/ $--grid-span;
+    }
+    &-pull-#{$num} {
+      right: 100% * $num/ $--grid-span;
+    }
+  }
 }
+

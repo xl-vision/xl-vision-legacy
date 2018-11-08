@@ -142,6 +142,7 @@ export default class Row extends React.Component<RowProps, RowState> {
             [`${clsPrefix}-${type}-${justify}`]: type && justify,
             [`${clsPrefix}-${type}-${align}`]: type && align
         }, className)
+        console.log(classes)
 
         const styles = gutter > 0 ? {
             marginLeft: gutter / -2,

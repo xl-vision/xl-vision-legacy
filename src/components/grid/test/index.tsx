@@ -41,42 +41,42 @@ describe('Grid Test', () => {
         const row = Enzyme.mount(
             <Row gutter={10} type={'flex'} align={'top'} justify={'center'}>
                 <Col span={10} offset={1} push={2} pull={3}
-                    xxl={{
-                        span: 1,
-                        offset: 2,
-                        push: 3,
-                        pull: 4
-                    }}
-                    xl={{
-                        span: 5,
-                        offset: 6,
-                        push: 7,
-                        pull: 8
-                    }}
-                    lg={{
-                        span: 9,
-                        offset: 10,
-                        push: 11,
-                        pull: 12
-                    }}
-                    md={{
-                        span: 13,
-                        offset: 14,
-                        push: 15,
-                        pull: 16
-                    }}
-                    sm={{
-                        span: 17,
-                        offset: 18,
-                        push: 19,
-                        pull: 20
-                    }}
-                    xs={{
-                        span: 21,
-                        offset: 22,
-                        push: 23,
-                        pull: 24
-                    }}>renders row</Col>
+                     xxl={{
+                         span: 1,
+                         offset: 2,
+                         push: 3,
+                         pull: 4
+                     }}
+                     xl={{
+                         span: 5,
+                         offset: 6,
+                         push: 7,
+                         pull: 8
+                     }}
+                     lg={{
+                         span: 9,
+                         offset: 10,
+                         push: 11,
+                         pull: 12
+                     }}
+                     md={{
+                         span: 13,
+                         offset: 14,
+                         push: 15,
+                         pull: 16
+                     }}
+                     sm={{
+                         span: 17,
+                         offset: 18,
+                         push: 19,
+                         pull: 20
+                     }}
+                     xs={{
+                         span: 21,
+                         offset: 22,
+                         push: 23,
+                         pull: 24
+                     }}>renders row</Col>
             </Row>
         )
         expect(row).toMatchSnapshot()
@@ -106,18 +106,24 @@ describe('Grid Test', () => {
                     if (mediaQuery2 === mediaQuery) {
                         listeners.forEach(it => {
                             // @ts-ignore
-                            it({ ...ret, matches: true, media: mediaQuery2 })
+                            it({...ret, matches: true, media: mediaQuery2})
                         })
                     } else {
                         listeners.forEach(it => {
                             // @ts-ignore
-                            it({ ...ret, matches: false, media: mediaQuery2 })
+                            it({...ret, matches: false, media: mediaQuery2})
                         })
                     }
                 })
                 row.update()
-                expect(row.find('.xl-row').prop('style')).toMatchObject({ marginLeft: gutter[key] / -2, marginRight: gutter[key] / -2 })
-                expect(row.find('.xl-col').prop('style')).toMatchObject({ marginLeft: gutter[key] / 2, marginRight: gutter[key] / 2 })
+                expect(row.find('.xl-row').prop('style')).toMatchObject({
+                    marginLeft: gutter[key] / -2,
+                    marginRight: gutter[key] / -2
+                })
+                expect(row.find('.xl-col').prop('style')).toMatchObject({
+                    paddingLeft: gutter[key] / 2,
+                    paddingRight: gutter[key] / 2
+                })
             })
     })
 })

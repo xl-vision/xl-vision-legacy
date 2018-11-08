@@ -1,3 +1,19 @@
-.xl-row{
-  color: red;
+@import "../../../style/commons/var";
+
+.doc_grid_container {
+  background-color: $--color-gray-200;
+  padding: 0.5rem;
+  border-radius: $--border-radius;
+  .xl-row {
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .doc_grid_box {
+    background-color: $--color-gray-100;
+    padding: 1rem;
+    text-align: center;
+    border-radius: $--border-radius;
+  }
 }
