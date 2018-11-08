@@ -11,9 +11,11 @@
       margin-left: 100% * $num/ $--grid-span;
     }
     &-push-#{$num} {
+      position: relative;
       left: 100% * $num/ $--grid-span;
     }
     &-pull-#{$num} {
+      position: relative;
       right: 100% * $num/ $--grid-span;
     }
   }
