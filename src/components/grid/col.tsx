@@ -3,7 +3,7 @@ import Context from './context'
 import { Breakpoint } from './row'
 import config from '../../utils/config'
 import * as PropTypes from 'prop-types'
-import * as classnames from 'classnames'
+import classnames from 'classnames'
 
 const clsPrefix = `${config.classPrefix}-col`
 
@@ -81,8 +81,8 @@ export default class Col extends React.Component<ColProps, {}> {
             <Context.Consumer>
                 {({ gutter }) => {
                     const styles = gutter > 0 ? {
-                        marginLeft: gutter / -2,
-                        marginRight: gutter / -2,
+                        marginLeft: gutter / 2,
+                        marginRight: gutter / 2,
                         ...style
                     } : style
 

@@ -5,6 +5,9 @@ const components = {
     Row,
     Col
 }
-export default components
+export default {
+    Row,
+    Col
+}
 
 module.exports = components

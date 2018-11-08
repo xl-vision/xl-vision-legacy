@@ -117,7 +117,7 @@ describe('Grid Test', () => {
                 })
                 row.update()
                 expect(row.find('.xl-row').prop('style')).toMatchObject({ marginLeft: gutter[key] / -2, marginRight: gutter[key] / -2 })
-                expect(row.find('.xl-col').prop('style')).toMatchObject({ marginLeft: gutter[key] / -2, marginRight: gutter[key] / -2 })
+                expect(row.find('.xl-col').prop('style')).toMatchObject({ marginLeft: gutter[key] / 2, marginRight: gutter[key] / 2 })
             })
     })
 })
