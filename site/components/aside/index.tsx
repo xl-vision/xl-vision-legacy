@@ -5,7 +5,7 @@ import routes from '../../routes'
 
 import { Link } from 'react-router-dom'
 
-export default class Aside extends React.PureComponent {
+export default class Aside extends React.Component<{}, {}> {
     render() {
         return (
             <ul>

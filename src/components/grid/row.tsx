@@ -1,9 +1,3 @@
-import * as React from 'react'
-import * as PropTypes from 'prop-types'
-import classnames from 'classnames'
-import config from '../../utils/config'
-import Context from './context'
-
 let enquire: any
 if (typeof window !== 'undefined') {
     const matchMediaPolyfill = (mediaQuery: string) => {
@@ -29,40 +23,35 @@ if (typeof window !== 'undefined') {
 
 }
 
-const clsPrefix = `${config.classPrefix}-row`
-
-export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
-
-export type BreakpointMap = Partial<Record<Breakpoint, string>>
+import * as React from 'react'
+import * as PropTypes from 'prop-types'
+import classnames from 'classnames'
+import Context from './context'
+import { Breakpoint, BreakpointMap, responsiveMap } from './config'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     gutter?: number | Partial<Record<Breakpoint, number>>
     type?: 'flex'
     align?: 'top' | 'midle' | 'bottom'
     justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
-
+    prefixCls?: string
 }
 
-// 顺序不能颠倒
-export const responsiveMap: BreakpointMap = {
-    xxl: '(min-width: 1600px)',
-    xl: '(min-width: 1200px)',
-    lg: '(min-width: 992px)',
-    md: '(min-width: 768px)',
-    sm: '(min-width: 576px)',
-    xs: '(max-width: 575px)',
-}
 
 
 export interface RowState {
-    breakpoints: BreakpointMap
+    breakpoints: Partial<BreakpointMap>
 }
 
 export default class Row extends React.Component<RowProps, RowState> {
-    static defaultProps = {
+    static defaultProps: RowProps = {
         gutter: 0
     }
+    state: RowState = {
+        breakpoints: {}
+    }
     static propTypes = {
+        prefixCls: PropTypes.string,
         type: PropTypes.oneOf(['flex']),
         align: PropTypes.oneOf(['top', 'middle', 'bottom']),
         justify: PropTypes.oneOf(['start', 'end', 'center', 'space-around', 'space-between']),
@@ -77,13 +66,9 @@ export default class Row extends React.Component<RowProps, RowState> {
             'xs': PropTypes.number,
         })])
     }
-    state: RowState = {
-        breakpoints: {}
-    }
 
     componentDidMount() {
-        const {gutter} = this.props
-
+        const { gutter } = this.props
         Object.keys(responsiveMap)
             .map((breakpoint: Breakpoint) => enquire.register(responsiveMap[breakpoint], {
                 match: () => {
@@ -117,7 +102,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
 
     getGutter(): number {
-        const {gutter} = this.props
+        const { gutter } = this.props
         if (typeof gutter === 'object') {
             for (const breakpoint in responsiveMap) {
                 const key = breakpoint as Breakpoint
@@ -132,17 +117,17 @@ export default class Row extends React.Component<RowProps, RowState> {
 
     render() {
         const {
-            type, justify, align, className, style, ...others
+            type, justify, align, className, style, prefixCls = 'xl-row', ...others
         } = this.props
+
         const gutter = this.getGutter()
         delete others.gutter
         const classes = classnames({
-            [clsPrefix]: true,
-            [`${clsPrefix}-${type}`]: type,
-            [`${clsPrefix}-${type}-${justify}`]: type && justify,
-            [`${clsPrefix}-${type}-${align}`]: type && align
+            [prefixCls]: true,
+            [`${prefixCls}-${type}`]: type,
+            [`${prefixCls}-${type}-${justify}`]: type && justify,
+            [`${prefixCls}-${type}-${align}`]: type && align
         }, className)
-        console.log(classes)
 
         const styles = gutter > 0 ? {
             marginLeft: gutter / -2,
@@ -151,8 +136,8 @@ export default class Row extends React.Component<RowProps, RowState> {
         } : style
 
         return (
-            <Context.Provider value={{gutter}}>
-                <div {...others} className={classes} style={styles}/>
+            <Context.Provider value={{ gutter }}>
+                <div {...others} className={classes} style={styles} />
             </Context.Provider>
         )
     }

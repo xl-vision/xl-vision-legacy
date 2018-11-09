@@ -6,7 +6,7 @@ import Content from '../content'
 import Footer from '../footer'
 import { hot } from 'react-hot-loader'
 
-class Layout extends React.PureComponent {
+class Layout extends React.Component {
 
     render() {
         return (

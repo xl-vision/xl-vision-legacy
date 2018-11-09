@@ -25,7 +25,7 @@ export interface EditorState {
     code: string
 }
 
-export default class Editor extends React.Component<EditorProps, EditorState> {
+export default class Editor extends React.PureComponent<EditorProps, EditorState> {
 
     textarea: HTMLTextAreaElement
     editor: CodeMirror.Editor
@@ -35,13 +35,6 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
         this.state = {
             code: props.code
         }
-    }
-
-    componentWillReceiveProps(props) {
-        if (props.code === this.editor.getValue()) {
-            return
-        }
-        this.editor.setValue(props.code)
     }
 
     componentWillUnmount() {
@@ -83,7 +76,7 @@ export default class Editor extends React.Component<EditorProps, EditorState> {
             <div>
                 <textarea ref={ele => {
                     this.textarea = ele
-                }} defaultValue={this.props.code}/>
+                }} defaultValue={this.props.code} />
             </div>
         )
     }

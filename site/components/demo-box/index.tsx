@@ -22,23 +22,12 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
             code: props.code,
         }
     }
-
-    componentWillReceiveProps(props) {
-        if (props.code !== this.state.code) {
-            this.setState(() => ({
-                code: props.code
-            }))
-        }
-    }
-
     render() {
-
-        const {title, desc} = this.props
-
+        const { title, desc } = this.props
         return (
             <div className={'demo-box'}>
                 <div className={'demo-view'}>
-                    <Viewer code={this.state.code}/>
+                    <Viewer code={this.state.code} />
                 </div>
                 <div className={'demo-info'}>
                     <div className={'demo-title'}>
@@ -53,7 +42,7 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
                         this.setState(() => ({
                             code
                         }))
-                    }}/>
+                    }} />
                 </div>
             </div>
         )

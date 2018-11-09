@@ -1,11 +1,8 @@
 import * as React from 'react'
 import Context from './context'
-import { Breakpoint } from './row'
-import config from '../../utils/config'
+import { Breakpoint, breakpointArray } from './config'
 import * as PropTypes from 'prop-types'
 import classnames from 'classnames'
-
-const clsPrefix = `${config.classPrefix}-col`
 
 const objectOrNumber = PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
     span: PropTypes.number,
@@ -21,6 +18,7 @@ export type ColSize = Partial<Record<ColOption, number>>
 
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
+    prefixCls?: string
     span?: number
     order?: number
     offset?: number
@@ -36,6 +34,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default class Col extends React.Component<ColProps, {}> {
     static propTypes = {
+        prefixCls: PropTypes.string,
         span: PropTypes.number,
         order: PropTypes.number,
         offset: PropTypes.number,
@@ -52,34 +51,32 @@ export default class Col extends React.Component<ColProps, {}> {
     }
 
     render() {
-        const {span, order, offset, push, pull, className, style, ...others} = this.props
+        const { span, order, offset, push, pull, className, style, prefixCls = 'xl-col', ...others } = this.props
 
-
-        const arr = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl']
         const classArray: Array<string> = []
-        arr.forEach((breakpoint: Breakpoint) => {
+        breakpointArray.forEach((breakpoint: Breakpoint) => {
             if (typeof others[breakpoint] === 'number') {
-                classArray.push(`${clsPrefix}-${breakpoint}-span-${others[breakpoint]}`)
+                classArray.push(`${prefixCls}-${breakpoint}-span-${others[breakpoint]}`)
             } else if (typeof others[breakpoint] === 'object') {
                 const colSize = others[breakpoint] as ColSize
                 Object.keys(colSize)
                     .forEach((key: ColOption) => {
-                        classArray.push(`${clsPrefix}-${breakpoint}-${key}-${colSize[key]}`)
+                        classArray.push(`${prefixCls}-${breakpoint}-${key}-${colSize[key]}`)
                     })
             }
             delete others[breakpoint]
         })
         const classes = classnames({
-            [`${clsPrefix}`]: true,
-            [`${clsPrefix}-span-${span}`]: typeof span === 'number',
-            [`${clsPrefix}-order-${order}`]: typeof order === 'number',
-            [`${clsPrefix}-offset-${offset}`]: typeof offset === 'number',
-            [`${clsPrefix}-push-${push}`]: typeof push === 'number',
-            [`${clsPrefix}-pull-${pull}`]: typeof pull === 'number',
+            [`${prefixCls}`]: true,
+            [`${prefixCls}-span-${span}`]: typeof span === 'number',
+            [`${prefixCls}-order-${order}`]: typeof order === 'number',
+            [`${prefixCls}-offset-${offset}`]: typeof offset === 'number',
+            [`${prefixCls}-push-${push}`]: typeof push === 'number',
+            [`${prefixCls}-pull-${pull}`]: typeof pull === 'number',
         }, classArray, className)
         return (
             <Context.Consumer>
-                {({gutter}) => {
+                {({ gutter }) => {
                     const styles = gutter > 0 ? {
                         paddingLeft: gutter / 2,
                         paddingRight: gutter / 2,
