@@ -6,6 +6,8 @@ import Content from '../content'
 import Footer from '../footer'
 import { hot } from 'react-hot-loader'
 
+import './index.scss'
+
 class Layout extends React.Component {
 
     render() {
@@ -13,7 +15,7 @@ class Layout extends React.Component {
             <div>
                 <Header/>
                 <Router>
-                    <div>
+                    <div className={'layout-main'}>
                         <Aside/>
                         <Content/>
                     </div>

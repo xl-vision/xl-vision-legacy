@@ -11,7 +11,8 @@ export interface DemoBoxProps {
 }
 
 export interface DemoBoxState {
-    code: string
+    code: string,
+    codeShowed: boolean
 }
 
 export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxState> {
@@ -20,10 +21,22 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
         super(props)
         this.state = {
             code: props.code,
+            codeShowed: false
         }
     }
     render() {
         const { title, desc } = this.props
+        const { codeShowed } = this.state
+
+        const codeNode = (
+            <div className={'demo-code'}>
+                <Editor code={this.state.code} change={code => {
+                    this.setState(() => ({
+                        code
+                    }))
+                }} />
+            </div>
+        )
         return (
             <div className={'demo-box'}>
                 <div className={'demo-view'}>
@@ -35,15 +48,18 @@ export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxSt
                     </div>
                     <div className={'demo-desc'}>
                         <MdTransform>{desc}</MdTransform>
+                        <div className={'demo-action'}>
+                            <button onClick={() => {
+                                this.setState(prevState => ({
+                                    codeShowed: !prevState.codeShowed
+                                }))
+                            }}>
+                                {codeShowed ? '隐藏' : '显示'}
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div className={'demo-code'}>
-                    <Editor code={this.state.code} change={code => {
-                        this.setState(() => ({
-                            code
-                        }))
-                    }} />
-                </div>
+                {codeShowed ? codeNode : null}
             </div>
         )
     }

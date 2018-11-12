@@ -39,6 +39,7 @@ export default class Editor extends React.PureComponent<EditorProps, EditorState
 
     componentWillUnmount() {
         // destory the editor
+        // @ts-ignore
         this.editor.toTextArea()
     }
 
@@ -53,6 +54,7 @@ export default class Editor extends React.PureComponent<EditorProps, EditorState
             mode: 'jsx',
             theme: 'idea',
             tabSize: 2,
+            // @ts-ignore
             styleActiveLine: true,
             matchBrackets: true,
             autoCloseBrackets: true,
