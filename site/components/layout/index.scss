@@ -1,4 +1,7 @@
 .layout-main{
   display: flex;
   flex-direction: row;
+  .content{
+    flex: 1;
+  }
 }

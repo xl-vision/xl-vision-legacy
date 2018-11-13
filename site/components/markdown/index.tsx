@@ -13,7 +13,7 @@ export default (props: MarkdownProps) => {
         const desc = (match.match(/:::[^\n]*\n(([\s\S](?!```))*)\n```*/)[1] || '').trim().replace(/\\"/, "'")
         const code = match.match(/```jsx([^```]*)```/)[1].trim().replace(/\\"/, "'")
 
-        console.log(match)
+        // console.log(match)
         // code = code.replace(/\n/g,';')
         // .replace(/</g,'&lt;').replace(/>/g,'&gt;')
 

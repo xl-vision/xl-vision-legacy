@@ -1,3 +1,36 @@
-.aside{
-    color: red;
+@import "../../styles/var";
+.aside {
+  background-color: $--bg-color;
+  border-right: 1px solid $--border-color;
+  font-size: 1rem;
+  color: $--text-color-dark;
+  .aside-title {
+    margin: 0;
+    font-size: 1rem;
+  }
+  a {
+    text-decoration: none;
+    color: $--text-color-dark;
+    font-weight: normal;
+    &:hover {
+      color: $--link-color--hover
+    }
+  }
+  .aside-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0.5rem;
+    margin-top: 0.5rem;
+    .aside-link {
+      display: block;
+      padding: 0.5rem;
+      border-right: 2px solid transparent;
+      transition: border-color .15s ease-in-out;
+      &:hover,
+      &.aside-link-active {
+        border-right-color: $--link-color;
+      }
+    }
+  }
+  .aside-item {}
 }

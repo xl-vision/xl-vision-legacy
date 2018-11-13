@@ -1,7 +1,7 @@
 import * as React from 'react'
 import routes from '../../routes'
-import { Link } from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom'
+import classnames from 'classnames'
 import './index.scss'
 
 const renderMenus = (config: any, level: string = '0') => {
@@ -12,9 +12,23 @@ const renderMenus = (config: any, level: string = '0') => {
                     .map((it, index) => {
                         let ret: any
                         if (it.children) {
-                            ret = renderMenus(it.children, `${level}-${index}`)
+
+                            const deep = level.split('-').length
+                            let tag = deep
+                            if (tag > 5) {
+                                tag = 5
+                            }
+                            const title = React.createElement(`h${tag}`, {
+                                className: classnames('aside-title', `aside-title-level-${deep}`)
+                            }, [it.name])
+                            ret = (
+                                <>
+                                    {title}
+                                    {renderMenus(it.children, `${level}-${index}`)}
+                                </>
+                            )
                         } else {
-                            ret = <Link to={it.path}>{it.name}</Link>
+                            ret = <NavLink to={it.path} className={'aside-link'} activeClassName={'aside-link-active'}>{it.name}</NavLink>
                         }
                         return (
                             <li key={`${level}-${index}`} className={'aside-item'}>{ret}</li>
@@ -28,7 +42,7 @@ const renderMenus = (config: any, level: string = '0') => {
 export default class Aside extends React.Component<{}, {}> {
     render() {
         return (
-            <div>
+            <div className={'aside'}>
                 {renderMenus(routes)}
             </div>
         )

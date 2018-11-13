@@ -1,13 +1,12 @@
 export default [
     {
         path: '/',
-        redirect: '/install'
+        redirect: '/grid'
     },
     {
         name: '安装',
         path: '/install',
         component: () => import('../src/components/grid/doc')
-
     },
     {
         name: '组件',
