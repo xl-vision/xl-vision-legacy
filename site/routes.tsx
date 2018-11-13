@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+
 export default [
     {
         path: '/',
@@ -6,7 +8,7 @@ export default [
     {
         name: '安装',
         path: '/install',
-        component: () => import('../src/components/grid/doc')
+        component: () => new Promise((resolve => resolve('install')))
     },
     {
         name: '组件',
