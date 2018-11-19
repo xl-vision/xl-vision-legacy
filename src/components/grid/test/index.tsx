@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Row from '../row'
-import { responsiveMap, Breakpoint } from '../config'
+import { responsiveMap, Breakpoint } from '../commons'
 import Col from '../col'
 import * as Enzyme from 'enzyme'
 // import Context from '../context'

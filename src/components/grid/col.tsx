@@ -1,8 +1,9 @@
 import * as React from 'react'
 import Context from './context'
-import { Breakpoint, breakpointArray } from './config'
+import { Breakpoint, breakpointArray } from './commons'
 import * as PropTypes from 'prop-types'
 import classnames from 'classnames'
+
 
 const objectOrNumber = PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
     span: PropTypes.number,
@@ -17,19 +18,13 @@ export type ColOption = 'span' | 'order' | 'offset' | 'push' | 'pull'
 export type ColSize = Partial<Record<ColOption, number>>
 
 
-export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ColProps extends React.HTMLAttributes<HTMLDivElement>, Partial<Record<Breakpoint, number | ColSize>> {
     prefixCls?: string
     span?: number
     order?: number
     offset?: number
     push?: number
     pull?: number
-    xxl?: number | ColSize
-    xl?: number | ColSize
-    lg?: number | ColSize
-    md?: number | ColSize
-    sm?: number | ColSize
-    xs?: number | ColSize
 }
 
 export default class Col extends React.Component<ColProps, {}> {

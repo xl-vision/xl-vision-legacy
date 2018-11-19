@@ -175,3 +175,25 @@ export default function(){
 }
 ```
 :::
+
+:::demo 响应式布局
+
+通过使用 push 和 pull 类就可以很容易的改变列（column）的顺序。
+
+```jsx
+export default function(){
+  return (
+    <div className={'doc_grid_container'}>
+      <Row gutter={10}>
+        <Col span={6} push={6}>
+          <div className={'doc_grid_box'}>span={6} push={6}</div>
+        </Col>
+        <Col span={6} pull={6}>
+          <div className={'doc_grid_box'}>span={6} pull={6}</div>
+        </Col>
+      </Row>
+    </div>
+  )
+}
+```
+:::

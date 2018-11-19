@@ -27,7 +27,7 @@ import * as React from 'react'
 import * as PropTypes from 'prop-types'
 import classnames from 'classnames'
 import Context from './context'
-import { Breakpoint, BreakpointMap, responsiveMap } from './config'
+import { Breakpoint, responsiveMap } from './commons'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     gutter?: number | Partial<Record<Breakpoint, number>>
@@ -37,18 +37,17 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     prefixCls?: string
 }
 
-
-
 export interface RowState {
-    breakpoints: Partial<BreakpointMap>
+    breakpointIn: Partial<Record<Breakpoint, boolean>>
 }
+
 
 export default class Row extends React.Component<RowProps, RowState> {
     static defaultProps: RowProps = {
         gutter: 0
     }
     state: RowState = {
-        breakpoints: {}
+        breakpointIn: {}
     }
     static propTypes = {
         prefixCls: PropTypes.string,
@@ -76,8 +75,8 @@ export default class Row extends React.Component<RowProps, RowState> {
                         return
                     }
                     this.setState(prevState => ({
-                        breakpoints: {
-                            ...prevState.breakpoints,
+                        breakpointIn: {
+                            ...prevState.breakpointIn,
                             [breakpoint]: true
                         }
                     }))
@@ -87,8 +86,8 @@ export default class Row extends React.Component<RowProps, RowState> {
                         return
                     }
                     this.setState(prevState => ({
-                        breakpoints: {
-                            ...prevState.breakpoints,
+                        breakpointIn: {
+                            ...prevState.breakpointIn,
                             [breakpoint]: false
                         }
                     }))
@@ -106,7 +105,7 @@ export default class Row extends React.Component<RowProps, RowState> {
         if (typeof gutter === 'object') {
             for (const breakpoint in responsiveMap) {
                 const key = breakpoint as Breakpoint
-                if (this.state.breakpoints[key] && gutter[key] !== undefined) {
+                if (this.state.breakpointIn[key] && gutter[key] !== undefined) {
                     return gutter[key] as number
                 }
             }
@@ -119,7 +118,6 @@ export default class Row extends React.Component<RowProps, RowState> {
         const {
             type, justify, align, className, style, prefixCls = 'xl-row', ...others
         } = this.props
-
         const gutter = this.getGutter()
         delete others.gutter
         const classes = classnames({

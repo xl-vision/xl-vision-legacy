@@ -12,3 +12,4 @@ export const responsiveMap: BreakpointMap = {
 }
 
 export const breakpointArray: Array<Breakpoint> = Object.keys(responsiveMap) as Array<Breakpoint>
+
