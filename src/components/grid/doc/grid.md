@@ -176,20 +176,76 @@ export default function(){
 ```
 :::
 
+:::demo Flex 布局
+
+使用 `type` 定义 `flex` 布局，其子元素根据不同的值 `start`,`center`,`end`,`space-between`,`space-around`，分别定义其在父节点里面的排版方式。
+
+```jsx
+export default function(){
+  return (
+    <div className={'doc_grid_container'}>
+      <p>sub-element align left</p>
+      <Row type="flex" justify="start">
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+      </Row>
+
+      <p>sub-element align center</p>
+      <Row type="flex" justify="center">
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+      </Row>
+
+      <p>sub-element align right</p>
+      <Row type="flex" justify="end">
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+      </Row>
+
+      <p>sub-element monospaced arrangement</p>
+      <Row type="flex" justify="space-between">
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+      </Row>
+
+      <p>sub-element align full</p>
+      <Row type="flex" justify="space-around">
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+        <Col span={4}>col-4</Col>
+      </Row>
+  </div>
+  )
+}
+```
+:::
+
 :::demo 响应式布局
 
-通过使用 push 和 pull 类就可以很容易的改变列（column）的顺序。
+参照`Bootstrap`的`响应式设计`，预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。
 
 ```jsx
 export default function(){
   return (
     <div className={'doc_grid_container'}>
       <Row gutter={10}>
-        <Col span={6} push={6}>
-          <div className={'doc_grid_box'}>span={6} push={6}</div>
+        <Col xs={2} sm={4} md={6} lg={8} xl={10}>
+          <div className={'doc_grid_box'}>Col</div>
         </Col>
-        <Col span={6} pull={6}>
-          <div className={'doc_grid_box'}>span={6} pull={6}</div>
+        <Col xs={20} sm={16} md={12} lg={8} xl={4}>
+          <div className={'doc_grid_box'}>Col</div>
+        </Col>
+        <Col xs={2} sm={4} md={6} lg={8} xl={10}>
+          <div className={'doc_grid_box'}>Col</div>
         </Col>
       </Row>
     </div>
@@ -197,3 +253,39 @@ export default function(){
 }
 ```
 :::
+
+:::demo 其他属性的响应式
+
+`span` `pull` `push` `offset` `order` 属性可以通过内嵌到 `xs` `sm` `md` `lg` `xl` `xxl` 属性中来使用。
+
+其中 `xs={6}` 相当于 `xs={{ span: 6 }}`。
+
+```jsx
+export default function(){
+  return (
+    <div className={'doc_grid_container'}>
+      <Row gutter={10}>
+        <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+          <div className={'doc_grid_box'}>Col</div>
+        </Col>
+        <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+          <div className={'doc_grid_box'}>Col</div>
+        </Col>
+        <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
+          <div className={'doc_grid_box'}>Col</div>
+        </Col>
+      </Row>
+    </div>
+  )
+}
+```
+:::
+
+
+## API
+
+### Row
+属性|说明|类型|默认值
+-|-|-|-
+
+

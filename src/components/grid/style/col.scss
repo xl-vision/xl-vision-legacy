@@ -1,23 +1,47 @@
 @import '../../../style/commons/var';
+@function breakpoint-next($name) {
+  $breakpoint-names: map-keys($--grid-breakpoints);
+  $n: index($breakpoint-names, $name);
+  @return if($n !=null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
 
-.#{$--cls-prefix}-col {
-  float: left;
-  box-sizing: border-box;
+@mixin make-col($prefix) {
+  #{$prefix}-span-#{0} {
+    display: none;
+  }
   @for $num from 1 through $--grid-span {
-    &-span-#{$num} {
+    #{$prefix}-span-#{$num} {
       width: 100% * $num/ $--grid-span;
     }
-    &-offset-#{$num} {
+    #{$prefix}-offset-#{$num} {
       margin-left: 100% * $num/ $--grid-span;
     }
-    &-push-#{$num} {
+    #{$prefix}-push-#{$num} {
       position: relative;
       left: 100% * $num/ $--grid-span;
     }
-    &-pull-#{$num} {
+    #{$prefix}-pull-#{$num} {
       position: relative;
       right: 100% * $num/ $--grid-span;
+    }
+    #{$prefix}-order-#{$num} {
+      order: $num;
     }
   }
 }
 
+@mixin make-media-col() {
+  @each $key in map_keys($--grid-breakpoints) {
+    @media only screen and (min-width: #{map_get($--grid-breakpoints,$key)}) {
+      @include make-col('.#{$--cls-prefix}-col-#{$key}');
+    }
+  }
+}
+
+.#{$--cls-prefix}-col {
+  float: left;
+  box-sizing: border-box;
+}
+
+@include make-col('.#{$--cls-prefix}-col');
+@include make-media-col();
