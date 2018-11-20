@@ -121,7 +121,7 @@ export default class Row extends React.Component<RowProps, RowState> {
         const gutter = this.getGutter()
         delete others.gutter
         const classes = classnames({
-            [prefixCls]: true,
+            [prefixCls]: !type,
             [`${prefixCls}-${type}`]: type,
             [`${prefixCls}-${type}-${justify}`]: type && justify,
             [`${prefixCls}-${type}-${align}`]: type && align

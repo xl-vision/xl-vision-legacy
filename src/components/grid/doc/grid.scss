@@ -1,27 +1,28 @@
 @import "../../../style/commons/var";
 
-.doc_grid_container {
+.xl-row,.xl-row-flex {
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.xl-row-flex{
   background-color: $--color-gray-100;
-  padding: 0.5rem;
-  .xl-row {
-    border-radius: $--border-radius;
-    margin-bottom: 1rem;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .doc_grid_box {
-    background-color: $--color-gray-300;
-    padding: 1rem;
-    text-align: center;
-    border-radius: $--border-radius;
-    color: $--bg-color;
-  }
-  .doc_grid_box_r {
-    background-color: $--color-gray-400;
-    padding: 1rem;
-    text-align: center;
-    color: $--bg-color;
-    border-radius: $--border-radius;
-  }
+  height: 5rem;
+}
+
+.doc_grid_box {
+  background-color: $--color-gray-300;
+  padding: 1rem;
+  text-align: center;
+  border-radius: $--border-radius;
+  color: $--bg-color;
+}
+.doc_grid_box_r {
+  background-color: $--color-gray-400;
+  padding: 1rem;
+  text-align: center;
+  color: $--bg-color;
+  border-radius: $--border-radius;
 }

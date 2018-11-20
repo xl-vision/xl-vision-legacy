@@ -4,31 +4,32 @@
   position: relative;
   box-sizing: border-box;
   @include clearfix;
-  &-flex {
-    display: flex;
-    &-start {
-      justify-content: flex-start;
-    }
-    &-end {
-      justify-content: flex-end;
-    }
-    &-center {
-      justify-content: center;
-    }
-    &-space-around {
-      justify-content: space-around;
-    }
-    &-space-betweem {
-      justify-content: space-between;
-    }
-    &-top {
-      align-items: flex-start;
-    }
-    &-middle {
-      align-items: center;
-    }
-    &-bottom {
-      align-items: flex-end;
-    }
+}
+
+.#{$--cls-prefix}-row-flex {
+  display: flex;
+  &-start {
+    justify-content: flex-start;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+  &-center {
+    justify-content: center;
+  }
+  &-space-around {
+    justify-content: space-around;
+  }
+  &-space-between {
+    justify-content: space-between;
+  }
+  &-top {
+    align-items: flex-start;
+  }
+  &-middle {
+    align-items: center;
+  }
+  &-bottom {
+    align-items: flex-end;
   }
 }
