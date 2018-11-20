@@ -48,6 +48,7 @@ export default class Col extends React.Component<ColProps, {}> {
     render() {
         const { span, order, offset, push, pull, className, style, prefixCls = 'xl-col', ...others } = this.props
 
+        this.context
         const classArray: Array<string> = []
         breakpointArray.forEach((breakpoint: Breakpoint) => {
             if (typeof others[breakpoint] === 'number') {
