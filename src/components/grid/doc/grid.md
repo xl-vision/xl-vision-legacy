@@ -11,7 +11,7 @@ export default function(){
   return (
     <div>
       <Row>
-        <Col span={24} className='doc_grid_box'>
+        <Col span={24}>
           <div className='doc_grid_box'/>
         </Col>
       </Row>

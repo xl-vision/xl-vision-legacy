@@ -43,10 +43,6 @@ export default class Editor extends React.PureComponent<EditorProps, EditorState
         this.editor.toTextArea()
     }
 
-    shouldComponentUpdate() {
-        return false
-    }
-
     componentDidMount() {
 
         this.editor = CodeMirror.fromTextArea(this.textarea, {
