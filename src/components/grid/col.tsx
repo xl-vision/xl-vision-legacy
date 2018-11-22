@@ -6,6 +6,7 @@ import classnames from 'classnames'
 
 
 
+// @ts-ignore
 const checkNumber: PropTypes.Validator<number> = function (props: any, propName: string, componentName: string, location: string, propFullName: string) {
     const prop = props[propName]
     if (prop == null) {
