@@ -5,13 +5,18 @@ export default [
         redirect: '/grid'
     },
     {
-        name: '安装',
-        path: '/install',
-        component: () => new Promise((resolve => resolve('install')))
-    },
-    {
         name: '组件',
         children: [
+            {
+                name: '基础',
+                children: [
+                    {
+                        name: 'button',
+                        path: '/button',
+                        component: () => import('../src/components/button/doc')
+                    },
+                ]
+            },
             {
                 name: '布局',
                 children: [
