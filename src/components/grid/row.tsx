@@ -42,101 +42,78 @@ export interface RowState {
 }
 
 
-export default class Row extends React.Component<RowProps, RowState> {
-    static defaultProps: RowProps = {
-        gutter: 0
-    }
-    state: RowState = {
-        breakpointIn: {}
-    }
-    static propTypes = {
-        prefixCls: PropTypes.string,
-        type: PropTypes.oneOf(['flex']),
-        align: PropTypes.oneOf(['top', 'middle', 'bottom']),
-        justify: PropTypes.oneOf(['start', 'end', 'center', 'space-around', 'space-between']),
-        className: PropTypes.string,
-        children: PropTypes.node,
-        gutter: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
-            'xxl': PropTypes.number,
-            'xl': PropTypes.number,
-            'lg': PropTypes.number,
-            'md': PropTypes.number,
-            'sm': PropTypes.number,
-            'xs': PropTypes.number,
-        })])
-    }
 
-    componentDidMount() {
-        const { gutter } = this.props
-        Object.keys(responsiveMap)
-            .map((breakpoint: Breakpoint) => enquire.register(responsiveMap[breakpoint], {
-                match: () => {
-                    if (typeof gutter !== 'object') {
-                        return
-                    }
-                    this.setState(prevState => ({
-                        breakpointIn: {
-                            ...prevState.breakpointIn,
-                            [breakpoint]: true
-                        }
-                    }))
-                },
-                unmatch: () => {
-                    if (typeof gutter !== 'object') {
-                        return
-                    }
-                    this.setState(prevState => ({
-                        breakpointIn: {
-                            ...prevState.breakpointIn,
-                            [breakpoint]: false
-                        }
-                    }))
+const Row = (props: RowProps) => {
+    const [breakpointIn, setBreakpointIn] = React.useState<Partial<Record<Breakpoint, boolean>>>({})
+
+    const { gutter } = props
+
+    Object.keys(responsiveMap)
+        .map((breakpoint: Breakpoint) => enquire.register(responsiveMap[breakpoint], {
+            match: () => {
+                if (typeof gutter !== 'object') {
+                    return
                 }
-            }))
-    }
+                setBreakpointIn(prevState => ({
+                    ...prevState,
+                    [breakpoint]: true
+                }))
+            },
+            unmatch: () => {
+                if (typeof gutter !== 'object') {
+                    return
+                }
+                setBreakpointIn(prevState => ({
+                    ...prevState,
+                    [breakpoint]: false
+                }))
+            }
+        }))
 
-    componentWillUnmount() {
+    React.useEffect(() => (() => {
+        console.log('destory')
         Object.keys(responsiveMap)
             .map((breakpoint: Breakpoint) => enquire.unregister(responsiveMap[breakpoint]))
-    }
+    }))
 
-    getGutter(): number {
-        const { gutter } = this.props
+
+    const actualGutter = React.useMemo(() => {
+        console.log(1)
         if (typeof gutter === 'object') {
             for (const breakpoint in responsiveMap) {
                 const key = breakpoint as Breakpoint
-                if (this.state.breakpointIn[key] && gutter[key] !== undefined) {
+                if (breakpointIn[key] && gutter[key] !== undefined) {
                     return gutter[key] as number
                 }
             }
             return 0
         }
         return gutter as number
-    }
+    }, [breakpointIn])
 
-    render() {
-        const {
-            type, justify, align, className, style, prefixCls = 'xl-row', ...others
-        } = this.props
-        const gutter = this.getGutter()
-        delete others.gutter
-        const classes = classnames({
-            [prefixCls]: !type,
-            [`${prefixCls}-${type}`]: type,
-            [`${prefixCls}-${type}-${justify}`]: type && justify,
-            [`${prefixCls}-${type}-${align}`]: type && align
-        }, className)
 
-        const styles = gutter > 0 ? {
-            marginLeft: gutter / -2,
-            marginRight: gutter / -2,
-            ...style
-        } : style
+    const {
+        type, justify, align, className, style, prefixCls = 'xl-row', ...others
+    } = props
+    delete others.gutter
+    const classes = classnames({
+        [prefixCls]: !type,
+        [`${prefixCls}-${type}`]: type,
+        [`${prefixCls}-${type}-${justify}`]: type && justify,
+        [`${prefixCls}-${type}-${align}`]: type && align
+    }, className)
 
-        return (
-            <Context.Provider value={{ gutter }}>
-                <div {...others} className={classes} style={styles} />
-            </Context.Provider>
-        )
-    }
+    const styles = actualGutter > 0 ? {
+        marginLeft: actualGutter / -2,
+        marginRight: actualGutter / -2,
+        ...style
+    } : style
+
+    return (
+        <Context.Provider value={{ gutter: actualGutter }}>
+            <div {...others} className={classes} style={styles} />
+        </Context.Provider>
+    )
 }
+
+export default Row
