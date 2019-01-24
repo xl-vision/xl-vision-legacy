@@ -10,7 +10,6 @@ export interface ButtonProps extends React.HtmlHTMLAttributes<HTMLButtonElement>
 export default function (props: ButtonProps) {
 
   const { prefixCls = 'xl-button', className, children, disabled, ...otherProps } = props
-
   const buttonClasses = classnames({
     [prefixCls]: true,
     [`${prefixCls}--disabled`]: disabled

@@ -1,11 +1,14 @@
 const ts = require('gulp-typescript')
 const merge2 = require('merge2')
+const path = require('path')
+
 const compileJs = require('./compileJs')
 
 const tsDefaultReporter = ts.reporter.defaultReporter()
 
-function compileTs(stream, modules = false, tsConfig = 'tsconfig.json') {
-  const tsProject = ts.createProject(tsConfig)
+function compileTs(stream, modules = false, configPath = 'tsconfig.json') {
+  
+  const tsProject = ts.createProject(configPath)
   let error = false
   const tsResult = stream.pipe(tsProject({
     error(err, ts) {

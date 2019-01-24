@@ -6,6 +6,9 @@ const compiler = require('webpack')
 
 const getBabelConfig = require('../config/getBabelConfig')
 
+const tslintPath = 'tslint.json'
+const tsconfigPath = 'tsconfig.json'
+
 const webpackBaseConfig = {
     devtool: 'source-map',
     resolve: {
@@ -40,8 +43,9 @@ const webpackBaseConfig = {
             enforce: 'pre',
             loader: 'tslint-loader',
             options: {
-                typeCheck: true,
-                // tsConfigFile: path.join(process.cwd(),'tsconfig.json')
+                configFile: tslintPath,
+                tsConfigFile: tsconfigPath,
+                // typeCheck: true,
             },
         }, {
             test: /\.tsx?$/,
@@ -54,6 +58,7 @@ const webpackBaseConfig = {
                 {
                     loader: 'ts-loader',
                     options: {
+                        configFile: tsconfigPath,
                         transpileOnly: true,
                     },
                 },
@@ -86,7 +91,7 @@ const webpackProdConfig = webpackMerge(webpackBaseConfig, {
     }
 })
 
-function compileWebpack(stream, isCompressed = false) {
+function runWebpack(stream, isCompressed = false) {
     const config = isCompressed ? webpackProdConfig : webpackDevConfig
     return stream.pipe(webpack(config, compiler, (err, stats) => {
         if (err) {
@@ -120,4 +125,4 @@ function compileWebpack(stream, isCompressed = false) {
     }))
 }
 
-module.exports = compileWebpack
+module.exports = runWebpack

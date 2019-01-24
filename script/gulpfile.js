@@ -1,14 +1,14 @@
 const gulp = require('gulp')
-const tslint = require('gulp-tslint')
 const path = require('path')
 const fs = require('fs-extra')
 const merge2 = require('merge2')
 const through2 = require('through2')
 const cleanCss = require('gulp-clean-css')
 
-const compileTs = require('./compile/compileTs')
-const compileScss = require('./compile/compileScss')
-const compileWebpack = require('./compile/compileWebpack')
+const compileTs = require('./build/compileTs')
+const compileScss = require('./build/compileScss')
+const runTslint = require('./build/runTslint')
+const runWebpack = require('./build/runWebpack')
 
 const resources = {
     ts: [
@@ -34,12 +34,7 @@ const libDir = path.join(process.cwd(), 'lib')
 const distDir = path.join(process.cwd(), 'dist')
 
 gulp.task('tslint', () => {
-    return gulp.src(resources.tslint)
-        .pipe(tslint({
-            formatter: "verbose",
-            configuration: 'tslint.json',
-        }))
-        .pipe(tslint.report())
+    return runTslint(gulp.src(resources.tslint))
 })
 
 gulp.task('compile:es', () => {
@@ -82,7 +77,7 @@ gulp.task('dist:uncompressed', () => {
             next()
         }))
 
-    const webpackStream = compileWebpack(gulp.src(resources.ts), false)
+    const webpackStream = runWebpack(gulp.src('src/index.tsx'), false)
     return merge2([scssStream, webpackStream])
         .pipe(gulp.dest(distDir))
 })
@@ -98,7 +93,7 @@ gulp.task('dist:compressed', () => {
             this.push(file)
             next()
         }))
-    const webpackStream = compileWebpack(gulp.src(resources.ts), true)
+    const webpackStream = runWebpack(gulp.src('src/index.tsx'), true)
 
     return merge2([scssStream, webpackStream])
         .pipe(gulp.dest(distDir))

@@ -2,10 +2,10 @@ module.exports = {
     preset: 'ts-jest',
     // testEnvironment: 'node',
     setupFiles: [
-        "./test/setup.js"
+        "./script/test/setup.js"
     ],
     testMatch: [
-        "**/src/components/*/test/index.ts?(x)"
+        "**/src/components/**/test/index.ts?(x)"
     ],
     // collectCoverage: true,
     collectCoverageFrom: [
