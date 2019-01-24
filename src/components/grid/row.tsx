@@ -1,5 +1,8 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
+import classNames from 'classnames'
+import RowContext from './row-context'
+import { BreakPoint, breakPointArray, breakPointMap } from './common'
 
 let enquire: any
 if (typeof window !== 'undefined') {
@@ -25,19 +28,6 @@ if (typeof window !== 'undefined') {
     enquire = require('enquire.js')
 
 }
-
-export type BreakPoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
-export type BreakPointMap = Record<BreakPoint, string>
-// 顺序不能颠倒
-export const responsiveMap: BreakPointMap = {
-    xxl: '(min-width: 1600px)',
-    xl: '(min-width: 1200px)',
-    lg: '(min-width: 992px)',
-    md: '(min-width: 768px)',
-    sm: '(min-width: 576px)',
-    xs: '(max-width: 575px)',
-}
-export const breakpointArray: Array<BreakPoint> = Object.keys(responsiveMap) as Array<BreakPoint>
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
     gutter?: number | Partial<Record<BreakPoint, number>>
@@ -76,9 +66,9 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
 
     componentDidMount() {
-        Object.keys(breakpointArray)
+        Object.keys(breakPointArray)
             .map((breakPoint: BreakPoint) => {
-                enquire.register(responsiveMap[breakPoint], {
+                enquire.register(breakPointMap[breakPoint], {
                     match: () => {
                         if (typeof this.props.gutter !== 'object') {
                             return
@@ -107,15 +97,15 @@ export default class Row extends React.Component<RowProps, RowState> {
             })
     }
     componentWillUnmount() {
-        Object.keys(responsiveMap).map((breakPoint: BreakPoint) =>
-            enquire.unregister(responsiveMap[breakPoint]),
+        Object.keys(breakPointMap).map((breakPoint: BreakPoint) =>
+            enquire.unregister(breakPointMap[breakPoint]),
         )
     }
     getGutter(): number {
         const { gutter } = this.props
         if (typeof gutter === 'object') {
-            for (let i = 0; i < breakpointArray.length; i++) {
-                const breakpoint: BreakPoint = breakpointArray[i]
+            for (let i = 0; i < breakPointArray.length; i++) {
+                const breakpoint: BreakPoint = breakPointArray[i]
                 if (this.state.media[breakpoint] && gutter[breakpoint] !== undefined) {
                     return gutter[breakpoint] as number
                 }
@@ -124,6 +114,36 @@ export default class Row extends React.Component<RowProps, RowState> {
         return gutter as number
     }
     render() {
-        return <div></div>
+        const {
+            prefixCls = 'xl-row',
+            type,
+            justify,
+            align,
+            className,
+            style,
+            children,
+            ...others
+        } = this.props
+        const gutter = this.getGutter()
+        const classes = classNames({
+            [prefixCls]: !type,
+            [`${prefixCls}-${type}`]: type,
+            [`${prefixCls}-${type}-${justify}`]: type && justify,
+            [`${prefixCls}-${type}-${align}`]: type && align,
+        }, className)
+        const rowStyle = gutter > 0 ? {
+            marginLeft: gutter / -2,
+            marginRight: gutter / -2,
+            ...style
+        } : style
+        delete others.gutter
+
+        return (
+            <RowContext.Provider value={{ gutter }}>
+                <div {...others} className={classes} style={rowStyle}>
+                    {children}
+                </div>
+            </RowContext.Provider>
+        )
     }
 }
