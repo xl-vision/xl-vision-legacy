@@ -1,14 +1,13 @@
 const sass = require('gulp-sass')
-const postcss = require('gulp-postcss')
-// const cleanCSS = require('gulp-clean-css')
+const compileCss = require('./compileCss')
 
 function compileScss(stream) {
-  return stream.pipe(sass())
+  const cssStream = stream.pipe(sass())
     .on('error', function (error) {
       console.error(error.toString())
       this.emit('end')
     })
-    .pipe(postcss())
+  return compileCss(cssStream)
 }
 
-export default compileScss
+module.exports = compileScss

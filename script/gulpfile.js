@@ -1,21 +1,16 @@
 const gulp = require('gulp')
-const sass = require('gulp-sass')
-const postcss = require('gulp-postcss')
-const cleanCSS = require('gulp-clean-css')
-const path = require('path')
-const through2 = require('through2')
-const ts = require('gulp-typescript')
-const tsDefaultReporter = ts.reporter.defaultReporter()
-const babel = require('gulp-babel')
 const tslint = require('gulp-tslint')
-const merge2 = require('merge2')
-const getBabelConfig = require('./lib/getBabelConfig')
+const path = require('path')
 const fs = require('fs-extra')
-const getWebpackConfig = require('./lib/getWebpackConfig')
-const webpack = require('webpack')
-const webpackDevServer = require('webpack-dev-server')
+const merge2 = require('merge2')
+const through2 = require('through2')
+const cleanCss = require('gulp-clean-css')
 
-const sources = {
+const compileTs = require('./compile/compileTs')
+const compileScss = require('./compile/compileScss')
+const compileWebpack = require('./compile/compileWebpack')
+
+const resources = {
     ts: [
         'src/**/*.ts?(x)',
         'src/**/*.d.ts',
@@ -29,241 +24,86 @@ const sources = {
         'src/**/*.ts?(x)',
         'src/**/*.d.ts'
     ],
-    style: [
+    scss: [
         'src/**/style/index.scss',
-    ],
+    ]
 }
-
 
 const esDir = path.join(process.cwd(), 'es')
 const libDir = path.join(process.cwd(), 'lib')
 const distDir = path.join(process.cwd(), 'dist')
 
-function buildTs(modules) {
-    const tsProject = ts.createProject('tsconfig.json')
-    let error = false
-    const tsResult = gulp.src(sources.ts).pipe(tsProject({
-        error(err, ts) {
-            tsDefaultReporter.error(err, ts)
-            error = true
-        },
-        finish: tsDefaultReporter.finish,
-    }))
-
-    function check() {
-        if (error) {
-            this.emit('end')
-        }
-    }
-
-    tsResult.on('finish', check)
-    tsResult.on('end', check)
-
-    const tsd = tsResult.dts.pipe(gulp.dest(modules ? libDir : esDir))
-    const js = tsResult.js.pipe(babel(getBabelConfig(modules))).pipe(gulp.dest(modules ? libDir : esDir))
-    return merge2([tsd, js])
-}
-
-function buildStyle(modules) {
-    return gulp.src(sources.style).pipe(sass())
-        .on('error', function (error) {
-            console.error(error.toString())
-            this.emit('end')
-        })
-        .pipe(postcss())
-        .pipe(cleanCSS({
-            level: 2,
-            format: 'beautify',
-        }))
-        .pipe(gulp.dest(modules ? libDir : esDir))
-}
-
-function compile(modules) {
-    fs.removeSync(modules ? libDir : esDir)
-    return merge2(buildTs(modules), buildStyle(modules))
-}
-
-function runTslint() {
-    return gulp.src(sources.tslint)
+gulp.task('tslint', () => {
+    return gulp.src(resources.tslint)
         .pipe(tslint({
             formatter: "verbose",
             configuration: 'tslint.json',
         }))
         .pipe(tslint.report())
-}
+})
 
-function buildDist() {
-    return new Promise((resolve, reject) => {
-        webpack(getWebpackConfig(), (err, stats) => {
-            if (err) {
-                console.error(err.stack || err)
-                if (err.details) {
-                    console.error(err.details)
-                }
-                reject(err)
-                return
-            }
+gulp.task('compile:es', () => {
+    fs.removeSync(esDir)
+    const tsStream = compileTs(gulp.src(resources.ts))
 
-            const info = stats.toJson()
-
-            if (stats.hasErrors()) {
-                console.error(info.errors)
-            }
-
-            if (stats.hasWarnings()) {
-                console.warn(info.warnings)
-            }
-
-            const buildInfo = stats.toString({
-                colors: true,
-                children: true,
-                chunks: false,
-                modules: false,
-                chunkModules: false,
-                hash: false,
-                version: false,
-            })
-            console.log(buildInfo)
-            resolve()
-        },
-        )
-    })
-
-}
-
-function buildDistStyle() {
-
-    const isProd = process.env.NODE_ENV === 'production'
-
-    return gulp.src('src/style/index.scss').pipe(sass())
-        .on('error', function (error) {
-            console.error(error.toString())
-            this.emit('end')
-        })
-        .pipe(postcss())
-        .pipe(cleanCSS({
+    const scssStream = compileScss(gulp.src(resources.scss))
+        .pipe(cleanCss({
             level: 2,
-            format: isProd ? 'none' : 'beautify',
+            format: 'beautify',
+        }))
+    return merge2([tsStream, scssStream])
+        .pipe(gulp.dest(esDir))
+})
+
+gulp.task('compile:lib', () => {
+    fs.removeSync(libDir)
+    const tsStream = compileTs(gulp.src(resources.ts), 'commonjs')
+
+    const scssStream = compileScss(gulp.src(resources.scss))
+        .pipe(cleanCss({
+            level: 2,
+            format: 'beautify',
+        }))
+    return merge2([tsStream, scssStream])
+        .pipe(gulp.dest(libDir))
+})
+
+gulp.task('compile', gulp.parallel('compile:lib', 'compile:es'))
+
+gulp.task('dist:uncompressed', () => {
+    const scssStream = compileScss(gulp.src('src/style/index.scss'))
+        .pipe(cleanCss({
+            level: 2,
+            format: 'beautify',
         }))
         .pipe(through2.obj(function (file, encoding, next) {
-            file.path = file.path.replace(/.css$/, `${isProd ? '.min' : ''}.css`)
+            file.path = file.path.replace(/index.css$/, `style/xl-vision.css`)
             this.push(file)
             next()
         }))
+
+    const webpackStream = compileWebpack(gulp.src(resources.ts), false)
+    return merge2([scssStream, webpackStream])
         .pipe(gulp.dest(distDir))
-}
+})
 
-function buildSite() {
-    fs.removeSync(path.join(process.cwd(), 'docs-dist'))
-    return new Promise((resolve, reject) => {
-        webpack(require('./site/webpack.prod.conf'), (err, stats) => {
-            if (err) {
-                console.error(err.stack || err)
-                if (err.details) {
-                    console.error(err.details)
-                }
-                reject(err)
-                return
-            }
+gulp.task('dist:compressed', () => {
+    const scssStream = compileScss(gulp.src('src/style/index.scss'))
+        .pipe(cleanCss({
+            level: 2,
+            format: 'none',
+        }))
+        .pipe(through2.obj(function (file, encoding, next) {
+            file.path = file.path.replace(/index.css$/, `style/xl-vision.min.css`)
+            this.push(file)
+            next()
+        }))
+    const webpackStream = compileWebpack(gulp.src(resources.ts), true)
 
-            const info = stats.toJson()
+    return merge2([scssStream, webpackStream])
+        .pipe(gulp.dest(distDir))
+})
 
-            if (stats.hasErrors()) {
-                console.error(info.errors)
-            }
-
-            if (stats.hasWarnings()) {
-                console.warn(info.warnings)
-            }
-
-            const buildInfo = stats.toString({
-                colors: true,
-                children: true,
-                chunks: false,
-                modules: false,
-                chunkModules: false,
-                hash: false,
-                version: false,
-            })
-            console.log(buildInfo)
-            resolve()
-        },
-        )
-    })
-}
-
-function startSite() {
-    const options = {
-        host: 'localhost',
-        port: 8080,
-        clientLogLevel: 'warning',
-        historyApiFallback: {
-            rewrites: [{
-                from: /.*/,
-                to: '/index.html'
-            }]
-        },
-        hot: true,
-        // contentBase: false, // since we use CopyWebpackPlugin.
-        contentBase: 'docs-dist',
-        compress: false,
-        // open: true,
-        overlay: {
-            warnings: false,
-            errors: true
-        },
-        publicPath: '/',
-        proxy: {},
-        // quiet: true, // necessary for FriendlyErrorsPlugin
-        watchOptions: {
-            poll: false
-        }
-    }
-    const config = require('./site/webpack.dev.conf')
-    webpackDevServer.addDevServerEntrypoints(config, options)
-    const compiler = webpack(config)
-    const server = new webpackDevServer(compiler, options)
-    return new Promise((resolve, reject) => {
-        server.listen(options.port, options.host, err => {
-            if (err) {
-                console.error(err)
-                reject(err)
-                return
-            }
-            console.log(`Server starts sucessful, you can open in http://${options.host}:${options.port}`)
-            resolve()
-        })
-    })
-}
-
-gulp.task('tslint', runTslint)
-
-gulp.task('compile:es', gulp.series(['tslint', () => {
-    return compile()
-}]))
-
-
-gulp.task('compile', gulp.series(['compile:es', () => {
-    return compile('commonjs')
-}]))
-
-gulp.task('dist:prod', gulp.series(done => {
-    process.env.NODE_ENV = 'production'
-    done()
-}, [buildDist, buildDistStyle]))
-
-gulp.task('dist:dev', gulp.series(done => {
-    process.env.NODE_ENV = 'development'
-    done()
-}, [buildDist, buildDistStyle]))
-
-
-gulp.task('dist', gulp.series([done => {
+gulp.task('dist', gulp.series(async () => {
     fs.removeSync(distDir)
-    done()
-}, 'dist:prod', 'dist:dev']))
-
-
-gulp.task('site:prod', buildSite)
-
-gulp.task('site:dev', startSite)
+}, gulp.parallel('dist:compressed', 'dist:uncompressed')))

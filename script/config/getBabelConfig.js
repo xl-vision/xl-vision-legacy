@@ -1,4 +1,4 @@
-module.exports = function (modules) {
+const getBabelConfig = modules => {
     return {
         presets: [
             ["@babel/preset-env", {
@@ -10,3 +10,5 @@ module.exports = function (modules) {
         ]
     }
 }
+
+module.exports = getBabelConfig

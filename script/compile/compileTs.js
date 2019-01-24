@@ -1,16 +1,13 @@
-const gulp = require('gulp')
 const ts = require('gulp-typescript')
-const babel = require('gulp-babel')
 const merge2 = require('merge2')
-const getBabelConfig = require('./getBabelConfig')
+const compileJs = require('./compileJs')
 
 const tsDefaultReporter = ts.reporter.defaultReporter()
 
-
-function compileTs(src, tsConfig = 'tsconfig.json', isCompressed = false) {
+function compileTs(stream, modules = false, tsConfig = 'tsconfig.json') {
   const tsProject = ts.createProject(tsConfig)
   let error = false
-  const tsResult = gulp.src(src).pipe(tsProject({
+  const tsResult = stream.pipe(tsProject({
     error(err, ts) {
       tsDefaultReporter.error(err, ts)
       error = true
@@ -28,8 +25,8 @@ function compileTs(src, tsConfig = 'tsconfig.json', isCompressed = false) {
   tsResult.on('end', check)
 
   const tsd = tsResult.dts
-  const js = tsResult.js.pipe(babel(getBabelConfig(modules))).pipe(gulp.dest(dest))
+  const js = compileJs(tsResult.js, modules)
   return merge2([tsd, js])
 }
 
-export default compileTs
+module.exports = compileTs

@@ -1,20 +1,8 @@
 const babel = require('gulp-babel')
-
-const getBabelConfig = modules => {
-  return {
-    presets: [
-        ["@babel/preset-env", {
-            modules: modules || false
-        }], "@babel/preset-react"
-    ],
-    plugins: [
-        "@babel/plugin-transform-runtime"
-    ]
-}
-}
+const getBabelConfig = require('../config/getBabelConfig')
 
 function compileJs(stream, modules = false) {
-  return stream.pipe(babel(getBabelConfig(modules)))
+    return stream.pipe(babel(getBabelConfig(modules)))
 }
 
-export default compileJs
+module.exports = compileJs
