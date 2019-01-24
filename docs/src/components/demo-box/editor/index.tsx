@@ -30,7 +30,7 @@ export default class Editor extends React.PureComponent<EditorProps, EditorState
     textarea: HTMLTextAreaElement
     editor: CodeMirror.Editor
 
-    constructor(props) {
+    constructor(props: EditorProps) {
         super(props)
         this.state = {
             code: props.code
@@ -72,7 +72,7 @@ export default class Editor extends React.PureComponent<EditorProps, EditorState
     render() {
         return (
             <div>
-                <textarea ref={ele => {
+                <textarea ref={(ele: HTMLTextAreaElement) => {
                     this.textarea = ele
                 }} defaultValue={this.props.code} />
             </div>

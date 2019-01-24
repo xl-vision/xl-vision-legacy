@@ -17,7 +17,7 @@ export interface DemoBoxState {
 
 export default class DemoBox extends React.PureComponent<DemoBoxProps, DemoBoxState> {
 
-    constructor(props) {
+    constructor(props: DemoBoxProps) {
         super(props)
         this.state = {
             code: props.code,

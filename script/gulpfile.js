@@ -14,8 +14,7 @@ const resources = {
     ts: [
         'src/**/*.ts?(x)',
         'src/**/*.d.ts',
-        '!src/**/test/*.ts?(x)',
-        '!src/**/doc/*.ts?(x)'
+        '!src/**/test/*.ts?(x)'
     ],
     test: [
         'src/**/test/*.ts?(x)'

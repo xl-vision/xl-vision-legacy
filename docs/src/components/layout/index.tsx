@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Aside from '../aside'
 import Content from '../content'
 import Footer from '../footer'
-import { hot } from 'react-hot-loader'
 
 import './index.scss'
 

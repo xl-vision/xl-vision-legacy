@@ -8,8 +8,8 @@ const renderMenus = (config: any, level: string = '0') => {
     return (
         <ul className={'aside-list'}>
             {
-                config.filter(it => !it.redirect)
-                    .map((it, index) => {
+                config.filter((it: any) => !it.redirect)
+                    .map((it: any, index: number) => {
                         let ret: any
                         if (it.children) {
 

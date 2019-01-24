@@ -12,7 +12,7 @@ export interface ViewerProps {
 
 export default class Viewer extends React.PureComponent<ViewerProps, {}> {
 
-    constructor(props) {
+    constructor(props: ViewerProps) {
         super(props)
     }
     componentDidCatch() { }
