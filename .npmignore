@@ -4,3 +4,5 @@ site/
 src/
 docs-dist/
 coverage/
+
+package-lock.json
