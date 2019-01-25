@@ -12,19 +12,20 @@ const runWebpack = require('./build/runWebpack')
 
 const resources = {
     ts: [
-        'src/**/*.ts?(x)',
-        'src/**/*.d.ts',
-        '!src/**/test/*.ts?(x)'
+        'src/components/**/*.ts?(x)',
+        'src/components/**/*.d.ts',
+        '!src/components/**/test/*.ts?(x)'
     ],
     test: [
-        'src/**/test/*.ts?(x)'
+        'src/components/**/test/*.ts?(x)'
     ],
     tslint: [
-        'src/**/*.ts?(x)',
-        'src/**/*.d.ts'
+        'src/components/**/*.ts?(x)',
+        'src/components/**/*.d.ts'
     ],
     scss: [
-        'src/**/style/index.scss',
+        'src/style/*/*.scss',
+        '!src/style/_*/**/*.scss'
     ]
 }
 

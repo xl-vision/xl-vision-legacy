@@ -6,6 +6,7 @@ import RowContext from './row-context'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 
+// @ts-ignore
 const validator: PropTypes.Validator<Error | null> = (propValue: Partial<Record<BreakPoint, number>>, key: string, componentName: string, location: string, propFullName: string) => {
     if (typeof propValue !== 'object') {
         return new Error(

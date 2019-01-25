@@ -1,13 +1,5 @@
 import * as React from 'react'
+import * as ReactDom from 'react-dom'
 import Layout from './components/layout'
-import './App.css'
 
-class App extends React.Component {
-  public render() {
-    return (
-      <Layout />
-    )
-  }
-}
-
-export default App
+ReactDom.render(<Layout />, document.querySelector('#app'))
