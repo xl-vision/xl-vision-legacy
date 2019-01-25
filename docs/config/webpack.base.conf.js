@@ -5,6 +5,9 @@ module.exports = {
     devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+        alias: {
+            '@': path.resolve(__dirname, '..', 'src')
+        }
     },
     entry: path.resolve(__dirname, '..', 'src/app.tsx'),
     output: {
@@ -26,37 +29,32 @@ module.exports = {
         }, {
             test: /\.tsx?$/,
             exclude: /node_modules/,
-            use: [
-                {
-                    loader: 'babel-loader',
-                    // options: getBabelConfig(false),
+            use: [{
+                loader: 'babel-loader',
+                // options: getBabelConfig(false),
+            },
+            {
+                loader: 'ts-loader',
+                options: {
+                    // configFile: tsconfigPath,
+                    transpileOnly: true,
                 },
-                {
-                    loader: 'ts-loader',
-                    options: {
-                        // configFile: tsconfigPath,
-                        transpileOnly: true,
-                    },
-                },
-            ],
+            }],
         }, {
             test: /\.md$/,
             exclude: /node_modules/,
-            use: [
-                {
-                    loader: 'babel-loader',
-                    // options: getBabelConfig(false),
-                },
-                {
-                    loader: require.resolve('./md-loader'),
-                    options: {
-                    }
-                }
-            ]
+            use: [{
+                loader: 'babel-loader',
+                // options: getBabelConfig(false),
+            },
+            {
+                loader: require.resolve('./md-loader')
+            }]
         }]
     },
     plugins: [
         new HtmlWebpackPlugin({
+            title: 'xl-vision',
             template: path.resolve(__dirname, '..', 'index.html')
         })
     ]
