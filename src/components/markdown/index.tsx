@@ -1,99 +1,102 @@
 import * as React from 'react'
-import RuleHeading from './rule/heading'
+import HeadingRender from './render/heading'
+import BoldRender from './render/bold'
 
-export const ORDER_PRIORITY_LOW = Number.MAX_VALUE
-
-export interface State {
-    key: number
+export interface Render {
+  match: RegExp
+  render: (
+    capture: RegExpMatchArray,
+    content: string,
+    next: (captureContent: string) => Array<React.ReactNode>
+  ) => React.ReactNode
 }
 
-export interface Rule {
-    // name: string
-    match: RegExp
-    order: number
-    render: (capture: RegExpMatchArray, content: string, state: State, next: (captureContent: string) => Array<React.ReactNode>) => React.ReactNode
-}
+export interface PreProcessor {}
+
+export interface PostProcessor {}
 
 export interface MarkdownProps {
-    children: string
+  children: string
 }
-export interface MarkdownState {
+export default class Markdown extends React.Component<MarkdownProps, {}> {
+  rules: Array<Render> = [new HeadingRender(), new BoldRender()]
+  preProcessors: Array<PreProcessor> = []
+  postProcessors: Array<PostProcessor> = []
 
-}
-export default class Markdown extends React.Component<MarkdownProps, MarkdownState> {
-
-    rules: Array<Rule> = [
-        // new RuleText(),
-        new RuleHeading(),
-    ]
-
-    state: MarkdownState = {
-    }
-
-    constructor(props: MarkdownProps) {
-        super(props)
-        // 添加默认的rule
-        // 排序
-        this.sortRule()
-    }
-
-    sortRule() {
-        this.rules = this.rules.sort((left, right) => left.order - right.order > 0 ? -1 : 1)
-    }
-    addRule(rule: Rule) {
-        this.rules.push(rule)
-        // 排序
-        this.sortRule()
-    }
-
-
-    render() {
-        const rules = this.rules
-        const { children } = this.props
-        return (
-            <div>
-                {renderSource(children, rules)}
-            </div>
-        )
-    }
+  render() {
+    const { children } = this.props
+    // 预处理
+    const preContent = doPreProcess(children, this.preProcessors)
+    // 渲染
+    let elements = doRender(preContent, this.rules)
+    // 后处理
+    elements = doPostProcessor(elements, this.postProcessors)
+    return <div>{elements}</div>
+  }
 }
 
-function renderSource(source: string, rules: Array<Rule>) {
-    let leaveSource = source
-    let prevStr = ''
-    const arr: Array<React.ReactNode> = []
-    let text = ''
-    while (leaveSource) {
-        leaveSource = leaveSource.substring(prevStr.length)
-        let i = 0
-        while (i < rules.length) {
-            const rule = rules[i]
-            const capture = leaveSource.match(rule.match)
-            if (capture) {
-                if (text) {
-                    arr.push(text)
-                    text = ''
-                }
-                prevStr = capture[0]
-                const renderRet = rule.render(capture, source, { key: arr.length }, (innerStr: string) => {
-                    if (!innerStr || innerStr.length === 0) {
-                        return []
-                    }
-                    return renderSource(innerStr, rules)
-                })
-                arr.push(renderRet)
-                break
-            }
-            i++
-        }
-        if (i >= rules.length) {
-            const char = leaveSource.charAt(0)
-            leaveSource = leaveSource.substring(1)
-            text += char
-        }
-    }
-    if (text) {
+function doPreProcess(content: string, preProcessors: Array<PreProcessor>) {
+  return content
+}
+
+function doPostProcessor(
+  elements: Array<React.ReactNode>,
+  postProcessors: Array<PostProcessor>
+) {
+  return elements
+}
+
+function doRender(source: string, rules: Array<Render>) {
+  const arr: Array<React.ReactNode> = []
+  let leaveSource = source
+  let prevStr = ''
+  let text = ''
+  while (leaveSource) {
+    let i = 0
+    for (; i < rules.length; i++) {
+      const rule = rules[i]
+      const capture = leaveSource.match(rule.match)
+      if (!capture) {
+        continue
+      }
+      prevStr = capture[0]
+      if (!prevStr) {
+        continue
+      }
+      if (text) {
         arr.push(text)
+        text = ''
+      }
+      const renderRet = rule.render(capture, source, (innerStr: string) => {
+        if (!innerStr || innerStr.length === 0) {
+          return []
+        }
+        return doRender(innerStr, rules)
+      })
+      arr.push(renderRet)
+      break
     }
-    return arr
+
+    if (i >= rules.length) {
+      const char = (prevStr = leaveSource.charAt(0))
+      text += char
+    }
+    leaveSource = leaveSource.substring(prevStr.length)
+  }
+  if (text) {
+    arr.push(text)
+  }
+  const newArr: Array<React.ReactNode> = []
+  // 设置key
+  arr.forEach((it: React.ReactNode, index: number) => {
+    let element = it
+    if (React.isValidElement(element)) {
+      element = React.createElement(element.type, {
+        ...element.props,
+        key: index
+      })
+    }
+    newArr.push(element)
+  })
+  return newArr
 }

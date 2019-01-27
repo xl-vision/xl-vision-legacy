@@ -1,14 +1,13 @@
 import * as React from 'react'
-import Markdown2 from '../../../../src/components/markdown'
+import Markdown from '../../../../src/components/markdown'
 // import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import './index.scss'
-
 export default class extends React.Component<{ children: string }, {}> {
     render() {
         const { children } = this.props
         return (
-            <Markdown2>{children}</Markdown2>
+            <Markdown>{children}</Markdown>
         )
     }
 }
