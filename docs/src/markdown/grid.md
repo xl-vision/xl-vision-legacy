@@ -1,3 +1,42 @@
+# h1 Heading
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+
+## Emphasis
+
+**This is bold text**
+__This is bold text__
+
+*This is italic text*
+_This is italic text_
+
+***This is bold italic text***
+___This is bold italic text___
+__*This is bold italic text*__
+**_This is bold italic text_**
+
+~~Strikethrough~~
+
+
+## Blockquotes
+
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+
+## Horizontal Rules
+
+___
+
+---
+
+***
+
 ---
 __Advertisement :)__
 
@@ -10,21 +49,9 @@ You will like those projects!
 
 ---
 
-# h1 Heading 8-)
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
 
 
-## Horizontal Rules
 
-___
-
----
-
-***
 
 
 ## Typographic replacements
@@ -40,25 +67,6 @@ test.. test... test..... test?..... test!....
 "Smartypants, double quotes" and 'single quotes'
 
 
-## Emphasis
-
-**This is bold text**
-
-__This is bold text__
-
-*This is italic text*
-
-_This is italic text_
-
-~~Strikethrough~~
-
-
-## Blockquotes
-
-
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
 
 
 ## Lists

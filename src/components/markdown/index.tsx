@@ -1,8 +1,15 @@
 import * as React from 'react'
 import HeadingRender from './render/heading'
 import BoldRender from './render/bold'
+import ItalicRender from './render/italic'
+import StrikethroughRender from './render/strikethrough'
+import BlockquotesRender from './render/blockquotes'
+import BrRender from './render/br'
+import TextRender from './render/text'
+import KeyPostProcessor from './postProcessor/key'
 
 export interface Render {
+  name: string
   match: RegExp
   render: (
     capture: RegExpMatchArray,
@@ -11,42 +18,83 @@ export interface Render {
   ) => React.ReactNode
 }
 
-export interface PreProcessor {}
+export interface PreProcessor {
+  name: string
+  process: (content: string, deep: number) => string
+}
 
-export interface PostProcessor {}
+export interface PostProcessor {
+  name: string
+  process: (
+    elements: Array<React.ReactNode>,
+    deep: number
+  ) => Array<React.ReactNode>
+}
 
 export interface MarkdownProps {
   children: string
 }
 export default class Markdown extends React.Component<MarkdownProps, {}> {
-  rules: Array<Render> = [new HeadingRender(), new BoldRender()]
+  rules: Array<Render> = [
+    new HeadingRender(),
+    new BoldRender(),
+    new ItalicRender(),
+    new StrikethroughRender(),
+    new BlockquotesRender(),
+    new BrRender()
+    // new TextRender()
+  ]
   preProcessors: Array<PreProcessor> = []
-  postProcessors: Array<PostProcessor> = []
+  postProcessors: Array<PostProcessor> = [new KeyPostProcessor()]
 
   render() {
     const { children } = this.props
-    // 预处理
-    const preContent = doPreProcess(children, this.preProcessors)
+
     // 渲染
-    let elements = doRender(preContent, this.rules)
-    // 后处理
-    elements = doPostProcessor(elements, this.postProcessors)
+    const elements = doRender(
+      children,
+      this.rules,
+      this.preProcessors,
+      this.postProcessors,
+      0
+    )
     return <div>{elements}</div>
   }
 }
 
-function doPreProcess(content: string, preProcessors: Array<PreProcessor>) {
-  return content
+function doPreProcess(
+  content: string,
+  preProcessors: Array<PreProcessor>,
+  deep: number
+) {
+  let ret = content
+  preProcessors.forEach(it => {
+    ret = it.process(ret, deep)
+  })
+  return ret
 }
 
 function doPostProcessor(
   elements: Array<React.ReactNode>,
-  postProcessors: Array<PostProcessor>
+  postProcessors: Array<PostProcessor>,
+  deep: number
 ) {
-  return elements
+  let ret = elements
+  postProcessors.forEach(it => {
+    ret = it.process(ret, deep)
+  })
+  return ret
 }
 
-function doRender(source: string, rules: Array<Render>) {
+function doRender(
+  source: string,
+  rules: Array<Render>,
+  preProcessors: PreProcessor[],
+  postProcessors: PostProcessor[],
+  deep: number
+) {
+  // 预处理
+  const preContent = doPreProcess(source, preProcessors, deep)
   const arr: Array<React.ReactNode> = []
   let leaveSource = source
   let prevStr = ''
@@ -71,7 +119,13 @@ function doRender(source: string, rules: Array<Render>) {
         if (!innerStr || innerStr.length === 0) {
           return []
         }
-        return doRender(innerStr, rules)
+        return doRender(
+          innerStr,
+          rules,
+          preProcessors,
+          postProcessors,
+          deep + 1
+        )
       })
       arr.push(renderRet)
       break
@@ -86,17 +140,7 @@ function doRender(source: string, rules: Array<Render>) {
   if (text) {
     arr.push(text)
   }
-  const newArr: Array<React.ReactNode> = []
-  // 设置key
-  arr.forEach((it: React.ReactNode, index: number) => {
-    let element = it
-    if (React.isValidElement(element)) {
-      element = React.createElement(element.type, {
-        ...element.props,
-        key: index
-      })
-    }
-    newArr.push(element)
-  })
-  return newArr
+
+  // 后处理
+  return doPostProcessor(arr, postProcessors, deep)
 }

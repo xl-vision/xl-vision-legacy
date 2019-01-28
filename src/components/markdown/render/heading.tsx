@@ -3,7 +3,7 @@ import { Render } from '..'
 
 export default class HeadingRender implements Render {
   name = 'heading'
-  match = /^ *(#{1,6}) *([^\n]+)\n{0,2}/
+  match = /^ *(#{1,6}) *([^\n]+)\n?/
   render(
     capture: RegExpMatchArray,
     content: string,
