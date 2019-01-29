@@ -6,6 +6,6 @@ module.exports = {
     ],
     plugins: [
         "@babel/plugin-transform-runtime",
-        "dynamic-import-webpack"
+        "@babel/plugin-syntax-dynamic-import"
     ]
 }

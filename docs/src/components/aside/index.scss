@@ -1,0 +1,23 @@
+@import '../../style/var.scss';
+
+.aside {
+  width: 17rem;
+  background-color: $--bg-color;
+  margin-right: 1rem;
+
+  .menus {
+    list-style: none;
+    margin-left: 0.5rem;
+    padding: 0;
+    .menu-name{
+      font-weight: bold;
+    }
+    .menu-item {
+      padding: 0.5rem 0.3rem;
+      a {
+        color: $--text-color-dark;
+        text-decoration: none;
+      }
+    }
+  }
+}

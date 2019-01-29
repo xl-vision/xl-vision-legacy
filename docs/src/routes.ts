@@ -4,17 +4,17 @@ export interface ChildrenRoute {
 }
 
 export interface RedirectRoute {
+  path: string
   redirect: string
 }
 
 export interface ComponentRoute {
   name: string
   path: string
-  component: () => Promise<React.ReactNode>
+  component: () => Promise<any>
 }
 
 export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
-
 const routes: Route[] = [
   {
     name: '布局',
@@ -22,6 +22,13 @@ const routes: Route[] = [
       {
         name: '栅格布局',
         path: '/grid',
+        // @ts-ignore
+        component: () => import('./markdown/grid.md')
+      },
+      {
+        name: '栅格布局',
+        path: '/grid',
+        // @ts-ignore
         component: () => import('./markdown/grid.md')
       }
     ]
@@ -32,6 +39,7 @@ const routes: Route[] = [
       {
         name: '栅格布局',
         path: '/grid',
+        // @ts-ignore
         component: () => import('./markdown/grid.md')
       }
     ]

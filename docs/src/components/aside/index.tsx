@@ -1,13 +1,11 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import routes, {
-  Route,
-  RedirectRoute,
-  ComponentRoute,
-  ChildrenRoute
-} from '../../routes'
+import routes, { Route, ComponentRoute, ChildrenRoute } from '../../routes'
+
+import './index.scss'
+
 export default function() {
-  return <div>{buildMenus(routes)}</div>
+  return <div className='aside'>{buildMenus(routes)}</div>
 }
 
 const buildMenus = (routes: Route[]) => {
@@ -15,7 +13,7 @@ const buildMenus = (routes: Route[]) => {
   routes.forEach((it, index) => {
     if ((it as ComponentRoute).component) {
       nodes.push(
-        <li key={index}>
+        <li key={index} className='menu-item'>
           <Link to={(it as ComponentRoute).path}>
             {(it as ComponentRoute).name}
           </Link>
@@ -23,12 +21,12 @@ const buildMenus = (routes: Route[]) => {
       )
     } else if ((it as ChildrenRoute).children) {
       nodes.push(
-        <li key={index}>
-          <span>{(it as ChildrenRoute).name}</span>
+        <li key={index} className='menu-item'>
+          <span className='menu-name'>{(it as ChildrenRoute).name}</span>
           {buildMenus((it as ChildrenRoute).children)}
         </li>
       )
     }
   })
-  return <ul>{nodes}</ul>
+  return <ul className='menus'>{nodes}</ul>
 }

@@ -4,6 +4,9 @@ const baseConfig = require('./webpack.base.conf')
 
 module.exports = webpackMerge(baseConfig, {
     mode: 'development',
+    devServer:{
+        historyApiFallback: true
+    },
     module: {
         rules: [{
             test: /\.css$/,
