@@ -1,4 +1,5 @@
 const webpackMerge = require('webpack-merge')
+const webpack = require('webpack')
 const baseConfig = require('./webpack.base.conf')
 
 module.exports = webpackMerge(baseConfig, {
@@ -9,7 +10,7 @@ module.exports = webpackMerge(baseConfig, {
             use: [{
                 loader: 'style-loader'
             }, {
-                loader: 'css-loader'
+                loader: 'css-loader',
             }, {
                 loader: 'postcss-loader'
             }]
@@ -18,12 +19,15 @@ module.exports = webpackMerge(baseConfig, {
             use: [{
                 loader: 'style-loader'
             }, {
-                loader: 'css-loader'
+                loader: 'css-loader',
             }, {
                 loader: 'postcss-loader'
             }, {
                 loader: 'sass-loader'
             }]
         }]
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ]
 })

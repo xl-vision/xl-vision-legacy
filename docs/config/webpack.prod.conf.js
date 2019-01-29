@@ -12,7 +12,7 @@ module.exports = webpackMerge(baseConfig, {
             use: [{
                 loader: MiniCssExtractPlugin.loader
             }, {
-                loader: 'css-loader'
+                loader: 'css-loader',
             }, {
                 loader: 'postcss-loader'
             }]
@@ -21,7 +21,7 @@ module.exports = webpackMerge(baseConfig, {
             use: [{
                 loader: MiniCssExtractPlugin.loader
             }, {
-                loader: 'css-loader'
+                loader: 'css-loader',
             }, {
                 loader: 'postcss-loader'
             }, {

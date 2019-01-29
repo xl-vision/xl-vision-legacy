@@ -1,4 +1,5 @@
 declare module '*.md'
+declare module '*.scss'
 declare module 'markdown-to-jsx'
 declare module 'babel-standalone'
 declare module 'highlight.js/lib/highlight'

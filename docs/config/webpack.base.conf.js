@@ -12,7 +12,7 @@ module.exports = {
     entry: path.resolve(__dirname, '..', 'src/app.tsx'),
     output: {
         path: path.resolve(__dirname, '..', 'dist'),
-        filename: '[name].[chunkhash].js'
+        filename: '[name].[hash].js'
     },
     externals: {},
     module: {

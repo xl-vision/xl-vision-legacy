@@ -27,6 +27,7 @@ export default class DemoBox extends React.Component<DemoBoxProps, {}> {
     const argv = [this, React]
     for (const key in XlVision) {
       args.push(key)
+      // @ts-ignore
       argv.push(XlVision[key])
     }
     const code = this.transformCode()
