@@ -1,8 +1,6 @@
 import * as React from 'react'
 import Markdown2Jsx from 'markdown-to-jsx'
 import DemoBox from '../demo-box'
-// import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css'
 import './index.scss'
 export default class extends React.Component<{ children: string }, {}> {
   render() {

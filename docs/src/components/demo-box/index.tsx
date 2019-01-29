@@ -1,7 +1,13 @@
 import * as React from 'react'
 import * as Babel from 'babel-standalone'
+import hljs from 'highlight.js/lib/highlight'
+import jsx from 'highlight.js/lib/languages/javascript'
 import * as XlVision from '../../../../src/components'
-import '../../../../src/style/theme-default/index.scss'
+
+import 'highlight.js/styles/vs.css'
+import './index.scss'
+
+hljs.registerLanguage('jsx', jsx)
 
 export interface DemoBoxProps {
   title: string
@@ -25,10 +31,28 @@ export default class DemoBox extends React.Component<DemoBoxProps, {}> {
     }
     const code = this.transformCode()
     args.push(code)
-    return new Function(...args).apply(undefined, argv)
+    const Ele = new Function(...args).apply(undefined, argv)
+    return React.createElement(Ele)
   }
   render() {
-    const code = this.renderCode()
-    return React.createElement(code)
+    const { title, description, children } = this.props
+    const ret = hljs.highlightAuto(children)
+    return (
+      <div className='demo-box'>
+        <div className='view'>{this.renderCode()}</div>
+        <div className='info-wrapper'>
+          <div className='title'>{title}</div>
+          <div className='description'>{description}</div>
+        </div>
+        <div className='code-wrapper'>
+          <pre>
+            <code
+              className={`hljs jsx`}
+              dangerouslySetInnerHTML={{ __html: ret.value }}
+            />
+          </pre>
+        </div>
+      </div>
+    )
   }
 }
