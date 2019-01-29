@@ -15,7 +15,7 @@ const validator: PropTypes.Validator<Error | null> = (propValue: Partial<Record<
         )
     }
     for (let index = 0; index < breakPointArray.length; index++) {
-        const val = breakPointArray[index];
+        const val = breakPointArray[index]
         if (typeof val !== 'number') {
             return new Error(
                 'Invalid prop `' + propFullName + '` supplied to' +
