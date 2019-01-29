@@ -1,15 +1,41 @@
 import * as React from 'react'
-import Markdown from '../../../../src/components/markdown'
+import Markdown2Jsx from 'markdown-to-jsx'
+import DemoBox from '../demo-box'
 // import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import './index.scss'
 export default class extends React.Component<{ children: string }, {}> {
-    render() {
-        const { children } = this.props
-        return (
-            <Markdown>{children}</Markdown>
-        )
+  render() {
+    const { children } = this.props
+    const regex = / *::: *demo +([^\n]*)\n+([^\n+```]*)\n+``` *jsx *([^```]*) *```\n+ *:::/
+    let str = children
+    while (true) {
+      const match = str.match(regex)
+      if (!match) {
+        break
+      }
+      const title = match[1]
+      const description = match[2]
+      const content = match[3]
+      str = str.replace(
+        regex,
+        `<DemoBox title="${title}" description="${description}" children="${content}"/>\n`
+      )
     }
+    return (
+      <Markdown2Jsx
+        options={{
+          overrides: {
+            DemoBox: {
+              component: DemoBox
+            }
+          }
+        }}
+      >
+        {str}
+      </Markdown2Jsx>
+    )
+  }
 }
 
 // const codeCmp = (props: any) => {

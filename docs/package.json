@@ -42,8 +42,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
+    "babel-standalone": "^6.26.0",
     "classnames": "^2.2.6",
     "highlight.js": "^9.13.1",
+    "markdown-to-jsx": "^6.9.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
