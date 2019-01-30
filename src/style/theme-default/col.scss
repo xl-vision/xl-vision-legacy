@@ -1,3 +1,8 @@
-.xl-row{
-    color: red;
+@import './_commons/var.scss';
+@import './_utils/mixins.scss';
+
+.#{$--cls-prefix}-col {
+    float: left;
+    box-sizing: border-box;
+    
 }

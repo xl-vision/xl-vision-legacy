@@ -5,7 +5,7 @@ import './index.scss'
 export default class extends React.Component<{ children: string }, {}> {
   render() {
     const { children } = this.props
-    const regex = / *::: *demo +(.+)\n+([\s\S]+)```jsx *\n([\s\S]+)\n *``` *\n+:::/
+    const regex = / *::: *demo *(.+)\n(((?!```).*\n)+).+\n(((?!```).*\n)+).+\s+:::/
     let str = children
     while (true) {
       const match = str.match(regex)
@@ -13,8 +13,8 @@ export default class extends React.Component<{ children: string }, {}> {
         break
       }
       const title = match[1]
-      const description = match[2]
-      const content = match[3]
+      const description = match[2].replace(/\n+$/, '')
+      const content = match[4].replace(/\n+$/, '')
       str = str.replace(
         regex,
         `<DemoBox title="${title}" description="${description}" children="${content}"/>\n`

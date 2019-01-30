@@ -1,15 +1,44 @@
 # 栅格系统
 参考bootstrap的栅格系统
 
+
 ## 基础用法
 ::: demo 基础用法
-使用`Row`和`Col`实现基本的布局
+使用`span`实现基本的布局
 
 ```jsx
 export default class Demo extends React.Component{
     render() {
         return (
-            <div>123</div>
+            <Row>
+                <Col span={4}>Col1</Col>
+                <Col span={5}>Col2</Col>
+                <Col span={7}>Col3</Col>
+                <Col span={8}>Col4</Col>
+            </Row>
+        )
+    }
+}
+
+```
+
+:::
+
+## 响应式布局
+::: demo 响应式布局
+`span`可以传入对象的形式实现不同尺寸下的布局
+可以设置的参数有:`xs`,`sm`,`md`,`lg`,`xl`,`xxl`
+
+```jsx
+export default class Demo extends React.Component{
+    render() {
+        return (
+            <Row>
+                <Col span={4}>Col1</Col>
+                <Col span={5}>Col2</Col>
+                <Col span={7}>Col3</Col>
+                <Col span={8}>Col4</Col>
+            </Row>
         )
     }
 }
