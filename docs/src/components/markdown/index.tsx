@@ -1,7 +1,9 @@
 import * as React from 'react'
 import Markdown2Jsx from 'markdown-to-jsx'
 import DemoBox from '../demo-box'
+import { encodeCode } from '../../utils/transformCode'
 import './index.scss'
+
 export default class extends React.Component<{ children: string }, {}> {
   render() {
     const { children } = this.props
@@ -17,9 +19,12 @@ export default class extends React.Component<{ children: string }, {}> {
       const content = match[4].replace(/\n+$/, '')
       str = str.replace(
         regex,
-        `<DemoBox title="${title}" description="${description}" children="${content}"/>\n`
+        `<DemoBox title="${title}" description="${description}" children="${encodeCode(
+          content
+        )}"/>\n`
       )
     }
+    console.log(str)
     return (
       <Markdown2Jsx className='md' options={options}>
         {str}
