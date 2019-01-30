@@ -27,7 +27,7 @@ const routes: Route[] = [
         name: '栅格布局',
         path: '/grid',
         // @ts-ignore
-        component: () => import('./markdown/grid.md')
+        component: () => import('./markdown/zh-cn/grid/index.md')
       }
     ]
   }

@@ -11,12 +11,16 @@ import './index.scss'
 使用`span`实现基本的布局
 
 ```jsx
+export default function() {
+    return (
       <Row>
         <Col span={4}>Col1</Col>
         <Col span={5}>Col2</Col>
         <Col span={7}>Col3</Col>
         <Col span={8}>Col4</Col>
       </Row>
+    )
+}
 ```
 
 :::
@@ -28,24 +32,28 @@ import './index.scss'
 可以设置的参数有:`xs`,`sm`,`md`,`lg`,`xl`,`xxl`
 
 ```jsx
-            <Row>
-                <Col span={{
-                    md: 4,
-                    lg: 6
-                }}>Col1</Col>
-                <Col span={{
-                    md: 5,
-                    lg: 6
-                }}>Col2</Col>
-                <Col span={{
-                    md:7,
-                    lg: 6
-                }}>Col3</Col>
-                <Col span={{
-                    md: 8,
-                    lg: 6
-                }}>Col4</Col>
-            </Row>
+export default function() {
+    return (
+        <Row>
+            <Col span={{
+                md: 4,
+                lg: 6
+            }}>Col1</Col>
+            <Col span={{
+                md: 5,
+                lg: 6
+            }}>Col2</Col>
+            <Col span={{
+                md:7,
+                lg: 6
+            }}>Col3</Col>
+            <Col span={{
+                md: 8,
+                lg: 6
+            }}>Col4</Col>
+        </Row>
+    )
+}
 
 ```
 

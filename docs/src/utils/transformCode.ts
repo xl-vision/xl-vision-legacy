@@ -7,7 +7,7 @@ export function encodeCode(code: string) {
 }
 
 export function decodeCode(code: string) {
-  return code.replace(/\\\\n/g, '\\n').replace(/\\n/g, '\n')
+  return code.replace(/\\n/g, '\n').replace(/\\\\n/g, '\\n')
 }
 
 export function transformCode(code: string) {
