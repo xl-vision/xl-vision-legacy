@@ -17,24 +17,11 @@ export interface ComponentRoute {
 export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
 const routes: Route[] = [
   {
-    name: '布局',
-    children: [
-      {
-        name: '栅格布局',
-        path: '/grid',
-        // @ts-ignore
-        component: () => import('./markdown/grid.md')
-      },
-      {
-        name: '栅格布局',
-        path: '/grid',
-        // @ts-ignore
-        component: () => import('./markdown/grid.md')
-      }
-    ]
+    path: '/',
+    redirect: '/grid'
   },
   {
-    name: '基础组件',
+    name: '布局',
     children: [
       {
         name: '栅格布局',

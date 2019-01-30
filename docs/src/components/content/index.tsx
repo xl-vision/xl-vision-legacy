@@ -22,12 +22,18 @@ const addRoute = (routes: Route[], level = '1') => {
         loading: () => <div />
       })
       routeComponents.push(
-        <ReactRoute key={key} path={componentRoute.path} component={loadable} />
+        <ReactRoute
+          exact={true}
+          key={key}
+          path={componentRoute.path}
+          component={loadable}
+        />
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
       routeComponents.push(
         <ReactRoute
+          exact={true}
           key={key}
           path={redirectRoute.path}
           component={() => <Redirect to={redirectRoute.redirect} />}

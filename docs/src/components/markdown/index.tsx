@@ -5,7 +5,7 @@ import './index.scss'
 export default class extends React.Component<{ children: string }, {}> {
   render() {
     const { children } = this.props
-    const regex = / *::: *demo +([^\n]*)\n+([^\n+```]*)\n+``` *jsx *([^```]*) *```\n+ *:::/
+    const regex = / *::: *demo +(.+)\n+([\s\S]+)```jsx *\n([\s\S]+)\n *``` *\n+:::/
     let str = children
     while (true) {
       const match = str.match(regex)
@@ -21,18 +21,43 @@ export default class extends React.Component<{ children: string }, {}> {
       )
     }
     return (
-      <Markdown2Jsx
-        options={{
-          overrides: {
-            DemoBox: {
-              component: DemoBox
-            }
-          }
-        }}
-      >
+      <Markdown2Jsx className='md' options={options}>
         {str}
       </Markdown2Jsx>
     )
+  }
+}
+
+const options = {
+  overrides: {
+    DemoBox: {
+      component: DemoBox
+    },
+    code: {
+      props: {
+        className: 'md-code-inline'
+      }
+    },
+    ol: {
+      props: {
+        className: 'md-ol'
+      }
+    },
+    ul: {
+      props: {
+        className: 'md-ul'
+      }
+    },
+    blockquote: {
+      props: {
+        className: 'md-blockquote'
+      }
+    },
+    table: {
+      props: {
+        className: 'md-table'
+      }
+    }
   }
 }
 

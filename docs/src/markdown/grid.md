@@ -1,8 +1,9 @@
 # 栅格系统
+参考bootstrap的栅格系统
 
 ## 基础用法
-::: demo title
-description
+::: demo 基础用法
+使用`Row`和`Col`实现基本的布局
 
 ```jsx
 export default class Demo extends React.Component{
@@ -17,13 +18,21 @@ export default class Demo extends React.Component{
 
 :::
 
-::: demo title
-description
+`1234`
 
-```jsx
-export default function() {
-  return <div>123</div>
-}
-```
+## Col 属性
 
-:::
+| 参数   | 说明                                   | 类型                                       | 可选值 | 默认值 |
+| ------ | -------------------------------------- | ------------------------------------------ | ------ | ------ |
+| order  | 栅格顺序，flex 布局模式下有效          | number                                     | —      | —      |
+| tag    | 自定义元素标签                         | string                                     | —      | div    |
+| span   | 栅格占据的列数(**0表示隐藏**)                        | number                                     | 0-24   | —      |
+| offset | 栅格左侧的间隔列数，间隔内不可以有栅格 | number                                     | 1-24   | —      |
+| push   | 栅格向右移动的列数                     | number                                     | 1-24   | —      |
+| pull   | 栅格向左移动的列数                     | number                                     | 1-24   | —      |
+| xs     | ≥0 响应式栅格数或者栅格属性对象(**0表示隐藏**)        | number/object(例如： {span: 4, offset: 4}) | —      | —      |
+| sm     | ≥576px 响应式栅格数或者栅格属性对象(**0表示隐藏**)    | number/object(例如： {span: 4, offset: 4}) | —      | —      |
+| md     | ≥768px 响应式栅格数或者栅格属性对象(**0表示隐藏**)    | number/object(例如： {span: 4, offset: 4}) | —      | —      |
+| lg     | ≥992px 响应式栅格数或者栅格属性对象(**0表示隐藏**)   | number/object(例如： {span: 4, offset: 4}) | —      | —      |
+| xl     | ≥1200px 响应式栅格数或者栅格属性对象(**0表示隐藏**)   | number/object(例如： {span: 4, offset: 4}) | —      | —      |
+| xxl     | ≥1600px 响应式栅格数或者栅格属性对象(**0表示隐藏**)   | number/object(例如： {span: 4, offset: 4}) | —      | —      |

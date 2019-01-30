@@ -37,13 +37,21 @@ export default class DemoBox extends React.Component<DemoBoxProps, {}> {
   }
   render() {
     const { title, description, children } = this.props
+    const transformTitle = title.replace(/`([^`\n]+)`/g, '<code class="md-code-inline">$1</code>')
+    const transformDesc = description.replace(/`([^`\n]+)`/g, '<code class="md-code-inline">$1</code>')
     const ret = hljs.highlightAuto(children)
     return (
       <div className='demo-box'>
         <div className='view'>{this.renderCode()}</div>
         <div className='info-wrapper'>
-          <div className='title'>{title}</div>
-          <div className='description'>{description}</div>
+          <div
+            className='title'
+            dangerouslySetInnerHTML={{ __html: transformTitle }}
+          />
+          <div
+            className='description'
+            dangerouslySetInnerHTML={{ __html: transformDesc }}
+          />
         </div>
         <div className='code-wrapper'>
           <pre>
