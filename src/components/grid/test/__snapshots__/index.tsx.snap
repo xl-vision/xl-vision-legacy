@@ -1,55 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`栅格系统 响应式 1`] = `
-<div
-  class="xl-row"
+<ContextProvider
+  value={
+    Object {
+      "gutter": 0,
+    }
+  }
 >
   <div
-    class="xl-col xl-col-span-md-4 xl-col-span-lg-6"
+    className="xl-row"
   >
-    Col1
+    <Col
+      span={
+        Object {
+          "lg": 6,
+          "md": 4,
+        }
+      }
+    >
+      Col1
+    </Col>
+    <Col
+      span={
+        Object {
+          "lg": 6,
+          "md": 5,
+        }
+      }
+    >
+      Col2
+    </Col>
+    <Col
+      span={
+        Object {
+          "lg": 6,
+          "md": 7,
+        }
+      }
+    >
+      Col3
+    </Col>
+    <Col
+      span={
+        Object {
+          "lg": 6,
+          "md": 8,
+        }
+      }
+    >
+      Col4
+    </Col>
   </div>
-  <div
-    class="xl-col xl-col-span-md-5 xl-col-span-lg-6"
-  >
-    Col2
-  </div>
-  <div
-    class="xl-col xl-col-span-md-7 xl-col-span-lg-6"
-  >
-    Col3
-  </div>
-  <div
-    class="xl-col xl-col-span-md-8 xl-col-span-lg-6"
-  >
-    Col4
-  </div>
-</div>
+</ContextProvider>
 `;
 
 exports[`栅格系统 基本用法 1`] = `
-<div
-  class="xl-row"
+<ContextProvider
+  value={
+    Object {
+      "gutter": 0,
+    }
+  }
 >
   <div
-    class="xl-col xl-col-span-4"
+    className="xl-row"
   >
-    Col1
+    <Col
+      span={4}
+    >
+      Col1
+    </Col>
+    <Col
+      span={5}
+    >
+      Col2
+    </Col>
+    <Col
+      span={7}
+    >
+      Col3
+    </Col>
+    <Col
+      span={8}
+    >
+      Col4
+    </Col>
   </div>
-  <div
-    class="xl-col xl-col-span-5"
-  >
-    Col2
-  </div>
-  <div
-    class="xl-col xl-col-span-7"
-  >
-    Col3
-  </div>
-  <div
-    class="xl-col xl-col-span-8"
-  >
-    Col4
-  </div>
-</div>
+</ContextProvider>
 `;

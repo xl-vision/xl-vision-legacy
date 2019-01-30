@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { render } from 'enzyme'
+import { shallow } from 'enzyme'
 import Row from '../row'
 import Col from '../col'
 
 describe('栅格系统', () => {
   it('基本用法', () => {
-    const wrapper = render(
+    const wrapper = shallow(
       <Row>
         <Col span={4}>Col1</Col>
         <Col span={5}>Col2</Col>
@@ -16,7 +16,7 @@ describe('栅格系统', () => {
     expect(wrapper).toMatchSnapshot()
   })
   it('响应式', () => {
-    const wrapper = render(
+    const wrapper = shallow(
       <Row>
         <Col
           span={{
