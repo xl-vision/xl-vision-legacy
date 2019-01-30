@@ -7,41 +7,38 @@ import { clsPrefix } from '../_config'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 
-// @ts-ignore
 const validator: PropTypes.Validator<Error | null> = (
   propValue: Partial<Record<BreakPoint, number>>,
+  // @ts-ignore
   key: string,
   componentName: string,
+  // @ts-ignore
   location: string,
   propFullName: string
 ) => {
-  if (typeof propValue !== 'object') {
-    return new Error(
-      'Invalid prop `' +
-        propFullName +
-        '` supplied to' +
-        ' `' +
-        componentName +
-        '`. Validation failed.'
-    )
-  }
-  for (let index = 0; index < breakPointArray.length; index++) {
-    const val = breakPointArray[index]
-    if (typeof val !== 'number') {
+  if (typeof propValue === 'number') {
+    if (propValue < 0 || propValue > 24) {
       return new Error(
-        'Invalid prop `' +
-          propFullName +
-          '` supplied to' +
-          ' `' +
-          componentName +
-          '`. Validation failed.'
+        `prop '${propFullName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'`
       )
+    }
+  } else if (typeof propValue === 'object') {
+    for (let index = 0; index < breakPointArray.length; index++) {
+      const key = breakPointArray[index]
+      const val = propValue[key]
+      if (val) {
+        if (propValue < 0 || propValue > 24) {
+          return new Error(
+            `prop '${propFullName}' supplied to '${componentName} is object, its prop '${key}' be in 0-24 but actually '${val}'`
+          )
+        }
+      }
     }
   }
   return null
 }
 
-const colSpanValidater = PropTypes.oneOfType([PropTypes.number, validator])
+const colSpanValidater = validator
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span?: ColSpanType
@@ -65,25 +62,29 @@ export default class Col extends React.Component<ColProps> {
   render() {
     const { className, children, style, ...others } = this.props
     const classArray: Array<String> = []
-    const spanArray = ['span', 'order', 'offset', 'push', 'pull']
+    const spanArray: Partial<keyof typeof others>[] = [
+      'span',
+      'order',
+      'offset',
+      'push',
+      'pull'
+    ]
 
     const colClsPrefix = `${clsPrefix}-col`
-
-    spanArray.forEach((key: keyof (typeof others)) => {
-      const val: ColSpanType | undefined = others[key]
-      if (typeof val === 'number') {
-        classArray.push(`${colClsPrefix}-${key}-${val}`)
-      } else if (typeof val === 'object') {
-        Object.keys(val).forEach((key2: BreakPoint) => {
-          const val2 = val[key2]
-          if (val2) {
-          } else if (typeof val === 'object') {
-            classArray.push(`${colClsPrefix}-${key}-${key2}-${val2}`)
+    for (const prop of spanArray) {
+      const propValue = others[prop]
+      if (typeof propValue === 'number') {
+        classArray.push(`${colClsPrefix}-${prop}-${propValue}`)
+      } else if (typeof propValue === 'object') {
+        for (const key in propValue) {
+          const val = propValue[key]
+          if (val) {
+            classArray.push(`${colClsPrefix}-${prop}-${key}-${val}`)
           }
-        })
+        }
       }
-      delete others[key]
-    })
+      delete others[prop]
+    }
     const classes = classNames(colClsPrefix, classArray, className)
     return (
       <RowContext.Consumer>

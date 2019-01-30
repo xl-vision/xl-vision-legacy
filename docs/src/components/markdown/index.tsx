@@ -7,7 +7,6 @@ import './index.scss'
 export default class extends React.Component<{ children: string }, {}> {
   render() {
     const { children } = this.props
-    console.log(children)
     const regex = / *::: *demo *(.+)\n(((?!```).*\n)+).+\n(((?!```).*\n)+).+\s+:::/
     let str = children
     while (true) {
