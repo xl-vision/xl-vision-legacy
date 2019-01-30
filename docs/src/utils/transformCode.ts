@@ -14,7 +14,6 @@ export function transformCode(code: string) {
   const tramsform: string = Babel.transform(code, {
     presets: ['es2015', 'react']
   }).code
-  console.log(tramsform)
   return `var exports = {}\n${tramsform}\nreturn exports.default`
 }
 

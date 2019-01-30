@@ -24,7 +24,6 @@ export default class extends React.Component<{ children: string }, {}> {
         )}"/>\n`
       )
     }
-    console.log(str)
     return (
       <Markdown2Jsx className='md' options={options}>
         {str}

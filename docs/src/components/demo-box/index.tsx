@@ -1,8 +1,6 @@
 import * as React from 'react'
-import * as Babel from 'babel-standalone'
 import hljs from 'highlight.js/lib/highlight'
 import jsx from 'highlight.js/lib/languages/javascript'
-import * as XlVision from '../../../../src/components'
 import { decodeCode, renderCode } from '../../utils/transformCode'
 
 import 'highlight.js/styles/vs.css'
