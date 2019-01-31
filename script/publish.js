@@ -101,8 +101,8 @@ inquirer.prompt([{
   let promise = Promise.resolve()
   if (answers.docs) {
     const docsPath = resolvePath('docs/dist')
-    console.log(chalk.green('删除生成的文档'))
-    fs.removeSync(docsPath)
+    // console.log(chalk.green('删除生成的文档'))
+    // fs.removeSync(docsPath)
     console.log(chalk.green('编译文档'))
     if (shell.exec(`cd docs && npm run build`).code) {
       console.log(chalk.red('编译组件失败'))

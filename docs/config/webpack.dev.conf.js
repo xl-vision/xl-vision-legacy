@@ -4,7 +4,10 @@ const baseConfig = require('./webpack.base.conf')
 
 module.exports = webpackMerge(baseConfig, {
     mode: 'development',
-    devServer:{
+    output: {
+        publicPath: '/'
+    },
+    devServer: {
         historyApiFallback: true
     },
     module: {

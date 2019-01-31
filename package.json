@@ -1,6 +1,6 @@
 {
   "name": "xl-vision",
-  "version": "0.0.2-beta.0",
+  "version": "0.0.2-beta.1",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
