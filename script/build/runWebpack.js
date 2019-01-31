@@ -9,6 +9,8 @@ const getBabelConfig = require('../config/getBabelConfig')
 const tslintPath = 'tslint.json'
 const tsconfigPath = 'tsconfig.json'
 
+
+
 const webpackBaseConfig = {
     devtool: 'source-map',
     resolve: {
@@ -49,31 +51,42 @@ const webpackBaseConfig = {
             //         // typeCheck: true,
             //     },
             // },
-            {
-                test: /\.tsx?$/,
-                exclude: /node_modules/,
-                use: [{
-                        loader: 'babel-loader',
-                        options: getBabelConfig(false),
-                    },
-                    {
-                        loader: 'ts-loader',
-                        options: {
-                            configFile: tsconfigPath,
-                            transpileOnly: true,
-                        },
-                    },
-                ],
-            }
         ]
     }
 }
 
+// 处理propTypes
+const devBabelConfig = getBabelConfig()
+const prodBabelConfig = getBabelConfig()
+prodBabelConfig.plugins.push([
+    'transform-react-remove-prop-types',
+    {
+        mode: 'remove',
+    },
+])
 
 const webpackDevConfig = webpackMerge(webpackBaseConfig, {
     mode: 'development',
     output: {
         filename: `xl-vision.js`,
+    },
+    module: {
+        rules: [{
+            test: /\.tsx?$/,
+            exclude: /node_modules/,
+            use: [{
+                    loader: 'babel-loader',
+                    options: devBabelConfig,
+                },
+                {
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: tsconfigPath,
+                        transpileOnly: true,
+                    },
+                },
+            ],
+        }]
     }
 })
 
@@ -90,6 +103,24 @@ const webpackProdConfig = webpackMerge(webpackBaseConfig, {
                 sourceMap: true,
             }),
         ]
+    },
+    module: {
+        rules: [{
+            test: /\.tsx?$/,
+            exclude: /node_modules/,
+            use: [{
+                    loader: 'babel-loader',
+                    options: prodBabelConfig,
+                },
+                {
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: tsconfigPath,
+                        transpileOnly: true,
+                    },
+                },
+            ],
+        }]
     }
 })
 
