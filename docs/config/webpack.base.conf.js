@@ -13,7 +13,6 @@ module.exports = {
         path: path.resolve(__dirname, '..', 'dist'),
         filename: '[name].[hash].js'
     },
-    externals: {},
     module: {
         rules: [{
             test: /\.tsx?$/,

@@ -8,27 +8,28 @@ const baseConfig = require('./webpack.base.conf')
 
 module.exports = webpackMerge(baseConfig, {
     mode: 'production',
+    // devtool: 'source-map',
     output: {
         publicPath: '/xl-vision/'
     },
     optimization: {
-        sideEffects: false,//不加会导致xl-vision的css加载不进来
-        splitChunks: {
-            cacheGroups: {
-                commons: {
-                    name: 'commons', //提取出来的文件命名
-                    chunks: 'initial', //initial表示提取入口文件的公共部分
-                    minChunks: 2, //表示提取公共部分最少的文件数
-                    minSize: 0 //表示提取公共部分最小的大小
-                }
-            }
-        },
+        sideEffects: false, //不加会导致xl-vision的css加载不进来
+        // splitChunks: {
+        //     cacheGroups: {
+        //         commons: {
+        //             name: 'commons', //提取出来的文件命名
+        //             chunks: 'initial', //initial表示提取入口文件的公共部分
+        //             minChunks: 2, //表示提取公共部分最少的文件数
+        //             minSize: 0 //表示提取公共部分最小的大小
+        //         }
+        //     }
+        // },
         minimizer: [
-            // new UglifyJsPlugin({
-            //     cache: true,
-            //     parallel: true,
-            //     sourcMap: true
-            // }),
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                // sourcMap: true
+            }),
             new OptimizeCSSAssetsPlugin({})
         ]
     },

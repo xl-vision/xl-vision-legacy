@@ -62,6 +62,7 @@ prodBabelConfig.plugins.push([
     'transform-react-remove-prop-types',
     {
         mode: 'remove',
+        ignoreFilenames: ['node_modules'],
     },
 ])
 
