@@ -34,6 +34,35 @@ export default function() {
 
 :::
 
+
+::: demo 偏移布局
+使用`offset`,`push`,`pull`实现内容的偏移
+
+```jsx
+export default function() {
+  return (
+    <div className='grid-row-box'>
+      <Row gutter={10}>
+        <Col span={4}>
+          <div className='grid-col-box'>col1</div>
+        </Col>
+        <Col span={5}>
+          <div className='grid-col-box'>col2</div>
+        </Col>
+        <Col span={7}>
+          <div className='grid-col-box'>col3</div>
+        </Col>
+        <Col span={8}>
+          <div className='grid-col-box'>col4</div>
+        </Col>
+      </Row>
+    </div>
+  )
+}
+```
+
+:::
+
 ::: demo 响应式布局
 `span`可以传入对象的形式实现不同尺寸下的布局
 可以设置的参数有:`xs`,`sm`,`md`,`lg`,`xl`,`xxl`

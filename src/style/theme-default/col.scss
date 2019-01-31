@@ -28,6 +28,10 @@
             position: relative;
             right: $i / $--grid-span * 100%;
         }
+
+        &-order-#{$i} {
+            order: $i;
+        }
     }
 
     @each $key in map-keys($--grid-breakpoints) {
@@ -56,6 +60,10 @@
                 &-pull-#{$key}-#{$i} {
                     position: relative;
                     right: $i / $--grid-span * 100%;
+                }
+
+                &-order-#{$key}-#{$i} {
+                    order: $i;
                 }
             }
         }
