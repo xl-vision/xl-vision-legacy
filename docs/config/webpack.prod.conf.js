@@ -7,7 +7,7 @@ const baseConfig = require('./webpack.base.conf')
 module.exports = webpackMerge(baseConfig, {
     mode: 'production',
     output: {
-        publicPath: '/xl-vision'
+        publicPath: '/xl-vision/'
     },
     module: {
         rules: [{
