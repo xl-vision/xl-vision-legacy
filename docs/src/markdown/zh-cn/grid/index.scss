@@ -1,12 +1,12 @@
 @import '../../../style/var.scss';
 
-.grid-row {
+.grid-row-box {
   background-color: $--color-gray-300;
   padding: 0.5rem;
   border-radius: $--border-radius;
 }
 
-.grid-box {
+.grid-col-box {
   background-color: color-level($--color-primary, -5);
   color: #fff;
   border-radius: $--border-radius;

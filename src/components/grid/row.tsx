@@ -110,7 +110,6 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
     if (typeof gutter === 'object') {
       for (const breakPoint of breakPointArray) {
-        console.log(this.state.media, breakPoint)
         if (this.state.media[breakPoint] && gutter[breakPoint] !== undefined) {
           return gutter[breakPoint] as number
         }
@@ -129,7 +128,6 @@ export default class Row extends React.Component<RowProps, RowState> {
       ...others
     } = this.props
     const gutter = this.getGutter()
-    console.log(gutter)
     const rowClsPrefix = `${clsPrefix}-row`
     const classes = classNames(
       {
