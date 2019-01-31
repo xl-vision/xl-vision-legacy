@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import Aside from '../aside'
 import Content from '../content'
 import Footer from '../footer'
