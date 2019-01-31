@@ -29,13 +29,9 @@ inquirer.prompt([{
     name: 'message',
     message: '版本发布说明',
     type: 'input',
-    default: ''
-  },
-  {
-    name: 'tag',
-    message: '是否发布版本',
-    type: 'confirm',
-    default: false
+    default: function (answers) {
+      return `:bookmark:update version to ${answers.version}`
+    }
   },
   {
     name: 'docs',
@@ -45,23 +41,23 @@ inquirer.prompt([{
   }
 ]).then(function (answers) {
 
-  console.log(chalk.green('运行代码检查'))
+  console.log(chalk.green('======运行代码检查======'))
   if (shell.exec(`npm run tslint`).code) {
-    console.log(chalk.red(`代码检查未通过`))
+    console.log(chalk.red(`======代码检查未通过======`))
     shell.exit(1)
   }
-  console.log(chalk.green('运行测试用例'))
+  console.log(chalk.green('======运行测试用例======'))
   if (shell.exec(`npm run test`).code) {
-    console.log(chalk.red(`测试用例未通过`))
+    console.log(chalk.red(`======测试用例未通过======`))
     shell.exit(1)
   }
-  console.log(chalk.green('编译源码'))
+  console.log(chalk.green('======编译源码======'))
   if (shell.exec(`npm run compile`).code) {
-    console.log(chalk.red(`npm run compile失败`))
+    console.log(chalk.red(`======npm run compile失败======`))
     shell.exit(1)
   }
   if (shell.exec(`npm run dist`).code) {
-    console.log(chalk.red(`npm run dist失败`))
+    console.log(chalk.red(`======npm run dist失败======`))
     shell.exit(1)
   }
 
@@ -73,9 +69,9 @@ inquirer.prompt([{
   )
 
   //提交代码
-  const comment = answers.message || `:bookmark:update version to ${version}`
+  const comment = answers.message
 
-  console.log(chalk.green('git提交代码'))
+  console.log(chalk.green('======git提交代码======'))
 
   let cmd = `git add . && git commit -m "${comment}" && git push origin master`
 
@@ -85,17 +81,15 @@ inquirer.prompt([{
       resolvePath('package.json'),
       JSON.stringify(pkg, null, '  ')
     )
-    console.log(chalk.red(`git提交失败`))
+    console.log(chalk.red(`======git提交失败======`))
     shell.exit(1)
   }
 
-  if (answers.tag) {
-    console.log(chalk.green(`git发布版本${version}`))
-    cmd = `git tag -a ${version} -m "${comment}" && git push origin ${version}`
-    if (shell.exec(cmd).code) {
-      console.log(chalk.red(`git发布版本${version}失败`))
-      shell.exit(1)
-    }
+  console.log(chalk.green(`======git发布版本${version}======`))
+  cmd = `git tag -a ${version} -m "${comment}" && git push origin ${version}`
+  if (shell.exec(cmd).code) {
+    console.log(chalk.red(`======git发布版本${version}失败======`))
+    shell.exit(1)
   }
 
   let promise = Promise.resolve()
@@ -103,22 +97,28 @@ inquirer.prompt([{
     const docsPath = resolvePath('docs/dist')
     // console.log(chalk.green('删除生成的文档'))
     // fs.removeSync(docsPath)
-    console.log(chalk.green('编译文档'))
+    console.log(chalk.green('======编译文档======'))
     if (shell.exec(`cd docs && npm run build`).code) {
-      console.log(chalk.red('编译组件失败'))
+      console.log(chalk.red('======编译文档失败======'))
       shell.exit(1)
     }
 
-    console.log(chalk.green('发布文档'))
+    console.log(chalk.green('======发布文档======'))
     promise.then(() => {
-      return ghpages.publish(docsPath)
+      return ghpages.publish(docsPath, err => {
+        if (err) {
+          Promise.reject(err)
+        } else {
+          Promise.resolve()
+        }
+      })
     })
   }
 
   promise.then(() => {
-    console.log(chalk.green(`发布成功,当前版本(${version})`))
+    console.log(chalk.green(`======发布成功,当前版本(${version})======`))
   }).catch(err => {
-    console.log(chalk.red('发布文档失败'))
+    console.log(chalk.red('======发布文档失败======'))
     console.log(chalk.red(err))
   })
 })
