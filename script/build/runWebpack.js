@@ -37,33 +37,35 @@ const webpackBaseConfig = {
         },
     },
     module: {
-        rules: [{
-            test: /\.tsx?$/,
-            exclude: /node_modules/,
-            enforce: 'pre',
-            loader: 'tslint-loader',
-            options: {
-                configFile: tslintPath,
-                tsConfigFile: tsconfigPath,
-                // typeCheck: true,
-            },
-        }, {
-            test: /\.tsx?$/,
-            exclude: /node_modules/,
-            use: [
-                {
-                    loader: 'babel-loader',
-                    options: getBabelConfig(false),
-                },
-                {
-                    loader: 'ts-loader',
-                    options: {
-                        configFile: tsconfigPath,
-                        transpileOnly: true,
+        rules: [
+            //     {
+            //     test: /\.tsx?$/,
+            //     exclude: /node_modules/,
+            //     enforce: 'pre',
+            //     loader: 'tslint-loader',
+            //     options: {
+            //         configFile: tslintPath,
+            //         tsConfigFile: tsconfigPath,
+            //         // typeCheck: true,
+            //     },
+            // },
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: [{
+                        loader: 'babel-loader',
+                        options: getBabelConfig(false),
                     },
-                },
-            ],
-        }]
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            configFile: tsconfigPath,
+                            transpileOnly: true,
+                        },
+                    },
+                ],
+            }
+        ]
     }
 }
 
