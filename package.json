@@ -1,6 +1,6 @@
 {
   "name": "xl-vision",
-  "version": "0.0.2-beta.2",
+  "version": "0.0.2-beta.3",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -34,7 +34,7 @@
     "site:dev": "gulp site:dev --gulpfile script/gulpfile.js --cwd .",
     "tslint": "gulp tslint --gulpfile script/gulpfile.js --cwd .",
     "test": "jest",
-    "prepublish": "node script/publish.js"
+    "prepublishOnly": "node script/publish.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
