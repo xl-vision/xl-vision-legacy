@@ -19,21 +19,31 @@ const validator: PropTypes.Validator<Error | null> = (
   if (typeof propValue === 'number') {
     if (propValue < 0 || propValue > 24) {
       return new Error(
-        `prop '${propFullName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'`
+        `prop '${propFullName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'.`
       )
     }
   } else if (typeof propValue === 'object') {
-    for (let index = 0; index < breakPointArray.length; index++) {
-      const key = breakPointArray[index]
+    for (const key of breakPointArray) {
       const val = propValue[key]
-      if (val) {
+      if (val === undefined) {
+        continue
+      }
+      if (typeof val === 'number') {
         if (propValue < 0 || propValue > 24) {
           return new Error(
-            `prop '${propFullName}' supplied to '${componentName} is object, its prop '${key}' be in 0-24 but actually '${val}'`
+            `prop '${propFullName}' supplied to '${componentName} is object, its prop '${key}' be in 0-24 but actually '${val}'.`
           )
         }
+      } else {
+        return new Error(
+          `prop '${propFullName}' supplied to '${componentName} is object, its prop '${key}' should be a number.`
+        )
       }
     }
+  } else {
+    return new Error(
+      `prop '${propFullName}' supplied to '${componentName} should be a number or suitable object.`
+    )
   }
   return null
 }
@@ -78,9 +88,7 @@ export default class Col extends React.Component<ColProps> {
       } else if (typeof propValue === 'object') {
         for (const key in propValue) {
           const val = propValue[key]
-          if (val) {
-            classArray.push(`${colClsPrefix}-${prop}-${key}-${val}`)
-          }
+          classArray.push(`${colClsPrefix}-${prop}-${key}-${val}`)
         }
       }
       delete others[prop]
