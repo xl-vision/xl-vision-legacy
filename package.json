@@ -1,5 +1,5 @@
 {
-  "name": "xl-vision-react",
+  "name": "xl-vision",
   "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RhysXia/xl-vision-react.git"
+    "url": "git+https://github.com/RhysXia/xl-vision.git"
   },
   "keywords": [
     "react",
@@ -22,9 +22,9 @@
   "author": "Rhys Xia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RhysXia/xl-vision-react/issues"
+    "url": "https://github.com/RhysXia/xl-vision/issues"
   },
-  "homepage": "https://github.com/RhysXia/xl-vision-react#readme",
+  "homepage": "https://github.com/RhysXia/xl-vision#readme",
   "scripts": {
     "compile:lib": "gulp compile:lib --gulpfile script/gulpfile.js --cwd .",
     "compile:es": "gulp compile:es --gulpfile script/gulpfile.js --cwd .",
