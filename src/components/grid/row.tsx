@@ -133,8 +133,8 @@ export default class Row extends React.Component<RowProps, RowState> {
       {
         [rowClsPrefix]: !type,
         [`${rowClsPrefix}-${type}`]: type,
-        [`${rowClsPrefix}-${type}-${justify}`]: type && justify,
-        [`${rowClsPrefix}-${type}-${align}`]: type && align
+        [`${rowClsPrefix}-${type}--${justify}`]: type && justify,
+        [`${rowClsPrefix}-${type}--${align}`]: type && align
       },
       className
     )

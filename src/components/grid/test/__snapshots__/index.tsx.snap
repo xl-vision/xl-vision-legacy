@@ -1,115 +1,1515 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`栅格系统 响应式 1`] = `
-<Row
-  gutter={0}
->
+exports[`栅格系统 flex布局 1`] = `
+<div>
   <div
-    className="xl-row"
+    className="grid-row-box grid-row-box--flex"
   >
-    <Col
-      span={
-        Object {
-          "lg": 6,
-          "md": 4,
-        }
-      }
+    <Row
+      align="top"
+      gutter={10}
+      type="flex"
     >
       <div
-        className="xl-col xl-col-span-md-4 xl-col-span-lg-6"
-      >
-        Col1
-      </div>
-    </Col>
-    <Col
-      span={
-        Object {
-          "lg": 6,
-          "md": 5,
+        className="xl-row-flex xl-row-flex--top"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
         }
-      }
-    >
-      <div
-        className="xl-col xl-col-span-md-5 xl-col-span-lg-6"
       >
-        Col2
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
       </div>
-    </Col>
-    <Col
-      span={
-        Object {
-          "lg": 6,
-          "md": 7,
-        }
-      }
-    >
-      <div
-        className="xl-col xl-col-span-md-7 xl-col-span-lg-6"
-      >
-        Col3
-      </div>
-    </Col>
-    <Col
-      span={
-        Object {
-          "lg": 6,
-          "md": 8,
-        }
-      }
-    >
-      <div
-        className="xl-col xl-col-span-md-8 xl-col-span-lg-6"
-      >
-        Col4
-      </div>
-    </Col>
+    </Row>
   </div>
-</Row>
+  <div
+    className="grid-row-box grid-row-box--flex"
+  >
+    <Row
+      align="middle"
+      gutter={10}
+      type="flex"
+    >
+      <div
+        className="xl-row-flex xl-row-flex--middle"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box grid-row-box--flex"
+  >
+    <Row
+      align="bottom"
+      gutter={10}
+      type="flex"
+    >
+      <div
+        className="xl-row-flex xl-row-flex--bottom"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box grid-row-box--flex"
+  >
+    <Row
+      gutter={10}
+      justify="start"
+      type="flex"
+    >
+      <div
+        className="xl-row-flex xl-row-flex--start"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box grid-row-box--flex"
+  >
+    <Row
+      gutter={10}
+      justify="center"
+      type="flex"
+    >
+      <div
+        className="xl-row-flex xl-row-flex--center"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box grid-row-box--flex"
+  >
+    <Row
+      gutter={10}
+      justify="end"
+      type="flex"
+    >
+      <div
+        className="xl-row-flex xl-row-flex--end"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box grid-row-box--flex"
+  >
+    <Row
+      gutter={10}
+      type="flex"
+    >
+      <div
+        className="xl-row-flex"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          order={3}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-order-3"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          order={1}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-order-1"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          order={2}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-order-2"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+</div>
+`;
+
+exports[`栅格系统 偏移布局 1`] = `
+<div>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          offset={6}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-offset-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          push={6}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-push-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          pull={6}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-pull-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          offset={6}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-offset-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          pull={12}
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-pull-12"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+</div>
+`;
+
+exports[`栅格系统 响应式偏移 1`] = `
+<div>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          offset={
+            Object {
+              "lg": 4,
+              "md": 3,
+              "sm": 2,
+              "xl": 5,
+              "xs": 1,
+              "xxl": 6,
+            }
+          }
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-offset-xs-1 xl-col-offset-sm-2 xl-col-offset-md-3 xl-col-offset-lg-4 xl-col-offset-xl-5 xl-col-offset-xxl-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          push={
+            Object {
+              "lg": 4,
+              "md": 3,
+              "sm": 2,
+              "xl": 5,
+              "xs": 1,
+              "xxl": 6,
+            }
+          }
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-push-xs-1 xl-col-push-sm-2 xl-col-push-md-3 xl-col-push-lg-4 xl-col-push-xl-5 xl-col-push-xxl-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          offset={6}
+          pull={
+            Object {
+              "lg": 4,
+              "md": 3,
+              "sm": 2,
+              "xl": 5,
+              "xs": 1,
+              "xxl": 6,
+            }
+          }
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6 xl-col-offset-6 xl-col-pull-xs-1 xl-col-pull-sm-2 xl-col-pull-md-3 xl-col-pull-lg-4 xl-col-pull-xl-5 xl-col-pull-xxl-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+</div>
+`;
+
+exports[`栅格系统 响应式布局 1`] = `
+<div
+  className="grid-row-box"
+>
+  <Row
+    gutter={
+      Object {
+        "lg": 20,
+        "md": 15,
+        "sm": 10,
+        "xl": 25,
+        "xs": 8,
+        "xxl": 30,
+      }
+    }
+  >
+    <div
+      className="xl-row"
+    >
+      <Col
+        span={
+          Object {
+            "lg": 6,
+            "md": 4,
+            "sm": 6,
+            "xs": 8,
+          }
+        }
+      >
+        <div
+          className="xl-col xl-col-span-xs-8 xl-col-span-sm-6 xl-col-span-md-4 xl-col-span-lg-6"
+        >
+          <div
+            className="grid-col-box"
+          >
+            col1
+          </div>
+        </div>
+      </Col>
+      <Col
+        span={
+          Object {
+            "lg": 10,
+            "md": 5,
+            "sm": 6,
+            "xs": 8,
+            "xxl": 6,
+          }
+        }
+      >
+        <div
+          className="xl-col xl-col-span-xs-8 xl-col-span-sm-6 xl-col-span-md-5 xl-col-span-lg-10 xl-col-span-xxl-6"
+        >
+          <div
+            className="grid-col-box"
+          >
+            col2
+          </div>
+        </div>
+      </Col>
+      <Col
+        span={
+          Object {
+            "lg": 4,
+            "md": 7,
+            "sm": 6,
+            "xl": 0,
+            "xs": 8,
+            "xxl": 6,
+          }
+        }
+      >
+        <div
+          className="xl-col xl-col-span-xs-8 xl-col-span-sm-6 xl-col-span-md-7 xl-col-span-lg-4 xl-col-span-xl-0 xl-col-span-xxl-6"
+        >
+          <div
+            className="grid-col-box"
+          >
+            col3
+          </div>
+        </div>
+      </Col>
+      <Col
+        span={
+          Object {
+            "lg": 4,
+            "md": 8,
+            "sm": 6,
+            "xl": 8,
+            "xs": 0,
+            "xxl": 6,
+          }
+        }
+      >
+        <div
+          className="xl-col xl-col-span-xs-0 xl-col-span-sm-6 xl-col-span-md-8 xl-col-span-lg-4 xl-col-span-xl-8 xl-col-span-xxl-6"
+        >
+          <div
+            className="grid-col-box"
+          >
+            col4
+          </div>
+        </div>
+      </Col>
+    </div>
+  </Row>
+</div>
 `;
 
 exports[`栅格系统 基本用法 1`] = `
-<Row
-  gutter={0}
->
+<div>
   <div
-    className="xl-row"
+    className="grid-row-box"
   >
-    <Col
-      span={4}
+    <Row
+      gutter={10}
     >
       <div
-        className="xl-col xl-col-span-4"
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
       >
-        Col1
+        <Col
+          span={4}
+        >
+          <div
+            className="xl-col xl-col-span-4"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={5}
+        >
+          <div
+            className="xl-col xl-col-span-5"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={7}
+        >
+          <div
+            className="xl-col xl-col-span-7"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={8}
+        >
+          <div
+            className="xl-col xl-col-span-8"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
       </div>
-    </Col>
-    <Col
-      span={5}
-    >
-      <div
-        className="xl-col xl-col-span-5"
-      >
-        Col2
-      </div>
-    </Col>
-    <Col
-      span={7}
-    >
-      <div
-        className="xl-col xl-col-span-7"
-      >
-        Col3
-      </div>
-    </Col>
-    <Col
-      span={8}
-    >
-      <div
-        className="xl-col xl-col-span-8"
-      >
-        Col4
-      </div>
-    </Col>
+    </Row>
   </div>
-</Row>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={6}
+        >
+          <div
+            className="xl-col xl-col-span-6"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+  <div
+    className="grid-row-box"
+  >
+    <Row
+      gutter={10}
+    >
+      <div
+        className="xl-row"
+        style={
+          Object {
+            "marginLeft": -5,
+            "marginRight": -5,
+          }
+        }
+      >
+        <Col
+          span={8}
+        >
+          <div
+            className="xl-col xl-col-span-8"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col1
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={0}
+        >
+          <div
+            className="xl-col xl-col-span-0"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col2
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={8}
+        >
+          <div
+            className="xl-col xl-col-span-8"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col3
+            </div>
+          </div>
+        </Col>
+        <Col
+          span={8}
+        >
+          <div
+            className="xl-col xl-col-span-8"
+            style={
+              Object {
+                "paddingLeft": 5,
+                "paddingRight": 5,
+              }
+            }
+          >
+            <div
+              className="grid-col-box"
+            >
+              col4
+            </div>
+          </div>
+        </Col>
+      </div>
+    </Row>
+  </div>
+</div>
 `;

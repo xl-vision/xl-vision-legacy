@@ -6,13 +6,15 @@
     box-sizing: border-box;
     @include clearfix;
 
-    &--flex {
-        display: flex;
-        flex-direction: row;
 
-        &:after {
-            display: none;
-        }
+}
+
+.#{$--cls-prefix}-row-flex {
+    display: flex;
+    flex-direction: row;
+
+    &:after {
+        display: none;
     }
 
     &--start {

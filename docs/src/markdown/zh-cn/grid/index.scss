@@ -4,6 +4,16 @@
   background-color: $--color-gray-200;
   padding: 0.5rem;
   border-radius: $--border-radius;
+
+  &+& {
+    margin-top: 1rem;
+  }
+
+  &--flex {
+    .xl-row-flex {
+      height: 3rem;
+    }
+  }
 }
 
 .grid-col-box {
