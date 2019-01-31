@@ -14,7 +14,7 @@ const webpackBaseConfig = {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     },
-    entry: path.join(process.cwd(), 'src/index.tsx'),
+    entry: path.join(process.cwd(), 'src/components/index.tsx'),
     output: {
         // path: path.join(process.cwd(), 'dist'),
         // publicPath: config.src.publicPath,

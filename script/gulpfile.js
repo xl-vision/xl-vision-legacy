@@ -66,7 +66,7 @@ gulp.task('compile:lib', () => {
 gulp.task('compile', gulp.parallel('compile:lib', 'compile:es'))
 
 gulp.task('dist:uncompressed', () => {
-    const scssStream = compileScss(gulp.src('src/style/index.scss'))
+    const scssStream = compileScss(gulp.src('src/style/theme-default/index.scss'))
         .pipe(cleanCss({
             level: 2,
             format: 'beautify',
@@ -77,13 +77,13 @@ gulp.task('dist:uncompressed', () => {
             next()
         }))
 
-    const webpackStream = runWebpack(gulp.src('src/index.tsx'), false)
+    const webpackStream = runWebpack(gulp.src('src/components/index.tsx'), false)
     return merge2([scssStream, webpackStream])
         .pipe(gulp.dest(distDir))
 })
 
 gulp.task('dist:compressed', () => {
-    const scssStream = compileScss(gulp.src('src/style/index.scss'))
+    const scssStream = compileScss(gulp.src('src/style/theme-default/index.scss'))
         .pipe(cleanCss({
             level: 2,
             format: 'none',
@@ -93,7 +93,7 @@ gulp.task('dist:compressed', () => {
             this.push(file)
             next()
         }))
-    const webpackStream = runWebpack(gulp.src('src/index.tsx'), true)
+    const webpackStream = runWebpack(gulp.src('src/components/index.tsx'), true)
 
     return merge2([scssStream, webpackStream])
         .pipe(gulp.dest(distDir))

@@ -5,7 +5,7 @@ const chalk = require('chalk')
 const semver = require('semver')
 const fs = require('fs-extra')
 const ghpages = require('gh-pages')
-
+const path = require('path')
 
 if (!shell.which('git')) {
   console.log(chalk.red('git不存在，请先安装git'))
