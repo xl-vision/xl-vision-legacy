@@ -37,9 +37,6 @@ export interface RowState {
 }
 
 export default class Row extends React.Component<RowProps, RowState> {
-  static defaultProps: RowProps = {
-    gutter: 0
-  }
   static propTypes = {
     gutter: PropTypes.oneOfType([
       PropTypes.number,
@@ -69,7 +66,7 @@ export default class Row extends React.Component<RowProps, RowState> {
   }
 
   componentDidMount() {
-    Object.keys(breakPointArray).map((breakPoint: BreakPoint) => {
+    for (const breakPoint of breakPointArray) {
       enquire.register(breakPointMap[breakPoint], {
         match: () => {
           if (typeof this.props.gutter !== 'object') {
@@ -96,24 +93,30 @@ export default class Row extends React.Component<RowProps, RowState> {
         // Keep a empty destory to avoid triggering unmatch when unregister
         destroy() {}
       })
-    })
+    }
   }
   componentWillUnmount() {
-    Object.keys(breakPointMap).map((breakPoint: BreakPoint) =>
+    for (const breakPoint of breakPointArray) {
       enquire.unregister(breakPointMap[breakPoint])
-    )
+    }
   }
   getGutter(): number {
     const { gutter } = this.props
+    if (!gutter) {
+      return 0
+    }
+    if (typeof gutter === 'number') {
+      return gutter
+    }
     if (typeof gutter === 'object') {
-      for (let i = 0; i < breakPointArray.length; i++) {
-        const breakpoint: BreakPoint = breakPointArray[i]
-        if (this.state.media[breakpoint] && gutter[breakpoint] !== undefined) {
-          return gutter[breakpoint] as number
+      for (const breakPoint of breakPointArray) {
+        console.log(this.state.media, breakPoint)
+        if (this.state.media[breakPoint] && gutter[breakPoint] !== undefined) {
+          return gutter[breakPoint] as number
         }
       }
     }
-    return gutter as number
+    return 0
   }
   render() {
     const {
@@ -126,6 +129,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       ...others
     } = this.props
     const gutter = this.getGutter()
+    console.log(gutter)
     const rowClsPrefix = `${clsPrefix}-row`
     const classes = classNames(
       {

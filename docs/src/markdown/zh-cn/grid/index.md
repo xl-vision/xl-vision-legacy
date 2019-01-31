@@ -8,16 +8,24 @@ import './index.scss'
 ## 基础用法
 
 ::: demo 基础用法
-使用`span`实现基本的布局
+使用`span`,`gutter`实现基本的布局
 
 ```jsx
 export default function() {
     return (
-      <Row>
-        <Col span={4}>Col1</Col>
-        <Col span={5}>Col2</Col>
-        <Col span={7}>Col3</Col>
-        <Col span={8}>Col4</Col>
+      <Row className='grid-row' gutter={10}>
+        <Col span={4}>
+            <div className='grid-box'>col1</div>
+        </Col>
+        <Col span={5}>
+            <div className='grid-box'>col2</div>
+        </Col>
+        <Col span={7}>
+            <div className='grid-box'>col3</div>
+        </Col>
+        <Col span={8}>
+            <div className='grid-box'>col4</div>
+        </Col>
       </Row>
     )
 }
@@ -34,27 +42,29 @@ export default function() {
 ```jsx
 export default function() {
     return (
-        <Row>
-            <Col span={{
-                md: 4,
-                lg: 6
-            }}>Col1</Col>
-            <Col span={{
-                md: 5,
-                lg: 6
-            }}>Col2</Col>
-            <Col span={{
-                md:7,
-                lg: 6
-            }}>Col3</Col>
-            <Col span={{
-                md: 8,
-                lg: 6
-            }}>Col4</Col>
-        </Row>
+      <Row className='grid-row' gutter={{
+          xs: 5,
+          sm: 10,
+          md: 15,
+          lg: 20,
+          xl: 25,
+          xxl: 30
+      }}>
+        <Col span={4}>
+            <div className='grid-box'>col1</div>
+        </Col>
+        <Col span={5}>
+            <div className='grid-box'>col2</div>
+        </Col>
+        <Col span={7}>
+            <div className='grid-box'>col3</div>
+        </Col>
+        <Col span={8}>
+            <div className='grid-box'>col4</div>
+        </Col>
+      </Row>
     )
 }
-
 ```
 
 :::
