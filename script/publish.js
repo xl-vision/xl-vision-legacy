@@ -9,7 +9,7 @@ const path = require('path')
 
 if (!shell.which('git')) {
   console.log(chalk.red('git不存在，请先安装git'))
-  shell.exit(1);
+  shell.exit(1)
 }
 
 const pkg = require(resolvePath('package.json'))
@@ -39,14 +39,7 @@ inquirer.prompt([{
     type: 'confirm',
     default: true
   }
-]).then(function (answers) {
-
-  console.log(chalk.green('======安装依赖======'))
-  if (shell.exec(`npm i && cd docs && npm i`).code) {
-    console.log(chalk.red(`======安装依赖失败======`))
-    shell.exit(1)
-  }
-  console.log(chalk.green('======安装依赖成功======'))
+]).then(async function (answers) {
 
   console.log(chalk.green('======运行代码检查======'))
   if (shell.exec(`npm run tslint`).code) {
@@ -107,7 +100,6 @@ inquirer.prompt([{
   }
   console.log(chalk.green(`======发布版本"${version}"到github成功======`))
 
-  let promise = Promise.resolve()
   if (answers.docs) {
     const docsPath = resolvePath('docs/dist')
     // console.log(chalk.green('删除生成的文档'))
@@ -119,29 +111,20 @@ inquirer.prompt([{
     }
     console.log(chalk.green('======编译文档成功======'))
 
-    console.log(chalk.green('======发布文档======'))
-    promise.then((resolve) => {
+    console.log(chalk.green('======正在发布文档======'))
+    await new Promise((resolve, reject) => {
       ghpages.publish(docsPath, err => {
-        const p = new Promise((resolve, reject) => {
-          if (err) {
-            console.log(chalk.red('======发布文档失败======'))
-            reject(err)
-          } else {
-            console.log(chalk.green('======发布文档成功======'))
-            resolve()
-          }
-        })
-        resolve(p)
+        if (err) {
+          console.log(chalk.red('======发布文档失败======'))
+          shell.exit(1)
+        } else {
+          console.log(chalk.green('======发布文档成功======'))
+          resolve()
+        }
       })
     })
   }
-
-  promise.then(() => {
-    console.log(chalk.green(`======正在发布到npm仓库，请稍等======`))
-  }).catch(err => {
-    console.log(chalk.red('======发布文档失败======'))
-    console.log(chalk.red(err))
-  })
+  console.log(chalk.green(`======正在发布到npm仓库，请稍等======`))
 })
 
 function getVersionList(version) {
