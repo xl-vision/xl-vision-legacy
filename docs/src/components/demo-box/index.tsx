@@ -13,7 +13,7 @@ export interface DemoBoxProps {
   description: string
   children: string
 }
-export default class DemoBox extends React.Component<DemoBoxProps, {}> {
+export default class DemoBox extends React.PureComponent<DemoBoxProps, {}> {
   render() {
     const { title, description, children } = this.props
     const transformTitle = title.replace(

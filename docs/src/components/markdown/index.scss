@@ -8,10 +8,10 @@
   }
 
   &-code-inline {
-    background-color: color-level($--color-primary, -8);
+    background-color: color-level($--color-primary, -10);
     display: inline-block;
     margin: 0 0.2rem;
-    padding: 0.3rem 0.4rem;
+    padding: 0.2rem 0.4rem;
     line-height: 0.9rem;
     border-radius: $--border-radius / 2;
   }

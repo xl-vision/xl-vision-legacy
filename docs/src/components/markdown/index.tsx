@@ -4,7 +4,7 @@ import DemoBox from '../demo-box'
 import { encodeCode } from '../../utils/transformCode'
 import './index.scss'
 
-export default class extends React.Component<{ children: string }, {}> {
+export default class extends React.PureComponent<{ children: string }, {}> {
   render() {
     const { children } = this.props
     const regex = / *::: *demo *(.+)\n(((?!```).*\n)+).+\n(((?!```).*\n)+).+\s+:::/
