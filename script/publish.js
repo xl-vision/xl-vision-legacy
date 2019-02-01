@@ -41,25 +41,38 @@ inquirer.prompt([{
   }
 ]).then(function (answers) {
 
+  console.log(chalk.green('======安装依赖======'))
+  if (shell.exec(`npm i && cd docs && npm i`).code) {
+    console.log(chalk.red(`======安装依赖失败======`))
+    shell.exit(1)
+  }
+  console.log(chalk.green('======安装依赖成功======'))
+
   console.log(chalk.green('======运行代码检查======'))
   if (shell.exec(`npm run tslint`).code) {
     console.log(chalk.red(`======代码检查未通过======`))
     shell.exit(1)
   }
+  console.log(chalk.green('======代码检查完成======'))
+
   console.log(chalk.green('======运行测试用例======'))
   if (shell.exec(`npm run test`).code) {
     console.log(chalk.red(`======测试用例未通过======`))
     shell.exit(1)
   }
+  console.log(chalk.green('======运行测试用例通过======'))
+
   console.log(chalk.green('======编译源码======'))
   if (shell.exec(`npm run compile`).code) {
     console.log(chalk.red(`======npm run compile失败======`))
     shell.exit(1)
   }
+
   if (shell.exec(`npm run dist`).code) {
     console.log(chalk.red(`======npm run dist失败======`))
     shell.exit(1)
   }
+  console.log(chalk.green('======编译源码完成======'))
 
   const version = `${answers.version}`
   pkg.version = version
@@ -71,7 +84,7 @@ inquirer.prompt([{
   //提交代码
   const comment = answers.message
 
-  console.log(chalk.green('======git提交代码======'))
+  console.log(chalk.green('======提交代码到github======'))
 
   let cmd = `git add . && git commit -m "${comment}" && git push origin master`
 
@@ -81,16 +94,18 @@ inquirer.prompt([{
       resolvePath('package.json'),
       JSON.stringify(pkg, null, '  ')
     )
-    console.log(chalk.red(`======git提交失败======`))
+    console.log(chalk.red(`======提交代码失败======`))
     shell.exit(1)
   }
+  console.log(chalk.green(`======提交代码成功======`))
 
-  console.log(chalk.green(`======git发布版本${version}======`))
+  console.log(chalk.green(`======发布版本"${version}"到github======`))
   cmd = `git tag -a ${version} -m "${comment}" && git push origin ${version}`
   if (shell.exec(cmd).code) {
-    console.log(chalk.red(`======git发布版本${version}失败======`))
+    console.log(chalk.red(`======发布版本"${version}"失败======`))
     shell.exit(1)
   }
+  console.log(chalk.green(`======发布版本"${version}"到github成功======`))
 
   let promise = Promise.resolve()
   if (answers.docs) {
@@ -102,21 +117,27 @@ inquirer.prompt([{
       console.log(chalk.red('======编译文档失败======'))
       shell.exit(1)
     }
+    console.log(chalk.green('======编译文档成功======'))
 
     console.log(chalk.green('======发布文档======'))
-    promise.then(() => {
-      return ghpages.publish(docsPath, err => {
-        if (err) {
-          Promise.reject(err)
-        } else {
-          Promise.resolve()
-        }
+    promise.then((resolve) => {
+      ghpages.publish(docsPath, err => {
+        const p = new Promise((resolve, reject) => {
+          if (err) {
+            console.log(chalk.red('======发布文档失败======'))
+            reject(err)
+          } else {
+            console.log(chalk.green('======发布文档成功======'))
+            resolve()
+          }
+        })
+        resolve(p)
       })
     })
   }
 
   promise.then(() => {
-    console.log(chalk.green(`======发布成功,当前版本(${version})======`))
+    console.log(chalk.green(`======正在发布到npm仓库，请稍等======`))
   }).catch(err => {
     console.log(chalk.red('======发布文档失败======'))
     console.log(chalk.red(err))
