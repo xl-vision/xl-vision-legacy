@@ -1,7 +1,14 @@
 {
-  "name": "xl-vision",
+  "name": "@xl-vision/xl-vision",
   "version": "0.0.2-beta.6",
   "description": "",
+  "author": "Rhys Xia",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "component",
+    "libaray"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
@@ -12,19 +19,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RhysXia/xl-vision.git"
+    "url": "git+https://github.com/xl-vision/xl-vision.git"
   },
-  "keywords": [
-    "react",
-    "component",
-    "libaray"
-  ],
-  "author": "Rhys Xia",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RhysXia/xl-vision/issues"
+    "url": "https://github.com/xl-vision/xl-vision/issues"
   },
-  "homepage": "https://github.com/RhysXia/xl-vision#readme",
+  "homepage": "https://github.com/xl-vision/xl-vision#readme",
   "scripts": {
     "compile:lib": "gulp compile:lib --gulpfile script/gulpfile.js --cwd .",
     "compile:es": "gulp compile:es --gulpfile script/gulpfile.js --cwd .",
