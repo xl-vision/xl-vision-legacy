@@ -56,17 +56,15 @@ module.exports = {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
             options: {
-                limit: 10000,
-                name: isProd() ?
-                    '/xl-vision/img/[name].[hash:7].[ext]' : 'static/img/[name].[hash:7].[ext]'
+                limit: 10,
+                name: 'img/[name].[hash:7].[ext]'
             }
         }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
             loader: 'url-loader',
             options: {
                 limit: 10000,
-                name: isProd() ?
-                    '/xl-vision/fonts/[name].[hash:7].[ext]' : 'static/fonts/[name].[hash:7].[ext]'
+                name: 'fonts/[name].[hash:7].[ext]'
             }
         }]
     },
