@@ -13,7 +13,7 @@ const runWebpack = require('./build/runWebpack')
 const resources = {
     ts: [
         'src/components/**/*.ts?(x)',
-        'src/components/**/*.d.ts',
+        'types/**/*.d.ts',
         '!src/components/**/test/*.ts?(x)'
     ],
     test: [

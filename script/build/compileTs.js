@@ -1,6 +1,5 @@
 const ts = require('gulp-typescript')
 const merge2 = require('merge2')
-const path = require('path')
 
 const compileJs = require('./compileJs')
 

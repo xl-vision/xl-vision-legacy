@@ -8,18 +8,13 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "baseUrl": ".",
     "lib": [
       "dom",
       "es7"
-    ],
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    }
+    ]
   },
   "include": [
-    "src/components/**/*"
+    "src/components/**/*",
+    "types/**/*"
   ]
 }
