@@ -6,7 +6,7 @@ export default function() {
   return (
     <header className='header'>
       <a href='/' className='logo'>
-        <img src='@assets/img/logo.png' alt='' />
+        <img src={logo} alt='' />
       </a>
     </header>
   )
