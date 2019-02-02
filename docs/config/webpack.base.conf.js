@@ -1,7 +1,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-// const isProd = () => process.env.NODE_ENV === 'production'
+const isProd = () => process.env.NODE_ENV === 'production'
 
 module.exports = {
     resolve: {
@@ -72,6 +73,11 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'xl-vision',
             template: path.resolve(__dirname, '..', 'index.html')
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, '../public'),
+            to: isProd() ? path.resolve(__dirname, '../dist') + '/static' : 'static',
+            ignore: ['.*']
+        }])
     ]
 }

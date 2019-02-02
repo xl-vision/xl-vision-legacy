@@ -34,7 +34,8 @@
     "site:dev": "gulp site:dev --gulpfile script/gulpfile.js --cwd .",
     "tslint": "gulp tslint --gulpfile script/gulpfile.js --cwd .",
     "test": "jest",
-    "prepublishOnly": "node script/publish.js"
+    "prepublishOnly": "node script/publish.js",
+    "updateSite": "node script/updateSite.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
