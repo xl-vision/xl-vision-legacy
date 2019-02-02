@@ -1,6 +1,6 @@
 {
   "name": "@xl-vision/xl-vision",
-  "version": "0.0.2-beta.7",
+  "version": "0.0.2-beta.8",
   "description": "",
   "author": "Rhys Xia",
   "license": "MIT",
@@ -34,8 +34,7 @@
     "site:dev": "gulp site:dev --gulpfile script/gulpfile.js --cwd .",
     "tslint": "gulp tslint --gulpfile script/gulpfile.js --cwd .",
     "test": "jest",
-    "prepublishOnly": "node script/publish.js",
-    "preinstall": "cd docs && npm i"
+    "prepublishOnly": "node script/publish.js"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
