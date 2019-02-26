@@ -1,9 +1,20 @@
 {
   "extends": [
     "tslint:recommended",
-    "tslint-react"
+    "tslint-react",
+    "tslint-react-hooks"
   ],
   "rules": {
+    "react-hooks-nesting": "error",
+    "array-type": [
+      true,
+      "array"
+    ],
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "interface-name": false,
+    "member-access": false,
+    "max-line-length": false,
+    "jsx-no-multiline-js": false,
     "quotemark": [
       true,
       "single",
@@ -13,6 +24,13 @@
     "semicolon": [
       true,
       "never"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
     ]
   }
 }

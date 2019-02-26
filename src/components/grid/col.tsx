@@ -1,9 +1,9 @@
-import * as React from 'react'
-import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
+import * as PropTypes from 'prop-types'
+import * as React from 'react'
+import { clsPrefix } from '../_config'
 import { BreakPoint, breakPointArray } from './common'
 import RowContext from './row-context'
-import { clsPrefix } from '../_config'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 
@@ -23,27 +23,21 @@ const validator: PropTypes.Validator<Error | null> = (
       )
     }
   } else if (typeof propValue === 'object') {
-    for (const key of breakPointArray) {
-      const val = propValue[key]
+    for (const breakPoint of breakPointArray) {
+      const val = propValue[breakPoint]
       if (val === undefined) {
         continue
       }
       if (typeof val === 'number') {
         if (propValue < 0 || propValue > 24) {
-          return new Error(
-            `prop '${propFullName}' supplied to '${componentName} is object, its prop '${key}' be in 0-24 but actually '${val}'.`
-          )
+          return new Error(`prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`)
         }
       } else {
-        return new Error(
-          `prop '${propFullName}' supplied to '${componentName} is object, its prop '${key}' should be a number.`
-        )
+        return new Error(`prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' should be a number.`)
       }
     }
   } else {
-    return new Error(
-      `prop '${propFullName}' supplied to '${componentName} should be a number or suitable object.`
-    )
+    return new Error(`prop '${propFullName}' supplied to '${componentName}' should be a number or suitable object.`)
   }
   return null
 }
@@ -60,18 +54,18 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default class Col extends React.Component<ColProps> {
   static propTypes = {
-    span: colSpanValidater,
-    order: colSpanValidater,
-    offset: colSpanValidater,
-    push: colSpanValidater,
-    pull: colSpanValidater,
+    children: PropTypes.node,
     className: PropTypes.string,
-    children: PropTypes.node
+    offset: colSpanValidater,
+    order: colSpanValidater,
+    pull: colSpanValidater,
+    push: colSpanValidater,
+    span: colSpanValidater
   }
 
   render() {
     const { className, children, style, ...others } = this.props
-    const classArray: Array<String> = []
+    const classArray: string[] = []
     const spanArray: Partial<keyof typeof others>[] = [
       'span',
       'order',
@@ -86,7 +80,7 @@ export default class Col extends React.Component<ColProps> {
       if (typeof propValue === 'number') {
         classArray.push(`${colClsPrefix}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
-        for (const key in propValue) {
+        for (const key of Object.keys(propValue)) {
           const val = propValue[key]
           classArray.push(`${colClsPrefix}-${prop}-${key}-${val}`)
         }
@@ -100,10 +94,10 @@ export default class Col extends React.Component<ColProps> {
           const colStyle =
             gutter > 0
               ? {
-                  paddingLeft: gutter / 2,
-                  paddingRight: gutter / 2,
-                  ...style
-                }
+                paddingLeft: gutter / 2,
+                paddingRight: gutter / 2,
+                ...style
+              }
               : style
           return (
             <div {...others} style={colStyle} className={classes}>

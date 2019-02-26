@@ -1,16 +1,17 @@
-import * as React from 'react'
-import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
-import RowContext from './row-context'
-import { BreakPoint, breakPointArray, breakPointMap } from './common'
+import * as PropTypes from 'prop-types'
+import * as React from 'react'
 import { clsPrefix } from '../_config'
+import { BreakPoint, breakPointArray, breakPointMap } from './common'
+import RowContext from './row-context'
 
+// tslint:disable
 let enquire: any
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string) => {
     return {
-      media: mediaQuery,
       matches: false,
+      media: mediaQuery,
       addListener() {},
       removeListener() {},
       onchange: null,
@@ -24,6 +25,7 @@ if (typeof window !== 'undefined') {
   window.matchMedia = window.matchMedia || matchMediaPolyfill
   enquire = require('enquire.js')
 }
+// tslint:enable
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: number | Partial<Record<BreakPoint, number>>
@@ -38,19 +40,20 @@ export interface RowState {
 
 export default class Row extends React.Component<RowProps, RowState> {
   static propTypes = {
+    align: PropTypes.oneOf(['top', 'middle', 'bottom']),
+    children: PropTypes.node,
+    className: PropTypes.string,
     gutter: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.shape({
-        xxl: PropTypes.number,
-        xl: PropTypes.number,
         lg: PropTypes.number,
         md: PropTypes.number,
         sm: PropTypes.number,
-        xs: PropTypes.number
+        xl: PropTypes.number,
+        xs: PropTypes.number,
+        xxl: PropTypes.number
       })
     ]),
-    type: PropTypes.oneOf(['flex']),
-    align: PropTypes.oneOf(['top', 'middle', 'bottom']),
     justify: PropTypes.oneOf([
       'start',
       'end',
@@ -58,8 +61,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       'space-around',
       'space-between'
     ]),
-    className: PropTypes.string,
-    children: PropTypes.node
+    type: PropTypes.oneOf(['flex'])
   }
   state: RowState = {
     media: {}
@@ -91,6 +93,7 @@ export default class Row extends React.Component<RowProps, RowState> {
           }))
         },
         // Keep a empty destory to avoid triggering unmatch when unregister
+        // tslint:disable-next-line
         destroy() {}
       })
     }
