@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import routes, { Route, ComponentRoute, ChildrenRoute } from '../../routes'
+import routes, { ChildrenRoute, ComponentRoute, Route } from '../../routes'
 
 import './index.scss'
 
@@ -8,9 +8,9 @@ export default function() {
   return <div className='aside'>{buildMenus(routes)}</div>
 }
 
-const buildMenus = (routes: Route[]) => {
+const buildMenus = (routeArray: Route[]) => {
   const nodes: React.ReactNode[] = []
-  routes.forEach((it, index) => {
+  routeArray.forEach((it, index) => {
     if ((it as ComponentRoute).component) {
       nodes.push(
         <li key={index} className='menu-item'>

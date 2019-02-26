@@ -1,19 +1,19 @@
 import * as React from 'react'
 import * as Loadable from 'react-loadable'
+import { Redirect, Route as ReactRoute } from 'react-router-dom'
 import routes, {
-  Route,
+  ChildrenRoute,
   ComponentRoute,
   RedirectRoute,
-  ChildrenRoute
+  Route
 } from '../../routes'
-import { Route as ReactRoute, Redirect } from 'react-router-dom'
 
 import './index.scss'
 
 const routeComponents: React.ReactNode[] = []
 
-const addRoute = (routes: Route[], level = '1') => {
-  routes.forEach((it, index) => {
+const addRoute = (routeArray: Route[], level = '1') => {
+  routeArray.forEach((it, index) => {
     const key = `${level}_${index}`
     if ((it as ComponentRoute).component) {
       const componentRoute = it as ComponentRoute
@@ -31,12 +31,13 @@ const addRoute = (routes: Route[], level = '1') => {
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
+      const component = () => <Redirect to={redirectRoute.redirect} />
       routeComponents.push(
         <ReactRoute
           exact={true}
           key={key}
           path={redirectRoute.path}
-          component={() => <Redirect to={redirectRoute.redirect} />}
+          component={component}
         />
       )
     } else {

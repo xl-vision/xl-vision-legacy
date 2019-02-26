@@ -15,6 +15,8 @@ export interface ComponentRoute {
 }
 
 export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
+
+// tslint:disable
 const routes: Route[] = [
   {
     path: '/',

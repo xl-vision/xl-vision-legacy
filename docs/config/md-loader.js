@@ -1,5 +1,6 @@
 const regex = /\s*---\s*((.*(?!---)\n)*)\s*---/
 module.exports = function (content, map, meta) {
+    console.log('11111111111111111111111111111111111111')
     let parseStr = content.replace(/\r\n/g,'\n').replace(/`/g, "\\`")
     const importsMatch = parseStr.match(regex)
     let imports = ''

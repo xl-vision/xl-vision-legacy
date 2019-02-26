@@ -1,6 +1,7 @@
 import * as React from 'react'
-import './index.scss'
+
 import logo from '@/assets/img/logo.png'
+import './index.scss'
 
 export default function() {
   return (
