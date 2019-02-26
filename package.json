@@ -74,7 +74,7 @@
     "semver": "^5.6.0",
     "shelljs": "^0.8.3",
     "through2": "^3.0.0",
-    "ts-jest": "^23.10.4",
+    "ts-jest": "^24.0.0",
     "ts-loader": "^5.2.2",
     "tslint": "^5.11.0",
     "tslint-loader": "^3.5.4",
