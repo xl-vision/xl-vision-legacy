@@ -113,7 +113,7 @@ export default function() {
             <div className='grid-col-box'>col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col4</div>
+            <div className='grid-col-box'>col3</div>
           </Col>
         </Row>
       </div>

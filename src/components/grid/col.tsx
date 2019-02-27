@@ -3,11 +3,12 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { clsPrefix } from '../_config'
 import { BreakPoint, breakPointArray } from './common'
+import useMedia from './hooks/useMedia'
 import RowContext from './row-context'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 
-const validator: PropTypes.Validator<Error | null> = (
+const validator: PropTypes.Validator<ColSpanType | null> = (
   propValue: Partial<Record<BreakPoint, number>>,
   // @ts-ignore
   key: string,
@@ -52,60 +53,66 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   pull?: ColSpanType
 }
 
-export default class Col extends React.Component<ColProps> {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    offset: colSpanValidater,
-    order: colSpanValidater,
-    pull: colSpanValidater,
-    push: colSpanValidater,
-    span: colSpanValidater
-  }
+const Col: React.FunctionComponent<ColProps> = props => {
+  const colClsPrefix = `${clsPrefix}-col`
 
-  render() {
-    const { className, children, style, ...others } = this.props
-    const classArray: string[] = []
-    const spanArray: Partial<keyof typeof others>[] = [
-      'span',
-      'order',
-      'offset',
-      'push',
-      'pull'
-    ]
+  const media = useMedia()
 
-    const colClsPrefix = `${clsPrefix}-col`
+  const { className, children, style, ...others } = props
+  const spanArray: Partial<keyof typeof others>[] = [
+    'span',
+    'order',
+    'offset',
+    'push',
+    'pull'
+  ]
+
+  const classes = React.useMemo(() => {
+    const arr = [colClsPrefix]
     for (const prop of spanArray) {
-      const propValue = others[prop]
+      const propValue = props[prop]
       if (typeof propValue === 'number') {
-        classArray.push(`${colClsPrefix}-${prop}-${propValue}`)
+        arr.push(`${colClsPrefix}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
-        for (const key of Object.keys(propValue)) {
-          const val = propValue[key]
-          classArray.push(`${colClsPrefix}-${prop}-${key}-${val}`)
+        for (const breakPoint of breakPointArray) {
+          if (media[breakPoint] && propValue[breakPoint] !== undefined) {
+            arr.push(`${colClsPrefix}-${prop}-${propValue[breakPoint]}`)
+            break
+          }
         }
       }
-      delete others[prop]
     }
-    const classes = classNames(colClsPrefix, classArray, className)
-    return (
-      <RowContext.Consumer>
-        {({ gutter }) => {
-          const colStyle =
-            gutter > 0
-              ? {
-                paddingLeft: gutter / 2,
-                paddingRight: gutter / 2,
-                ...style
-              }
-              : style
-          return (
-            <div {...others} style={colStyle} className={classes}>
-              {children}
-            </div>
-          )
-        }}
-      </RowContext.Consumer>
-    )
-  }
+    return classNames(arr, className)
+  }, [media])
+
+  spanArray.forEach(it => {
+    delete others[it]
+  })
+  const context = React.useContext(RowContext)
+  const gutter = context.gutter
+  const colStyle =
+    gutter > 0
+      ? {
+        paddingLeft: gutter / 2,
+        paddingRight: gutter / 2,
+        ...style
+      }
+      : style
+  return (
+    <div {...others} style={colStyle} className={classes}>
+      {children}
+    </div>
+  )
 }
+
+Col.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  offset: colSpanValidater,
+  order: colSpanValidater,
+  pull: colSpanValidater,
+  push: colSpanValidater,
+  span: colSpanValidater
+}
+
+export default Col
