@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { throttle } from '../../_utils'
 import { BreakPoint, breakPointArray, breakPointMap } from '../common'
 
 // tslint:disable
@@ -41,15 +42,16 @@ breakPointArray.forEach(breakPoint => {
 })
 
 const useMedia = () => {
-  const [media, setMedia] = React.useState<Record<BreakPoint, boolean>>({...nativeMedia})
+  const [media, setMedia] = React.useState<Record<BreakPoint, boolean>>({ ...nativeMedia })
 
-  const resizeHandler = () => {
-    setMedia({...nativeMedia})
-  }
-  if (window) {
-    window.addEventListener('resize', resizeHandler)
-  }
+  const resizeHandler = throttle(() => {
+    setMedia({ ...nativeMedia })
+  }, 200)
+
   React.useEffect(() => {
+    if (window) {
+      window.addEventListener('resize', resizeHandler)
+    }
     return () => {
       if (window) {
         window.removeEventListener('resize', resizeHandler)
