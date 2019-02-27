@@ -907,7 +907,7 @@ exports[`栅格系统 响应式偏移 1`] = `
           span={6}
         >
           <div
-            className="xl-col xl-col-span-6 xl-col-offset-xs-1 xl-col-offset-sm-2 xl-col-offset-md-3 xl-col-offset-lg-4 xl-col-offset-xl-5 xl-col-offset-xxl-6"
+            className="xl-col xl-col-span-6"
             style={
               Object {
                 "paddingLeft": 5,
@@ -1011,7 +1011,7 @@ exports[`栅格系统 响应式偏移 1`] = `
           span={6}
         >
           <div
-            className="xl-col xl-col-span-6 xl-col-push-xs-1 xl-col-push-sm-2 xl-col-push-md-3 xl-col-push-lg-4 xl-col-push-xl-5 xl-col-push-xxl-6"
+            className="xl-col xl-col-span-6"
             style={
               Object {
                 "paddingLeft": 5,
@@ -1097,7 +1097,7 @@ exports[`栅格系统 响应式偏移 1`] = `
           span={6}
         >
           <div
-            className="xl-col xl-col-span-6 xl-col-offset-6 xl-col-pull-xs-1 xl-col-pull-sm-2 xl-col-pull-md-3 xl-col-pull-lg-4 xl-col-pull-xl-5 xl-col-pull-xxl-6"
+            className="xl-col xl-col-span-6 xl-col-offset-6"
             style={
               Object {
                 "paddingLeft": 5,
@@ -1148,7 +1148,7 @@ exports[`栅格系统 响应式布局 1`] = `
         }
       >
         <div
-          className="xl-col xl-col-span-xs-8 xl-col-span-sm-6 xl-col-span-md-4 xl-col-span-lg-6"
+          className="xl-col"
         >
           <div
             className="grid-col-box"
@@ -1169,7 +1169,7 @@ exports[`栅格系统 响应式布局 1`] = `
         }
       >
         <div
-          className="xl-col xl-col-span-xs-8 xl-col-span-sm-6 xl-col-span-md-5 xl-col-span-lg-10 xl-col-span-xxl-6"
+          className="xl-col"
         >
           <div
             className="grid-col-box"
@@ -1191,7 +1191,7 @@ exports[`栅格系统 响应式布局 1`] = `
         }
       >
         <div
-          className="xl-col xl-col-span-xs-8 xl-col-span-sm-6 xl-col-span-md-7 xl-col-span-lg-4 xl-col-span-xl-0 xl-col-span-xxl-6"
+          className="xl-col"
         >
           <div
             className="grid-col-box"
@@ -1213,7 +1213,7 @@ exports[`栅格系统 响应式布局 1`] = `
         }
       >
         <div
-          className="xl-col xl-col-span-xs-0 xl-col-span-sm-6 xl-col-span-md-8 xl-col-span-lg-4 xl-col-span-xl-8 xl-col-span-xxl-6"
+          className="xl-col"
         >
           <div
             className="grid-col-box"
