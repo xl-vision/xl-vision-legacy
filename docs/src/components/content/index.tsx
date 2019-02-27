@@ -48,7 +48,6 @@ const addRoute = (routeArray: Route[], level = '1') => {
 }
 
 addRoute(routes)
-
 export default function() {
   return <div className='content'>{routeComponents}</div>
 }
