@@ -2,29 +2,10 @@ import classNames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { clsPrefix } from '../_config'
-import { BreakPoint, breakPointArray, breakPointMap } from './common'
+import { BreakPoint, breakPointArray } from './common'
+import useMedia from './hooks/useMedia'
 import RowContext from './row-context'
 
-// tslint:disable
-let enquire: any
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      matches: false,
-      media: mediaQuery,
-      addListener() { },
-      removeListener() { },
-      onchange: null,
-      addEventListener() { },
-      removeEventListener() { },
-      dispatchEvent() {
-        return true
-      }
-    }
-  }
-  window.matchMedia = window.matchMedia || matchMediaPolyfill
-  enquire = require('enquire.js')
-}
 // tslint:enable
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: number | Partial<Record<BreakPoint, number>>
@@ -34,31 +15,20 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Row: React.FunctionComponent<RowProps> = (props: RowProps) => {
-  const [media, setMedia] = React.useState<Partial<Record<BreakPoint, boolean>>>({})
+  const rowClsPrefix = `${clsPrefix}-row`
 
-  for (const breakPoint of breakPointArray) {
-    enquire.register(breakPointMap[breakPoint], {
-      match: () => {
-        if (!media[breakPoint]) {
-          setMedia({
-            ...media,
-            [breakPoint]: true
-          })
-        }
-      },
-      unmatch: () => {
-        if (media[breakPoint]) {
-          setMedia({
-            ...media,
-            [breakPoint]: false
-          })
-        }
-      },
-      // Keep a empty destory to avoid triggering unmatch when unregister
-      // tslint:disable-next-line
-      destroy() { }
-    })
-  }
+  const {
+    type,
+    justify,
+    align,
+    className,
+    style,
+    children,
+    ...others
+  } = props
+
+  const media = useMedia()
+
   const gutter = React.useMemo<number>(() => {
     if (typeof props.gutter === 'number') {
       return props.gutter
@@ -73,17 +43,8 @@ const Row: React.FunctionComponent<RowProps> = (props: RowProps) => {
     return 0
   }, [media])
 
-  const {
-    type,
-    justify,
-    align,
-    className,
-    style,
-    children,
-    ...others
-  } = props
+  delete others.gutter
 
-  const rowClsPrefix = `${clsPrefix}-row`
   const classes = classNames(
     {
       [rowClsPrefix]: !type,
@@ -101,7 +62,6 @@ const Row: React.FunctionComponent<RowProps> = (props: RowProps) => {
         ...style
       }
       : style
-  delete others.gutter
 
   return (
     <RowContext.Provider value={{ gutter }}>

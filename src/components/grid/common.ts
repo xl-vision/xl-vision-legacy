@@ -8,6 +8,6 @@ export const breakPointMap: BreakPointMap = {
     lg: '(min-width: 992px)',
     md: '(min-width: 768px)',
     sm: '(min-width: 576px)',
-    xs: '(max-width: 575px)'
+    xs: '(min-width: 0)'
 }
 export const breakPointArray: BreakPoint[] = Object.keys(breakPointMap) as BreakPoint[]
