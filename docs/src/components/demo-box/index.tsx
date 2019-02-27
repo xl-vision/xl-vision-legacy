@@ -1,6 +1,6 @@
-import * as React from 'react'
 import hljs from 'highlight.js/lib/highlight'
 import jsx from 'highlight.js/lib/languages/javascript'
+import * as React from 'react'
 import { decodeCode, renderCode } from '../../utils/transformCode'
 
 import 'highlight.js/styles/vs.css'

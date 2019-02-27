@@ -1,7 +1,8 @@
-import * as React from 'react'
 import Markdown2Jsx from 'markdown-to-jsx'
-import DemoBox from '../demo-box'
+import * as React from 'react'
 import { encodeCode } from '../../utils/transformCode'
+import DemoBox from '../demo-box'
+
 import './index.scss'
 
 export default class extends React.PureComponent<{ children: string }, {}> {
@@ -37,6 +38,11 @@ const options = {
     DemoBox: {
       component: DemoBox
     },
+    blockquote: {
+      props: {
+        className: 'md-blockquote'
+      }
+    },
     code: {
       props: {
         className: 'md-code-inline'
@@ -47,19 +53,14 @@ const options = {
         className: 'md-ol'
       }
     },
-    ul: {
-      props: {
-        className: 'md-ul'
-      }
-    },
-    blockquote: {
-      props: {
-        className: 'md-blockquote'
-      }
-    },
     table: {
       props: {
         className: 'md-table'
+      }
+    },
+    ul: {
+      props: {
+        className: 'md-ul'
       }
     }
   }

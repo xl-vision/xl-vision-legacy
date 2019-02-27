@@ -1,5 +1,5 @@
-import * as React from 'react'
 import * as Babel from 'babel-standalone'
+import * as React from 'react'
 import * as XlVision from '../../../src/components'
 
 export function encodeCode(code: string) {
@@ -23,8 +23,8 @@ export function renderCode(code: string, transform = true) {
     newCode = transformCode(newCode)
   }
   const args = ['React']
-  const argv = [React]
-  for (const key in XlVision) {
+  const argv: any[] = [React]
+  for (const key of Object.keys(XlVision)) {
     args.push(key)
     // @ts-ignore
     argv.push(XlVision[key])
