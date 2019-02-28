@@ -5,8 +5,8 @@
 [![Dependencies](https://img.shields.io/david/xl-vision/xl-vision.svg)](https://david-dm.org/xl-vision/xl-vision)
 [![DevDependencies](https://img.shields.io/david/dev/xl-vision/xl-vision.svg)](https://david-dm.org/xl-vision/xl-vision?type=dev)
 
-[![npm package](https://img.shields.io/npm/v/xl-vision.svg)](https://www.npmjs.org/package/xl-vision)
-[![NPM downloads](http://img.shields.io/npm/dm/xl-vision.svg)](http://npmjs.com/xl-vision)
+[![npm package](https://img.shields.io/npm/v/@xl-vision/xl-vision.svg)](https://www.npmjs.org/package/@xl-vision/xl-vision)
+[![NPM downloads](http://img.shields.io/npm/dm/@xl-vision/xl-vision.svg)](https://www.npmjs.org/package/@xl-vision/xl-vision)
 
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/xl-vision/xl-vision.svg)](http://isitmaintained.com/project/xl-vision/xl-vision "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/xl-vision/xl-vision.svg)](http://isitmaintained.com/project/xl-vision/xl-vision "Percentage of issues still open")
