@@ -45,7 +45,12 @@ const useMedia = () => {
   const [media, setMedia] = React.useState<Record<BreakPoint, boolean>>({ ...nativeMedia })
 
   const resizeHandler = throttle(() => {
-    setMedia({ ...nativeMedia })
+    for (const breakPoint of breakPointArray) {
+      if (media[breakPoint] !== nativeMedia[breakPoint]) {
+        setMedia({ ...nativeMedia })
+        return
+      }
+    }
   }, 200)
 
   React.useEffect(() => {
