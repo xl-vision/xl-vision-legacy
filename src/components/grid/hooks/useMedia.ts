@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { throttle } from '../../_utils'
+import { throttle } from '../../_commons/utils'
 import { BreakPoint, breakPointArray, breakPointMap } from '../common'
 
 // tslint:disable
