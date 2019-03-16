@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { clsPrefix } from '../_commons/config'
@@ -14,8 +14,9 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
 }
 
-const Row: React.FunctionComponent<RowProps> = (props: RowProps) => {
-  const rowClsPrefix = `${clsPrefix}-row`
+const rowClsPrefix = `${clsPrefix}-row`
+
+const Row: React.FunctionComponent<RowProps> = props => {
 
   const {
     type,
@@ -45,7 +46,7 @@ const Row: React.FunctionComponent<RowProps> = (props: RowProps) => {
 
   delete others.gutter
 
-  const classes = classNames(
+  const classes = classnames(
     {
       [rowClsPrefix]: !type,
       [`${rowClsPrefix}-${type}`]: type,

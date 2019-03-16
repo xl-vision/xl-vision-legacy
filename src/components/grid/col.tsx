@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { clsPrefix } from '../_commons/config'
@@ -53,8 +53,9 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   pull?: ColSpanType
 }
 
+const colClsPrefix = `${clsPrefix}-col`
+
 const Col: React.FunctionComponent<ColProps> = props => {
-  const colClsPrefix = `${clsPrefix}-col`
 
   const media = useMedia()
 
@@ -82,7 +83,7 @@ const Col: React.FunctionComponent<ColProps> = props => {
         }
       }
     }
-    return classNames(arr, className)
+    return classnames(arr, className)
   }, [media])
 
   spanArray.forEach(it => {
