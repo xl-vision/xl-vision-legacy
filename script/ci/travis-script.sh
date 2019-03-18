@@ -5,5 +5,5 @@ set -e
 npm run tslint
 npm run compile
 npm run dist
-npm run test -- --coverage
+npm run test -- --collectCoverage
 bash <(curl -s https://codecov.io/bash)
