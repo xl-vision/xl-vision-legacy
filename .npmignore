@@ -2,6 +2,7 @@ node_modules/
 script/
 site/
 src/
+docs/
 docs-dist/
 coverage/
 
