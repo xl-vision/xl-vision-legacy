@@ -29,7 +29,7 @@
   "scripts": {
     "compile:lib": "xl-vision-scripts compile:ts --modules js",
     "compile:es": "xl-vision-scripts compile:ts --modules es",
-    "compile:style": "xl-vision-scripts compile:scss",
+    "compile:style": "xl-vision-scripts compile:scss --src \"src/style/**/*.scss,!src/style/**/_*/**/*.scss\"",
     "compile": "npm run compile:lib && npm run compile:es && npm run compile:style",
     "dist": "xl-vision-scripts webpack",
     "tslint": "xl-vision-scripts tslint",
