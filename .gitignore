@@ -1,11 +1,11 @@
 .DS_Store
 node_modules/
-dist/
-docs-dist/
-coverage/
-es/
-js/
-style/
+/dist/
+/docs-dist/
+/coverage/
+/es/
+/js/
+/style/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
