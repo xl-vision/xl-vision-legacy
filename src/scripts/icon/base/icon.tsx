@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import * as React from 'react'
-import { clsPrefix } from '../../_commons/config'
+import { clsPrefix } from '../../commons/config'
 
 export interface IconProps {
     className?: string

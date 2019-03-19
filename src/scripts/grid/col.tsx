@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
-import { clsPrefix } from '../_commons/config'
+import { clsPrefix } from '../commons/config'
 import { BreakPoint, breakPointArray } from './common'
 import useMedia from './hooks/useMedia'
 import RowContext from './row-context'
