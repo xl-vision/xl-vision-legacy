@@ -41,7 +41,12 @@ module.exports = webpackMerge(baseConfig, {
             }, {
                 loader: 'css-loader',
             }, {
-                loader: 'postcss-loader'
+                loader: 'postcss-loader',
+                options: {
+                    config: {
+                        path: path.resolve(__dirname, '../')
+                    }
+                }
             }]
         }, {
             test: /\.scss$/,
@@ -50,7 +55,12 @@ module.exports = webpackMerge(baseConfig, {
             }, {
                 loader: 'css-loader',
             }, {
-                loader: 'postcss-loader'
+                loader: 'postcss-loader',
+                options: {
+                    config: {
+                        path: path.resolve(__dirname, '../')
+                    }
+                }
             }, {
                 loader: 'sass-loader'
             }]

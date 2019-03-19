@@ -1,5 +1,6 @@
 const webpackMerge = require('webpack-merge')
 const webpack = require('webpack')
+const path = require('path')
 const baseConfig = require('./webpack.base.conf')
 
 module.exports = webpackMerge(baseConfig, {
@@ -18,7 +19,12 @@ module.exports = webpackMerge(baseConfig, {
             }, {
                 loader: 'css-loader',
             }, {
-                loader: 'postcss-loader'
+                loader: 'postcss-loader',
+                options:{
+                    config:{
+                        path: path.resolve(__dirname, '../')
+                    }
+                }
             }]
         }, {
             test: /\.scss$/,
@@ -27,7 +33,12 @@ module.exports = webpackMerge(baseConfig, {
             }, {
                 loader: 'css-loader',
             }, {
-                loader: 'postcss-loader'
+                loader: 'postcss-loader',
+                options:{
+                    config:{
+                        path: path.resolve(__dirname, '../')
+                    }
+                }
             }, {
                 loader: 'sass-loader'
             }]

@@ -32,24 +32,24 @@ module.exports = {
             test: /\.tsx?$/,
             exclude: /node_modules/,
             use: [{
-                    loader: 'babel-loader',
-                    // options: getBabelConfig(false),
-                },{
-                    loader: 'ts-loader',
-                    options: {
-                        // configFile: tsconfigPath,
-                        transpileOnly: true,
-                    },
-                }],
+                loader: 'babel-loader',
+                // options: getBabelConfig(false),
+            }, {
+                loader: 'ts-loader',
+                options: {
+                    // configFile: tsconfigPath,
+                    transpileOnly: true,
+                },
+            }],
         }, {
             test: /\.md$/,
             exclude: /node_modules/,
             use: [{
-                    loader: 'babel-loader',
-                    // options: getBabelConfig(false),
-                }, {
-                    loader: require.resolve('./md-loader')
-                }]
+                loader: 'babel-loader',
+                // options: getBabelConfig(false),
+            }, {
+                loader: require.resolve('./md-loader')
+            }]
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             loader: 'url-loader',
