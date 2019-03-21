@@ -10,8 +10,6 @@ interface IconProps {
     className?: string
 }
 
-
-
 const FaBr500px: React.FunctionComponent<IconProps> = props => {
     return (
         <BaseIcon {...props}>

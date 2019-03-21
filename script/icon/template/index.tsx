@@ -10,8 +10,6 @@ interface IconProps {
     className?: string
 }
 
-
-
 const {{name}}: React.FunctionComponent<IconProps> = props => {
     return (
         <BaseIcon {...props}>

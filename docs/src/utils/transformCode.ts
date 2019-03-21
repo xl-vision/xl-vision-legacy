@@ -1,7 +1,6 @@
 import * as Babel from 'babel-standalone'
 import * as React from 'react'
 import * as XlVision from '../../../src/package'
-
 export function encodeCode(code: string) {
   return code.replace(/\\n/g, '\\\\n').replace(/\n/g, '\\n')
 }
