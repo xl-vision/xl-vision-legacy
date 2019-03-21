@@ -4,20 +4,20 @@ const fs = require('fs-extra')
 
 const config = {
     pathMap: [{
-        input: path.join(__dirname, 'icons/font-awesome/brands/*.svg'),
+        input: path.join(__dirname, 'icons/font-awesome/brands/500px.svg'),
         formater: name => `fa-br-${name}`,
-        output: 'src/components/icon/icons'
-    },{
-        input: path.join(__dirname, 'icons/font-awesome/regular/*.svg'),
-        formater: name => `fa-re-${name}`,
-        output: 'src/components/icon/icons'
-    },{
-        input: path.join(__dirname, 'icons/font-awesome/solid/*.svg'),
-        formater: name => `fa-so-${name}`,
-        output: 'src/components/icon/icons'
+        output: 'src/package/icon/icons'
+    // },{
+    //     input: path.join(__dirname, 'icons/font-awesome/regular/*.svg'),
+    //     formater: name => `fa-re-${name}`,
+    //     output: 'src/components/icon/icons'
+    // },{
+    //     input: path.join(__dirname, 'icons/font-awesome/solid/*.svg'),
+    //     formater: name => `fa-so-${name}`,
+    //     output: 'src/components/icon/icons'
     }],
-    template: path.join(__dirname, 'template/index.ts')
+    template: path.join(__dirname, 'template/index.tsx')
 }
-fs.removeSync(path.join(__dirname,'../../src/components/icon/icons'))
+fs.removeSync(path.join(__dirname,'../../src/package/icon/icons'))
 
 generate(config)
