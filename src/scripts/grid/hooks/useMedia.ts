@@ -1,4 +1,6 @@
-import * as React from 'react'
+import { useState } from 'react'
+import useOnMount from '../../commons/hooks/useOnMount'
+import useOnUnmount from '../../commons/hooks/useOnUnmount'
 import { throttle } from '../../commons/utils'
 import { BreakPoint, breakPointArray, breakPointMap } from '../common'
 
@@ -42,7 +44,7 @@ breakPointArray.forEach(breakPoint => {
 })
 
 const useMedia = () => {
-  const [media, setMedia] = React.useState<Record<BreakPoint, boolean>>({ ...nativeMedia })
+  const [media, setMedia] = useState<Record<BreakPoint, boolean>>({ ...nativeMedia })
 
   const resizeHandler = throttle(() => {
     for (const breakPoint of breakPointArray) {
@@ -53,14 +55,14 @@ const useMedia = () => {
     }
   }, 200)
 
-  React.useEffect(() => {
+  useOnMount(() => {
     if (window) {
       window.addEventListener('resize', resizeHandler)
     }
-    return () => {
-      if (window) {
-        window.removeEventListener('resize', resizeHandler)
-      }
+  })
+  useOnUnmount(() => {
+    if (window) {
+      window.removeEventListener('resize', resizeHandler)
     }
   })
   return media
