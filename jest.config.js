@@ -5,12 +5,12 @@ module.exports = {
         "./script/test/setup.js"
     ],
     testMatch: [
-        "**/src/scripts/**/_test/index.ts?(x)"
+        "**/src/package/**/_test/index.ts?(x)"
     ],
     // collectCoverage: true,
     collectCoverageFrom: [
-        'src/scripts/**/*.{ts,tsx}',
-        '!src/scripts/**/_*/**',
+        'src/package/**/*.{ts,tsx}',
+        '!src/package/**/_*/**',
     ],
     snapshotSerializers: [
         'enzyme-to-json/serializer',
