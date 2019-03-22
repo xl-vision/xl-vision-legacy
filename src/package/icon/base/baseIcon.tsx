@@ -21,7 +21,7 @@ const getSize = (size: number | string) => {
 
 const iconClsPrefix = `${clsPrefix}-icon`
 
-const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
+const BaseIcon: React.FunctionComponent<BaseIconProps> = React.memo(props => {
     const { className, spin, size, style, rotate, ...others } = props
     const iconStyle = style || {}
     if (size !== undefined) {
@@ -37,6 +37,6 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
     return (
         <i className={classes} style={iconStyle} {...others} />
     )
-}
+})
 
 export default BaseIcon

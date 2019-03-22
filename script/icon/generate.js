@@ -35,8 +35,8 @@ const run = async () => {
 
     await generate(config)
 
-    let exportContent = `export default {\n    Icon,\n`
-    let importContent = `import Icon from './base/baseIcon'\n`
+    let importContent = `import createIcon from './base/createIcon'\n`
+    let exportContent = `export default {\n    createIcon,\n`
     //获取icons目录下所有的icon，生成index.ts文件
     const files = await fs.readdir(iconDestPath)
 

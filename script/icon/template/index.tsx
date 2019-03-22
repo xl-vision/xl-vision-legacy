@@ -1,23 +1,12 @@
 import * as React from 'react'
-import BaseIcon from '../base/baseIcon'
+import createIcon from '../base/createIcon'
 
-export interface IconProps {
-    size?: number | string
-    color?: string
-    spin?: boolean
-    rotate?: number
-    style?: React.CSSProperties
-    className?: string
-}
+const svgElement = (
+    <svg{{each message.attrs}} {{$index}}='{{$value}}'{{/each}}>
+        {{each message.children}}<{{$value.type}}{{each $value.attrs}} {{$index}}='{{$value}}'{{/each}}/>{{/each}}
+    </svg>
+)
 
-const {{name}}: React.FunctionComponent<IconProps> = props => {
-    return (
-        <BaseIcon {...props}>
-            <svg{{each message.attrs}} {{$index}}='{{$value}}'{{/each}}>
-                {{each message.children}}<{{$value.type}}{{each $value.attrs}} {{$index}}='{{$value}}'{{/each}}/>{{/each}}
-            </svg>
-        </BaseIcon>
-    )
-}
+const {{name}} = createIcon(svgElement)
 
 export default {{name}}
