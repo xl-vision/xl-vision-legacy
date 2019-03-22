@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import useOnMount from '../../commons/hooks/useOnMount'
-import useOnUnmount from '../../commons/hooks/useOnUnmount'
+import useOnMount from '../../commons/hooks/useMount'
+import useOnUnmount from '../../commons/hooks/useUnmount'
 import { throttle } from '../../commons/utils'
 import { BreakPoint, breakPointArray, breakPointMap } from '../common'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import BaseIcon from '../base/baseIcon'
 
-interface IconProps {
+export interface IconProps {
     size?: number | string
     color?: string
     spin?: boolean
