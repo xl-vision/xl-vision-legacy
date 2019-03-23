@@ -1,15 +1,5 @@
 import * as React from 'react'
-import BaseIcon from '../base/baseIcon'
-
-export interface IconProps {
-    size?: number | string
-    color?: string
-    spin?: boolean
-    rotate?: number
-    style?: React.CSSProperties
-    className?: string
-    onClick?: React.MouseEventHandler<HTMLElement>
-}
+import BaseIcon, { IconProps } from './base-icon'
 
 const createIcon = (svgElement: React.ReactElement) => {
     const fn = (props: IconProps) => {

@@ -2,8 +2,2184 @@
 // tslint:disable
 
 import createIcon from './base/createIcon'
-import FaBr500px from './icons/FaBr500px'
+import FaBr500px from './icons/fa-br-500px'
+import FaReAddressBook from './icons/fa-re-address-book'
+import FaReAddressCard from './icons/fa-re-address-card'
+import FaReAngry from './icons/fa-re-angry'
+import FaReArrowAltCircleDown from './icons/fa-re-arrow-alt-circle-down'
+import FaReArrowAltCircleLeft from './icons/fa-re-arrow-alt-circle-left'
+import FaReArrowAltCircleRight from './icons/fa-re-arrow-alt-circle-right'
+import FaReArrowAltCircleUp from './icons/fa-re-arrow-alt-circle-up'
+import FaReBellSlash from './icons/fa-re-bell-slash'
+import FaReBell from './icons/fa-re-bell'
+import FaReBookmark from './icons/fa-re-bookmark'
+import FaReBuilding from './icons/fa-re-building'
+import FaReCalendarAlt from './icons/fa-re-calendar-alt'
+import FaReCalendarCheck from './icons/fa-re-calendar-check'
+import FaReCalendarMinus from './icons/fa-re-calendar-minus'
+import FaReCalendarPlus from './icons/fa-re-calendar-plus'
+import FaReCalendarTimes from './icons/fa-re-calendar-times'
+import FaReCalendar from './icons/fa-re-calendar'
+import FaReCaretSquareDown from './icons/fa-re-caret-square-down'
+import FaReCaretSquareLeft from './icons/fa-re-caret-square-left'
+import FaReCaretSquareRight from './icons/fa-re-caret-square-right'
+import FaReCaretSquareUp from './icons/fa-re-caret-square-up'
+import FaReChartBar from './icons/fa-re-chart-bar'
+import FaReCheckCircle from './icons/fa-re-check-circle'
+import FaReCheckSquare from './icons/fa-re-check-square'
+import FaReCircle from './icons/fa-re-circle'
+import FaReClipboard from './icons/fa-re-clipboard'
+import FaReClock from './icons/fa-re-clock'
+import FaReClone from './icons/fa-re-clone'
+import FaReClosedCaptioning from './icons/fa-re-closed-captioning'
+import FaReCommentAlt from './icons/fa-re-comment-alt'
+import FaReCommentDots from './icons/fa-re-comment-dots'
+import FaReComment from './icons/fa-re-comment'
+import FaReComments from './icons/fa-re-comments'
+import FaReCompass from './icons/fa-re-compass'
+import FaReCopy from './icons/fa-re-copy'
+import FaReCopyright from './icons/fa-re-copyright'
+import FaReCreditCard from './icons/fa-re-credit-card'
+import FaReDizzy from './icons/fa-re-dizzy'
+import FaReDotCircle from './icons/fa-re-dot-circle'
+import FaReEdit from './icons/fa-re-edit'
+import FaReEnvelopeOpen from './icons/fa-re-envelope-open'
+import FaReEnvelope from './icons/fa-re-envelope'
+import FaReEyeSlash from './icons/fa-re-eye-slash'
+import FaReEye from './icons/fa-re-eye'
+import FaReFileAlt from './icons/fa-re-file-alt'
+import FaReFileArchive from './icons/fa-re-file-archive'
+import FaReFileAudio from './icons/fa-re-file-audio'
+import FaReFileCode from './icons/fa-re-file-code'
+import FaReFileExcel from './icons/fa-re-file-excel'
+import FaReFileImage from './icons/fa-re-file-image'
+import FaReFilePdf from './icons/fa-re-file-pdf'
+import FaReFilePowerpoint from './icons/fa-re-file-powerpoint'
+import FaReFileVideo from './icons/fa-re-file-video'
+import FaReFileWord from './icons/fa-re-file-word'
+import FaReFile from './icons/fa-re-file'
+import FaReFlag from './icons/fa-re-flag'
+import FaReFlushed from './icons/fa-re-flushed'
+import FaReFolderOpen from './icons/fa-re-folder-open'
+import FaReFolder from './icons/fa-re-folder'
+import FaReFontAwesomeLogoFull from './icons/fa-re-font-awesome-logo-full'
+import FaReFrownOpen from './icons/fa-re-frown-open'
+import FaReFrown from './icons/fa-re-frown'
+import FaReFutbol from './icons/fa-re-futbol'
+import FaReGem from './icons/fa-re-gem'
+import FaReGrimace from './icons/fa-re-grimace'
+import FaReGrinAlt from './icons/fa-re-grin-alt'
+import FaReGrinBeamSweat from './icons/fa-re-grin-beam-sweat'
+import FaReGrinBeam from './icons/fa-re-grin-beam'
+import FaReGrinHearts from './icons/fa-re-grin-hearts'
+import FaReGrinSquintTears from './icons/fa-re-grin-squint-tears'
+import FaReGrinSquint from './icons/fa-re-grin-squint'
+import FaReGrinStars from './icons/fa-re-grin-stars'
+import FaReGrinTears from './icons/fa-re-grin-tears'
+import FaReGrinTongueSquint from './icons/fa-re-grin-tongue-squint'
+import FaReGrinTongueWink from './icons/fa-re-grin-tongue-wink'
+import FaReGrinTongue from './icons/fa-re-grin-tongue'
+import FaReGrinWink from './icons/fa-re-grin-wink'
+import FaReGrin from './icons/fa-re-grin'
+import FaReHandLizard from './icons/fa-re-hand-lizard'
+import FaReHandPaper from './icons/fa-re-hand-paper'
+import FaReHandPeace from './icons/fa-re-hand-peace'
+import FaReHandPointDown from './icons/fa-re-hand-point-down'
+import FaReHandPointLeft from './icons/fa-re-hand-point-left'
+import FaReHandPointRight from './icons/fa-re-hand-point-right'
+import FaReHandPointUp from './icons/fa-re-hand-point-up'
+import FaReHandPointer from './icons/fa-re-hand-pointer'
+import FaReHandRock from './icons/fa-re-hand-rock'
+import FaReHandScissors from './icons/fa-re-hand-scissors'
+import FaReHandSpock from './icons/fa-re-hand-spock'
+import FaReHandshake from './icons/fa-re-handshake'
+import FaReHdd from './icons/fa-re-hdd'
+import FaReHeart from './icons/fa-re-heart'
+import FaReHospital from './icons/fa-re-hospital'
+import FaReHourglass from './icons/fa-re-hourglass'
+import FaReIdBadge from './icons/fa-re-id-badge'
+import FaReIdCard from './icons/fa-re-id-card'
+import FaReImage from './icons/fa-re-image'
+import FaReImages from './icons/fa-re-images'
+import FaReKeyboard from './icons/fa-re-keyboard'
+import FaReKissBeam from './icons/fa-re-kiss-beam'
+import FaReKissWinkHeart from './icons/fa-re-kiss-wink-heart'
+import FaReKiss from './icons/fa-re-kiss'
+import FaReLaughBeam from './icons/fa-re-laugh-beam'
+import FaReLaughSquint from './icons/fa-re-laugh-squint'
+import FaReLaughWink from './icons/fa-re-laugh-wink'
+import FaReLaugh from './icons/fa-re-laugh'
+import FaReLemon from './icons/fa-re-lemon'
+import FaReLifeRing from './icons/fa-re-life-ring'
+import FaReLightbulb from './icons/fa-re-lightbulb'
+import FaReListAlt from './icons/fa-re-list-alt'
+import FaReMap from './icons/fa-re-map'
+import FaReMehBlank from './icons/fa-re-meh-blank'
+import FaReMehRollingEyes from './icons/fa-re-meh-rolling-eyes'
+import FaReMeh from './icons/fa-re-meh'
+import FaReMinusSquare from './icons/fa-re-minus-square'
+import FaReMoneyBillAlt from './icons/fa-re-money-bill-alt'
+import FaReMoon from './icons/fa-re-moon'
+import FaReNewspaper from './icons/fa-re-newspaper'
+import FaReObjectGroup from './icons/fa-re-object-group'
+import FaReObjectUngroup from './icons/fa-re-object-ungroup'
+import FaRePaperPlane from './icons/fa-re-paper-plane'
+import FaRePauseCircle from './icons/fa-re-pause-circle'
+import FaRePlayCircle from './icons/fa-re-play-circle'
+import FaRePlusSquare from './icons/fa-re-plus-square'
+import FaReQuestionCircle from './icons/fa-re-question-circle'
+import FaReRegistered from './icons/fa-re-registered'
+import FaReSadCry from './icons/fa-re-sad-cry'
+import FaReSadTear from './icons/fa-re-sad-tear'
+import FaReSave from './icons/fa-re-save'
+import FaReShareSquare from './icons/fa-re-share-square'
+import FaReSmileBeam from './icons/fa-re-smile-beam'
+import FaReSmileWink from './icons/fa-re-smile-wink'
+import FaReSmile from './icons/fa-re-smile'
+import FaReSnowflake from './icons/fa-re-snowflake'
+import FaReSquare from './icons/fa-re-square'
+import FaReStarHalf from './icons/fa-re-star-half'
+import FaReStar from './icons/fa-re-star'
+import FaReStickyNote from './icons/fa-re-sticky-note'
+import FaReStopCircle from './icons/fa-re-stop-circle'
+import FaReSun from './icons/fa-re-sun'
+import FaReSurprise from './icons/fa-re-surprise'
+import FaReThumbsDown from './icons/fa-re-thumbs-down'
+import FaReThumbsUp from './icons/fa-re-thumbs-up'
+import FaReTimesCircle from './icons/fa-re-times-circle'
+import FaReTired from './icons/fa-re-tired'
+import FaReTrashAlt from './icons/fa-re-trash-alt'
+import FaReUserCircle from './icons/fa-re-user-circle'
+import FaReUser from './icons/fa-re-user'
+import FaReWindowClose from './icons/fa-re-window-close'
+import FaReWindowMaximize from './icons/fa-re-window-maximize'
+import FaReWindowMinimize from './icons/fa-re-window-minimize'
+import FaReWindowRestore from './icons/fa-re-window-restore'
+import FaSoAd from './icons/fa-so-ad'
+import FaSoAddressBook from './icons/fa-so-address-book'
+import FaSoAddressCard from './icons/fa-so-address-card'
+import FaSoAdjust from './icons/fa-so-adjust'
+import FaSoAirFreshener from './icons/fa-so-air-freshener'
+import FaSoAlignCenter from './icons/fa-so-align-center'
+import FaSoAlignJustify from './icons/fa-so-align-justify'
+import FaSoAlignLeft from './icons/fa-so-align-left'
+import FaSoAlignRight from './icons/fa-so-align-right'
+import FaSoAllergies from './icons/fa-so-allergies'
+import FaSoAmbulance from './icons/fa-so-ambulance'
+import FaSoAmericanSignLanguageInterpreting from './icons/fa-so-american-sign-language-interpreting'
+import FaSoAnchor from './icons/fa-so-anchor'
+import FaSoAngleDoubleDown from './icons/fa-so-angle-double-down'
+import FaSoAngleDoubleLeft from './icons/fa-so-angle-double-left'
+import FaSoAngleDoubleRight from './icons/fa-so-angle-double-right'
+import FaSoAngleDoubleUp from './icons/fa-so-angle-double-up'
+import FaSoAngleDown from './icons/fa-so-angle-down'
+import FaSoAngleLeft from './icons/fa-so-angle-left'
+import FaSoAngleRight from './icons/fa-so-angle-right'
+import FaSoAngleUp from './icons/fa-so-angle-up'
+import FaSoAngry from './icons/fa-so-angry'
+import FaSoAnkh from './icons/fa-so-ankh'
+import FaSoAppleAlt from './icons/fa-so-apple-alt'
+import FaSoArchive from './icons/fa-so-archive'
+import FaSoArchway from './icons/fa-so-archway'
+import FaSoArrowAltCircleDown from './icons/fa-so-arrow-alt-circle-down'
+import FaSoArrowAltCircleLeft from './icons/fa-so-arrow-alt-circle-left'
+import FaSoArrowAltCircleRight from './icons/fa-so-arrow-alt-circle-right'
+import FaSoArrowAltCircleUp from './icons/fa-so-arrow-alt-circle-up'
+import FaSoArrowCircleDown from './icons/fa-so-arrow-circle-down'
+import FaSoArrowCircleLeft from './icons/fa-so-arrow-circle-left'
+import FaSoArrowCircleRight from './icons/fa-so-arrow-circle-right'
+import FaSoArrowCircleUp from './icons/fa-so-arrow-circle-up'
+import FaSoArrowDown from './icons/fa-so-arrow-down'
+import FaSoArrowLeft from './icons/fa-so-arrow-left'
+import FaSoArrowRight from './icons/fa-so-arrow-right'
+import FaSoArrowUp from './icons/fa-so-arrow-up'
+import FaSoArrowsAltH from './icons/fa-so-arrows-alt-h'
+import FaSoArrowsAltV from './icons/fa-so-arrows-alt-v'
+import FaSoArrowsAlt from './icons/fa-so-arrows-alt'
+import FaSoAssistiveListeningSystems from './icons/fa-so-assistive-listening-systems'
+import FaSoAsterisk from './icons/fa-so-asterisk'
+import FaSoAt from './icons/fa-so-at'
+import FaSoAtlas from './icons/fa-so-atlas'
+import FaSoAtom from './icons/fa-so-atom'
+import FaSoAudioDescription from './icons/fa-so-audio-description'
+import FaSoAward from './icons/fa-so-award'
+import FaSoBabyCarriage from './icons/fa-so-baby-carriage'
+import FaSoBaby from './icons/fa-so-baby'
+import FaSoBackspace from './icons/fa-so-backspace'
+import FaSoBackward from './icons/fa-so-backward'
+import FaSoBacon from './icons/fa-so-bacon'
+import FaSoBalanceScale from './icons/fa-so-balance-scale'
+import FaSoBan from './icons/fa-so-ban'
+import FaSoBandAid from './icons/fa-so-band-aid'
+import FaSoBarcode from './icons/fa-so-barcode'
+import FaSoBars from './icons/fa-so-bars'
+import FaSoBaseballBall from './icons/fa-so-baseball-ball'
+import FaSoBasketballBall from './icons/fa-so-basketball-ball'
+import FaSoBath from './icons/fa-so-bath'
+import FaSoBatteryEmpty from './icons/fa-so-battery-empty'
+import FaSoBatteryFull from './icons/fa-so-battery-full'
+import FaSoBatteryHalf from './icons/fa-so-battery-half'
+import FaSoBatteryQuarter from './icons/fa-so-battery-quarter'
+import FaSoBatteryThreeQuarters from './icons/fa-so-battery-three-quarters'
+import FaSoBed from './icons/fa-so-bed'
+import FaSoBeer from './icons/fa-so-beer'
+import FaSoBellSlash from './icons/fa-so-bell-slash'
+import FaSoBell from './icons/fa-so-bell'
+import FaSoBezierCurve from './icons/fa-so-bezier-curve'
+import FaSoBible from './icons/fa-so-bible'
+import FaSoBicycle from './icons/fa-so-bicycle'
+import FaSoBinoculars from './icons/fa-so-binoculars'
+import FaSoBiohazard from './icons/fa-so-biohazard'
+import FaSoBirthdayCake from './icons/fa-so-birthday-cake'
+import FaSoBlenderPhone from './icons/fa-so-blender-phone'
+import FaSoBlender from './icons/fa-so-blender'
+import FaSoBlind from './icons/fa-so-blind'
+import FaSoBlog from './icons/fa-so-blog'
+import FaSoBold from './icons/fa-so-bold'
+import FaSoBolt from './icons/fa-so-bolt'
+import FaSoBomb from './icons/fa-so-bomb'
+import FaSoBone from './icons/fa-so-bone'
+import FaSoBong from './icons/fa-so-bong'
+import FaSoBookDead from './icons/fa-so-book-dead'
+import FaSoBookMedical from './icons/fa-so-book-medical'
+import FaSoBookOpen from './icons/fa-so-book-open'
+import FaSoBookReader from './icons/fa-so-book-reader'
+import FaSoBook from './icons/fa-so-book'
+import FaSoBookmark from './icons/fa-so-bookmark'
+import FaSoBowlingBall from './icons/fa-so-bowling-ball'
+import FaSoBoxOpen from './icons/fa-so-box-open'
+import FaSoBox from './icons/fa-so-box'
+import FaSoBoxes from './icons/fa-so-boxes'
+import FaSoBraille from './icons/fa-so-braille'
+import FaSoBrain from './icons/fa-so-brain'
+import FaSoBreadSlice from './icons/fa-so-bread-slice'
+import FaSoBriefcaseMedical from './icons/fa-so-briefcase-medical'
+import FaSoBriefcase from './icons/fa-so-briefcase'
+import FaSoBroadcastTower from './icons/fa-so-broadcast-tower'
+import FaSoBroom from './icons/fa-so-broom'
+import FaSoBrush from './icons/fa-so-brush'
+import FaSoBug from './icons/fa-so-bug'
+import FaSoBuilding from './icons/fa-so-building'
+import FaSoBullhorn from './icons/fa-so-bullhorn'
+import FaSoBullseye from './icons/fa-so-bullseye'
+import FaSoBurn from './icons/fa-so-burn'
+import FaSoBusAlt from './icons/fa-so-bus-alt'
+import FaSoBus from './icons/fa-so-bus'
+import FaSoBusinessTime from './icons/fa-so-business-time'
+import FaSoCalculator from './icons/fa-so-calculator'
+import FaSoCalendarAlt from './icons/fa-so-calendar-alt'
+import FaSoCalendarCheck from './icons/fa-so-calendar-check'
+import FaSoCalendarDay from './icons/fa-so-calendar-day'
+import FaSoCalendarMinus from './icons/fa-so-calendar-minus'
+import FaSoCalendarPlus from './icons/fa-so-calendar-plus'
+import FaSoCalendarTimes from './icons/fa-so-calendar-times'
+import FaSoCalendarWeek from './icons/fa-so-calendar-week'
+import FaSoCalendar from './icons/fa-so-calendar'
+import FaSoCameraRetro from './icons/fa-so-camera-retro'
+import FaSoCamera from './icons/fa-so-camera'
+import FaSoCampground from './icons/fa-so-campground'
+import FaSoCandyCane from './icons/fa-so-candy-cane'
+import FaSoCannabis from './icons/fa-so-cannabis'
+import FaSoCapsules from './icons/fa-so-capsules'
+import FaSoCarAlt from './icons/fa-so-car-alt'
+import FaSoCarBattery from './icons/fa-so-car-battery'
+import FaSoCarCrash from './icons/fa-so-car-crash'
+import FaSoCarSide from './icons/fa-so-car-side'
+import FaSoCar from './icons/fa-so-car'
+import FaSoCaretDown from './icons/fa-so-caret-down'
+import FaSoCaretLeft from './icons/fa-so-caret-left'
+import FaSoCaretRight from './icons/fa-so-caret-right'
+import FaSoCaretSquareDown from './icons/fa-so-caret-square-down'
+import FaSoCaretSquareLeft from './icons/fa-so-caret-square-left'
+import FaSoCaretSquareRight from './icons/fa-so-caret-square-right'
+import FaSoCaretSquareUp from './icons/fa-so-caret-square-up'
+import FaSoCaretUp from './icons/fa-so-caret-up'
+import FaSoCarrot from './icons/fa-so-carrot'
+import FaSoCartArrowDown from './icons/fa-so-cart-arrow-down'
+import FaSoCartPlus from './icons/fa-so-cart-plus'
+import FaSoCashRegister from './icons/fa-so-cash-register'
+import FaSoCat from './icons/fa-so-cat'
+import FaSoCertificate from './icons/fa-so-certificate'
+import FaSoChair from './icons/fa-so-chair'
+import FaSoChalkboardTeacher from './icons/fa-so-chalkboard-teacher'
+import FaSoChalkboard from './icons/fa-so-chalkboard'
+import FaSoChargingStation from './icons/fa-so-charging-station'
+import FaSoChartArea from './icons/fa-so-chart-area'
+import FaSoChartBar from './icons/fa-so-chart-bar'
+import FaSoChartLine from './icons/fa-so-chart-line'
+import FaSoChartPie from './icons/fa-so-chart-pie'
+import FaSoCheckCircle from './icons/fa-so-check-circle'
+import FaSoCheckDouble from './icons/fa-so-check-double'
+import FaSoCheckSquare from './icons/fa-so-check-square'
+import FaSoCheck from './icons/fa-so-check'
+import FaSoCheese from './icons/fa-so-cheese'
+import FaSoChessBishop from './icons/fa-so-chess-bishop'
+import FaSoChessBoard from './icons/fa-so-chess-board'
+import FaSoChessKing from './icons/fa-so-chess-king'
+import FaSoChessKnight from './icons/fa-so-chess-knight'
+import FaSoChessPawn from './icons/fa-so-chess-pawn'
+import FaSoChessQueen from './icons/fa-so-chess-queen'
+import FaSoChessRook from './icons/fa-so-chess-rook'
+import FaSoChess from './icons/fa-so-chess'
+import FaSoChevronCircleDown from './icons/fa-so-chevron-circle-down'
+import FaSoChevronCircleLeft from './icons/fa-so-chevron-circle-left'
+import FaSoChevronCircleRight from './icons/fa-so-chevron-circle-right'
+import FaSoChevronCircleUp from './icons/fa-so-chevron-circle-up'
+import FaSoChevronDown from './icons/fa-so-chevron-down'
+import FaSoChevronLeft from './icons/fa-so-chevron-left'
+import FaSoChevronRight from './icons/fa-so-chevron-right'
+import FaSoChevronUp from './icons/fa-so-chevron-up'
+import FaSoChild from './icons/fa-so-child'
+import FaSoChurch from './icons/fa-so-church'
+import FaSoCircleNotch from './icons/fa-so-circle-notch'
+import FaSoCircle from './icons/fa-so-circle'
+import FaSoCity from './icons/fa-so-city'
+import FaSoClinicMedical from './icons/fa-so-clinic-medical'
+import FaSoClipboardCheck from './icons/fa-so-clipboard-check'
+import FaSoClipboardList from './icons/fa-so-clipboard-list'
+import FaSoClipboard from './icons/fa-so-clipboard'
+import FaSoClock from './icons/fa-so-clock'
+import FaSoClone from './icons/fa-so-clone'
+import FaSoClosedCaptioning from './icons/fa-so-closed-captioning'
+import FaSoCloudDownloadAlt from './icons/fa-so-cloud-download-alt'
+import FaSoCloudMeatball from './icons/fa-so-cloud-meatball'
+import FaSoCloudMoonRain from './icons/fa-so-cloud-moon-rain'
+import FaSoCloudMoon from './icons/fa-so-cloud-moon'
+import FaSoCloudRain from './icons/fa-so-cloud-rain'
+import FaSoCloudShowersHeavy from './icons/fa-so-cloud-showers-heavy'
+import FaSoCloudSunRain from './icons/fa-so-cloud-sun-rain'
+import FaSoCloudSun from './icons/fa-so-cloud-sun'
+import FaSoCloudUploadAlt from './icons/fa-so-cloud-upload-alt'
+import FaSoCloud from './icons/fa-so-cloud'
+import FaSoCocktail from './icons/fa-so-cocktail'
+import FaSoCodeBranch from './icons/fa-so-code-branch'
+import FaSoCode from './icons/fa-so-code'
+import FaSoCoffee from './icons/fa-so-coffee'
+import FaSoCog from './icons/fa-so-cog'
+import FaSoCogs from './icons/fa-so-cogs'
+import FaSoCoins from './icons/fa-so-coins'
+import FaSoColumns from './icons/fa-so-columns'
+import FaSoCommentAlt from './icons/fa-so-comment-alt'
+import FaSoCommentDollar from './icons/fa-so-comment-dollar'
+import FaSoCommentDots from './icons/fa-so-comment-dots'
+import FaSoCommentMedical from './icons/fa-so-comment-medical'
+import FaSoCommentSlash from './icons/fa-so-comment-slash'
+import FaSoComment from './icons/fa-so-comment'
+import FaSoCommentsDollar from './icons/fa-so-comments-dollar'
+import FaSoComments from './icons/fa-so-comments'
+import FaSoCompactDisc from './icons/fa-so-compact-disc'
+import FaSoCompass from './icons/fa-so-compass'
+import FaSoCompressArrowsAlt from './icons/fa-so-compress-arrows-alt'
+import FaSoCompress from './icons/fa-so-compress'
+import FaSoConciergeBell from './icons/fa-so-concierge-bell'
+import FaSoCookieBite from './icons/fa-so-cookie-bite'
+import FaSoCookie from './icons/fa-so-cookie'
+import FaSoCopy from './icons/fa-so-copy'
+import FaSoCopyright from './icons/fa-so-copyright'
+import FaSoCouch from './icons/fa-so-couch'
+import FaSoCreditCard from './icons/fa-so-credit-card'
+import FaSoCropAlt from './icons/fa-so-crop-alt'
+import FaSoCrop from './icons/fa-so-crop'
+import FaSoCross from './icons/fa-so-cross'
+import FaSoCrosshairs from './icons/fa-so-crosshairs'
+import FaSoCrow from './icons/fa-so-crow'
+import FaSoCrown from './icons/fa-so-crown'
+import FaSoCrutch from './icons/fa-so-crutch'
+import FaSoCube from './icons/fa-so-cube'
+import FaSoCubes from './icons/fa-so-cubes'
+import FaSoCut from './icons/fa-so-cut'
+import FaSoDatabase from './icons/fa-so-database'
+import FaSoDeaf from './icons/fa-so-deaf'
+import FaSoDemocrat from './icons/fa-so-democrat'
+import FaSoDesktop from './icons/fa-so-desktop'
+import FaSoDharmachakra from './icons/fa-so-dharmachakra'
+import FaSoDiagnoses from './icons/fa-so-diagnoses'
+import FaSoDiceD20 from './icons/fa-so-dice-d20'
+import FaSoDiceD6 from './icons/fa-so-dice-d6'
+import FaSoDiceFive from './icons/fa-so-dice-five'
+import FaSoDiceFour from './icons/fa-so-dice-four'
+import FaSoDiceOne from './icons/fa-so-dice-one'
+import FaSoDiceSix from './icons/fa-so-dice-six'
+import FaSoDiceThree from './icons/fa-so-dice-three'
+import FaSoDiceTwo from './icons/fa-so-dice-two'
+import FaSoDice from './icons/fa-so-dice'
+import FaSoDigitalTachograph from './icons/fa-so-digital-tachograph'
+import FaSoDirections from './icons/fa-so-directions'
+import FaSoDivide from './icons/fa-so-divide'
+import FaSoDizzy from './icons/fa-so-dizzy'
+import FaSoDna from './icons/fa-so-dna'
+import FaSoDog from './icons/fa-so-dog'
+import FaSoDollarSign from './icons/fa-so-dollar-sign'
+import FaSoDollyFlatbed from './icons/fa-so-dolly-flatbed'
+import FaSoDolly from './icons/fa-so-dolly'
+import FaSoDonate from './icons/fa-so-donate'
+import FaSoDoorClosed from './icons/fa-so-door-closed'
+import FaSoDoorOpen from './icons/fa-so-door-open'
+import FaSoDotCircle from './icons/fa-so-dot-circle'
+import FaSoDove from './icons/fa-so-dove'
+import FaSoDownload from './icons/fa-so-download'
+import FaSoDraftingCompass from './icons/fa-so-drafting-compass'
+import FaSoDragon from './icons/fa-so-dragon'
+import FaSoDrawPolygon from './icons/fa-so-draw-polygon'
+import FaSoDrumSteelpan from './icons/fa-so-drum-steelpan'
+import FaSoDrum from './icons/fa-so-drum'
+import FaSoDrumstickBite from './icons/fa-so-drumstick-bite'
+import FaSoDumbbell from './icons/fa-so-dumbbell'
+import FaSoDumpsterFire from './icons/fa-so-dumpster-fire'
+import FaSoDumpster from './icons/fa-so-dumpster'
+import FaSoDungeon from './icons/fa-so-dungeon'
+import FaSoEdit from './icons/fa-so-edit'
+import FaSoEgg from './icons/fa-so-egg'
+import FaSoEject from './icons/fa-so-eject'
+import FaSoEllipsisH from './icons/fa-so-ellipsis-h'
+import FaSoEllipsisV from './icons/fa-so-ellipsis-v'
+import FaSoEnvelopeOpenText from './icons/fa-so-envelope-open-text'
+import FaSoEnvelopeOpen from './icons/fa-so-envelope-open'
+import FaSoEnvelopeSquare from './icons/fa-so-envelope-square'
+import FaSoEnvelope from './icons/fa-so-envelope'
+import FaSoEquals from './icons/fa-so-equals'
+import FaSoEraser from './icons/fa-so-eraser'
+import FaSoEthernet from './icons/fa-so-ethernet'
+import FaSoEuroSign from './icons/fa-so-euro-sign'
+import FaSoExchangeAlt from './icons/fa-so-exchange-alt'
+import FaSoExclamationCircle from './icons/fa-so-exclamation-circle'
+import FaSoExclamationTriangle from './icons/fa-so-exclamation-triangle'
+import FaSoExclamation from './icons/fa-so-exclamation'
+import FaSoExpandArrowsAlt from './icons/fa-so-expand-arrows-alt'
+import FaSoExpand from './icons/fa-so-expand'
+import FaSoExternalLinkAlt from './icons/fa-so-external-link-alt'
+import FaSoExternalLinkSquareAlt from './icons/fa-so-external-link-square-alt'
+import FaSoEyeDropper from './icons/fa-so-eye-dropper'
+import FaSoEyeSlash from './icons/fa-so-eye-slash'
+import FaSoEye from './icons/fa-so-eye'
+import FaSoFastBackward from './icons/fa-so-fast-backward'
+import FaSoFastForward from './icons/fa-so-fast-forward'
+import FaSoFax from './icons/fa-so-fax'
+import FaSoFeatherAlt from './icons/fa-so-feather-alt'
+import FaSoFeather from './icons/fa-so-feather'
+import FaSoFemale from './icons/fa-so-female'
+import FaSoFighterJet from './icons/fa-so-fighter-jet'
+import FaSoFileAlt from './icons/fa-so-file-alt'
+import FaSoFileArchive from './icons/fa-so-file-archive'
+import FaSoFileAudio from './icons/fa-so-file-audio'
+import FaSoFileCode from './icons/fa-so-file-code'
+import FaSoFileContract from './icons/fa-so-file-contract'
+import FaSoFileCsv from './icons/fa-so-file-csv'
+import FaSoFileDownload from './icons/fa-so-file-download'
+import FaSoFileExcel from './icons/fa-so-file-excel'
+import FaSoFileExport from './icons/fa-so-file-export'
+import FaSoFileImage from './icons/fa-so-file-image'
+import FaSoFileImport from './icons/fa-so-file-import'
+import FaSoFileInvoiceDollar from './icons/fa-so-file-invoice-dollar'
+import FaSoFileInvoice from './icons/fa-so-file-invoice'
+import FaSoFileMedicalAlt from './icons/fa-so-file-medical-alt'
+import FaSoFileMedical from './icons/fa-so-file-medical'
+import FaSoFilePdf from './icons/fa-so-file-pdf'
+import FaSoFilePowerpoint from './icons/fa-so-file-powerpoint'
+import FaSoFilePrescription from './icons/fa-so-file-prescription'
+import FaSoFileSignature from './icons/fa-so-file-signature'
+import FaSoFileUpload from './icons/fa-so-file-upload'
+import FaSoFileVideo from './icons/fa-so-file-video'
+import FaSoFileWord from './icons/fa-so-file-word'
+import FaSoFile from './icons/fa-so-file'
+import FaSoFillDrip from './icons/fa-so-fill-drip'
+import FaSoFill from './icons/fa-so-fill'
+import FaSoFilm from './icons/fa-so-film'
+import FaSoFilter from './icons/fa-so-filter'
+import FaSoFingerprint from './icons/fa-so-fingerprint'
+import FaSoFireAlt from './icons/fa-so-fire-alt'
+import FaSoFireExtinguisher from './icons/fa-so-fire-extinguisher'
+import FaSoFire from './icons/fa-so-fire'
+import FaSoFirstAid from './icons/fa-so-first-aid'
+import FaSoFish from './icons/fa-so-fish'
+import FaSoFistRaised from './icons/fa-so-fist-raised'
+import FaSoFlagCheckered from './icons/fa-so-flag-checkered'
+import FaSoFlagUsa from './icons/fa-so-flag-usa'
+import FaSoFlag from './icons/fa-so-flag'
+import FaSoFlask from './icons/fa-so-flask'
+import FaSoFlushed from './icons/fa-so-flushed'
+import FaSoFolderMinus from './icons/fa-so-folder-minus'
+import FaSoFolderOpen from './icons/fa-so-folder-open'
+import FaSoFolderPlus from './icons/fa-so-folder-plus'
+import FaSoFolder from './icons/fa-so-folder'
+import FaSoFontAwesomeLogoFull from './icons/fa-so-font-awesome-logo-full'
+import FaSoFont from './icons/fa-so-font'
+import FaSoFootballBall from './icons/fa-so-football-ball'
+import FaSoForward from './icons/fa-so-forward'
+import FaSoFrog from './icons/fa-so-frog'
+import FaSoFrownOpen from './icons/fa-so-frown-open'
+import FaSoFrown from './icons/fa-so-frown'
+import FaSoFunnelDollar from './icons/fa-so-funnel-dollar'
+import FaSoFutbol from './icons/fa-so-futbol'
+import FaSoGamepad from './icons/fa-so-gamepad'
+import FaSoGasPump from './icons/fa-so-gas-pump'
+import FaSoGavel from './icons/fa-so-gavel'
+import FaSoGem from './icons/fa-so-gem'
+import FaSoGenderless from './icons/fa-so-genderless'
+import FaSoGhost from './icons/fa-so-ghost'
+import FaSoGift from './icons/fa-so-gift'
+import FaSoGifts from './icons/fa-so-gifts'
+import FaSoGlassCheers from './icons/fa-so-glass-cheers'
+import FaSoGlassMartiniAlt from './icons/fa-so-glass-martini-alt'
+import FaSoGlassMartini from './icons/fa-so-glass-martini'
+import FaSoGlassWhiskey from './icons/fa-so-glass-whiskey'
+import FaSoGlasses from './icons/fa-so-glasses'
+import FaSoGlobeAfrica from './icons/fa-so-globe-africa'
+import FaSoGlobeAmericas from './icons/fa-so-globe-americas'
+import FaSoGlobeAsia from './icons/fa-so-globe-asia'
+import FaSoGlobeEurope from './icons/fa-so-globe-europe'
+import FaSoGlobe from './icons/fa-so-globe'
+import FaSoGolfBall from './icons/fa-so-golf-ball'
+import FaSoGopuram from './icons/fa-so-gopuram'
+import FaSoGraduationCap from './icons/fa-so-graduation-cap'
+import FaSoGreaterThanEqual from './icons/fa-so-greater-than-equal'
+import FaSoGreaterThan from './icons/fa-so-greater-than'
+import FaSoGrimace from './icons/fa-so-grimace'
+import FaSoGrinAlt from './icons/fa-so-grin-alt'
+import FaSoGrinBeamSweat from './icons/fa-so-grin-beam-sweat'
+import FaSoGrinBeam from './icons/fa-so-grin-beam'
+import FaSoGrinHearts from './icons/fa-so-grin-hearts'
+import FaSoGrinSquintTears from './icons/fa-so-grin-squint-tears'
+import FaSoGrinSquint from './icons/fa-so-grin-squint'
+import FaSoGrinStars from './icons/fa-so-grin-stars'
+import FaSoGrinTears from './icons/fa-so-grin-tears'
+import FaSoGrinTongueSquint from './icons/fa-so-grin-tongue-squint'
+import FaSoGrinTongueWink from './icons/fa-so-grin-tongue-wink'
+import FaSoGrinTongue from './icons/fa-so-grin-tongue'
+import FaSoGrinWink from './icons/fa-so-grin-wink'
+import FaSoGrin from './icons/fa-so-grin'
+import FaSoGripHorizontal from './icons/fa-so-grip-horizontal'
+import FaSoGripLinesVertical from './icons/fa-so-grip-lines-vertical'
+import FaSoGripLines from './icons/fa-so-grip-lines'
+import FaSoGripVertical from './icons/fa-so-grip-vertical'
+import FaSoGuitar from './icons/fa-so-guitar'
+import FaSoHSquare from './icons/fa-so-h-square'
+import FaSoHamburger from './icons/fa-so-hamburger'
+import FaSoHammer from './icons/fa-so-hammer'
+import FaSoHamsa from './icons/fa-so-hamsa'
+import FaSoHandHoldingHeart from './icons/fa-so-hand-holding-heart'
+import FaSoHandHoldingUsd from './icons/fa-so-hand-holding-usd'
+import FaSoHandHolding from './icons/fa-so-hand-holding'
+import FaSoHandLizard from './icons/fa-so-hand-lizard'
+import FaSoHandMiddleFinger from './icons/fa-so-hand-middle-finger'
+import FaSoHandPaper from './icons/fa-so-hand-paper'
+import FaSoHandPeace from './icons/fa-so-hand-peace'
+import FaSoHandPointDown from './icons/fa-so-hand-point-down'
+import FaSoHandPointLeft from './icons/fa-so-hand-point-left'
+import FaSoHandPointRight from './icons/fa-so-hand-point-right'
+import FaSoHandPointUp from './icons/fa-so-hand-point-up'
+import FaSoHandPointer from './icons/fa-so-hand-pointer'
+import FaSoHandRock from './icons/fa-so-hand-rock'
+import FaSoHandScissors from './icons/fa-so-hand-scissors'
+import FaSoHandSpock from './icons/fa-so-hand-spock'
+import FaSoHandsHelping from './icons/fa-so-hands-helping'
+import FaSoHands from './icons/fa-so-hands'
+import FaSoHandshake from './icons/fa-so-handshake'
+import FaSoHanukiah from './icons/fa-so-hanukiah'
+import FaSoHardHat from './icons/fa-so-hard-hat'
+import FaSoHashtag from './icons/fa-so-hashtag'
+import FaSoHatWizard from './icons/fa-so-hat-wizard'
+import FaSoHaykal from './icons/fa-so-haykal'
+import FaSoHdd from './icons/fa-so-hdd'
+import FaSoHeading from './icons/fa-so-heading'
+import FaSoHeadphonesAlt from './icons/fa-so-headphones-alt'
+import FaSoHeadphones from './icons/fa-so-headphones'
+import FaSoHeadset from './icons/fa-so-headset'
+import FaSoHeartBroken from './icons/fa-so-heart-broken'
+import FaSoHeart from './icons/fa-so-heart'
+import FaSoHeartbeat from './icons/fa-so-heartbeat'
+import FaSoHelicopter from './icons/fa-so-helicopter'
+import FaSoHighlighter from './icons/fa-so-highlighter'
+import FaSoHiking from './icons/fa-so-hiking'
+import FaSoHippo from './icons/fa-so-hippo'
+import FaSoHistory from './icons/fa-so-history'
+import FaSoHockeyPuck from './icons/fa-so-hockey-puck'
+import FaSoHollyBerry from './icons/fa-so-holly-berry'
+import FaSoHome from './icons/fa-so-home'
+import FaSoHorseHead from './icons/fa-so-horse-head'
+import FaSoHorse from './icons/fa-so-horse'
+import FaSoHospitalAlt from './icons/fa-so-hospital-alt'
+import FaSoHospitalSymbol from './icons/fa-so-hospital-symbol'
+import FaSoHospital from './icons/fa-so-hospital'
+import FaSoHotTub from './icons/fa-so-hot-tub'
+import FaSoHotdog from './icons/fa-so-hotdog'
+import FaSoHotel from './icons/fa-so-hotel'
+import FaSoHourglassEnd from './icons/fa-so-hourglass-end'
+import FaSoHourglassHalf from './icons/fa-so-hourglass-half'
+import FaSoHourglassStart from './icons/fa-so-hourglass-start'
+import FaSoHourglass from './icons/fa-so-hourglass'
+import FaSoHouseDamage from './icons/fa-so-house-damage'
+import FaSoHryvnia from './icons/fa-so-hryvnia'
+import FaSoICursor from './icons/fa-so-i-cursor'
+import FaSoIceCream from './icons/fa-so-ice-cream'
+import FaSoIcicles from './icons/fa-so-icicles'
+import FaSoIdBadge from './icons/fa-so-id-badge'
+import FaSoIdCardAlt from './icons/fa-so-id-card-alt'
+import FaSoIdCard from './icons/fa-so-id-card'
+import FaSoIgloo from './icons/fa-so-igloo'
+import FaSoImage from './icons/fa-so-image'
+import FaSoImages from './icons/fa-so-images'
+import FaSoInbox from './icons/fa-so-inbox'
+import FaSoIndent from './icons/fa-so-indent'
+import FaSoIndustry from './icons/fa-so-industry'
+import FaSoInfinity from './icons/fa-so-infinity'
+import FaSoInfoCircle from './icons/fa-so-info-circle'
+import FaSoInfo from './icons/fa-so-info'
+import FaSoItalic from './icons/fa-so-italic'
+import FaSoJedi from './icons/fa-so-jedi'
+import FaSoJoint from './icons/fa-so-joint'
+import FaSoJournalWhills from './icons/fa-so-journal-whills'
+import FaSoKaaba from './icons/fa-so-kaaba'
+import FaSoKey from './icons/fa-so-key'
+import FaSoKeyboard from './icons/fa-so-keyboard'
+import FaSoKhanda from './icons/fa-so-khanda'
+import FaSoKissBeam from './icons/fa-so-kiss-beam'
+import FaSoKissWinkHeart from './icons/fa-so-kiss-wink-heart'
+import FaSoKiss from './icons/fa-so-kiss'
+import FaSoKiwiBird from './icons/fa-so-kiwi-bird'
+import FaSoLandmark from './icons/fa-so-landmark'
+import FaSoLanguage from './icons/fa-so-language'
+import FaSoLaptopCode from './icons/fa-so-laptop-code'
+import FaSoLaptopMedical from './icons/fa-so-laptop-medical'
+import FaSoLaptop from './icons/fa-so-laptop'
+import FaSoLaughBeam from './icons/fa-so-laugh-beam'
+import FaSoLaughSquint from './icons/fa-so-laugh-squint'
+import FaSoLaughWink from './icons/fa-so-laugh-wink'
+import FaSoLaugh from './icons/fa-so-laugh'
+import FaSoLayerGroup from './icons/fa-so-layer-group'
+import FaSoLeaf from './icons/fa-so-leaf'
+import FaSoLemon from './icons/fa-so-lemon'
+import FaSoLessThanEqual from './icons/fa-so-less-than-equal'
+import FaSoLessThan from './icons/fa-so-less-than'
+import FaSoLevelDownAlt from './icons/fa-so-level-down-alt'
+import FaSoLevelUpAlt from './icons/fa-so-level-up-alt'
+import FaSoLifeRing from './icons/fa-so-life-ring'
+import FaSoLightbulb from './icons/fa-so-lightbulb'
+import FaSoLink from './icons/fa-so-link'
+import FaSoLiraSign from './icons/fa-so-lira-sign'
+import FaSoListAlt from './icons/fa-so-list-alt'
+import FaSoListOl from './icons/fa-so-list-ol'
+import FaSoListUl from './icons/fa-so-list-ul'
+import FaSoList from './icons/fa-so-list'
+import FaSoLocationArrow from './icons/fa-so-location-arrow'
+import FaSoLockOpen from './icons/fa-so-lock-open'
+import FaSoLock from './icons/fa-so-lock'
+import FaSoLongArrowAltDown from './icons/fa-so-long-arrow-alt-down'
+import FaSoLongArrowAltLeft from './icons/fa-so-long-arrow-alt-left'
+import FaSoLongArrowAltRight from './icons/fa-so-long-arrow-alt-right'
+import FaSoLongArrowAltUp from './icons/fa-so-long-arrow-alt-up'
+import FaSoLowVision from './icons/fa-so-low-vision'
+import FaSoLuggageCart from './icons/fa-so-luggage-cart'
+import FaSoMagic from './icons/fa-so-magic'
+import FaSoMagnet from './icons/fa-so-magnet'
+import FaSoMailBulk from './icons/fa-so-mail-bulk'
+import FaSoMale from './icons/fa-so-male'
+import FaSoMapMarkedAlt from './icons/fa-so-map-marked-alt'
+import FaSoMapMarked from './icons/fa-so-map-marked'
+import FaSoMapMarkerAlt from './icons/fa-so-map-marker-alt'
+import FaSoMapMarker from './icons/fa-so-map-marker'
+import FaSoMapPin from './icons/fa-so-map-pin'
+import FaSoMapSigns from './icons/fa-so-map-signs'
+import FaSoMap from './icons/fa-so-map'
+import FaSoMarker from './icons/fa-so-marker'
+import FaSoMarsDouble from './icons/fa-so-mars-double'
+import FaSoMarsStrokeH from './icons/fa-so-mars-stroke-h'
+import FaSoMarsStrokeV from './icons/fa-so-mars-stroke-v'
+import FaSoMarsStroke from './icons/fa-so-mars-stroke'
+import FaSoMars from './icons/fa-so-mars'
+import FaSoMask from './icons/fa-so-mask'
+import FaSoMedal from './icons/fa-so-medal'
+import FaSoMedkit from './icons/fa-so-medkit'
+import FaSoMehBlank from './icons/fa-so-meh-blank'
+import FaSoMehRollingEyes from './icons/fa-so-meh-rolling-eyes'
+import FaSoMeh from './icons/fa-so-meh'
+import FaSoMemory from './icons/fa-so-memory'
+import FaSoMenorah from './icons/fa-so-menorah'
+import FaSoMercury from './icons/fa-so-mercury'
+import FaSoMeteor from './icons/fa-so-meteor'
+import FaSoMicrochip from './icons/fa-so-microchip'
+import FaSoMicrophoneAltSlash from './icons/fa-so-microphone-alt-slash'
+import FaSoMicrophoneAlt from './icons/fa-so-microphone-alt'
+import FaSoMicrophoneSlash from './icons/fa-so-microphone-slash'
+import FaSoMicrophone from './icons/fa-so-microphone'
+import FaSoMicroscope from './icons/fa-so-microscope'
+import FaSoMinusCircle from './icons/fa-so-minus-circle'
+import FaSoMinusSquare from './icons/fa-so-minus-square'
+import FaSoMinus from './icons/fa-so-minus'
+import FaSoMitten from './icons/fa-so-mitten'
+import FaSoMobileAlt from './icons/fa-so-mobile-alt'
+import FaSoMobile from './icons/fa-so-mobile'
+import FaSoMoneyBillAlt from './icons/fa-so-money-bill-alt'
+import FaSoMoneyBillWaveAlt from './icons/fa-so-money-bill-wave-alt'
+import FaSoMoneyBillWave from './icons/fa-so-money-bill-wave'
+import FaSoMoneyBill from './icons/fa-so-money-bill'
+import FaSoMoneyCheckAlt from './icons/fa-so-money-check-alt'
+import FaSoMoneyCheck from './icons/fa-so-money-check'
+import FaSoMonument from './icons/fa-so-monument'
+import FaSoMoon from './icons/fa-so-moon'
+import FaSoMortarPestle from './icons/fa-so-mortar-pestle'
+import FaSoMosque from './icons/fa-so-mosque'
+import FaSoMotorcycle from './icons/fa-so-motorcycle'
+import FaSoMountain from './icons/fa-so-mountain'
+import FaSoMousePointer from './icons/fa-so-mouse-pointer'
+import FaSoMugHot from './icons/fa-so-mug-hot'
+import FaSoMusic from './icons/fa-so-music'
+import FaSoNetworkWired from './icons/fa-so-network-wired'
+import FaSoNeuter from './icons/fa-so-neuter'
+import FaSoNewspaper from './icons/fa-so-newspaper'
+import FaSoNotEqual from './icons/fa-so-not-equal'
+import FaSoNotesMedical from './icons/fa-so-notes-medical'
+import FaSoObjectGroup from './icons/fa-so-object-group'
+import FaSoObjectUngroup from './icons/fa-so-object-ungroup'
+import FaSoOilCan from './icons/fa-so-oil-can'
+import FaSoOm from './icons/fa-so-om'
+import FaSoOtter from './icons/fa-so-otter'
+import FaSoOutdent from './icons/fa-so-outdent'
+import FaSoPager from './icons/fa-so-pager'
+import FaSoPaintBrush from './icons/fa-so-paint-brush'
+import FaSoPaintRoller from './icons/fa-so-paint-roller'
+import FaSoPalette from './icons/fa-so-palette'
+import FaSoPallet from './icons/fa-so-pallet'
+import FaSoPaperPlane from './icons/fa-so-paper-plane'
+import FaSoPaperclip from './icons/fa-so-paperclip'
+import FaSoParachuteBox from './icons/fa-so-parachute-box'
+import FaSoParagraph from './icons/fa-so-paragraph'
+import FaSoParking from './icons/fa-so-parking'
+import FaSoPassport from './icons/fa-so-passport'
+import FaSoPastafarianism from './icons/fa-so-pastafarianism'
+import FaSoPaste from './icons/fa-so-paste'
+import FaSoPauseCircle from './icons/fa-so-pause-circle'
+import FaSoPause from './icons/fa-so-pause'
+import FaSoPaw from './icons/fa-so-paw'
+import FaSoPeace from './icons/fa-so-peace'
+import FaSoPenAlt from './icons/fa-so-pen-alt'
+import FaSoPenFancy from './icons/fa-so-pen-fancy'
+import FaSoPenNib from './icons/fa-so-pen-nib'
+import FaSoPenSquare from './icons/fa-so-pen-square'
+import FaSoPen from './icons/fa-so-pen'
+import FaSoPencilAlt from './icons/fa-so-pencil-alt'
+import FaSoPencilRuler from './icons/fa-so-pencil-ruler'
+import FaSoPeopleCarry from './icons/fa-so-people-carry'
+import FaSoPepperHot from './icons/fa-so-pepper-hot'
+import FaSoPercent from './icons/fa-so-percent'
+import FaSoPercentage from './icons/fa-so-percentage'
+import FaSoPersonBooth from './icons/fa-so-person-booth'
+import FaSoPhoneSlash from './icons/fa-so-phone-slash'
+import FaSoPhoneSquare from './icons/fa-so-phone-square'
+import FaSoPhoneVolume from './icons/fa-so-phone-volume'
+import FaSoPhone from './icons/fa-so-phone'
+import FaSoPiggyBank from './icons/fa-so-piggy-bank'
+import FaSoPills from './icons/fa-so-pills'
+import FaSoPizzaSlice from './icons/fa-so-pizza-slice'
+import FaSoPlaceOfWorship from './icons/fa-so-place-of-worship'
+import FaSoPlaneArrival from './icons/fa-so-plane-arrival'
+import FaSoPlaneDeparture from './icons/fa-so-plane-departure'
+import FaSoPlane from './icons/fa-so-plane'
+import FaSoPlayCircle from './icons/fa-so-play-circle'
+import FaSoPlay from './icons/fa-so-play'
+import FaSoPlug from './icons/fa-so-plug'
+import FaSoPlusCircle from './icons/fa-so-plus-circle'
+import FaSoPlusSquare from './icons/fa-so-plus-square'
+import FaSoPlus from './icons/fa-so-plus'
+import FaSoPodcast from './icons/fa-so-podcast'
+import FaSoPollH from './icons/fa-so-poll-h'
+import FaSoPoll from './icons/fa-so-poll'
+import FaSoPooStorm from './icons/fa-so-poo-storm'
+import FaSoPoo from './icons/fa-so-poo'
+import FaSoPoop from './icons/fa-so-poop'
+import FaSoPortrait from './icons/fa-so-portrait'
+import FaSoPoundSign from './icons/fa-so-pound-sign'
+import FaSoPowerOff from './icons/fa-so-power-off'
+import FaSoPray from './icons/fa-so-pray'
+import FaSoPrayingHands from './icons/fa-so-praying-hands'
+import FaSoPrescriptionBottleAlt from './icons/fa-so-prescription-bottle-alt'
+import FaSoPrescriptionBottle from './icons/fa-so-prescription-bottle'
+import FaSoPrescription from './icons/fa-so-prescription'
+import FaSoPrint from './icons/fa-so-print'
+import FaSoProcedures from './icons/fa-so-procedures'
+import FaSoProjectDiagram from './icons/fa-so-project-diagram'
+import FaSoPuzzlePiece from './icons/fa-so-puzzle-piece'
+import FaSoQrcode from './icons/fa-so-qrcode'
+import FaSoQuestionCircle from './icons/fa-so-question-circle'
+import FaSoQuestion from './icons/fa-so-question'
+import FaSoQuidditch from './icons/fa-so-quidditch'
+import FaSoQuoteLeft from './icons/fa-so-quote-left'
+import FaSoQuoteRight from './icons/fa-so-quote-right'
+import FaSoQuran from './icons/fa-so-quran'
+import FaSoRadiationAlt from './icons/fa-so-radiation-alt'
+import FaSoRadiation from './icons/fa-so-radiation'
+import FaSoRainbow from './icons/fa-so-rainbow'
+import FaSoRandom from './icons/fa-so-random'
+import FaSoReceipt from './icons/fa-so-receipt'
+import FaSoRecycle from './icons/fa-so-recycle'
+import FaSoRedoAlt from './icons/fa-so-redo-alt'
+import FaSoRedo from './icons/fa-so-redo'
+import FaSoRegistered from './icons/fa-so-registered'
+import FaSoReplyAll from './icons/fa-so-reply-all'
+import FaSoReply from './icons/fa-so-reply'
+import FaSoRepublican from './icons/fa-so-republican'
+import FaSoRestroom from './icons/fa-so-restroom'
+import FaSoRetweet from './icons/fa-so-retweet'
+import FaSoRibbon from './icons/fa-so-ribbon'
+import FaSoRing from './icons/fa-so-ring'
+import FaSoRoad from './icons/fa-so-road'
+import FaSoRobot from './icons/fa-so-robot'
+import FaSoRocket from './icons/fa-so-rocket'
+import FaSoRoute from './icons/fa-so-route'
+import FaSoRssSquare from './icons/fa-so-rss-square'
+import FaSoRss from './icons/fa-so-rss'
+import FaSoRubleSign from './icons/fa-so-ruble-sign'
+import FaSoRulerCombined from './icons/fa-so-ruler-combined'
+import FaSoRulerHorizontal from './icons/fa-so-ruler-horizontal'
+import FaSoRulerVertical from './icons/fa-so-ruler-vertical'
+import FaSoRuler from './icons/fa-so-ruler'
+import FaSoRunning from './icons/fa-so-running'
+import FaSoRupeeSign from './icons/fa-so-rupee-sign'
+import FaSoSadCry from './icons/fa-so-sad-cry'
+import FaSoSadTear from './icons/fa-so-sad-tear'
+import FaSoSatelliteDish from './icons/fa-so-satellite-dish'
+import FaSoSatellite from './icons/fa-so-satellite'
+import FaSoSave from './icons/fa-so-save'
+import FaSoSchool from './icons/fa-so-school'
+import FaSoScrewdriver from './icons/fa-so-screwdriver'
+import FaSoScroll from './icons/fa-so-scroll'
+import FaSoSdCard from './icons/fa-so-sd-card'
+import FaSoSearchDollar from './icons/fa-so-search-dollar'
+import FaSoSearchLocation from './icons/fa-so-search-location'
+import FaSoSearchMinus from './icons/fa-so-search-minus'
+import FaSoSearchPlus from './icons/fa-so-search-plus'
+import FaSoSearch from './icons/fa-so-search'
+import FaSoSeedling from './icons/fa-so-seedling'
+import FaSoServer from './icons/fa-so-server'
+import FaSoShapes from './icons/fa-so-shapes'
+import FaSoShareAltSquare from './icons/fa-so-share-alt-square'
+import FaSoShareAlt from './icons/fa-so-share-alt'
+import FaSoShareSquare from './icons/fa-so-share-square'
+import FaSoShare from './icons/fa-so-share'
+import FaSoShekelSign from './icons/fa-so-shekel-sign'
+import FaSoShieldAlt from './icons/fa-so-shield-alt'
+import FaSoShip from './icons/fa-so-ship'
+import FaSoShippingFast from './icons/fa-so-shipping-fast'
+import FaSoShoePrints from './icons/fa-so-shoe-prints'
+import FaSoShoppingBag from './icons/fa-so-shopping-bag'
+import FaSoShoppingBasket from './icons/fa-so-shopping-basket'
+import FaSoShoppingCart from './icons/fa-so-shopping-cart'
+import FaSoShower from './icons/fa-so-shower'
+import FaSoShuttleVan from './icons/fa-so-shuttle-van'
+import FaSoSignInAlt from './icons/fa-so-sign-in-alt'
+import FaSoSignLanguage from './icons/fa-so-sign-language'
+import FaSoSignOutAlt from './icons/fa-so-sign-out-alt'
+import FaSoSign from './icons/fa-so-sign'
+import FaSoSignal from './icons/fa-so-signal'
+import FaSoSignature from './icons/fa-so-signature'
+import FaSoSimCard from './icons/fa-so-sim-card'
+import FaSoSitemap from './icons/fa-so-sitemap'
+import FaSoSkating from './icons/fa-so-skating'
+import FaSoSkiingNordic from './icons/fa-so-skiing-nordic'
+import FaSoSkiing from './icons/fa-so-skiing'
+import FaSoSkullCrossbones from './icons/fa-so-skull-crossbones'
+import FaSoSkull from './icons/fa-so-skull'
+import FaSoSlash from './icons/fa-so-slash'
+import FaSoSleigh from './icons/fa-so-sleigh'
+import FaSoSlidersH from './icons/fa-so-sliders-h'
+import FaSoSmileBeam from './icons/fa-so-smile-beam'
+import FaSoSmileWink from './icons/fa-so-smile-wink'
+import FaSoSmile from './icons/fa-so-smile'
+import FaSoSmog from './icons/fa-so-smog'
+import FaSoSmokingBan from './icons/fa-so-smoking-ban'
+import FaSoSmoking from './icons/fa-so-smoking'
+import FaSoSms from './icons/fa-so-sms'
+import FaSoSnowboarding from './icons/fa-so-snowboarding'
+import FaSoSnowflake from './icons/fa-so-snowflake'
+import FaSoSnowman from './icons/fa-so-snowman'
+import FaSoSnowplow from './icons/fa-so-snowplow'
+import FaSoSocks from './icons/fa-so-socks'
+import FaSoSolarPanel from './icons/fa-so-solar-panel'
+import FaSoSortAlphaDown from './icons/fa-so-sort-alpha-down'
+import FaSoSortAlphaUp from './icons/fa-so-sort-alpha-up'
+import FaSoSortAmountDown from './icons/fa-so-sort-amount-down'
+import FaSoSortAmountUp from './icons/fa-so-sort-amount-up'
+import FaSoSortDown from './icons/fa-so-sort-down'
+import FaSoSortNumericDown from './icons/fa-so-sort-numeric-down'
+import FaSoSortNumericUp from './icons/fa-so-sort-numeric-up'
+import FaSoSortUp from './icons/fa-so-sort-up'
+import FaSoSort from './icons/fa-so-sort'
+import FaSoSpa from './icons/fa-so-spa'
+import FaSoSpaceShuttle from './icons/fa-so-space-shuttle'
+import FaSoSpider from './icons/fa-so-spider'
+import FaSoSpinner from './icons/fa-so-spinner'
+import FaSoSplotch from './icons/fa-so-splotch'
+import FaSoSprayCan from './icons/fa-so-spray-can'
+import FaSoSquareFull from './icons/fa-so-square-full'
+import FaSoSquareRootAlt from './icons/fa-so-square-root-alt'
+import FaSoSquare from './icons/fa-so-square'
+import FaSoStamp from './icons/fa-so-stamp'
+import FaSoStarAndCrescent from './icons/fa-so-star-and-crescent'
+import FaSoStarHalfAlt from './icons/fa-so-star-half-alt'
+import FaSoStarHalf from './icons/fa-so-star-half'
+import FaSoStarOfDavid from './icons/fa-so-star-of-david'
+import FaSoStarOfLife from './icons/fa-so-star-of-life'
+import FaSoStar from './icons/fa-so-star'
+import FaSoStepBackward from './icons/fa-so-step-backward'
+import FaSoStepForward from './icons/fa-so-step-forward'
+import FaSoStethoscope from './icons/fa-so-stethoscope'
+import FaSoStickyNote from './icons/fa-so-sticky-note'
+import FaSoStopCircle from './icons/fa-so-stop-circle'
+import FaSoStop from './icons/fa-so-stop'
+import FaSoStopwatch from './icons/fa-so-stopwatch'
+import FaSoStoreAlt from './icons/fa-so-store-alt'
+import FaSoStore from './icons/fa-so-store'
+import FaSoStream from './icons/fa-so-stream'
+import FaSoStreetView from './icons/fa-so-street-view'
+import FaSoStrikethrough from './icons/fa-so-strikethrough'
+import FaSoStroopwafel from './icons/fa-so-stroopwafel'
+import FaSoSubscript from './icons/fa-so-subscript'
+import FaSoSubway from './icons/fa-so-subway'
+import FaSoSuitcaseRolling from './icons/fa-so-suitcase-rolling'
+import FaSoSuitcase from './icons/fa-so-suitcase'
+import FaSoSun from './icons/fa-so-sun'
+import FaSoSuperscript from './icons/fa-so-superscript'
+import FaSoSurprise from './icons/fa-so-surprise'
+import FaSoSwatchbook from './icons/fa-so-swatchbook'
+import FaSoSwimmer from './icons/fa-so-swimmer'
+import FaSoSwimmingPool from './icons/fa-so-swimming-pool'
+import FaSoSynagogue from './icons/fa-so-synagogue'
+import FaSoSyncAlt from './icons/fa-so-sync-alt'
+import FaSoSync from './icons/fa-so-sync'
+import FaSoSyringe from './icons/fa-so-syringe'
+import FaSoTableTennis from './icons/fa-so-table-tennis'
+import FaSoTable from './icons/fa-so-table'
+import FaSoTabletAlt from './icons/fa-so-tablet-alt'
+import FaSoTablet from './icons/fa-so-tablet'
+import FaSoTablets from './icons/fa-so-tablets'
+import FaSoTachometerAlt from './icons/fa-so-tachometer-alt'
+import FaSoTag from './icons/fa-so-tag'
+import FaSoTags from './icons/fa-so-tags'
+import FaSoTape from './icons/fa-so-tape'
+import FaSoTasks from './icons/fa-so-tasks'
+import FaSoTaxi from './icons/fa-so-taxi'
+import FaSoTeethOpen from './icons/fa-so-teeth-open'
+import FaSoTeeth from './icons/fa-so-teeth'
+import FaSoTemperatureHigh from './icons/fa-so-temperature-high'
+import FaSoTemperatureLow from './icons/fa-so-temperature-low'
+import FaSoTenge from './icons/fa-so-tenge'
+import FaSoTerminal from './icons/fa-so-terminal'
+import FaSoTextHeight from './icons/fa-so-text-height'
+import FaSoTextWidth from './icons/fa-so-text-width'
+import FaSoThLarge from './icons/fa-so-th-large'
+import FaSoThList from './icons/fa-so-th-list'
+import FaSoTh from './icons/fa-so-th'
+import FaSoTheaterMasks from './icons/fa-so-theater-masks'
+import FaSoThermometerEmpty from './icons/fa-so-thermometer-empty'
+import FaSoThermometerFull from './icons/fa-so-thermometer-full'
+import FaSoThermometerHalf from './icons/fa-so-thermometer-half'
+import FaSoThermometerQuarter from './icons/fa-so-thermometer-quarter'
+import FaSoThermometerThreeQuarters from './icons/fa-so-thermometer-three-quarters'
+import FaSoThermometer from './icons/fa-so-thermometer'
+import FaSoThumbsDown from './icons/fa-so-thumbs-down'
+import FaSoThumbsUp from './icons/fa-so-thumbs-up'
+import FaSoThumbtack from './icons/fa-so-thumbtack'
+import FaSoTicketAlt from './icons/fa-so-ticket-alt'
+import FaSoTimesCircle from './icons/fa-so-times-circle'
+import FaSoTimes from './icons/fa-so-times'
+import FaSoTintSlash from './icons/fa-so-tint-slash'
+import FaSoTint from './icons/fa-so-tint'
+import FaSoTired from './icons/fa-so-tired'
+import FaSoToggleOff from './icons/fa-so-toggle-off'
+import FaSoToggleOn from './icons/fa-so-toggle-on'
+import FaSoToiletPaper from './icons/fa-so-toilet-paper'
+import FaSoToilet from './icons/fa-so-toilet'
+import FaSoToolbox from './icons/fa-so-toolbox'
+import FaSoTools from './icons/fa-so-tools'
+import FaSoTooth from './icons/fa-so-tooth'
+import FaSoTorah from './icons/fa-so-torah'
+import FaSoToriiGate from './icons/fa-so-torii-gate'
+import FaSoTractor from './icons/fa-so-tractor'
+import FaSoTrademark from './icons/fa-so-trademark'
+import FaSoTrafficLight from './icons/fa-so-traffic-light'
+import FaSoTrain from './icons/fa-so-train'
+import FaSoTram from './icons/fa-so-tram'
+import FaSoTransgenderAlt from './icons/fa-so-transgender-alt'
+import FaSoTransgender from './icons/fa-so-transgender'
+import FaSoTrashAlt from './icons/fa-so-trash-alt'
+import FaSoTrashRestoreAlt from './icons/fa-so-trash-restore-alt'
+import FaSoTrashRestore from './icons/fa-so-trash-restore'
+import FaSoTrash from './icons/fa-so-trash'
+import FaSoTree from './icons/fa-so-tree'
+import FaSoTrophy from './icons/fa-so-trophy'
+import FaSoTruckLoading from './icons/fa-so-truck-loading'
+import FaSoTruckMonster from './icons/fa-so-truck-monster'
+import FaSoTruckMoving from './icons/fa-so-truck-moving'
+import FaSoTruckPickup from './icons/fa-so-truck-pickup'
+import FaSoTruck from './icons/fa-so-truck'
+import FaSoTshirt from './icons/fa-so-tshirt'
+import FaSoTty from './icons/fa-so-tty'
+import FaSoTv from './icons/fa-so-tv'
+import FaSoUmbrellaBeach from './icons/fa-so-umbrella-beach'
+import FaSoUmbrella from './icons/fa-so-umbrella'
+import FaSoUnderline from './icons/fa-so-underline'
+import FaSoUndoAlt from './icons/fa-so-undo-alt'
+import FaSoUndo from './icons/fa-so-undo'
+import FaSoUniversalAccess from './icons/fa-so-universal-access'
+import FaSoUniversity from './icons/fa-so-university'
+import FaSoUnlink from './icons/fa-so-unlink'
+import FaSoUnlockAlt from './icons/fa-so-unlock-alt'
+import FaSoUnlock from './icons/fa-so-unlock'
+import FaSoUpload from './icons/fa-so-upload'
+import FaSoUserAltSlash from './icons/fa-so-user-alt-slash'
+import FaSoUserAlt from './icons/fa-so-user-alt'
+import FaSoUserAstronaut from './icons/fa-so-user-astronaut'
+import FaSoUserCheck from './icons/fa-so-user-check'
+import FaSoUserCircle from './icons/fa-so-user-circle'
+import FaSoUserClock from './icons/fa-so-user-clock'
+import FaSoUserCog from './icons/fa-so-user-cog'
+import FaSoUserEdit from './icons/fa-so-user-edit'
+import FaSoUserFriends from './icons/fa-so-user-friends'
+import FaSoUserGraduate from './icons/fa-so-user-graduate'
+import FaSoUserInjured from './icons/fa-so-user-injured'
+import FaSoUserLock from './icons/fa-so-user-lock'
+import FaSoUserMd from './icons/fa-so-user-md'
+import FaSoUserMinus from './icons/fa-so-user-minus'
+import FaSoUserNinja from './icons/fa-so-user-ninja'
+import FaSoUserNurse from './icons/fa-so-user-nurse'
+import FaSoUserPlus from './icons/fa-so-user-plus'
+import FaSoUserSecret from './icons/fa-so-user-secret'
+import FaSoUserShield from './icons/fa-so-user-shield'
+import FaSoUserSlash from './icons/fa-so-user-slash'
+import FaSoUserTag from './icons/fa-so-user-tag'
+import FaSoUserTie from './icons/fa-so-user-tie'
+import FaSoUserTimes from './icons/fa-so-user-times'
+import FaSoUser from './icons/fa-so-user'
+import FaSoUsersCog from './icons/fa-so-users-cog'
+import FaSoUsers from './icons/fa-so-users'
+import FaSoUtensilSpoon from './icons/fa-so-utensil-spoon'
+import FaSoUtensils from './icons/fa-so-utensils'
+import FaSoVectorSquare from './icons/fa-so-vector-square'
+import FaSoVenusDouble from './icons/fa-so-venus-double'
+import FaSoVenusMars from './icons/fa-so-venus-mars'
+import FaSoVenus from './icons/fa-so-venus'
+import FaSoVial from './icons/fa-so-vial'
+import FaSoVials from './icons/fa-so-vials'
+import FaSoVideoSlash from './icons/fa-so-video-slash'
+import FaSoVideo from './icons/fa-so-video'
+import FaSoVihara from './icons/fa-so-vihara'
+import FaSoVolleyballBall from './icons/fa-so-volleyball-ball'
+import FaSoVolumeDown from './icons/fa-so-volume-down'
+import FaSoVolumeMute from './icons/fa-so-volume-mute'
+import FaSoVolumeOff from './icons/fa-so-volume-off'
+import FaSoVolumeUp from './icons/fa-so-volume-up'
+import FaSoVoteYea from './icons/fa-so-vote-yea'
+import FaSoVrCardboard from './icons/fa-so-vr-cardboard'
+import FaSoWalking from './icons/fa-so-walking'
+import FaSoWallet from './icons/fa-so-wallet'
+import FaSoWarehouse from './icons/fa-so-warehouse'
+import FaSoWater from './icons/fa-so-water'
+import FaSoWeightHanging from './icons/fa-so-weight-hanging'
+import FaSoWeight from './icons/fa-so-weight'
+import FaSoWheelchair from './icons/fa-so-wheelchair'
+import FaSoWifi from './icons/fa-so-wifi'
+import FaSoWind from './icons/fa-so-wind'
+import FaSoWindowClose from './icons/fa-so-window-close'
+import FaSoWindowMaximize from './icons/fa-so-window-maximize'
+import FaSoWindowMinimize from './icons/fa-so-window-minimize'
+import FaSoWindowRestore from './icons/fa-so-window-restore'
+import FaSoWineBottle from './icons/fa-so-wine-bottle'
+import FaSoWineGlassAlt from './icons/fa-so-wine-glass-alt'
+import FaSoWineGlass from './icons/fa-so-wine-glass'
+import FaSoWonSign from './icons/fa-so-won-sign'
+import FaSoWrench from './icons/fa-so-wrench'
+import FaSoXRay from './icons/fa-so-x-ray'
+import FaSoYenSign from './icons/fa-so-yen-sign'
+import FaSoYinYang from './icons/fa-so-yin-yang'
 export default {
     createIcon,
     FaBr500px,
+    FaReAddressBook,
+    FaReAddressCard,
+    FaReAngry,
+    FaReArrowAltCircleDown,
+    FaReArrowAltCircleLeft,
+    FaReArrowAltCircleRight,
+    FaReArrowAltCircleUp,
+    FaReBellSlash,
+    FaReBell,
+    FaReBookmark,
+    FaReBuilding,
+    FaReCalendarAlt,
+    FaReCalendarCheck,
+    FaReCalendarMinus,
+    FaReCalendarPlus,
+    FaReCalendarTimes,
+    FaReCalendar,
+    FaReCaretSquareDown,
+    FaReCaretSquareLeft,
+    FaReCaretSquareRight,
+    FaReCaretSquareUp,
+    FaReChartBar,
+    FaReCheckCircle,
+    FaReCheckSquare,
+    FaReCircle,
+    FaReClipboard,
+    FaReClock,
+    FaReClone,
+    FaReClosedCaptioning,
+    FaReCommentAlt,
+    FaReCommentDots,
+    FaReComment,
+    FaReComments,
+    FaReCompass,
+    FaReCopy,
+    FaReCopyright,
+    FaReCreditCard,
+    FaReDizzy,
+    FaReDotCircle,
+    FaReEdit,
+    FaReEnvelopeOpen,
+    FaReEnvelope,
+    FaReEyeSlash,
+    FaReEye,
+    FaReFileAlt,
+    FaReFileArchive,
+    FaReFileAudio,
+    FaReFileCode,
+    FaReFileExcel,
+    FaReFileImage,
+    FaReFilePdf,
+    FaReFilePowerpoint,
+    FaReFileVideo,
+    FaReFileWord,
+    FaReFile,
+    FaReFlag,
+    FaReFlushed,
+    FaReFolderOpen,
+    FaReFolder,
+    FaReFontAwesomeLogoFull,
+    FaReFrownOpen,
+    FaReFrown,
+    FaReFutbol,
+    FaReGem,
+    FaReGrimace,
+    FaReGrinAlt,
+    FaReGrinBeamSweat,
+    FaReGrinBeam,
+    FaReGrinHearts,
+    FaReGrinSquintTears,
+    FaReGrinSquint,
+    FaReGrinStars,
+    FaReGrinTears,
+    FaReGrinTongueSquint,
+    FaReGrinTongueWink,
+    FaReGrinTongue,
+    FaReGrinWink,
+    FaReGrin,
+    FaReHandLizard,
+    FaReHandPaper,
+    FaReHandPeace,
+    FaReHandPointDown,
+    FaReHandPointLeft,
+    FaReHandPointRight,
+    FaReHandPointUp,
+    FaReHandPointer,
+    FaReHandRock,
+    FaReHandScissors,
+    FaReHandSpock,
+    FaReHandshake,
+    FaReHdd,
+    FaReHeart,
+    FaReHospital,
+    FaReHourglass,
+    FaReIdBadge,
+    FaReIdCard,
+    FaReImage,
+    FaReImages,
+    FaReKeyboard,
+    FaReKissBeam,
+    FaReKissWinkHeart,
+    FaReKiss,
+    FaReLaughBeam,
+    FaReLaughSquint,
+    FaReLaughWink,
+    FaReLaugh,
+    FaReLemon,
+    FaReLifeRing,
+    FaReLightbulb,
+    FaReListAlt,
+    FaReMap,
+    FaReMehBlank,
+    FaReMehRollingEyes,
+    FaReMeh,
+    FaReMinusSquare,
+    FaReMoneyBillAlt,
+    FaReMoon,
+    FaReNewspaper,
+    FaReObjectGroup,
+    FaReObjectUngroup,
+    FaRePaperPlane,
+    FaRePauseCircle,
+    FaRePlayCircle,
+    FaRePlusSquare,
+    FaReQuestionCircle,
+    FaReRegistered,
+    FaReSadCry,
+    FaReSadTear,
+    FaReSave,
+    FaReShareSquare,
+    FaReSmileBeam,
+    FaReSmileWink,
+    FaReSmile,
+    FaReSnowflake,
+    FaReSquare,
+    FaReStarHalf,
+    FaReStar,
+    FaReStickyNote,
+    FaReStopCircle,
+    FaReSun,
+    FaReSurprise,
+    FaReThumbsDown,
+    FaReThumbsUp,
+    FaReTimesCircle,
+    FaReTired,
+    FaReTrashAlt,
+    FaReUserCircle,
+    FaReUser,
+    FaReWindowClose,
+    FaReWindowMaximize,
+    FaReWindowMinimize,
+    FaReWindowRestore,
+    FaSoAd,
+    FaSoAddressBook,
+    FaSoAddressCard,
+    FaSoAdjust,
+    FaSoAirFreshener,
+    FaSoAlignCenter,
+    FaSoAlignJustify,
+    FaSoAlignLeft,
+    FaSoAlignRight,
+    FaSoAllergies,
+    FaSoAmbulance,
+    FaSoAmericanSignLanguageInterpreting,
+    FaSoAnchor,
+    FaSoAngleDoubleDown,
+    FaSoAngleDoubleLeft,
+    FaSoAngleDoubleRight,
+    FaSoAngleDoubleUp,
+    FaSoAngleDown,
+    FaSoAngleLeft,
+    FaSoAngleRight,
+    FaSoAngleUp,
+    FaSoAngry,
+    FaSoAnkh,
+    FaSoAppleAlt,
+    FaSoArchive,
+    FaSoArchway,
+    FaSoArrowAltCircleDown,
+    FaSoArrowAltCircleLeft,
+    FaSoArrowAltCircleRight,
+    FaSoArrowAltCircleUp,
+    FaSoArrowCircleDown,
+    FaSoArrowCircleLeft,
+    FaSoArrowCircleRight,
+    FaSoArrowCircleUp,
+    FaSoArrowDown,
+    FaSoArrowLeft,
+    FaSoArrowRight,
+    FaSoArrowUp,
+    FaSoArrowsAltH,
+    FaSoArrowsAltV,
+    FaSoArrowsAlt,
+    FaSoAssistiveListeningSystems,
+    FaSoAsterisk,
+    FaSoAt,
+    FaSoAtlas,
+    FaSoAtom,
+    FaSoAudioDescription,
+    FaSoAward,
+    FaSoBabyCarriage,
+    FaSoBaby,
+    FaSoBackspace,
+    FaSoBackward,
+    FaSoBacon,
+    FaSoBalanceScale,
+    FaSoBan,
+    FaSoBandAid,
+    FaSoBarcode,
+    FaSoBars,
+    FaSoBaseballBall,
+    FaSoBasketballBall,
+    FaSoBath,
+    FaSoBatteryEmpty,
+    FaSoBatteryFull,
+    FaSoBatteryHalf,
+    FaSoBatteryQuarter,
+    FaSoBatteryThreeQuarters,
+    FaSoBed,
+    FaSoBeer,
+    FaSoBellSlash,
+    FaSoBell,
+    FaSoBezierCurve,
+    FaSoBible,
+    FaSoBicycle,
+    FaSoBinoculars,
+    FaSoBiohazard,
+    FaSoBirthdayCake,
+    FaSoBlenderPhone,
+    FaSoBlender,
+    FaSoBlind,
+    FaSoBlog,
+    FaSoBold,
+    FaSoBolt,
+    FaSoBomb,
+    FaSoBone,
+    FaSoBong,
+    FaSoBookDead,
+    FaSoBookMedical,
+    FaSoBookOpen,
+    FaSoBookReader,
+    FaSoBook,
+    FaSoBookmark,
+    FaSoBowlingBall,
+    FaSoBoxOpen,
+    FaSoBox,
+    FaSoBoxes,
+    FaSoBraille,
+    FaSoBrain,
+    FaSoBreadSlice,
+    FaSoBriefcaseMedical,
+    FaSoBriefcase,
+    FaSoBroadcastTower,
+    FaSoBroom,
+    FaSoBrush,
+    FaSoBug,
+    FaSoBuilding,
+    FaSoBullhorn,
+    FaSoBullseye,
+    FaSoBurn,
+    FaSoBusAlt,
+    FaSoBus,
+    FaSoBusinessTime,
+    FaSoCalculator,
+    FaSoCalendarAlt,
+    FaSoCalendarCheck,
+    FaSoCalendarDay,
+    FaSoCalendarMinus,
+    FaSoCalendarPlus,
+    FaSoCalendarTimes,
+    FaSoCalendarWeek,
+    FaSoCalendar,
+    FaSoCameraRetro,
+    FaSoCamera,
+    FaSoCampground,
+    FaSoCandyCane,
+    FaSoCannabis,
+    FaSoCapsules,
+    FaSoCarAlt,
+    FaSoCarBattery,
+    FaSoCarCrash,
+    FaSoCarSide,
+    FaSoCar,
+    FaSoCaretDown,
+    FaSoCaretLeft,
+    FaSoCaretRight,
+    FaSoCaretSquareDown,
+    FaSoCaretSquareLeft,
+    FaSoCaretSquareRight,
+    FaSoCaretSquareUp,
+    FaSoCaretUp,
+    FaSoCarrot,
+    FaSoCartArrowDown,
+    FaSoCartPlus,
+    FaSoCashRegister,
+    FaSoCat,
+    FaSoCertificate,
+    FaSoChair,
+    FaSoChalkboardTeacher,
+    FaSoChalkboard,
+    FaSoChargingStation,
+    FaSoChartArea,
+    FaSoChartBar,
+    FaSoChartLine,
+    FaSoChartPie,
+    FaSoCheckCircle,
+    FaSoCheckDouble,
+    FaSoCheckSquare,
+    FaSoCheck,
+    FaSoCheese,
+    FaSoChessBishop,
+    FaSoChessBoard,
+    FaSoChessKing,
+    FaSoChessKnight,
+    FaSoChessPawn,
+    FaSoChessQueen,
+    FaSoChessRook,
+    FaSoChess,
+    FaSoChevronCircleDown,
+    FaSoChevronCircleLeft,
+    FaSoChevronCircleRight,
+    FaSoChevronCircleUp,
+    FaSoChevronDown,
+    FaSoChevronLeft,
+    FaSoChevronRight,
+    FaSoChevronUp,
+    FaSoChild,
+    FaSoChurch,
+    FaSoCircleNotch,
+    FaSoCircle,
+    FaSoCity,
+    FaSoClinicMedical,
+    FaSoClipboardCheck,
+    FaSoClipboardList,
+    FaSoClipboard,
+    FaSoClock,
+    FaSoClone,
+    FaSoClosedCaptioning,
+    FaSoCloudDownloadAlt,
+    FaSoCloudMeatball,
+    FaSoCloudMoonRain,
+    FaSoCloudMoon,
+    FaSoCloudRain,
+    FaSoCloudShowersHeavy,
+    FaSoCloudSunRain,
+    FaSoCloudSun,
+    FaSoCloudUploadAlt,
+    FaSoCloud,
+    FaSoCocktail,
+    FaSoCodeBranch,
+    FaSoCode,
+    FaSoCoffee,
+    FaSoCog,
+    FaSoCogs,
+    FaSoCoins,
+    FaSoColumns,
+    FaSoCommentAlt,
+    FaSoCommentDollar,
+    FaSoCommentDots,
+    FaSoCommentMedical,
+    FaSoCommentSlash,
+    FaSoComment,
+    FaSoCommentsDollar,
+    FaSoComments,
+    FaSoCompactDisc,
+    FaSoCompass,
+    FaSoCompressArrowsAlt,
+    FaSoCompress,
+    FaSoConciergeBell,
+    FaSoCookieBite,
+    FaSoCookie,
+    FaSoCopy,
+    FaSoCopyright,
+    FaSoCouch,
+    FaSoCreditCard,
+    FaSoCropAlt,
+    FaSoCrop,
+    FaSoCross,
+    FaSoCrosshairs,
+    FaSoCrow,
+    FaSoCrown,
+    FaSoCrutch,
+    FaSoCube,
+    FaSoCubes,
+    FaSoCut,
+    FaSoDatabase,
+    FaSoDeaf,
+    FaSoDemocrat,
+    FaSoDesktop,
+    FaSoDharmachakra,
+    FaSoDiagnoses,
+    FaSoDiceD20,
+    FaSoDiceD6,
+    FaSoDiceFive,
+    FaSoDiceFour,
+    FaSoDiceOne,
+    FaSoDiceSix,
+    FaSoDiceThree,
+    FaSoDiceTwo,
+    FaSoDice,
+    FaSoDigitalTachograph,
+    FaSoDirections,
+    FaSoDivide,
+    FaSoDizzy,
+    FaSoDna,
+    FaSoDog,
+    FaSoDollarSign,
+    FaSoDollyFlatbed,
+    FaSoDolly,
+    FaSoDonate,
+    FaSoDoorClosed,
+    FaSoDoorOpen,
+    FaSoDotCircle,
+    FaSoDove,
+    FaSoDownload,
+    FaSoDraftingCompass,
+    FaSoDragon,
+    FaSoDrawPolygon,
+    FaSoDrumSteelpan,
+    FaSoDrum,
+    FaSoDrumstickBite,
+    FaSoDumbbell,
+    FaSoDumpsterFire,
+    FaSoDumpster,
+    FaSoDungeon,
+    FaSoEdit,
+    FaSoEgg,
+    FaSoEject,
+    FaSoEllipsisH,
+    FaSoEllipsisV,
+    FaSoEnvelopeOpenText,
+    FaSoEnvelopeOpen,
+    FaSoEnvelopeSquare,
+    FaSoEnvelope,
+    FaSoEquals,
+    FaSoEraser,
+    FaSoEthernet,
+    FaSoEuroSign,
+    FaSoExchangeAlt,
+    FaSoExclamationCircle,
+    FaSoExclamationTriangle,
+    FaSoExclamation,
+    FaSoExpandArrowsAlt,
+    FaSoExpand,
+    FaSoExternalLinkAlt,
+    FaSoExternalLinkSquareAlt,
+    FaSoEyeDropper,
+    FaSoEyeSlash,
+    FaSoEye,
+    FaSoFastBackward,
+    FaSoFastForward,
+    FaSoFax,
+    FaSoFeatherAlt,
+    FaSoFeather,
+    FaSoFemale,
+    FaSoFighterJet,
+    FaSoFileAlt,
+    FaSoFileArchive,
+    FaSoFileAudio,
+    FaSoFileCode,
+    FaSoFileContract,
+    FaSoFileCsv,
+    FaSoFileDownload,
+    FaSoFileExcel,
+    FaSoFileExport,
+    FaSoFileImage,
+    FaSoFileImport,
+    FaSoFileInvoiceDollar,
+    FaSoFileInvoice,
+    FaSoFileMedicalAlt,
+    FaSoFileMedical,
+    FaSoFilePdf,
+    FaSoFilePowerpoint,
+    FaSoFilePrescription,
+    FaSoFileSignature,
+    FaSoFileUpload,
+    FaSoFileVideo,
+    FaSoFileWord,
+    FaSoFile,
+    FaSoFillDrip,
+    FaSoFill,
+    FaSoFilm,
+    FaSoFilter,
+    FaSoFingerprint,
+    FaSoFireAlt,
+    FaSoFireExtinguisher,
+    FaSoFire,
+    FaSoFirstAid,
+    FaSoFish,
+    FaSoFistRaised,
+    FaSoFlagCheckered,
+    FaSoFlagUsa,
+    FaSoFlag,
+    FaSoFlask,
+    FaSoFlushed,
+    FaSoFolderMinus,
+    FaSoFolderOpen,
+    FaSoFolderPlus,
+    FaSoFolder,
+    FaSoFontAwesomeLogoFull,
+    FaSoFont,
+    FaSoFootballBall,
+    FaSoForward,
+    FaSoFrog,
+    FaSoFrownOpen,
+    FaSoFrown,
+    FaSoFunnelDollar,
+    FaSoFutbol,
+    FaSoGamepad,
+    FaSoGasPump,
+    FaSoGavel,
+    FaSoGem,
+    FaSoGenderless,
+    FaSoGhost,
+    FaSoGift,
+    FaSoGifts,
+    FaSoGlassCheers,
+    FaSoGlassMartiniAlt,
+    FaSoGlassMartini,
+    FaSoGlassWhiskey,
+    FaSoGlasses,
+    FaSoGlobeAfrica,
+    FaSoGlobeAmericas,
+    FaSoGlobeAsia,
+    FaSoGlobeEurope,
+    FaSoGlobe,
+    FaSoGolfBall,
+    FaSoGopuram,
+    FaSoGraduationCap,
+    FaSoGreaterThanEqual,
+    FaSoGreaterThan,
+    FaSoGrimace,
+    FaSoGrinAlt,
+    FaSoGrinBeamSweat,
+    FaSoGrinBeam,
+    FaSoGrinHearts,
+    FaSoGrinSquintTears,
+    FaSoGrinSquint,
+    FaSoGrinStars,
+    FaSoGrinTears,
+    FaSoGrinTongueSquint,
+    FaSoGrinTongueWink,
+    FaSoGrinTongue,
+    FaSoGrinWink,
+    FaSoGrin,
+    FaSoGripHorizontal,
+    FaSoGripLinesVertical,
+    FaSoGripLines,
+    FaSoGripVertical,
+    FaSoGuitar,
+    FaSoHSquare,
+    FaSoHamburger,
+    FaSoHammer,
+    FaSoHamsa,
+    FaSoHandHoldingHeart,
+    FaSoHandHoldingUsd,
+    FaSoHandHolding,
+    FaSoHandLizard,
+    FaSoHandMiddleFinger,
+    FaSoHandPaper,
+    FaSoHandPeace,
+    FaSoHandPointDown,
+    FaSoHandPointLeft,
+    FaSoHandPointRight,
+    FaSoHandPointUp,
+    FaSoHandPointer,
+    FaSoHandRock,
+    FaSoHandScissors,
+    FaSoHandSpock,
+    FaSoHandsHelping,
+    FaSoHands,
+    FaSoHandshake,
+    FaSoHanukiah,
+    FaSoHardHat,
+    FaSoHashtag,
+    FaSoHatWizard,
+    FaSoHaykal,
+    FaSoHdd,
+    FaSoHeading,
+    FaSoHeadphonesAlt,
+    FaSoHeadphones,
+    FaSoHeadset,
+    FaSoHeartBroken,
+    FaSoHeart,
+    FaSoHeartbeat,
+    FaSoHelicopter,
+    FaSoHighlighter,
+    FaSoHiking,
+    FaSoHippo,
+    FaSoHistory,
+    FaSoHockeyPuck,
+    FaSoHollyBerry,
+    FaSoHome,
+    FaSoHorseHead,
+    FaSoHorse,
+    FaSoHospitalAlt,
+    FaSoHospitalSymbol,
+    FaSoHospital,
+    FaSoHotTub,
+    FaSoHotdog,
+    FaSoHotel,
+    FaSoHourglassEnd,
+    FaSoHourglassHalf,
+    FaSoHourglassStart,
+    FaSoHourglass,
+    FaSoHouseDamage,
+    FaSoHryvnia,
+    FaSoICursor,
+    FaSoIceCream,
+    FaSoIcicles,
+    FaSoIdBadge,
+    FaSoIdCardAlt,
+    FaSoIdCard,
+    FaSoIgloo,
+    FaSoImage,
+    FaSoImages,
+    FaSoInbox,
+    FaSoIndent,
+    FaSoIndustry,
+    FaSoInfinity,
+    FaSoInfoCircle,
+    FaSoInfo,
+    FaSoItalic,
+    FaSoJedi,
+    FaSoJoint,
+    FaSoJournalWhills,
+    FaSoKaaba,
+    FaSoKey,
+    FaSoKeyboard,
+    FaSoKhanda,
+    FaSoKissBeam,
+    FaSoKissWinkHeart,
+    FaSoKiss,
+    FaSoKiwiBird,
+    FaSoLandmark,
+    FaSoLanguage,
+    FaSoLaptopCode,
+    FaSoLaptopMedical,
+    FaSoLaptop,
+    FaSoLaughBeam,
+    FaSoLaughSquint,
+    FaSoLaughWink,
+    FaSoLaugh,
+    FaSoLayerGroup,
+    FaSoLeaf,
+    FaSoLemon,
+    FaSoLessThanEqual,
+    FaSoLessThan,
+    FaSoLevelDownAlt,
+    FaSoLevelUpAlt,
+    FaSoLifeRing,
+    FaSoLightbulb,
+    FaSoLink,
+    FaSoLiraSign,
+    FaSoListAlt,
+    FaSoListOl,
+    FaSoListUl,
+    FaSoList,
+    FaSoLocationArrow,
+    FaSoLockOpen,
+    FaSoLock,
+    FaSoLongArrowAltDown,
+    FaSoLongArrowAltLeft,
+    FaSoLongArrowAltRight,
+    FaSoLongArrowAltUp,
+    FaSoLowVision,
+    FaSoLuggageCart,
+    FaSoMagic,
+    FaSoMagnet,
+    FaSoMailBulk,
+    FaSoMale,
+    FaSoMapMarkedAlt,
+    FaSoMapMarked,
+    FaSoMapMarkerAlt,
+    FaSoMapMarker,
+    FaSoMapPin,
+    FaSoMapSigns,
+    FaSoMap,
+    FaSoMarker,
+    FaSoMarsDouble,
+    FaSoMarsStrokeH,
+    FaSoMarsStrokeV,
+    FaSoMarsStroke,
+    FaSoMars,
+    FaSoMask,
+    FaSoMedal,
+    FaSoMedkit,
+    FaSoMehBlank,
+    FaSoMehRollingEyes,
+    FaSoMeh,
+    FaSoMemory,
+    FaSoMenorah,
+    FaSoMercury,
+    FaSoMeteor,
+    FaSoMicrochip,
+    FaSoMicrophoneAltSlash,
+    FaSoMicrophoneAlt,
+    FaSoMicrophoneSlash,
+    FaSoMicrophone,
+    FaSoMicroscope,
+    FaSoMinusCircle,
+    FaSoMinusSquare,
+    FaSoMinus,
+    FaSoMitten,
+    FaSoMobileAlt,
+    FaSoMobile,
+    FaSoMoneyBillAlt,
+    FaSoMoneyBillWaveAlt,
+    FaSoMoneyBillWave,
+    FaSoMoneyBill,
+    FaSoMoneyCheckAlt,
+    FaSoMoneyCheck,
+    FaSoMonument,
+    FaSoMoon,
+    FaSoMortarPestle,
+    FaSoMosque,
+    FaSoMotorcycle,
+    FaSoMountain,
+    FaSoMousePointer,
+    FaSoMugHot,
+    FaSoMusic,
+    FaSoNetworkWired,
+    FaSoNeuter,
+    FaSoNewspaper,
+    FaSoNotEqual,
+    FaSoNotesMedical,
+    FaSoObjectGroup,
+    FaSoObjectUngroup,
+    FaSoOilCan,
+    FaSoOm,
+    FaSoOtter,
+    FaSoOutdent,
+    FaSoPager,
+    FaSoPaintBrush,
+    FaSoPaintRoller,
+    FaSoPalette,
+    FaSoPallet,
+    FaSoPaperPlane,
+    FaSoPaperclip,
+    FaSoParachuteBox,
+    FaSoParagraph,
+    FaSoParking,
+    FaSoPassport,
+    FaSoPastafarianism,
+    FaSoPaste,
+    FaSoPauseCircle,
+    FaSoPause,
+    FaSoPaw,
+    FaSoPeace,
+    FaSoPenAlt,
+    FaSoPenFancy,
+    FaSoPenNib,
+    FaSoPenSquare,
+    FaSoPen,
+    FaSoPencilAlt,
+    FaSoPencilRuler,
+    FaSoPeopleCarry,
+    FaSoPepperHot,
+    FaSoPercent,
+    FaSoPercentage,
+    FaSoPersonBooth,
+    FaSoPhoneSlash,
+    FaSoPhoneSquare,
+    FaSoPhoneVolume,
+    FaSoPhone,
+    FaSoPiggyBank,
+    FaSoPills,
+    FaSoPizzaSlice,
+    FaSoPlaceOfWorship,
+    FaSoPlaneArrival,
+    FaSoPlaneDeparture,
+    FaSoPlane,
+    FaSoPlayCircle,
+    FaSoPlay,
+    FaSoPlug,
+    FaSoPlusCircle,
+    FaSoPlusSquare,
+    FaSoPlus,
+    FaSoPodcast,
+    FaSoPollH,
+    FaSoPoll,
+    FaSoPooStorm,
+    FaSoPoo,
+    FaSoPoop,
+    FaSoPortrait,
+    FaSoPoundSign,
+    FaSoPowerOff,
+    FaSoPray,
+    FaSoPrayingHands,
+    FaSoPrescriptionBottleAlt,
+    FaSoPrescriptionBottle,
+    FaSoPrescription,
+    FaSoPrint,
+    FaSoProcedures,
+    FaSoProjectDiagram,
+    FaSoPuzzlePiece,
+    FaSoQrcode,
+    FaSoQuestionCircle,
+    FaSoQuestion,
+    FaSoQuidditch,
+    FaSoQuoteLeft,
+    FaSoQuoteRight,
+    FaSoQuran,
+    FaSoRadiationAlt,
+    FaSoRadiation,
+    FaSoRainbow,
+    FaSoRandom,
+    FaSoReceipt,
+    FaSoRecycle,
+    FaSoRedoAlt,
+    FaSoRedo,
+    FaSoRegistered,
+    FaSoReplyAll,
+    FaSoReply,
+    FaSoRepublican,
+    FaSoRestroom,
+    FaSoRetweet,
+    FaSoRibbon,
+    FaSoRing,
+    FaSoRoad,
+    FaSoRobot,
+    FaSoRocket,
+    FaSoRoute,
+    FaSoRssSquare,
+    FaSoRss,
+    FaSoRubleSign,
+    FaSoRulerCombined,
+    FaSoRulerHorizontal,
+    FaSoRulerVertical,
+    FaSoRuler,
+    FaSoRunning,
+    FaSoRupeeSign,
+    FaSoSadCry,
+    FaSoSadTear,
+    FaSoSatelliteDish,
+    FaSoSatellite,
+    FaSoSave,
+    FaSoSchool,
+    FaSoScrewdriver,
+    FaSoScroll,
+    FaSoSdCard,
+    FaSoSearchDollar,
+    FaSoSearchLocation,
+    FaSoSearchMinus,
+    FaSoSearchPlus,
+    FaSoSearch,
+    FaSoSeedling,
+    FaSoServer,
+    FaSoShapes,
+    FaSoShareAltSquare,
+    FaSoShareAlt,
+    FaSoShareSquare,
+    FaSoShare,
+    FaSoShekelSign,
+    FaSoShieldAlt,
+    FaSoShip,
+    FaSoShippingFast,
+    FaSoShoePrints,
+    FaSoShoppingBag,
+    FaSoShoppingBasket,
+    FaSoShoppingCart,
+    FaSoShower,
+    FaSoShuttleVan,
+    FaSoSignInAlt,
+    FaSoSignLanguage,
+    FaSoSignOutAlt,
+    FaSoSign,
+    FaSoSignal,
+    FaSoSignature,
+    FaSoSimCard,
+    FaSoSitemap,
+    FaSoSkating,
+    FaSoSkiingNordic,
+    FaSoSkiing,
+    FaSoSkullCrossbones,
+    FaSoSkull,
+    FaSoSlash,
+    FaSoSleigh,
+    FaSoSlidersH,
+    FaSoSmileBeam,
+    FaSoSmileWink,
+    FaSoSmile,
+    FaSoSmog,
+    FaSoSmokingBan,
+    FaSoSmoking,
+    FaSoSms,
+    FaSoSnowboarding,
+    FaSoSnowflake,
+    FaSoSnowman,
+    FaSoSnowplow,
+    FaSoSocks,
+    FaSoSolarPanel,
+    FaSoSortAlphaDown,
+    FaSoSortAlphaUp,
+    FaSoSortAmountDown,
+    FaSoSortAmountUp,
+    FaSoSortDown,
+    FaSoSortNumericDown,
+    FaSoSortNumericUp,
+    FaSoSortUp,
+    FaSoSort,
+    FaSoSpa,
+    FaSoSpaceShuttle,
+    FaSoSpider,
+    FaSoSpinner,
+    FaSoSplotch,
+    FaSoSprayCan,
+    FaSoSquareFull,
+    FaSoSquareRootAlt,
+    FaSoSquare,
+    FaSoStamp,
+    FaSoStarAndCrescent,
+    FaSoStarHalfAlt,
+    FaSoStarHalf,
+    FaSoStarOfDavid,
+    FaSoStarOfLife,
+    FaSoStar,
+    FaSoStepBackward,
+    FaSoStepForward,
+    FaSoStethoscope,
+    FaSoStickyNote,
+    FaSoStopCircle,
+    FaSoStop,
+    FaSoStopwatch,
+    FaSoStoreAlt,
+    FaSoStore,
+    FaSoStream,
+    FaSoStreetView,
+    FaSoStrikethrough,
+    FaSoStroopwafel,
+    FaSoSubscript,
+    FaSoSubway,
+    FaSoSuitcaseRolling,
+    FaSoSuitcase,
+    FaSoSun,
+    FaSoSuperscript,
+    FaSoSurprise,
+    FaSoSwatchbook,
+    FaSoSwimmer,
+    FaSoSwimmingPool,
+    FaSoSynagogue,
+    FaSoSyncAlt,
+    FaSoSync,
+    FaSoSyringe,
+    FaSoTableTennis,
+    FaSoTable,
+    FaSoTabletAlt,
+    FaSoTablet,
+    FaSoTablets,
+    FaSoTachometerAlt,
+    FaSoTag,
+    FaSoTags,
+    FaSoTape,
+    FaSoTasks,
+    FaSoTaxi,
+    FaSoTeethOpen,
+    FaSoTeeth,
+    FaSoTemperatureHigh,
+    FaSoTemperatureLow,
+    FaSoTenge,
+    FaSoTerminal,
+    FaSoTextHeight,
+    FaSoTextWidth,
+    FaSoThLarge,
+    FaSoThList,
+    FaSoTh,
+    FaSoTheaterMasks,
+    FaSoThermometerEmpty,
+    FaSoThermometerFull,
+    FaSoThermometerHalf,
+    FaSoThermometerQuarter,
+    FaSoThermometerThreeQuarters,
+    FaSoThermometer,
+    FaSoThumbsDown,
+    FaSoThumbsUp,
+    FaSoThumbtack,
+    FaSoTicketAlt,
+    FaSoTimesCircle,
+    FaSoTimes,
+    FaSoTintSlash,
+    FaSoTint,
+    FaSoTired,
+    FaSoToggleOff,
+    FaSoToggleOn,
+    FaSoToiletPaper,
+    FaSoToilet,
+    FaSoToolbox,
+    FaSoTools,
+    FaSoTooth,
+    FaSoTorah,
+    FaSoToriiGate,
+    FaSoTractor,
+    FaSoTrademark,
+    FaSoTrafficLight,
+    FaSoTrain,
+    FaSoTram,
+    FaSoTransgenderAlt,
+    FaSoTransgender,
+    FaSoTrashAlt,
+    FaSoTrashRestoreAlt,
+    FaSoTrashRestore,
+    FaSoTrash,
+    FaSoTree,
+    FaSoTrophy,
+    FaSoTruckLoading,
+    FaSoTruckMonster,
+    FaSoTruckMoving,
+    FaSoTruckPickup,
+    FaSoTruck,
+    FaSoTshirt,
+    FaSoTty,
+    FaSoTv,
+    FaSoUmbrellaBeach,
+    FaSoUmbrella,
+    FaSoUnderline,
+    FaSoUndoAlt,
+    FaSoUndo,
+    FaSoUniversalAccess,
+    FaSoUniversity,
+    FaSoUnlink,
+    FaSoUnlockAlt,
+    FaSoUnlock,
+    FaSoUpload,
+    FaSoUserAltSlash,
+    FaSoUserAlt,
+    FaSoUserAstronaut,
+    FaSoUserCheck,
+    FaSoUserCircle,
+    FaSoUserClock,
+    FaSoUserCog,
+    FaSoUserEdit,
+    FaSoUserFriends,
+    FaSoUserGraduate,
+    FaSoUserInjured,
+    FaSoUserLock,
+    FaSoUserMd,
+    FaSoUserMinus,
+    FaSoUserNinja,
+    FaSoUserNurse,
+    FaSoUserPlus,
+    FaSoUserSecret,
+    FaSoUserShield,
+    FaSoUserSlash,
+    FaSoUserTag,
+    FaSoUserTie,
+    FaSoUserTimes,
+    FaSoUser,
+    FaSoUsersCog,
+    FaSoUsers,
+    FaSoUtensilSpoon,
+    FaSoUtensils,
+    FaSoVectorSquare,
+    FaSoVenusDouble,
+    FaSoVenusMars,
+    FaSoVenus,
+    FaSoVial,
+    FaSoVials,
+    FaSoVideoSlash,
+    FaSoVideo,
+    FaSoVihara,
+    FaSoVolleyballBall,
+    FaSoVolumeDown,
+    FaSoVolumeMute,
+    FaSoVolumeOff,
+    FaSoVolumeUp,
+    FaSoVoteYea,
+    FaSoVrCardboard,
+    FaSoWalking,
+    FaSoWallet,
+    FaSoWarehouse,
+    FaSoWater,
+    FaSoWeightHanging,
+    FaSoWeight,
+    FaSoWheelchair,
+    FaSoWifi,
+    FaSoWind,
+    FaSoWindowClose,
+    FaSoWindowMaximize,
+    FaSoWindowMinimize,
+    FaSoWindowRestore,
+    FaSoWineBottle,
+    FaSoWineGlassAlt,
+    FaSoWineGlass,
+    FaSoWonSign,
+    FaSoWrench,
+    FaSoXRay,
+    FaSoYenSign,
+    FaSoYinYang,
 }
