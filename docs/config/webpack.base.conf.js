@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const isProd = () => process.env.NODE_ENV === 'production'
 
 module.exports = {
+    devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
@@ -15,7 +16,7 @@ module.exports = {
     entry: path.resolve(__dirname, '..', 'src/app.tsx'),
     output: {
         path: path.resolve(__dirname, '..', 'dist'),
-        filename: '[name].[hash].js'
+        filename: isProd ? '[name].[hash].js' : '[name].js'
     },
     module: {
         rules: [{
@@ -32,11 +33,14 @@ module.exports = {
             test: /\.tsx?$/,
             exclude: /node_modules/,
             use: [{
+                loader: 'thread-loader'
+            }, {
                 loader: 'babel-loader',
                 // options: getBabelConfig(false),
             }, {
                 loader: 'ts-loader',
                 options: {
+                    happyPackMode: true,
                     // configFile: tsconfigPath,
                     transpileOnly: true,
                 },
@@ -45,6 +49,8 @@ module.exports = {
             test: /\.md$/,
             exclude: /node_modules/,
             use: [{
+                loader: 'thread-loader'
+            }, {
                 loader: 'babel-loader',
                 // options: getBabelConfig(false),
             }, {
@@ -68,6 +74,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            inject: true,
             title: 'xl-vision',
             template: path.resolve(__dirname, '..', 'index.html')
         }),

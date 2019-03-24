@@ -12,6 +12,7 @@
 .#{$--cls-prefix}-icon {
     font-size: 1rem;
     display: inline-block;
+    line-height: 0;
     &--spin{
         animation: spin .4s linear infinite;
     }
