@@ -1,3 +1,7 @@
+const MarkdownIt = rquire('markdown-it')
+const Container = rquire('markdown-it-container')
+
+
 const regex = /\s*---\s*((.*(?!---)\n)*)\s*---/
 module.exports = function (content, map, meta) {
     let parseStr = content.replace(/\r\n/g,'\n').replace(/`/g, "\\`")

@@ -22,16 +22,16 @@ const routes: Route[] = [
     path: '/',
     redirect: '/grid'
   },
-  {
-    name: '布局',
-    children: [
-      {
-        name: '栅格布局',
-        path: '/grid',
-        component: () => import('./markdown/zh-cn/grid/index.md')
-      }
-    ]
-  },
+  // {
+  //   name: '布局',
+  //   children: [
+  //     {
+  //       name: '栅格布局',
+  //       path: '/grid',
+  //       component: () => import('./markdown/zh-cn/grid/index.md')
+  //     }
+  //   ]
+  // },
   {
     name: '图标',
     path: '/icon',
