@@ -3,6 +3,420 @@
 
 import createIcon from './base/createIcon'
 import FaBr500px from './icons/fa-br-500px'
+import FaBrAccessibleIcon from './icons/fa-br-accessible-icon'
+import FaBrAccusoft from './icons/fa-br-accusoft'
+import FaBrAcquisitionsIncorporated from './icons/fa-br-acquisitions-incorporated'
+import FaBrAdn from './icons/fa-br-adn'
+import FaBrAdobe from './icons/fa-br-adobe'
+import FaBrAdversal from './icons/fa-br-adversal'
+import FaBrAffiliatetheme from './icons/fa-br-affiliatetheme'
+import FaBrAlgolia from './icons/fa-br-algolia'
+import FaBrAlipay from './icons/fa-br-alipay'
+import FaBrAmazonPay from './icons/fa-br-amazon-pay'
+import FaBrAmazon from './icons/fa-br-amazon'
+import FaBrAmilia from './icons/fa-br-amilia'
+import FaBrAndroid from './icons/fa-br-android'
+import FaBrAngellist from './icons/fa-br-angellist'
+import FaBrAngrycreative from './icons/fa-br-angrycreative'
+import FaBrAngular from './icons/fa-br-angular'
+import FaBrAppStoreIos from './icons/fa-br-app-store-ios'
+import FaBrAppStore from './icons/fa-br-app-store'
+import FaBrApper from './icons/fa-br-apper'
+import FaBrApplePay from './icons/fa-br-apple-pay'
+import FaBrApple from './icons/fa-br-apple'
+import FaBrArtstation from './icons/fa-br-artstation'
+import FaBrAsymmetrik from './icons/fa-br-asymmetrik'
+import FaBrAtlassian from './icons/fa-br-atlassian'
+import FaBrAudible from './icons/fa-br-audible'
+import FaBrAutoprefixer from './icons/fa-br-autoprefixer'
+import FaBrAvianex from './icons/fa-br-avianex'
+import FaBrAviato from './icons/fa-br-aviato'
+import FaBrAws from './icons/fa-br-aws'
+import FaBrBandcamp from './icons/fa-br-bandcamp'
+import FaBrBehanceSquare from './icons/fa-br-behance-square'
+import FaBrBehance from './icons/fa-br-behance'
+import FaBrBimobject from './icons/fa-br-bimobject'
+import FaBrBitbucket from './icons/fa-br-bitbucket'
+import FaBrBitcoin from './icons/fa-br-bitcoin'
+import FaBrBity from './icons/fa-br-bity'
+import FaBrBlackTie from './icons/fa-br-black-tie'
+import FaBrBlackberry from './icons/fa-br-blackberry'
+import FaBrBloggerB from './icons/fa-br-blogger-b'
+import FaBrBlogger from './icons/fa-br-blogger'
+import FaBrBluetoothB from './icons/fa-br-bluetooth-b'
+import FaBrBluetooth from './icons/fa-br-bluetooth'
+import FaBrBtc from './icons/fa-br-btc'
+import FaBrBuromobelexperte from './icons/fa-br-buromobelexperte'
+import FaBrBuysellads from './icons/fa-br-buysellads'
+import FaBrCanadianMapleLeaf from './icons/fa-br-canadian-maple-leaf'
+import FaBrCcAmazonPay from './icons/fa-br-cc-amazon-pay'
+import FaBrCcAmex from './icons/fa-br-cc-amex'
+import FaBrCcApplePay from './icons/fa-br-cc-apple-pay'
+import FaBrCcDinersClub from './icons/fa-br-cc-diners-club'
+import FaBrCcDiscover from './icons/fa-br-cc-discover'
+import FaBrCcJcb from './icons/fa-br-cc-jcb'
+import FaBrCcMastercard from './icons/fa-br-cc-mastercard'
+import FaBrCcPaypal from './icons/fa-br-cc-paypal'
+import FaBrCcStripe from './icons/fa-br-cc-stripe'
+import FaBrCcVisa from './icons/fa-br-cc-visa'
+import FaBrCentercode from './icons/fa-br-centercode'
+import FaBrCentos from './icons/fa-br-centos'
+import FaBrChrome from './icons/fa-br-chrome'
+import FaBrCloudscale from './icons/fa-br-cloudscale'
+import FaBrCloudsmith from './icons/fa-br-cloudsmith'
+import FaBrCloudversify from './icons/fa-br-cloudversify'
+import FaBrCodepen from './icons/fa-br-codepen'
+import FaBrCodiepie from './icons/fa-br-codiepie'
+import FaBrConfluence from './icons/fa-br-confluence'
+import FaBrConnectdevelop from './icons/fa-br-connectdevelop'
+import FaBrContao from './icons/fa-br-contao'
+import FaBrCpanel from './icons/fa-br-cpanel'
+import FaBrCreativeCommonsBy from './icons/fa-br-creative-commons-by'
+import FaBrCreativeCommonsNcEu from './icons/fa-br-creative-commons-nc-eu'
+import FaBrCreativeCommonsNcJp from './icons/fa-br-creative-commons-nc-jp'
+import FaBrCreativeCommonsNc from './icons/fa-br-creative-commons-nc'
+import FaBrCreativeCommonsNd from './icons/fa-br-creative-commons-nd'
+import FaBrCreativeCommonsPdAlt from './icons/fa-br-creative-commons-pd-alt'
+import FaBrCreativeCommonsPd from './icons/fa-br-creative-commons-pd'
+import FaBrCreativeCommonsRemix from './icons/fa-br-creative-commons-remix'
+import FaBrCreativeCommonsSa from './icons/fa-br-creative-commons-sa'
+import FaBrCreativeCommonsSamplingPlus from './icons/fa-br-creative-commons-sampling-plus'
+import FaBrCreativeCommonsSampling from './icons/fa-br-creative-commons-sampling'
+import FaBrCreativeCommonsShare from './icons/fa-br-creative-commons-share'
+import FaBrCreativeCommonsZero from './icons/fa-br-creative-commons-zero'
+import FaBrCreativeCommons from './icons/fa-br-creative-commons'
+import FaBrCriticalRole from './icons/fa-br-critical-role'
+import FaBrCss3Alt from './icons/fa-br-css3-alt'
+import FaBrCss3 from './icons/fa-br-css3'
+import FaBrCuttlefish from './icons/fa-br-cuttlefish'
+import FaBrDAndDBeyond from './icons/fa-br-d-and-d-beyond'
+import FaBrDAndD from './icons/fa-br-d-and-d'
+import FaBrDashcube from './icons/fa-br-dashcube'
+import FaBrDelicious from './icons/fa-br-delicious'
+import FaBrDeploydog from './icons/fa-br-deploydog'
+import FaBrDeskpro from './icons/fa-br-deskpro'
+import FaBrDev from './icons/fa-br-dev'
+import FaBrDeviantart from './icons/fa-br-deviantart'
+import FaBrDhl from './icons/fa-br-dhl'
+import FaBrDiaspora from './icons/fa-br-diaspora'
+import FaBrDigg from './icons/fa-br-digg'
+import FaBrDigitalOcean from './icons/fa-br-digital-ocean'
+import FaBrDiscord from './icons/fa-br-discord'
+import FaBrDiscourse from './icons/fa-br-discourse'
+import FaBrDochub from './icons/fa-br-dochub'
+import FaBrDocker from './icons/fa-br-docker'
+import FaBrDraft2digital from './icons/fa-br-draft2digital'
+import FaBrDribbbleSquare from './icons/fa-br-dribbble-square'
+import FaBrDribbble from './icons/fa-br-dribbble'
+import FaBrDropbox from './icons/fa-br-dropbox'
+import FaBrDrupal from './icons/fa-br-drupal'
+import FaBrDyalog from './icons/fa-br-dyalog'
+import FaBrEarlybirds from './icons/fa-br-earlybirds'
+import FaBrEbay from './icons/fa-br-ebay'
+import FaBrEdge from './icons/fa-br-edge'
+import FaBrElementor from './icons/fa-br-elementor'
+import FaBrEllo from './icons/fa-br-ello'
+import FaBrEmber from './icons/fa-br-ember'
+import FaBrEmpire from './icons/fa-br-empire'
+import FaBrEnvira from './icons/fa-br-envira'
+import FaBrErlang from './icons/fa-br-erlang'
+import FaBrEthereum from './icons/fa-br-ethereum'
+import FaBrEtsy from './icons/fa-br-etsy'
+import FaBrExpeditedssl from './icons/fa-br-expeditedssl'
+import FaBrFacebookF from './icons/fa-br-facebook-f'
+import FaBrFacebookMessenger from './icons/fa-br-facebook-messenger'
+import FaBrFacebookSquare from './icons/fa-br-facebook-square'
+import FaBrFacebook from './icons/fa-br-facebook'
+import FaBrFantasyFlightGames from './icons/fa-br-fantasy-flight-games'
+import FaBrFedex from './icons/fa-br-fedex'
+import FaBrFedora from './icons/fa-br-fedora'
+import FaBrFigma from './icons/fa-br-figma'
+import FaBrFirefox from './icons/fa-br-firefox'
+import FaBrFirstOrderAlt from './icons/fa-br-first-order-alt'
+import FaBrFirstOrder from './icons/fa-br-first-order'
+import FaBrFirstdraft from './icons/fa-br-firstdraft'
+import FaBrFlickr from './icons/fa-br-flickr'
+import FaBrFlipboard from './icons/fa-br-flipboard'
+import FaBrFly from './icons/fa-br-fly'
+import FaBrFontAwesomeAlt from './icons/fa-br-font-awesome-alt'
+import FaBrFontAwesomeFlag from './icons/fa-br-font-awesome-flag'
+import FaBrFontAwesomeLogoFull from './icons/fa-br-font-awesome-logo-full'
+import FaBrFontAwesome from './icons/fa-br-font-awesome'
+import FaBrFonticonsFi from './icons/fa-br-fonticons-fi'
+import FaBrFonticons from './icons/fa-br-fonticons'
+import FaBrFortAwesomeAlt from './icons/fa-br-fort-awesome-alt'
+import FaBrFortAwesome from './icons/fa-br-fort-awesome'
+import FaBrForumbee from './icons/fa-br-forumbee'
+import FaBrFoursquare from './icons/fa-br-foursquare'
+import FaBrFreeCodeCamp from './icons/fa-br-free-code-camp'
+import FaBrFreebsd from './icons/fa-br-freebsd'
+import FaBrFulcrum from './icons/fa-br-fulcrum'
+import FaBrGalacticRepublic from './icons/fa-br-galactic-republic'
+import FaBrGalacticSenate from './icons/fa-br-galactic-senate'
+import FaBrGetPocket from './icons/fa-br-get-pocket'
+import FaBrGgCircle from './icons/fa-br-gg-circle'
+import FaBrGg from './icons/fa-br-gg'
+import FaBrGitSquare from './icons/fa-br-git-square'
+import FaBrGit from './icons/fa-br-git'
+import FaBrGithubAlt from './icons/fa-br-github-alt'
+import FaBrGithubSquare from './icons/fa-br-github-square'
+import FaBrGithub from './icons/fa-br-github'
+import FaBrGitkraken from './icons/fa-br-gitkraken'
+import FaBrGitlab from './icons/fa-br-gitlab'
+import FaBrGitter from './icons/fa-br-gitter'
+import FaBrGlideG from './icons/fa-br-glide-g'
+import FaBrGlide from './icons/fa-br-glide'
+import FaBrGofore from './icons/fa-br-gofore'
+import FaBrGoodreadsG from './icons/fa-br-goodreads-g'
+import FaBrGoodreads from './icons/fa-br-goodreads'
+import FaBrGoogleDrive from './icons/fa-br-google-drive'
+import FaBrGooglePlay from './icons/fa-br-google-play'
+import FaBrGooglePlusG from './icons/fa-br-google-plus-g'
+import FaBrGooglePlusSquare from './icons/fa-br-google-plus-square'
+import FaBrGooglePlus from './icons/fa-br-google-plus'
+import FaBrGoogleWallet from './icons/fa-br-google-wallet'
+import FaBrGoogle from './icons/fa-br-google'
+import FaBrGratipay from './icons/fa-br-gratipay'
+import FaBrGrav from './icons/fa-br-grav'
+import FaBrGripfire from './icons/fa-br-gripfire'
+import FaBrGrunt from './icons/fa-br-grunt'
+import FaBrGulp from './icons/fa-br-gulp'
+import FaBrHackerNewsSquare from './icons/fa-br-hacker-news-square'
+import FaBrHackerNews from './icons/fa-br-hacker-news'
+import FaBrHackerrank from './icons/fa-br-hackerrank'
+import FaBrHips from './icons/fa-br-hips'
+import FaBrHireAHelper from './icons/fa-br-hire-a-helper'
+import FaBrHooli from './icons/fa-br-hooli'
+import FaBrHornbill from './icons/fa-br-hornbill'
+import FaBrHotjar from './icons/fa-br-hotjar'
+import FaBrHouzz from './icons/fa-br-houzz'
+import FaBrHtml5 from './icons/fa-br-html5'
+import FaBrHubspot from './icons/fa-br-hubspot'
+import FaBrImdb from './icons/fa-br-imdb'
+import FaBrInstagram from './icons/fa-br-instagram'
+import FaBrIntercom from './icons/fa-br-intercom'
+import FaBrInternetExplorer from './icons/fa-br-internet-explorer'
+import FaBrInvision from './icons/fa-br-invision'
+import FaBrIoxhost from './icons/fa-br-ioxhost'
+import FaBrItunesNote from './icons/fa-br-itunes-note'
+import FaBrItunes from './icons/fa-br-itunes'
+import FaBrJava from './icons/fa-br-java'
+import FaBrJediOrder from './icons/fa-br-jedi-order'
+import FaBrJenkins from './icons/fa-br-jenkins'
+import FaBrJira from './icons/fa-br-jira'
+import FaBrJoget from './icons/fa-br-joget'
+import FaBrJoomla from './icons/fa-br-joomla'
+import FaBrJsSquare from './icons/fa-br-js-square'
+import FaBrJs from './icons/fa-br-js'
+import FaBrJsfiddle from './icons/fa-br-jsfiddle'
+import FaBrKaggle from './icons/fa-br-kaggle'
+import FaBrKeybase from './icons/fa-br-keybase'
+import FaBrKeycdn from './icons/fa-br-keycdn'
+import FaBrKickstarterK from './icons/fa-br-kickstarter-k'
+import FaBrKickstarter from './icons/fa-br-kickstarter'
+import FaBrKorvue from './icons/fa-br-korvue'
+import FaBrLaravel from './icons/fa-br-laravel'
+import FaBrLastfmSquare from './icons/fa-br-lastfm-square'
+import FaBrLastfm from './icons/fa-br-lastfm'
+import FaBrLeanpub from './icons/fa-br-leanpub'
+import FaBrLess from './icons/fa-br-less'
+import FaBrLine from './icons/fa-br-line'
+import FaBrLinkedinIn from './icons/fa-br-linkedin-in'
+import FaBrLinkedin from './icons/fa-br-linkedin'
+import FaBrLinode from './icons/fa-br-linode'
+import FaBrLinux from './icons/fa-br-linux'
+import FaBrLyft from './icons/fa-br-lyft'
+import FaBrMagento from './icons/fa-br-magento'
+import FaBrMailchimp from './icons/fa-br-mailchimp'
+import FaBrMandalorian from './icons/fa-br-mandalorian'
+import FaBrMarkdown from './icons/fa-br-markdown'
+import FaBrMastodon from './icons/fa-br-mastodon'
+import FaBrMaxcdn from './icons/fa-br-maxcdn'
+import FaBrMedapps from './icons/fa-br-medapps'
+import FaBrMediumM from './icons/fa-br-medium-m'
+import FaBrMedium from './icons/fa-br-medium'
+import FaBrMedrt from './icons/fa-br-medrt'
+import FaBrMeetup from './icons/fa-br-meetup'
+import FaBrMegaport from './icons/fa-br-megaport'
+import FaBrMendeley from './icons/fa-br-mendeley'
+import FaBrMicrosoft from './icons/fa-br-microsoft'
+import FaBrMix from './icons/fa-br-mix'
+import FaBrMixcloud from './icons/fa-br-mixcloud'
+import FaBrMizuni from './icons/fa-br-mizuni'
+import FaBrModx from './icons/fa-br-modx'
+import FaBrMonero from './icons/fa-br-monero'
+import FaBrNapster from './icons/fa-br-napster'
+import FaBrNeos from './icons/fa-br-neos'
+import FaBrNimblr from './icons/fa-br-nimblr'
+import FaBrNintendoSwitch from './icons/fa-br-nintendo-switch'
+import FaBrNodeJs from './icons/fa-br-node-js'
+import FaBrNode from './icons/fa-br-node'
+import FaBrNpm from './icons/fa-br-npm'
+import FaBrNs8 from './icons/fa-br-ns8'
+import FaBrNutritionix from './icons/fa-br-nutritionix'
+import FaBrOdnoklassnikiSquare from './icons/fa-br-odnoklassniki-square'
+import FaBrOdnoklassniki from './icons/fa-br-odnoklassniki'
+import FaBrOldRepublic from './icons/fa-br-old-republic'
+import FaBrOpencart from './icons/fa-br-opencart'
+import FaBrOpenid from './icons/fa-br-openid'
+import FaBrOpera from './icons/fa-br-opera'
+import FaBrOptinMonster from './icons/fa-br-optin-monster'
+import FaBrOsi from './icons/fa-br-osi'
+import FaBrPage4 from './icons/fa-br-page4'
+import FaBrPagelines from './icons/fa-br-pagelines'
+import FaBrPalfed from './icons/fa-br-palfed'
+import FaBrPatreon from './icons/fa-br-patreon'
+import FaBrPaypal from './icons/fa-br-paypal'
+import FaBrPennyArcade from './icons/fa-br-penny-arcade'
+import FaBrPeriscope from './icons/fa-br-periscope'
+import FaBrPhabricator from './icons/fa-br-phabricator'
+import FaBrPhoenixFramework from './icons/fa-br-phoenix-framework'
+import FaBrPhoenixSquadron from './icons/fa-br-phoenix-squadron'
+import FaBrPhp from './icons/fa-br-php'
+import FaBrPiedPiperAlt from './icons/fa-br-pied-piper-alt'
+import FaBrPiedPiperHat from './icons/fa-br-pied-piper-hat'
+import FaBrPiedPiperPp from './icons/fa-br-pied-piper-pp'
+import FaBrPiedPiper from './icons/fa-br-pied-piper'
+import FaBrPinterestP from './icons/fa-br-pinterest-p'
+import FaBrPinterestSquare from './icons/fa-br-pinterest-square'
+import FaBrPinterest from './icons/fa-br-pinterest'
+import FaBrPlaystation from './icons/fa-br-playstation'
+import FaBrProductHunt from './icons/fa-br-product-hunt'
+import FaBrPushed from './icons/fa-br-pushed'
+import FaBrPython from './icons/fa-br-python'
+import FaBrQq from './icons/fa-br-qq'
+import FaBrQuinscape from './icons/fa-br-quinscape'
+import FaBrQuora from './icons/fa-br-quora'
+import FaBrRProject from './icons/fa-br-r-project'
+import FaBrRaspberryPi from './icons/fa-br-raspberry-pi'
+import FaBrRavelry from './icons/fa-br-ravelry'
+import FaBrReact from './icons/fa-br-react'
+import FaBrReacteurope from './icons/fa-br-reacteurope'
+import FaBrReadme from './icons/fa-br-readme'
+import FaBrRebel from './icons/fa-br-rebel'
+import FaBrRedRiver from './icons/fa-br-red-river'
+import FaBrRedditAlien from './icons/fa-br-reddit-alien'
+import FaBrRedditSquare from './icons/fa-br-reddit-square'
+import FaBrReddit from './icons/fa-br-reddit'
+import FaBrRedhat from './icons/fa-br-redhat'
+import FaBrRenren from './icons/fa-br-renren'
+import FaBrReplyd from './icons/fa-br-replyd'
+import FaBrResearchgate from './icons/fa-br-researchgate'
+import FaBrResolving from './icons/fa-br-resolving'
+import FaBrRev from './icons/fa-br-rev'
+import FaBrRocketchat from './icons/fa-br-rocketchat'
+import FaBrRockrms from './icons/fa-br-rockrms'
+import FaBrSafari from './icons/fa-br-safari'
+import FaBrSass from './icons/fa-br-sass'
+import FaBrSchlix from './icons/fa-br-schlix'
+import FaBrScribd from './icons/fa-br-scribd'
+import FaBrSearchengin from './icons/fa-br-searchengin'
+import FaBrSellcast from './icons/fa-br-sellcast'
+import FaBrSellsy from './icons/fa-br-sellsy'
+import FaBrServicestack from './icons/fa-br-servicestack'
+import FaBrShirtsinbulk from './icons/fa-br-shirtsinbulk'
+import FaBrShopware from './icons/fa-br-shopware'
+import FaBrSimplybuilt from './icons/fa-br-simplybuilt'
+import FaBrSistrix from './icons/fa-br-sistrix'
+import FaBrSith from './icons/fa-br-sith'
+import FaBrSketch from './icons/fa-br-sketch'
+import FaBrSkyatlas from './icons/fa-br-skyatlas'
+import FaBrSkype from './icons/fa-br-skype'
+import FaBrSlackHash from './icons/fa-br-slack-hash'
+import FaBrSlack from './icons/fa-br-slack'
+import FaBrSlideshare from './icons/fa-br-slideshare'
+import FaBrSnapchatGhost from './icons/fa-br-snapchat-ghost'
+import FaBrSnapchatSquare from './icons/fa-br-snapchat-square'
+import FaBrSnapchat from './icons/fa-br-snapchat'
+import FaBrSoundcloud from './icons/fa-br-soundcloud'
+import FaBrSourcetree from './icons/fa-br-sourcetree'
+import FaBrSpeakap from './icons/fa-br-speakap'
+import FaBrSpotify from './icons/fa-br-spotify'
+import FaBrSquarespace from './icons/fa-br-squarespace'
+import FaBrStackExchange from './icons/fa-br-stack-exchange'
+import FaBrStackOverflow from './icons/fa-br-stack-overflow'
+import FaBrStaylinked from './icons/fa-br-staylinked'
+import FaBrSteamSquare from './icons/fa-br-steam-square'
+import FaBrSteamSymbol from './icons/fa-br-steam-symbol'
+import FaBrSteam from './icons/fa-br-steam'
+import FaBrStickerMule from './icons/fa-br-sticker-mule'
+import FaBrStrava from './icons/fa-br-strava'
+import FaBrStripeS from './icons/fa-br-stripe-s'
+import FaBrStripe from './icons/fa-br-stripe'
+import FaBrStudiovinari from './icons/fa-br-studiovinari'
+import FaBrStumbleuponCircle from './icons/fa-br-stumbleupon-circle'
+import FaBrStumbleupon from './icons/fa-br-stumbleupon'
+import FaBrSuperpowers from './icons/fa-br-superpowers'
+import FaBrSupple from './icons/fa-br-supple'
+import FaBrSuse from './icons/fa-br-suse'
+import FaBrTeamspeak from './icons/fa-br-teamspeak'
+import FaBrTelegramPlane from './icons/fa-br-telegram-plane'
+import FaBrTelegram from './icons/fa-br-telegram'
+import FaBrTencentWeibo from './icons/fa-br-tencent-weibo'
+import FaBrTheRedYeti from './icons/fa-br-the-red-yeti'
+import FaBrThemeco from './icons/fa-br-themeco'
+import FaBrThemeisle from './icons/fa-br-themeisle'
+import FaBrThinkPeaks from './icons/fa-br-think-peaks'
+import FaBrTradeFederation from './icons/fa-br-trade-federation'
+import FaBrTrello from './icons/fa-br-trello'
+import FaBrTripadvisor from './icons/fa-br-tripadvisor'
+import FaBrTumblrSquare from './icons/fa-br-tumblr-square'
+import FaBrTumblr from './icons/fa-br-tumblr'
+import FaBrTwitch from './icons/fa-br-twitch'
+import FaBrTwitterSquare from './icons/fa-br-twitter-square'
+import FaBrTwitter from './icons/fa-br-twitter'
+import FaBrTypo3 from './icons/fa-br-typo3'
+import FaBrUber from './icons/fa-br-uber'
+import FaBrUbuntu from './icons/fa-br-ubuntu'
+import FaBrUikit from './icons/fa-br-uikit'
+import FaBrUniregistry from './icons/fa-br-uniregistry'
+import FaBrUntappd from './icons/fa-br-untappd'
+import FaBrUps from './icons/fa-br-ups'
+import FaBrUsb from './icons/fa-br-usb'
+import FaBrUsps from './icons/fa-br-usps'
+import FaBrUssunnah from './icons/fa-br-ussunnah'
+import FaBrVaadin from './icons/fa-br-vaadin'
+import FaBrViacoin from './icons/fa-br-viacoin'
+import FaBrViadeoSquare from './icons/fa-br-viadeo-square'
+import FaBrViadeo from './icons/fa-br-viadeo'
+import FaBrViber from './icons/fa-br-viber'
+import FaBrVimeoSquare from './icons/fa-br-vimeo-square'
+import FaBrVimeoV from './icons/fa-br-vimeo-v'
+import FaBrVimeo from './icons/fa-br-vimeo'
+import FaBrVine from './icons/fa-br-vine'
+import FaBrVk from './icons/fa-br-vk'
+import FaBrVnv from './icons/fa-br-vnv'
+import FaBrVuejs from './icons/fa-br-vuejs'
+import FaBrWeebly from './icons/fa-br-weebly'
+import FaBrWeibo from './icons/fa-br-weibo'
+import FaBrWeixin from './icons/fa-br-weixin'
+import FaBrWhatsappSquare from './icons/fa-br-whatsapp-square'
+import FaBrWhatsapp from './icons/fa-br-whatsapp'
+import FaBrWhmcs from './icons/fa-br-whmcs'
+import FaBrWikipediaW from './icons/fa-br-wikipedia-w'
+import FaBrWindows from './icons/fa-br-windows'
+import FaBrWix from './icons/fa-br-wix'
+import FaBrWizardsOfTheCoast from './icons/fa-br-wizards-of-the-coast'
+import FaBrWolfPackBattalion from './icons/fa-br-wolf-pack-battalion'
+import FaBrWordpressSimple from './icons/fa-br-wordpress-simple'
+import FaBrWordpress from './icons/fa-br-wordpress'
+import FaBrWpbeginner from './icons/fa-br-wpbeginner'
+import FaBrWpexplorer from './icons/fa-br-wpexplorer'
+import FaBrWpforms from './icons/fa-br-wpforms'
+import FaBrWpressr from './icons/fa-br-wpressr'
+import FaBrXbox from './icons/fa-br-xbox'
+import FaBrXingSquare from './icons/fa-br-xing-square'
+import FaBrXing from './icons/fa-br-xing'
+import FaBrYCombinator from './icons/fa-br-y-combinator'
+import FaBrYahoo from './icons/fa-br-yahoo'
+import FaBrYandexInternational from './icons/fa-br-yandex-international'
+import FaBrYandex from './icons/fa-br-yandex'
+import FaBrYarn from './icons/fa-br-yarn'
+import FaBrYelp from './icons/fa-br-yelp'
+import FaBrYoast from './icons/fa-br-yoast'
+import FaBrYoutubeSquare from './icons/fa-br-youtube-square'
+import FaBrYoutube from './icons/fa-br-youtube'
+import FaBrZhihu from './icons/fa-br-zhihu'
 import FaReAddressBook from './icons/fa-re-address-book'
 import FaReAddressCard from './icons/fa-re-address-card'
 import FaReAngry from './icons/fa-re-angry'
@@ -1094,6 +1508,420 @@ import FaSoYinYang from './icons/fa-so-yin-yang'
 export {
     createIcon,
     FaBr500px,
+    FaBrAccessibleIcon,
+    FaBrAccusoft,
+    FaBrAcquisitionsIncorporated,
+    FaBrAdn,
+    FaBrAdobe,
+    FaBrAdversal,
+    FaBrAffiliatetheme,
+    FaBrAlgolia,
+    FaBrAlipay,
+    FaBrAmazonPay,
+    FaBrAmazon,
+    FaBrAmilia,
+    FaBrAndroid,
+    FaBrAngellist,
+    FaBrAngrycreative,
+    FaBrAngular,
+    FaBrAppStoreIos,
+    FaBrAppStore,
+    FaBrApper,
+    FaBrApplePay,
+    FaBrApple,
+    FaBrArtstation,
+    FaBrAsymmetrik,
+    FaBrAtlassian,
+    FaBrAudible,
+    FaBrAutoprefixer,
+    FaBrAvianex,
+    FaBrAviato,
+    FaBrAws,
+    FaBrBandcamp,
+    FaBrBehanceSquare,
+    FaBrBehance,
+    FaBrBimobject,
+    FaBrBitbucket,
+    FaBrBitcoin,
+    FaBrBity,
+    FaBrBlackTie,
+    FaBrBlackberry,
+    FaBrBloggerB,
+    FaBrBlogger,
+    FaBrBluetoothB,
+    FaBrBluetooth,
+    FaBrBtc,
+    FaBrBuromobelexperte,
+    FaBrBuysellads,
+    FaBrCanadianMapleLeaf,
+    FaBrCcAmazonPay,
+    FaBrCcAmex,
+    FaBrCcApplePay,
+    FaBrCcDinersClub,
+    FaBrCcDiscover,
+    FaBrCcJcb,
+    FaBrCcMastercard,
+    FaBrCcPaypal,
+    FaBrCcStripe,
+    FaBrCcVisa,
+    FaBrCentercode,
+    FaBrCentos,
+    FaBrChrome,
+    FaBrCloudscale,
+    FaBrCloudsmith,
+    FaBrCloudversify,
+    FaBrCodepen,
+    FaBrCodiepie,
+    FaBrConfluence,
+    FaBrConnectdevelop,
+    FaBrContao,
+    FaBrCpanel,
+    FaBrCreativeCommonsBy,
+    FaBrCreativeCommonsNcEu,
+    FaBrCreativeCommonsNcJp,
+    FaBrCreativeCommonsNc,
+    FaBrCreativeCommonsNd,
+    FaBrCreativeCommonsPdAlt,
+    FaBrCreativeCommonsPd,
+    FaBrCreativeCommonsRemix,
+    FaBrCreativeCommonsSa,
+    FaBrCreativeCommonsSamplingPlus,
+    FaBrCreativeCommonsSampling,
+    FaBrCreativeCommonsShare,
+    FaBrCreativeCommonsZero,
+    FaBrCreativeCommons,
+    FaBrCriticalRole,
+    FaBrCss3Alt,
+    FaBrCss3,
+    FaBrCuttlefish,
+    FaBrDAndDBeyond,
+    FaBrDAndD,
+    FaBrDashcube,
+    FaBrDelicious,
+    FaBrDeploydog,
+    FaBrDeskpro,
+    FaBrDev,
+    FaBrDeviantart,
+    FaBrDhl,
+    FaBrDiaspora,
+    FaBrDigg,
+    FaBrDigitalOcean,
+    FaBrDiscord,
+    FaBrDiscourse,
+    FaBrDochub,
+    FaBrDocker,
+    FaBrDraft2digital,
+    FaBrDribbbleSquare,
+    FaBrDribbble,
+    FaBrDropbox,
+    FaBrDrupal,
+    FaBrDyalog,
+    FaBrEarlybirds,
+    FaBrEbay,
+    FaBrEdge,
+    FaBrElementor,
+    FaBrEllo,
+    FaBrEmber,
+    FaBrEmpire,
+    FaBrEnvira,
+    FaBrErlang,
+    FaBrEthereum,
+    FaBrEtsy,
+    FaBrExpeditedssl,
+    FaBrFacebookF,
+    FaBrFacebookMessenger,
+    FaBrFacebookSquare,
+    FaBrFacebook,
+    FaBrFantasyFlightGames,
+    FaBrFedex,
+    FaBrFedora,
+    FaBrFigma,
+    FaBrFirefox,
+    FaBrFirstOrderAlt,
+    FaBrFirstOrder,
+    FaBrFirstdraft,
+    FaBrFlickr,
+    FaBrFlipboard,
+    FaBrFly,
+    FaBrFontAwesomeAlt,
+    FaBrFontAwesomeFlag,
+    FaBrFontAwesomeLogoFull,
+    FaBrFontAwesome,
+    FaBrFonticonsFi,
+    FaBrFonticons,
+    FaBrFortAwesomeAlt,
+    FaBrFortAwesome,
+    FaBrForumbee,
+    FaBrFoursquare,
+    FaBrFreeCodeCamp,
+    FaBrFreebsd,
+    FaBrFulcrum,
+    FaBrGalacticRepublic,
+    FaBrGalacticSenate,
+    FaBrGetPocket,
+    FaBrGgCircle,
+    FaBrGg,
+    FaBrGitSquare,
+    FaBrGit,
+    FaBrGithubAlt,
+    FaBrGithubSquare,
+    FaBrGithub,
+    FaBrGitkraken,
+    FaBrGitlab,
+    FaBrGitter,
+    FaBrGlideG,
+    FaBrGlide,
+    FaBrGofore,
+    FaBrGoodreadsG,
+    FaBrGoodreads,
+    FaBrGoogleDrive,
+    FaBrGooglePlay,
+    FaBrGooglePlusG,
+    FaBrGooglePlusSquare,
+    FaBrGooglePlus,
+    FaBrGoogleWallet,
+    FaBrGoogle,
+    FaBrGratipay,
+    FaBrGrav,
+    FaBrGripfire,
+    FaBrGrunt,
+    FaBrGulp,
+    FaBrHackerNewsSquare,
+    FaBrHackerNews,
+    FaBrHackerrank,
+    FaBrHips,
+    FaBrHireAHelper,
+    FaBrHooli,
+    FaBrHornbill,
+    FaBrHotjar,
+    FaBrHouzz,
+    FaBrHtml5,
+    FaBrHubspot,
+    FaBrImdb,
+    FaBrInstagram,
+    FaBrIntercom,
+    FaBrInternetExplorer,
+    FaBrInvision,
+    FaBrIoxhost,
+    FaBrItunesNote,
+    FaBrItunes,
+    FaBrJava,
+    FaBrJediOrder,
+    FaBrJenkins,
+    FaBrJira,
+    FaBrJoget,
+    FaBrJoomla,
+    FaBrJsSquare,
+    FaBrJs,
+    FaBrJsfiddle,
+    FaBrKaggle,
+    FaBrKeybase,
+    FaBrKeycdn,
+    FaBrKickstarterK,
+    FaBrKickstarter,
+    FaBrKorvue,
+    FaBrLaravel,
+    FaBrLastfmSquare,
+    FaBrLastfm,
+    FaBrLeanpub,
+    FaBrLess,
+    FaBrLine,
+    FaBrLinkedinIn,
+    FaBrLinkedin,
+    FaBrLinode,
+    FaBrLinux,
+    FaBrLyft,
+    FaBrMagento,
+    FaBrMailchimp,
+    FaBrMandalorian,
+    FaBrMarkdown,
+    FaBrMastodon,
+    FaBrMaxcdn,
+    FaBrMedapps,
+    FaBrMediumM,
+    FaBrMedium,
+    FaBrMedrt,
+    FaBrMeetup,
+    FaBrMegaport,
+    FaBrMendeley,
+    FaBrMicrosoft,
+    FaBrMix,
+    FaBrMixcloud,
+    FaBrMizuni,
+    FaBrModx,
+    FaBrMonero,
+    FaBrNapster,
+    FaBrNeos,
+    FaBrNimblr,
+    FaBrNintendoSwitch,
+    FaBrNodeJs,
+    FaBrNode,
+    FaBrNpm,
+    FaBrNs8,
+    FaBrNutritionix,
+    FaBrOdnoklassnikiSquare,
+    FaBrOdnoklassniki,
+    FaBrOldRepublic,
+    FaBrOpencart,
+    FaBrOpenid,
+    FaBrOpera,
+    FaBrOptinMonster,
+    FaBrOsi,
+    FaBrPage4,
+    FaBrPagelines,
+    FaBrPalfed,
+    FaBrPatreon,
+    FaBrPaypal,
+    FaBrPennyArcade,
+    FaBrPeriscope,
+    FaBrPhabricator,
+    FaBrPhoenixFramework,
+    FaBrPhoenixSquadron,
+    FaBrPhp,
+    FaBrPiedPiperAlt,
+    FaBrPiedPiperHat,
+    FaBrPiedPiperPp,
+    FaBrPiedPiper,
+    FaBrPinterestP,
+    FaBrPinterestSquare,
+    FaBrPinterest,
+    FaBrPlaystation,
+    FaBrProductHunt,
+    FaBrPushed,
+    FaBrPython,
+    FaBrQq,
+    FaBrQuinscape,
+    FaBrQuora,
+    FaBrRProject,
+    FaBrRaspberryPi,
+    FaBrRavelry,
+    FaBrReact,
+    FaBrReacteurope,
+    FaBrReadme,
+    FaBrRebel,
+    FaBrRedRiver,
+    FaBrRedditAlien,
+    FaBrRedditSquare,
+    FaBrReddit,
+    FaBrRedhat,
+    FaBrRenren,
+    FaBrReplyd,
+    FaBrResearchgate,
+    FaBrResolving,
+    FaBrRev,
+    FaBrRocketchat,
+    FaBrRockrms,
+    FaBrSafari,
+    FaBrSass,
+    FaBrSchlix,
+    FaBrScribd,
+    FaBrSearchengin,
+    FaBrSellcast,
+    FaBrSellsy,
+    FaBrServicestack,
+    FaBrShirtsinbulk,
+    FaBrShopware,
+    FaBrSimplybuilt,
+    FaBrSistrix,
+    FaBrSith,
+    FaBrSketch,
+    FaBrSkyatlas,
+    FaBrSkype,
+    FaBrSlackHash,
+    FaBrSlack,
+    FaBrSlideshare,
+    FaBrSnapchatGhost,
+    FaBrSnapchatSquare,
+    FaBrSnapchat,
+    FaBrSoundcloud,
+    FaBrSourcetree,
+    FaBrSpeakap,
+    FaBrSpotify,
+    FaBrSquarespace,
+    FaBrStackExchange,
+    FaBrStackOverflow,
+    FaBrStaylinked,
+    FaBrSteamSquare,
+    FaBrSteamSymbol,
+    FaBrSteam,
+    FaBrStickerMule,
+    FaBrStrava,
+    FaBrStripeS,
+    FaBrStripe,
+    FaBrStudiovinari,
+    FaBrStumbleuponCircle,
+    FaBrStumbleupon,
+    FaBrSuperpowers,
+    FaBrSupple,
+    FaBrSuse,
+    FaBrTeamspeak,
+    FaBrTelegramPlane,
+    FaBrTelegram,
+    FaBrTencentWeibo,
+    FaBrTheRedYeti,
+    FaBrThemeco,
+    FaBrThemeisle,
+    FaBrThinkPeaks,
+    FaBrTradeFederation,
+    FaBrTrello,
+    FaBrTripadvisor,
+    FaBrTumblrSquare,
+    FaBrTumblr,
+    FaBrTwitch,
+    FaBrTwitterSquare,
+    FaBrTwitter,
+    FaBrTypo3,
+    FaBrUber,
+    FaBrUbuntu,
+    FaBrUikit,
+    FaBrUniregistry,
+    FaBrUntappd,
+    FaBrUps,
+    FaBrUsb,
+    FaBrUsps,
+    FaBrUssunnah,
+    FaBrVaadin,
+    FaBrViacoin,
+    FaBrViadeoSquare,
+    FaBrViadeo,
+    FaBrViber,
+    FaBrVimeoSquare,
+    FaBrVimeoV,
+    FaBrVimeo,
+    FaBrVine,
+    FaBrVk,
+    FaBrVnv,
+    FaBrVuejs,
+    FaBrWeebly,
+    FaBrWeibo,
+    FaBrWeixin,
+    FaBrWhatsappSquare,
+    FaBrWhatsapp,
+    FaBrWhmcs,
+    FaBrWikipediaW,
+    FaBrWindows,
+    FaBrWix,
+    FaBrWizardsOfTheCoast,
+    FaBrWolfPackBattalion,
+    FaBrWordpressSimple,
+    FaBrWordpress,
+    FaBrWpbeginner,
+    FaBrWpexplorer,
+    FaBrWpforms,
+    FaBrWpressr,
+    FaBrXbox,
+    FaBrXingSquare,
+    FaBrXing,
+    FaBrYCombinator,
+    FaBrYahoo,
+    FaBrYandexInternational,
+    FaBrYandex,
+    FaBrYarn,
+    FaBrYelp,
+    FaBrYoast,
+    FaBrYoutubeSquare,
+    FaBrYoutube,
+    FaBrZhihu,
     FaReAddressBook,
     FaReAddressCard,
     FaReAngry,
@@ -2187,6 +3015,420 @@ export {
  export default {
     createIcon,
     FaBr500px,
+    FaBrAccessibleIcon,
+    FaBrAccusoft,
+    FaBrAcquisitionsIncorporated,
+    FaBrAdn,
+    FaBrAdobe,
+    FaBrAdversal,
+    FaBrAffiliatetheme,
+    FaBrAlgolia,
+    FaBrAlipay,
+    FaBrAmazonPay,
+    FaBrAmazon,
+    FaBrAmilia,
+    FaBrAndroid,
+    FaBrAngellist,
+    FaBrAngrycreative,
+    FaBrAngular,
+    FaBrAppStoreIos,
+    FaBrAppStore,
+    FaBrApper,
+    FaBrApplePay,
+    FaBrApple,
+    FaBrArtstation,
+    FaBrAsymmetrik,
+    FaBrAtlassian,
+    FaBrAudible,
+    FaBrAutoprefixer,
+    FaBrAvianex,
+    FaBrAviato,
+    FaBrAws,
+    FaBrBandcamp,
+    FaBrBehanceSquare,
+    FaBrBehance,
+    FaBrBimobject,
+    FaBrBitbucket,
+    FaBrBitcoin,
+    FaBrBity,
+    FaBrBlackTie,
+    FaBrBlackberry,
+    FaBrBloggerB,
+    FaBrBlogger,
+    FaBrBluetoothB,
+    FaBrBluetooth,
+    FaBrBtc,
+    FaBrBuromobelexperte,
+    FaBrBuysellads,
+    FaBrCanadianMapleLeaf,
+    FaBrCcAmazonPay,
+    FaBrCcAmex,
+    FaBrCcApplePay,
+    FaBrCcDinersClub,
+    FaBrCcDiscover,
+    FaBrCcJcb,
+    FaBrCcMastercard,
+    FaBrCcPaypal,
+    FaBrCcStripe,
+    FaBrCcVisa,
+    FaBrCentercode,
+    FaBrCentos,
+    FaBrChrome,
+    FaBrCloudscale,
+    FaBrCloudsmith,
+    FaBrCloudversify,
+    FaBrCodepen,
+    FaBrCodiepie,
+    FaBrConfluence,
+    FaBrConnectdevelop,
+    FaBrContao,
+    FaBrCpanel,
+    FaBrCreativeCommonsBy,
+    FaBrCreativeCommonsNcEu,
+    FaBrCreativeCommonsNcJp,
+    FaBrCreativeCommonsNc,
+    FaBrCreativeCommonsNd,
+    FaBrCreativeCommonsPdAlt,
+    FaBrCreativeCommonsPd,
+    FaBrCreativeCommonsRemix,
+    FaBrCreativeCommonsSa,
+    FaBrCreativeCommonsSamplingPlus,
+    FaBrCreativeCommonsSampling,
+    FaBrCreativeCommonsShare,
+    FaBrCreativeCommonsZero,
+    FaBrCreativeCommons,
+    FaBrCriticalRole,
+    FaBrCss3Alt,
+    FaBrCss3,
+    FaBrCuttlefish,
+    FaBrDAndDBeyond,
+    FaBrDAndD,
+    FaBrDashcube,
+    FaBrDelicious,
+    FaBrDeploydog,
+    FaBrDeskpro,
+    FaBrDev,
+    FaBrDeviantart,
+    FaBrDhl,
+    FaBrDiaspora,
+    FaBrDigg,
+    FaBrDigitalOcean,
+    FaBrDiscord,
+    FaBrDiscourse,
+    FaBrDochub,
+    FaBrDocker,
+    FaBrDraft2digital,
+    FaBrDribbbleSquare,
+    FaBrDribbble,
+    FaBrDropbox,
+    FaBrDrupal,
+    FaBrDyalog,
+    FaBrEarlybirds,
+    FaBrEbay,
+    FaBrEdge,
+    FaBrElementor,
+    FaBrEllo,
+    FaBrEmber,
+    FaBrEmpire,
+    FaBrEnvira,
+    FaBrErlang,
+    FaBrEthereum,
+    FaBrEtsy,
+    FaBrExpeditedssl,
+    FaBrFacebookF,
+    FaBrFacebookMessenger,
+    FaBrFacebookSquare,
+    FaBrFacebook,
+    FaBrFantasyFlightGames,
+    FaBrFedex,
+    FaBrFedora,
+    FaBrFigma,
+    FaBrFirefox,
+    FaBrFirstOrderAlt,
+    FaBrFirstOrder,
+    FaBrFirstdraft,
+    FaBrFlickr,
+    FaBrFlipboard,
+    FaBrFly,
+    FaBrFontAwesomeAlt,
+    FaBrFontAwesomeFlag,
+    FaBrFontAwesomeLogoFull,
+    FaBrFontAwesome,
+    FaBrFonticonsFi,
+    FaBrFonticons,
+    FaBrFortAwesomeAlt,
+    FaBrFortAwesome,
+    FaBrForumbee,
+    FaBrFoursquare,
+    FaBrFreeCodeCamp,
+    FaBrFreebsd,
+    FaBrFulcrum,
+    FaBrGalacticRepublic,
+    FaBrGalacticSenate,
+    FaBrGetPocket,
+    FaBrGgCircle,
+    FaBrGg,
+    FaBrGitSquare,
+    FaBrGit,
+    FaBrGithubAlt,
+    FaBrGithubSquare,
+    FaBrGithub,
+    FaBrGitkraken,
+    FaBrGitlab,
+    FaBrGitter,
+    FaBrGlideG,
+    FaBrGlide,
+    FaBrGofore,
+    FaBrGoodreadsG,
+    FaBrGoodreads,
+    FaBrGoogleDrive,
+    FaBrGooglePlay,
+    FaBrGooglePlusG,
+    FaBrGooglePlusSquare,
+    FaBrGooglePlus,
+    FaBrGoogleWallet,
+    FaBrGoogle,
+    FaBrGratipay,
+    FaBrGrav,
+    FaBrGripfire,
+    FaBrGrunt,
+    FaBrGulp,
+    FaBrHackerNewsSquare,
+    FaBrHackerNews,
+    FaBrHackerrank,
+    FaBrHips,
+    FaBrHireAHelper,
+    FaBrHooli,
+    FaBrHornbill,
+    FaBrHotjar,
+    FaBrHouzz,
+    FaBrHtml5,
+    FaBrHubspot,
+    FaBrImdb,
+    FaBrInstagram,
+    FaBrIntercom,
+    FaBrInternetExplorer,
+    FaBrInvision,
+    FaBrIoxhost,
+    FaBrItunesNote,
+    FaBrItunes,
+    FaBrJava,
+    FaBrJediOrder,
+    FaBrJenkins,
+    FaBrJira,
+    FaBrJoget,
+    FaBrJoomla,
+    FaBrJsSquare,
+    FaBrJs,
+    FaBrJsfiddle,
+    FaBrKaggle,
+    FaBrKeybase,
+    FaBrKeycdn,
+    FaBrKickstarterK,
+    FaBrKickstarter,
+    FaBrKorvue,
+    FaBrLaravel,
+    FaBrLastfmSquare,
+    FaBrLastfm,
+    FaBrLeanpub,
+    FaBrLess,
+    FaBrLine,
+    FaBrLinkedinIn,
+    FaBrLinkedin,
+    FaBrLinode,
+    FaBrLinux,
+    FaBrLyft,
+    FaBrMagento,
+    FaBrMailchimp,
+    FaBrMandalorian,
+    FaBrMarkdown,
+    FaBrMastodon,
+    FaBrMaxcdn,
+    FaBrMedapps,
+    FaBrMediumM,
+    FaBrMedium,
+    FaBrMedrt,
+    FaBrMeetup,
+    FaBrMegaport,
+    FaBrMendeley,
+    FaBrMicrosoft,
+    FaBrMix,
+    FaBrMixcloud,
+    FaBrMizuni,
+    FaBrModx,
+    FaBrMonero,
+    FaBrNapster,
+    FaBrNeos,
+    FaBrNimblr,
+    FaBrNintendoSwitch,
+    FaBrNodeJs,
+    FaBrNode,
+    FaBrNpm,
+    FaBrNs8,
+    FaBrNutritionix,
+    FaBrOdnoklassnikiSquare,
+    FaBrOdnoklassniki,
+    FaBrOldRepublic,
+    FaBrOpencart,
+    FaBrOpenid,
+    FaBrOpera,
+    FaBrOptinMonster,
+    FaBrOsi,
+    FaBrPage4,
+    FaBrPagelines,
+    FaBrPalfed,
+    FaBrPatreon,
+    FaBrPaypal,
+    FaBrPennyArcade,
+    FaBrPeriscope,
+    FaBrPhabricator,
+    FaBrPhoenixFramework,
+    FaBrPhoenixSquadron,
+    FaBrPhp,
+    FaBrPiedPiperAlt,
+    FaBrPiedPiperHat,
+    FaBrPiedPiperPp,
+    FaBrPiedPiper,
+    FaBrPinterestP,
+    FaBrPinterestSquare,
+    FaBrPinterest,
+    FaBrPlaystation,
+    FaBrProductHunt,
+    FaBrPushed,
+    FaBrPython,
+    FaBrQq,
+    FaBrQuinscape,
+    FaBrQuora,
+    FaBrRProject,
+    FaBrRaspberryPi,
+    FaBrRavelry,
+    FaBrReact,
+    FaBrReacteurope,
+    FaBrReadme,
+    FaBrRebel,
+    FaBrRedRiver,
+    FaBrRedditAlien,
+    FaBrRedditSquare,
+    FaBrReddit,
+    FaBrRedhat,
+    FaBrRenren,
+    FaBrReplyd,
+    FaBrResearchgate,
+    FaBrResolving,
+    FaBrRev,
+    FaBrRocketchat,
+    FaBrRockrms,
+    FaBrSafari,
+    FaBrSass,
+    FaBrSchlix,
+    FaBrScribd,
+    FaBrSearchengin,
+    FaBrSellcast,
+    FaBrSellsy,
+    FaBrServicestack,
+    FaBrShirtsinbulk,
+    FaBrShopware,
+    FaBrSimplybuilt,
+    FaBrSistrix,
+    FaBrSith,
+    FaBrSketch,
+    FaBrSkyatlas,
+    FaBrSkype,
+    FaBrSlackHash,
+    FaBrSlack,
+    FaBrSlideshare,
+    FaBrSnapchatGhost,
+    FaBrSnapchatSquare,
+    FaBrSnapchat,
+    FaBrSoundcloud,
+    FaBrSourcetree,
+    FaBrSpeakap,
+    FaBrSpotify,
+    FaBrSquarespace,
+    FaBrStackExchange,
+    FaBrStackOverflow,
+    FaBrStaylinked,
+    FaBrSteamSquare,
+    FaBrSteamSymbol,
+    FaBrSteam,
+    FaBrStickerMule,
+    FaBrStrava,
+    FaBrStripeS,
+    FaBrStripe,
+    FaBrStudiovinari,
+    FaBrStumbleuponCircle,
+    FaBrStumbleupon,
+    FaBrSuperpowers,
+    FaBrSupple,
+    FaBrSuse,
+    FaBrTeamspeak,
+    FaBrTelegramPlane,
+    FaBrTelegram,
+    FaBrTencentWeibo,
+    FaBrTheRedYeti,
+    FaBrThemeco,
+    FaBrThemeisle,
+    FaBrThinkPeaks,
+    FaBrTradeFederation,
+    FaBrTrello,
+    FaBrTripadvisor,
+    FaBrTumblrSquare,
+    FaBrTumblr,
+    FaBrTwitch,
+    FaBrTwitterSquare,
+    FaBrTwitter,
+    FaBrTypo3,
+    FaBrUber,
+    FaBrUbuntu,
+    FaBrUikit,
+    FaBrUniregistry,
+    FaBrUntappd,
+    FaBrUps,
+    FaBrUsb,
+    FaBrUsps,
+    FaBrUssunnah,
+    FaBrVaadin,
+    FaBrViacoin,
+    FaBrViadeoSquare,
+    FaBrViadeo,
+    FaBrViber,
+    FaBrVimeoSquare,
+    FaBrVimeoV,
+    FaBrVimeo,
+    FaBrVine,
+    FaBrVk,
+    FaBrVnv,
+    FaBrVuejs,
+    FaBrWeebly,
+    FaBrWeibo,
+    FaBrWeixin,
+    FaBrWhatsappSquare,
+    FaBrWhatsapp,
+    FaBrWhmcs,
+    FaBrWikipediaW,
+    FaBrWindows,
+    FaBrWix,
+    FaBrWizardsOfTheCoast,
+    FaBrWolfPackBattalion,
+    FaBrWordpressSimple,
+    FaBrWordpress,
+    FaBrWpbeginner,
+    FaBrWpexplorer,
+    FaBrWpforms,
+    FaBrWpressr,
+    FaBrXbox,
+    FaBrXingSquare,
+    FaBrXing,
+    FaBrYCombinator,
+    FaBrYahoo,
+    FaBrYandexInternational,
+    FaBrYandex,
+    FaBrYarn,
+    FaBrYelp,
+    FaBrYoast,
+    FaBrYoutubeSquare,
+    FaBrYoutube,
+    FaBrZhihu,
     FaReAddressBook,
     FaReAddressCard,
     FaReAngry,

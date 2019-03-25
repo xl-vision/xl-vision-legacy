@@ -7,8 +7,7 @@
 语义化的矢量图形。
 
 # 图标列表
-
-{{112}}
+<IconSelect/>
 
 ::: demo 基础用法
 
@@ -27,4 +26,3 @@ export default function() {
 
 :::
 
-<IconSelect />

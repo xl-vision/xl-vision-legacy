@@ -1,12 +1,10 @@
 @import '../../assets/style/var.scss';
 
 .aside {
-  width: 17rem;
   background-color: $--bg-color;
-  margin-right: 1rem;
-
   .menus {
     list-style: none;
+    margin: 0;
     margin-left: 0.5rem;
     padding: 0;
     .menu-name{

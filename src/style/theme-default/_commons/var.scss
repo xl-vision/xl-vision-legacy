@@ -89,6 +89,7 @@ $--bg-color:                  $--color-white          !default;
 
 //text color
 $--text-color-dark:           $--yiq-text-dark            !default;
+$--text-color-second:         $--color-gray-800            !default;
 $--text-color-light:          $--yiq-text-light           !default;
 $--link-color:                theme-color("primary")      !default;
 $--link-color--hover:         darken($--link-color, 15%)  !default;

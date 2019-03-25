@@ -4,6 +4,7 @@ import Aside from '../aside'
 import Content from '../content'
 import Footer from '../footer'
 import Header from '../header'
+import { Row, Col } from 'xl-vision'
 
 import './index.scss'
 export default class Layout extends React.Component<{}, {}> {
@@ -12,10 +13,14 @@ export default class Layout extends React.Component<{}, {}> {
       <Router>
         <div className='layout'>
           <Header />
-          <div className='content-wrapper'>
-            <Aside />
-            <Content />
-          </div>
+          <Row className={'content-wrapper'}>
+            <Col span={6}>
+              <Aside />
+            </Col>
+            <Col span={18}>
+              <Content />
+            </Col>
+          </Row>
           <Footer />
         </div>
       </Router>

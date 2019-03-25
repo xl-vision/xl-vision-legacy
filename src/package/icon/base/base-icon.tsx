@@ -37,9 +37,9 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = React.memo(props => {
         iconStyle.transform = `rotate(${rotate}deg)`
     }
 
-    let childrenProps = { ...children.props }
+    let childrenProps = { fill: color ? color : 'currentColor', ...children.props }
     const childrenCustomStyle: React.CSSProperties = {
-        fill: color ? color : 'currentColor',
+
         height: '1em',
         width: '1em'
     }

@@ -11,7 +11,7 @@ const toUpper = str => {
 
 const config = {
     pathMap: [{
-        input: path.join(__dirname, 'icons/font-awesome/brands/500px.svg'),
+        input: path.join(__dirname, 'icons/font-awesome/brands/*.svg'),
         formater: name => `fa-br-${name}`,
         output: 'src/package/icon/icons'
     }, {
