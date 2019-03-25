@@ -2,22 +2,23 @@
 
 $padding: 1rem;
 
-.demo-box {
+.demobox {
   border: 1px solid $--border-color;
   font-size: 1rem;
   background-color: $--bg-color;
   border-radius: $--border-radius;
+  overflow: hidden;
 
-  .view {
+  .demobox-view {
     padding: $padding;
     border-bottom: 1px solid $--border-color;
   }
 
-  .info-wrapper {
+  .demobox-wrapper {
     padding: 1rem;
     position: relative;
 
-    .title {
+    .demobox-title {
       position: absolute;
       top: -$padding / 2;
       display: inline-block;
@@ -26,17 +27,20 @@ $padding: 1rem;
       font-weight: bold;
     }
 
-    .description {
+    .demobox-desc {
       font-size: 0.9rem;
       line-height: 0.9rem * 2;
     }
   }
 
 
-  .code-wrapper {
+  .demobox-code {
     border-top: 1px dashed $--border-color;
     padding: $padding;
 
+    >p{
+      display: none;
+    }
     code {
       padding: 0;
       font-family: Menlo, Monaco, Consolas, Courier, monospace;

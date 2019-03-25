@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-const useUnmount = (unmount: () => any) => {
+const useUnmount = (unmount: () => void) => {
   const fn = () => {
-    return unmount()
+    return () => unmount()
   }
   useEffect(fn, [])
 }

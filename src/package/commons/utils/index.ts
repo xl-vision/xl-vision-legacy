@@ -1,4 +1,4 @@
-export const throttle = <Fn extends (Function)>(func: Fn, wait: number, options?: any) => {
+export const throttle = (func: Function, wait: number, options?: any) => {
     /* options的默认值
      *  表示首次调用返回值方法时，会马上调用func；否则仅会记录当前时刻，当第二次调用的时间间隔超过wait时，才调用func。
      *  options.leading = true
@@ -6,13 +6,13 @@ export const throttle = <Fn extends (Function)>(func: Fn, wait: number, options?
      *  options.trailing = true
      * 注意：当options.trailing = false时，效果与上面的简单实现效果相同
      */
-    let context: any, args: any, result: Fn
+    let context: any, args: any, result: any
     let timeout: NodeJS.Timeout | null = null
     let previous = 0
     if (!options) {
         options = {}
     }
-    const later = function() {
+    const later = function () {
         previous = options.leading === false ? 0 : Date.now()
         timeout = null
         result = func.apply(context, args)
@@ -20,7 +20,7 @@ export const throttle = <Fn extends (Function)>(func: Fn, wait: number, options?
             context = args = null
         }
     }
-    return function() {
+    return function () {
         const now = Date.now()
         if (!previous && options.leading === false) {
             previous = now

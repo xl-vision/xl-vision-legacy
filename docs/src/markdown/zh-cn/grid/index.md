@@ -1,10 +1,12 @@
 ---
-import './index.scss'
+  imports:
+    - import {Row, Col} from 'xl-vision'
+    - import './index.scss'
 ---
 
 # 栅格系统
 
-参考 bootstrap 的栅格系统
+参考`bootstrap`的栅格系统
 
 ::: demo 基础用法
 使用`span`,`gutter`实现基本的布局（`span`设置为 0 可以实现内容块的隐藏)。

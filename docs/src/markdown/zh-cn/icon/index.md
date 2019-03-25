@@ -1,3 +1,7 @@
+---
+  imports:
+    import {Icon} from 'xl-vision' 
+---
 # 图标
 语义化的矢量图形。
 
@@ -15,7 +19,7 @@
 ```jsx
 export default function() {
   return (
-    <Icon.FaBr500px/>
+    <Icon.FaBr500px/> 
   )
 }
 ```

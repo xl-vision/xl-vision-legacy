@@ -1,54 +1,26 @@
-import hljs from 'highlight.js/lib/highlight'
-import jsx from 'highlight.js/lib/languages/javascript'
 import * as React from 'react'
-import { decodeCode, renderCode } from '../../utils/transformCode'
-
-import 'highlight.js/styles/vs.css'
 import './index.scss'
 
-hljs.registerLanguage('jsx', jsx)
-
 export interface DemoBoxProps {
-  title: string
-  description: string
-  children: string
+  title: React.ReactNode
+  desc: React.ReactNode
+  view: React.ReactNode
+  children: React.ReactNode
 }
-export default class DemoBox extends React.PureComponent<DemoBoxProps, {}> {
-  render() {
-    const { title, description, children } = this.props
-    const transformTitle = title.replace(
-      /`([^`\n]+)`/g,
-      '<code class="md-code-inline">$1</code>'
-    )
-    const transformDesc = description
-      .replace(/`([^`\n]+)`/g, '<code class="md-code-inline">$1</code>')
-      .replace(/\n/g, '<br/>')
-    const code = decodeCode(children)
-    const codeRender = renderCode(code)
-    const ret = hljs.highlightAuto(code)
 
-    return (
-      <div className='demo-box'>
-        <div className='view'>{codeRender}</div>
-        <div className='info-wrapper'>
-          <div
-            className='title'
-            dangerouslySetInnerHTML={{ __html: transformTitle }}
-          />
-          <div
-            className='description'
-            dangerouslySetInnerHTML={{ __html: transformDesc }}
-          />
-        </div>
-        <div className='code-wrapper'>
-          <pre>
-            <code
-              className={`hljs jsx`}
-              dangerouslySetInnerHTML={{ __html: ret.value }}
-            />
-          </pre>
-        </div>
+const DemoBox: React.FunctionComponent<DemoBoxProps> = React.memo(props => {
+
+  const { title, desc, view, children } = props
+  return (
+    <div className='demobox'>
+      <div className='demobox-view'>{view}</div>
+      <div className='demobox-wrapper'>
+        <div className='demobox-title'>{title}</div>
+        <div className='demobox-desc'>{desc}</div>
       </div>
-    )
-  }
-}
+      <div className='demobox-code'>{children}</div>
+    </div>
+  )
+})
+
+export default DemoBox

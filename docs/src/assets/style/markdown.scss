@@ -3,11 +3,11 @@
 .md {
   font-size: 1rem;
 
-  .demo-box {
+  .demobox {
     margin-bottom: 1rem;
   }
 
-  &-code-inline {
+  .code_inline {
     background-color: color-level($--color-primary, -10);
     display: inline-block;
     margin: 0 0.2rem;
@@ -16,7 +16,7 @@
     border-radius: $--border-radius / 2;
   }
 
-  &-table {
+  .table {
     border-collapse: collapse;
     width: 100%;
     font-size: 1rem;
@@ -48,8 +48,8 @@
 
   }
 
-  &-ul,
-  &-ol {
+  .ul,
+  .ol {
     li {
       margin-bottom: 0.5rem;
     }
