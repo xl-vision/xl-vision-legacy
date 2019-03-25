@@ -56,6 +56,12 @@ inquirer.prompt([{
   console.log(chalk.green('======运行测试用例通过======'))
 
   console.log(chalk.green('======编译源码======'))
+  // 删除输出文件夹
+  fs.removeSync(path.join(__dirname,'../dist'))
+  fs.removeSync(path.join(__dirname,'../es'))
+  fs.removeSync(path.join(__dirname,'../js'))
+  fs.removeSync(path.join(__dirname,'../style'))
+
   if (shell.exec(`npm run compile`).code) {
     console.log(chalk.red(`======npm run compile失败======`))
     shell.exit(1)
