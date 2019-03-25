@@ -1,6 +1,7 @@
 ---
   imports:
-    import {Icon} from 'xl-vision' 
+    - import {Icon} from 'xl-vision' 
+    - import IconSelect from '@/components/icon-select'
 ---
 # 图标
 语义化的矢量图形。
@@ -25,3 +26,5 @@ export default function() {
 ```
 
 :::
+
+<IconSelect />

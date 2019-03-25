@@ -54,8 +54,8 @@ module.exports = {
             test: /\.md$/,
             exclude: /node_modules/,
             use: [{
-            //     loader: 'thread-loader'
-            // }, {
+                loader: 'thread-loader'
+            }, {
                 loader: 'babel-loader',
                 // options: getBabelConfig(false),
             }, {

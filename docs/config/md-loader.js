@@ -12,6 +12,7 @@ const md = new MarkdownIt({
     linkify: true,
     typographer: true,
     xhtmlOut: true,
+    html: true,
     highlight(content, languageHint) {
         let highlightedContent;
 
