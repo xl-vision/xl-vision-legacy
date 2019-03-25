@@ -8,7 +8,7 @@
     margin-bottom: 1rem;
   }
 
-  .code_inline {
+  &_code_inline {
     background-color: color-level($--color-primary, -10);
     display: inline-block;
     margin: 0 0.2rem;
@@ -16,8 +16,22 @@
     line-height: 0.9rem;
     border-radius: $--border-radius / 2;
   }
+  &_blockquote{
 
-  .table {
+  }
+  &_fence{
+
+  }
+  &_a{
+    text-decoration: none;
+    color: $--link-color;
+    transition: color $animation-duration-base ease-in-out,text-decoration $animation-duration-base ease-in-out;
+    &:hover{
+      text-decoration: underline;
+      color: $--link-color--hover;
+    }
+  }
+  &_table {
     border-collapse: collapse;
     width: 100%;
     font-size: 1rem;
@@ -49,8 +63,8 @@
 
   }
 
-  .ul,
-  .ol {
+  &_bullet_list,
+  &_ordered_list {
     li {
       margin-bottom: 0.5rem;
     }

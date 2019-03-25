@@ -46,31 +46,34 @@ const md = new MarkdownIt({
 })
 
 
-md.renderer.rules.table_open = () => '<table class="table">'
-
-md.renderer.rules.ordered_list_open = () => '<ol class="ordered_list">'
-md.renderer.rules.bullet_list_open = () => '<ul class="bullet_list">'
-md.renderer.rules.blockquote_open = () => `<blockquote class="blockquote">`
-
-let defaultRender =
-    md.renderer.rules.code_inline ||
-    function (tokens, idx, options, env, self) {
-        return self.renderToken(tokens, idx, options)
-    }
-md.renderer.rules.code_inline = function (
-    tokens,
-    idx,
-    options,
-    env,
-    self
-) {
+md.renderer.rules.table_open = () => '<table class="md_table">'
+md.renderer.rules.ordered_list_open = () => '<ol class="md_ordered_list">'
+md.renderer.rules.bullet_list_open = () => '<ul class="md_bullet_list">'
+md.renderer.rules.blockquote_open = () => `<blockquote class="md_blockquote">`
+md.renderer.rules.link_open = (tokens, idx) => {
+    const token = tokens[idx]
+    const href = token.attrGet('href')
+    return `<a href="${href}" class="md_a">`
+}
+const defaultCodeInlineRender = md.renderer.rules.code_inline
+md.renderer.rules.code_inline = function (tokens, idx, options, env, self) {
     var index = tokens[idx].attrIndex('class')
     if (index > -1) {
-        tokens[idx].attrs[index][1] += ' code_inline'
+        tokens[idx].attrs[index][1] += ' md_code_inline'
     } else {
-        tokens[idx].attrPush(['class', 'code_inline'])
+        tokens[idx].attrPush(['class', 'md_code_inline'])
     }
-    return defaultRender(tokens, idx, options, env, self)
+    return defaultCodeInlineRender(tokens, idx, options, env, self)
+}
+const defaultLinkOpenRender = md.renderer.rules.fence
+md.renderer.rules.fence = function (tokens, idx, options, env, self) {
+    var index = tokens[idx].attrIndex('class')
+    if (index > -1) {
+        tokens[idx].attrs[index][1] += ' md_fence'
+    } else {
+        tokens[idx].attrPush(['class', 'md_fence'])
+    }
+    return defaultLinkOpenRender(tokens, idx, options, env, self)
 }
 
 //处理文本中{}

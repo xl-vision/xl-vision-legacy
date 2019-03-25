@@ -5,6 +5,7 @@
 ---
 # 图标
 语义化的矢量图形。
+图标来自[Font Awesome](https://fontawesome.com/)
 
 ::: demo 基础用法
 
