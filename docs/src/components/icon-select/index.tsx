@@ -1,5 +1,8 @@
 import * as React from 'react'
 import { Icon } from 'xl-vision'
+import { throttle } from 'xl-vision/commons/utils'
+import iconInfos from './icons.json'
+
 import './index.scss'
 
 export interface IconWrapperProps {
@@ -27,21 +30,58 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
 
 }
 
-const IconSelect: React.FunctionComponent<{}> = () => {
+const iconNames = Object.keys(Icon).filter(it => it !== 'createIcon')
 
-    const arr = []
+const IconSelect: React.FunctionComponent<void> = () => {
 
-    for (const name of Object.keys(Icon)) {
-        if (name === 'createIcon') {
-            continue
+    const [search, setSearch] = React.useState('')
+
+    const icons = React.useMemo(() => {
+        if (!search || search.trim() === '') {
+            return iconNames
         }
-        const Item = Icon[name]
-        arr.push(<IconWrapper name={name} children={<Item size={40}/>} key={name} />)
+        const arr: string[] = []
+        for (const name of iconNames) {
+            const iconInfo = iconInfos[name]
+            if (!iconInfo) {
+                // console.warn(`icon '${name}' is not in icon information file`)
+                continue
+            }
+            const searchArr: string[] = iconInfo.search || []
+            searchArr.push(name)
+            const upSearch = search.toUpperCase()
+            for (const item of searchArr) {
+                if (item.toUpperCase().match(upSearch)) {
+                    arr.push(name)
+                    break
+                }
+            }
+        }
+        return arr
+    }, [search])
+
+    const iconNodes = React.useMemo(() => {
+        const arr = []
+        for (const name of icons) {
+            const Item = Icon[name]
+            arr.push(<IconWrapper name={name} children={<Item size={40} />} key={name} />)
+        }
+        return arr
+    }, [icons])
+
+    const fn = throttle((content: string) => {
+        setSearch(() => content)
+    }, 500)
+
+    const searchClick: React.ChangeEventHandler = e => {
+        const content = e.target.value
+        fn(content)
     }
 
     return (
         <div className='icon-select'>
-            {arr}
+            <input onChange={searchClick} className='icon-input' />
+            {iconNodes}
         </div>
     )
 }

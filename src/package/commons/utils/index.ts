@@ -1,4 +1,4 @@
-export const throttle = (func: Function, wait: number, options?: any) => {
+export const throttle = <Fn extends Function>(func: Fn, wait: number, options?: any): Fn => {
     /* options的默认值
      *  表示首次调用返回值方法时，会马上调用func；否则仅会记录当前时刻，当第二次调用的时间间隔超过wait时，才调用func。
      *  options.leading = true
@@ -20,7 +20,7 @@ export const throttle = (func: Function, wait: number, options?: any) => {
             context = args = null
         }
     }
-    return function () {
+    const retFn = function () {
         const now = Date.now()
         if (!previous && options.leading === false) {
             previous = now
@@ -48,4 +48,5 @@ export const throttle = (func: Function, wait: number, options?: any) => {
         }
         return result
     }
+    return retFn as unknown as Fn
 }

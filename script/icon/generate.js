@@ -2,25 +2,18 @@ const generate = require('@xl-vision/icon-generator')
 const path = require('path')
 const fs = require('fs-extra')
 
-const toUpper = str => {
-    if (!str) {
-        return str
-    }
-    return str.charAt(0).toUpperCase() + str.substring(1)
-}
-
 const config = {
     pathMap: [{
         input: path.join(__dirname, 'icons/font-awesome/brands/*.svg'),
-        formater: name => `fa-br-${name}`,
+        formater: name => `fab-${name}`,
         output: 'src/package/icon/icons'
     }, {
         input: path.join(__dirname, 'icons/font-awesome/regular/*.svg'),
-        formater: name => `fa-re-${name}`,
+        formater: name => `far-${name}`,
         output: 'src/package/icon/icons'
     }, {
         input: path.join(__dirname, 'icons/font-awesome/solid/*.svg'),
-        formater: name => `fa-so-${name}`,
+        formater: name => `fas-${name}`,
         output: 'src/package/icon/icons'
     }],
     template: path.join(__dirname, 'template/index.tsx')
