@@ -9,11 +9,10 @@ export interface IconProps extends React.HTMLAttributes<HTMLElement> {
     className?: string
     style?: React.CSSProperties
     color?: string
-    onClick?: React.MouseEventHandler<HTMLElement>
 }
 
 export interface BaseIconProps extends IconProps {
-    children: React.ReactElement
+    children: React.ReactElement<React.SVGProps<SVGSVGElement>>
 }
 
 const getSize = (size: number | string) => {

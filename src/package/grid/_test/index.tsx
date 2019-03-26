@@ -1,11 +1,10 @@
-import { mount } from 'enzyme'
+import { render } from 'enzyme'
 import * as React from 'react'
-import Col from '../col'
-import Row from '../row'
+import { Col, Row } from '..'
 
 describe('栅格系统', () => {
   it('基本用法', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <div>
         <div className='grid-row-box'>
           <Row gutter={10}>
@@ -61,7 +60,7 @@ describe('栅格系统', () => {
     // wrapper.unmount()
   })
   it('偏移布局', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <div>
         <div className='grid-row-box'>
           <Row gutter={10}>
@@ -111,7 +110,7 @@ describe('栅格系统', () => {
   })
 
   it('响应式布局', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <div className='grid-row-box'>
         <Row
           gutter={{ xs: 8, sm: 10, md: 15, lg: 20, xl: 25, xxl: 30 }}
@@ -143,7 +142,7 @@ describe('栅格系统', () => {
   })
 
   it('响应式偏移', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <div>
         <div className='grid-row-box'>
           <Row gutter={10}>
@@ -200,7 +199,7 @@ describe('栅格系统', () => {
   })
 
   it('flex布局', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <div>
         <div className='grid-row-box grid-row-box--flex'>
           <Row gutter={10} type={'flex'} align={'top'}>

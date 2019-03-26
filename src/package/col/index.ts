@@ -1,3 +1,3 @@
-import Col from '../grid/col'
+import { Col } from '../grid'
 
 export default Col
