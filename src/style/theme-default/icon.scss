@@ -14,6 +14,6 @@
     display: inline-block;
     line-height: 0;
     &--spin{
-        animation: spin .4s linear infinite;
+        animation: spin $animation-duration-slow linear infinite;
     }
 }

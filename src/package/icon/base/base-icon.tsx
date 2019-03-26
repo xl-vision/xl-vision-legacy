@@ -7,7 +7,6 @@ export interface IconProps extends React.HTMLAttributes<HTMLElement> {
     spin?: boolean
     rotate?: number
     className?: string
-    style?: React.CSSProperties
     color?: string
 }
 

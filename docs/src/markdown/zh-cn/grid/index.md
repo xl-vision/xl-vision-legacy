@@ -1,7 +1,7 @@
 ---
-  imports:
-    - import {Row, Col} from 'xl-vision'
-    - import './index.scss'
+imports:
+  - import {Row, Col} from 'xl-vision'
+  - import './index.scss'
 ---
 
 # 栅格系统
@@ -15,56 +15,56 @@
 export default function() {
   return (
     <div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={4}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={5}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={7}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
           <Col span={8}>
-            <div className='grid-col-box'>col4</div>
+            <div className="grid-col-box">col4</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col4</div>
+            <div className="grid-col-box">col4</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={8}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={0}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={8}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
           <Col span={8}>
-            <div className='grid-col-box'>col4</div>
+            <div className="grid-col-box">col4</div>
           </Col>
         </Row>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -77,50 +77,50 @@ export default function() {
 export default function() {
   return (
     <div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6} offset={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6} push={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6} pull={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col4</div>
+            <div className="grid-col-box">col4</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={6} offset={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6} pull={12}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
         </Row>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -133,7 +133,7 @@ export default function() {
 ```jsx
 export default function() {
   return (
-    <div className='grid-row-box'>
+    <div className="grid-row-box">
       <Row
         gutter={{
           xs: 8,
@@ -152,7 +152,7 @@ export default function() {
             lg: 6
           }}
         >
-          <div className='grid-col-box'>col1</div>
+          <div className="grid-col-box">col1</div>
         </Col>
         <Col
           span={{
@@ -163,7 +163,7 @@ export default function() {
             xxl: 6
           }}
         >
-          <div className='grid-col-box'>col2</div>
+          <div className="grid-col-box">col2</div>
         </Col>
         <Col
           span={{
@@ -175,7 +175,7 @@ export default function() {
             xxl: 6
           }}
         >
-          <div className='grid-col-box'>col3</div>
+          <div className="grid-col-box">col3</div>
         </Col>
         <Col
           span={{
@@ -187,11 +187,11 @@ export default function() {
             xxl: 6
           }}
         >
-          <div className='grid-col-box'>col4</div>
+          <div className="grid-col-box">col4</div>
         </Col>
       </Row>
     </div>
-  )
+  );
 }
 ```
 
@@ -205,10 +205,10 @@ export default function() {
 export default function() {
   return (
     <div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col
             span={6}
@@ -221,20 +221,20 @@ export default function() {
               xxl: 6
             }}
           >
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col
             span={6}
@@ -247,17 +247,17 @@ export default function() {
               xxl: 6
             }}
           >
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box'>
+      <div className="grid-row-box">
         <Row gutter={10}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col
             span={6}
@@ -271,12 +271,12 @@ export default function() {
             }}
             offset={6}
           >
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
         </Row>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -291,108 +291,108 @@ export default function() {
 export default function() {
   return (
     <div>
-      <div className='grid-row-box grid-row-box--flex'>
-        <Row gutter={10} type={'flex'} align={'top'}>
+      <div className="grid-row-box grid-row-box--flex">
+        <Row gutter={10} type={"flex"} align={"top"}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col4</div>
-          </Col>
-        </Row>
-      </div>
-      <div className='grid-row-box grid-row-box--flex'>
-        <Row gutter={10} type={'flex'} align={'middle'}>
-          <Col span={6}>
-            <div className='grid-col-box'>col1</div>
-          </Col>
-          <Col span={6}>
-            <div className='grid-col-box'>col2</div>
-          </Col>
-          <Col span={6}>
-            <div className='grid-col-box'>col3</div>
-          </Col>
-          <Col span={6}>
-            <div className='grid-col-box'>col4</div>
+            <div className="grid-col-box">col4</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box grid-row-box--flex'>
-        <Row gutter={10} type={'flex'} align={'bottom'}>
+      <div className="grid-row-box grid-row-box--flex">
+        <Row gutter={10} type={"flex"} align={"middle"}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col4</div>
-          </Col>
-        </Row>
-      </div>
-      <div className='grid-row-box grid-row-box--flex'>
-        <Row gutter={10} type={'flex'} justify={'start'}>
-          <Col span={6}>
-            <div className='grid-col-box'>col1</div>
-          </Col>
-          <Col span={6}>
-            <div className='grid-col-box'>col2</div>
-          </Col>
-          <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col4</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box grid-row-box--flex'>
-        <Row gutter={10} type={'flex'} justify={'center'}>
+      <div className="grid-row-box grid-row-box--flex">
+        <Row gutter={10} type={"flex"} align={"bottom"}>
           <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col3</div>
-          </Col>
-        </Row>
-      </div>
-      <div className='grid-row-box grid-row-box--flex'>
-        <Row gutter={10} type={'flex'} justify={'end'}>
-          <Col span={6}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col3</div>
           </Col>
           <Col span={6}>
-            <div className='grid-col-box'>col2</div>
-          </Col>
-          <Col span={6}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col4</div>
           </Col>
         </Row>
       </div>
-      <div className='grid-row-box grid-row-box--flex'>
-        <Row gutter={10} type={'flex'}>
+      <div className="grid-row-box grid-row-box--flex">
+        <Row gutter={10} type={"flex"} justify={"start"}>
+          <Col span={6}>
+            <div className="grid-col-box">col1</div>
+          </Col>
+          <Col span={6}>
+            <div className="grid-col-box">col2</div>
+          </Col>
+          <Col span={6}>
+            <div className="grid-col-box">col3</div>
+          </Col>
+        </Row>
+      </div>
+      <div className="grid-row-box grid-row-box--flex">
+        <Row gutter={10} type={"flex"} justify={"center"}>
+          <Col span={6}>
+            <div className="grid-col-box">col1</div>
+          </Col>
+          <Col span={6}>
+            <div className="grid-col-box">col2</div>
+          </Col>
+          <Col span={6}>
+            <div className="grid-col-box">col3</div>
+          </Col>
+        </Row>
+      </div>
+      <div className="grid-row-box grid-row-box--flex">
+        <Row gutter={10} type={"flex"} justify={"end"}>
+          <Col span={6}>
+            <div className="grid-col-box">col1</div>
+          </Col>
+          <Col span={6}>
+            <div className="grid-col-box">col2</div>
+          </Col>
+          <Col span={6}>
+            <div className="grid-col-box">col3</div>
+          </Col>
+        </Row>
+      </div>
+      <div className="grid-row-box grid-row-box--flex">
+        <Row gutter={10} type={"flex"}>
           <Col span={6} order={3}>
-            <div className='grid-col-box'>col1</div>
+            <div className="grid-col-box">col1</div>
           </Col>
           <Col span={6} order={1}>
-            <div className='grid-col-box'>col2</div>
+            <div className="grid-col-box">col2</div>
           </Col>
           <Col span={6} order={2}>
-            <div className='grid-col-box'>col3</div>
+            <div className="grid-col-box">col3</div>
           </Col>
         </Row>
       </div>
     </div>
-  )
+  );
 }
 ```
 
