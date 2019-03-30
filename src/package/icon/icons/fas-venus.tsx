@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasVenus = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasVenus

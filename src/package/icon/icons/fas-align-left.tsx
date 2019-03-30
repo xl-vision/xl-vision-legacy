@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasAlignLeft = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasAlignLeft

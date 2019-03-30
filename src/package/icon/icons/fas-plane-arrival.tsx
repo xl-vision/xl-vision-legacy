@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasPlaneArrival = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasPlaneArrival

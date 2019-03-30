@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasICursor = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasICursor

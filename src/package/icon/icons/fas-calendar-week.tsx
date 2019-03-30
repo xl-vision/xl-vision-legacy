@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasCalendarWeek = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasCalendarWeek

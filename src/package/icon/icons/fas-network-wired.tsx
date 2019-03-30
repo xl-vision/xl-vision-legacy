@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasNetworkWired = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasNetworkWired

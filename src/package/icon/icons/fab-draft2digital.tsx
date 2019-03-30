@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabDraft2digital = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabDraft2digital

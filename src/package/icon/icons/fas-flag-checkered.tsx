@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasFlagCheckered = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasFlagCheckered

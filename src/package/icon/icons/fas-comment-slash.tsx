@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasCommentSlash = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasCommentSlash

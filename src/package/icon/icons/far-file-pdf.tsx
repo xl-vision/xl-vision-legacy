@@ -9,4 +9,6 @@ const svgElement = (
 
 const FarFilePdf = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FarFilePdf

@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabCreativeCommonsBy = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabCreativeCommonsBy

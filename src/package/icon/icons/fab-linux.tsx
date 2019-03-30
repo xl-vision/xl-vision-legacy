@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabLinux = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabLinux

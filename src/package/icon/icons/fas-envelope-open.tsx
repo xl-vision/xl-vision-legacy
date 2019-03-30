@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasEnvelopeOpen = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasEnvelopeOpen

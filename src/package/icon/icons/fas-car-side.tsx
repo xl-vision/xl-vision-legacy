@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasCarSide = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasCarSide

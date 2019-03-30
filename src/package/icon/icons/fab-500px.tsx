@@ -9,4 +9,6 @@ const svgElement = (
 
 const Fab500px = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default Fab500px

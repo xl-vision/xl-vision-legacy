@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabPhoenixFramework = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabPhoenixFramework

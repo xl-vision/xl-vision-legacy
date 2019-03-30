@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabHtml5 = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabHtml5

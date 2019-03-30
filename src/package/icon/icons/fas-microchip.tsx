@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasMicrochip = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasMicrochip

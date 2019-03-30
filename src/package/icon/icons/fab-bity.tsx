@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabBity = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabBity

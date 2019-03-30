@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabEarlybirds = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabEarlybirds

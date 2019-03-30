@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasUmbrella = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasUmbrella

@@ -4557,3 +4557,4 @@ export {
     FasYenSign,
     FasYinYang,
 }
+export {IconProps, BaseIconProps} from './base/base-icon'

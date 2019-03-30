@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasCalculator = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasCalculator

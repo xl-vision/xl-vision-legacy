@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabAccessibleIcon = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabAccessibleIcon

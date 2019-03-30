@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasTablet = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasTablet

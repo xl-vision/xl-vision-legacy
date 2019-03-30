@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasChalkboard = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasChalkboard

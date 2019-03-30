@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasSkiing = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasSkiing

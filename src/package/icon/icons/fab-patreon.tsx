@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabPatreon = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabPatreon

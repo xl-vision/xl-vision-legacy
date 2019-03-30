@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabMizuni = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabMizuni

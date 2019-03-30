@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasListUl = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasListUl

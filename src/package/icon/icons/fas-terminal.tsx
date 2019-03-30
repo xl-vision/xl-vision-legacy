@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasTerminal = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasTerminal

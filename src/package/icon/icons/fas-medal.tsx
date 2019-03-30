@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasMedal = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasMedal

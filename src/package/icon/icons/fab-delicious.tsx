@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabDelicious = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabDelicious

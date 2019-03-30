@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasInfinity = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasInfinity

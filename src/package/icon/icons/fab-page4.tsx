@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabPage4 = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabPage4

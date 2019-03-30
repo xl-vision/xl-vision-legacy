@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasBookOpen = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasBookOpen

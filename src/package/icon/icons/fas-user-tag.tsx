@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasUserTag = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasUserTag

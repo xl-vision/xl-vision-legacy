@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasBell = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasBell

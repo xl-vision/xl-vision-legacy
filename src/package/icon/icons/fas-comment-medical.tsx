@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasCommentMedical = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasCommentMedical

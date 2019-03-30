@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasLemon = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasLemon

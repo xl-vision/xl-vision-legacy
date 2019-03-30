@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabCss3 = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabCss3

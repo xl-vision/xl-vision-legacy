@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasStarHalfAlt = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasStarHalfAlt

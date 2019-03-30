@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasThermometerThreeQuarters = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasThermometerThreeQuarters

@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabGithub = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabGithub

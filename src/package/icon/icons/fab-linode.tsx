@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabLinode = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabLinode

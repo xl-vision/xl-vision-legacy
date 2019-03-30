@@ -9,4 +9,6 @@ const svgElement = (
 
 const FabModx = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FabModx

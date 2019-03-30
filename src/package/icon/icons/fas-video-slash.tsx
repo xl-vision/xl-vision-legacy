@@ -9,4 +9,6 @@ const svgElement = (
 
 const FasVideoSlash = createIcon(svgElement)
 
+export { IconProps } from '../base/base-icon'
+
 export default FasVideoSlash
