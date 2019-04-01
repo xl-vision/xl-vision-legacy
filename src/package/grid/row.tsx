@@ -9,11 +9,12 @@ import useMedia, {
 import RowContext from './rowContext'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
-  gutter?: number | Partial<Record<BreakPoint, number>>
-  type?: 'flex'
   align?: 'top' | 'middle' | 'bottom'
-  justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
   children: React.ReactElement | React.ReactElement[]
+  className?: string
+  gutter?: number | Partial<Record<BreakPoint, number>>
+  justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
+  type?: 'flex'
 }
 
 const rowClsPrefix = `${clsPrefix}-row`

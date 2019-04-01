@@ -9,6 +9,6 @@ const svgElement = (
 
 const {{name}} = createIcon(svgElement)
 
-export { IconProps } from '../base/base-icon'
+export { IconProps } from '../base/createIcon'
 
 export default {{name}}

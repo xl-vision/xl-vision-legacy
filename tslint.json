@@ -39,6 +39,10 @@
         ],
         "interface-name": false,
         "member-access": false,
+        "member-ordering": [true, {
+            "order": "fields-first",
+            "alphabetize": true
+        }],
         "max-line-length": false,
         "jsx-no-multiline-js": false,
         "one-variable-per-declaration": false,
