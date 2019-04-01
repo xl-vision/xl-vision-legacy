@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
-import { clsPrefix } from '../commons/config'
+import { namePrefix } from '../commons/config'
 import useMedia, {
   BreakPoint,
   breakPointArray
@@ -20,7 +20,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span?: ColSpanType
 }
 
-const colClsPrefix = `${clsPrefix}-col`
+const displayName = `${namePrefix}-col`
 
 const Col: React.FunctionComponent<ColProps> = props => {
   const media = useMedia()
@@ -35,15 +35,15 @@ const Col: React.FunctionComponent<ColProps> = props => {
   ]
 
   const classes = React.useMemo(() => {
-    const arr = [colClsPrefix]
+    const arr = [displayName]
     for (const prop of spanArray) {
       const propValue = props[prop]
       if (typeof propValue === 'number') {
-        arr.push(`${colClsPrefix}-${prop}-${propValue}`)
+        arr.push(`${displayName}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
         for (const breakPoint of breakPointArray) {
           if (media[breakPoint] && propValue[breakPoint] !== undefined) {
-            arr.push(`${colClsPrefix}-${prop}-${propValue[breakPoint]}`)
+            arr.push(`${displayName}-${prop}-${propValue[breakPoint]}`)
             break
           }
         }
@@ -72,7 +72,9 @@ const Col: React.FunctionComponent<ColProps> = props => {
   )
 }
 
-const colSpanValidater = (
+Col.displayName = displayName
+
+const spanValidater = (
   props: ColProps,
   propName: keyof ColProps,
   componentName: string,
@@ -119,11 +121,11 @@ const colSpanValidater = (
 Col.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  offset: colSpanValidater,
-  order: colSpanValidater,
-  pull: colSpanValidater,
-  push: colSpanValidater,
-  span: colSpanValidater
+  offset: spanValidater,
+  order: spanValidater,
+  pull: spanValidater,
+  push: spanValidater,
+  span: spanValidater
 }
 
 export default Col

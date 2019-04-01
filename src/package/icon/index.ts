@@ -1518,6 +1518,8 @@ import FasWrench from './icons/fas-wrench'
 import FasXRay from './icons/fas-x-ray'
 import FasYenSign from './icons/fas-yen-sign'
 import FasYinYang from './icons/fas-yin-yang'
+export { BaseIconProps } from './base/base-icon'
+export { IconProps } from './base/createIcon'
 export {
     createIcon,
     Fab500px,
@@ -4557,4 +4559,3 @@ export {
     FasYenSign,
     FasYinYang,
 }
-export {IconProps, BaseIconProps} from './base/base-icon'

@@ -1,1 +1,1 @@
-export const clsPrefix = 'xl'
+export const namePrefix = 'xl'

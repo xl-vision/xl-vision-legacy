@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
-import { clsPrefix } from '../../commons/config'
+import { namePrefix } from '../../commons/config'
 
 export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactElement<React.SVGProps<SVGSVGElement>>
@@ -19,9 +19,9 @@ const getSize = (size: number | string) => {
   return size
 }
 
-const iconClsPrefix = `${clsPrefix}-icon`
+const displayName = `${namePrefix}-icon`
 
-const BaseIcon: React.FunctionComponent<BaseIconProps> = React.memo(props => {
+const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
   const {
     className,
     spin,
@@ -57,8 +57,8 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = React.memo(props => {
 
   const classes = classnames(
     {
-      [iconClsPrefix]: true,
-      [`${iconClsPrefix}--spin`]: spin
+      [displayName]: true,
+      [`${displayName}--spin`]: spin
     },
     className
   )
@@ -70,9 +70,31 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = React.memo(props => {
       {...others}
     />
   )
-})
+}
+
+BaseIcon.displayName = displayName
+
+const childrenValidater = (
+  props: BaseIconProps,
+  propName: keyof BaseIconProps,
+  // @ts-ignore
+  componentName: string,
+  // @ts-ignore
+  location: string,
+  // @ts-ignore
+  propFullName: string
+) => {
+  const propValue = props[propName]
+  if (propValue.type !== 'svg') {
+    return new Error(
+      `prop '${propName}' supplied to '${componentName}' should be 'svg' tag`
+    )
+  }
+  return null
+}
 
 BaseIcon.propTypes = {
+  children: childrenValidater,
   className: PropTypes.string,
   color: PropTypes.string,
   rotate: PropTypes.number,

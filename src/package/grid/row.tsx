@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
-import { clsPrefix } from '../commons/config'
+import { namePrefix } from '../commons/config'
 import useMedia, {
   BreakPoint,
   breakPointArray
@@ -17,7 +17,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'flex'
 }
 
-const rowClsPrefix = `${clsPrefix}-row`
+const displayName = `${namePrefix}-row`
 
 const Row: React.FunctionComponent<RowProps> = props => {
   const { type, justify, align, className, style, children, ...others } = props
@@ -42,10 +42,10 @@ const Row: React.FunctionComponent<RowProps> = props => {
 
   const classes = classnames(
     {
-      [rowClsPrefix]: !type,
-      [`${rowClsPrefix}-${type}`]: type,
-      [`${rowClsPrefix}-${type}--${justify}`]: type && justify,
-      [`${rowClsPrefix}-${type}--${align}`]: type && align
+      [displayName]: !type,
+      [`${displayName}-${type}`]: type,
+      [`${displayName}-${type}--${justify}`]: type && justify,
+      [`${displayName}-${type}--${align}`]: type && align
     },
     className
   )
@@ -67,6 +67,8 @@ const Row: React.FunctionComponent<RowProps> = props => {
   )
 }
 
+Row.displayName = displayName
+
 const childrenValidater = (
   props: RowProps,
   propName: keyof RowProps,
@@ -77,13 +79,14 @@ const childrenValidater = (
   propFullName: string
 ) => {
   let propValue = props[propName]
+
   if (!Array.isArray(propValue)) {
     propValue = [propValue]
   }
   for (const val of propValue) {
     if (
       !React.isValidElement(val) ||
-      (val.type as React.FunctionComponent).name !== 'Col'
+      (val.type as React.FunctionComponent).displayName !== 'xl-col'
     ) {
       return new Error(
         `prop '${propName}' supplied to '${componentName}' should be a 'Col' or its array.`

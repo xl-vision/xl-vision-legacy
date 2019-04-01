@@ -12,7 +12,7 @@ export interface IconProps {
 const createIcon = (
   svgElement: React.ReactElement<React.SVGProps<SVGSVGElement>>
 ) => {
-  const fn = (props: IconProps) => {
+  const fn: React.FunctionComponent<IconProps> = props => {
     return <BaseIcon {...props}>{svgElement}</BaseIcon>
   }
   return fn
