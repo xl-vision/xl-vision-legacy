@@ -2,6 +2,7 @@ const frontMatter = require('front-matter')
 const highlight = require('highlight.js')
 const MarkdownIt = require('markdown-it')
 const MarkdownItContainer = require('markdown-it-container')
+const path = require('path')
 
 // 前置内容
 let prefixContent = []
@@ -132,22 +133,17 @@ module.exports = function (source) {
     this.cacheable()
 
     // 处理imports
-    const {
+    let {
         body,
         attributes: {
             imports
         }
     } = frontMatter(source)
-    if (Array.isArray(imports)) {
-        prefixContent = prefixContent.concat(imports)
-    } else {
-        prefixContent.push(imports)
+    if (!Array.isArray(imports)) {
+        imports = [imports]
     }
 
-    console.log(this.resourcePath)
-    const XlVisionPath = path.join(__dirname, '../../src')
-
-    imports = imports.map(it => it.replace('xl-vision', XlVisionPath))
+    prefixContent = prefixContent.concat(imports)
 
     //render
     let content = md.render(body)

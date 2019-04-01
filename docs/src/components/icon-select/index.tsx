@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Icon } from 'xl-vision'
+import { Icon } from '../../../../src/package'
 import iconInfos from './icons.json'
 
 import './index.scss'

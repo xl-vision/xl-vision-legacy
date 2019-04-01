@@ -6,19 +6,20 @@ const isProd = () => process.env.NODE_ENV === 'production'
 
 module.exports = {
     devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
+    entry: path.resolve(__dirname, '..', 'src/app.tsx'),
+    output: {
+        path: path.resolve(__dirname, '..', 'dist'),
+        filename: isProd ? '[name].[hash].js' : '[name].js'
+    },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
             'react': path.resolve(__dirname, '../node_modules', 'react'),
             'react-dom': path.resolve(__dirname, '../node_modules', '@hot-loader/react-dom'),
             'react-hot-loader': path.resolve(__dirname, '../node_modules', 'react-hot-loader'),
+            'xl-vision': path.resolve(__dirname, '../../src/package'),
             '@': path.resolve(__dirname, '..', 'src'),
         }
-    },
-    entry: path.resolve(__dirname, '..', 'src/app.tsx'),
-    output: {
-        path: path.resolve(__dirname, '..', 'dist'),
-        filename: isProd ? '[name].[hash].js' : '[name].js'
     },
     module: {
         rules: [{
