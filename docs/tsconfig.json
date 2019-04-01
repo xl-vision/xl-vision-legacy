@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "target": "es6",
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "declaration": true,
     "noUnusedParameters": true,

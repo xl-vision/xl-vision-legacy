@@ -39,6 +39,11 @@ const routes: Route[] = [
         name: '图标',
         path: '/icon',
         component: () => import('./markdown/zh-cn/icon/index.md')
+      },
+      {
+        name: '按钮',
+        path: '/button',
+        component: () => import('./markdown/zh-cn/button/index.md')
       }
     ]
   }

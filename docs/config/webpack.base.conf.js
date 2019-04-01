@@ -48,7 +48,6 @@ module.exports = {
                 loader: 'ts-loader',
                 options: {
                     happyPackMode: true,
-                    // configFile: tsconfigPath,
                     transpileOnly: true,
                 },
             }],

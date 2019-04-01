@@ -89,7 +89,7 @@ const childrenValidater = (
       (val.type as React.FunctionComponent).displayName !== 'xl-col'
     ) {
       return new Error(
-        `prop '${propName}' supplied to '${componentName}' should be a 'Col' or its array.`
+        `prop '${propName}' supplied to '${componentName}' should be a 'xl-col' or its array.`
       )
     }
   }
