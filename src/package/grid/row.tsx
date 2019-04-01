@@ -13,7 +13,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'flex'
   align?: 'top' | 'middle' | 'bottom'
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
-  // children: React.ReactElement | React.ReactElement[]
+  children: React.ReactElement | React.ReactElement[]
 }
 
 const rowClsPrefix = `${clsPrefix}-row`
@@ -66,13 +66,39 @@ const Row: React.FunctionComponent<RowProps> = props => {
   )
 }
 
+const childrenValidater = (
+  props: RowProps,
+  propName: keyof RowProps,
+  componentName: string,
+  // @ts-ignore
+  location: string,
+  // @ts-ignore
+  propFullName: string
+) => {
+  let propValue = props[propName]
+  if (!Array.isArray(propValue)) {
+    propValue = [propValue]
+  }
+  for (const val of propValue) {
+    if (
+      !React.isValidElement(val) ||
+      (val.type as React.FunctionComponent).name !== 'Col'
+    ) {
+      return new Error(
+        `prop '${propName}' supplied to '${componentName}' should be a 'Col' or its array.`
+      )
+    }
+  }
+  return null
+}
+
 Row.propTypes = {
   align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>([
     'top',
     'middle',
     'bottom'
   ]),
-  children: PropTypes.node,
+  children: childrenValidater,
   className: PropTypes.string,
   gutter: PropTypes.oneOfType([
     PropTypes.number,
