@@ -70,19 +70,22 @@ const Col: React.FunctionComponent<ColProps> = props => {
   )
 }
 
-const colSpanValidater: PropTypes.Validator<ColSpanType | null> = (
-  propValue: Partial<Record<BreakPoint, number>>,
-  // @ts-ignore
-  key: string,
+const colSpanValidater = (
+  props: ColProps,
+  propName: keyof ColProps,
   componentName: string,
   // @ts-ignore
   location: string,
+  // @ts-ignore
   propFullName: string
 ) => {
-  if (typeof propValue === 'number') {
+  const propValue = props[propName]
+  if (typeof propValue === 'undefined') {
+    return null
+  } else if (typeof propValue === 'number') {
     if (propValue < 0 || propValue > 24) {
       return new Error(
-        `prop '${propFullName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'.`
+        `prop '${propName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'.`
       )
     }
   } else if (typeof propValue === 'object') {
@@ -94,18 +97,18 @@ const colSpanValidater: PropTypes.Validator<ColSpanType | null> = (
       if (typeof val === 'number') {
         if (propValue < 0 || propValue > 24) {
           return new Error(
-            `prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`
+            `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`
           )
         }
       } else {
         return new Error(
-          `prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' should be a number.`
+          `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' should be a number.`
         )
       }
     }
   } else {
     return new Error(
-      `prop '${propFullName}' supplied to '${componentName}' should be a number or suitable object.`
+      `prop '${propName}' supplied to '${componentName}' should be a number or suitable object. It can't be '${propValue}'`
     )
   }
   return null

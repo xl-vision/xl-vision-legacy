@@ -13,6 +13,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'flex'
   align?: 'top' | 'middle' | 'bottom'
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
+  // children: React.ReactElement | React.ReactElement[]
 }
 
 const rowClsPrefix = `${clsPrefix}-row`
