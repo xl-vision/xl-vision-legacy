@@ -17,7 +17,7 @@ imports:
 ```jsx
 export default function() {
   return (
-    <div class='icon-example'>
+    <div className='icon-example'>
       <Icon.Fab500px size='2rem'/>
       <Icon.FabAlipay size={32}/>
       <Icon.FabAdobe size={32} color='red'/>

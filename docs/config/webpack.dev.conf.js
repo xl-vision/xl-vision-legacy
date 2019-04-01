@@ -1,5 +1,4 @@
 const webpackMerge = require('webpack-merge')
-const webpack = require('webpack')
 const path = require('path')
 const baseConfig = require('./webpack.base.conf')
 
@@ -9,7 +8,10 @@ module.exports = webpackMerge(baseConfig, {
         publicPath: '/'
     },
     devServer: {
-        historyApiFallback: true
+        contentBase: false,
+        historyApiFallback: true,
+        clientLogLevel: 'warning',
+        hot: true
     },
     module: {
         rules: [{
@@ -43,8 +45,5 @@ module.exports = webpackMerge(baseConfig, {
                 loader: 'sass-loader'
             }]
         }]
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ]
+    }
 })

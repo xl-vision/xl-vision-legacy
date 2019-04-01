@@ -24,15 +24,13 @@ const md = new MarkdownIt({
         if (languageHint && highlight.getLanguage(languageHint)) {
             try {
                 highlightedContent = highlight.highlight(languageHint, content).value;
-            } catch (err) {
-            }
+            } catch (err) {}
         }
 
         if (!highlightedContent) {
             try {
                 highlightedContent = highlight.highlightAuto(content).value;
-            } catch (err) {
-            }
+            } catch (err) {}
         }
 
         // 把代码中的{}转
@@ -126,24 +124,36 @@ function renderModule(jsx) {
     `
     return content
 }
+
+
 module.exports = function (source) {
     fnIndex = 0
     prefixContent = [`import React from 'react'`, `import DemoBox from '@/components/demo-box'`, `import 'highlight.js/styles/github.css'`]
     this.cacheable()
 
     // 处理imports
-    const { body, attributes: { imports } } = frontMatter(source)
+    const {
+        body,
+        attributes: {
+            imports
+        }
+    } = frontMatter(source)
     if (Array.isArray(imports)) {
         prefixContent = prefixContent.concat(imports)
     } else {
         prefixContent.push(imports)
     }
 
+    console.log(this.resourcePath)
+    const XlVisionPath = path.join(__dirname, '../../src')
+
+    imports = imports.map(it => it.replace('xl-vision', XlVisionPath))
+
     //render
     let content = md.render(body)
         .replace(/<hr>/g, '<hr />')
         .replace(/<br>/g, '<br />')
-        .replace(/class=/g, 'className=')
+        .replace(/class *=/g, 'className=')
 
 
     // 生成组件

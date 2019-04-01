@@ -9,9 +9,10 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
+            'react': path.resolve(__dirname, '../node_modules', 'react'),
+            'react-dom': path.resolve(__dirname, '../node_modules', '@hot-loader/react-dom'),
+            'react-hot-loader': path.resolve(__dirname, '../node_modules', 'react-hot-loader'),
             '@': path.resolve(__dirname, '..', 'src'),
-            react: require.resolve("react"),
-            'xl-vision': path.resolve(__dirname, '../../src/package'),
         }
     },
     entry: path.resolve(__dirname, '..', 'src/app.tsx'),
@@ -21,20 +22,20 @@ module.exports = {
     },
     module: {
         rules: [{
-        //     test: /\.tsx?$/,
-        //     include: /src/,
-        //     enforce: 'pre',
-        //     use: [{
-        //         loader: 'thread-loader'
-        //     }, {
-        //         loader: 'tslint-loader',
-        //         options: {
-        //             // configFile: tslintPath,
-        //             // tsConfigFile: tsconfigPath,
-        //             typeCheck: true
-        //         }
-        //     }]
-        // }, {
+            //     test: /\.tsx?$/,
+            //     include: /src/,
+            //     enforce: 'pre',
+            //     use: [{
+            //         loader: 'thread-loader'
+            //     }, {
+            //         loader: 'tslint-loader',
+            //         options: {
+            //             // configFile: tslintPath,
+            //             // tsConfigFile: tsconfigPath,
+            //             typeCheck: true
+            //         }
+            //     }]
+            // }, {
             test: /\.tsx?$/,
             exclude: /node_modules/,
             use: [{

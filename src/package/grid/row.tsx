@@ -2,8 +2,10 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { clsPrefix } from '../commons/config'
-import { BreakPoint, breakPointArray } from './common'
-import useMedia from './hooks/useMedia'
+import useMedia, {
+  BreakPoint,
+  breakPointArray
+} from '../commons/hooks/useMedia'
 import RowContext from './rowContext'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -16,16 +18,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 const rowClsPrefix = `${clsPrefix}-row`
 
 const Row: React.FunctionComponent<RowProps> = props => {
-
-  const {
-    type,
-    justify,
-    align,
-    className,
-    style,
-    children,
-    ...others
-  } = props
+  const { type, justify, align, className, style, children, ...others } = props
 
   const media = useMedia()
 
@@ -57,10 +50,10 @@ const Row: React.FunctionComponent<RowProps> = props => {
   const rowStyle =
     gutter > 0
       ? {
-        marginLeft: gutter / -2,
-        marginRight: gutter / -2,
-        ...style
-      }
+          marginLeft: gutter / -2,
+          marginRight: gutter / -2,
+          ...style
+        }
       : style
 
   return (
@@ -73,7 +66,11 @@ const Row: React.FunctionComponent<RowProps> = props => {
 }
 
 Row.propTypes = {
-  align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>(['top', 'middle', 'bottom']),
+  align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>([
+    'top',
+    'middle',
+    'bottom'
+  ]),
   children: PropTypes.node,
   className: PropTypes.string,
   gutter: PropTypes.oneOfType([
@@ -87,13 +84,9 @@ Row.propTypes = {
       xxl: PropTypes.number
     })
   ]),
-  justify: PropTypes.oneOf<'start' | 'end' | 'center' | 'space-around' | 'space-between'>([
-    'start',
-    'end',
-    'center',
-    'space-around',
-    'space-between'
-  ]),
+  justify: PropTypes.oneOf<
+    'start' | 'end' | 'center' | 'space-around' | 'space-between'
+  >(['start', 'end', 'center', 'space-around', 'space-between']),
   type: PropTypes.oneOf<'flex'>(['flex'])
 }
 export default Row

@@ -8,7 +8,8 @@ module.exports = function (api) {
         ],
         plugins: [
             "@babel/plugin-transform-runtime",
-            "@babel/plugin-syntax-dynamic-import"
+            "@babel/plugin-syntax-dynamic-import",
+            "react-hot-loader/babel"
         ]
     }
     if (isProd) {

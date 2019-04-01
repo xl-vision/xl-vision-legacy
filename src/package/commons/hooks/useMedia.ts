@@ -1,8 +1,21 @@
 import { useState } from 'react'
-import useMount from '../../commons/hooks/useMount'
-import useUnmount from '../../commons/hooks/useUnmount'
-import { throttle } from '../../commons/utils'
-import { BreakPoint, breakPointArray, breakPointMap } from '../common'
+import { throttle } from '../utils/function'
+import useMount from './useMount'
+import useUnmount from './useUnmount'
+
+export type BreakPoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
+
+// 顺序不能颠倒
+export const breakPointMap: Record<BreakPoint, string> = {
+    xxl: '(min-width: 1600px)',
+    // tslint:disable-next-line
+    xl: '(min-width: 1200px)',
+    lg: '(min-width: 992px)',
+    md: '(min-width: 768px)',
+    sm: '(min-width: 576px)',
+    xs: '(min-width: 0)'
+}
+export const breakPointArray: BreakPoint[] = Object.keys(breakPointMap) as BreakPoint[]
 
 // tslint:disable
 let enquire: any

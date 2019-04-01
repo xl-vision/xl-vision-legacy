@@ -2,48 +2,13 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { clsPrefix } from '../commons/config'
-import { BreakPoint, breakPointArray } from './common'
-import useMedia from './hooks/useMedia'
+import useMedia, {
+  BreakPoint,
+  breakPointArray
+} from '../commons/hooks/useMedia'
 import RowContext from './rowContext'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
-
-const validator: PropTypes.Validator<ColSpanType | null> = (
-  propValue: Partial<Record<BreakPoint, number>>,
-  // @ts-ignore
-  key: string,
-  componentName: string,
-  // @ts-ignore
-  location: string,
-  propFullName: string
-) => {
-  if (typeof propValue === 'number') {
-    if (propValue < 0 || propValue > 24) {
-      return new Error(
-        `prop '${propFullName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'.`
-      )
-    }
-  } else if (typeof propValue === 'object') {
-    for (const breakPoint of breakPointArray) {
-      const val = propValue[breakPoint]
-      if (val === undefined) {
-        continue
-      }
-      if (typeof val === 'number') {
-        if (propValue < 0 || propValue > 24) {
-          return new Error(`prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`)
-        }
-      } else {
-        return new Error(`prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' should be a number.`)
-      }
-    }
-  } else {
-    return new Error(`prop '${propFullName}' supplied to '${componentName}' should be a number or suitable object.`)
-  }
-  return null
-}
-
-const colSpanValidater = validator
 
 export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span?: ColSpanType
@@ -56,7 +21,6 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 const colClsPrefix = `${clsPrefix}-col`
 
 const Col: React.FunctionComponent<ColProps> = props => {
-
   const media = useMedia()
 
   const { className, children, style, ...others } = props
@@ -94,16 +58,57 @@ const Col: React.FunctionComponent<ColProps> = props => {
   const colStyle =
     gutter > 0
       ? {
-        paddingLeft: gutter / 2,
-        paddingRight: gutter / 2,
-        ...style
-      }
+          paddingLeft: gutter / 2,
+          paddingRight: gutter / 2,
+          ...style
+        }
       : style
   return (
     <div {...others} style={colStyle} className={classes}>
       {children}
     </div>
   )
+}
+
+const colSpanValidater: PropTypes.Validator<ColSpanType | null> = (
+  propValue: Partial<Record<BreakPoint, number>>,
+  // @ts-ignore
+  key: string,
+  componentName: string,
+  // @ts-ignore
+  location: string,
+  propFullName: string
+) => {
+  if (typeof propValue === 'number') {
+    if (propValue < 0 || propValue > 24) {
+      return new Error(
+        `prop '${propFullName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'.`
+      )
+    }
+  } else if (typeof propValue === 'object') {
+    for (const breakPoint of breakPointArray) {
+      const val = propValue[breakPoint]
+      if (val === undefined) {
+        continue
+      }
+      if (typeof val === 'number') {
+        if (propValue < 0 || propValue > 24) {
+          return new Error(
+            `prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`
+          )
+        }
+      } else {
+        return new Error(
+          `prop '${propFullName}' supplied to '${componentName}' is object, its prop '${breakPoint}' should be a number.`
+        )
+      }
+    }
+  } else {
+    return new Error(
+      `prop '${propFullName}' supplied to '${componentName}' should be a number or suitable object.`
+    )
+  }
+  return null
 }
 
 Col.propTypes = {
