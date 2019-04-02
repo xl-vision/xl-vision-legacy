@@ -4,9 +4,11 @@ import BaseIcon from './base-icon'
 export interface IconProps {
   className?: string
   color?: string
+  onClick?: React.MouseEventHandler
   rotate?: number
   size?: number | string
   spin?: boolean
+  style?: React.CSSProperties
 }
 
 const createIcon = (

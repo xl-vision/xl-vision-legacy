@@ -2,6 +2,7 @@
     "compilerOptions": {
         "strictNullChecks": true,
         "target": "es6",
+        // "allowSyntheticDefaultImports": true,
         "jsx": "preserve",
         "moduleResolution": "node",
         "declaration": true,
