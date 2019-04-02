@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Icon } from '../../../../src/package'
+import { Icon } from 'xl-vision'
 import iconInfos from './icons.json'
 
 import './index.scss'
@@ -66,7 +66,7 @@ const IconSelect: React.FunctionComponent<void> = () => {
   const iconNodes = React.useMemo(() => {
     const arr = []
     for (const name of icons) {
-      const Item = Icon[name]
+      const Item = Icon[name as keyof typeof Icon] as any
       arr.push(
         <IconWrapper name={name} children={<Item size={40} />} key={name} />
       )

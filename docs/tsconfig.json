@@ -4,7 +4,6 @@
     "target": "es6",
     "jsx": "preserve",
     "moduleResolution": "node",
-    "declaration": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
@@ -14,11 +13,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@": ["src"]
+      "xl-vision": ["../src/package"]
     }
   },
   "include": [
-    "src/**/*",
-    "types/**/*"
+    "src"
   ]
 }

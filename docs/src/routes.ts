@@ -1,6 +1,6 @@
 export interface ChildrenRoute {
-  name: string
   children: Route[]
+  name: string
 }
 
 export interface RedirectRoute {
@@ -9,9 +9,9 @@ export interface RedirectRoute {
 }
 
 export interface ComponentRoute {
+  component: () => Promise<any>
   name: string
   path: string
-  component: () => Promise<any>
 }
 
 export type Route = ChildrenRoute | RedirectRoute | ComponentRoute

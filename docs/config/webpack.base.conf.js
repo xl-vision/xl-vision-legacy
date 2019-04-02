@@ -1,14 +1,16 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 const isProd = () => process.env.NODE_ENV === 'production'
 
 module.exports = {
+    context: path.resolve(__dirname, '../'),
     devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
-    entry: path.resolve(__dirname, '..', 'src/app.tsx'),
+    entry: './src/app.tsx',
     output: {
-        path: path.resolve(__dirname, '..', 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: isProd ? '[name].[hash].js' : '[name].js'
     },
     resolve: {
@@ -20,6 +22,9 @@ module.exports = {
             'xl-vision': path.resolve(__dirname, '../../src/package'),
             '@': path.resolve(__dirname, '..', 'src'),
         }
+    },
+    stats: {
+        warningsFilter: /export .* was not found in/
     },
     module: {
         rules: [{
@@ -79,6 +84,7 @@ module.exports = {
         }]
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin(),
         new HtmlWebpackPlugin({
             inject: true,
             title: 'xl-vision',

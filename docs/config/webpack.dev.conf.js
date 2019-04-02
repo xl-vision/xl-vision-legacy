@@ -10,8 +10,9 @@ module.exports = webpackMerge(baseConfig, {
     devServer: {
         contentBase: false,
         historyApiFallback: true,
-        clientLogLevel: 'error',
-        hot: true
+        hot: true,
+        stats: baseConfig.stats,
+        clientLogLevel: 'error'
     },
     module: {
         rules: [{
