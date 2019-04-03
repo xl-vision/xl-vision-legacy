@@ -1,3 +1,6 @@
+branches:
+  except:
+    - gh-pages
 sudo: required
 language: node_js
 node_js:
@@ -12,7 +15,4 @@ matrix:
     - env: REACT=16 TEST_TYPE=test:dom
 
 script: 
-  - npm run tslint
-  - npm run test -- --collectCoverage
-  - npm run compile
-  - npm run dist
+  - script/ci/travis-script.sh
