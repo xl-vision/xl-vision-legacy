@@ -12,4 +12,7 @@ matrix:
     - env: REACT=16 TEST_TYPE=test:dom
 
 script: 
-  - script/ci/travis-script.sh
+  - npm run tslint
+  - npm run test -- --collectCoverage
+  - npm run compile
+  - npm run dist
