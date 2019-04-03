@@ -2,12 +2,12 @@
     "compilerOptions": {
         "strictNullChecks": true,
         "target": "es6",
-        // "allowSyntheticDefaultImports": true,
         "jsx": "preserve",
         "moduleResolution": "node",
         "declaration": true,
         "noUnusedParameters": true,
         "noUnusedLocals": true,
         "noImplicitAny": true
-    }
+    },
+    "include": ["src/package", "src/index.d.ts"]
 }
