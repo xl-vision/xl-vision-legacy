@@ -2,14 +2,13 @@ import * as React from 'react'
 import './index.scss'
 
 export interface DemoBoxProps {
-  title: React.ReactNode
-  desc: React.ReactNode
-  view: React.ReactNode
   children: React.ReactNode
+  desc: React.ReactNode
+  title: React.ReactNode
+  view: React.ReactNode
 }
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = React.memo(props => {
-
   const { title, desc, view, children } = props
   return (
     <div className='demobox'>

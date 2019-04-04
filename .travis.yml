@@ -11,6 +11,10 @@ cache:
     - $HOME/.npm
 jobs:
   include:
+    # 代码检查
+    - stage: lint
+      script: npm run tslint
+    # 代码编译
     - stage: compile
       name: 'compile js'
       script: npm run compile:js
@@ -20,12 +24,16 @@ jobs:
       name: 'compile dist'
     - script: npm run compile:style
       name: 'compile style'
+    # 执行测试
     - stage: test
       script: script/ci/test.sh
-    - stage: compile_docs
+    # 编译文档
+    - stage: build_docs
       script: cd docs && npm install && npm run build
+    # 检查tag是否与version匹配
     - stage: check_tag
       script: node script/ci/check_tag.sh
+    # 发布文档
     - stage: publish
       script: npm publish
     - stage: deploy

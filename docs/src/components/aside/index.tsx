@@ -4,7 +4,7 @@ import routes, { ChildrenRoute, ComponentRoute, Route } from '../../routes'
 
 import './index.scss'
 
-export default function() {
+export default function () {
   return <div className='aside'>{buildMenus(routes)}</div>
 }
 

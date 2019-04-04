@@ -84,7 +84,12 @@ module.exports = {
         }]
     },
     plugins: [
-        new ForkTsCheckerWebpackPlugin(),
+        new ForkTsCheckerWebpackPlugin({
+            checkSyntacticErrors: true,
+            measureCompilationTime: true,
+            async: !isProd(),
+            tslint: true
+        }),
         new HtmlWebpackPlugin({
             inject: true,
             title: 'xl-vision',

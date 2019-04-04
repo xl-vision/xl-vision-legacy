@@ -3,6 +3,7 @@
     "strictNullChecks": true,
     "target": "es6",
     "jsx": "preserve",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
