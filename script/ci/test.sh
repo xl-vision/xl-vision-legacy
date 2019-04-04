@@ -1,10 +1,6 @@
 #!/bin/bash
 
-set -x
-set -e
-npm run tslint
-npm run compile
-npm run dist
+set -ex
 
 if [ "${TRAVIS_PULL_REQUEST}" = "true" ]; then
     npm run test

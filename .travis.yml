@@ -9,10 +9,36 @@ install: npm install
 cache:
   directories:
     - $HOME/.npm
-matrix:
-  fast_finish: true
+job:
   include:
-    - env: REACT=16 TEST_TYPE=test:dom
-
-script: 
-  - script/ci/travis-script.sh
+    - stage: compile
+      script: npm run compile:js
+      script: npm run compile:es
+      script: npm run compile:dist
+      script: npm run compile:style
+    - stage: test
+      script: script/ci/test.sh
+    - stage: compile_docs
+      script: cd docs && npm install && npm run build
+    - stage: check_tag
+      script: node script/ci/check_tag.sh
+    - stage: publish
+      script: npm publish
+    - stage: deploy
+      script: skip
+      deploy: 
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: docs/dist
+        target_branch: gh_pages
+stages:
+  - compile
+  - test
+  - compile_docs
+  - name: check_tag
+    if: tag IS present
+  - name: publish
+    if: tag IS present
+  - name: deploy
+    if: tag IS present

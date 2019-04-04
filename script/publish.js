@@ -66,11 +66,6 @@ inquirer.prompt([{
     console.log(chalk.red(`======npm run compile失败======`))
     shell.exit(1)
   }
-
-  if (shell.exec(`npm run dist`).code) {
-    console.log(chalk.red(`======npm run dist失败======`))
-    shell.exit(1)
-  }
   console.log(chalk.green('======编译源码完成======'))
 
   const version = `${answers.version}`
