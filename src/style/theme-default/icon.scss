@@ -1,19 +1,21 @@
 @import './_commons/var.scss';
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .#{$--cls-prefix}-icon {
-    font-size: 1rem;
-    display: inline-block;
-    line-height: 0;
-    &--spin{
-        animation: spin $animation-duration-slow linear infinite;
-    }
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 0;
+
+  &--spin {
+    animation: spin $animation-duration-slow linear infinite;
+  }
 }

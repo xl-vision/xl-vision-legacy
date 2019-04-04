@@ -32,7 +32,9 @@
     "compile:style": "xl-tools compile:scss",
     "compile:dist": "xl-tools webpack",
     "compile": "npm run compile:js && npm run compile:es && npm run compile:style && npm run compile:dist",
-    "tslint": "xl-tools tslint",
+    "lint:ts": "xl-tools lint:ts --src \"src/package/**/*.ts?(x),docs/src/**/*.ts?(x)\"",
+    "lint:scss": "xl-tools lint:scss",
+    "lint": "npm run lint:ts && npm run lint:scss",
     "test": "xl-tools test",
     "prepublishOnly": "node script/publish.js",
     "updateSite": "node script/updateSite.js",
@@ -47,7 +49,7 @@
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.3",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
-    "@xl-vision/xl-tools": "^0.0.1-beta.21",
+    "@xl-vision/xl-tools": "^0.0.1-beta.25",
     "chalk": "^2.4.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
@@ -58,7 +60,10 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "semver": "^5.6.0",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "stylelint-config-rational-order": "^0.0.4",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.5.4"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",

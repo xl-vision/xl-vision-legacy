@@ -87,8 +87,7 @@ module.exports = {
         new ForkTsCheckerWebpackPlugin({
             checkSyntacticErrors: true,
             measureCompilationTime: true,
-            async: !isProd(),
-            tslint: true
+            async: !isProd()
         }),
         new HtmlWebpackPlugin({
             inject: true,

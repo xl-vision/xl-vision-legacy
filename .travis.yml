@@ -13,7 +13,7 @@ jobs:
   include:
     # 代码检查
     - stage: lint
-      script: npm run tslint
+      script: npm run lint
     # 代码编译
     - stage: compile
       name: 'compile js'
