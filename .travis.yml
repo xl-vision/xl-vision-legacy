@@ -32,7 +32,7 @@ jobs:
       script: cd docs && npm install && npm run build
     # 检查tag是否与version匹配
     - stage: check_tag
-      script: node script/ci/check_tag.sh
+      script: node script/ci/check_tag.js
     # 发布文档
     - stage: publish
       script: npm publish
