@@ -1,6 +1,6 @@
 # xl-vision
 
-[![Build Status](https://api.travis-ci.org/xl-vision/xl-vision.svg?branch=master)](https://travis-ci.org/xl-vision/xl-vision)
+[![Build Status](https://api.travis-ci.com/xl-vision/xl-vision.svg?branch=master)](https://travis-ci.com/xl-vision/xl-vision)
 [![codecov](https://codecov.io/gh/xl-vision/xl-vision/branch/master/graph/badge.svg)](https://codecov.io/gh/xl-vision/xl-vision)
 [![Dependencies](https://img.shields.io/david/xl-vision/xl-vision.svg)](https://david-dm.org/xl-vision/xl-vision)
 [![DevDependencies](https://img.shields.io/david/dev/xl-vision/xl-vision.svg)](https://david-dm.org/xl-vision/xl-vision?type=dev)
