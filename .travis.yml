@@ -12,10 +12,14 @@ cache:
 jobs:
   include:
     - stage: compile
+      name: 'compile js'
       script: npm run compile:js
-      script: npm run compile:es
-      script: npm run compile:dist
-      script: npm run compile:style
+    - script: npm run compile:es
+      name: 'compile es'
+    - script: npm run compile:dist
+      name: 'compile dist'
+    - script: npm run compile:style
+      name: 'compile style'
     - stage: test
       script: script/ci/test.sh
     - stage: compile_docs
