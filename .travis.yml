@@ -1,15 +1,15 @@
-branches:
-  except:
-    - gh-pages
 sudo: required
 language: node_js
 node_js:
   - "10"
+branches:
+  except:
+    - gh-pages
 install: npm install
 cache:
   directories:
     - $HOME/.npm
-job:
+jobs:
   include:
     - stage: compile
       script: npm run compile:js
