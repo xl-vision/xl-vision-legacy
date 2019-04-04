@@ -8,7 +8,7 @@ const isProd = () => process.env.NODE_ENV === 'production'
 module.exports = {
     context: path.resolve(__dirname, '../'),
     devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
-    entry: './src/app.tsx',
+    entry: './src/App.tsx',
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: isProd ? '[name].[hash].js' : '[name].js'

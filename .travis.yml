@@ -45,6 +45,7 @@ jobs:
         local_dir: docs/dist
         target_branch: gh_pages
 stages:
+  - lint
   - compile
   - test
   - compile_docs
