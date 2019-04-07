@@ -26,7 +26,7 @@ jobs:
       name: 'compile style'
     # 执行测试
     - stage: test
-      script: script/ci/test.sh
+      script: npm run test  -- --coverage && bash <(curl -s https://codecov.io/bash)
     # 编译文档
     - stage: build_docs
       script: cd docs && npm install && npm run build

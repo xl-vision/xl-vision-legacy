@@ -1,0 +1,21 @@
+@import '../../style/commons/var';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.#{$--cls-prefix}-icon {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 0;
+
+  &--spin {
+    animation: spin $animation-duration-slow linear infinite;
+  }
+}
