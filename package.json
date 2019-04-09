@@ -47,6 +47,7 @@
     "@types/classnames": "^2.2.7",
     "@types/enquire.js": "^2.1.1",
     "@types/enzyme": "^3.1.14",
+    "@types/jest": "^24.0.11",
     "@types/node": "^11.9.4",
     "@types/prop-types": "^15.5.6",
     "@types/react": "^16.8.3",
@@ -62,6 +63,7 @@
     "fs-extra": "^7.0.1",
     "gh-pages": "^2.0.1",
     "inquirer": "^6.2.2",
+    "jest": "^24.7.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-loadable": "^5.5.0",
@@ -74,7 +76,8 @@
     "@types/react": "^16.8.3",
     "classnames": "^2.2.6",
     "enquire.js": "^2.1.6",
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "ts-jest": "^24.0.2"
   },
   "peerDependencies": {
     "react": "^16.8.2"
