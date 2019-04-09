@@ -9,14 +9,13 @@
     "component",
     "libaray"
   ],
-  "main": "lib/index.js",
+  "main": "js/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
     "dist",
     "js",
-    "es",
-    "style"
+    "es"
   ],
   "repository": {
     "type": "git",
@@ -27,15 +26,18 @@
   },
   "homepage": "https://xl-vision.github.io/xl-vision/",
   "scripts": {
-    "compile:js": "xl-tools compile:ts --modules js",
-    "compile:es": "xl-tools compile:ts --modules es",
-    "compile:style": "xl-tools compile:scss",
-    "compile:dist": "xl-tools webpack",
-    "compile": "npm run compile:js && npm run compile:es && npm run compile:style && npm run compile:dist",
-    "lint:ts": "xl-tools lint:ts --src \"src/package/**/*.ts?(x),docs/src/**/*.ts?(x)\"",
-    "lint:scss": "xl-tools lint:scss",
-    "lint": "npm run lint:ts && npm run lint:scss",
-    "test": "xl-tools test",
+    "lint:ts": "xl-tools run lint:ts",
+    "lint:scss": "xl-tools run lint:scss",
+    "lint:markdown": "xl-tools run lint:markdown",
+    "lint": "xl-tools run lint",
+    "compile:js": "xl-tools run compile:js",
+    "compile:es": "xl-tools run compile:es",
+    "compile:style": "xl-tools run compile:style",
+    "compile:dist": "xl-tools run compile:dist",
+    "compile": "xl-tools run compile",
+    "test": "jest",
+    "site:start": "xl-tools run site:start",
+    "site:build": "xl-tools run site:build",
     "prepublishOnly": "node script/publish.js",
     "updateSite": "node script/updateSite.js",
     "icon": "node script/icon/generate.js"
@@ -49,7 +51,7 @@
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.3",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
-    "@xl-vision/xl-tools": "^0.0.2-beta.4",
+    "@xl-vision/xl-tools": "^0.0.2-beta.10",
     "chalk": "^2.4.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",

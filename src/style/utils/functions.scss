@@ -26,7 +26,7 @@
 }
 
 @function color-level($color, $level: 0, $interval: $--theme-color-interval) {
-  $color-base: if($level > 0, #000000, #ffffff);
+  $color-base: if($level > 0, #000, #fff);
   $level: abs($level);
 
   @return mix($color-base, $color, $level * $interval);

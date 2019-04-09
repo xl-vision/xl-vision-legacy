@@ -16,7 +16,6 @@ jobs:
       script: npm run lint
     # 代码编译
     - stage: compile
-      name: 'compile js'
       script: npm run compile:js
     - script: npm run compile:es
       name: 'compile es'
