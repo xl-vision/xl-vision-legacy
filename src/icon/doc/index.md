@@ -1,7 +1,7 @@
 ---
 imports:
   - import {Icon} from '..'
-  - import IconSelect from './icon-select'
+  - import IconSelect from 'site/components/icon-select'
   - import './style.scss'
 ---
 

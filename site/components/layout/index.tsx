@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { HashRouter as Router } from 'react-router-dom'
-import { Col, Row } from 'xl-vision'
+import { Col, Row } from '../../../src'
 import Aside from '../aside'
 import Content from '../content'
 import Footer from '../footer'

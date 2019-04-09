@@ -51,6 +51,8 @@
     "@types/prop-types": "^15.5.6",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.3",
+    "@types/react-loadable": "^5.5.1",
+    "@types/react-router-dom": "^4.3.1",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
     "@xl-vision/xl-tools": "^0.0.2-beta.12",
     "chalk": "^2.4.2",
@@ -62,11 +64,10 @@
     "inquirer": "^6.2.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.0.0",
     "semver": "^5.6.0",
-    "shelljs": "^0.8.3",
-    "stylelint-config-rational-order": "^0.0.4",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-scss": "^3.5.4"
+    "shelljs": "^0.8.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",

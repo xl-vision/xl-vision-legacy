@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "target": "es6",
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "noImplicitAny": true
+    },
+    "include": [
+        "src",
+        "site"
+    ]
+}
