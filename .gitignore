@@ -3,8 +3,10 @@ node_modules/
 dist/
 coverage/
 
+/dist/
 /es/
 /js/
+/style/
 /docs/
 
 package-lock.json

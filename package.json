@@ -15,7 +15,8 @@
   "files": [
     "dist",
     "js",
-    "es"
+    "es",
+    "style"
   ],
   "repository": {
     "type": "git",

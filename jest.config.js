@@ -12,7 +12,7 @@ module.exports = {
         'src/**/*.{ts,tsx}',
         '!src/**/doc/**',
         '!src/**/test/**',
-        '!src/package/icon/icons/**'
+        '!src/icon/icons/**'
     ],
     snapshotSerializers: [
         'enzyme-to-json/serializer',
