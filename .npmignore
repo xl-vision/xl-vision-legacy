@@ -5,7 +5,7 @@ coverage/
 /site/
 /src/
 /docs/
-
+/typings/
 package-lock.json
 
 npm-debug.log*

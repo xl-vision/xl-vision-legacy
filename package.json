@@ -36,12 +36,11 @@
     "compile:style": "xl-tools run compile:style",
     "compile:dist": "xl-tools run compile:dist",
     "compile": "xl-tools run compile",
-    "test": "jest",
     "site:start": "xl-tools run site:start",
     "site:build": "xl-tools run site:build",
-    "prepublishOnly": "node script/publish.js",
-    "updateSite": "node script/updateSite.js",
-    "icon": "node script/icon/generate.js"
+    "test": "jest",
+    "icon": "node script/icon/generate.js",
+    "prepublishOnly": "node script/publish.js"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
@@ -55,7 +54,7 @@
     "@types/react-loadable": "^5.5.1",
     "@types/react-router-dom": "^4.3.1",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
-    "@xl-vision/xl-tools": "^0.0.2-beta.12",
+    "@xl-vision/xl-tools": "^0.0.2-beta.15",
     "chalk": "^2.4.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",

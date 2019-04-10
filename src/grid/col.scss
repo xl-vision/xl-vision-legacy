@@ -1,5 +1,5 @@
-@import '../../style/commons/var';
-@import '../../style/utils/mixins';
+@import '../style/commons/var';
+@import '../style/utils/mixins';
 
 .#{$--cls-prefix}-col {
   float: left;

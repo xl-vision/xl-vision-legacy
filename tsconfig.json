@@ -1,15 +1,18 @@
 {
     "compilerOptions": {
+        "module": "commonjs",
         "strictNullChecks": true,
         "target": "es6",
         "jsx": "preserve",
         "moduleResolution": "node",
         "noUnusedParameters": true,
         "noUnusedLocals": true,
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "esModuleInterop": true
     },
     "include": [
         "src",
-        "site"
+        "site",
+        "typings"
     ]
 }
