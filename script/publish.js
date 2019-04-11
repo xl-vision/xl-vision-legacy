@@ -19,51 +19,49 @@ const oldVersion = pkg.version
 const versionList = getVersionList(oldVersion)
 
 inquirer.prompt([{
-    name: 'version',
-    message: `选择要升级的版本(当前版本${oldVersion})`,
-    type: 'list',
-    default: 0,
-    choices: versionList
-  },
-  {
-    name: 'message',
-    message: '版本发布说明',
-    type: 'input',
-    default: function (answers) {
-      return `:bookmark:update version to ${answers.version}`
-    }
-  },
-  {
-    name: 'docs',
-    message: '是否重新发布文档',
-    type: 'confirm',
-    default: true
+  name: 'version',
+  message: `选择要升级的版本(当前版本${oldVersion})`,
+  type: 'list',
+  default: 0,
+  choices: versionList
+},
+{
+  name: 'message',
+  message: '版本发布说明',
+  type: 'input',
+  default: function (answers) {
+    return `:bookmark:update version to ${answers.version}`
   }
-]).then(async function (answers) {
-
-  console.log(chalk.green('======运行代码检查======'))
-  if (shell.exec(`npm run tslint`).code) {
-    console.log(chalk.red(`======代码检查未通过======`))
+},
+{
+  name: 'docs',
+  message: '是否重新发布文档',
+  type: 'confirm',
+  default: true
+}]).then(async function (answers) {
+  console.info(chalk.green('======运行代码检查======'))
+  if (shell.exec('npm run tslint').code) {
+    console.info(chalk.red('======代码检查未通过======'))
     shell.exit(1)
   }
   console.log(chalk.green('======代码检查完成======'))
 
   console.log(chalk.green('======运行测试用例======'))
-  if (shell.exec(`npm run test`).code) {
-    console.log(chalk.red(`======测试用例未通过======`))
+  if (shell.exec('npm run test').code) {
+    console.log(chalk.red('======测试用例未通过======'))
     shell.exit(1)
   }
   console.log(chalk.green('======运行测试用例通过======'))
 
   console.log(chalk.green('======编译源码======'))
   // 删除输出文件夹
-  fs.removeSync(path.join(__dirname,'../dist'))
-  fs.removeSync(path.join(__dirname,'../es'))
-  fs.removeSync(path.join(__dirname,'../js'))
-  fs.removeSync(path.join(__dirname,'../style'))
+  fs.removeSync(path.join(__dirname, '../dist'))
+  fs.removeSync(path.join(__dirname, '../es'))
+  fs.removeSync(path.join(__dirname, '../js'))
+  fs.removeSync(path.join(__dirname, '../style'))
 
-  if (shell.exec(`npm run compile`).code) {
-    console.log(chalk.red(`======npm run compile失败======`))
+  if (shell.exec('npm run compile').code) {
+    console.log(chalk.red('======npm run compile失败======'))
     shell.exit(1)
   }
   console.log(chalk.green('======编译源码完成======'))
@@ -75,7 +73,7 @@ inquirer.prompt([{
     JSON.stringify(pkg, null, '  ')
   )
 
-  //提交代码
+  // 提交代码
   const comment = answers.message
 
   console.log(chalk.green('======提交代码到github======'))
@@ -88,10 +86,10 @@ inquirer.prompt([{
       resolvePath('package.json'),
       JSON.stringify(pkg, null, '  ')
     )
-    console.log(chalk.red(`======提交代码失败======`))
+    console.log(chalk.red('======提交代码失败======'))
     shell.exit(1)
   }
-  console.log(chalk.green(`======提交代码成功======`))
+  console.log(chalk.green('======提交代码成功======'))
 
   console.log(chalk.green(`======发布版本"${version}"到github======`))
   cmd = `git tag -a ${version} -m "${comment}" && git push origin ${version}`
@@ -106,7 +104,7 @@ inquirer.prompt([{
     // console.log(chalk.green('删除生成的文档'))
     // fs.removeSync(docsPath)
     console.log(chalk.green('======编译文档======'))
-    if (shell.exec(`cd docs && npm run build`).code) {
+    if (shell.exec('cd docs && npm run build').code) {
       console.log(chalk.red('======编译文档失败======'))
       shell.exit(1)
     }
@@ -125,10 +123,10 @@ inquirer.prompt([{
       })
     })
   }
-  console.log(chalk.green(`======正在发布到npm仓库，请稍等======`))
+  console.log(chalk.green('======正在发布到npm仓库，请稍等======'))
 })
 
-function getVersionList(version) {
+function getVersionList (version) {
   var levels = [
     ['prerelease', 'beta'],
     ['patch', ''],
@@ -148,6 +146,6 @@ function getVersionList(version) {
   return opts
 }
 
-function resolvePath(file) {
+function resolvePath (file) {
   return path.resolve(__dirname, '..', file)
 }
