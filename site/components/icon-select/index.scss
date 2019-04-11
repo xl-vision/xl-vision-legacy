@@ -1,0 +1,67 @@
+@import '../../assets/style/var';
+
+.icon-select {
+  padding: 1rem 0;
+
+  .icon-input {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    color: $--text-color-dark;
+    font-size: 1.2rem;
+    border: 1px $--border-color solid;
+    border-radius: $--border-radius;
+    outline: none;
+    transition: border-color $animation-duration-base ease-in-out;
+
+    &:hover {
+      border-color: $--border-color-hover;
+    }
+
+    &:focus {
+      border-color: $--border-color-focus;
+    }
+  }
+
+  .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+
+    .icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 100px;
+      border-radius: $--border-radius;
+      cursor: pointer;
+      transition: background-color $animation-duration-base ease-in-out;
+
+      svg {
+        transition: fill $animation-duration-base ease-in-out;
+      }
+
+      &:hover {
+        background-color: $--color-primary;
+
+        svg {
+          fill: $--bg-color;
+        }
+      }
+    }
+
+    .icon-name {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      color: $--bg-color;
+      font-size: 0.8rem;
+      transform: translateX(-50%);
+      transition: opacity $animation-duration-base ease-in-out;
+    }
+  }
+}

@@ -16,26 +16,20 @@ jobs:
       script: npm run lint
     # 代码编译
     - stage: compile
-      name: 'compile js'
-      script: npm run compile:js
-    - script: npm run compile:es
-      name: 'compile es'
-    - script: npm run compile:dist
-      name: 'compile dist'
-    - script: npm run compile:style
-      name: 'compile style'
+      script: npm run compile
     # 执行测试
     - stage: test
-      script: script/ci/test.sh
+      script: npm run test  -- --coverage && bash <(curl -s https://codecov.io/bash)
     # 编译文档
-    - stage: build_docs
-      script: cd docs && npm install && npm run build
+    - stage: site
+      script: npm run site:build
     # 检查tag是否与version匹配
     - stage: check_tag
       script: node script/ci/check_tag.js
-    # 发布文档
+    # 自动发布版本到npm
     - stage: publish
       script: npm publish
+    # 自动发布文档
     - stage: deploy
       script: skip
       deploy: 
@@ -48,7 +42,7 @@ stages:
   - lint
   - compile
   - test
-  - compile_docs
+  - site
   - name: check_tag
     if: tag IS present
   - name: publish

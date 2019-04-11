@@ -2,9 +2,10 @@ node_modules/
 coverage/
 
 /script/
+/site/
 /src/
 /docs/
-
+/typings/
 package-lock.json
 
 npm-debug.log*

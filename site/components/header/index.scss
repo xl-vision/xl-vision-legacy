@@ -1,0 +1,15 @@
+@import '../../assets/style/var.scss';
+
+.header {
+  padding: 0.5rem;
+  background-color: $--bg-color;
+  box-shadow: 0 2px 8px #f0f1f2;
+
+  .logo {
+    text-decoration: none;
+
+    img {
+      height: 4rem;
+    }
+  }
+}

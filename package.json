@@ -9,7 +9,7 @@
     "component",
     "libaray"
   ],
-  "main": "lib/index.js",
+  "main": "js/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
@@ -27,29 +27,34 @@
   },
   "homepage": "https://xl-vision.github.io/xl-vision/",
   "scripts": {
-    "compile:js": "xl-tools compile:ts --modules js",
-    "compile:es": "xl-tools compile:ts --modules es",
-    "compile:style": "xl-tools compile:scss",
-    "compile:dist": "xl-tools webpack",
-    "compile": "npm run compile:js && npm run compile:es && npm run compile:style && npm run compile:dist",
-    "lint:ts": "xl-tools lint:ts --src \"src/package/**/*.ts?(x),docs/src/**/*.ts?(x)\"",
-    "lint:scss": "xl-tools lint:scss",
-    "lint": "npm run lint:ts && npm run lint:scss",
-    "test": "xl-tools test",
-    "prepublishOnly": "node script/publish.js",
-    "updateSite": "node script/updateSite.js",
-    "icon": "node script/icon/generate.js"
+    "lint:ts": "xl-tools run lint:ts",
+    "lint:scss": "xl-tools run lint:scss",
+    "lint:markdown": "xl-tools run lint:markdown",
+    "lint": "xl-tools run lint",
+    "compile:js": "xl-tools run compile:js",
+    "compile:es": "xl-tools run compile:es",
+    "compile:style": "xl-tools run compile:style",
+    "compile:dist": "xl-tools run compile:dist",
+    "compile": "xl-tools run compile",
+    "site:start": "xl-tools run site:start",
+    "site:build": "xl-tools run site:build",
+    "test": "jest",
+    "icon": "node script/icon/generate.js",
+    "prepublishOnly": "node script/publish.js"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
     "@types/enquire.js": "^2.1.1",
     "@types/enzyme": "^3.1.14",
+    "@types/jest": "^24.0.11",
     "@types/node": "^11.9.4",
     "@types/prop-types": "^15.5.6",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.3",
+    "@types/react-loadable": "^5.5.1",
+    "@types/react-router-dom": "^4.3.1",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
-    "@xl-vision/xl-tools": "^0.0.1-beta.25",
+    "@xl-vision/xl-tools": "^0.0.2-beta.15",
     "chalk": "^2.4.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
@@ -57,20 +62,21 @@
     "fs-extra": "^7.0.1",
     "gh-pages": "^2.0.1",
     "inquirer": "^6.2.2",
+    "jest": "^24.7.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.0.0",
     "semver": "^5.6.0",
-    "shelljs": "^0.8.3",
-    "stylelint-config-rational-order": "^0.0.4",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-scss": "^3.5.4"
+    "shelljs": "^0.8.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "@types/react": "^16.8.3",
     "classnames": "^2.2.6",
     "enquire.js": "^2.1.6",
-    "prop-types": "^15.6.2"
+    "prop-types": "^15.6.2",
+    "ts-jest": "^24.0.2"
   },
   "peerDependencies": {
     "react": "^16.8.2"
