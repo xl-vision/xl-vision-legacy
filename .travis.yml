@@ -11,18 +11,19 @@ cache:
     - $HOME/.npm
 jobs:
   include:
+    - stage: code_test
     # 代码检查
-    - stage: lint
       script: npm run lint
+      name: lint
     # 代码编译
-    - stage: compile
-      script: npm run compile
+    - script: npm run compile
+      name: compile
     # 执行测试
-    - stage: test
-      script: npm run test  -- --coverage && bash <(curl -s https://codecov.io/bash)
+    - script: npm run test  -- --coverage && bash <(curl -s https://codecov.io/bash)
+      name: test
     # 编译文档
-    - stage: site
-      script: npm run site:build
+    - script: npm run site:build
+      name: site
     # 检查tag是否与version匹配
     - stage: check_tag
       script: node script/ci/check_tag.js
@@ -39,10 +40,7 @@ jobs:
         local_dir: docs/dist
         target_branch: gh_pages
 stages:
-  - lint
-  - compile
-  - test
-  - site
+  - code_test
   - name: check_tag
     if: tag IS present
   - name: publish
