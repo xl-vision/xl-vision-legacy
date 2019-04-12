@@ -40,7 +40,7 @@
     "site:start": "xl-tools run site:start",
     "site:build": "xl-tools run site:build",
     "test": "jest",
-    "test-with-coverage": "npm run test --coverage && bash <(curl -s https://codecov.io/bash) && cat ./coverage/lcov.info | codacy-coverage",
+    "codacy-coverage": "cat ./coverage/lcov.info | codacy-coverage",
     "icon": "node script/icon/generate.js",
     "prepublishOnly": "node script/publish.js"
   },

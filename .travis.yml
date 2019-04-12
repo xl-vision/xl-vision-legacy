@@ -19,7 +19,7 @@ jobs:
     - script: npm run compile
       name: compile
     # 执行测试
-    - script: npm run test-with-coverage
+    - script: ./script/ci/test.sh
       name: test
     # 编译文档
     - script: npm run site:build
