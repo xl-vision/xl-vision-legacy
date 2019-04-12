@@ -40,6 +40,7 @@
     "site:start": "xl-tools run site:start",
     "site:build": "xl-tools run site:build",
     "test": "jest",
+    "test-with-coverage": "npm run test --coverage && bash <(curl -s https://codecov.io/bash) && cat ./coverage/lcov.info | codacy-coverage",
     "icon": "node script/icon/generate.js",
     "prepublishOnly": "node script/publish.js"
   },
@@ -57,6 +58,7 @@
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
     "@xl-vision/xl-tools": "^0.0.2-beta.18",
     "chalk": "^2.4.2",
+    "codacy-coverage": "^3.4.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.5",
