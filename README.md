@@ -1,6 +1,6 @@
 # xl-vision
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/881cea0fb0114ac0a9e079556ed6d980)](https://app.codacy.com/app/RhysXia/xl-vision?utm_source=github.com&utm_medium=referral&utm_content=xl-vision/xl-vision&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/391165543cfc4c0985d714660f86fa0f)](https://www.codacy.com/app/xl-vision/xl-vision?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xl-vision/xl-vision&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://api.travis-ci.com/xl-vision/xl-vision.svg?branch=master)](https://travis-ci.com/xl-vision/xl-vision)
 [![codecov](https://codecov.io/gh/xl-vision/xl-vision/branch/master/graph/badge.svg)](https://codecov.io/gh/xl-vision/xl-vision)
 [![Dependencies](https://img.shields.io/david/xl-vision/xl-vision.svg)](https://david-dm.org/xl-vision/xl-vision)
