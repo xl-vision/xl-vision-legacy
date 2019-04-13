@@ -1,5 +1,5 @@
 @import '../style/commons/var';
-@import '../style/utils/mixins';
+@import '../style/mixins/clearfix';
 
 .#{$--cls-prefix}-row {
   position: relative;

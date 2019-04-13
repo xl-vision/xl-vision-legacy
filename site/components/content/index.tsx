@@ -19,7 +19,7 @@ const addRoute = (routeArray: Route[], level = '1') => {
       const componentRoute = it as ComponentRoute
       const loadable = Loadable({
         loader: componentRoute.component,
-        loading: () => <div />
+        loading: () => null
       })
       routeComponents.push(
         <ReactRoute

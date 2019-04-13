@@ -1,21 +1,21 @@
 /* stylelint-disable */
-@import '../utils/functions';
+@import '../function/color';
 //prefix
 
-$--cls-prefix:          'xl'                        !default;
+$--cls-prefix:          'xl'                      !default;
 
 // color
-$--color-white:     #ffffff                       !default;
-$--color-gray-100:  #f8f9fa                       !default;
-$--color-gray-200:  #e9ecef                       !default;
-$--color-gray-300:  #dee2e6                       !default;
-$--color-gray-400:  #ced4da                       !default;
-$--color-gray-500:  #adb5bd                       !default;
-$--color-gray-600:  #6c757d                       !default;
-$--color-gray-700:  #495057                       !default;
-$--color-gray-800:  #343a40                       !default;
-$--color-gray-900:  #212529                       !default;
-$--color-black:     #000000                       !default;
+$--color-white:     #ffffff                                              !default;
+$--color-gray-100:  color-level($--color-white, 1)                       !default;
+$--color-gray-200:  color-level($--color-white, 2)                       !default;
+$--color-gray-300:  color-level($--color-white, 3)                       !default;
+$--color-gray-400:  color-level($--color-white, 4)                       !default;
+$--color-gray-500:  color-level($--color-white, 5)                       !default;
+$--color-gray-600:  color-level($--color-white, 6)                       !default;
+$--color-gray-700:  color-level($--color-white, 7)                       !default;
+$--color-gray-800:  color-level($--color-white, 8)                       !default;
+$--color-gray-900:  color-level($--color-white, 9)                       !default;
+$--color-black:     color-level($--color-white, 10)                      !default;
 
 $--grays:(
         "0":                $--color-white,
@@ -29,7 +29,7 @@ $--grays:(
         "800":              $--color-gray-800,
         "900":              $--color-gray-900,
         "1000":             $--color-black
-)                                                    !default;
+)                                                  !default;
 
 $--color-blue:      #007bff                        !default;
 $--color-indigo:    #6610f2                        !default;
@@ -76,7 +76,7 @@ $--theme-colors: (
         "dark":             $--color-dark
 )                                                     !default;
 
-$--theme-color-interval:      8%                      !default;
+
 
 $--yiq-contrasted-threshold:  210                     !default;
 $--yiq-text-dark:             $--color-gray-900       !default;
