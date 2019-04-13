@@ -52,10 +52,10 @@ const Row: React.FunctionComponent<RowProps> = props => {
   const rowStyle =
     gutter > 0
       ? {
-          marginLeft: gutter / -2,
-          marginRight: gutter / -2,
-          ...style
-        }
+        marginLeft: gutter / -2,
+        marginRight: gutter / -2,
+        ...style
+      }
       : style
 
   return (
@@ -115,9 +115,7 @@ Row.propTypes = {
       xxl: PropTypes.number
     })
   ]),
-  justify: PropTypes.oneOf<
-    'start' | 'end' | 'center' | 'space-around' | 'space-between'
-  >(['start', 'end', 'center', 'space-around', 'space-between']),
+  justify: PropTypes.oneOf<'start' | 'end' | 'center' | 'space-around' | 'space-between'>(['start', 'end', 'center', 'space-around', 'space-between']),
   type: PropTypes.oneOf<'flex'>(['flex'])
 }
 export default Row

@@ -1,15 +1,41 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-react-hooks"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-standard",
+    "tslint-react",
+    "tslint-react-hooks"
+  ],
   "rules": {
-    "array-type": [true, "array"],
-    "arrow-parens": [true, "ban-single-arg-parens"],
+    "array-type": [
+      true,
+      "array"
+    ],
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
     "ban-types": [
       true,
-      ["Object", "Avoid using the `Object` type. Did you mean `object`?"],
-      ["Boolean", "Avoid using the `Boolean` type. Did you mean `boolean`?"],
-      ["Number", "Avoid using the `Number` type. Did you mean `number`?"],
-      ["String", "Avoid using the `String` type. Did you mean `string`?"],
-      ["Symbol", "Avoid using the `Symbol` type. Did you mean `symbol`?"]
+      [
+        "Object",
+        "Avoid using the `Object` type. Did you mean `object`?"
+      ],
+      [
+        "Boolean",
+        "Avoid using the `Boolean` type. Did you mean `boolean`?"
+      ],
+      [
+        "Number",
+        "Avoid using the `Number` type. Did you mean `number`?"
+      ],
+      [
+        "String",
+        "Avoid using the `String` type. Did you mean `string`?"
+      ],
+      [
+        "Symbol",
+        "Avoid using the `Symbol` type. Did you mean `symbol`?"
+      ]
     ],
     "interface-name": false,
     "jsx-no-multiline-js": false,
@@ -24,10 +50,17 @@
     ],
     "no-duplicate-imports": true,
     "one-variable-per-declaration": false,
-    "only-arrow-functions": false,
-    "quotemark": [true, "single", "avoid-escape"],
+    "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
     "react-hooks-nesting": "error",
-    "semicolon": [true, "never"],
+    "semicolon": [
+      true,
+      "never"
+    ],
     "space-before-function-paren": true,
     "trailing-comma": [
       true,

@@ -7,13 +7,13 @@ export type BreakPoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 
 // 顺序不能颠倒
 export const breakPointMap: Record<BreakPoint, string> = {
-    xxl: '(min-width: 1600px)',
-    // tslint:disable-next-line
-    xl: '(min-width: 1200px)',
-    lg: '(min-width: 992px)',
-    md: '(min-width: 768px)',
-    sm: '(min-width: 576px)',
-    xs: '(min-width: 0)'
+  xxl: '(min-width: 1600px)',
+  // tslint:disable-next-line
+  xl: '(min-width: 1200px)',
+  lg: '(min-width: 992px)',
+  md: '(min-width: 768px)',
+  sm: '(min-width: 576px)',
+  xs: '(min-width: 0)'
 }
 export const breakPointArray: BreakPoint[] = Object.keys(breakPointMap) as BreakPoint[]
 
@@ -21,18 +21,18 @@ export const breakPointArray: BreakPoint[] = Object.keys(breakPointMap) as Break
 let enquire: any
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      matches: false,
-      media: mediaQuery,
-      addListener() { },
-      removeListener() { },
-      onchange: null,
-      addEventListener() { },
-      removeEventListener() { },
-      dispatchEvent() {
-        return true
-      }
+  return {
+    matches: false,
+    media: mediaQuery,
+    addListener() { },
+    removeListener() { },
+    onchange: null,
+    addEventListener() { },
+    removeEventListener() { },
+    dispatchEvent() {
+    return true
     }
+  }
   }
   window.matchMedia = window.matchMedia || matchMediaPolyfill
   enquire = require('enquire.js')

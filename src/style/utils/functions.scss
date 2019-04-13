@@ -6,9 +6,7 @@
 
   @if ($yiq >=$--yiq-contrasted-threshold) {
     @return $--yiq-text-dark;
-  }
-
-  @else {
+  } @else {
     @return $--yiq-text-light;
   }
 }

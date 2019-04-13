@@ -60,10 +60,10 @@ const Col: React.FunctionComponent<ColProps> = props => {
   const colStyle =
     gutter > 0
       ? {
-          paddingLeft: gutter / 2,
-          paddingRight: gutter / 2,
-          ...style
-        }
+        paddingLeft: gutter / 2,
+        paddingRight: gutter / 2,
+        ...style
+      }
       : style
   return (
     <div {...others} style={colStyle} className={classes}>

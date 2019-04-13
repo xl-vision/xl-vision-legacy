@@ -1,1 +1,11 @@
 @import '../style/commons/var';
+
+.a {
+  color: red;
+
+  @extend %b;
+}
+
+%b {
+  color: green;
+}
