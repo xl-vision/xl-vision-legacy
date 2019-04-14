@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import {} from '../icon'
+import { FasSpinner } from '../icon'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
@@ -27,16 +27,17 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     [`${displayName}--round`]: round,
     [`${displayName}--long`]: long,
     [`${displayName}--ghost`]: ghost,
+    [`${displayName}--loading`]: loading,
     [`${displayName}--disabled`]: disabled
   }, className)
 
-  // const shouldChildren = loading?
+  const actualIcon = loading ? <FasSpinner spin={true}/> : icon
 
-  return <div/>
-}
-
-const Loading = () => {
-
+  return (
+    <button className={classes}>
+      {[actualIcon, children]}
+    </button>
+  )
 }
 
 Button.displayName = displayName

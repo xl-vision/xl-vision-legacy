@@ -12,10 +12,10 @@
 
 .#{$--cls-prefix}-icon {
   display: inline-block;
-  font-size: 1rem;
+  font-size: $--icon-font-size;
   line-height: 0;
 
   &--spin {
-    animation: spin $animation-duration-slow linear infinite;
+    animation: spin $--icon-spin-time linear infinite;
   }
 }

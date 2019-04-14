@@ -76,7 +76,7 @@ $--line-height:                 1.5                                             
 $--line-height-sm:              1.2                                                  !default;
 $--line-height-lg:              1.8                                                  !default;
 
-//font
+// font
 $--font-family:                 -apple-system,
                                 BlinkMacSystemFont,
                                 "Segoe UI",
@@ -96,12 +96,12 @@ $--font-weight:                 400                                             
 $--font-weight-bold:            700                                                  !default;
 $--font-weight-bolder:          bolder                                               !default;
 
-//animation
+// animation
 $animation-duration-base:     .6s                         !default;
 $animation-duration-fast:     .4s                         !default;
 $animation-duration-slow:     .8s                         !default;
 
-//opacity
+// opacity
 $--opacity-disabled:          .65                         !default;
 
 // header title
@@ -112,7 +112,7 @@ $--h4-font-size:                $--font-size * 1.5                              
 $--h5-font-size:                $--font-size * 1.25                                  !default;
 $--h6-font-size:                $--font-size                                         !default;
 
-//grid
+// grid
 $--grid-breakpoints: (
         xs: '0px',
         sm: '576px',
@@ -122,3 +122,7 @@ $--grid-breakpoints: (
         xxl: '1600px'
 )                                                                                    !default;
 $--grid-span:                   24                                                   !default;
+
+// icon
+$--icon-font-size:              1rem                                                 !default;
+$--icon-spin-time:              1.25s                                                !default;
