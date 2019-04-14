@@ -57,14 +57,14 @@
     }
 
     th {
-      color: color-level($--text-color-dark, -5);
+      color: color-level($--text-color, -5);
       font-weight: bold;
       white-space: nowrap;
       text-align: left;
     }
 
     td {
-      color: $--text-color-dark;
+      color: $--text-color;
     }
   }
 

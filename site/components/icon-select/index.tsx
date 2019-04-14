@@ -36,7 +36,7 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
 
 const iconNames = Object.keys(Icon).filter(it => it !== 'createIcon')
 
-const IconSelect: React.FunctionComponent<void> = () => {
+const IconSelect: React.FunctionComponent<{}> = () => {
   const [search, setSearch] = React.useState('')
 
   const icons = React.useMemo(() => {

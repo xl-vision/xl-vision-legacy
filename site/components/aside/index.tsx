@@ -4,10 +4,6 @@ import routes, { ChildrenRoute, ComponentRoute, Route } from '../../routes'
 
 import './index.scss'
 
-export default function () {
-  return <div className='aside'>{buildMenus(routes)}</div>
-}
-
 const buildMenus = (routeArray: Route[]) => {
   const nodes: React.ReactNode[] = []
   routeArray.forEach((it, index) => {
@@ -29,4 +25,8 @@ const buildMenus = (routeArray: Route[]) => {
     }
   })
   return <ul className='menus'>{nodes}</ul>
+}
+
+export default function () {
+  return <div className='aside'>{buildMenus(routes)}</div>
 }
