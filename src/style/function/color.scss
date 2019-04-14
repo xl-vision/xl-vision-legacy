@@ -1,11 +1,10 @@
 @function color-level($color, $level: 0, $interval: 10%) {
   $color-base: if($level > 0, #000, #fff);
   $level: abs($level);
-
   @return mix($color-base, $color, $level * $interval);
 }
 
-@function color-yiq($color, $dark, $light, $threshold: 210) {
+@function color-yiq($color, $dark, $light, $threshold: 200) {
   $r: red($color);
   $g: green($color);
   $b: blue($color);

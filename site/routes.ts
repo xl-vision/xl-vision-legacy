@@ -23,6 +23,16 @@ const routes: Route[] = [
     redirect: '/grid'
   },
   {
+    name: '基础',
+    children: [
+      {
+        name: '色彩',
+        path: '/color',
+        component: () => import('./docs/color/index.md')
+      }
+    ]
+  },
+  {
     name: '布局',
     children: [
       {

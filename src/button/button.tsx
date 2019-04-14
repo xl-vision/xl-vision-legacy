@@ -12,18 +12,20 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactElement
   loading?: boolean
   long?: boolean
+  plain?: boolean
   round?: boolean
   target?: string
-  type?: 'primary' | 'success' | 'warning' | 'error' | 'text' | 'default',
+  type?: 'primary' | 'success' | 'warning' | 'error' | 'text' | 'default'
 }
 
 const displayName = `${namePrefix}-button`
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
-  const { disabled, ghost, href, htmlType, icon, loading, long, round, target, type = 'default', className, style, children, ...others } = props
+  const { disabled, ghost, plain, href, htmlType, icon, loading, long, round, target, type = 'default', className, style, children, ...others } = props
   const classes = classnames({
     [displayName]: true,
     [`${displayName}--${type}`]: true,
+    [`${displayName}--plain`]: plain,
     [`${displayName}--round`]: round,
     [`${displayName}--long`]: long,
     [`${displayName}--ghost`]: ghost,
@@ -34,7 +36,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
   const actualIcon = loading ? <FasSpinner spin={true}/> : icon
 
   return (
-    <button className={classes}>
+    <button className={classes} {...others}>
       {[actualIcon, children]}
     </button>
   )

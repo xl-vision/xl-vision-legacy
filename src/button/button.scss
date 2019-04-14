@@ -1,11 +1,107 @@
 @import '../style/commons/var';
+@import "../style/function/color";
 
-.a {
-  color: red;
+// mixins
+@mixin button-variant($background) {
+  $border: $background;
+  $background-hover: color-level($background, $--button-color-level);
+  $border-hover: $background-hover;
+  $background-active: color-level($background-hover, $--button-color-level);
+  $border-active: $background-active;
 
-  @extend %b;
+  color: color-yiq($background, $--text-color, $--text-color-light);
+  background-color: $background;
+  border-color: $border;
+  // box-shadow: $--btn-box-shadow;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    color: color-yiq($background-hover, $--text-color, $--text-color-light);
+    background-color: $background-hover;
+    border-color: $border-hover;
+  }
+
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, 0.5);
+  }
+
+  &:active:not(:disabled) {
+    color: color-yiq($background-active, $--text-color, $--text-color-light);
+    background-color: $background-active;
+    border-color: $border-active;
+    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-active, 0.5);
+  }
 }
 
-%b {
-  color: green;
+@mixin button-outline-variant($color) {
+  $border: $color;
+  $color-hover: color-level($border, $--button-color-level);
+  $border-hover: $color-hover;
+  $color-active: color-level($color-hover, $--button-color-level);
+  $border-active: $color-active;
+
+  color: $color;
+  background-color: transparent;
+  background-image: none;
+  border-color: $border;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    color: $color-hover;
+    background-color: transparent;
+    border-color: $border-hover;
+  }
+
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, 0.5);
+  }
+
+  &:active:not(:disabled) {
+    color: $color-active;
+    border-color: $border-active;
+    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-active, 0.5);
+  }
+}
+
+.#{$--cls-prefix}-button {
+  display: inline-block;
+  padding: $--button-padding-y $--button-padding-x;
+  font-weight: $--button-font-weight;
+  font-size: $--button-font-size;
+  line-height: $--button-line-height;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  border: $--button-border-width solid transparent;
+  border-radius: $--button-border-radius;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+
+  //&--default {
+  //  background-color: transparent;
+  //  border-color: $--border-color;
+  //
+  //  &:hover,
+  //  &:focus {
+  //    color: $--color-primary;
+  //
+  //  }
+  //}
+  //
+  //&--text {
+  //  background-color: transparent;
+  //
+  //}
+  @each $key, $value in $--button-theme-color {
+    &--#{$key} {
+
+      @include button-variant($value);
+    }
+
+    &.#{$--cls-prefix}-button--plain {
+
+      @include button-outline-variant($value);
+    }
+  }
 }

@@ -2,11 +2,11 @@
 @import '../function/color';
 //prefix
 
-$--cls-prefix:                 'xl'                                                  !default;
+$--cls-prefix:                  'xl'                                                 !default;
 
 // color
-$--color-white:               #ffffff                                              !default;
-$--color-black:               #000000                                              !default;
+$--color-white:                 #ffffff                                              !default;
+$--color-black:                 #000000                                              !default;
 
 // gray
 $--color-gray-0:                color-level($--color-white, 0)                       !default;
@@ -21,27 +21,47 @@ $--color-gray-800:              color-level($--color-white, 8)                  
 $--color-gray-900:              color-level($--color-white, 9)                       !default;
 $--color-gray-1000:             color-level($--color-white, 10)                      !default;
 
+$--color-gray: (
+        '0':    $--color-gray-0,
+        '100':  $--color-gray-100,
+        '200':  $--color-gray-200,
+        '300':  $--color-gray-300,
+        '400':  $--color-gray-400,
+        '500':  $--color-gray-500,
+        '600':  $--color-gray-600,
+        '700':  $--color-gray-700,
+        '800':  $--color-gray-800,
+        '900':  $--color-gray-900,
+        '1000': $--color-gray-1000
+)                                                                                    !default;
+
+
 // base color
-$--color-blue:                #007bff                                              !default;
-$--color-indigo:              #6610f2                                              !default;
-$--color-purple:              #6f42c1                                              !default;
-$--color-pink:                #e83e8c                                              !default;
-$--color-red:                 #dc3545                                              !default;
-$--color-orange:              #fd7e14                                              !default;
-$--color-yellow:              #ffc107                                              !default;
-$--color-green:               #28a745                                              !default;
-$--color-teal:                #20c997                                              !default;
-$--color-cyan:                #17a2b8                                              !default;
+$--color-blue:                  #007bff                                              !default;
+$--color-indigo:                #6610f2                                              !default;
+$--color-purple:                #6f42c1                                              !default;
+$--color-pink:                  #e83e8c                                              !default;
+$--color-red:                   #dc3545                                              !default;
+$--color-orange:                #fd7e14                                              !default;
+$--color-yellow:                #ffc107                                              !default;
+$--color-green:                 #28a745                                              !default;
+$--color-teal:                  #20c997                                              !default;
+$--color-cyan:                  #17a2b8                                              !default;
 
 // theme color
 $--color-primary:               $--color-blue                                        !default;
-$--color-secondary:             $--color-gray-600                                    !default;
 $--color-success:               $--color-green                                       !default;
 $--color-info:                  $--color-cyan                                        !default;
 $--color-warning:               $--color-yellow                                      !default;
-$--color-danger:                $--color-red                                         !default;
-$--color-dark:                  $--color-gray-800                                    !default;
+$--color-error:                 $--color-red                                         !default;
 
+$--color-theme: (
+        'primary':    $--color-primary,
+        'success':    $--color-success,
+        'info':       $--color-info,
+        'warning':    $--color-warning,
+        'error':      $--color-error,
+)                                                                                    !default;
 
 //body
 $--body-color:                  $--color-gray-100                                    !default;
@@ -53,7 +73,7 @@ $--bg-color:                    $--color-gray-0                                 
 //text color
 $--text-color:                  $--color-gray-900                                    !default;
 $--text-color-second:           $--color-gray-800                                    !default;
-$--text-color-light:            $--color-gray-1000                                   !default;
+$--text-color-light:            $--color-gray-0                                      !default;
 $--link-color:                  $--color-primary                                     !default;
 $--link-color--hover:           color-level($--link-color, 1)                        !default;
 
@@ -126,3 +146,15 @@ $--grid-span:                   24                                              
 // icon
 $--icon-font-size:              1rem                                                 !default;
 $--icon-spin-time:              1.25s                                                !default;
+
+// button
+$--button-font-weight:          $--font-weight                                       !default;
+$--button-border-width:         $--border-width                                      !default;
+$--button-padding-y:            0.375                                      !default;
+$--button-padding-x:            0.75                                      !default;
+$--button-font-size:            $--font-size                                      !default;
+$--button-line-height:            $--line-height                                    !default;
+$--button-border-radius:            $--border-radius                                    !default;
+$--button-color-level:            1                                    !default;
+$--button-box-shadow-width:            0.25rem                                    !default;
+$--button-theme-color: map_merge((), $--color-theme)!default;

@@ -1,0 +1,49 @@
+@import "../../assets/style/var";
+@import "../../../src/style/function/color";
+
+$--color-base: (
+  'blue': $--color-blue,
+  'indigo': $--color-indigo,
+  'purple': $--color-purple,
+  'pink': $--color-pink,
+  'red': $--color-red,
+  'orange': $--color-orange,
+  'yellow': $--color-yellow,
+  'green': $--color-green,
+  'teal': $--color-teal,
+  'cyan': $--color-cyan,
+);
+
+.color-list {
+  .item {
+    display: inline-block;
+    width: 12rem;
+    height: 6rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    line-height: 6rem;
+    text-align: center;
+    border-radius: $--border-radius;
+  }
+
+  @each $key, $value in $--color-theme {
+    .color-theme-#{$key} {
+      color: color-yiq($value, $--text-color, $--text-color-light);
+      background-color: $value;
+    }
+  }
+
+  @each $key, $value in $--color-gray {
+    .color-gray-#{$key} {
+      color: color-yiq($value, $--text-color, $--text-color-light);
+      background-color: $value;
+    }
+  }
+
+  @each $key, $value in $--color-base {
+    .color-base-#{$key} {
+      color: color-yiq($value, $--text-color, $--text-color-light);
+      background-color: $value;
+    }
+  }
+}

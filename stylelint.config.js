@@ -9,7 +9,8 @@ module.exports = {
     'at-rule-empty-line-before': [
       'always', {
         'except': ['blockless-after-blockless'],
-        'ignoreAtRules': [ 'else', 'return' ]
+        'ignore': ['after-comment'],
+        'ignoreAtRules': ['else', 'return']
       }
     ],
     'block-closing-brace-newline-after': [
@@ -31,6 +32,8 @@ module.exports = {
     'scss/operator-no-newline-after': true,
     'scss/operator-no-newline-before': true,
     'scss/selector-no-redundant-nesting-selector': true,
-    'scss/no-duplicate-dollar-variables': true
+    'scss/no-duplicate-dollar-variables': {
+      ignoreInside: ['nested-at-rule']
+    }
   }
 }

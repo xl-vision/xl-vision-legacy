@@ -6,15 +6,23 @@ imports:
 # 按钮
 
 :::demo 基础用法
-基础用法
+通过`type`指定按钮的主题色
 
 ```jsx
 export default () => {
     return (
-        <Button>按钮</Button>
+        <div className='button-column'>
+            <Button>Default</Button>
+            <Button type='primary'>Primary</Button>
+            <Button type='success'>Success</Button>
+            <Button type='warning'>Warning</Button>
+            <Button type='error'>Error</Button>
+            <Button type='text'>Text</Button>
+        </div>
     )
 }
 ```
+
 :::
 
 :::demo 加载中状态
@@ -27,4 +35,5 @@ export default () => {
     )
 }
 ```
+
 :::
