@@ -29,10 +29,10 @@
   &_a {
     color: $--link-color;
     text-decoration: none;
-    transition: color $animation-duration-base ease-in-out, text-decoration $animation-duration-base ease-in-out;
+    transition: color $animation-duration ease-in-out, text-decoration $animation-duration ease-in-out;
 
     &:hover {
-      color: $--link-color--hover;
+      color: $--link-color-hover;
       text-decoration: underline;
     }
   }

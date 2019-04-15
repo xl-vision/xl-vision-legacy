@@ -14,7 +14,7 @@
     border: 1px $--border-color solid;
     border-radius: $--border-radius;
     outline: none;
-    transition: border-color $animation-duration-base ease-in-out;
+    transition: border-color $animation-duration ease-in-out;
 
     &:hover {
       border-color: $--border-color-hover;
@@ -39,10 +39,10 @@
       height: 100px;
       border-radius: $--border-radius;
       cursor: pointer;
-      transition: background-color $animation-duration-base ease-in-out;
+      transition: background-color $animation-duration ease-in-out;
 
       svg {
-        transition: fill $animation-duration-base ease-in-out;
+        transition: fill $animation-duration ease-in-out;
       }
 
       &:hover {
@@ -61,7 +61,7 @@
       color: $--bg-color;
       font-size: 0.8rem;
       transform: translateX(-50%);
-      transition: opacity $animation-duration-base ease-in-out;
+      transition: opacity $animation-duration ease-in-out;
     }
   }
 }

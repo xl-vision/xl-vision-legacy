@@ -4,7 +4,7 @@
   @return mix($color-base, $color, $level * $interval);
 }
 
-@function color-yiq($color, $dark, $light, $threshold: 200) {
+@function color-yiq($color, $dark, $light, $threshold: 150) {
   $r: red($color);
   $g: green($color);
   $b: blue($color);

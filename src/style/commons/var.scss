@@ -75,7 +75,7 @@ $--text-color:                  $--color-gray-900                               
 $--text-color-second:           $--color-gray-800                                    !default;
 $--text-color-light:            $--color-gray-0                                      !default;
 $--link-color:                  $--color-primary                                     !default;
-$--link-color--hover:           color-level($--link-color, 1)                        !default;
+$--link-color-hover:           color-level($--link-color, -2)                        !default;
 
 // border
 $--border-color:                $--color-gray-300                                    !default;
@@ -117,9 +117,9 @@ $--font-weight-bold:            700                                             
 $--font-weight-bolder:          bolder                                               !default;
 
 // animation
-$animation-duration-base:     .6s                         !default;
-$animation-duration-fast:     .4s                         !default;
-$animation-duration-slow:     .8s                         !default;
+$animation-duration:       .4s                         !default;
+$animation-duration-fast:       .25s                         !default;
+$animation-duration-slow:       .6s                         !default;
 
 // opacity
 $--opacity-disabled:          .65                         !default;
@@ -150,11 +150,12 @@ $--icon-spin-time:              1.25s                                           
 // button
 $--button-font-weight:          $--font-weight                                       !default;
 $--button-border-width:         $--border-width                                      !default;
-$--button-padding-y:            0.375                                      !default;
-$--button-padding-x:            0.75                                      !default;
+$--button-padding-y:            0.2rem                                      !default;
+$--button-padding-x:            0.7rem                                      !default;
 $--button-font-size:            $--font-size                                      !default;
 $--button-line-height:            $--line-height                                    !default;
 $--button-border-radius:            $--border-radius                                    !default;
-$--button-color-level:            1                                    !default;
-$--button-box-shadow-width:            0.25rem                                    !default;
+$--button-color-level:            -2                                    !default;
+$--button-box-shadow-width:            1px                                    !default;
 $--button-theme-color: map_merge((), $--color-theme)!default;
+$--button-animation-time: $animation-duration-fast !default;

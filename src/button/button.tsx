@@ -15,7 +15,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   plain?: boolean
   round?: boolean
   target?: string
-  type?: 'primary' | 'success' | 'warning' | 'error' | 'text' | 'default'
+  type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
 
 const displayName = `${namePrefix}-button`

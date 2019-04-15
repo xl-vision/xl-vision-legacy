@@ -6,7 +6,7 @@
   $border: $background;
   $background-hover: color-level($background, $--button-color-level);
   $border-hover: $background-hover;
-  $background-active: color-level($background-hover, $--button-color-level);
+  $background-active: $background-hover;
   $border-active: $background-active;
 
   color: color-yiq($background, $--text-color, $--text-color-light);
@@ -37,18 +37,18 @@
   $border: $color;
   $color-hover: color-level($border, $--button-color-level);
   $border-hover: $color-hover;
-  $color-active: color-level($color-hover, $--button-color-level);
+  $color-active: $color-hover;
   $border-active: $color-active;
 
   color: $color;
-  background-color: transparent;
+  background-color: $--bg-color;
   background-image: none;
   border-color: $border;
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     color: $color-hover;
-    background-color: transparent;
+    background-color: $--bg-color;
     border-color: $border-hover;
   }
 
@@ -76,32 +76,55 @@
   border-radius: $--button-border-radius;
   outline: none;
   cursor: pointer;
+  transition:
+    color $--button-animation-time ease-in-out,
+    border-color $--button-animation-time ease-in-out,
+    background-color $--button-animation-time ease-in-out,
+    box-shadow $--button-animation-time ease-in-out,
+    text-decoration $--button-animation-time ease-in-out;
   user-select: none;
 
-  //&--default {
-  //  background-color: transparent;
-  //  border-color: $--border-color;
-  //
-  //  &:hover,
-  //  &:focus {
-  //    color: $--color-primary;
-  //
-  //  }
-  //}
-  //
-  //&--text {
-  //  background-color: transparent;
-  //
-  //}
+  &--default {
+    background-color: $--bg-color;
+    border-color: $--border-color;
+
+    &:hover,
+    &:focus {
+      color: $--color-primary;
+      background-color: color-level($--color-primary, -8);
+      border-color: color-level($--color-primary, -4);
+    }
+
+    &.#{$--cls-prefix}-button--plain {
+      &:hover,
+      &:focus {
+        color: $--color-primary;
+        background-color: $--bg-color;
+        border-color: $--color-primary;
+      }
+    }
+  }
+
+  &--text {
+    color: $--link-color;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      color: $--link-color-hover;
+      text-decoration: underline;
+    }
+  }
+
   @each $key, $value in $--button-theme-color {
     &--#{$key} {
 
       @include button-variant($value);
-    }
 
-    &.#{$--cls-prefix}-button--plain {
+      &.#{$--cls-prefix}-button--plain {
 
-      @include button-outline-variant($value);
+        @include button-outline-variant($value);
+      }
     }
   }
 }
