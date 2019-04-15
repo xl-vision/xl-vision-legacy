@@ -30,12 +30,12 @@ export default () => {
                 <Button plain type='text'>Text</Button>
             </div>
             <div className='button-column'>
-                <Button icon={<Icon.FasPowerOff/>}>Default</Button>
-                <Button icon={<Icon.FasPowerOff/>} type='primary'>Primary</Button>
-                <Button icon={<Icon.FasPowerOff/>} type='success'>Success</Button>
-                <Button icon={<Icon.FasPowerOff/>} type='warning'>Warning</Button>
-                <Button icon={<Icon.FasPowerOff/>} type='error'>Error</Button>
-                <Button icon={<Icon.FasPowerOff/>} type='text'>Text</Button>
+                <Button><Icon.FasPowerOff/>Default</Button>
+                <Button type='primary'>Primary<Icon.FasPowerOff/></Button>
+                <Button type='success'><Icon.FasPowerOff/>Success</Button>
+                <Button type='warning'><Icon.FasPowerOff/>Warning</Button>
+                <Button type='error'><Icon.FasPowerOff/>Error</Button>
+                <Button type='text'><Icon.FasPowerOff/>Text</Button>
             </div>
         </div>
     )
@@ -60,12 +60,12 @@ export default () => {
                 <Button shape='round' type='text'>Text</Button>
             </div>
             <div className='button-column'>
-                <Button shape='circle' icon={<Icon.FasPowerOff/>}/>
-                <Button shape='circle' icon={<Icon.FasPowerOff/>} type='primary'/>
-                <Button shape='circle' icon={<Icon.FasPowerOff/>} type='success'/>
-                <Button shape='circle' icon={<Icon.FasPowerOff/>} type='warning'/>
-                <Button shape='circle' icon={<Icon.FasPowerOff/>} type='error'/>
-                <Button shape='circle' icon={<Icon.FasPowerOff/>} type='text'/>
+                <Button shape='circle'><Icon.FasPowerOff/></Button>
+                <Button shape='circle' type='primary'><Icon.FasPowerOff/></Button>
+                <Button shape='circle' type='success'><Icon.FasPowerOff/></Button>
+                <Button shape='circle' type='warning'><Icon.FasPowerOff/></Button>
+                <Button shape='circle' type='error'><Icon.FasPowerOff/></Button>
+                <Button shape='circle' type='text'><Icon.FasPowerOff/></Button>
             </div>
         </div>
     )

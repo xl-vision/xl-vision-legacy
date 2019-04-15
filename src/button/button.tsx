@@ -11,7 +11,6 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HT
   ghost?: boolean
   href?: string
   htmlType?: 'submit' | 'reset' | 'button'
-  icon?: React.ReactElement
   loading?: boolean
   long?: boolean
   plain?: boolean
@@ -22,8 +21,17 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HT
 
 const displayName = `${namePrefix}-button`
 
+const formatChildren = (children: React.ReactNode) => {
+  return React.Children.map(children, child => {
+    if (typeof child === 'string') {
+      return <span>{child}</span>
+    }
+    return child
+  })
+}
+
 const Button: React.FunctionComponent<ButtonProps> = props => {
-  const { disabled, ghost, plain, href, htmlType, icon, loading, long, shape, target, type = 'default', className, children, ...others } = props
+  const { disabled, ghost, plain, href, htmlType, loading, long, shape, target, type = 'default', className, children, ...others } = props
   const classes = classnames({
     [displayName]: true,
     [`${displayName}--${type}`]: true,
@@ -34,14 +42,10 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     [`${displayName}--loading`]: loading
   }, className)
 
-  const actualIcon = loading ? <FasSpinner className={`${displayName}__icon`} spin={true}/> : icon ? React.cloneElement(icon, {
-    className: classnames(`${displayName}__icon`, icon.props.className)
-  }) : null
-
   const childrenWrapper = (
     <>
-      {actualIcon}
-      {children && <span>{children}</span>}
+      {loading && <FasSpinner className={`${displayName}__icon`} spin={true}/>}
+      {formatChildren(children)}
     </>
   )
 
@@ -70,7 +74,6 @@ Button.propTypes = {
   ghost: PropTypes.bool,
   href: PropTypes.string,
   htmlType: PropTypes.oneOf<'submit' | 'reset' | 'button'>(['submit', 'reset', 'button']),
-  icon: PropTypes.element,
   loading: PropTypes.bool,
   long: PropTypes.bool,
   plain: PropTypes.bool,

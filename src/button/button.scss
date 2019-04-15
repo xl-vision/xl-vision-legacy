@@ -84,10 +84,6 @@
   -webkit-appearance: none;
   user-select: none;
 
-  &__icon + span {
-    padding-left: $--button-icon-padding;
-  }
-
   &--round {
     border-radius: ($--button-padding-y + $--button-font-size);
   }
@@ -113,6 +109,11 @@
   &:disabled {
     cursor: not-allowed;
     opacity: $--button-opacity-disabled;
+  }
+
+  .#{$--cls-prefix}-icon + span,
+  span + .#{$--cls-prefix}-icon{
+    padding-left: $--button-icon-padding;
   }
 
   &--default {
