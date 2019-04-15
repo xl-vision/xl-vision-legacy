@@ -1,5 +1,11 @@
+@import '../../style/commons/var';
+
 .button-column {
   .xl-button {
     margin: 0.5rem;
+  }
+
+  &.ghost {
+    background-color: $--color-gray-200;
   }
 }

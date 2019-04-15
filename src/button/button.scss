@@ -41,14 +41,14 @@
   $border-active: $color-active;
 
   color: $color;
-  background-color: $--bg-color;
+  background-color: transparent;
   background-image: none;
   border-color: $border;
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     color: $color-hover;
-    background-color: $--bg-color;
+    background-color: transparent;
     border-color: $border-hover;
   }
 
@@ -68,10 +68,10 @@
   padding: $--button-padding-y $--button-padding-x;
   font-weight: $--button-font-weight;
   font-size: $--button-font-size;
-  line-height: $--button-line-height;
+  // line-height: $--button-line-height;
   white-space: nowrap;
   text-align: center;
-  vertical-align: middle;
+  text-decoration: none;
   border: $--button-border-width solid transparent;
   border-radius: $--button-border-radius;
   outline: none;
@@ -80,26 +80,60 @@
     color $--button-animation-time ease-in-out,
     border-color $--button-animation-time ease-in-out,
     background-color $--button-animation-time ease-in-out,
-    box-shadow $--button-animation-time ease-in-out,
-    text-decoration $--button-animation-time ease-in-out;
+    box-shadow $--button-animation-time ease-in-out;
+  -webkit-appearance: none;
   user-select: none;
+
+  &__icon + span {
+    padding-left: $--button-icon-padding;
+  }
+
+  &--round {
+    border-radius: ($--button-padding-y + $--button-font-size);
+  }
+
+  &--circle {
+    min-height: $--button-padding-y * 2 + $--button-font-size;
+    padding: $--button-padding-y;
+    line-height: 0;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+
+  &--loading {
+    opacity: $--button-opacity-disabled;
+    pointer-events: none;
+  }
+
+  &--long {
+    display: block;
+    width: 100%;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: $--button-opacity-disabled;
+  }
 
   &--default {
     background-color: $--bg-color;
     border-color: $--border-color;
 
-    &:hover,
-    &:focus {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
       color: $--color-primary;
       background-color: color-level($--color-primary, -8);
       border-color: color-level($--color-primary, -4);
     }
 
-    &.#{$--cls-prefix}-button--plain {
-      &:hover,
-      &:focus {
+    &.#{$--cls-prefix}-button--plain,
+    &.#{$--cls-prefix}-button--ghost {
+      background-color: transparent;
+
+      &:hover:not(:disabled),
+      &:focus:not(:disabled) {
         color: $--color-primary;
-        background-color: $--bg-color;
+        background-color: transparent;
         border-color: $--color-primary;
       }
     }
@@ -112,7 +146,6 @@
     &:hover,
     &:focus {
       color: $--link-color-hover;
-      text-decoration: underline;
     }
   }
 
@@ -121,10 +154,20 @@
 
       @include button-variant($value);
 
+      &.#{$--cls-prefix}-button--ghost,
       &.#{$--cls-prefix}-button--plain {
 
         @include button-outline-variant($value);
       }
+    }
+  }
+
+  &--plain {
+    background-color: $--bg-color !important;
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+      background-color: $--bg-color !important;
     }
   }
 }

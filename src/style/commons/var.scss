@@ -65,7 +65,7 @@ $--color-theme: (
 
 //body
 $--body-color:                  $--color-gray-100                                    !default;
-$--body-font-size:              16px                                                 !default;
+$--body-font-size:              14px                                                 !default;
 
 //background
 $--bg-color:                    $--color-gray-0                                      !default;
@@ -93,7 +93,7 @@ $--box-shadow-lg:               0 1rem 3rem rgba($--color-gray-1000, .175)      
 
 // line-height
 $--line-height:                 1.5                                                  !default;
-$--line-height-sm:              1.2                                                  !default;
+$--line-height-sm:              1                                                  !default;
 $--line-height-lg:              1.8                                                  !default;
 
 // font
@@ -145,17 +145,19 @@ $--grid-span:                   24                                              
 
 // icon
 $--icon-font-size:              1rem                                                 !default;
-$--icon-spin-time:              1.25s                                                !default;
+$--icon-spin-time:              1.5s                                                !default;
 
 // button
 $--button-font-weight:          $--font-weight                                       !default;
 $--button-border-width:         $--border-width                                      !default;
-$--button-padding-y:            0.2rem                                      !default;
+$--button-padding-y:            0.4rem                                      !default;
 $--button-padding-x:            0.7rem                                      !default;
 $--button-font-size:            $--font-size                                      !default;
-$--button-line-height:            $--line-height                                    !default;
+$--button-line-height:            1                                    !default;
 $--button-border-radius:            $--border-radius                                    !default;
 $--button-color-level:            -2                                    !default;
 $--button-box-shadow-width:            1px                                    !default;
 $--button-theme-color: map_merge((), $--color-theme)!default;
 $--button-animation-time: $animation-duration-fast !default;
+$--button-icon-padding: 0.25rem !default;
+$--button-opacity-disabled: $--opacity-disabled !default;
