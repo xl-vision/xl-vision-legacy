@@ -85,7 +85,7 @@
   user-select: none;
 
   &--round {
-    border-radius: ($--button-padding-y + $--button-font-size);
+    border-radius: $--button-padding-y + $--button-font-size;
   }
 
   &--circle {
@@ -99,6 +99,10 @@
   &--loading {
     opacity: $--button-opacity-disabled;
     pointer-events: none;
+  }
+
+  &--dashed {
+    border-style: dashed;
   }
 
   &--long {

@@ -6,7 +6,7 @@ import useMedia, {
   BreakPoint,
   breakPointArray
 } from '../commons/hooks/useMedia'
-import RowContext from './rowContext'
+import RowContext from './row-context'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 

@@ -7,6 +7,7 @@ import { FasSpinner } from '../icon'
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   children?: React.ReactNode
   className?: string
+  dashed?: boolean
   disabled?: boolean
   ghost?: boolean
   href?: string
@@ -15,7 +16,6 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HT
   long?: boolean
   plain?: boolean
   shape?: 'circle' | 'round'
-  target?: string
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
 
@@ -31,11 +31,12 @@ const formatChildren = (children: React.ReactNode) => {
 }
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
-  const { disabled, ghost, plain, href, htmlType, loading, long, shape, target, type = 'default', className, children, ...others } = props
+  const { dashed, disabled, ghost, plain, href, htmlType, loading, long, shape, type = 'default', className, children, ...others } = props
   const classes = classnames({
     [displayName]: true,
     [`${displayName}--${type}`]: true,
     [`${displayName}--${shape}`]: shape,
+    [`${displayName}--dashed`]: dashed,
     [`${displayName}--plain`]: plain,
     [`${displayName}--ghost`]: ghost,
     [`${displayName}--long`]: long,
@@ -54,7 +55,6 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     className: classes,
     disabled,
     href,
-    target,
     type: htmlType,
     ...others
   }
@@ -78,7 +78,6 @@ Button.propTypes = {
   long: PropTypes.bool,
   plain: PropTypes.bool,
   shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
-  target: PropTypes.string,
   type: PropTypes.oneOf<'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'>(['default' , 'primary' , 'success' , 'warning' , 'error' , 'text'])
 }
 

@@ -1,13 +1,14 @@
 ---
 imports:
     - import Button from '..'
+    - import ButtonGroup from '../button-group'
     - import Icon from '../../icon'
     - import './style.scss'
 ---
 # 按钮
 
 :::demo 基础用法
-通过`type`指定按钮的主题色
+通过`type`、`plain`、`dashed`指定按钮的样式，按钮中也可以添加[Icon](#/icon)。
 
 ```jsx
 export default () => {
@@ -28,6 +29,14 @@ export default () => {
                 <Button plain type='warning'>Warning</Button>
                 <Button plain type='error'>Error</Button>
                 <Button plain type='text'>Text</Button>
+            </div>
+            <div className='button-column'>
+                <Button plain dashed>Default</Button>
+                <Button plain dashed type='primary'>Primary</Button>
+                <Button plain dashed type='success'>Success</Button>
+                <Button plain dashed type='warning'>Warning</Button>
+                <Button plain dashed type='error'>Error</Button>
+                <Button plain dashed type='text'>Text</Button>
             </div>
             <div className='button-column'>
                 <Button><Icon.FasPowerOff/>Default</Button>
@@ -183,3 +192,96 @@ export default () => {
 ```
 
 :::
+
+:::demo 按钮组
+通过ButtonGroup包裹按钮，可以组成按钮组
+
+```jsx
+export default () => {
+    return (
+        <div className='button-wrapper'>
+            <div>
+                <ButtonGroup>
+                    <Button>Default</Button>
+                    <Button type='primary'>Primary</Button>
+                    <Button type='success'>Success</Button>
+                    <Button type='warning'>Warning</Button>
+                    <Button type='error'>Error</Button>
+                </ButtonGroup>
+            </div>
+            <div>
+                <ButtonGroup round>
+                    <Button>Default</Button>
+                    <Button type='primary'>Primary</Button>
+                    <Button type='success'>Success</Button>
+                    <Button type='warning'>Warning</Button>
+                    <Button type='error'>Error</Button>
+                </ButtonGroup>
+            </div>
+            <div>
+                <ButtonGroup>
+                    <Button><Icon.FasChevronLeft/>上一页</Button>
+                    <Button>下一页<Icon.FasChevronRight/></Button>
+                </ButtonGroup>
+            </div>
+        </div>
+    )
+}
+```
+
+:::
+
+
+:::demo 垂直方向的按钮组
+通过指定`vertical`属性，可以组成垂直方向的按钮组
+
+```jsx
+export default () => {
+    return (
+        <div className='button-wrapper'>
+            <ButtonGroup vertical>
+                <Button>Default</Button>
+                <Button type='primary'>Primary</Button>
+                <Button type='success'>Success</Button>
+                <Button type='warning'>Warning</Button>
+                <Button type='error'>Error</Button>
+            </ButtonGroup>
+            <ButtonGroup vertical round>
+                <Button>Default</Button>
+                <Button type='primary'>Primary</Button>
+                <Button type='success'>Success</Button>
+                <Button type='warning'>Warning</Button>
+                <Button type='error'>Error</Button>
+            </ButtonGroup>
+            <ButtonGroup vertical>
+                <Button><Icon.FasChevronUp/>上一页</Button>
+                <Button><Icon.FasChevronDown/>下一页</Button>
+            </ButtonGroup>
+        </div>
+    )
+}
+```
+
+:::
+
+## Button 属性
+| 参数    | 说明        | 类型       | 可选值   | 默认值 |
+| ------- | -------- | --------- | ------------ | ------ |
+| dashed|设置按钮边框为虚线样式，需要和`plain`连用才能显示出效果|boolean|-|false|
+| disabled|禁止按钮|boolean|-|false|
+|ghost|幽灵属性，使按钮背景透明|boolean|-|false|
+|href|点击跳转地址，此时button行为与a标签一致|string|-|-|
+|htmlType|设置button的原生`type`值|string|submit/reset/button|-|
+|loading|设置按钮为加载中|boolean|-|false|
+|long|设置为长按钮|boolean|-|false|
+|plain|设置为朴素按钮|boolean|-|false|
+|shape|设置按钮的形状，通常`circle`与[Icon](#/icon)连用|string|cirlce/round|-|
+|type|设置按钮类型|string|default/primary/success/warning/error/text|default|
+
+
+
+## ButtonGroup属性
+| 参数    | 说明        | 类型       | 可选值   | 默认值 |
+| ------- | -------- | --------- | ------------ | ------ |
+|round|指定按钮组中按钮的圆角样式|boolean|-|false|
+|vertical|指定按钮组为垂直方向|boolean|-|false|

@@ -1,1 +1,87 @@
 @import '../style/commons/var';
+
+.#{$--cls-prefix}-button-group {
+  position: relative;
+  display: inline-block;
+
+  .#{$--cls-prefix}-button {
+    position: relative;
+    z-index: 0;
+
+    &:focus,
+    &:hover {
+      z-index: 1;
+    }
+  }
+
+  &--horizontal {
+    .#{$--cls-prefix}-button {
+      float: left;
+
+      &:first-child:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:last-child:not(:first-child) {
+        margin-left: -$--button-border-width;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+      }
+    }
+
+    &.#{$--cls-prefix}-button-group--round {
+      .#{$--cls-prefix}-button {
+        &:first-child {
+          border-top-left-radius: $--button-padding-y + $--button-font-size;
+          border-bottom-left-radius: $--button-padding-y + $--button-font-size;
+        }
+
+        &:last-child {
+          border-top-right-radius: $--button-padding-y + $--button-font-size;
+          border-bottom-right-radius: $--button-padding-y + $--button-font-size;
+        }
+      }
+    }
+  }
+
+  &--vertical {
+    .#{$--cls-prefix}-button {
+      display: block;
+      width: 100%;
+
+      &:first-child:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:last-child:not(:first-child) {
+        margin-top: -$--button-border-width;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+      }
+    }
+
+    &.#{$--cls-prefix}-button-group--round {
+      .#{$--cls-prefix}-button {
+        &:first-child {
+          border-top-left-radius: $--button-padding-y + $--button-font-size;
+          border-top-right-radius: $--button-padding-y + $--button-font-size;
+        }
+
+        &:last-child {
+          border-bottom-right-radius: $--button-padding-y + $--button-font-size;
+          border-bottom-left-radius: $--button-padding-y + $--button-font-size;
+        }
+      }
+    }
+  }
+}
