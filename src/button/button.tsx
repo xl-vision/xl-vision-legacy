@@ -1,10 +1,12 @@
 import classnames from 'classnames'
+import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { FasSpinner } from '../icon'
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   children?: React.ReactNode
+  className?: string
   disabled?: boolean
   ghost?: boolean
   href?: string
@@ -60,5 +62,21 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 }
 
 Button.displayName = displayName
+
+Button.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  ghost: PropTypes.bool,
+  href: PropTypes.string,
+  htmlType: PropTypes.oneOf<'submit' | 'reset' | 'button'>(['submit', 'reset', 'button']),
+  icon: PropTypes.element,
+  loading: PropTypes.bool,
+  long: PropTypes.bool,
+  plain: PropTypes.bool,
+  shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
+  target: PropTypes.string,
+  type: PropTypes.oneOf<'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'>(['default' , 'primary' , 'success' , 'warning' , 'error' , 'text'])
+}
 
 export default Button
