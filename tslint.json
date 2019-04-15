@@ -39,6 +39,7 @@
     ],
     "interface-name": false,
     "jsx-no-multiline-js": false,
+    "jsx-boolean-value": [true, "always"],
     "max-line-length": false,
     "member-access": false,
     "member-ordering": [

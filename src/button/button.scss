@@ -116,7 +116,7 @@
   }
 
   .#{$--cls-prefix}-icon + span,
-  span + .#{$--cls-prefix}-icon{
+  span + .#{$--cls-prefix}-icon {
     padding-left: $--button-icon-padding;
   }
 

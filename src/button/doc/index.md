@@ -231,7 +231,6 @@ export default () => {
 
 :::
 
-
 :::demo 垂直方向的按钮组
 通过指定`vertical`属性，可以组成垂直方向的按钮组
 
@@ -265,6 +264,7 @@ export default () => {
 :::
 
 ## Button 属性
+
 | 参数    | 说明        | 类型       | 可选值   | 默认值 |
 | ------- | -------- | --------- | ------------ | ------ |
 | dashed|设置按钮边框为虚线样式，需要和`plain`连用才能显示出效果|boolean|-|false|
@@ -278,9 +278,8 @@ export default () => {
 |shape|设置按钮的形状，通常`circle`与[Icon](#/icon)连用|string|cirlce/round|-|
 |type|设置按钮类型|string|default/primary/success/warning/error/text|default|
 
-
-
 ## ButtonGroup属性
+
 | 参数    | 说明        | 类型       | 可选值   | 默认值 |
 | ------- | -------- | --------- | ------------ | ------ |
 |round|指定按钮组中按钮的圆角样式|boolean|-|false|
