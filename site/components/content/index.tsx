@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Loadable from 'react-loadable'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
 import routes, {
   ChildrenRoute,
@@ -17,10 +16,7 @@ const addRoute = (routeArray: Route[], level = '1') => {
     const key = `${level}_${index}`
     if ((it as ComponentRoute).component) {
       const componentRoute = it as ComponentRoute
-      const loadable = Loadable({
-        loader: componentRoute.component,
-        loading: () => null
-      })
+      const loadable = React.lazy(() => componentRoute.component)
       routeComponents.push(
         <ReactRoute
           exact={true}
@@ -48,6 +44,13 @@ const addRoute = (routeArray: Route[], level = '1') => {
 }
 
 addRoute(routes)
+
 export default function () {
-  return <div className='content'>{routeComponents}</div>
+  return (
+    <div className='content'>
+      <React.Suspense fallback={null}>
+        {routeComponents}
+      </React.Suspense>
+    </div>
+  )
 }

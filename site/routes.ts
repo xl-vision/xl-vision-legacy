@@ -9,7 +9,7 @@ export interface RedirectRoute {
 }
 
 export interface ComponentRoute {
-  component: () => Promise<any>
+  component: Promise<any>
   name: string
   path: string
 }
@@ -28,7 +28,7 @@ const routes: Route[] = [
       {
         name: '色彩',
         path: '/color',
-        component: () => import('./docs/color/index.md')
+        component: import('./docs/color/index.md')
       }
     ]
   },
@@ -38,7 +38,7 @@ const routes: Route[] = [
       {
         name: '栅格布局',
         path: '/grid',
-        component: () => import('../src/grid/doc/index.md')
+        component: import('../src/grid/doc/index.md')
       }
     ]
   },
@@ -48,12 +48,12 @@ const routes: Route[] = [
       {
         name: '图标',
         path: '/icon',
-        component: () => import('../src/icon/doc/index.md')
+        component: import('../src/icon/doc/index.md')
       },
       {
         name: '按钮',
         path: '/button',
-        component: () => import('../src/button/doc/index.md')
+        component: import('../src/button/doc/index.md')
       }
     ]
   }
