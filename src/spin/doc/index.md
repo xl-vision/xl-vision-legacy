@@ -27,9 +27,8 @@ export default function () {
 
 ```jsx
 export default function () {
-    const [display, setDisplay] = React.useState(false)
     return (
-        <Spin spinning={display}>
+        <Spin>
             <div className='inner'>Further details about the context of this alert.</div>
         </Spin>
     )
