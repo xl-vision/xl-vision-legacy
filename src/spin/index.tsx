@@ -8,13 +8,13 @@ export type SpinSize = 'small' | 'default' | 'large'
 export type SpinIndicator = React.ReactElement
 
 export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode
+  children?: React.ReactNode
   cover?: boolean
   delay?: number
   indicator?: SpinIndicator
   size?: SpinSize
-  spinning: boolean
-  tip: string
+  spinning?: boolean
+  tip?: string
   wrapperClassName?: string
 }
 

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
+import Spin from '../../../src/spin'
 import routes, {
   ChildrenRoute,
   ComponentRoute,
@@ -48,7 +49,7 @@ addRoute(routes)
 export default function () {
   return (
     <div className='content'>
-      <React.Suspense fallback={null}>
+      <React.Suspense fallback={<Spin cover={true}/>}>
         {routeComponents}
       </React.Suspense>
     </div>

@@ -14,7 +14,7 @@ export default class Layout extends React.Component<{}, {}> {
       <Router>
         <div className='layout'>
           <Header />
-          <Row className={'content-wrapper'}>
+          <Row className={'content-wrapper'} type={'flex'}>
             <Col span={6}>
               <Aside />
             </Col>

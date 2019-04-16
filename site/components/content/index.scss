@@ -1,7 +1,8 @@
 @import "../../assets/style/var";
 
 .content {
-  flex: auto;
+  position: relative;
+  min-height: 100%;
   margin-left: 1rem;
   background-color: $--bg-color;
 }
