@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import { FasSpinner } from '../icon'
+import { FasCircleNotch } from '../icon'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   children?: React.ReactNode
@@ -45,7 +45,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 
   const childrenWrapper = (
     <>
-      {loading && <FasSpinner className={`${displayName}__icon`} spin={true}/>}
+      {loading && <FasCircleNotch className={`${displayName}__icon`} spin={true}/>}
       {formatChildren(children)}
     </>
   )
