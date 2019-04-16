@@ -54,6 +54,11 @@ const routes: Route[] = [
         name: '按钮',
         path: '/button',
         component: import('../src/button/doc/index.md')
+      },
+      {
+        name: '加载中',
+        path: '/spin',
+        component: import('../src/spin/doc/index.md')
       }
     ]
   }

@@ -1,14 +1,16 @@
 @import '../style/commons/var';
 @import '../style/mixins/clearfix';
 
-.#{$--cls-prefix}-row {
+$row: #{$--cls-prefix}-row;
+
+.#{$row} {
   position: relative;
   box-sizing: border-box;
 
   @include clearfix();
 }
 
-.#{$--cls-prefix}-row-flex {
+.#{$row}-flex {
   display: flex;
   flex-direction: row;
 

@@ -1,0 +1,17 @@
+@import "../../style/commons/var";
+
+.inner {
+  width: 25rem;
+  height: 10rem;
+  background-color: $--color-gray-100;
+}
+
+.wrapper {
+  .xl-spin {
+    margin-right: 1rem;
+  }
+
+  .xl-button {
+    display: block;
+  }
+}

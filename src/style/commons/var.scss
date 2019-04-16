@@ -117,9 +117,9 @@ $--font-weight-bold:            700                                             
 $--font-weight-bolder:          bolder                                               !default;
 
 // animation
-$animation-duration:       .4s                         !default;
-$animation-duration-fast:       .25s                         !default;
-$animation-duration-slow:       .6s                         !default;
+$--animation-duration:       .4s                         !default;
+$--animation-duration-fast:       .25s                         !default;
+$--animation-duration-slow:       .6s                         !default;
 
 // opacity
 $--opacity-disabled:          .65                         !default;
@@ -144,7 +144,6 @@ $--grid-breakpoints: (
 $--grid-span:                   24                                                   !default;
 
 // icon
-$--icon-font-size:              1rem                                                 !default;
 $--icon-spin-time:              1.5s                                                !default;
 
 // button
@@ -158,6 +157,17 @@ $--button-border-radius:            $--border-radius                            
 $--button-color-level:            -2                                    !default;
 $--button-box-shadow-width:            1px                                    !default;
 $--button-theme-color: map_merge((), $--color-theme)!default;
-$--button-animation-time: $animation-duration-fast !default;
+$--button-animation-time: $--animation-duration-fast !default;
 $--button-icon-padding: 0.25rem !default;
 $--button-opacity-disabled: $--opacity-disabled !default;
+
+// spin
+$--spin-animation-time: $--animation-duration-fast !default;
+$--spin-tip-padding-top: 0.5rem !default;
+$--spin-tip-font-size: 0.5em !default;
+$--spin-color: $--color-primary !default;
+$--spin-wrapper-font-size--default: 2rem !default;
+$--spin-wrapper-font-size--small: 1rem !default;
+$--spin-wrapper-font-size--large: 3rem !default;
+$--spin-opacity: $--opacity-disabled !default;
+$--spin-background-color: $--bg-color !default;

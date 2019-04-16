@@ -1,6 +1,8 @@
 @import '../style/commons/var';
 @import "../style/function/color";
 
+$button: #{$--cls-prefix}-button;
+
 // mixins
 @mixin button-variant($background) {
   $border: $background;
@@ -63,7 +65,7 @@
   }
 }
 
-.#{$--cls-prefix}-button {
+.#{$button} {
   display: inline-block;
   padding: $--button-padding-y $--button-padding-x;
   font-weight: $--button-font-weight;
@@ -131,8 +133,8 @@
       border-color: color-level($--color-primary, -4);
     }
 
-    &.#{$--cls-prefix}-button--plain,
-    &.#{$--cls-prefix}-button--ghost {
+    &.#{$button}--plain,
+    &.#{$button}--ghost {
       background-color: transparent;
 
       &:hover:not(:disabled),
@@ -159,8 +161,8 @@
 
       @include button-variant($value);
 
-      &.#{$--cls-prefix}-button--ghost,
-      &.#{$--cls-prefix}-button--plain {
+      &.#{$button}--ghost,
+      &.#{$button}--plain {
 
         @include button-outline-variant($value);
       }

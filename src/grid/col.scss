@@ -1,7 +1,9 @@
 @import '../style/commons/var';
 @import '../style/mixins/clearfix';
 
-.#{$--cls-prefix}-col {
+$col: #{$--cls-prefix}-col;
+
+.#{$col} {
   float: left;
   box-sizing: border-box;
 

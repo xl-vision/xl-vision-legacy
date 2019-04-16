@@ -2,10 +2,8 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import useMedia, {
-  BreakPoint,
-  breakPointArray
-} from '../commons/hooks/useMedia'
+import useMedia, { BreakPoint, breakPointArray } from '../commons/hooks/useMedia'
+import { childrenValidator } from '../commons/utils/prop-type'
 import RowContext from './row-context'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -69,40 +67,13 @@ const Row: React.FunctionComponent<RowProps> = props => {
 
 Row.displayName = displayName
 
-const childrenValidater = (
-  props: RowProps,
-  propName: keyof RowProps,
-  componentName: string,
-  // @ts-ignore
-  location: string,
-  // @ts-ignore
-  propFullName: string
-) => {
-  let propValue = props[propName]
-
-  if (!Array.isArray(propValue)) {
-    propValue = [propValue]
-  }
-  for (const val of propValue) {
-    if (
-      !React.isValidElement(val) ||
-      (val.type as React.FunctionComponent).displayName !== 'xl-col'
-    ) {
-      return new Error(
-        `prop '${propName}' supplied to '${componentName}' should be a 'xl-col' or its array.`
-      )
-    }
-  }
-  return null
-}
-
 Row.propTypes = {
   align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>([
     'top',
     'middle',
     'bottom'
   ]),
-  children: childrenValidater,
+  children: childrenValidator(`${namePrefix}-col`),
   className: PropTypes.string,
   gutter: PropTypes.oneOfType([
     PropTypes.number,

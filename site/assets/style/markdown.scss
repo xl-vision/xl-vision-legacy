@@ -29,7 +29,7 @@
   &_a {
     color: $--link-color;
     text-decoration: none;
-    transition: color $animation-duration ease-in-out, text-decoration $animation-duration ease-in-out;
+    transition: color $--animation-duration ease-in-out, text-decoration $--animation-duration ease-in-out;
 
     &:hover {
       color: $--link-color-hover;
