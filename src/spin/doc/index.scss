@@ -1,6 +1,7 @@
 @import "../../style/commons/var";
 
 .inner {
+  position: relative;
   width: 25rem;
   height: 10rem;
   background-color: $--color-gray-100;

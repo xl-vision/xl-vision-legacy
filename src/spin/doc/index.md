@@ -27,10 +27,25 @@ export default function () {
 
 ```jsx
 export default function () {
+    const [display, setDisplay] = React.useState(false)
     return (
-        <Spin>
+        <Spin spinning={display}>
             <div className='inner'>Further details about the context of this alert.</div>
         </Spin>
+    )
+}
+```
+
+:::
+
+:::demo 覆盖父元素
+
+将内容内嵌在`Spin`中。
+
+```jsx
+export default function () {
+    return (
+        <div className='inner'>Further details about the context of this alert.<Spin cover/></div>
     )
 }
 ```
@@ -107,6 +122,7 @@ export default function () {
 
 | 参数    | 说明        | 类型       | 可选值   | 默认值 |
 | ------- | -------- | --------- | ------------ | ------ |
+| cover|覆盖父元素，此时父元素的position需要为`absolute`或者`relative`|boolean|-|false|
 | delay|延迟显示加载效果的时间（防止闪烁）|number(毫秒)|-|-|
 | indicator|自定义加载指示器|ReactElement|-|-|
 |size|组件大小|string|small/default/large|default|

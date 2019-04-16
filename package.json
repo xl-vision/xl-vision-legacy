@@ -53,6 +53,7 @@
     "@types/react-dom": "^16.8.3",
     "@types/react-loadable": "^5.5.1",
     "@types/react-router-dom": "^4.3.1",
+    "@types/react-transition-group": "^2.9.0",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
     "@xl-vision/xl-tools": "^0.0.2-beta.20",
     "chalk": "^2.4.2",
@@ -77,6 +78,7 @@
     "classnames": "^2.2.6",
     "enquire.js": "^2.1.6",
     "prop-types": "^15.6.2",
+    "react-transition-group": "^3.0.0",
     "ts-jest": "^24.0.2"
   },
   "peerDependencies": {

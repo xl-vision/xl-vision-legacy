@@ -6,7 +6,22 @@ $spin: #{$--cls-prefix}-spin;
   position: relative;
   display: inline-block;
 
-  .#{$spin}__wrapper {
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: none;
+    width: 0;
+    height: 0;
+    background-color: $--spin-background-color;
+    opacity: 0;
+    content: '';
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 10;
     color: $--spin-color;
     text-align: center;
     vertical-align: middle;
@@ -34,46 +49,37 @@ $spin: #{$--cls-prefix}-spin;
     font-size: $--spin-tip-font-size;
   }
 
-  &__children {
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 5;
-      display: none;
-      width: 100%;
-      height: 100%;
-      background-color: $--spin-background-color;
-      opacity: 0;
-      transition: opacity $--spin-animation-time;
-      pointer-events: none;
-      content: '';
-    }
-  }
-
+  &--cover,
   &--nested {
     .#{$spin}__wrapper {
       position: absolute;
       top: 50%;
       left: 50%;
-      z-index: 10;
       transform: translate(-50%, -50%);
     }
   }
 
+  &--cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
   &--spinning {
+    &::before {
+      right: 0;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: $--spin-opacity;
+    }
+
     .#{$spin}__children {
-      overflow: hidden;
       user-select: none;
       pointer-events: none;
-
-      &::after {
-        display: block;
-        opacity: $--spin-opacity;
-        pointer-events: auto;
-      }
     }
   }
 }

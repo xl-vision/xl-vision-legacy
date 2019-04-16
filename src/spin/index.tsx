@@ -9,6 +9,7 @@ export type SpinIndicator = React.ReactElement
 
 export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
+  cover?: boolean
   delay?: number
   indicator?: SpinIndicator
   size?: SpinSize
@@ -25,7 +26,7 @@ const renderIndicator = (indicator?: SpinIndicator) => {
 
 const Spin: React.FunctionComponent<SpinProps> = props => {
   const {
-    wrapperClassName, children, size = 'default', className, delay, tip, spinning = true, indicator, ...others
+    wrapperClassName, cover, children, size = 'default', className, delay, tip = 'loading', spinning = true, indicator, ...others
   } = props
 
   const [display, setDisplay] = React.useState(false)
@@ -53,6 +54,7 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
     return classnames({
       [displayName]: true,
       [`${displayName}--spinning`]: display,
+      [`${displayName}--cover`]: cover,
       [`${displayName}--nested`]: !!children
     }, className)
   }, [display, children])
