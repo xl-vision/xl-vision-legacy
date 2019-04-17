@@ -3,7 +3,7 @@ import * as React from 'react'
 import useUnmount from '../useUnmount'
 
 describe('useUnmount', () => {
-  it('测试组件挂载时触发，其余时候不触发', () => {
+  it('测试组件卸载时触发，其余时候不触发', () => {
     const fn = jest.fn()
     const TestUseMount = () => {
       useUnmount(fn)

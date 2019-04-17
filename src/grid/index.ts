@@ -1,7 +1,7 @@
 import Col from './col'
 import Row from './row'
 
-export { BreakPoint } from '../commons/hooks/useMedia'
+export { BreakPoint } from './hooks/useMedia'
 export { ColProps, ColSpanType } from './col'
 export { RowProps } from './row'
 

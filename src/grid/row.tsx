@@ -2,8 +2,8 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import useMedia, { BreakPoint, breakPointArray } from '../commons/hooks/useMedia'
 import { childrenValidator } from '../commons/utils/prop-type'
+import useMedia, { BreakPoint, breakPointArray } from './hooks/useMedia'
 import RowContext from './row-context'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -18,25 +18,23 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 const displayName = `${namePrefix}-row`
 
 const Row: React.FunctionComponent<RowProps> = props => {
-  const { type, justify, align, className, style, children, ...others } = props
+  const { type, justify, align, className, style, children, gutter, ...others } = props
 
   const media = useMedia()
 
-  const gutter = React.useMemo<number>(() => {
-    if (typeof props.gutter === 'number') {
-      return props.gutter
+  const computedGutter = React.useMemo<number>(() => {
+    if (typeof gutter === 'number') {
+      return gutter
     }
-    if (typeof props.gutter === 'object') {
+    if (typeof gutter === 'object') {
       for (const breakPoint of breakPointArray) {
-        if (media[breakPoint] && props.gutter[breakPoint] !== undefined) {
-          return props.gutter[breakPoint] as number
+        if (media[breakPoint] && gutter[breakPoint] !== undefined) {
+          return gutter[breakPoint] as number
         }
       }
     }
     return 0
-  }, [media])
-
-  delete others.gutter
+  }, [media, gutter])
 
   const classes = classnames(
     {
@@ -47,17 +45,18 @@ const Row: React.FunctionComponent<RowProps> = props => {
     },
     className
   )
-  const rowStyle =
-    gutter > 0
+  const rowStyle = React.useMemo(() => {
+    return computedGutter > 0
       ? {
-        marginLeft: gutter / -2,
-        marginRight: gutter / -2,
+        marginLeft: computedGutter / -2,
+        marginRight: computedGutter / -2,
         ...style
       }
       : style
+  }, [style, computedGutter])
 
   return (
-    <RowContext.Provider value={{ gutter }}>
+    <RowContext.Provider value={{ gutter: computedGutter, media }}>
       <div {...others} className={classes} style={rowStyle}>
         {children}
       </div>

@@ -2,10 +2,10 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import useMedia, {
+import {
   BreakPoint,
   breakPointArray
-} from '../commons/hooks/useMedia'
+} from './hooks/useMedia'
 import RowContext from './row-context'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
@@ -23,21 +23,21 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 const displayName = `${namePrefix}-col`
 
 const Col: React.FunctionComponent<ColProps> = props => {
-  const media = useMedia()
+  const { media, gutter } = React.useContext(RowContext)
 
-  const { className, children, style, ...others } = props
-  const spanArray: Partial<keyof typeof others>[] = [
-    'span',
-    'order',
-    'offset',
-    'push',
-    'pull'
-  ]
+  const { className, children, style, span, order, offset, pull, push, ...others } = props
 
   const classes = React.useMemo(() => {
+    const obj = {
+      offset,
+      order,
+      pull,
+      push,
+      span
+    }
     const arr = [displayName]
-    for (const prop of spanArray) {
-      const propValue = props[prop]
+    for (const prop of Object.keys(obj)) {
+      const propValue = obj[prop as keyof typeof obj]
       if (typeof propValue === 'number') {
         arr.push(`${displayName}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
@@ -50,21 +50,18 @@ const Col: React.FunctionComponent<ColProps> = props => {
       }
     }
     return classnames(arr, className)
-  }, [media])
+  }, [media, span, order, offset, pull, push])
 
-  spanArray.forEach(it => {
-    delete others[it]
-  })
-  const context = React.useContext(RowContext)
-  const gutter = context.gutter
-  const colStyle =
-    gutter > 0
+  const colStyle = React.useMemo(() => {
+    return gutter > 0
       ? {
         paddingLeft: gutter / 2,
         paddingRight: gutter / 2,
         ...style
       }
       : style
+  }, [gutter, style])
+
   return (
     <div {...others} style={colStyle} className={classes}>
       {children}

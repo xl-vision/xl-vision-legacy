@@ -274,7 +274,7 @@ exports[`栅格系统 flex布局 1`] = `
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
-        class="xl-col xl-col-span-6 xl-col-order-3"
+        class="xl-col xl-col-order-3 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -284,7 +284,7 @@ exports[`栅格系统 flex布局 1`] = `
         </div>
       </div>
       <div
-        class="xl-col xl-col-span-6 xl-col-order-1"
+        class="xl-col xl-col-order-1 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -294,7 +294,7 @@ exports[`栅格系统 flex布局 1`] = `
         </div>
       </div>
       <div
-        class="xl-col xl-col-span-6 xl-col-order-2"
+        class="xl-col xl-col-order-2 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -328,7 +328,7 @@ exports[`栅格系统 偏移布局 1`] = `
         </div>
       </div>
       <div
-        class="xl-col xl-col-span-6 xl-col-offset-6"
+        class="xl-col xl-col-offset-6 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -367,7 +367,7 @@ exports[`栅格系统 偏移布局 1`] = `
         </div>
       </div>
       <div
-        class="xl-col xl-col-span-6 xl-col-push-6"
+        class="xl-col xl-col-push-6 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -377,7 +377,7 @@ exports[`栅格系统 偏移布局 1`] = `
         </div>
       </div>
       <div
-        class="xl-col xl-col-span-6 xl-col-pull-6"
+        class="xl-col xl-col-pull-6 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -406,7 +406,7 @@ exports[`栅格系统 偏移布局 1`] = `
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
-        class="xl-col xl-col-span-6 xl-col-offset-6"
+        class="xl-col xl-col-offset-6 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -416,7 +416,7 @@ exports[`栅格系统 偏移布局 1`] = `
         </div>
       </div>
       <div
-        class="xl-col xl-col-span-6 xl-col-pull-12"
+        class="xl-col xl-col-pull-12 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -548,7 +548,7 @@ exports[`栅格系统 响应式偏移 1`] = `
         </div>
       </div>
       <div
-        class="xl-col xl-col-span-6 xl-col-offset-6"
+        class="xl-col xl-col-offset-6 xl-col-span-6"
         style="padding-left:5px;padding-right:5px"
       >
         <div
