@@ -32,6 +32,7 @@ const formatChildren = (children: React.ReactNode) => {
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
   const { dashed, disabled, ghost, plain, href, htmlType, loading, long, shape, type = 'default', className, children, ...others } = props
+
   const classes = classnames({
     [displayName]: true,
     [`${displayName}--${type}`]: true,
@@ -78,7 +79,7 @@ Button.propTypes = {
   long: PropTypes.bool,
   plain: PropTypes.bool,
   shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
-  type: PropTypes.oneOf<'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'>(['default' , 'primary' , 'success' , 'warning' , 'error' , 'text'])
+  type: PropTypes.oneOf<'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'>(['default', 'primary', 'success', 'warning', 'error', 'text'])
 }
 
-export default Button
+export default React.memo(Button)

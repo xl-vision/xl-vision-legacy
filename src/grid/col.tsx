@@ -74,7 +74,7 @@ const Col: React.FunctionComponent<ColProps> = props => {
 
 Col.displayName = displayName
 
-const spanValidater = (
+const spanValidator = (
   props: ColProps,
   propName: keyof ColProps,
   componentName: string,
@@ -98,7 +98,7 @@ const spanValidater = (
       if (val === undefined) {
         continue
       }
-      if (typeof val === 'number') {
+      if (Number.isInteger(val)) {
         if (propValue < 0 || propValue > 24) {
           return new Error(
             `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`
@@ -121,11 +121,11 @@ const spanValidater = (
 Col.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  offset: spanValidater,
-  order: spanValidater,
-  pull: spanValidater,
-  push: spanValidater,
-  span: spanValidater
+  offset: spanValidator,
+  order: spanValidator,
+  pull: spanValidator,
+  push: spanValidator,
+  span: spanValidator
 }
 
 export default Col

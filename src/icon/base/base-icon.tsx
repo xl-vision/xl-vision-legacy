@@ -34,7 +34,6 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
   } = props
 
   const iconStyle: React.CSSProperties = { ...style }
-
   if (size !== undefined) {
     iconStyle.fontSize = getSize(size)
   }
@@ -42,18 +41,18 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
     iconStyle.transform = `rotate(${rotate}deg)`
   }
 
-  let childrenProps = {
+  const childrenProps = {
     fill: color ? color : 'currentColor',
     ...children.props
   }
-  const childrenCustomStyle: React.CSSProperties = {
+
+  const customChildrenStyle: React.CSSProperties = {
     height: '1em',
     width: '1em'
   }
+  const childrenStyle = { ...childrenProps.style, ...customChildrenStyle }
 
-  const childrenStyle = { ...childrenProps.style, ...childrenCustomStyle }
-  childrenProps = { ...childrenProps, style: childrenStyle }
-  const cloneChildren = React.cloneElement(children, childrenProps)
+  const cloneChildren = React.cloneElement(children, { ...childrenProps, style: childrenStyle })
 
   const classes = classnames(
     {
@@ -74,7 +73,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
 
 BaseIcon.displayName = displayName
 
-const childrenValidater = (
+const childrenValidator = (
   props: BaseIconProps,
   propName: keyof BaseIconProps,
   // @ts-ignore
@@ -94,7 +93,7 @@ const childrenValidater = (
 }
 
 BaseIcon.propTypes = {
-  children: childrenValidater,
+  children: childrenValidator,
   className: PropTypes.string,
   color: PropTypes.string,
   rotate: PropTypes.number,
@@ -102,4 +101,4 @@ BaseIcon.propTypes = {
   spin: PropTypes.bool
 }
 
-export default BaseIcon
+export default React.memo(BaseIcon)

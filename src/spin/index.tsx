@@ -31,33 +31,24 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
 
   const [display, setDisplay] = React.useState(false)
 
-  let timer: any
-
-  const clearTimer = () => {
-    if (timer) {
-      clearTimeout(timer)
-      timer = null
-    }
-  }
-
   React.useEffect(() => {
-    clearTimer()
+    let timer: any
+
     if (delay && spinning) {
       timer = setTimeout(() => setDisplay(spinning), delay)
     } else {
       setDisplay(spinning)
     }
-    return clearTimer
+    return () => clearTimeout(timer)
   }, [delay, spinning])
 
-  const classes = React.useMemo(() => {
-    return classnames({
+  const classes = React.useMemo(() =>
+    classnames({
       [displayName]: true,
       [`${displayName}--spinning`]: display,
       [`${displayName}--cover`]: cover,
       [`${displayName}--nested`]: !!children
-    }, className)
-  }, [display, children])
+    }, className), [display, cover, children, className])
 
   const wrapperClasses = classnames(`${displayName}__wrapper`, `${displayName}__wrapper--${size}`, wrapperClassName)
 

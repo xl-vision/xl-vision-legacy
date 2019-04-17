@@ -7,6 +7,26 @@ imports:
 ---
 # 按钮
 
+:::demo 加载中状态
+给按钮添加`loading`属性即可让按钮处于加载状态，此时icon属性会被loading组件覆盖
+
+```jsx
+export default () => {
+    const [state, setState] = React.useState(false)
+    const click = React.useCallback(()=>setState(!state),[])
+    return (
+        <div className='button-wrapper'>
+            <div className='button-column'>
+                <Button disabled={state}>Default</Button>
+                <Button type='text' onClick={click}>Text</Button>
+            </div>
+        </div>
+    )
+}
+```
+
+:::
+
 :::demo 基础用法
 通过`type`、`plain`、`dashed`指定按钮的样式，按钮中也可以添加[Icon](#/icon)。
 

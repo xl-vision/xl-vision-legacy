@@ -20,6 +20,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
     [`${displayName}--vertical`]: vertical,
     [`${displayName}--round`]: round
   }, className)
+
   return (
     <div className={classes} {...others}/>
   )
@@ -33,4 +34,4 @@ ButtonGroup.propTypes = {
   vertical: PropTypes.bool
 }
 
-export default ButtonGroup
+export default React.memo(ButtonGroup)
