@@ -9,7 +9,7 @@ const svgElement = (
   </svg>
 )
 
-describe('图标', () => {
+describe('icon', () => {
   const TestIcon = createIcon(svgElement)
   it('基本用法', () => {
     const wrapper = render(

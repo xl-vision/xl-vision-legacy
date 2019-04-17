@@ -106,7 +106,7 @@ export default function () {
     const [display, setDisplay] = React.useState(false)
     return (
         <div className='wrapper'>
-            <Spin indicator={<FasCircleNotch spin/>} delay={1000} spinning={display} tip='Loading...'>
+            <Spin delay={1000} spinning={display}>
                 <div className='inner'>Further details about the context of this alert.</div>
             </Spin>
             <Button onClick={() => setDisplay(!display)}>{display?'关闭':'打开'}</Button>

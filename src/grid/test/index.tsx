@@ -2,7 +2,7 @@ import { render } from 'enzyme'
 import * as React from 'react'
 import { Col, Row } from '..'
 
-describe('栅格系统', () => {
+describe('grid', () => {
   it('基本用法', () => {
     const wrapper = render(
       <div>

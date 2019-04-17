@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Button, ButtonGroup } from '..'
 import Icon from '../../icon'
 
-describe('按钮', () => {
+describe('button', () => {
   it('基本用法', () => {
     const wrapper = render(
       <div>
@@ -148,6 +148,15 @@ describe('按钮', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
+  it('测试按钮的点击事件', () => {
+    const click = jest.fn()
+    const wrapper = mount(<Button onClick={click}>Default</Button>)
+    wrapper.find('button').simulate('click')
+    expect(click.mock.calls.length).toBe(1)
+  })
+})
+
+describe('button-group', () => {
   it('水平按钮组', () => {
     const wrapper = render(
       <div className='button-wrapper'>
@@ -194,12 +203,5 @@ describe('按钮', () => {
       </div>
     )
     expect(wrapper).toMatchSnapshot()
-  })
-
-  it('测试按钮的点击事件', () => {
-    const click = jest.fn()
-    const wrapper = mount(<Button onClick={click}>Default</Button>)
-    wrapper.find('button').simulate('click')
-    expect(click.mock.calls.length).toBe(1)
   })
 })

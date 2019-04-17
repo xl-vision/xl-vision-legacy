@@ -26,7 +26,7 @@ const renderIndicator = (indicator?: SpinIndicator) => {
 
 const Spin: React.FunctionComponent<SpinProps> = props => {
   const {
-    wrapperClassName, cover, children, size = 'default', className, delay, tip = 'loading', spinning = true, indicator, ...others
+    className, children, cover, delay, indicator, size = 'default', spinning = true, tip = 'loading', wrapperClassName, ...others
   } = props
 
   const [display, setDisplay] = React.useState(false)
@@ -42,13 +42,12 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
     return () => clearTimeout(timer)
   }, [delay, spinning])
 
-  const classes = React.useMemo(() =>
-    classnames({
-      [displayName]: true,
-      [`${displayName}--spinning`]: display,
-      [`${displayName}--cover`]: cover,
-      [`${displayName}--nested`]: !!children
-    }, className), [display, cover, children, className])
+  const classes = classnames({
+    [displayName]: true,
+    [`${displayName}--spinning`]: display,
+    [`${displayName}--cover`]: cover,
+    [`${displayName}--nested`]: !!children
+  }, className)
 
   const wrapperClasses = classnames(`${displayName}__wrapper`, `${displayName}__wrapper--${size}`, wrapperClassName)
 

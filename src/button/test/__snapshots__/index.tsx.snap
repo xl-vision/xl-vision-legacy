@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`按钮 不可用状态 1`] = `
+exports[`button 不可用状态 1`] = `
 <div
   class="button-wrapper"
 >
@@ -59,7 +59,7 @@ exports[`按钮 不可用状态 1`] = `
 </div>
 `;
 
-exports[`按钮 加载中 1`] = `
+exports[`button 加载中 1`] = `
 <div
   class="button-wrapper"
 >
@@ -190,92 +190,7 @@ exports[`按钮 加载中 1`] = `
 </div>
 `;
 
-exports[`按钮 垂直按钮组 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="xl-button-group xl-button-group--vertical"
-  >
-    <button
-      class="xl-button xl-button--default"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
-  <div
-    class="xl-button-group xl-button-group--vertical xl-button-group--round"
-  >
-    <button
-      class="xl-button xl-button--default"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`按钮 基本用法 1`] = `
+exports[`button 基本用法 1`] = `
 <div>
   <div
     class="button-column"
@@ -542,7 +457,7 @@ exports[`按钮 基本用法 1`] = `
 </div>
 `;
 
-exports[`按钮 幽灵状态 1`] = `
+exports[`button 幽灵状态 1`] = `
 <div
   class="button-wrapper"
 >
@@ -595,7 +510,7 @@ exports[`按钮 幽灵状态 1`] = `
 </div>
 `;
 
-exports[`按钮 指定href 1`] = `
+exports[`button 指定href 1`] = `
 <div
   class="button-wrapper"
 >
@@ -654,7 +569,7 @@ exports[`按钮 指定href 1`] = `
 </div>
 `;
 
-exports[`按钮 指定按钮形状 1`] = `
+exports[`button 指定按钮形状 1`] = `
 <div
   class="button-wrapper"
 >
@@ -813,7 +728,145 @@ exports[`按钮 指定按钮形状 1`] = `
 </div>
 `;
 
-exports[`按钮 水平按钮组 1`] = `
+exports[`button 长按钮 1`] = `
+<div
+  class="button-wrapper"
+>
+  <div
+    class="button-column"
+  >
+    <button
+      class="xl-button xl-button--default xl-button--long"
+    >
+      <span>
+        Default
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--primary xl-button--long"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--success xl-button--long"
+    >
+      <span>
+        Success
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--warning xl-button--long"
+    >
+      <span>
+        Warning
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--error xl-button--long"
+    >
+      <span>
+        Error
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--text xl-button--long"
+    >
+      <span>
+        Text
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`button-group 垂直按钮组 1`] = `
+<div
+  class="button-wrapper"
+>
+  <div
+    class="xl-button-group xl-button-group--vertical"
+  >
+    <button
+      class="xl-button xl-button--default"
+    >
+      <span>
+        Default
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--primary"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--success"
+    >
+      <span>
+        Success
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--warning"
+    >
+      <span>
+        Warning
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--error"
+    >
+      <span>
+        Error
+      </span>
+    </button>
+  </div>
+  <div
+    class="xl-button-group xl-button-group--vertical xl-button-group--round"
+  >
+    <button
+      class="xl-button xl-button--default"
+    >
+      <span>
+        Default
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--primary"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--success"
+    >
+      <span>
+        Success
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--warning"
+    >
+      <span>
+        Warning
+      </span>
+    </button>
+    <button
+      class="xl-button xl-button--error"
+    >
+      <span>
+        Error
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`button-group 水平按钮组 1`] = `
 <div
   class="button-wrapper"
 >
@@ -898,59 +951,6 @@ exports[`按钮 水平按钮组 1`] = `
         </span>
       </button>
     </div>
-  </div>
-</div>
-`;
-
-exports[`按钮 长按钮 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--long"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--long"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--long"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--long"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--long"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--long"
-    >
-      <span>
-        Text
-      </span>
-    </button>
   </div>
 </div>
 `;
