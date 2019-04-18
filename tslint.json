@@ -39,7 +39,10 @@
     ],
     "interface-name": false,
     "jsx-no-multiline-js": false,
-    "jsx-boolean-value": [true, "always"],
+    "jsx-boolean-value": [
+      true,
+      "always"
+    ],
     "max-line-length": false,
     "member-access": false,
     "member-ordering": [
@@ -49,9 +52,14 @@
         "order": "fields-first"
       }
     ],
+    "object-literal-sort-keys": true,
     "no-duplicate-imports": true,
     "one-variable-per-declaration": false,
-    "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
+    "only-arrow-functions": [
+      true,
+      "allow-declarations",
+      "allow-named-functions"
+    ],
     "quotemark": [
       true,
       "single",
