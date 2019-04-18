@@ -42,6 +42,9 @@
     "test": "jest",
     "icon": "node script/icon/generate.js"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "devDependencies": {
     "@types/classnames": "^2.2.7",
     "@types/enquire.js": "^2.1.1",
@@ -68,6 +71,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "fs-extra": "^7.0.1",
     "jest": "^24.7.1",
+    "pre-commit": "^1.2.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-router-dom": "^5.0.0",
