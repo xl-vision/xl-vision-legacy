@@ -46,6 +46,11 @@ const routes: Route[] = [
     name: '基础组件',
     children: [
       {
+        name: '动画',
+        path: '/transition',
+        component: import('../src/transition/doc/index.md')
+      },
+      {
         name: '图标',
         path: '/icon',
         component: import('../src/icon/doc/index.md')

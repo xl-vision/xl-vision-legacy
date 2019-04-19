@@ -21,3 +21,23 @@ export const off = <K extends keyof WindowEventMap>(
   }
   window.removeEventListener(type, listener, options)
 }
+
+export const addClass = (dom: HTMLElement, classToAdd: string) => {
+  const src = dom.className.split(/ +/)
+  const clazz = classToAdd.trim()
+  if (src.includes(clazz)) {
+    return
+  }
+  src.push(clazz)
+  dom.className = src.join(' ')
+}
+
+export const removeClass = (dom: HTMLElement, classToAdd: string) => {
+  let src = dom.className.split(/ +/)
+  const clazz = classToAdd.trim()
+  if (!src.includes(clazz)) {
+    return
+  }
+  src = src.slice(0, src.indexOf(clazz)).concat(src.slice(src.indexOf(clazz)))
+  dom.className = src.join(' ')
+}
