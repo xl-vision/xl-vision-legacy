@@ -87,6 +87,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   }, [state, mountOnEnter, unmountOnLeave])
 
   React.useEffect(() => {
+    const el = childrenRel.current
     // 激活
     if (inProp) {
       // 当前处于初始化状态，则下一个状态为STATE_APPEARING
@@ -94,21 +95,21 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         setState(STATE_APPEARING)
         // 当前处于STATE_APPEARING，下一个状态为STATE_APPEARED
       } else if (state === STATE_APPEARING) {
-        beforeAppear && beforeAppear(childrenRel.current as HTMLElement)
+        beforeAppear && beforeAppear(el!!)
         onTransitionEnd(() => {
-          afterAppear && afterAppear(childrenRel.current as HTMLElement)
+          afterAppear && afterAppear(el!!)
           setState(STATE_APPEARED)
-        }, appearCancelled, appear)
+        }, el!!, appearCancelled, appear)
         // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
       } else if (state === STATE_LEAVING || state === STATE_LEAVED) {
         setState(STATE_ENTERING)
         // 当前正在进入，下一个为STATE_ENTERED
       } else if (state === STATE_ENTERING) {
-        beforeEnter && beforeEnter(childrenRel.current as HTMLElement)
+        beforeEnter && beforeEnter(el!!)
         onTransitionEnd(() => {
-          afterEnter && afterEnter(childrenRel.current as HTMLElement)
+          afterEnter && afterEnter(el!!)
           setState(STATE_ENTERED)
-        }, enterCancelled, enter)
+        }, el!!, enterCancelled, enter)
       }
       // 取消激活
     } else {
@@ -117,22 +118,20 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         setState(STATE_LEAVING)
         // 当前正在离开，下一个为STATE_LEAVED
       } else if (state === STATE_LEAVING) {
-        beforeLeave && beforeLeave(childrenRel.current as HTMLElement)
+        beforeLeave && beforeLeave(el!!)
         onTransitionEnd(() => {
-          afterLeave && afterLeave(childrenRel.current as HTMLElement)
+          afterLeave && afterLeave(el!!)
           setState(STATE_LEAVED)
-        }, leaveCancelled, leave)
+        }, el!!, leaveCancelled, leave)
       }
     }
   }, [inProp, state])
 
   const onTransitionEnd = React.useMemo(() => {
-
     let count = 0
-    return (callback: () => void, cancelHandler?: (el: HTMLElement) => void, action?: (el: HTMLElement, cb: (() => void)) => void) => {
+    return (callback: () => void, el: HTMLElement, cancelHandler?: (el: HTMLElement) => void, action?: (el: HTMLElement, cb: (() => void)) => void) => {
       count++
       const match = count
-      const el = childrenRel.current as HTMLElement
       const wrapCallback = () => {
         if (match !== count) {
           cancelHandler && cancelHandler(el)
