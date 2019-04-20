@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import * as React from 'react'
+import { namePrefix } from '../commons/config'
 
 export const STATE_INIT = 'init'
 export const STATE_APPEARING = 'appearing'
@@ -37,6 +38,8 @@ export interface TransitionProps {
   mountOnEnter?: boolean
   unmountOnLeave?: boolean
 }
+
+const displayName = `${namePrefix}-transition`
 
 const Transition: React.FunctionComponent<TransitionProps> = props => {
   const {
@@ -154,6 +157,8 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   return display ? cloneChildren : null
 }
 
+Transition.displayName = displayName
+
 Transition.propTypes = {
   afterAppear: PropTypes.func,
   afterEnter: PropTypes.func,
@@ -163,6 +168,7 @@ Transition.propTypes = {
   beforeAppear: PropTypes.func,
   beforeEnter: PropTypes.func,
   beforeLeave: PropTypes.func,
+  children: PropTypes.element.isRequired,
   enter: PropTypes.func,
   enterCancelled: PropTypes.func,
   in: PropTypes.bool.isRequired,
