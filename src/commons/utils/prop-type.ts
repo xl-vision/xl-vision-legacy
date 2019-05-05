@@ -12,10 +12,8 @@ export const childrenValidator = <T extends object>(displayName: string, allowAr
     props: T,
     propName: keyof T,
     componentName: string,
-    // @ts-ignore
-    location: string,
-    // @ts-ignore
-    propFullName: string
+    _location: string,
+    _propFullName: string
   ) => {
     let propValue: any = props[propName]
 

@@ -46,11 +46,6 @@ const routes: Route[] = [
     name: '基础组件',
     children: [
       {
-        name: '动画',
-        path: '/transition',
-        component: import('../src/transition/doc/index.md')
-      },
-      {
         name: '图标',
         path: '/icon',
         component: import('../src/icon/doc/index.md')
@@ -65,6 +60,21 @@ const routes: Route[] = [
         path: '/spin',
         component: import('../src/spin/doc/index.md')
       }
+    ]
+  },
+  {
+    name: '动画',
+    children: [
+      {
+        name: 'Transition',
+        path: '/transition',
+        component: import('../src/transition/doc/index.md')
+      },
+      {
+        name: 'CssTransition',
+        path: '/CssTransition',
+        component: import('../src/css-transition/doc/index.md')
+      },
     ]
   }
 ];

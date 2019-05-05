@@ -4,7 +4,7 @@ import Transition from '..'
 import { Button } from '../../button'
 
 afterEach(cleanup)
-describe('transition', () => {
+describe('Transition', () => {
   it('测试生命周期', () => {
     expect.hasAssertions()
     const call = jest.fn()
@@ -79,7 +79,7 @@ describe('transition', () => {
         <div>
           <Transition
             in={active}
-
+            isAppear={true}
             beforeAppear={beforeAppear}
             appear={appear}
             afterAppear={afterAppear}
@@ -106,9 +106,9 @@ describe('transition', () => {
     const demo = render(<Demo/>)
     expect(call.mock.calls.length).toBe(0)
     fireEvent.click(demo.getByText(/active/))
-    expect(call.mock.calls[0][0]).toBe('beforeEnter')
-    expect(call.mock.calls[1][0]).toBe('enter')
-    expect(call.mock.calls[2][0]).toBe('afterEnter')
+    expect(call.mock.calls[0][0]).toBe('beforeAppear')
+    expect(call.mock.calls[1][0]).toBe('appear')
+    expect(call.mock.calls[2][0]).toBe('afterAppear')
     call.mockReset()
     fireEvent.click(demo.getByText(/active/))
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
@@ -261,7 +261,6 @@ describe('transition', () => {
       const afterAppear = React.useCallback(el => {
         expect(el).not.toBeNull()
         call('afterAppear')
-
       }, [])
 
       const appearCancelled = React.useCallback(el => {
@@ -343,17 +342,16 @@ describe('transition', () => {
     expect(call.mock.calls.length).toBe(0)
     fireEvent.click(demo.getByText(/active/))
     fireEvent.click(demo.getByText(/active/))
-    expect(call.mock.calls.length).toBe(4)
+    expect(call.mock.calls.length).toBe(5)
     expect(call.mock.calls[0][0]).toBe('beforeAppear')
-    // expect(call.mock.calls[1][0]).toBe('appear')
-    // expect(call.mock.calls[2][0]).toBe('afterAppear')
+    expect(call.mock.calls[1][0]).toBe('appearCancelled')
 
-    expect(call.mock.calls[1][0]).toBe('beforeLeave')
-    expect(call.mock.calls[2][0]).toBe('leave')
-    expect(call.mock.calls[3][0]).toBe('afterLeave')
+    expect(call.mock.calls[2][0]).toBe('beforeLeave')
+    expect(call.mock.calls[3][0]).toBe('leave')
+    expect(call.mock.calls[4][0]).toBe('afterLeave')
     jest.runAllTimers()
-    expect(call.mock.calls[4][0]).toBe('appear')
-    expect(call.mock.calls[5][0]).toBe('appearCancelled')
+    expect(call.mock.calls.length).toBe(6)
+    expect(call.mock.calls[5][0]).toBe('appear')
     call.mockReset()
   })
 

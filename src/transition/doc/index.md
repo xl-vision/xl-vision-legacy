@@ -3,7 +3,6 @@ imports:
     - import Transition from '..'
     - import Button from '../../button'
     - import './index.scss'
-    - import {addClass, removeClass} from '../../commons/utils/dom'
 ---
 
 # Transition
@@ -14,104 +13,55 @@ imports:
 
 ```jsx
 export default () => {
-     const [active, setActive] = React.useState(false)
-     const beforeAppear = React.useCallback((el) => {
-       console.log('beforeAppear')
-       addClass(el, 'beforeAppear')
-       console.log(el)
-     }, [])
+  const className = 'transition'
+  const [active, setActive] = React.useState(true)
+  
+  const beforeEnter = React.useCallback((el) => {
+    el.style.height = el.style.height || 0
+  }, [])
+  
+  const enter = React.useCallback((el, done) => {
+    let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 0)
+    const timer = setInterval(()=>{
+      if(height > 200){
+        clearInterval(timer)
+        done()
+        return
+      }
+      height += 2
+      el.style.height = `${height}px`
+    }, 20)
+  }, [])
 
-     const appear = React.useCallback((el, done) => {
-       console.log('appear')
-       console.log(el)
-       done()
-     }, [])
-
-     const afterAppear = React.useCallback((el) => {
-       console.log('afterAppear')
-       console.log(el)
-     }, [])
-
-     const appearCancelled = React.useCallback((el) => {
-       console.log('appearCancel')
-       console.log(el)
-     }, [])
-
-     const beforeEnter = React.useCallback((el) => {
-       console.log('beforeEnter')
-       console.log(el)
-     }, [])
-
-     const enter = React.useCallback((el, done) => {
-       setTimeout(() => {
-           console.log('enter')
-           console.log(el)
-           done()
-       },5000)
-     }, [])
-
-     const afterEnter = React.useCallback((el) => {
-       console.log('afterEnter')
-       console.log(el)
-     }, [])
-
-     const enterCancelled = React.useCallback((el) => {
-       console.log('enterCancel')
-       console.log(el)
-     }, [])
-
-     const beforeLeave = React.useCallback((el) => {
-       console.log('beforeLeave')
-       console.log(el)
-     }, [])
-
-     const leave = React.useCallback((el, done) => {
-       console.log('leave')
-       console.log(el)
-       done()
-     }, [])
-
-     const afterLeave = React.useCallback((el) => {
-       console.log('afterLeave')
-       console.log(el)
-     }, [])
-
-     const leaveCancelled = React.useCallback((el) => {
-       console.log('enterCancel')
-       console.log(el)
-     }, [])
-
-     const clickHandler = () => {
-       setActive(!active)
-     }
-
-     return (
-       <div>
-         <Button onClick={clickHandler}>Click</Button>
-         <Transition
-           in={active}
-           mountOnEnter={true}
-           unmountOnLeave={true}
-
-           beforeAppear={beforeAppear}
-           appear={appear}
-           afterAppear={afterAppear}
-           appearCancelled={appearCancelled}
-
-           beforeEnter={beforeEnter}
-           enter={enter}
-           afterEnter={afterEnter}
-           enterCancelled={enterCancelled}
-
-           beforeLeave={beforeLeave}
-           leave={leave}
-           afterLeave={afterLeave}
-           leaveCancelled={leaveCancelled}
-         >
-           <div className='demo'>DEMO</div>
-         </Transition>
-       </div>
-     )
+  const leave = React.useCallback((el, done) => {
+    let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 200)
+    const timer = setInterval(()=>{
+      if(height < 0){
+        clearInterval(timer)
+        done()
+        return
+      }
+      height -= 2
+      el.style.height = `${height}px`
+    }, 20)
+  }, [])
+  
+  return (
+    <div>
+      <Button onClick={() => setActive(!active)}>Click</Button>
+      <Transition
+      isAppear
+      in={active}
+      mountOnEnter={true}
+      unmountOnLeave={true}
+      beforeEnter={beforeEnter}
+      enter={enter}
+      leave={leave}
+      >
+        <div className='demo'>DEMO</div>
+      </Transition>
+    </div>
+  )
 }
 
 ```
@@ -138,3 +88,4 @@ export default () => {
 | leave   | 出场时钩子            | (el: HTMLElement, done: (() => void)) => void  | -   | —      |
 | afterLeave   | 出场后钩子            | (el: HTMLElement) => void  | -   | —      |
 | leaveCancelled   | 取消出场钩子            | (el: HTMLElement) => void  | -   | —      |
+| children   | 子元素            | React.ReactElement | -   | —      |

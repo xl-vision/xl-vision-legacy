@@ -31,9 +31,6 @@ module.exports = {
     'scss/at-mixin-parentheses-space-before': 'never',
     'scss/operator-no-newline-after': true,
     'scss/operator-no-newline-before': true,
-    'scss/selector-no-redundant-nesting-selector': true,
-    'scss/no-duplicate-dollar-variables': {
-      ignoreInside: ['nested-at-rule']
-    }
+    'scss/selector-no-redundant-nesting-selector': true
   }
 }

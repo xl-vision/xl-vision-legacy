@@ -38,6 +38,6 @@ export const removeClass = (dom: HTMLElement, classToAdd: string) => {
   if (!src.includes(clazz)) {
     return
   }
-  src = src.slice(0, src.indexOf(clazz)).concat(src.slice(src.indexOf(clazz)))
+  src = src.slice(0, src.indexOf(clazz)).concat(src.slice(src.indexOf(clazz) + 1))
   dom.className = src.join(' ')
 }

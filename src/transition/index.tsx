@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
+import { proxyElement } from './transition-utils'
 
-export const STATE_INIT = 'init'
+export const STATE_UNMOUNTED = 'unmounted'
+export const STATE_MOUNTED = 'mounted'
 export const STATE_APPEARING = 'appearing'
 export const STATE_APPEARED = 'appeared'
 export const STATE_ENTERING = 'entering'
@@ -11,7 +13,8 @@ export const STATE_LEAVING = 'leaving'
 export const STATE_LEAVED = 'leaved'
 
 export type State =
-  | typeof STATE_INIT
+  | typeof STATE_UNMOUNTED
+  | typeof STATE_MOUNTED
   | typeof STATE_APPEARING
   | typeof STATE_APPEARED
   | typeof STATE_ENTERING
@@ -47,7 +50,6 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     isAppear,
     afterEnter,
     afterLeave,
-    appearCancelled,
     beforeEnter,
     beforeLeave,
     children,
@@ -59,27 +61,29 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     unmountOnLeave
   } = props
 
-  let { beforeAppear, appear, afterAppear } = props
+  let { beforeAppear, appear, appearCancelled, afterAppear } = props
 
-  // 如果不开启appear，则使用enter的逻辑
-  if (!isAppear) {
-    beforeAppear = beforeEnter
-    appear = enter
-    afterAppear = afterEnter
-  }
+  // 如果开启appear,默认使用enter的生命周期方法
+  beforeAppear = beforeAppear || beforeEnter
+  appear = appear || enter
+  afterAppear = afterAppear || afterEnter
+  appearCancelled = appearCancelled || enterCancelled
 
-  const [state, setState] = React.useState<State>(STATE_INIT)
+  const [state, setState] = React.useState<State>(STATE_UNMOUNTED)
 
   const childrenRel = React.useRef<HTMLElement>()
 
   const display = React.useMemo(() => {
-    if (mountOnEnter && state === STATE_INIT) {
+    if (state === STATE_UNMOUNTED) {
       return false
     }
-    if (mountOnEnter && state !== STATE_INIT && state !== STATE_LEAVED) {
+    if (state === STATE_MOUNTED) {
       return true
     }
-    if (unmountOnLeave && (state === STATE_INIT || state === STATE_LEAVED)) {
+    if (mountOnEnter && state !== STATE_LEAVED) {
+      return true
+    }
+    if (unmountOnLeave && state === STATE_LEAVED) {
       return false
     }
     // 默认展示
@@ -87,60 +91,75 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   }, [state, mountOnEnter, unmountOnLeave])
 
   React.useEffect(() => {
-    const el = childrenRel.current
-    // 激活
     if (inProp) {
-      // 当前处于初始化状态，则下一个状态为STATE_APPEARING
-      if (state === STATE_INIT) {
-        setState(STATE_APPEARING)
-        // 当前处于STATE_APPEARING，下一个状态为STATE_APPEARED
-      } else if (state === STATE_APPEARING) {
-        beforeAppear && beforeAppear(el!!)
-        onTransitionEnd(() => {
-          afterAppear && afterAppear(el!!)
-          setState(STATE_APPEARED)
-        }, el!!, appearCancelled, appear)
-        // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
-      } else if (state === STATE_LEAVING || state === STATE_LEAVED) {
-        setState(STATE_ENTERING)
-        // 当前正在进入，下一个为STATE_ENTERED
-      } else if (state === STATE_ENTERING) {
-        beforeEnter && beforeEnter(el!!)
-        onTransitionEnd(() => {
-          afterEnter && afterEnter(el!!)
-          setState(STATE_ENTERED)
-        }, el!!, enterCancelled, enter)
+      // 此时说明leave动画还没有完成，需要触发leaveCancelled
+      if (state === STATE_LEAVING) {
+        leaveCancelled && leaveCancelled(childrenRel.current!)
       }
-      // 取消激活
+      // 当前处于unmount状态
+      if (state === STATE_UNMOUNTED) {
+        // 触发appear动画
+        if (isAppear) {
+          setState(STATE_APPEARING)
+        } else {
+          // 直接挂载
+          setState(STATE_MOUNTED)
+        }
+      } else {
+        setState(STATE_ENTERING)
+      }
     } else {
-      // 当前不是离开或者正在离开，则下一个状态为STATE_LEAVING
-      if (state === STATE_ENTERING || state === STATE_ENTERED || state === STATE_APPEARING || state === STATE_APPEARED) {
+      // 此时说明appear动画还没有完成，需要触发appearCancelled
+      if (state === STATE_APPEARING) {
+        appearCancelled && appearCancelled(childrenRel.current!)
+      // 此时说明enter动画还没有完成，需要触发enterCancelled
+      } else if (state === STATE_ENTERING) {
+        enterCancelled && enterCancelled(childrenRel.current!)
+      }
+      // STATE_UNMOUNTED只有在初始化才存在，所以要排除
+      if (state !== STATE_UNMOUNTED) {
         setState(STATE_LEAVING)
-        // 当前正在离开，下一个为STATE_LEAVED
-      } else if (state === STATE_LEAVING) {
-        beforeLeave && beforeLeave(el!!)
-        onTransitionEnd(() => {
-          afterLeave && afterLeave(el!!)
-          setState(STATE_LEAVED)
-        }, el!!, leaveCancelled, leave)
       }
     }
-  }, [inProp, state])
+  }, [inProp])
+
+  React.useEffect(() => {
+    if (state === STATE_APPEARING) {
+      beforeAppear && beforeAppear(childrenRel.current!)
+      onTransitionEnd(() => {
+        afterAppear && afterAppear(childrenRel.current!)
+        setState(STATE_APPEARED)
+      }, appear)
+      // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
+    } else if (state === STATE_ENTERING) {
+      beforeEnter && beforeEnter(childrenRel.current!)
+      onTransitionEnd(() => {
+        afterEnter && afterEnter(childrenRel.current!)
+        setState(STATE_ENTERED)
+      }, enter)
+    } else if (state === STATE_LEAVING) {
+      beforeLeave && beforeLeave(childrenRel.current!)
+      onTransitionEnd(() => {
+        afterLeave && afterLeave(childrenRel.current!)
+        setState(STATE_LEAVED)
+      }, leave)
+    }
+  }, [state])
 
   const onTransitionEnd = React.useMemo(() => {
     let count = 0
-    return (callback: () => void, el: HTMLElement, cancelHandler?: (el: HTMLElement) => void, action?: (el: HTMLElement, cb: (() => void)) => void) => {
+    return (callback: () => void, action?: (el: HTMLElement, cb: (() => void)) => void) => {
       count++
       const match = count
+      const isWriteable = () => match === count
+      const ele = proxyElement(childrenRel.current!, isWriteable)
       const wrapCallback = () => {
-        if (match !== count) {
-          cancelHandler && cancelHandler(el)
-          return
+        if (isWriteable()) {
+          callback()
         }
-        callback()
       }
       if (action) {
-        action(el, wrapCallback)
+        action(ele, wrapCallback)
       } else {
         wrapCallback()
       }

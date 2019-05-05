@@ -25,7 +25,7 @@ export interface CSSTransitionProps {
 
 const displayName = `${namePrefix}-css-transition`
 
-const CSSTransition: React.FunctionComponent<CSSTransitionProps> = props => {
+const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
   const { classNames, isAppear, children, in: inProp, mountOnEnter, unmountOnLeave } = props
 
   const classNameMap = React.useMemo(() => {
@@ -143,9 +143,9 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = props => {
   )
 }
 
-CSSTransition.displayName = displayName
+CssTransition.displayName = displayName
 
-CSSTransition.propTypes = {
+CssTransition.propTypes = {
   children: PropTypes.element.isRequired,
   classNames: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
     afterAppear: PropTypes.string,
@@ -164,27 +164,51 @@ CSSTransition.propTypes = {
   unmountOnLeave: PropTypes.bool
 }
 
-export default CSSTransition
+export default CssTransition
+
+let transitionProp = 'transition'
+let transitionEndEvent = 'transitionend'
+let animationProp = 'animation'
+let animationEndEvent = 'animationend'
+
+if (window.ontransitionend === undefined &&
+  // @ts-ignore
+  window.onwebkittransitionend !== undefined
+) {
+  transitionProp = 'WebkitTransition'
+  transitionEndEvent = 'webkitTransitionEnd'
+}
+if (window.onanimationend === undefined &&
+  // @ts-ignore
+  window.onwebkitanimationend !== undefined
+) {
+  animationProp = 'WebkitAnimation'
+  animationEndEvent = 'webkitAnimationEnd'
+}
 
 const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   const styles = getComputedStyle(el)
-  const transitionDelays: string[] = (styles.transitionDelay || '').split(', ')
-  const transitionDurations: string[] = (styles.transitionDuration || '').split(', ')
+  // @ts-ignore
+  const transitionDelays: string[] = (styles[`${transitionProp}Delay`] || '').split(', ')
+  // @ts-ignore
+  const transitionDurations: string[] = (styles[`${transitionProp}Duration`] || '').split(', ')
+  // @ts-ignore
+  const animationDelays: string[] = (styles[`${animationProp}Delay`] || '').split(', ')
+  // @ts-ignore
+  const animationDurations: string[] = (styles[`${animationProp}Duration`] || '').split(', ')
   const transitionTimeout: number = getTimeout(transitionDelays, transitionDurations)
-  const animationDelays: string[] = (styles.transitionDelay || '').split(', ')
-  const animationDurations: string[] = (styles.transitionDuration || '').split(', ')
   const animationTimeout: number = getTimeout(animationDelays, animationDurations)
-  let event = 'transitionEnd'
+  let event = transitionEndEvent
   let timeout = transitionTimeout
   let eventCount = transitionDurations.length
 
   if (timeout < animationTimeout) {
-    event = 'animationEnd'
+    event = animationEndEvent
     timeout = animationTimeout
     eventCount = animationDurations.length
   }
 
-  if (timeout < 0) {
+  if (timeout <= 0) {
     return done()
   }
 
