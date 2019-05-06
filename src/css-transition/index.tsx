@@ -2,7 +2,8 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { addClass, removeClass } from '../commons/utils/dom'
-import Transition from '../transition'
+import Transition, { ProxyElement } from '../transition'
+import { onTransitionEnd, reflowAndAddClass } from './utils'
 
 export interface CSSTransitionProps {
   children: React.ReactElement
@@ -19,14 +20,13 @@ export interface CSSTransitionProps {
   }
   in: boolean
   isAppear?: boolean
-  mountOnEnter?: boolean
   unmountOnLeave?: boolean
 }
 
 const displayName = `${namePrefix}-css-transition`
 
 const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
-  const { classNames, isAppear, children, in: inProp, mountOnEnter, unmountOnLeave } = props
+  const { classNames, isAppear, children, in: inProp, unmountOnLeave } = props
 
   const classNameMap = React.useMemo(() => {
     if (typeof classNames === 'object') {
@@ -47,13 +47,14 @@ const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
 
   const beforeAppear = React.useCallback((el: HTMLElement) => {
     if (classNameMap.beforeAppear) {
+      removeClass(el, classNameMap.afterLeave)
       addClass(el, classNameMap.beforeAppear)
     }
   }, [])
 
-  const appear = React.useCallback((el: HTMLElement, done: () => void) => {
+  const appear = React.useCallback((el: ProxyElement, done: () => void) => {
     if (classNameMap.appear) {
-      addClass(el, classNameMap.appear)
+      reflowAndAddClass(el, classNameMap.appear)
     }
     onTransitionEnd(el, done)
   }, [])
@@ -80,11 +81,12 @@ const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
   }, [])
 
   const beforeEnter = React.useCallback((el: HTMLElement) => {
+    removeClass(el, classNameMap.afterLeave)
     addClass(el, classNameMap.beforeEnter)
   }, [])
 
-  const enter = React.useCallback((el: HTMLElement, done: () => void) => {
-    addClass(el, classNameMap.enter)
+  const enter = React.useCallback((el: ProxyElement, done: () => void) => {
+    reflowAndAddClass(el, classNameMap.enter)
     onTransitionEnd(el, done)
   }, [])
 
@@ -100,11 +102,13 @@ const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
   }, [])
 
   const beforeLeave = React.useCallback((el: HTMLElement) => {
+    classNameMap.afterAppear && removeClass(el, classNameMap.afterAppear)
+    removeClass(el, classNameMap.afterEnter)
     addClass(el, classNameMap.beforeLeave)
   }, [])
 
-  const leave = React.useCallback((el: HTMLElement, done: () => void) => {
-    addClass(el, classNameMap.leave)
+  const leave = React.useCallback((el: ProxyElement, done: () => void) => {
+    reflowAndAddClass(el, classNameMap.leave)
     onTransitionEnd(el, done)
   }, [])
 
@@ -135,7 +139,6 @@ const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
       leaveCancelled={leaveCancelled}
       isAppear={isAppear}
       in={inProp}
-      mountOnEnter={mountOnEnter}
       unmountOnLeave={unmountOnLeave}
     >
       {children}
@@ -160,94 +163,7 @@ CssTransition.propTypes = {
   })]).isRequired,
   in: PropTypes.bool.isRequired,
   isAppear: PropTypes.bool,
-  mountOnEnter: PropTypes.bool,
   unmountOnLeave: PropTypes.bool
 }
 
 export default CssTransition
-
-let transitionProp = 'transition'
-let transitionEndEvent = 'transitionend'
-let animationProp = 'animation'
-let animationEndEvent = 'animationend'
-
-if (window.ontransitionend === undefined &&
-  // @ts-ignore
-  window.onwebkittransitionend !== undefined
-) {
-  transitionProp = 'WebkitTransition'
-  transitionEndEvent = 'webkitTransitionEnd'
-}
-if (window.onanimationend === undefined &&
-  // @ts-ignore
-  window.onwebkitanimationend !== undefined
-) {
-  animationProp = 'WebkitAnimation'
-  animationEndEvent = 'webkitAnimationEnd'
-}
-
-const onTransitionEnd = (el: HTMLElement, done: () => void) => {
-  const styles = getComputedStyle(el)
-  // @ts-ignore
-  const transitionDelays: string[] = (styles[`${transitionProp}Delay`] || '').split(', ')
-  // @ts-ignore
-  const transitionDurations: string[] = (styles[`${transitionProp}Duration`] || '').split(', ')
-  // @ts-ignore
-  const animationDelays: string[] = (styles[`${animationProp}Delay`] || '').split(', ')
-  // @ts-ignore
-  const animationDurations: string[] = (styles[`${animationProp}Duration`] || '').split(', ')
-  const transitionTimeout: number = getTimeout(transitionDelays, transitionDurations)
-  const animationTimeout: number = getTimeout(animationDelays, animationDurations)
-  let event = transitionEndEvent
-  let timeout = transitionTimeout
-  let eventCount = transitionDurations.length
-
-  if (timeout < animationTimeout) {
-    event = animationEndEvent
-    timeout = animationTimeout
-    eventCount = animationDurations.length
-  }
-
-  if (timeout <= 0) {
-    return done()
-  }
-
-  let count = 0
-
-  const end = () => {
-    el.removeEventListener(event, onEnd)
-    done()
-  }
-
-  const onEnd = (e: Event) => {
-    if (e.target !== el) {
-      return
-    }
-    if (++count >= eventCount) {
-      end()
-    }
-  }
-
-  setTimeout(() => {
-    if (count < eventCount) {
-      end()
-    }
-  }, timeout + 1)
-
-  el.addEventListener(event, onEnd)
-}
-
-const getTimeout = (delays: string[], durations: string[]) => {
-  /* istanbul ignore next */
-  while (delays.length < durations.length) {
-    delays = delays.concat(delays)
-  }
-
-  return Math.max.apply(null, durations.map((d, i) => {
-    return toMs(d) + toMs(delays[i])
-  }))
-}
-
-const toMs = (s: string) => {
-  return Number(s.slice(0, -1)) * 1000
-}

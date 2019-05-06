@@ -1,16 +1,5 @@
 @import "../../style/commons/var";
 
-.demo-fade-enter {
-  height: 0;
-  opacity: 0;
-  transition: opacity 10s linear, height 10s linear;
-}
-
-.demo-fade-enter-active {
-  height: 10rem;
-  opacity: 1;
-}
-
 .demo-box {
   height: 10rem;
   color: $--text-color-light;
@@ -19,4 +8,30 @@
   text-align: center;
   vertical-align: middle;
   background-color: $--color-primary;
+}
+
+.demo-fade-enter,
+.demo-fade-leave,
+.demo-fade-appear {
+  transition: opacity 2s ease, height 2s ease;
+}
+
+.demo-fade-appear,
+.demo-fade-enter {
+  height: 0;
+  opacity: 0;
+}
+
+.demo-fade-appear-active,
+.demo-fade-appear-to,
+.demo-fade-enter-active,
+.demo-fade-enter-to {
+  height: 10rem;
+  opacity: 1;
+}
+
+.demo-fade-leave-active,
+.demo-fade-leave-to {
+  height: 0;
+  opacity: 0;
 }

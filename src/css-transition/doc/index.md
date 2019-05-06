@@ -13,15 +13,14 @@ imports:
 
 ```jsx
 export default () => {
-     const [active, setActive] = React.useState(false)
+     const [active, setActive] = React.useState(true)
 
      return (
        <div>
          <Button onClick={() => {setActive(!active)}}>Click</Button>
          <CssTransition
            in={active}
-           mountOnEnter={true}
-           unmountOnLeave={true}
+           isAppear
            classNames={'demo-fade'}
          >
            <div className='demo-box'>DEMO</div>

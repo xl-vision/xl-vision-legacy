@@ -52,7 +52,6 @@ export default () => {
       <Transition
       isAppear
       in={active}
-      mountOnEnter={true}
       unmountOnLeave={true}
       beforeEnter={beforeEnter}
       enter={enter}
