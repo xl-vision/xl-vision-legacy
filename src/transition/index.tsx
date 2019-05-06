@@ -9,7 +9,7 @@ export {
   STATE_ENTERING,
   STATE_LEAVING,
   STATE_LEAVED,
-  STATE_UNMOUNTED,
+  STATE_INIT,
   State,
   ProxyElement
 } from './transition'

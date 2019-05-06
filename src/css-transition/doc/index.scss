@@ -10,28 +10,22 @@
   background-color: $--color-primary;
 }
 
-.demo-fade-enter,
-.demo-fade-leave,
-.demo-fade-appear {
+.demo-fade-enter-active,
+.demo-fade-leave-active,
+.demo-fade-appear-active {
   transition: opacity 2s ease, height 2s ease;
 }
 
+.demo-fade-leave-to,
 .demo-fade-appear,
 .demo-fade-enter {
   height: 0;
   opacity: 0;
 }
 
-.demo-fade-appear-active,
+.demo-fade-leave,
 .demo-fade-appear-to,
-.demo-fade-enter-active,
 .demo-fade-enter-to {
   height: 10rem;
   opacity: 1;
-}
-
-.demo-fade-leave-active,
-.demo-fade-leave-to {
-  height: 0;
-  opacity: 0;
 }

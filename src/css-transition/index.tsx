@@ -8,15 +8,15 @@ import { onTransitionEnd, reflowAndAddClass } from './utils'
 export interface CSSTransitionProps {
   children: React.ReactElement
   classNames: string | {
-    afterAppear?: string
-    afterEnter: string
-    afterLeave: string
     appear?: string
-    beforeAppear?: string
-    beforeEnter: string
-    beforeLeave: string
+    appearActive?: string
+    appearTo?: string
     enter: string
+    enterActive: string
+    enterTo: string
     leave: string
+    leaveActive: string
+    leaveTo: string
   }
   in: boolean
   isAppear?: boolean
@@ -33,95 +33,84 @@ const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
       return classNames
     }
     return {
-      afterAppear: `${classNames}-appear-to`,
-      afterEnter: `${classNames}-enter-to`,
-      afterLeave: `${classNames}-leave-to`,
-      appear: `${classNames}-appear-active`,
-      beforeAppear: `${classNames}-appear`,
-      beforeEnter: `${classNames}-enter`,
-      beforeLeave: `${classNames}-leave`,
-      enter: `${classNames}-enter-active`,
-      leave: `${classNames}-leave-active`
+      appear: `${classNames}-appear`,
+      appearActive: `${classNames}-appear-active`,
+      appearTo: `${classNames}-appear-to`,
+      enter: `${classNames}-enter`,
+      enterActive: `${classNames}-enter-active`,
+      enterTo: `${classNames}-enter-to`,
+      leave: `${classNames}-leave`,
+      leaveActive: `${classNames}-leave-active`,
+      leaveTo: `${classNames}-leave-to`
     }
   }, [classNames])
 
   const beforeAppear = React.useCallback((el: HTMLElement) => {
-    if (classNameMap.beforeAppear) {
-      removeClass(el, classNameMap.afterLeave)
-      addClass(el, classNameMap.beforeAppear)
-    }
-  }, [])
+    classNameMap.appear && addClass(el, classNameMap.appear)
+    removeClass(el, classNameMap.leaveTo)
+    classNameMap.appearActive && addClass(el, classNameMap.appearActive)
+  }, [classNameMap])
 
   const appear = React.useCallback((el: ProxyElement, done: () => void) => {
-    if (classNameMap.appear) {
-      reflowAndAddClass(el, classNameMap.appear)
-    }
+    classNameMap.appearTo && reflowAndAddClass(el, classNameMap.appearTo)
+    classNameMap.appear && removeClass(el, classNameMap.appear)
     onTransitionEnd(el, done)
-  }, [])
+  }, [classNameMap])
 
   const afterAppear = React.useCallback((el: HTMLElement) => {
-    if (classNameMap.afterAppear) {
-      addClass(el, classNameMap.afterAppear)
-    }
-    if (classNameMap.beforeAppear) {
-      removeClass(el, classNameMap.beforeAppear)
-    }
-    if (classNameMap.appear) {
-      removeClass(el, classNameMap.appear)
-    }
-  }, [])
+    classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
+    classNameMap.appear && removeClass(el, classNameMap.appear)
+  }, [classNameMap])
 
   const appearCancelled = React.useCallback((el: HTMLElement) => {
-    if (classNameMap.beforeAppear) {
-      addClass(el, classNameMap.beforeAppear)
-    }
-    if (classNameMap.appear) {
-      removeClass(el, classNameMap.appear)
-    }
-  }, [])
+    classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
+    classNameMap.appear && removeClass(el, classNameMap.appear)
+  }, [classNameMap])
 
   const beforeEnter = React.useCallback((el: HTMLElement) => {
-    removeClass(el, classNameMap.afterLeave)
-    addClass(el, classNameMap.beforeEnter)
-  }, [])
+    addClass(el, classNameMap.enter)
+    removeClass(el, classNameMap.leaveTo)
+    addClass(el, classNameMap.enterActive)
+  }, [classNameMap])
 
   const enter = React.useCallback((el: ProxyElement, done: () => void) => {
-    reflowAndAddClass(el, classNameMap.enter)
+    reflowAndAddClass(el, classNameMap.enterTo)
+    removeClass(el, classNameMap.enter)
     onTransitionEnd(el, done)
-  }, [])
+  }, [classNameMap])
 
   const afterEnter = React.useCallback((el: HTMLElement) => {
-    addClass(el, classNameMap.afterEnter)
-    removeClass(el, classNameMap.beforeEnter)
+    removeClass(el, classNameMap.enterActive)
     removeClass(el, classNameMap.enter)
-  }, [])
+  }, [classNameMap])
 
   const enterCancelled = React.useCallback((el: HTMLElement) => {
-    removeClass(el, classNameMap.beforeEnter)
+    removeClass(el, classNameMap.enterActive)
     removeClass(el, classNameMap.enter)
-  }, [])
+  }, [classNameMap])
 
   const beforeLeave = React.useCallback((el: HTMLElement) => {
-    classNameMap.afterAppear && removeClass(el, classNameMap.afterAppear)
-    removeClass(el, classNameMap.afterEnter)
-    addClass(el, classNameMap.beforeLeave)
-  }, [])
+    addClass(el, classNameMap.leave)
+    removeClass(el, classNameMap.enterTo)
+    classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
+    addClass(el, classNameMap.leaveActive)
+  }, [classNameMap])
 
   const leave = React.useCallback((el: ProxyElement, done: () => void) => {
-    reflowAndAddClass(el, classNameMap.leave)
+    reflowAndAddClass(el, classNameMap.leaveTo)
+    removeClass(el, classNameMap.leave)
     onTransitionEnd(el, done)
-  }, [])
+  }, [classNameMap])
 
   const afterLeave = React.useCallback((el: HTMLElement) => {
-    addClass(el, classNameMap.afterLeave)
+    removeClass(el, classNameMap.leaveActive)
     removeClass(el, classNameMap.leave)
-    removeClass(el, classNameMap.beforeLeave)
-  }, [])
+  }, [classNameMap])
 
   const leaveCancelled = React.useCallback((el: HTMLElement) => {
+    removeClass(el, classNameMap.leaveActive)
     removeClass(el, classNameMap.leave)
-    removeClass(el, classNameMap.beforeLeave)
-  }, [])
+  }, [classNameMap])
 
   return (
     <Transition
@@ -151,15 +140,15 @@ CssTransition.displayName = displayName
 CssTransition.propTypes = {
   children: PropTypes.element.isRequired,
   classNames: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
-    afterAppear: PropTypes.string,
-    afterEnter: PropTypes.string.isRequired,
-    afterLeave: PropTypes.string.isRequired,
     appear: PropTypes.string,
-    beforeAppear: PropTypes.string,
-    beforeEnter: PropTypes.string.isRequired,
-    beforeLeave: PropTypes.string.isRequired,
+    appearActive: PropTypes.string,
+    appearTo: PropTypes.string,
     enter: PropTypes.string.isRequired,
-    leave: PropTypes.string.isRequired
+    enterActive: PropTypes.string.isRequired,
+    enterTo: PropTypes.string.isRequired,
+    leave: PropTypes.string.isRequired,
+    leaveActive: PropTypes.string.isRequired,
+    leaveTo: PropTypes.string.isRequired
   })]).isRequired,
   in: PropTypes.bool.isRequired,
   isAppear: PropTypes.bool,

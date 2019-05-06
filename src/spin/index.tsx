@@ -1,5 +1,6 @@
 import classnames from 'classnames'
 import * as React from 'react'
+import { CssTransition } from '..'
 import { namePrefix } from '../commons/config'
 import { FasSpinner } from '../icon'
 
@@ -19,10 +20,6 @@ export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const displayName = `${namePrefix}-spin`
-
-const renderIndicator = (indicator?: SpinIndicator) => {
-  return indicator || <FasSpinner spin={true}/>
-}
 
 const Spin: React.FunctionComponent<SpinProps> = props => {
   const {
@@ -51,13 +48,6 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
 
   const wrapperClasses = classnames(`${displayName}__wrapper`, `${displayName}__wrapper--${size}`, wrapperClassName)
 
-  const indicatorWrapper = display && (
-    <div className={wrapperClasses}>
-      <span className={`${displayName}__indicator`}>{renderIndicator(indicator)}</span>
-      {tip && (<span className={`${displayName}__tip`}>{tip}</span>)}
-    </div>
-  )
-
   const childrenEle = children && (
     <div className={`${displayName}__children`}>
       {children}
@@ -65,7 +55,14 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
   )
   return (
     <div className={classes} {...others}>
-      {indicatorWrapper}
+      <CssTransition in={display} classNames={`${displayName}__fade`} unmountOnLeave={true}>
+        <div className={`${displayName}__fade`}>
+          <div className={wrapperClasses}>
+            <span className={`${displayName}__indicator`}>{renderIndicator(indicator)}</span>
+            {tip && (<span className={`${displayName}__tip`}>{tip}</span>)}
+          </div>
+        </div>
+      </CssTransition>
       {childrenEle}
     </div>
   )
@@ -74,3 +71,7 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
 Spin.displayName = displayName
 
 export default Spin
+
+const renderIndicator = (indicator?: SpinIndicator) => {
+  return indicator || <FasSpinner spin={true}/>
+}
