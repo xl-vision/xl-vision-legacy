@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import { CssTransition } from '..'
 import { namePrefix } from '../commons/config'
@@ -69,6 +70,17 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
 }
 
 Spin.displayName = displayName
+
+Spin.propTypes = {
+  children: PropTypes.node,
+  cover: PropTypes.bool,
+  delay: PropTypes.number,
+  indicator: PropTypes.element,
+  size: PropTypes.oneOf(['small', 'default', 'large']),
+  spinning: PropTypes.bool,
+  tip: PropTypes.string,
+  wrapperClassName: PropTypes.string
+}
 
 export default Spin
 

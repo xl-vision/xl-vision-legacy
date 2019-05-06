@@ -28,9 +28,34 @@ $padding: 1rem;
     }
 
     .demobox-desc {
+      display: inline-block;
       font-size: 0.9rem;
       line-height: 0.9rem * 2;
     }
+
+    .demobox-action {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0.25rem;
+
+      .xl-button {
+        color: lighten($--text-color, 30%);
+        font-size: 2rem;
+      }
+
+      .demobox-showcode {
+        transition: transform $--animation-duration ease;
+      }
+
+      .demobox-showcode-active {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .demobox-collapse {
+    transition: all $--animation-duration ease;
   }
 
   .demobox-code {

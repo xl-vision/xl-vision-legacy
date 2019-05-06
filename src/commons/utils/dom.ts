@@ -1,3 +1,5 @@
+import { oneOf } from './array'
+
 export const isClient = typeof window === 'object'
 
 export const on = <K extends keyof WindowEventMap>(
@@ -22,22 +24,40 @@ export const off = <K extends keyof WindowEventMap>(
   window.removeEventListener(type, listener, options)
 }
 
-export const addClass = (dom: HTMLElement, classToAdd: string) => {
-  const src = dom.className.split(/ +/)
-  const clazz = classToAdd.trim()
-  if (src.includes(clazz)) {
-    return
-  }
-  src.push(clazz)
-  dom.className = src.join(' ')
+export function getClasses (element: HTMLElement) {
+  const classes = (element.className || '').trim()
+  return classes.split(/\s+/)
 }
 
-export const removeClass = (dom: HTMLElement, classToAdd: string) => {
-  let src = dom.className.split(/ +/)
-  const clazz = classToAdd.trim()
-  if (!src.includes(clazz)) {
+export function containClass (element: HTMLElement, className: string) {
+  return oneOf(getClasses(element), className)
+}
+
+export function addClass (element: HTMLElement, className: string) {
+  if (containClass(element, className)) {
     return
   }
-  src = src.slice(0, src.indexOf(clazz)).concat(src.slice(src.indexOf(clazz) + 1))
-  dom.className = src.join(' ')
+  const _className = (element.className || '') + ` ${className}`
+  element.className = _className.replace(/\s+/, ' ')
+}
+
+export function removeClass (element: HTMLElement, className: string) {
+  if (!containClass(element, className)) {
+    return
+  }
+  const _className = (element.className || '').replace(className, ' ')
+  element.className = _className.replace(/\s+/, ' ')
+}
+
+export function getPxNumber (px?: string | number | null) {
+  if (!px) {
+    return 0
+  }
+  if (typeof px === 'number') {
+    return px
+  }
+  if (!px.endsWith('px')) {
+    return Number(px)
+  }
+  return Number(px.substring(0, px.length - 2))
 }
