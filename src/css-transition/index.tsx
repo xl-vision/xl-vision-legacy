@@ -5,7 +5,7 @@ import { addClass, removeClass } from '../commons/utils/dom'
 import Transition, { ProxyElement } from '../transition'
 import { onTransitionEnd, reflowAndAddClass } from './utils'
 
-export interface CSSTransitionProps {
+export interface CssTransitionProps {
   children: React.ReactElement
   classNames: string | {
     appear?: string
@@ -25,7 +25,7 @@ export interface CSSTransitionProps {
 
 const displayName = `${namePrefix}-css-transition`
 
-const CssTransition: React.FunctionComponent<CSSTransitionProps> = props => {
+const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
   const { classNames, isAppear, children, in: inProp, unmountOnLeave } = props
 
   const classNameMap = React.useMemo(() => {

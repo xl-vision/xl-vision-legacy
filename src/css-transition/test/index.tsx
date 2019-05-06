@@ -1,17 +1,17 @@
 import { mount } from 'enzyme'
 import * as React from 'react'
-import CSSTransition from '..'
+import CssTransition from '..'
 
-describe('CSSTransition', () => {
+describe('CssTransition', () => {
   it('测试生命周期', () => {
 
     const wrapper = mount(
-        <CSSTransition
+        <CssTransition
           in={false}
           classNames={'transition'}
         >
         <div/>
-        </CSSTransition>
+        </CssTransition>
     )
 
     wrapper.tap(instance => {
