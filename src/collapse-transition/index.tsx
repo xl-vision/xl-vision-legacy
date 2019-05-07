@@ -90,7 +90,12 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
   }, [children, transitionClassName])
 
   return (
-    <Transition in={inProp} unmountOnLeave={true} {...transitionEvents}>
+    <Transition
+      in={inProp}
+      unmountOnLeave={true}
+      mountOnEnter={true}
+      {...transitionEvents}
+    >
         {children}
     </Transition>
   )

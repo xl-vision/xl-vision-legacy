@@ -160,6 +160,7 @@ CssTransition.propTypes = {
   })]).isRequired,
   in: PropTypes.bool.isRequired,
   isAppear: PropTypes.bool,
+  mountOnEnter: PropTypes.bool,
   unmountOnLeave: PropTypes.bool
 }
 
