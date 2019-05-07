@@ -56,7 +56,7 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
   )
   return (
     <div className={classes} {...others}>
-      <CssTransition in={display} classNames={`${displayName}__fade`} unmountOnLeave={true}>
+      <CssTransition in={display} classNames={`${displayName}__fade`} mountOnEnter={true} unmountOnLeave={true}>
         <div className={`${displayName}__fade`}>
           <div className={wrapperClasses}>
             <span className={`${displayName}__indicator`}>{renderIndicator(indicator)}</span>

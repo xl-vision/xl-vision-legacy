@@ -29,7 +29,7 @@ export default function () {
 export default function () {
     return (
         <Spin>
-            <div className='inner'>Further details about the context of this alert.</div>
+            <div className='spin-inner'>Further details about the context of this alert.</div>
         </Spin>
     )
 }
@@ -44,7 +44,7 @@ export default function () {
 ```jsx
 export default function () {
     return (
-        <div className='inner'>Further details about the context of this alert.<Spin cover/></div>
+        <div className='spin-inner'>Further details about the context of this alert.<Spin cover/></div>
     )
 }
 ```
@@ -58,7 +58,7 @@ export default function () {
 ```jsx
 export default function () {
     return (
-        <div className='wrapper'>
+        <div className='spin-wrapper'>
             <Spin size='small'/>
             <Spin size='default'/>
             <Spin size='large'/>
@@ -105,9 +105,9 @@ export default function () {
 export default function () {
     const [display, setDisplay] = React.useState(false)
     return (
-        <div className='wrapper'>
+        <div className='spin-wrapper'>
             <Spin delay={1000} spinning={display}>
-                <div className='inner'>Further details about the context of this alert.</div>
+                <div className='spin-inner'>Further details about the context of this alert.</div>
             </Spin>
             <Button onClick={() => setDisplay(!display)}>{display?'关闭':'打开'}</Button>
         </div>

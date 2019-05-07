@@ -21,11 +21,11 @@ export default () => {
          <CssTransition
            in={active}
            isAppear
-           classNames={'demo-fade'}
+           classNames={'css-transition-demo-fade'}
            mountOnEnter
            unmountOnLeave
          >
-           <div className='demo-box'>DEMO</div>
+           <div className='css-transition-demo-box'>DEMO</div>
          </CssTransition>
        </div>
      )

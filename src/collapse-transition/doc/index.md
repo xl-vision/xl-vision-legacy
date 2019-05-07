@@ -20,9 +20,9 @@ export default () => {
          <Button onClick={() => {setActive(!active)}}>Click</Button>
          <CollapseTransition
            in={active}
-           transitionClassName={'demo-fade'}
+           transitionClassName={'collapse-transition-demo-fade'}
          >
-           <div className='demo-box'>DEMO</div>
+           <div className='collapse-transition-demo-box'>DEMO</div>
          </CollapseTransition>
        </div>
      )

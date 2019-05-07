@@ -1,18 +1,20 @@
 @import "../../style/commons/var";
 
-.inner {
-  position: relative;
-  width: 25rem;
-  height: 10rem;
-  background-color: $--color-gray-100;
-}
-
-.wrapper {
-  .xl-spin {
-    margin-right: 1rem;
+.spin {
+  &-inner {
+    position: relative;
+    width: 25rem;
+    height: 10rem;
+    background-color: $--color-gray-100;
   }
 
-  .xl-button {
-    display: block;
+  &-wrapper {
+    .xl-spin {
+      margin-right: 1rem;
+    }
+
+    .xl-button {
+      display: block;
+    }
   }
 }

@@ -1,15 +1,17 @@
 @import "../../style/commons/var";
 
-.demo-box {
-  height: 10rem;
-  color: $--text-color-light;
-  font-size: 3rem;
-  line-height: 10rem;
-  text-align: center;
-  vertical-align: middle;
-  background-color: $--color-primary;
-}
+.collapse-transition {
+  &-demo-box {
+    height: 10rem;
+    color: $--text-color-light;
+    font-size: 3rem;
+    line-height: 10rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $--color-primary;
+  }
 
-.demo-fade {
-  transition: height 2s ease;
+  &-demo-fade {
+    transition: height 2s ease;
+  }
 }

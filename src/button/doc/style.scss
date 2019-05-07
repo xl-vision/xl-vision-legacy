@@ -1,17 +1,19 @@
 @import '../../style/commons/var';
 
-.button-column {
-  .xl-button {
-    margin: 0.5rem;
+.button {
+  &-column {
+    .xl-button {
+      margin: 0.5rem;
+    }
+
+    &.ghost {
+      background-color: $--color-gray-200;
+    }
   }
 
-  &.ghost {
-    background-color: $--color-gray-200;
-  }
-}
-
-.button-wrapper {
-  .xl-button-group {
-    margin: 0.5rem;
+  &-wrapper {
+    .xl-button-group {
+      margin: 0.5rem;
+    }
   }
 }

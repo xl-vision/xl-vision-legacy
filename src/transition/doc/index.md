@@ -66,7 +66,7 @@ export default () => {
       enter={enter}
       leave={leave}
       >
-        <div className='demo'>DEMO</div>
+        <div className='transition-demo'>DEMO</div>
       </Transition>
     </div>
   )
