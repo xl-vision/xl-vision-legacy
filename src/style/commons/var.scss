@@ -64,7 +64,7 @@ $--color-theme: (
 )                                                                                    !default;
 
 //body
-$--body-color:                  $--color-gray-100                                    !default;
+$--body-color:                  $--color-white                                       !default;
 $--body-font-size:              14px                                                 !default;
 
 //background
@@ -75,11 +75,11 @@ $--text-color:                  $--color-gray-900                               
 $--text-color-second:           $--color-gray-800                                    !default;
 $--text-color-light:            $--color-gray-0                                      !default;
 $--link-color:                  $--color-primary                                     !default;
-$--link-color-hover:           color-level($--link-color, -2)                        !default;
+$--link-color-hover:            color-level($--link-color, -2)                       !default;
 
 // border
-$--border-color:                $--color-gray-300                                    !default;
-$--border-color-hover:          $--color-gray-500                                    !default;
+$--border-color:                $--color-gray-100                                    !default;
+$--border-color-hover:          $--color-gray-400                                    !default;
 $--border-color-focus:          $--color-primary                                     !default;
 $--border-width:                1px                                                  !default;
 $--border-radius:               0.25rem                                              !default;
