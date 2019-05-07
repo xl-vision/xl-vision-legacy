@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { addClass, getPxNumber, removeClass } from '../commons/utils/dom'
-import { onTransitionEnd } from '../css-transition/utils'
-import Transition, { ProxyElement } from '../transition'
+import { onTransitionEnd, reflow } from '../commons/utils/transition'
+import Transition from '../transition'
 
 export interface CollapseTransitionProp {
   children: React.ReactElement
@@ -33,14 +33,13 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
         }
         el.style.overflow = 'hidden'
       },
-      enter (el: ProxyElement, done: () => void) {
+      enter (el: HTMLElement, done: () => void) {
         // force repaint
-        if (el.scrollHeight !== 0) {
-          el.style.height = el.dataset.height + ''
-          el.style.paddingTop = el.dataset.paddingTop + ''
-          el.style.paddingBottom = el.dataset.paddingBottom + ''
-          addClass(el, transitionClassName)
-        }
+        reflow(el)
+        el.style.height = el.dataset.height + ''
+        el.style.paddingTop = el.dataset.paddingTop + ''
+        el.style.paddingBottom = el.dataset.paddingBottom + ''
+        addClass(el, transitionClassName)
         onTransitionEnd(el, done)
       },
 
@@ -68,14 +67,13 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
         el.style.paddingBottom = style.paddingBottom
         el.style.overflow = 'hidden'
       },
-      leave (el: ProxyElement, done: () => void) {
+      leave (el: HTMLElement, done: () => void) {
         // force repaint
-        if (el.scrollHeight !== 0) {
-          el.style.height = '0'
-          el.style.paddingTop = '0'
-          el.style.paddingBottom = '0'
-          addClass(el, transitionClassName)
-        }
+        reflow(el)
+        el.style.height = '0'
+        el.style.paddingTop = '0'
+        el.style.paddingBottom = '0'
+        addClass(el, transitionClassName)
         onTransitionEnd(el, done)
       },
       afterLeave (el: HTMLElement) {

@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { addClass, removeClass } from '../commons/utils/dom'
-import Transition, { ProxyElement } from '../transition'
-import { onTransitionEnd, reflowAndAddClass } from './utils'
+import { onTransitionEnd, reflow } from '../commons/utils/transition'
+import Transition from '../transition'
 
 export interface CssTransitionProps {
   children: React.ReactElement
@@ -20,13 +20,14 @@ export interface CssTransitionProps {
   }
   in: boolean
   isAppear?: boolean
+  mountOnEnter?: boolean
   unmountOnLeave?: boolean
 }
 
 const displayName = `${namePrefix}-css-transition`
 
 const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
-  const { classNames, isAppear, children, in: inProp, unmountOnLeave } = props
+  const { classNames, isAppear, children, in: inProp, unmountOnLeave, mountOnEnter } = props
 
   const classNameMap = React.useMemo(() => {
     if (typeof classNames === 'object') {
@@ -51,10 +52,12 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     classNameMap.appearActive && addClass(el, classNameMap.appearActive)
   }, [classNameMap])
 
-  const appear = React.useCallback((el: ProxyElement, done: () => void) => {
-    classNameMap.appearTo && reflowAndAddClass(el, classNameMap.appearTo)
-    classNameMap.appear && removeClass(el, classNameMap.appear)
-    onTransitionEnd(el, done)
+  const appear = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+    if (!isCancelled()) {
+      classNameMap.appearTo && reflowAndAddClass(el, classNameMap.appearTo)
+      classNameMap.appear && removeClass(el, classNameMap.appear)
+      onTransitionEnd(el, done)
+    }
   }, [classNameMap])
 
   const afterAppear = React.useCallback((el: HTMLElement) => {
@@ -73,10 +76,12 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     addClass(el, classNameMap.enterActive)
   }, [classNameMap])
 
-  const enter = React.useCallback((el: ProxyElement, done: () => void) => {
-    reflowAndAddClass(el, classNameMap.enterTo)
-    removeClass(el, classNameMap.enter)
-    onTransitionEnd(el, done)
+  const enter = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+    if (!isCancelled()) {
+      reflowAndAddClass(el, classNameMap.enterTo)
+      removeClass(el, classNameMap.enter)
+      onTransitionEnd(el, done)
+    }
   }, [classNameMap])
 
   const afterEnter = React.useCallback((el: HTMLElement) => {
@@ -96,10 +101,12 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     addClass(el, classNameMap.leaveActive)
   }, [classNameMap])
 
-  const leave = React.useCallback((el: ProxyElement, done: () => void) => {
-    reflowAndAddClass(el, classNameMap.leaveTo)
-    removeClass(el, classNameMap.leave)
-    onTransitionEnd(el, done)
+  const leave = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+    if (!isCancelled()) {
+      reflowAndAddClass(el, classNameMap.leaveTo)
+      removeClass(el, classNameMap.leave)
+      onTransitionEnd(el, done)
+    }
   }, [classNameMap])
 
   const afterLeave = React.useCallback((el: HTMLElement) => {
@@ -129,6 +136,7 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
       isAppear={isAppear}
       in={inProp}
       unmountOnLeave={unmountOnLeave}
+      mountOnEnter={mountOnEnter}
     >
       {children}
     </Transition>
@@ -156,3 +164,8 @@ CssTransition.propTypes = {
 }
 
 export default CssTransition
+
+const reflowAndAddClass = (el: HTMLElement, className: string) => {
+  reflow(el)
+  addClass(el, className)
+}

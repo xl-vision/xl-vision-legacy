@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import { proxyElement } from './utils'
 
 export const STATE_INIT = 'init'
+export const STATE_MOUNTED = 'mounted'
 export const STATE_APPEARING = 'appearing'
 export const STATE_APPEARED = 'appeared'
 export const STATE_ENTERING = 'entering'
@@ -13,6 +13,7 @@ export const STATE_LEAVED = 'leaved'
 
 export type State =
   | typeof STATE_INIT
+  | typeof STATE_MOUNTED
   | typeof STATE_APPEARING
   | typeof STATE_APPEARED
   | typeof STATE_ENTERING
@@ -20,26 +21,23 @@ export type State =
   | typeof STATE_LEAVING
   | typeof STATE_LEAVED
 
-export interface ProxyElement extends HTMLElement {
-  target: HTMLElement
-}
-
 export interface TransitionProps {
   afterAppear?: (el: HTMLElement) => void
   afterEnter?: (el: HTMLElement) => void
   afterLeave?: (el: HTMLElement) => void
-  appear?: (el: ProxyElement, done: (() => void)) => void
+  appear?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   appearCancelled?: (el: HTMLElement) => void
   beforeAppear?: (el: HTMLElement) => void
   beforeEnter?: (el: HTMLElement) => void
   beforeLeave?: (el: HTMLElement) => void
   children: React.ReactElement
-  enter?: (el: ProxyElement, done: (() => void)) => void
+  enter?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   enterCancelled?: (el: HTMLElement) => void
   in: boolean
   isAppear?: boolean
-  leave?: (el: ProxyElement, done: (() => void)) => void
+  leave?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   leaveCancelled?: (el: HTMLElement) => void
+  mountOnEnter?: boolean
   unmountOnLeave?: boolean
 }
 
@@ -59,7 +57,8 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     enterCancelled,
     leave,
     leaveCancelled,
-    unmountOnLeave
+    unmountOnLeave,
+    mountOnEnter
   } = props
 
   let { beforeAppear, appear, appearCancelled, afterAppear } = props
@@ -87,6 +86,9 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   const display = React.useMemo(() => {
     // 还未初始化完成
     if (state === STATE_INIT) {
+      return false
+    }
+    if (mountOnEnter && state === STATE_MOUNTED) {
       return false
     }
     if (unmountOnLeave && state === STATE_LEAVED) {
@@ -123,7 +125,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       }
       // STATE_INIT只有在初始化才存在，所以要排除
       if (state === STATE_INIT) {
-        setState(STATE_LEAVED)
+        setState(STATE_MOUNTED)
       } else {
         setState(STATE_LEAVING)
       }
@@ -155,23 +157,29 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
 
   const onTransitionEnd = React.useMemo(() => {
     let count = 0
-    return (callback: () => void, action?: (el: ProxyElement, cb: (() => void)) => void) => {
+    return (callback: () => void, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
       count++
       const match = count
-      const isWriteable = () => match === count
-      const ele = proxyElement(childrenRel.current!, isWriteable)
+      const ele = childrenRel.current!
+
+      const isCancelled = () => match !== count
+
+      // 判断回调是否执行了
       const wrapCallback = () => {
-        if (isWriteable() && isMounted) {
+        if (!isCancelled() && isMounted) {
           // 防止重复触发
           count ++
           callback()
         }
       }
       if (action) {
-        action(ele, wrapCallback)
+        action(ele, wrapCallback, isCancelled)
       } else {
         wrapCallback()
       }
+      // if (!isCallbacked) {
+      //   throw new Error(`Do you forget to call 'done' or 'isCancelled' in function 'appear', 'enter' or 'leave'`)
+      // }
     }
   }, [])
 
@@ -202,6 +210,7 @@ Transition.propTypes = {
   isAppear: PropTypes.bool,
   leave: PropTypes.func,
   leaveCancelled: PropTypes.func,
+  mountOnEnter: PropTypes.bool,
   unmountOnLeave: PropTypes.bool
 }
 

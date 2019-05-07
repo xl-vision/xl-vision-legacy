@@ -1,6 +1,3 @@
-import { addClass } from '../commons/utils/dom'
-import { ProxyElement } from '../transition'
-
 let transitionProp = 'transition'
 let transitionEndEvent = 'transitionend'
 let animationProp = 'animation'
@@ -23,9 +20,8 @@ if (window.onanimationend === undefined &&
   animationEndEvent = 'webkitAnimationEnd'
 }
 
-export const onTransitionEnd = (el: ProxyElement, done: () => void) => {
-  const node = el.target
-  const styles = getComputedStyle(node)
+export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
+  const styles = getComputedStyle(el)
   // @ts-ignore
   const transitionDelays: string[] = (styles[`${transitionProp}Delay`] || '').split(', ')
   // @ts-ignore
@@ -53,7 +49,7 @@ export const onTransitionEnd = (el: ProxyElement, done: () => void) => {
   let count = 0
 
   const end = () => {
-    node.removeEventListener(event, onEnd)
+    el.removeEventListener(event, onEnd)
     done()
   }
 
@@ -72,7 +68,13 @@ export const onTransitionEnd = (el: ProxyElement, done: () => void) => {
     }
   }, timeout + 1)
 
-  node.addEventListener(event, onEnd)
+  el.addEventListener(event, onEnd)
+}
+
+export const reflow = (node: HTMLElement) => {
+  // force a repaint
+  // tslint:disable-next-line: no-unused-expression
+  node.scrollTop
 }
 
 const getTimeout = (delays: string[], durations: string[]) => {
@@ -87,11 +89,4 @@ const getTimeout = (delays: string[], durations: string[]) => {
 
 const toMs = (s: string) => {
   return Number(s.slice(0, -1)) * 1000
-}
-
-export const reflowAndAddClass = (node: HTMLElement, className: string) => {
-  // force a repaint
-  // tslint:disable-next-line: no-unused-expression
-  node.scrollTop
-  addClass(node, className)
 }

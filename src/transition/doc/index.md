@@ -20,9 +20,13 @@ export default () => {
     el.style.height = el.style.height || 0
   }, [])
   
-  const enter = React.useCallback((el, done) => {
+  const enter = React.useCallback((el, done, isCancelled) => {
     let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 0)
     const timer = setInterval(()=>{
+      if(isCancelled()) {
+        clearInterval(timer)
+        return
+      }
       if(height > 200){
         clearInterval(timer)
         done()
@@ -32,10 +36,14 @@ export default () => {
       el.style.height = `${height}px`
     }, 20)
   }, [])
-
-  const leave = React.useCallback((el, done) => {
+  
+  const leave = React.useCallback((el, done, isCancelled) => {
     let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 200)
     const timer = setInterval(()=>{
+      if(isCancelled()) {
+        clearInterval(timer)
+        return
+      }
       if(height < 0){
         clearInterval(timer)
         done()
@@ -52,6 +60,7 @@ export default () => {
       <Transition
       isAppear
       in={active}
+      mountOnEnter={true}
       unmountOnLeave={true}
       beforeEnter={beforeEnter}
       enter={enter}
@@ -76,15 +85,15 @@ export default () => {
 | mountOnEnter | 是否在进场时才挂载节点            | boolean  | -  | false      |
 | unmountOnLeave | 是否在离场时卸载节点            | boolean  | -  | false      |
 | beforeAppear   | 初次进场前钩子            | (el: HTMLElement) => void  | -   | —      |
-| appear   | 初次进场时钩子            | (el: HTMLElement, done: (() => void)) => void  | -   | —      |
+| appear   | 初次进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |
 | afterAppear   | 初次进场后钩子            | (el: HTMLElement) => void  | -   | —      |
 | appearCancelled   | 取消初次进场钩子            | (el: HTMLElement) => void  | -   | —      |
 | beforeEnter   | 进场前钩子            | (el: HTMLElement) => void  | -   | —      |
-| enter   | 进场时钩子            | (el: HTMLElement, done: (() => void)) => void  | -   | —      |
+| enter   | 进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |
 | afterEnter   | 进场后钩子            | (el: HTMLElement) => void  | -   | —      |
 | enterCancelled   | 取消进场钩子            | (el: HTMLElement) => void  | -   | —      |
 | beforeLeave   | 出场前钩子            | (el: HTMLElement) => void  | -   | —      |
-| leave   | 出场时钩子            | (el: HTMLElement, done: (() => void)) => void  | -   | —      |
+| leave   | 出场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |
 | afterLeave   | 出场后钩子            | (el: HTMLElement) => void  | -   | —      |
 | leaveCancelled   | 取消出场钩子            | (el: HTMLElement) => void  | -   | —      |
 | children   | 子元素            | React.ReactElement | -   | —      |
