@@ -13,6 +13,7 @@ exports[`spin 不同大小 1`] = `
       <xl-css-transition
         classNames="xl-spin__fade"
         in={true}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <xl-transition
@@ -29,6 +30,7 @@ exports[`spin 不同大小 1`] = `
           in={true}
           leave={[Function]}
           leaveCancelled={[Function]}
+          mountOnEnter={true}
           unmountOnLeave={true}
         >
           <div
@@ -88,6 +90,7 @@ exports[`spin 不同大小 1`] = `
       <xl-css-transition
         classNames="xl-spin__fade"
         in={true}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <xl-transition
@@ -104,6 +107,7 @@ exports[`spin 不同大小 1`] = `
           in={true}
           leave={[Function]}
           leaveCancelled={[Function]}
+          mountOnEnter={true}
           unmountOnLeave={true}
         >
           <div
@@ -163,6 +167,7 @@ exports[`spin 不同大小 1`] = `
       <xl-css-transition
         classNames="xl-spin__fade"
         in={true}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <xl-transition
@@ -179,6 +184,7 @@ exports[`spin 不同大小 1`] = `
           in={true}
           leave={[Function]}
           leaveCancelled={[Function]}
+          mountOnEnter={true}
           unmountOnLeave={true}
         >
           <div
@@ -240,6 +246,7 @@ exports[`spin 内嵌内容 1`] = `
     <xl-css-transition
       classNames="xl-spin__fade"
       in={true}
+      mountOnEnter={true}
       unmountOnLeave={true}
     >
       <xl-transition
@@ -256,6 +263,7 @@ exports[`spin 内嵌内容 1`] = `
         in={true}
         leave={[Function]}
         leaveCancelled={[Function]}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <div
@@ -325,6 +333,7 @@ exports[`spin 基本用法 1`] = `
     <xl-css-transition
       classNames="xl-spin__fade"
       in={true}
+      mountOnEnter={true}
       unmountOnLeave={true}
     >
       <xl-transition
@@ -341,6 +350,7 @@ exports[`spin 基本用法 1`] = `
         in={true}
         leave={[Function]}
         leaveCancelled={[Function]}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <div
@@ -408,6 +418,7 @@ exports[`spin 自定义指示器 1`] = `
     <xl-css-transition
       classNames="xl-spin__fade"
       in={true}
+      mountOnEnter={true}
       unmountOnLeave={true}
     >
       <xl-transition
@@ -424,6 +435,7 @@ exports[`spin 自定义指示器 1`] = `
         in={true}
         leave={[Function]}
         leaveCancelled={[Function]}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <div
@@ -486,6 +498,7 @@ exports[`spin 自定义描述 1`] = `
     <xl-css-transition
       classNames="xl-spin__fade"
       in={true}
+      mountOnEnter={true}
       unmountOnLeave={true}
     >
       <xl-transition
@@ -502,6 +515,7 @@ exports[`spin 自定义描述 1`] = `
         in={true}
         leave={[Function]}
         leaveCancelled={[Function]}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <div
@@ -568,6 +582,7 @@ exports[`spin 覆盖父元素 1`] = `
       <xl-css-transition
         classNames="xl-spin__fade"
         in={true}
+        mountOnEnter={true}
         unmountOnLeave={true}
       >
         <xl-transition
@@ -584,6 +599,7 @@ exports[`spin 覆盖父元素 1`] = `
           in={true}
           leave={[Function]}
           leaveCancelled={[Function]}
+          mountOnEnter={true}
           unmountOnLeave={true}
         >
           <div
