@@ -75,6 +75,11 @@ const routes: Route[] = [
         path: '/CssTransition',
         component: import('../src/css-transition/doc/index.md')
       },
+      {
+        name: 'CollapseTransition',
+        path: '/CollapseTransition',
+        component: import('../src/collapse-transition/doc/index.md')
+      },
     ]
   }
 ];
