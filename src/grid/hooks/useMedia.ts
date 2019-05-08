@@ -1,8 +1,17 @@
 import { useEffect, useState } from 'react'
 
-window.matchMedia = window.matchMedia || (() => ({
-  matches: false
-}))
+const matchMedia = (query: string) => {
+  if(typeof window === 'undefined') {
+    return {
+      // tslint:disable-next-line: no-empty
+      addListener: () => {},
+      matches: false,
+      // tslint:disable-next-line: no-empty
+      removeListener: () => {}
+    }
+  }
+  return window.matchMedia(query)
+}
 
 export type BreakPoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 
@@ -25,7 +34,7 @@ const useMedia = () => {
     const handlerMap: any = {}
     breakPointArray.forEach(breakPoint => {
       const query = breakPointMap[breakPoint]
-      const mql = window.matchMedia(query)
+      const mql = matchMedia(query)
       const onChange = () => {
         setMedia(prev => ({
           ...prev,
@@ -40,7 +49,7 @@ const useMedia = () => {
     return () => {
       breakPointArray.forEach(breakPoint => {
         const query = breakPointMap[breakPoint]
-        window.matchMedia(query).removeListener(handlerMap[breakPoint])
+        matchMedia(query).removeListener(handlerMap[breakPoint])
       })
     }
   }, [])

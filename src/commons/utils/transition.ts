@@ -3,21 +3,21 @@ let transitionEndEvent = 'transitionend'
 let animationProp = 'animation'
 let animationEndEvent = 'animationend'
 
-// tslint:disable-next-line: strict-type-predicates
-if (window.ontransitionend === undefined &&
-  // @ts-ignore
-  window.onwebkittransitionend !== undefined
-) {
-  transitionProp = 'WebkitTransition'
-  transitionEndEvent = 'webkitTransitionEnd'
-}
-// tslint:disable-next-line: strict-type-predicates
-if (window.onanimationend === undefined &&
-  // @ts-ignore
-  window.onwebkitanimationend !== undefined
-) {
-  animationProp = 'WebkitAnimation'
-  animationEndEvent = 'webkitAnimationEnd'
+if(typeof window !== 'undefined' ) {
+  if (window.ontransitionend === undefined &&
+    // @ts-ignore
+    window.onwebkittransitionend !== undefined
+  ) {
+    transitionProp = 'WebkitTransition'
+    transitionEndEvent = 'webkitTransitionEnd'
+  }
+  if (window.onanimationend === undefined &&
+    // @ts-ignore
+    window.onwebkitanimationend !== undefined
+  ) {
+    animationProp = 'WebkitAnimation'
+    animationEndEvent = 'webkitAnimationEnd'
+  }
 }
 
 export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
