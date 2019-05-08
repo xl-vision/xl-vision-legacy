@@ -2,24 +2,16 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 
-export const STATE_INIT = 'init'
-export const STATE_MOUNTED = 'mounted'
-export const STATE_APPEARING = 'appearing'
-export const STATE_APPEARED = 'appeared'
-export const STATE_ENTERING = 'entering'
-export const STATE_ENTERED = 'entered'
-export const STATE_LEAVING = 'leaving'
-export const STATE_LEAVED = 'leaved'
-
-export type State =
-  | typeof STATE_INIT
-  | typeof STATE_MOUNTED
-  | typeof STATE_APPEARING
-  | typeof STATE_APPEARED
-  | typeof STATE_ENTERING
-  | typeof STATE_ENTERED
-  | typeof STATE_LEAVING
-  | typeof STATE_LEAVED
+enum State {
+  STATE_INIT,
+  STATE_MOUNTED,
+  STATE_APPEARING,
+  STATE_APPEARED,
+  STATE_ENTERING,
+  STATE_ENTERED,
+  STATE_LEAVING,
+  STATE_LEAVED
+}
 
 export interface TransitionProps {
   afterAppear?: (el: HTMLElement) => void
@@ -69,7 +61,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   afterAppear = afterAppear || afterEnter
   appearCancelled = appearCancelled || enterCancelled
 
-  const [state, setState] = React.useState<State>(STATE_INIT)
+  const [state, setState] = React.useState(State.STATE_INIT)
 
   // 标记当前组件是否被卸载
   let isMounted = true
@@ -85,13 +77,13 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
 
   const display = React.useMemo(() => {
     // 还未初始化完成
-    if (state === STATE_INIT) {
+    if (state === State.STATE_INIT) {
       return false
     }
-    if (mountOnEnter && state === STATE_MOUNTED) {
+    if (mountOnEnter && state === State.STATE_MOUNTED) {
       return false
     }
-    if (unmountOnLeave && state === STATE_LEAVED) {
+    if (unmountOnLeave && state === State.STATE_LEAVED) {
       return false
     }
     // 默认展示
@@ -101,56 +93,56 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   React.useEffect(() => {
     if (inProp) {
       // 此时说明leave动画还没有完成，需要触发leaveCancelled
-      if (state === STATE_LEAVING) {
+      if (state === State.STATE_LEAVING) {
         leaveCancelled && leaveCancelled(childrenRel.current!)
       }
       // 还没有初始化
-      if (state === STATE_INIT) {
+      if (state === State.STATE_INIT) {
         // 判断是否需要触发isAppear
         if (isAppear) {
-          setState(STATE_APPEARING)
+          setState(State.STATE_APPEARING)
         } else {
-          setState(STATE_ENTERED)
+          setState(State.STATE_ENTERED)
         }
       } else {
-        setState(STATE_ENTERING)
+        setState(State.STATE_ENTERING)
       }
     } else {
       // 此时说明appear动画还没有完成，需要触发appearCancelled
-      if (state === STATE_APPEARING) {
+      if (state === State.STATE_APPEARING) {
         appearCancelled && appearCancelled(childrenRel.current!)
       // 此时说明enter动画还没有完成，需要触发enterCancelled
-      } else if (state === STATE_ENTERING) {
+      } else if (state === State.STATE_ENTERING) {
         enterCancelled && enterCancelled(childrenRel.current!)
       }
       // STATE_INIT只有在初始化才存在，所以要排除
-      if (state === STATE_INIT) {
-        setState(STATE_MOUNTED)
+      if (state === State.STATE_INIT) {
+        setState(State.STATE_MOUNTED)
       } else {
-        setState(STATE_LEAVING)
+        setState(State.STATE_LEAVING)
       }
     }
   }, [inProp])
 
   React.useEffect(() => {
-    if (state === STATE_APPEARING) {
+    if (state === State.STATE_APPEARING) {
       beforeAppear && beforeAppear(childrenRel.current!)
       onTransitionEnd(() => {
         afterAppear && afterAppear(childrenRel.current!)
-        setState(STATE_APPEARED)
+        setState(State.STATE_APPEARED)
       }, appear)
       // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
-    } else if (state === STATE_ENTERING) {
+    } else if (state === State.STATE_ENTERING) {
       beforeEnter && beforeEnter(childrenRel.current!)
       onTransitionEnd(() => {
         afterEnter && afterEnter(childrenRel.current!)
-        setState(STATE_ENTERED)
+        setState(State.STATE_ENTERED)
       }, enter)
-    } else if (state === STATE_LEAVING) {
+    } else if (state === State.STATE_LEAVING) {
       beforeLeave && beforeLeave(childrenRel.current!)
       onTransitionEnd(() => {
         afterLeave && afterLeave(childrenRel.current!)
-        setState(STATE_LEAVED)
+        setState(State.STATE_LEAVED)
       }, leave)
     }
   }, [state])
