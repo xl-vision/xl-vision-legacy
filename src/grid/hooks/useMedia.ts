@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 
-if (window !== undefined) {
-  window.matchMedia = window.matchMedia || (() => ({
-    matches: false
-  }))
-}
+window.matchMedia = window.matchMedia || (() => ({
+  matches: false
+}))
 
 export type BreakPoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
 
