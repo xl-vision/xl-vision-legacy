@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const matchMedia = (query: string) => {
-  if(typeof window === 'undefined') {
+  if (typeof window === 'undefined') {
     return {
       // tslint:disable-next-line: no-empty
       addListener: () => {},

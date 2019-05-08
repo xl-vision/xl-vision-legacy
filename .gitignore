@@ -6,7 +6,6 @@ coverage/
 /dist/
 /es/
 /js/
-/style/
 /docs/
 
 package-lock.json

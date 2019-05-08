@@ -1,6 +1,6 @@
 {
   "name": "@xl-vision/xl-vision",
-  "version": "0.0.2-beta.12",
+  "version": "0.0.2-beta.13",
   "description": "the high quality UI library for react",
   "author": "Rhys Xia",
   "license": "MIT",
@@ -10,13 +10,12 @@
     "libaray"
   ],
   "main": "js/index.js",
+  "types": "js/index.d.ts",
   "module": "es/index.js",
-  "types": "es/index.d.ts",
   "files": [
     "dist",
     "js",
-    "es",
-    "style"
+    "es"
   ],
   "repository": {
     "type": "git",
@@ -34,7 +33,6 @@
     "lint": "npm run lint:es && xl-tools run lint",
     "compile:js": "xl-tools run compile:js",
     "compile:es": "xl-tools run compile:es",
-    "compile:style": "xl-tools run compile:style",
     "compile:dist": "xl-tools run compile:dist",
     "compile": "xl-tools run compile",
     "site:start": "xl-tools run site:start",
@@ -55,7 +53,7 @@
     "@types/react-dom": "^16.8.3",
     "@types/react-router-dom": "^4.3.1",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
-    "@xl-vision/xl-tools": "^0.0.2-beta.20",
+    "@xl-vision/xl-tools": "^0.0.2-beta.22",
     "chalk": "^2.4.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",

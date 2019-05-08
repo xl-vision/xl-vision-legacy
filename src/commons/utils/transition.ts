@@ -3,7 +3,7 @@ let transitionEndEvent = 'transitionend'
 let animationProp = 'animation'
 let animationEndEvent = 'animationend'
 
-if(typeof window !== 'undefined' ) {
+if (typeof window !== 'undefined') {
   if (window.ontransitionend === undefined &&
     // @ts-ignore
     window.onwebkittransitionend !== undefined
