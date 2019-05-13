@@ -168,8 +168,3 @@ CssTransition.propTypes = {
 }
 
 export default CssTransition
-
-const reflowAndAddClass = (el: HTMLElement, className: string) => {
-  reflow(el)
-  addClass(el, className)
-}
