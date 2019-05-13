@@ -160,6 +160,7 @@ $--button-theme-color: map_merge((), $--color-theme)!default;
 $--button-animation-time: $--animation-duration-fast !default;
 $--button-icon-padding: 0.25rem !default;
 $--button-opacity-disabled: $--opacity-disabled !default;
+$--buttion-shadow-opacity: 0.5 !default;
 
 // spin
 $--spin-animation-time: $--animation-duration !default;

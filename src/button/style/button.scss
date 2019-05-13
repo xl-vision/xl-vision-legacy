@@ -8,8 +8,6 @@ $button: #{$--cls-prefix}-button;
   $border: $background;
   $background-hover: color-level($background, $--button-color-level);
   $border-hover: $background-hover;
-  $background-active: $background-hover;
-  $border-active: $background-active;
 
   color: color-yiq($background, $--text-color, $--text-color-light);
   background-color: $background;
@@ -17,21 +15,16 @@ $button: #{$--cls-prefix}-button;
   // box-shadow: $--btn-box-shadow;
 
   &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  &:focus:not(:disabled),
+  &:active:not(:disabled) {
     color: color-yiq($background-hover, $--text-color, $--text-color-light);
     background-color: $background-hover;
     border-color: $border-hover;
   }
 
-  &:focus:not(:disabled) {
-    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, 0.5);
-  }
-
+  &:focus:not(:disabled),
   &:active:not(:disabled) {
-    color: color-yiq($background-active, $--text-color, $--text-color-light);
-    background-color: $background-active;
-    border-color: $border-active;
-    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-active, 0.5);
+    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, $--buttion-shadow-opacity);
   }
 }
 
@@ -39,8 +32,6 @@ $button: #{$--cls-prefix}-button;
   $border: $color;
   $color-hover: color-level($border, $--button-color-level);
   $border-hover: $color-hover;
-  $color-active: $color-hover;
-  $border-active: $color-active;
 
   color: $color;
   background-color: transparent;
@@ -48,20 +39,16 @@ $button: #{$--cls-prefix}-button;
   border-color: $border;
 
   &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  &:focus:not(:disabled),
+  &:active:not(:disabled) {
     color: $color-hover;
     background-color: transparent;
     border-color: $border-hover;
   }
 
-  &:focus:not(:disabled) {
-    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, 0.5);
-  }
-
+  &:focus:not(:disabled),
   &:active:not(:disabled) {
-    color: $color-active;
-    border-color: $border-active;
-    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-active, 0.5);
+    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, $--buttion-shadow-opacity);
   }
 }
 
@@ -127,31 +114,39 @@ $button: #{$--cls-prefix}-button;
     border-color: $--border-color;
 
     &:hover:not(:disabled),
-    &:focus:not(:disabled) {
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
       color: $--color-primary;
-      background-color: color-level($--color-primary, -8);
-      border-color: color-level($--color-primary, -4);
+      background-color: color-level($--color-primary, $--button-color-level * 4);
+      border-color: color-level($--color-primary, $--button-color-level);
     }
 
-    &.#{$button}--plain,
-    &.#{$button}--ghost {
-      background-color: transparent;
-
-      &:hover:not(:disabled),
-      &:focus:not(:disabled) {
-        color: $--color-primary;
-        background-color: transparent;
-        border-color: $--color-primary;
-      }
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
+      box-shadow: 0 0 0 $--button-box-shadow-width rgba($--color-primary, $--buttion-shadow-opacity);
     }
+
+    // &.#{$button}--plain,
+    // &.#{$button}--ghost {
+    //   background-color: transparent;
+
+    //   &:hover:not(:disabled),
+    //   &:focus:not(:disabled),
+    //   &:active:not(:disabled) {
+    //     color: $--color-primary;
+    //     background-color: transparent;
+    //     border-color: $--color-primary;
+    //   }
+    // }
   }
 
   &--text {
     color: $--link-color;
     background-color: transparent;
 
-    &:hover,
-    &:focus {
+    &:hover:not(:disabled),
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
       color: $--link-color-hover;
     }
   }
@@ -170,11 +165,12 @@ $button: #{$--cls-prefix}-button;
   }
 
   &--plain {
-    background-color: $--bg-color !important;
+    background-color: $--bg-color;
 
     &:hover:not(:disabled),
-    &:focus:not(:disabled) {
-      background-color: $--bg-color !important;
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
+      background-color: $--bg-color;
     }
   }
 }
