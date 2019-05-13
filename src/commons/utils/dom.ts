@@ -24,16 +24,16 @@ export const off = <K extends keyof WindowEventMap>(
   window.removeEventListener(type, listener, options)
 }
 
-export function getClasses (element: HTMLElement) {
+export const getClasses = (element: HTMLElement) => {
   const classes = (element.className || '').trim()
   return classes.split(/\s+/)
 }
 
-export function containClass (element: HTMLElement, className: string) {
+export const containClass = (element: HTMLElement, className: string) => {
   return oneOf(getClasses(element), className)
 }
 
-export function addClass (element: HTMLElement, className: string) {
+export const addClass = (element: HTMLElement, className: string) => {
   if (containClass(element, className)) {
     return
   }
@@ -41,7 +41,7 @@ export function addClass (element: HTMLElement, className: string) {
   element.className = _className.replace(/\s+/, ' ')
 }
 
-export function removeClass (element: HTMLElement, className: string) {
+export const removeClass = (element: HTMLElement, className: string) => {
   if (!containClass(element, className)) {
     return
   }
@@ -49,7 +49,7 @@ export function removeClass (element: HTMLElement, className: string) {
   element.className = _className.replace(/\s+/, ' ')
 }
 
-export function getPxNumber (px?: string | number | null) {
+export const getPxNumber = (px?: string | number | null) => {
   if (!px) {
     return 0
   }

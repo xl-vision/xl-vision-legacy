@@ -33,18 +33,17 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
         }
         el.style.overflow = 'hidden'
       },
-      enter (el: HTMLElement, done: () => void) {
-        // force repaint
-        reflow(el)
-        el.style.height = el.dataset.height + ''
-        el.style.paddingTop = el.dataset.paddingTop + ''
-        el.style.paddingBottom = el.dataset.paddingBottom + ''
-        addClass(el, transitionClassName)
-        onTransitionEnd(el, done)
+      enter (el: HTMLElement, done: () => void, isCancelled: () => boolean) {
+        if (!isCancelled()) {
+          reflow(el)
+          el.style.height = el.dataset.height + ''
+          el.style.paddingTop = el.dataset.paddingTop + ''
+          el.style.paddingBottom = el.dataset.paddingBottom + ''
+          addClass(el, transitionClassName)
+          onTransitionEnd(el, done)
+        }
       },
-
       afterEnter (el: HTMLElement) {
-        // for safari: remove class then reset height is necessary
         removeClass(el, transitionClassName)
         el.style.height = el.dataset.oldHeight + ''
         el.style.overflow = el.dataset.oldOverflow + ''
@@ -67,14 +66,15 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
         el.style.paddingBottom = style.paddingBottom
         el.style.overflow = 'hidden'
       },
-      leave (el: HTMLElement, done: () => void) {
-        // force repaint
-        reflow(el)
-        el.style.height = '0'
-        el.style.paddingTop = '0'
-        el.style.paddingBottom = '0'
-        addClass(el, transitionClassName)
-        onTransitionEnd(el, done)
+      leave (el: HTMLElement, done: () => void, isCancelled: () => boolean) {
+        if (!isCancelled()) {
+          reflow(el)
+          el.style.height = '0'
+          el.style.paddingTop = '0'
+          el.style.paddingBottom = '0'
+          addClass(el, transitionClassName)
+          onTransitionEnd(el, done)
+        }
       },
       afterLeave (el: HTMLElement) {
         removeClass(el, transitionClassName)

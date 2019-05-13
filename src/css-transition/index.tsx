@@ -54,7 +54,8 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   const appear = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
-      classNameMap.appearTo && reflowAndAddClass(el, classNameMap.appearTo)
+      reflow(el)
+      classNameMap.appearTo && addClass(el, classNameMap.appearTo)
       classNameMap.appear && removeClass(el, classNameMap.appear)
       onTransitionEnd(el, done)
     }
@@ -78,7 +79,8 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   const enter = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
-      reflowAndAddClass(el, classNameMap.enterTo)
+      reflow(el)
+      addClass(el, classNameMap.enterTo)
       removeClass(el, classNameMap.enter)
       onTransitionEnd(el, done)
     }
@@ -103,7 +105,8 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   const leave = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
-      reflowAndAddClass(el, classNameMap.leaveTo)
+      reflow(el)
+      addClass(el, classNameMap.leaveTo)
       removeClass(el, classNameMap.leave)
       onTransitionEnd(el, done)
     }
