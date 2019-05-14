@@ -562,4 +562,27 @@ describe('Transition', () => {
     expect(demo.queryByText(/DEMO/)).not.toBeNull()
   })
 
+  // it('测试forceRender', () => {
+  //   const Demo = () => {
+  //     const [active, setActive] = React.useState(false)
+  //     const click = () => {
+  //       setActive(!active)
+  //     }
+  //     return (
+  //         <div>
+  //           <Transition in={active} forceRender={true}>
+  //             <div>demo</div>
+  //           </Transition>
+  //           <button onClick={click}>button</button>
+  //         </div>
+  //     )
+  //   }
+  //   const wrapper = render(<Demo/>)
+  //
+  //   expect(wrapper.queryByText(/demo/)).not.toBeNull()
+  //
+  //   fireEvent.click(wrapper.getByText(/button/))
+  //
+  //   expect(wrapper.queryByText(/demo/)).not.toBeNull()
+  // })
 })

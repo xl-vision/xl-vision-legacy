@@ -25,6 +25,7 @@ export interface TransitionProps {
   children: React.ReactElement
   enter?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   enterCancelled?: (el: HTMLElement) => void
+  forceRender?: boolean
   in: boolean
   isAppear?: boolean
   leave?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
@@ -50,7 +51,8 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     leave,
     leaveCancelled,
     unmountOnLeave,
-    mountOnEnter
+    mountOnEnter,
+      forceRender
   } = props
 
   let { beforeAppear, appear, appearCancelled, afterAppear } = props
@@ -175,13 +177,21 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     }
   }, [])
 
-  const cloneChildren = React.useMemo(() => {
-    return React.cloneElement(children, {
-      ref: childrenRel
-    })
-  }, [children])
+  return React.useMemo(() => {
+    if (!display && !forceRender) {
+      return null
+    }
+    const style = children.props.style || {}
+    if (!display) {
+      style.display = 'none'
+    }
 
-  return display ? cloneChildren : null
+    return React.cloneElement(children, {
+      ...children.props,
+      ref: childrenRel,
+      style
+    })
+  }, [children, display, forceRender])
 }
 
 Transition.displayName = displayName
@@ -198,6 +208,7 @@ Transition.propTypes = {
   children: PropTypes.element.isRequired,
   enter: PropTypes.func,
   enterCancelled: PropTypes.func,
+  forceRender: PropTypes.bool,
   in: PropTypes.bool.isRequired,
   isAppear: PropTypes.bool,
   leave: PropTypes.func,

@@ -71,7 +71,7 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     call && call(el)
   }, [classNameMap, beforeAppear, beforeEnter])
 
-  const appearWrpper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+  const appearWrapper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
       if (classNameMap) {
         reflow(el)
@@ -190,7 +190,7 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
   return (
     <Transition
       beforeAppear={beforeAppearWrapper}
-      appear={appearWrpper}
+      appear={appearWrapper}
       afterAppear={afterAppearWrapper}
       appearCancelled={appearCancelledWrapper}
       beforeEnter={beforeEnterWrapper}

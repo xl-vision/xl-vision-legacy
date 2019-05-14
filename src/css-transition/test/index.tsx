@@ -241,12 +241,12 @@ describe('CssTransition', () => {
   it('测试包含className的生命周期', () => {
 
     const wrapper = mount(
-        <CssTransition
-          in={false}
-          classNames={'transition'}
-        >
+      <CssTransition
+        in={false}
+        classNames={'transition'}
+      >
         <div/>
-        </CssTransition>
+      </CssTransition>
     )
 
     wrapper.tap(instance => {
