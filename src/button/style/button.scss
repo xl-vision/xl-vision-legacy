@@ -5,50 +5,49 @@ $button: #{$--cls-prefix}-button;
 
 // mixins
 @mixin button-variant($background) {
-  $border: $background;
-  $background-hover: color-level($background, $--button-color-level);
-  $border-hover: $background-hover;
-
-  color: color-yiq($background, $--text-color, $--text-color-light);
+  color: color-yiq($background, $--button-text-color, $--button-text-color-light);
   background-color: $background;
-  border-color: $border;
-  // box-shadow: $--btn-box-shadow;
+  border-color: $background;
 
   &:hover:not(:disabled),
-  &:focus:not(:disabled),
-  &:active:not(:disabled) {
+  &:focus:not(:disabled) {
+    $background-hover: color-level($background, -$--button-color-level);
+
     color: color-yiq($background-hover, $--text-color, $--text-color-light);
     background-color: $background-hover;
-    border-color: $border-hover;
+    border-color: $background-hover;
   }
 
-  &:focus:not(:disabled),
   &:active:not(:disabled) {
-    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, $--buttion-shadow-opacity);
+    $background-active: color-level($background, $--button-color-level);
+
+    color: color-yiq($background-active, $--text-color, $--text-color-light);
+    background-color: $background-active;
+    border-color: $background-active;
   }
 }
 
 @mixin button-outline-variant($color) {
-  $border: $color;
-  $color-hover: color-level($border, $--button-color-level);
-  $border-hover: $color-hover;
-
   color: $color;
   background-color: transparent;
   background-image: none;
-  border-color: $border;
+  border-color: $color;
 
   &:hover:not(:disabled),
-  &:focus:not(:disabled),
-  &:active:not(:disabled) {
+  &:focus:not(:disabled) {
+    $color-hover: color-level($color, -$--button-color-level);
+
     color: $color-hover;
     background-color: transparent;
-    border-color: $border-hover;
+    border-color: $color-hover;
   }
 
-  &:focus:not(:disabled),
   &:active:not(:disabled) {
-    box-shadow: 0 0 0 $--button-box-shadow-width rgba($border-hover, $--buttion-shadow-opacity);
+    $color-active: color-level($color, $--button-color-level);
+
+    color: $color-active;
+    background-color: transparent;
+    border-color: $color-active;
   }
 }
 
@@ -110,20 +109,26 @@ $button: #{$--cls-prefix}-button;
   }
 
   &--default {
-    background-color: $--bg-color;
-    border-color: $--border-color;
+    background-color: $--button-bg-color;
+    border-color: $--button-border-color;
+
+    $color: map-get($--color-theme, primary);
 
     &:hover:not(:disabled),
-    &:focus:not(:disabled),
-    &:active:not(:disabled) {
-      color: $--color-primary;
-      background-color: color-level($--color-primary, $--button-color-level * 4);
-      border-color: color-level($--color-primary, $--button-color-level);
+    &:focus:not(:disabled) {
+      $color-hover: color-level($color, -$--button-color-level);
+
+      color: $color-hover;
+      background-color: color-level($color-hover, -$--button-color-level * 4);
+      border-color: color-level($color-hover, -$--button-color-level);
     }
 
-    &:focus:not(:disabled),
     &:active:not(:disabled) {
-      box-shadow: 0 0 0 $--button-box-shadow-width rgba($--color-primary, $--buttion-shadow-opacity);
+      $color-active: color-level($color, $--button-color-level);
+
+      color: $color-active;
+      background-color: color-level($color-active, -$--button-color-level * 4);
+      border-color: color-level($color-active, -$--button-color-level);
     }
 
     // &.#{$button}--plain,
@@ -141,13 +146,18 @@ $button: #{$--cls-prefix}-button;
   }
 
   &--text {
-    color: $--link-color;
+    $color: $--link-color;
+
+    color: $color;
     background-color: transparent;
 
     &:hover:not(:disabled),
-    &:focus:not(:disabled),
+    &:focus:not(:disabled) {
+      color: color-level($color, -$--button-color-level);
+    }
+
     &:active:not(:disabled) {
-      color: $--link-color-hover;
+      color: color-level($color, $--button-color-level);
     }
   }
 
