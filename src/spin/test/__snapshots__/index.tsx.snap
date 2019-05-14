@@ -35,6 +35,7 @@ exports[`spin 不同大小 1`] = `
         >
           <div
             className="xl-spin__fade"
+            style={Object {}}
           >
             <div
               className="xl-spin__wrapper xl-spin__wrapper--small"
@@ -112,6 +113,7 @@ exports[`spin 不同大小 1`] = `
         >
           <div
             className="xl-spin__fade"
+            style={Object {}}
           >
             <div
               className="xl-spin__wrapper xl-spin__wrapper--default"
@@ -189,6 +191,7 @@ exports[`spin 不同大小 1`] = `
         >
           <div
             className="xl-spin__fade"
+            style={Object {}}
           >
             <div
               className="xl-spin__wrapper xl-spin__wrapper--large"
@@ -268,6 +271,7 @@ exports[`spin 内嵌内容 1`] = `
       >
         <div
           className="xl-spin__fade"
+          style={Object {}}
         >
           <div
             className="xl-spin__wrapper xl-spin__wrapper--default"
@@ -355,6 +359,7 @@ exports[`spin 基本用法 1`] = `
       >
         <div
           className="xl-spin__fade"
+          style={Object {}}
         >
           <div
             className="xl-spin__wrapper xl-spin__wrapper--default"
@@ -440,6 +445,7 @@ exports[`spin 自定义指示器 1`] = `
       >
         <div
           className="xl-spin__fade"
+          style={Object {}}
         >
           <div
             className="xl-spin__wrapper xl-spin__wrapper--default"
@@ -520,6 +526,7 @@ exports[`spin 自定义描述 1`] = `
       >
         <div
           className="xl-spin__fade"
+          style={Object {}}
         >
           <div
             className="xl-spin__wrapper xl-spin__wrapper--default"
@@ -604,6 +611,7 @@ exports[`spin 覆盖父元素 1`] = `
         >
           <div
             className="xl-spin__fade"
+            style={Object {}}
           >
             <div
               className="xl-spin__wrapper xl-spin__wrapper--default"
