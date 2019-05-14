@@ -22,9 +22,13 @@
     border-radius: $--border-radius-sm;
   }
 
-  // &_blockquote{
-
-  // }
+  &_blockquote{
+    margin: 0;
+    padding-left: 2rem;
+    border-left: 4px solid $--color-primary;
+    line-height: 2;
+    background-color: color-level($--color-primary, -$--color-level * 4);
+  }
 
   // &_fence{
 

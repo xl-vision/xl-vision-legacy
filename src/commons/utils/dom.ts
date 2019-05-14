@@ -48,16 +48,3 @@ export const removeClass = (element: HTMLElement, className: string) => {
   const _className = (element.className || '').replace(className, ' ')
   element.className = _className.replace(/\s+/, ' ')
 }
-
-export const getPxNumber = (px?: string | number | null) => {
-  if (!px) {
-    return 0
-  }
-  if (typeof px === 'number') {
-    return px
-  }
-  if (!px.endsWith('px')) {
-    return Number(px)
-  }
-  return Number(px.substring(0, px.length - 2))
-}

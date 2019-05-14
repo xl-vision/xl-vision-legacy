@@ -37,6 +37,8 @@ export default () => {
 
 ## CssTransition 属性
 
+>CssTransition继承所有[Transition](/#/transition)属性
+
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 |
 | ------ | ------------------------------------------ | --------------- | ------ | ------ |
 | in   | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | -   | —      |

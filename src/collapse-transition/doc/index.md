@@ -13,7 +13,7 @@ imports:
 
 ```jsx
 export default () => {
-     const [active, setActive] = React.useState(true)
+     const [active, setActive] = React.useState(false)
 
      return (
        <div>
@@ -37,5 +37,5 @@ export default () => {
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 |
 | ------ | ------------------------------------------ | --------------- | ------ | ------ |
 | in   | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | -   | —      |
-| transitionClassName | 指定动画过程中的class名            | string  | -  | -|
+| transitionClassName | 指定动画过程中的class名,如果不指定，会使用默认动画`height 1s ease`            | string  | -  | -|
 | children   | 子元素            | React.ReactElement | -   | —      |
