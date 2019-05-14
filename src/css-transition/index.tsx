@@ -3,11 +3,10 @@ import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { addClass, removeClass } from '../commons/utils/dom'
 import { onTransitionEnd, reflow } from '../commons/utils/transition'
-import Transition from '../transition'
+import Transition, { TransitionProps } from '../transition'
 
-export interface CssTransitionProps {
-  children: React.ReactElement
-  classNames: string | {
+export interface CssTransitionProps extends TransitionProps {
+  classNames?: string | {
     appear?: string
     appearActive?: string
     appearTo?: string
@@ -18,18 +17,33 @@ export interface CssTransitionProps {
     leaveActive: string
     leaveTo: string
   }
-  in: boolean
-  isAppear?: boolean
-  mountOnEnter?: boolean
-  unmountOnLeave?: boolean
 }
 
 const displayName = `${namePrefix}-css-transition`
 
 const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
-  const { classNames, isAppear, children, in: inProp, unmountOnLeave, mountOnEnter } = props
+
+  const {
+    classNames,
+    beforeAppear,
+    appear,
+    afterAppear,
+    appearCancelled,
+    beforeEnter,
+    enter,
+    afterEnter,
+    enterCancelled,
+    beforeLeave,
+    leave,
+    afterLeave,
+    leaveCancelled,
+    ...others
+  } = props
 
   const classNameMap = React.useMemo(() => {
+    if (!classNames) {
+      return null
+    }
     if (typeof classNames === 'object') {
       return classNames
     }
@@ -46,107 +60,155 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     }
   }, [classNames])
 
-  const beforeAppear = React.useCallback((el: HTMLElement) => {
-    classNameMap.appear && addClass(el, classNameMap.appear)
-    removeClass(el, classNameMap.leaveTo)
-    classNameMap.appearActive && addClass(el, classNameMap.appearActive)
-  }, [classNameMap])
+  const beforeAppearWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      classNameMap.appear && addClass(el, classNameMap.appear)
+      removeClass(el, classNameMap.leaveTo)
+      classNameMap.appearActive && addClass(el, classNameMap.appearActive)
+    }
 
-  const appear = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+    const call = beforeAppear || beforeEnter
+    call && call(el)
+  }, [classNameMap, beforeAppear, beforeEnter])
+
+  const appearWrpper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
-      classNameMap.appearTo && reflowAndAddClass(el, classNameMap.appearTo)
+      if (classNameMap) {
+        reflow(el)
+        classNameMap.appearTo && addClass(el, classNameMap.appearTo)
+        classNameMap.appear && removeClass(el, classNameMap.appear)
+        onTransitionEnd(el, done)
+      }
+
+      const call = appear || enter
+      call && call(el, done, isCancelled)
+    }
+  }, [classNameMap, appear, enter])
+
+  const afterAppearWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
       classNameMap.appear && removeClass(el, classNameMap.appear)
-      onTransitionEnd(el, done)
     }
-  }, [classNameMap])
 
-  const afterAppear = React.useCallback((el: HTMLElement) => {
-    classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
-    classNameMap.appear && removeClass(el, classNameMap.appear)
-  }, [classNameMap])
+    const call = afterAppear || afterEnter
+    call && call(el)
+  }, [classNameMap, afterAppear, afterEnter])
 
-  const appearCancelled = React.useCallback((el: HTMLElement) => {
-    classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
-    classNameMap.appear && removeClass(el, classNameMap.appear)
-  }, [classNameMap])
+  const appearCancelledWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
+      classNameMap.appear && removeClass(el, classNameMap.appear)
+    }
 
-  const beforeEnter = React.useCallback((el: HTMLElement) => {
-    addClass(el, classNameMap.enter)
-    removeClass(el, classNameMap.leaveTo)
-    addClass(el, classNameMap.enterActive)
-  }, [classNameMap])
+    const call = appearCancelled || enterCancelled
+    call && call(el)
+  }, [classNameMap, appearCancelled, enterCancelled])
 
-  const enter = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+  const beforeEnterWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      addClass(el, classNameMap.enter)
+      removeClass(el, classNameMap.leaveTo)
+      addClass(el, classNameMap.enterActive)
+    }
+
+    beforeEnter && beforeEnter(el)
+  }, [classNameMap, beforeEnter])
+
+  const enterWrapper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
-      reflowAndAddClass(el, classNameMap.enterTo)
+      if (classNameMap) {
+        reflow(el)
+        addClass(el, classNameMap.enterTo)
+        removeClass(el, classNameMap.enter)
+        onTransitionEnd(el, done)
+      }
+
+      enter && enter(el, done, isCancelled)
+    }
+  }, [classNameMap, enter])
+
+  const afterEnterWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      removeClass(el, classNameMap.enterActive)
       removeClass(el, classNameMap.enter)
-      onTransitionEnd(el, done)
     }
-  }, [classNameMap])
 
-  const afterEnter = React.useCallback((el: HTMLElement) => {
-    removeClass(el, classNameMap.enterActive)
-    removeClass(el, classNameMap.enter)
-  }, [classNameMap])
+    afterEnter && afterEnter(el)
+  }, [classNameMap, afterEnter])
 
-  const enterCancelled = React.useCallback((el: HTMLElement) => {
-    removeClass(el, classNameMap.enterActive)
-    removeClass(el, classNameMap.enter)
-  }, [classNameMap])
+  const enterCancelledWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      removeClass(el, classNameMap.enterActive)
+      removeClass(el, classNameMap.enter)
+    }
 
-  const beforeLeave = React.useCallback((el: HTMLElement) => {
-    addClass(el, classNameMap.leave)
-    removeClass(el, classNameMap.enterTo)
-    classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
-    addClass(el, classNameMap.leaveActive)
-  }, [classNameMap])
+    enterCancelled && enterCancelled(el)
+  }, [classNameMap, enterCancelled])
 
-  const leave = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+  const beforeLeaveWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      addClass(el, classNameMap.leave)
+      removeClass(el, classNameMap.enterTo)
+      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
+      addClass(el, classNameMap.leaveActive)
+    }
+
+    beforeLeave && beforeLeave(el)
+  }, [classNameMap, beforeLeave])
+
+  const leaveWrapper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
-      reflowAndAddClass(el, classNameMap.leaveTo)
-      removeClass(el, classNameMap.leave)
-      onTransitionEnd(el, done)
+      if (classNameMap) {
+        reflow(el)
+        addClass(el, classNameMap.leaveTo)
+        removeClass(el, classNameMap.leave)
+        onTransitionEnd(el, done)
+      }
     }
-  }, [classNameMap])
+    leave && leave(el, done, isCancelled)
+  }, [classNameMap, leave])
 
-  const afterLeave = React.useCallback((el: HTMLElement) => {
-    removeClass(el, classNameMap.leaveActive)
-    removeClass(el, classNameMap.leave)
-  }, [classNameMap])
+  const afterLeaveWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      removeClass(el, classNameMap.leaveActive)
+      removeClass(el, classNameMap.leave)
+    }
 
-  const leaveCancelled = React.useCallback((el: HTMLElement) => {
-    removeClass(el, classNameMap.leaveActive)
-    removeClass(el, classNameMap.leave)
-  }, [classNameMap])
+    afterLeave && afterLeave(el)
+  }, [classNameMap, afterLeave])
+
+  const leaveCancelledWrapper = React.useCallback((el: HTMLElement) => {
+    if (classNameMap) {
+      removeClass(el, classNameMap.leaveActive)
+      removeClass(el, classNameMap.leave)
+    }
+
+    leaveCancelled && leaveCancelled(el)
+  }, [classNameMap, leaveCancelled])
 
   return (
     <Transition
-      beforeAppear={beforeAppear}
-      appear={appear}
-      afterAppear={afterAppear}
-      appearCancelled={appearCancelled}
-      beforeEnter={beforeEnter}
-      enter={enter}
-      afterEnter={afterEnter}
-      enterCancelled={enterCancelled}
-      beforeLeave={beforeLeave}
-      leave={leave}
-      afterLeave={afterLeave}
-      leaveCancelled={leaveCancelled}
-      isAppear={isAppear}
-      in={inProp}
-      unmountOnLeave={unmountOnLeave}
-      mountOnEnter={mountOnEnter}
-    >
-      {children}
-    </Transition>
+      beforeAppear={beforeAppearWrapper}
+      appear={appearWrpper}
+      afterAppear={afterAppearWrapper}
+      appearCancelled={appearCancelledWrapper}
+      beforeEnter={beforeEnterWrapper}
+      enter={enterWrapper}
+      afterEnter={afterEnterWrapper}
+      enterCancelled={enterCancelledWrapper}
+      beforeLeave={beforeLeaveWrapper}
+      leave={leaveWrapper}
+      afterLeave={afterLeaveWrapper}
+      leaveCancelled={leaveCancelledWrapper}
+      {...others}
+    />
   )
 }
 
 CssTransition.displayName = displayName
 
 CssTransition.propTypes = {
-  children: PropTypes.element.isRequired,
   classNames: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
     appear: PropTypes.string,
     appearActive: PropTypes.string,
@@ -157,16 +219,7 @@ CssTransition.propTypes = {
     leave: PropTypes.string.isRequired,
     leaveActive: PropTypes.string.isRequired,
     leaveTo: PropTypes.string.isRequired
-  })]).isRequired,
-  in: PropTypes.bool.isRequired,
-  isAppear: PropTypes.bool,
-  mountOnEnter: PropTypes.bool,
-  unmountOnLeave: PropTypes.bool
+  })])
 }
 
 export default CssTransition
-
-const reflowAndAddClass = (el: HTMLElement, className: string) => {
-  reflow(el)
-  addClass(el, className)
-}

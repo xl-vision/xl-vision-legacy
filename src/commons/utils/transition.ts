@@ -1,3 +1,11 @@
+export const nextFrame = requestAnimationFrame ||
+                        webkitRequestAnimationFrame ||
+                        // @ts-ignore
+                        mozRequestAnimationFrame ||
+                        ((callback: () => void) => {
+                          setTimeout(callback, 0)
+                        })
+
 let transitionProp = 'transition'
 let transitionEndEvent = 'transitionend'
 let animationProp = 'animation'

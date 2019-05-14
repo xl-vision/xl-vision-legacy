@@ -1,10 +1,10 @@
 /* stylelint-disable */
 @import '../function/color';
-//prefix
 
+//prefix
 $--cls-prefix:                  'xl'                                                 !default;
 
-// color
+// base color
 $--color-white:                 #ffffff                                              !default;
 $--color-black:                 #000000                                              !default;
 
@@ -21,80 +21,72 @@ $--color-gray-800:              color-level($--color-white, 8)                  
 $--color-gray-900:              color-level($--color-white, 9)                       !default;
 $--color-gray-1000:             color-level($--color-white, 10)                      !default;
 
-$--color-gray: (
-        '0':    $--color-gray-0,
-        '100':  $--color-gray-100,
-        '200':  $--color-gray-200,
-        '300':  $--color-gray-300,
-        '400':  $--color-gray-400,
-        '500':  $--color-gray-500,
-        '600':  $--color-gray-600,
-        '700':  $--color-gray-700,
-        '800':  $--color-gray-800,
-        '900':  $--color-gray-900,
-        '1000': $--color-gray-1000
+$--color-grays: (
+        0:    $--color-gray-0,
+        100:  $--color-gray-100,
+        200:  $--color-gray-200,
+        300:  $--color-gray-300,
+        400:  $--color-gray-400,
+        500:  $--color-gray-500,
+        600:  $--color-gray-600,
+        700:  $--color-gray-700,
+        800:  $--color-gray-800,
+        900:  $--color-gray-900,
+        1000: $--color-gray-1000
 )                                                                                    !default;
-
-
-// base color
-$--color-blue:                  #007bff                                              !default;
-$--color-indigo:                #6610f2                                              !default;
-$--color-purple:                #6f42c1                                              !default;
-$--color-pink:                  #e83e8c                                              !default;
-$--color-red:                   #dc3545                                              !default;
-$--color-orange:                #fd7e14                                              !default;
-$--color-yellow:                #ffc107                                              !default;
-$--color-green:                 #28a745                                              !default;
-$--color-teal:                  #20c997                                              !default;
-$--color-cyan:                  #17a2b8                                              !default;
 
 // theme color
-$--color-primary:               $--color-blue                                        !default;
-$--color-success:               $--color-green                                       !default;
-$--color-info:                  $--color-cyan                                        !default;
-$--color-warning:               $--color-yellow                                      !default;
-$--color-error:                 $--color-red                                         !default;
+$--color-primary:               #007bff                                             !default;
+$--color-success:               #28a745                                             !default;
+$--color-info:                  #17a2b8                                             !default;
+$--color-warning:               #ffc107                                             !default;
+$--color-error:                 #dc3545                                             !default;
 
 $--color-theme: (
-        'primary':    $--color-primary,
-        'success':    $--color-success,
-        'info':       $--color-info,
-        'warning':    $--color-warning,
-        'error':      $--color-error,
-)                                                                                    !default;
+        primary:    $--color-primary,
+        success:    $--color-success,
+        info:       $--color-info,
+        warning:    $--color-warning,
+        error:      $--color-error,
+)                                                                                   !default;
 
-//body
-$--body-color:                  $--color-white                                       !default;
-$--body-font-size:              14px                                                 !default;
+$--color-level: 2                                                                   !default;
 
 //background
-$--bg-color:                    $--color-gray-0                                      !default;
+$--bg-color:                    $--color-gray-0                                     !default;
+
+// link
+$--link-color:                  map-get($--color-theme, primary)                    !default;
+$--link-color-hover:            color-level($--link-color, -$--color-level)         !default;
+$--link-decoration:             none                                                !default;
+$--link-decortion-hover:        underline                                           !default;
 
 //text color
-$--text-color:                  $--color-gray-900                                    !default;
-$--text-color-second:           $--color-gray-800                                    !default;
-$--text-color-light:            $--color-gray-0                                      !default;
-$--link-color:                  $--color-primary                                     !default;
-$--link-color-hover:            color-level($--link-color, -2)                       !default;
+$--text-color:                  map-get($--color-grays, 900)                        !default;
+$--text-color-light:            map-get($--color-grays, 0)                          !default;
 
 // border
-$--border-color:                $--color-gray-100                                    !default;
-$--border-color-hover:          $--color-gray-400                                    !default;
-$--border-color-focus:          $--color-primary                                     !default;
-$--border-width:                1px                                                  !default;
-$--border-radius:               0.25rem                                              !default;
-$--border-radius-lg:            0.3rem                                               !default;
-$--border-radius-sm:            0.2rem                                               !default;
+$--border-color:                map-get($--color-grays, 100)                        !default;
+$--border-color-hover:          color-level($--border-color, $--color-level)        !default;
+$--border-color-focus:          $--link-color                                       !default;
+$--border-width:                1px                                                 !default;
+$--border-radius:               0.25rem                                             !default;
+$--border-radius-lg:            0.35rem                                             !default;
+$--border-radius-sm:            0.15rem                                             !default;
+
+//body
+$--body-color:                  map-get($--color-grays, 0)                          !default;
+$--body-font-size:              14px                                                !default;
 
 // box shadow
-$--box-shadow-sm:               0 .125rem .25rem rgba($--color-gray-1000, .075)      !default;
-$--box-shadow:                  0 .5rem 1rem rgba($--color-gray-1000, .15)           !default;
-$--box-shadow-lg:               0 1rem 3rem rgba($--color-gray-1000, .175)           !default;
+$--box-shadow-sm:               0 .125rem .25rem rgba($--color-gray-1000, .075)     !default;
+$--box-shadow:                  0 .5rem 1rem rgba($--color-gray-1000, .15)          !default;
+$--box-shadow-lg:               0 1rem 3rem rgba($--color-gray-1000, .175)          !default;
 
 // line-height
-$--line-height:                 1.5                                                  !default;
-$--line-height-sm:              1                                                  !default;
-$--line-height-lg:              1.8                                                  !default;
+$--line-height:                 1.5                                                 !default;
+$--line-height-sm:              1                                                   !default;
+$--line-height-lg:              1.8                                                 !default;
 
 // font
 $--font-family:                 -apple-system,
@@ -106,31 +98,32 @@ $--font-family:                 -apple-system,
                                 "Apple Color Emoji",
                                 "Segoe UI Emoji",
                                 "Segoe UI Symbol",
-                                "Noto Color Emoji"                                   !default;
-$--font-size:                   1rem                                                 !default;
-$--font-size-lg:                $--font-size * 1.25                                  !default;
-$--font-size-sm:                $--font-size * 0.875                                 !default;
-$--font-weight-lighter:         lighter                                              !default;
-$--font-weight-light:           300                                                  !default;
-$--font-weight:                 400                                                  !default;
-$--font-weight-bold:            700                                                  !default;
-$--font-weight-bolder:          bolder                                               !default;
+                                "Noto Color Emoji"                                  !default;
+
+$--font-size:                   1rem                                                !default;
+$--font-size-lg:                $--font-size * 1.25                                 !default;
+$--font-size-sm:                $--font-size * 0.875                                !default;
+$--font-weight-lighter:         lighter                                             !default;
+$--font-weight-light:           300                                                 !default;
+$--font-weight:                 400                                                 !default;
+$--font-weight-bold:            700                                                 !default;
+$--font-weight-bolder:          bolder                                              !default;
 
 // animation
-$--animation-duration:       .4s                         !default;
-$--animation-duration-fast:       .25s                         !default;
-$--animation-duration-slow:       .6s                         !default;
+$--animation-duration:          .4s                                                 !default;
+$--animation-duration-fast:     .25s                                                !default;
+$--animation-duration-slow:     .6s                                                 !default;
 
 // opacity
-$--opacity-disabled:          .65                         !default;
+$--opacity-disabled:            .65                                                 !default;
 
 // header title
-$--h1-font-size:                $--font-size * 2.5                                   !default;
-$--h2-font-size:                $--font-size * 2                                     !default;
-$--h3-font-size:                $--font-size * 1.75                                  !default;
-$--h4-font-size:                $--font-size * 1.5                                   !default;
-$--h5-font-size:                $--font-size * 1.25                                  !default;
-$--h6-font-size:                $--font-size                                         !default;
+$--h1-font-size:                $--font-size * 2.5                                  !default;
+$--h2-font-size:                $--font-size * 2                                    !default;
+$--h3-font-size:                $--font-size * 1.75                                 !default;
+$--h4-font-size:                $--font-size * 1.5                                  !default;
+$--h5-font-size:                $--font-size * 1.25                                 !default;
+$--h6-font-size:                $--font-size                                        !default;
 
 // grid
 $--grid-breakpoints: (
@@ -140,34 +133,37 @@ $--grid-breakpoints: (
         lg: '992px',
         xl: '1200px',
         xxl: '1600px'
-)                                                                                    !default;
-$--grid-span:                   24                                                   !default;
+)                                                                                   !default;
+$--grid-span:                   24                                                  !default;
 
 // icon
 $--icon-spin-time:              1.5s                                                !default;
 
 // button
-$--button-font-weight:          $--font-weight                                       !default;
-$--button-border-width:         $--border-width                                      !default;
-$--button-padding-y:            0.4rem                                      !default;
-$--button-padding-x:            0.7rem                                      !default;
-$--button-font-size:            $--font-size                                      !default;
-$--button-line-height:            1                                    !default;
-$--button-border-radius:            $--border-radius                                    !default;
-$--button-color-level:            -2                                    !default;
-$--button-box-shadow-width:            1px                                    !default;
-$--button-theme-color: map_merge((), $--color-theme)!default;
-$--button-animation-time: $--animation-duration-fast !default;
-$--button-icon-padding: 0.25rem !default;
-$--button-opacity-disabled: $--opacity-disabled !default;
+$--button-bg-color:             $--bg-color                                         !default;
+$--button-border-color:         $--border-color                                     !default;
+$--button-font-weight:          $--font-weight                                      !default;
+$--button-border-width:         $--border-width                                     !default;
+$--button-padding-y:            0.4rem                                              !default;
+$--button-padding-x:            0.7rem                                              !default;
+$--button-font-size:            $--font-size                                        !default;
+$--button-line-height:          1                                                   !default;
+$--button-border-radius:        $--border-radius                                    !default;
+$--button-color-level:          $--color-level                                      !default;
+$--button-theme-color:          map_merge((), $--color-theme)                       !default;
+$--button-animation-time:       $--animation-duration-fast                          !default;
+$--button-icon-padding:         0.25rem                                             !default;
+$--button-opacity-disabled:     $--opacity-disabled                                 !default;
+$--button-text-color:           $--text-color                                       !default;
+$--button-text-color-light:     $--text-color-light                                 !default;
 
 // spin
-$--spin-animation-time: $--animation-duration !default;
-$--spin-tip-padding-top: 0.5rem !default;
-$--spin-tip-font-size: 0.5em !default;
-$--spin-color: $--color-primary !default;
-$--spin-wrapper-font-size--default: 2rem !default;
-$--spin-wrapper-font-size--small: 1rem !default;
-$--spin-wrapper-font-size--large: 3rem !default;
-$--spin-opacity: $--opacity-disabled !default;
-$--spin-background-color: $--bg-color !default;
+$--spin-animation-time:         $--animation-duration                               !default;
+$--spin-tip-padding-top:        0.5rem                                              !default;
+$--spin-tip-font-size:          0.5em                                               !default;
+$--spin-color:                  map-get($--color-theme, primary)                    !default;
+$--spin-wrapper-font-size--default:     2rem                                        !default;
+$--spin-wrapper-font-size--small:       1rem                                        !default;
+$--spin-wrapper-font-size--large:       3rem                                        !default;
+$--spin-opacity:                $--opacity-disabled                                 !default;
+$--spin-background-color:       $--bg-color                                         !default;

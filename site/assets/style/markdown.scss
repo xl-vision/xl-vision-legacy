@@ -10,17 +10,25 @@
   }
 
   &_code_inline {
+    $color: color-level($--color-primary, -$--color-level * 3);
+
     display: inline-block;
+    height: 1rem;
     margin: 0 0.2rem;
     padding: 0.2rem 0.4rem;
-    line-height: 0.9rem;
-    background-color: color-level($--color-primary, -5);
-    border-radius: $--border-radius / 2;
+    color: color-yiq($color, $--text-color, $--text-color-light);
+    line-height: 1rem;
+    background-color: $color;
+    border-radius: $--border-radius-sm;
   }
 
-  // &_blockquote{
-
-  // }
+  &_blockquote {
+    margin: 0;
+    padding-left: 2rem;
+    line-height: 2;
+    background-color: color-level($--color-primary, -$--color-level * 4);
+    border-left: 4px solid $--color-primary;
+  }
 
   // &_fence{
 
@@ -57,7 +65,7 @@
     }
 
     th {
-      color: color-level($--text-color, -5);
+      color: color-level($--text-color, -$--color-level * 2);
       font-weight: bold;
       white-space: nowrap;
       text-align: left;
