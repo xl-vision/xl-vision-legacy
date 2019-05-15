@@ -59,7 +59,7 @@ $--bg-color:                    $--color-gray-0                                 
 $--link-color:                  map-get($--color-theme, primary)                    !default;
 $--link-color-hover:            color-level($--link-color, -$--color-level)         !default;
 $--link-decoration:             none                                                !default;
-$--link-decortion-hover:        underline                                           !default;
+$--link-decoration-hover:       underline                                           !default;
 
 //text color
 $--text-color:                  map-get($--color-grays, 900)                        !default;
@@ -115,7 +115,7 @@ $--animation-duration-fast:     .25s                                            
 $--animation-duration-slow:     .6s                                                 !default;
 
 // opacity
-$--opacity-disabled:            .65                                                 !default;
+$--opacity-disabled:            .5                                                  !default;
 
 // header title
 $--h1-font-size:                $--font-size * 2.5                                  !default;
@@ -167,3 +167,17 @@ $--spin-wrapper-font-size--small:       1rem                                    
 $--spin-wrapper-font-size--large:       3rem                                        !default;
 $--spin-opacity:                $--opacity-disabled                                 !default;
 $--spin-background-color:       $--bg-color                                         !default;
+
+//collapse
+$--collapse-bg-color: $--bg-color;
+$--collapse-border-color: $--border-color;
+$--collapse-border-width: $--border-width;
+$--collapse-border-radius: $--border-radius;
+$--collapse-panel-header-bg-color: color-level($--collapse-border-color, -$--color-level * 4);
+$--collapse-panel-body-color: $--text-color;
+$--collapse-panel-header-color: color-level($--text-color, $--color-level);
+$--collapse-panel-header--padding: 0.8rem 1rem;
+$--collapse-panel-body--padding: $--collapse-panel-header--padding;
+$--collapse-panel-opacity-disabled: $--opacity-disabled;
+$--collapse-panel-header-icon-padding: 0.5rem;
+$--collapse-panel-animation-time: $--animation-duration;

@@ -59,6 +59,11 @@ const routes: Route[] = [
         name: '加载中',
         path: '/spin',
         component: import('../src/spin/doc/index.md')
+      },
+      {
+        name: '折叠面板',
+        path: '/collapse',
+        component: import('../src/collapse/doc/index.md')
       }
     ]
   },

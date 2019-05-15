@@ -1,0 +1,26 @@
+@import "../../style/commons/var";
+
+$collapse: #{$--cls-prefix}-collapse;
+
+$panel: #{$--cls-prefix}-collapse-panel;
+
+.#{$collapse} {
+  overflow: hidden;
+  background-color: $--collapse-bg-color;
+  border: $--collapse-border-width solid $--collapse-border-color;
+  border-radius: $--collapse-border-radius;
+
+  &--borderless {
+    border: none;
+
+    .#{$panel} {
+      &__header {
+        background-color: $--collapse-bg-color;
+      }
+
+      &__body {
+        border: none;
+      }
+    }
+  }
+}
