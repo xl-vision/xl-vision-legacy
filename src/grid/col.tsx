@@ -17,7 +17,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   order?: ColSpanType
   pull?: ColSpanType
   push?: ColSpanType
-  span?: ColSpanType
+  span: ColSpanType
 }
 
 const displayName = `${namePrefix}-col`

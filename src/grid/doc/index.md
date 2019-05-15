@@ -400,19 +400,19 @@ export default function() {
 
 ## Row 属性
 
-| 参数    | 说明                                  | 类型            | 可选值                                              | 默认值 |
-| ------- | ------------------------------------- | --------------- | --------------------------------------------------- | ------ |
-| gutter  | 内容块间隙(支持响应式)                | number / object | >=0                                                 | 0      |
-| type    | 布局类型                              | flex            | -                                                   | -      |
-| justify | 栅格左右对齐方式(在`type=flex`下有效) | string          | start / end / center / space-around / space-between | —      |
-| align   | 栅格上下对齐方式(在`type=flex`下有效) | string          | top / middle / bottom                               | —      |
+| 参数    | 说明                                  | 类型            | 可选值                                              | 默认值 |是否必填|
+| ------- | ------------------------------------- | --------------- | --------------------------------------------------- | ------ |---|
+| gutter  | 内容块间隙(支持响应式)                | number / object | >=0                                                 | 0      |false|
+| type    | 布局类型                              | flex            | -                                                   | -      |false|
+| justify | 栅格左右对齐方式(在`type=flex`下有效) | string          | start / end / center / space-around / space-between | —      |false|
+| align   | 栅格上下对齐方式(在`type=flex`下有效) | string          | top / middle / bottom                               | —      |false|
 
 ## Col 属性
 
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 |
-| ------ | ------------------------------------------ | --------------- | ------ | ------ |
-| span   | 栅格占据的列数(支持响应式)(**0 表示隐藏**) | number / object | 0-24   | —      |
-| offset | 栅格左侧的间隔列数(支持响应式)             | number / object | 1-24   | —      |
-| push   | 栅格向右移动的列数(支持响应式)             | number / object | 1-24   | —      |
-| pull   | 栅格向左移动的列数(支持响应式)             | number / object | 1-24   | —      |
-| order  | 栅格顺序，flex 布局模式下有效(支持响应式)  | number / object | 1-24   | —      |
+| 参数   | 说明                                       | 类型            | 可选值 | 默认值 |是否必填|
+| ------ | ------------------------------------------ | --------------- | ------ | ------ |---|
+| span   | 栅格占据的列数(支持响应式)(**0 表示隐藏**) | number / object | 0-24   | —      |true|
+| offset | 栅格左侧的间隔列数(支持响应式)             | number / object | 1-24   | —      |false|
+| push   | 栅格向右移动的列数(支持响应式)             | number / object | 1-24   | —      |false|
+| pull   | 栅格向左移动的列数(支持响应式)             | number / object | 1-24   | —      |false|
+| order  | 栅格顺序，flex 布局模式下有效(支持响应式)  | number / object | 1-24   | —      |false|

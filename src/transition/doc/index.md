@@ -144,21 +144,21 @@ export default () => {
 
 ## Transition 属性
 
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 |
-| ------ | ------------------------------------------ | --------------- | ------ | ------ |
-| show   | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | -   | —      |
-| isAppear | 是否针对初次进场使用单独的钩子函数            | boolean  | -  | false      |
-| beforeAppear   | 初次进场前钩子            | (el: HTMLElement) => void  | -   | —      |
-| appear   | 初次进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |
-| afterAppear   | 初次进场后钩子            | (el: HTMLElement) => void  | -   | —      |
-| appearCancelled   | 取消初次进场钩子            | (el: HTMLElement) => void  | -   | —      |
+| 参数   | 说明                                       | 类型            | 可选值 | 默认值 |是否必填|
+| ------ | ------------------------------------------ | --------------- | ------ | ------ |--|
+| show   | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | -   | —      |true|
+| isAppear | 是否针对初次进场使用单独的钩子函数            | boolean  | -  | false      |false|
+| beforeAppear   | 初次进场前钩子            | (el: HTMLElement) => void  | -   | —      |false|
+| appear   | 初次进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |false|
+| afterAppear   | 初次进场后钩子            | (el: HTMLElement) => void  | -   | —      |false|
+| appearCancelled   | 取消初次进场钩子            | (el: HTMLElement) => void  | -   | —      |false|
 | beforeEnter   | 进场前钩子            | (el: HTMLElement) => void  | -   | —      |
-| enter   | 进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |
-| afterEnter   | 进场后钩子            | (el: HTMLElement) => void  | -   | —      |
-| enterCancelled   | 取消进场钩子            | (el: HTMLElement) => void  | -   | —      |
-| beforeLeave   | 出场前钩子            | (el: HTMLElement) => void  | -   | —      |
-| leave   | 出场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |
-| afterLeave   | 出场后钩子            | (el: HTMLElement) => void  | -   | —      |
-| leaveCancelled   | 取消出场钩子            | (el: HTMLElement) => void  | -   | —      |
-| children   | 子元素            | React.ReactElement | -   | —      |
-| forceRender   | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在dom中           | React.ReactElement | -   | —      |
+| enter   | 进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |false|
+| afterEnter   | 进场后钩子            | (el: HTMLElement) => void  | -   | —      |false|
+| enterCancelled   | 取消进场钩子            | (el: HTMLElement) => void  | -   | —      |false|
+| beforeLeave   | 出场前钩子            | (el: HTMLElement) => void  | -   | —      |false|
+| leave   | 出场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |false|
+| afterLeave   | 出场后钩子            | (el: HTMLElement) => void  | -   | —      |false|
+| leaveCancelled   | 取消出场钩子            | (el: HTMLElement) => void  | -   | —      |false|
+| children   | 子元素            | React.ReactElement | -   | —      |true|
+| forceRender   | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在dom中           | React.ReactElement | -   | —      |false|

@@ -284,22 +284,22 @@ export default () => {
 
 ## Button 属性
 
-| 参数    | 说明        | 类型       | 可选值   | 默认值 |
-| ------- | -------- | --------- | ------------ | ------ |
-| dashed|设置按钮边框为虚线样式，需要和`plain`连用才能显示出效果|boolean|-|false|
-| disabled|禁止按钮|boolean|-|false|
-|ghost|幽灵属性，使按钮背景透明|boolean|-|false|
-|href|点击跳转地址，此时button行为与a标签一致|string|-|-|
-|htmlType|设置button的原生`type`值|string|submit/reset/button|-|
-|loading|设置按钮为加载中|boolean|-|false|
-|long|设置为长按钮|boolean|-|false|
-|plain|设置为朴素按钮|boolean|-|false|
-|shape|设置按钮的形状，通常`circle`与[Icon](#/icon)连用|string|cirlce/round|-|
-|type|设置按钮类型|string|default/primary/success/warning/error/text|default|
+| 参数    | 说明        | 类型       | 可选值   | 默认值 | 是否必填|
+| ------- | -------- | --------- | ------------ | ------ | --- |
+| dashed|设置按钮边框为虚线样式，需要和`plain`连用才能显示出效果|boolean|-|false|false|
+| disabled|禁止按钮|boolean|-|false|false|
+|ghost|幽灵属性，使按钮背景透明|boolean|-|false|false|
+|href|点击跳转地址，此时button行为与a标签一致|string|-|-|false|
+|htmlType|设置button的原生`type`值|string|submit/reset/button|-|false|
+|loading|设置按钮为加载中|boolean|-|false|false|
+|long|设置为长按钮|boolean|-|false|false|
+|plain|设置为朴素按钮|boolean|-|false|false|
+|shape|设置按钮的形状，通常`circle`与[Icon](#/icon)连用|string|cirlce/round|-|false|
+|type|设置按钮类型|string|default/primary/success/warning/error/text|default|false|
 
 ## ButtonGroup属性
 
-| 参数    | 说明        | 类型       | 可选值   | 默认值 |
-| ------- | -------- | --------- | ------------ | ------ |
-|round|指定按钮组中按钮的圆角样式|boolean|-|false|
-|vertical|指定按钮组为垂直方向|boolean|-|false|
+| 参数    | 说明        | 类型       | 可选值   | 默认值 | 是否必填|
+| ------- | -------- | --------- | ------------ | ------ | --- |
+|round|指定按钮组中按钮的圆角样式|boolean|-|false|false|
+|vertical|指定按钮组为垂直方向|boolean|-|false|false|

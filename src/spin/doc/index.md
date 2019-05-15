@@ -119,12 +119,12 @@ export default function () {
 
 ## Spin 属性
 
-| 参数    | 说明        | 类型       | 可选值   | 默认值 |
-| ------- | -------- | --------- | ------------ | ------ |
-| cover|覆盖父元素，此时父元素的position需要为`absolute`或者`relative`|boolean|-|false|
-| delay|延迟显示加载效果的时间（防止闪烁）|number(毫秒)|-|-|
-| indicator|自定义加载指示器|ReactElement|-|-|
-|size|组件大小|string|small/default/large|default|
-|spinning|是否正在加载中|boolean|-|true|
-|tip|加载描述|string|-|-|
-|wrapperClassName|`indicator`和`tip`的包裹元素的自定义class|string|-|-|
+| 参数    | 说明        | 类型       | 可选值   | 默认值 |是否必填|
+| ------- | -------- | --------- | ------------ | ------ |---|
+| cover|覆盖父元素，此时父元素的position需要为`absolute`或者`relative`|boolean|-|false|false|
+| delay|延迟显示加载效果的时间（防止闪烁）|number(毫秒)|-|-|false|
+| indicator|自定义加载指示器|ReactElement|-|-|false|
+|size|组件大小|string|small/default/large|default|false|
+|spinning|是否正在加载中|boolean|-|true|false|
+|tip|加载描述|string|-|-|false|
+|wrapperClassName|`indicator`和`tip`的包裹元素的自定义class|string|-|-|false|

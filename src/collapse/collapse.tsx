@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import useUpdate from '../commons/hooks/useUpdate'
@@ -14,7 +15,7 @@ export interface CollapseProps {
   expandArrowPosition?: CollapseExpandIconPosition
   extra?: (name: string) => React.ReactNode
   onChange?: (activeNames: string[]) => void
-  showArrow: boolean
+  showArrow?: boolean
 }
 
 const displayName = `${namePrefix}-collapse`
@@ -27,11 +28,16 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
 
   const clickCallback = (name: string) => {
     const index = activeNames.indexOf(name)
-    if (index === -1) {
-      setActiveNames(activeNames.concat([name]))
-    } else {
-      if (accordion) {
+
+    if (accordion) {
+      if (index === -1) {
+        setActiveNames([name])
+      } else {
         setActiveNames([])
+      }
+    } else {
+      if (index === -1) {
+        setActiveNames(activeNames.concat([name]))
       } else {
         setActiveNames(activeNames.slice(0,index).concat(activeNames.slice(index + 1)))
       }
@@ -74,5 +80,17 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
 }
 
 Collapse.displayName = displayName
+
+Collapse.propTypes = {
+  accordion: PropTypes.bool,
+  bordered: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
+  defaultActiveName: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.arrayOf(PropTypes.string.isRequired)]),
+  expandArrow: PropTypes.func,
+  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left','right']),
+  extra: PropTypes.func,
+  onChange: PropTypes.func,
+  showArrow: PropTypes.bool
+}
 
 export default Collapse

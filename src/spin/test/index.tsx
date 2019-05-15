@@ -53,6 +53,7 @@ describe('spin', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
+  test.todo('启动加载和关闭加载')
   // it('启动加载和关闭加载', async () => {
   //   const TestComp = () => {
   //     const [display, setDisplay] = React.useState(true)
