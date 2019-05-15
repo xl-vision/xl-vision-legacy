@@ -13,7 +13,7 @@ export interface CollapseTransitionProp {
 const displayName = `${namePrefix}-collapse-transition`
 
 const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = props => {
-  const { children, transitionClassName = '', in: inProp } = props
+  const { children, transitionClassName, in: inProp } = props
 
   const styles: React.CSSProperties = React.useMemo(() => {
     return {
@@ -43,6 +43,9 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
           onTransitionEnd(el, done)
         }
       },
+      afterEnter: (el: HTMLElement) => {
+        el.style.height = null
+      },
       enterCancelled (el: HTMLElement) {
         el.dataset.enterCancelled = 'true'
       },
@@ -60,6 +63,9 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
           el.style.height = '0'
           onTransitionEnd(el, done)
         }
+      },
+      afterLeave: (el: HTMLElement) => {
+        el.style.height = null
       },
       leaveCancelled (el: HTMLElement) {
         el.dataset.leaveCancelled = 'true'
