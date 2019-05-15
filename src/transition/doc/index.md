@@ -14,7 +14,7 @@ imports:
 ```jsx
 export default () => {
   const className = 'transition'
-  const [active, setActive] = React.useState(false)
+  const [show, setShow] = React.useState(false)
   
   const beforeEnter = React.useCallback((el) => {
     el.style.height = el.style.height || 0
@@ -56,12 +56,10 @@ export default () => {
   
   return (
     <div>
-      <Button onClick={() => setActive(!active)}>Click</Button>
+      <Button onClick={() => setShow(!show)}>Click</Button>
       <Transition
       isAppear
-      in={active}
-      mountOnEnter={true}
-      unmountOnLeave={true}
+      show={show}
       beforeEnter={beforeEnter}
       enter={enter}
       leave={leave}
@@ -83,7 +81,7 @@ export default () => {
 ```jsx
 export default () => {
   const className = 'transition'
-  const [active, setActive] = React.useState(false)
+  const [show, setShow] = React.useState(false)
   
   const beforeEnter = React.useCallback((el) => {
     el.style.height = el.style.height || 0
@@ -125,13 +123,11 @@ export default () => {
   
   return (
     <div>
-      <Button onClick={() => setActive(!active)}>Click</Button>
+      <Button onClick={() => setShow(!show)}>Click</Button>
       <Transition
       isAppear
       forceRender
-      in={active}
-      mountOnEnter={true}
-      unmountOnLeave={true}
+      show={show}
       beforeEnter={beforeEnter}
       enter={enter}
       leave={leave}
@@ -150,10 +146,8 @@ export default () => {
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 |
 | ------ | ------------------------------------------ | --------------- | ------ | ------ |
-| in   | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | -   | —      |
+| show   | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | -   | —      |
 | isAppear | 是否针对初次进场使用单独的钩子函数            | boolean  | -  | false      |
-| mountOnEnter | 是否在进场时才挂载节点            | boolean  | -  | false      |
-| unmountOnLeave | 是否在离场时卸载节点            | boolean  | -  | false      |
 | beforeAppear   | 初次进场前钩子            | (el: HTMLElement) => void  | -   | —      |
 | appear   | 初次进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |
 | afterAppear   | 初次进场后钩子            | (el: HTMLElement) => void  | -   | —      |

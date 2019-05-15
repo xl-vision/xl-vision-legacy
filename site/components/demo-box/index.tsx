@@ -32,7 +32,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
           <Button type='text' onClick={showCode}><Icon.FasAngleRight className={showCodeClasses}/></Button>
         </span>
       </div>
-      <CollapseTransition in={display} transitionClassName={'demobox-collapse'}>
+      <CollapseTransition show={display} transitionClassName={'demobox-collapse'} forceRender={true}>
         <div className='demobox-code'>{children}</div>
       </CollapseTransition>
     </div>

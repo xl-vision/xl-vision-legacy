@@ -1,3 +1,4 @@
+import { mount } from 'enzyme'
 import * as React from 'react'
 import { cleanup, fireEvent, render } from 'react-testing-library'
 import Transition from '..'
@@ -78,7 +79,7 @@ describe('Transition', () => {
       return (
         <div>
           <Transition
-            in={active}
+            show={active}
             isAppear={true}
             beforeAppear={beforeAppear}
             appear={appear}
@@ -196,7 +197,7 @@ describe('Transition', () => {
       return (
         <div>
           <Transition
-            in={active}
+            show={active}
             isAppear={true}
             beforeAppear={beforeAppear}
             appear={appear}
@@ -237,352 +238,35 @@ describe('Transition', () => {
     call.mockReset()
   })
 
-  it('测试mountOnEnter', () => {
-    jest.useFakeTimers()
-    expect.hasAssertions()
-    const call = jest.fn()
+  it('测试forceRender', () => {
+    const wrapper = mount(
+        <Transition show={false} forceRender={false}>
+          <div/>
+        </Transition>
+    )
 
-    const Demo = () => {
-      const [active, setActive] = React.useState(false)
-      const beforeAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeAppear')
-      }, [])
+    expect(wrapper.getDOMNode()).toBeNull()
+    wrapper.setProps({
+      show: true
+    })
+    // TODO
+    wrapper.update()
+    expect(wrapper.getDOMNode()).not.toBeNull()
 
-      const appear = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('appear')
-        done()
-      }, [])
+    wrapper.setProps({
+      forceRender: true,
+      show: false
+    })
+    // TODO
+    wrapper.update()
+    expect(wrapper.getDOMNode()).not.toBeNull()
 
-      const afterAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterAppear')
-
-      }, [])
-
-      const appearCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('appearCancelled')
-      }, [])
-
-      const beforeEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeEnter')
-      }, [])
-
-      const enter = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('enter')
-        done()
-      }, [])
-
-      const afterEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterEnter')
-      }, [])
-
-      const enterCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('enterCancelled')
-      }, [])
-
-      const beforeLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeLeave')
-      }, [])
-
-      const leave = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('leave')
-        done()
-      }, [])
-
-      const afterLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterLeave')
-      }, [])
-
-      const leaveCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('leaveCancelled')
-      }, [])
-
-      return (
-        <div>
-          <Transition
-            in={active}
-            mountOnEnter={true}
-            beforeAppear={beforeAppear}
-            appear={appear}
-            afterAppear={afterAppear}
-            appearCancelled={appearCancelled}
-
-            beforeEnter={beforeEnter}
-            enter={enter}
-            afterEnter={afterEnter}
-            enterCancelled={enterCancelled}
-
-            beforeLeave={beforeLeave}
-            leave={leave}
-            afterLeave={afterLeave}
-            leaveCancelled={leaveCancelled}
-          >
-            <div className='demo'>DEMO</div>
-          </Transition>
-          {/* tslint:disable-next-line */}
-          <Button onClick={() => setActive(!active)}>active</Button>
-        </div>
-      )
-    }
-
-    const demo = render(<Demo/>)
-    expect(call.mock.calls.length).toBe(0)
-    expect(demo.queryByText(/DEMO/)).toBeNull()
-    fireEvent.click(demo.getByText(/active/))
-    expect(demo.queryByText(/DEMO/)).not.toBeNull()
+    wrapper.setProps({
+      forceRender: true,
+      show: true
+    })
+    // TODO
+    wrapper.update()
+    expect(wrapper.getDOMNode()).not.toBeNull()
   })
-
-  it('测试unmountOnLeave', () => {
-    jest.useFakeTimers()
-    expect.hasAssertions()
-    const call = jest.fn()
-
-    const Demo = () => {
-      const [active, setActive] = React.useState(false)
-      const beforeAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeAppear')
-      }, [])
-
-      const appear = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('appear')
-        done()
-      }, [])
-
-      const afterAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterAppear')
-
-      }, [])
-
-      const appearCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('appearCancelled')
-      }, [])
-
-      const beforeEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeEnter')
-      }, [])
-
-      const enter = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('enter')
-        done()
-      }, [])
-
-      const afterEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterEnter')
-      }, [])
-
-      const enterCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('enterCancelled')
-      }, [])
-
-      const beforeLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeLeave')
-      }, [])
-
-      const leave = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('leave')
-        done()
-      }, [])
-
-      const afterLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterLeave')
-      }, [])
-
-      const leaveCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('leaveCancelled')
-      }, [])
-
-      return (
-        <div>
-          <Transition
-            in={active}
-            unmountOnLeave={true}
-            beforeAppear={beforeAppear}
-            appear={appear}
-            afterAppear={afterAppear}
-            appearCancelled={appearCancelled}
-
-            beforeEnter={beforeEnter}
-            enter={enter}
-            afterEnter={afterEnter}
-            enterCancelled={enterCancelled}
-
-            beforeLeave={beforeLeave}
-            leave={leave}
-            afterLeave={afterLeave}
-            leaveCancelled={leaveCancelled}
-          >
-            <div className='demo'>DEMO</div>
-          </Transition>
-          {/* tslint:disable-next-line */}
-          <Button onClick={() => setActive(!active)}>active</Button>
-        </div>
-      )
-    }
-
-    const demo = render(<Demo/>)
-    expect(call.mock.calls.length).toBe(0)
-    expect(demo.queryByText(/DEMO/)).not.toBeNull()
-    fireEvent.click(demo.getByText(/active/))
-    expect(demo.queryByText(/DEMO/)).not.toBeNull()
-    fireEvent.click(demo.getByText(/active/))
-    expect(demo.queryByText(/DEMO/)).toBeNull()
-  })
-
-  it('测试mountOnEnter和unmountOnLeave同时存在', () => {
-    jest.useFakeTimers()
-    expect.hasAssertions()
-    const call = jest.fn()
-
-    const Demo = () => {
-      const [active, setActive] = React.useState(false)
-      const beforeAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeAppear')
-      }, [])
-
-      const appear = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('appear')
-        done()
-      }, [])
-
-      const afterAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterAppear')
-
-      }, [])
-
-      const appearCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('appearCancelled')
-      }, [])
-
-      const beforeEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeEnter')
-      }, [])
-
-      const enter = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('enter')
-        done()
-      }, [])
-
-      const afterEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterEnter')
-      }, [])
-
-      const enterCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('enterCancelled')
-      }, [])
-
-      const beforeLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeLeave')
-      }, [])
-
-      const leave = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('leave')
-        done()
-      }, [])
-
-      const afterLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterLeave')
-      }, [])
-
-      const leaveCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('leaveCancelled')
-      }, [])
-
-      return (
-        <div>
-          <Transition
-            in={active}
-            mountOnEnter={true}
-            unmountOnLeave={true}
-            beforeAppear={beforeAppear}
-            appear={appear}
-            afterAppear={afterAppear}
-            appearCancelled={appearCancelled}
-
-            beforeEnter={beforeEnter}
-            enter={enter}
-            afterEnter={afterEnter}
-            enterCancelled={enterCancelled}
-
-            beforeLeave={beforeLeave}
-            leave={leave}
-            afterLeave={afterLeave}
-            leaveCancelled={leaveCancelled}
-          >
-            <div className='demo'>DEMO</div>
-          </Transition>
-          {/* tslint:disable-next-line */}
-          <Button onClick={() => setActive(!active)}>active</Button>
-        </div>
-      )
-    }
-
-    const demo = render(<Demo/>)
-    expect(call.mock.calls.length).toBe(0)
-    expect(demo.queryByText(/DEMO/)).toBeNull()
-    fireEvent.click(demo.getByText(/active/))
-    expect(demo.queryByText(/DEMO/)).not.toBeNull()
-    fireEvent.click(demo.getByText(/active/))
-    expect(demo.queryByText(/DEMO/)).toBeNull()
-    fireEvent.click(demo.getByText(/active/))
-    expect(demo.queryByText(/DEMO/)).not.toBeNull()
-  })
-
-  // it('测试forceRender', () => {
-  //   const Demo = () => {
-  //     const [active, setActive] = React.useState(false)
-  //     const click = () => {
-  //       setActive(!active)
-  //     }
-  //     return (
-  //         <div>
-  //           <Transition in={active} forceRender={true}>
-  //             <div>demo</div>
-  //           </Transition>
-  //           <button onClick={click}>button</button>
-  //         </div>
-  //     )
-  //   }
-  //   const wrapper = render(<Demo/>)
-  //
-  //   expect(wrapper.queryByText(/demo/)).not.toBeNull()
-  //
-  //   fireEvent.click(wrapper.getByText(/button/))
-  //
-  //   expect(wrapper.queryByText(/demo/)).not.toBeNull()
-  // })
 })

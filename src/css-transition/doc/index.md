@@ -19,7 +19,7 @@ export default () => {
        <div>
          <Button onClick={() => {setActive(!active)}}>Click</Button>
          <CssTransition
-           in={active}
+           show={active}
            isAppear
            classNames={'css-transition-demo-fade'}
            mountOnEnter

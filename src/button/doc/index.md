@@ -1,7 +1,6 @@
 ---
 imports:
-    - import Button from '..'
-    - import ButtonGroup from '../button-group'
+    - import { Button, ButtonGroup} from '..'
     - import Icon from '../../icon'
     - import './style.scss'
 ---

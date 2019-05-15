@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
+import useUnmount from '../commons/hooks/useUnmount'
 
 enum State {
   STATE_INIT,
@@ -26,19 +27,17 @@ export interface TransitionProps {
   enter?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   enterCancelled?: (el: HTMLElement) => void
   forceRender?: boolean
-  in: boolean
   isAppear?: boolean
   leave?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   leaveCancelled?: (el: HTMLElement) => void
-  mountOnEnter?: boolean
-  unmountOnLeave?: boolean
+  show: boolean
 }
 
 const displayName = `${namePrefix}-transition`
 
 const Transition: React.FunctionComponent<TransitionProps> = props => {
   const {
-    in: inProp,
+    show,
     // 初次挂载时，如果是进入状态，是否触发appear动画
     isAppear,
     afterEnter,
@@ -50,9 +49,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     enterCancelled,
     leave,
     leaveCancelled,
-    unmountOnLeave,
-    mountOnEnter,
-      forceRender
+    forceRender
   } = props
 
   let { beforeAppear, appear, appearCancelled, afterAppear } = props
@@ -68,12 +65,10 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   // 标记当前组件是否被卸载
   let isMounted = true
 
-  React.useEffect(() => {
+  useUnmount(() => {
     // 卸载时设置标记isMounted = false
-    return () => {
-      isMounted = false
-    }
-  }, [])
+    isMounted = false
+  })
 
   const childrenRel = React.useRef<HTMLElement>()
 
@@ -82,18 +77,18 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     if (state === State.STATE_INIT) {
       return false
     }
-    if (mountOnEnter && state === State.STATE_MOUNTED) {
+    if (state === State.STATE_MOUNTED) {
       return false
     }
-    if (unmountOnLeave && state === State.STATE_LEAVED) {
+    if (state === State.STATE_LEAVED) {
       return false
     }
     // 默认展示
     return true
-  }, [state, unmountOnLeave])
+  }, [state])
 
   React.useEffect(() => {
-    if (inProp) {
+    if (show) {
       // 此时说明leave动画还没有完成，需要触发leaveCancelled
       if (state === State.STATE_LEAVING) {
         leaveCancelled && leaveCancelled(childrenRel.current!)
@@ -124,7 +119,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         setState(State.STATE_LEAVING)
       }
     }
-  }, [inProp])
+  }, [show])
 
   React.useEffect(() => {
     if (state === State.STATE_APPEARING) {
@@ -181,7 +176,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     if (!display && !forceRender) {
       return null
     }
-    const style = children.props.style || {}
+    const style = { ...children.props.style }
     if (!display) {
       style.display = 'none'
     }
@@ -191,7 +186,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       ref: childrenRel,
       style
     })
-  }, [children, display, forceRender])
+  }, [children, display, forceRender, childrenRel])
 }
 
 Transition.displayName = displayName
@@ -209,12 +204,10 @@ Transition.propTypes = {
   enter: PropTypes.func,
   enterCancelled: PropTypes.func,
   forceRender: PropTypes.bool,
-  in: PropTypes.bool.isRequired,
   isAppear: PropTypes.bool,
   leave: PropTypes.func,
   leaveCancelled: PropTypes.func,
-  mountOnEnter: PropTypes.bool,
-  unmountOnLeave: PropTypes.bool
+  show: PropTypes.bool.isRequired
 }
 
 export default Transition

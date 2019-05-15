@@ -6,14 +6,15 @@ import CssTransition from '../css-transition'
 
 export interface CollapseTransitionProp {
   children: React.ReactElement
-  in: boolean
+  forceRender?: boolean
+  show: boolean
   transitionClassName?: string
 }
 
 const displayName = `${namePrefix}-collapse-transition`
 
 const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = props => {
-  const { children, transitionClassName, in: inProp } = props
+  const { children, transitionClassName, show, forceRender } = props
 
   const styles: React.CSSProperties = React.useMemo(() => {
     return {
@@ -75,14 +76,13 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
 
   return (
     <CssTransition
-      in={inProp}
-      unmountOnLeave={true}
-      mountOnEnter={true}
+      show={show}
+      forceRender={forceRender}
       {...transitionEvents}
     >
-    <div className={transitionClassName} style={styles}>
-        {children}
-    </div>
+      <div className={transitionClassName} style={styles}>
+          {children}
+      </div>
     </CssTransition>
   )
 }
@@ -90,8 +90,6 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
 CollapseTransition.displayName = displayName
 
 CollapseTransition.propTypes = {
-  children: PropTypes.element.isRequired,
-  in: PropTypes.bool.isRequired,
   transitionClassName: PropTypes.string
 }
 

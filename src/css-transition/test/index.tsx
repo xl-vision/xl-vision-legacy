@@ -79,7 +79,7 @@ describe('CssTransition', () => {
       return (
         <div>
           <CssTransition
-            in={active}
+            show={active}
             isAppear={true}
             beforeAppear={beforeAppear}
             appear={appear}
@@ -197,7 +197,7 @@ describe('CssTransition', () => {
       return (
         <div>
           <CssTransition
-            in={active}
+            show={active}
             isAppear={true}
             beforeAppear={beforeAppear}
             appear={appear}
@@ -239,24 +239,22 @@ describe('CssTransition', () => {
   })
 
   it('测试包含className的生命周期', () => {
-
     const wrapper = mount(
       <CssTransition
-        in={false}
+        show={false}
         classNames={'transition'}
       >
         <div/>
       </CssTransition>
     )
 
-    wrapper.tap(instance => {
-      expect(instance.getDOMNode().className.indexOf('transition')).toEqual(-1)
+    expect(wrapper.getDOMNode()).toBeNull()
+    wrapper.setProps({
+      show: true
     })
-    .setProps({
-      in: true
-    })
-    .tap(instance => {
-      expect(instance.getDOMNode().className.indexOf('transition')).not.toEqual(-1)
-    })
+
+    // TODO
+    wrapper.update()
+    expect(wrapper.getDOMNode().className.indexOf('transition')).not.toEqual(-1)
   })
 })
