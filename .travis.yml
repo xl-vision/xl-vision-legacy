@@ -24,7 +24,7 @@ jobs:
     # 编译文档
     - script: npm run site:build
       name: site
-      deploy:
+    - deploy:
         - provider: npm
           skip_cleanup: true
           email: xrs4433@outlook.com
