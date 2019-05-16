@@ -52,7 +52,7 @@ inquirer.prompt([{
 
   console.log(chalk.green('======try to commit======'))
 
-  let cmd = `git add package.json && git commit -m "${comment}"`
+  let cmd = `git add package.json && git commit -m "${comment}" --no-verify`
 
   if (shell.exec(cmd).code) {
     console.log(chalk.red('======commit failed======'))
