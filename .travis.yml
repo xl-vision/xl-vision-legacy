@@ -11,7 +11,7 @@ cache:
     - $HOME/.npm
 jobs:
   include:
-    - stage: test_and_publish
+    - stage: test
     # 代码检查
       script: npm run lint
       name: lint
@@ -24,12 +24,12 @@ jobs:
     # 编译文档
     - script: npm run site:build
       name: site
-    # 发布版本
+    - stage: deploy
+      script: node script/ci/publish.sh
+
 stages:
   - test_and_publish
-deply:
-  provider: script
-  script: node script/ci/publish.sh
-  skip_cleanup: true
-  on:
-    tags: true
+  - name: deploy
+    on:
+      tags: true
+

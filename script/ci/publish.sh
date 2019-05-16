@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# compile site
+npm run site:compile
+
 #update package.json version
 
 tag = ${TRAVIS_TAG}
