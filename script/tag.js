@@ -78,7 +78,7 @@ function run () {
     console.log(chalk.green(`======create tag "${version}" success======`))
 
     console.log(chalk.green('======upload files======'))
-    cmd = `git push origin master && git push origin ${version}`
+    cmd = `git push origin master --no-verify && git push origin ${version} --no-verify`
 
     if (shell.exec(cmd).code) {
       console.log(chalk.red('======upload files failed======'))
@@ -124,7 +124,6 @@ function getLastCommit () {
   }
   const commitLine = ret.stdout.split('\n')[0]
   const commit = commitLine.substring('commit '.length)
-  console.log(commit)
   return commit
 }
 
