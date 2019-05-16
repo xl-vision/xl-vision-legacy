@@ -6,74 +6,89 @@ const semver = require('semver')
 const fs = require('fs-extra')
 const path = require('path')
 
-if (!shell.which('git')) {
-  console.log(chalk.red('git不存在，请先安装git'))
-  shell.exit(1)
-}
+run()
 
-const pkg = require(resolvePath('package.json'))
-
-const oldVersion = pkg.version
-
-const versionList = getVersionList(oldVersion)
-
-inquirer.prompt([{
-  name: 'version',
-  message: `选择要升级的版本(当前版本${oldVersion})`,
-  type: 'list',
-  default: 0,
-  choices: versionList
-},
-{
-  name: 'message',
-  message: '版本发布说明',
-  type: 'input',
-  default: function (answers) {
-    return `:bookmark:update version to ${answers.version}`
+function run () {
+  if (!shell.which('git')) {
+    console.log(chalk.red('git不存在，请先安装git'))
+    return
   }
-}]).then(async function (answers) {
+
   if (needCommit()) {
     console.error(chalk.red('Please commit changed file first.'))
-    shell.exit(1)
+    return
   }
 
-  const oldCommitId = getLastCommit()
+  const pkg = require(resolvePath('package.json'))
 
-  // 修改版本
-  const version = `${answers.version}`
-  pkg.version = version
-  fs.writeFileSync(
-    resolvePath('package.json'),
-    JSON.stringify(pkg, null, '  ')
-  )
+  const oldVersion = pkg.version
 
-  // 提交代码
-  const comment = answers.message
+  const versionList = getVersionList(oldVersion)
 
-  console.log(chalk.green('======try to commit======'))
+  inquirer.prompt([{
+    name: 'version',
+    message: `选择要升级的版本(当前版本${oldVersion})`,
+    type: 'list',
+    default: 0,
+    choices: versionList
+  },
+  {
+    name: 'message',
+    message: '版本发布说明',
+    type: 'input',
+    default: function (answers) {
+      return `:bookmark:update version to ${answers.version}`
+    }
+  }]).then(async function (answers) {
+    const oldCommitId = getLastCommit()
 
-  let cmd = `git add package.json && git commit -m "${comment}" --no-verify`
+    // 修改版本
+    const version = `${answers.version}`
+    pkg.version = version
+    fs.writeFileSync(
+      resolvePath('package.json'),
+      JSON.stringify(pkg, null, '  ')
+    )
 
-  if (shell.exec(cmd).code) {
-    console.log(chalk.red('======commit failed======'))
-    console.log(chalk.red('======try to rollback======'))
-    shell.exec(`git reset --hard ${oldCommitId}`)
-    shell.exit(1)
-  }
-  console.log(chalk.green('======commit success======'))
+    // 提交代码
+    const comment = answers.message
 
-  console.log(chalk.green(`======publish tag "${version}"======`))
-  const commitId = getLastCommit()
-  cmd = `git tag -a ${version} ${commitId} -m "${comment}" && git push origin ${version}`
+    console.log(chalk.green('======try to commit======'))
 
-  if (shell.exec(cmd).code) {
-    console.log(chalk.red(`======publish tag "${version}" failed======`))
-    console.log(chalk.red('======try to rollback======'))
-    shell.exec(`git reset --hard ${oldCommitId}`)
-    shell.exit(1)
-  }
-  console.log(chalk.green(`======publish tag "${version}" success======`))
-})
+    let cmd = `git add package.json && git commit -m "${comment}" --no-verify`
+
+    if (shell.exec(cmd).code) {
+      console.log(chalk.red('======commit failed======'))
+      console.log(chalk.red('======try to rollback======'))
+      shell.exec(`git reset --hard ${oldCommitId}`)
+      return
+    }
+    console.log(chalk.green('======commit success======'))
+
+    console.log(chalk.green(`======create tag "${version}"======`))
+    const commitId = getLastCommit()
+    cmd = `git tag -a ${version} ${commitId} -m "${comment}"`
+
+    if (shell.exec(cmd).code) {
+      console.log(chalk.red(`======create tag "${version}" failed======`))
+      console.log(chalk.red('======try to rollback======'))
+      shell.exec(`git reset --hard ${oldCommitId}`)
+      return
+    }
+    console.log(chalk.green(`======create tag "${version}" success======`))
+
+    console.log(chalk.green('======upload files======'))
+    cmd = `git push origin master && git push origin ${version}`
+
+    if (shell.exec(cmd).code) {
+      console.log(chalk.red('======upload files failed======'))
+      console.log(chalk.red('======try to rollback======'))
+      shell.exec(`git reset --hard ${oldCommitId}`)
+      return
+    }
+    console.log(chalk.green('======upload files success======'))
+  })
+}
 
 function getVersionList (version) {
   const levels = [
