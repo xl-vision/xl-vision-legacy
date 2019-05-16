@@ -25,7 +25,8 @@ jobs:
     - script: npm run site:build
       name: site
     # 发布版本
-      deply:
+    - deply:
+        provider: script
         script: node script/ci/publish.sh
         skip_cleanup: true
         on:
