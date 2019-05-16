@@ -64,7 +64,7 @@ inquirer.prompt([{
 
   console.log(chalk.green(`======publish tag "${version}"======`))
   const commitId = getLastCommit()
-  cmd = `git tag -a ${version} ${commitId} -m ${comment} && git push origin ${version}`
+  cmd = `git tag ${commitId} -a ${version} -m "${comment}" && git push origin ${version}`
 
   if (shell.exec(cmd).code) {
     console.log(chalk.red(`======publish tag "${version}" failed======`))
