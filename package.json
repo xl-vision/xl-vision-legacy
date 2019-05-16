@@ -45,8 +45,7 @@
     "site:build": "xl-tools run site:build",
     "test": "jest",
     "icon": "node script/icon/generate.js",
-    "tag": "node script/tag.js",
-    "prepublishOnly": "node script/nopublish.js"
+    "tag": "node script/tag.js"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
