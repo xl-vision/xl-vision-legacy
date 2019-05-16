@@ -43,9 +43,9 @@ inquirer.prompt([{
   // 提交代码
   const comment = answers.message
 
-  console.log(chalk.green('======commit======'))
+  console.log(chalk.green('======提交代码到github======'))
 
-  let cmd = `git add . && git commit -m "${comment}"`
+  let cmd = `git add . && git commit -m "${comment}" && git push origin master`
 
   if (shell.exec(cmd).code) {
     pkg.version = oldVersion
@@ -57,6 +57,15 @@ inquirer.prompt([{
     shell.exit(1)
   }
   console.log(chalk.green('======提交代码成功======'))
+
+  console.log(chalk.green(`======发布版本"${version}"到github======`))
+  cmd = `git tag -a ${version} -m "${comment}" && git push origin ${version}`
+
+  if (shell.exec(cmd).code) {
+    console.log(chalk.red(`======发布版本"${version}"失败======`))
+    shell.exit(1)
+  }
+  console.log(chalk.green(`======发布版本"${version}"成功======`))
 })
 
 function getVersionList (version) {

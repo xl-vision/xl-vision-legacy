@@ -1,6 +1,6 @@
 {
   "name": "@xl-vision/xl-vision",
-  "version": "0.0.2-beta.14",
+  "version": "0.0.2-beta.20",
   "description": "the high quality UI library for react",
   "author": "Rhys Xia",
   "license": "MIT",
@@ -25,6 +25,12 @@
     "url": "https://github.com/xl-vision/xl-vision/issues"
   },
   "homepage": "https://xl-vision.github.io/xl-vision/",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
+  },
   "scripts": {
     "lint:es": "eslint {script,site,src,typings}/**/*.js",
     "lint:ts": "xl-tools run lint:ts",
@@ -38,7 +44,8 @@
     "site:start": "xl-tools run site:start",
     "site:build": "xl-tools run site:build",
     "test": "jest",
-    "icon": "node script/icon/generate.js"
+    "icon": "node script/icon/generate.js",
+    "tag": "node script/tag.js"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
@@ -62,6 +69,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "fs-extra": "^7.0.1",
+    "husky": "^2.3.0",
     "inquirer": "^6.3.1",
     "jest": "^24.7.1",
     "react": "^16.8.2",
