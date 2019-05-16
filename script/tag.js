@@ -45,7 +45,7 @@ inquirer.prompt([{
 
   console.log(chalk.green('======提交代码到github======'))
 
-  let cmd = `git add . && git commit -m "${comment}" && git push origin master`
+  let cmd = `git add package.json && git commit -m "${comment}" && git push origin master`
 
   if (shell.exec(cmd).code) {
     pkg.version = oldVersion
