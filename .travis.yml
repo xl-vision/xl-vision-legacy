@@ -25,14 +25,14 @@ jobs:
     - script: npm run site:build
       name: site
     # npm publish
-    - stage: npm publish
+    - stage: "npm publish"
       script: npm run compile
       deploy:
         provider: npm
         email: xrs4433@outlook.com
         api_key: $NPM_TOKEN
     # update site
-    - stage: update site
+    - stage: "update site"
       script: npm run site:build
       provider: pages
         skip_cleanup: true
@@ -42,9 +42,9 @@ jobs:
 
 stages:
   - name: test
-  - name: npm publish
+  - name: "npm publish"
     if: tag IS present
-  - name: update site
+  - name: "update site"
     if: tag IS present
 
 
