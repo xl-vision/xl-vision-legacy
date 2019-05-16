@@ -24,31 +24,18 @@ jobs:
     # 编译文档
     - script: npm run site:build
       name: site
-    # npm publish
-    - stage: "npm publish"
-      script: npm run compile
       deploy:
-        provider: npm
-        email: xrs4433@outlook.com
-        api_key: $NPM_TOKEN
-        on:
-          tags: true
-    # update site
-    - stage: "update site"
-      script: npm run site:build
-      deploy:
-        provider: pages
-        github_token: $GITHUB_TOKEN
-        local_dir: docs
-        target_branch: gh_pages
-        on:
-          tags: true
+        - provider: npm
+          email: xrs4433@outlook.com
+          api_key: $NPM_TOKEN
+          on:
+            tags: true
+        - provider: pages
+          github_token: $GITHUB_TOKEN
+          local_dir: ./docs
+          target_branch: gh_pages
+          on:
+            tags: true
 
 stages:
   - name: test
-  - name: "npm publish"
-    if: tag IS present
-  - name: "update site"
-    if: tag IS present
-
-
