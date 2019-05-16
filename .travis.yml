@@ -25,11 +25,11 @@ jobs:
     - script: npm run site:build
       name: site
     # 发布版本
-    - deply:
-        provider: script
-        script: node script/ci/publish.sh
-        skip_cleanup: true
-        on:
-          tags: true
 stages:
   - test_and_publish
+deply:
+  provider: script
+  script: node script/ci/publish.sh
+  skip_cleanup: true
+  on:
+    tags: true
