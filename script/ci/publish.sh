@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#更新package的版本和tag一致
+#update package.json version
 
 tag = ${TRAVIS_TAG}
 
@@ -12,16 +12,16 @@ npm --registry=//registry.npmjs.org/:_authToken=${NPM_TOKEN}
 
 npm publish
 
-#提交更改到github
+#commit to github
 
 git config user.name "Rhys Xia"
 git config user.email "xrs4433@outlook.com"
 git add ./package.json
-# 不再次调用钩子了
+# no need for hook
 git commit --no-verify -m":bookmark:Update version"
 git push "https://${GITHUB_TOKEN}@github.com/xl-vision/xl-vision.git"
 
-#更新网站
+#update site
 cd docs
 git init
 git add ./*
