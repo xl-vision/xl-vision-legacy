@@ -26,11 +26,13 @@ jobs:
       name: site
       deploy:
         - provider: npm
+          skip_cleanup: true
           email: xrs4433@outlook.com
           api_key: $NPM_TOKEN
           on:
             tags: true
         - provider: pages
+          skip_cleanup: true
           github_token: $GITHUB_TOKEN
           local_dir: ./docs
           target_branch: gh_pages
