@@ -7,7 +7,7 @@ node_js:
   - "10"
 install: npm install
 cache:
-  directories: 
+  directories:
     - $HOME/.npm
 jobs:
   include:
@@ -24,26 +24,11 @@ jobs:
     # 编译文档
     - script: npm run site:build
       name: site
-    # 检查tag是否与version匹配
-    - stage: check_tag
-      script: node script/ci/check_tag.js
-    # 自动发布版本到npm
+    # 发布版本
     - stage: publish
-      script: npm publish
-    # 自动发布文档
-    - stage: deploy
-      script: skip
-      deploy: 
-        provider: pages
-        skip_cleanup: true
-        github_token: $GITHUB_TOKEN
-        local_dir: docs/dist
-        target_branch: gh_pages
+      script: node script/ci/publish.sh
 stages:
   - code_test
-  - name: check_tag
-    if: tag IS present
+  # 创建新的tag时才发布版本
   - name: publish
-    if: tag IS present
-  - name: deploy
     if: tag IS present
