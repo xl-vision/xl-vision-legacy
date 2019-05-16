@@ -43,23 +43,8 @@ inquirer.prompt([{
   // 提交代码
   const comment = answers.message
 
-  console.log(chalk.green('======提交代码到github======'))
-
-  let cmd = `git add package.json && git commit -m "${comment}" && git push origin master`
-
-  if (shell.exec(cmd).code) {
-    pkg.version = oldVersion
-    fs.writeFileSync(
-      resolvePath('package.json'),
-      JSON.stringify(pkg, null, '  ')
-    )
-    console.log(chalk.red('======提交代码失败======'))
-    shell.exit(1)
-  }
-  console.log(chalk.green('======提交代码成功======'))
-
   console.log(chalk.green(`======发布版本"${version}"到github======`))
-  cmd = `git tag -a ${version} -m "${comment}" && git push origin ${version}`
+  const cmd = `git add package.json && git tag -a ${version} -m "${comment}" && git push origin ${version}`
 
   if (shell.exec(cmd).code) {
     console.log(chalk.red(`======发布版本"${version}"失败======`))
