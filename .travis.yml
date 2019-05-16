@@ -11,28 +11,29 @@ cache:
     - $HOME/.npm
 jobs:
   include:
+    # 代码检查
     - stage: lint
-      # 代码检查
-    script: npm run lint
-    name: lint
-    - stage: test
+      script: npm run lint
+      name: lint
     # 执行测试
-    script: ./script/ci/test.sh
-    name: test
+    - stage: test
+      script: ./script/ci/test.sh
+      name: test
+    # 编译
     - stage: compile
-    script: npm run compile && npm run site:build
-    name: compile
-    deploy:
-      - provider: npm
-        skip_cleanup: true
-        email: xrs4433@outlook.com
-        api_key: $NPM_TOKEN
-        on:
-          tags: true
-      - provider: pages
-        skip_cleanup: true
-        github_token: $GITHUB_TOKEN
-        local_dir: ./docs
-        target_branch: gh_pages
-        on:
-          tags: true
+      script: npm run compile && npm run site:build
+      name: compile
+      deploy:
+        - provider: npm
+          skip_cleanup: true
+          email: xrs4433@outlook.com
+          api_key: $NPM_TOKEN
+          on:
+            tags: true
+        - provider: pages
+          skip_cleanup: true
+          github_token: $GITHUB_TOKEN
+          local_dir: ./docs
+          target_branch: gh_pages
+          on:
+            tags: true
