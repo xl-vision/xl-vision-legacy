@@ -32,6 +32,13 @@ inquirer.prompt([{
     return `:bookmark:update version to ${answers.version}`
   }
 }]).then(async function (answers) {
+  if (needCommit()) {
+    console.error(chalk.red('Please commit changed file first.'))
+    shell.exit(1)
+  }
+
+  const oldCommitId = getLastCommit()
+
   // 修改版本
   const version = `${answers.version}`
   pkg.version = version
@@ -43,42 +50,42 @@ inquirer.prompt([{
   // 提交代码
   const comment = answers.message
 
-  console.log(chalk.green('======提交代码到github======'))
+  console.log(chalk.green('======try to commit======'))
 
-  let cmd = `git add package.json && git commit -m "${comment}" && git push origin master`
-
-  if (shell.exec(cmd).code) {
-    pkg.version = oldVersion
-    fs.writeFileSync(
-      resolvePath('package.json'),
-      JSON.stringify(pkg, null, '  ')
-    )
-    console.log(chalk.red('======提交代码失败======'))
-    shell.exit(1)
-  }
-  console.log(chalk.green('======提交代码成功======'))
-
-  console.log(chalk.green(`======发布版本"${version}"到github======`))
-  cmd = `git tag -a ${version} -m "${comment}" && git push origin ${version}`
+  let cmd = `git add package.json && git commit -m "${comment}"`
 
   if (shell.exec(cmd).code) {
-    console.log(chalk.red(`======发布版本"${version}"失败======`))
+    console.log(chalk.red('======commit failed======'))
+    console.log(chalk.red('======try to rollback======'))
+    shell.exec(`git reset --hard ${oldCommitId}`)
     shell.exit(1)
   }
-  console.log(chalk.green(`======发布版本"${version}"成功======`))
+  console.log(chalk.green('======commit success======'))
+
+  console.log(chalk.green(`======publish tag "${version}"======`))
+  const commitId = getLastCommit()
+  cmd = `git tag -a ${version} ${commitId} -m ${comment} && git push origin ${version}`
+
+  if (shell.exec(cmd).code) {
+    console.log(chalk.red(`======publish tag "${version}" failed======`))
+    console.log(chalk.red('======try to rollback======'))
+    shell.exec(`git reset --hard ${oldCommitId}`)
+    shell.exit(1)
+  }
+  console.log(chalk.green(`======publish tag "${version}" success======`))
 })
 
 function getVersionList (version) {
-  var levels = [
+  const levels = [
     ['prerelease', 'beta'],
     ['patch', ''],
     ['minor', ''],
     ['major', '']
   ]
-  var opts = []
+  const opts = []
 
   levels.forEach(function (item) {
-    var val = semver.inc(version, item[0], item[1])
+    const val = semver.inc(version, item[0], item[1])
     opts.push({
       name: val,
       value: val
@@ -90,4 +97,28 @@ function getVersionList (version) {
 
 function resolvePath (file) {
   return path.resolve(__dirname, '..', file)
+}
+
+function getLastCommit () {
+  const ret = shell.exec('git show', {
+    silent: true
+  })
+  if (ret.code === 1) {
+    console.error(chalk.red('exec command "git show" failed'))
+    shell.exit(1)
+  }
+  const commitLine = ret.stdout.split('\n')[0]
+  const commit = commitLine.substring('commit '.length)
+  console.log(commit)
+  return commit
+}
+
+function needCommit () {
+  let ret = shell.exec('git status --porcelain', {
+    silent: true
+  })
+  if (ret.code === 1) {
+    return false
+  }
+  return ret.trim() !== ''
 }
