@@ -83,6 +83,7 @@ function run () {
     if (shell.exec(cmd).code) {
       console.log(chalk.red('======upload files failed======'))
       console.log(chalk.red('======try to rollback======'))
+      shell.exec(`git tag -d ${version}`)
       shell.exec(`git reset --hard ${oldCommitId}`)
       return
     }
