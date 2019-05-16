@@ -34,7 +34,8 @@ jobs:
     # update site
     - stage: "update site"
       script: npm run site:build
-      provider: pages
+      deploy:
+        provider: pages
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         local_dir: docs
