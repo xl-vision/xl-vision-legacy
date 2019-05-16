@@ -6,9 +6,9 @@ language: node_js
 node_js:
   - "10"
 install: npm install
-cache:
-  directories:
-    - $HOME/.npm
+#cache:
+#  directories:
+#    - $HOME/.npm
 jobs:
   include:
     - stage: test
@@ -24,12 +24,27 @@ jobs:
     # 编译文档
     - script: npm run site:build
       name: site
-    - stage: deploy
-      script: node script/ci/publish.sh
+    # npm publish
+    - stage: npm publish
+      script: npm run compile
+      deploy:
+        provider: npm
+        email: xrs4433@outlook.com
+        api_key: $NPM_TOKEN
+    # update site
+    - stage: update site
+      script: npm run site:build
+      provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: docs
+        target_branch: gh_pages
 
 stages:
-  - test_and_publish
-  - name: deploy
-    on:
-      tags: true
+  - name: test
+  - name: npm publish
+    if: tag IS present
+  - name: update site
+    if: tag IS present
+
 
