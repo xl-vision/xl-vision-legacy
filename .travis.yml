@@ -5,26 +5,34 @@ sudo: required
 language: node_js
 node_js:
   - "10"
-
 install: npm install
-
-script:
-  - npm run lint
-  - ./script/ci/test.sh
-  - npm run compile
-  - npm run site:build
-
-deploy:
-  - provider: npm
-    skip_cleanup: true
-    email: xrs4433@outlook.com
-    api_key: $NPM_TOKEN
-    on:
-      tags: true
-  - provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    local_dir: ./docs
-    target_branch: gh_pages
-    on:
-      tags: true
+#cache:
+#  directories:
+#    - $HOME/.npm
+jobs:
+  include:
+    - stage: lint
+      # 代码检查
+    script: npm run lint
+    name: lint
+    - stage: test
+    # 执行测试
+    script: ./script/ci/test.sh
+    name: test
+    - stage: compile
+    script: npm run compile && npm run site:build
+    name: compile
+    deploy:
+      - provider: npm
+        skip_cleanup: true
+        email: xrs4433@outlook.com
+        api_key: $NPM_TOKEN
+        on:
+          tags: true
+      - provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: ./docs
+        target_branch: gh_pages
+        on:
+          tags: true
