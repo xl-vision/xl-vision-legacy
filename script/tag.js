@@ -44,7 +44,7 @@ inquirer.prompt([{
   const comment = answers.message
 
   console.log(chalk.green(`======发布版本"${version}"到github======`))
-  const cmd = `git add package.json && git tag -a ${version} -m "${comment}" && git push origin ${version}`
+  const cmd = `git add package.json && git commit -m"${comment}" && git tag -a ${version} -m "${comment}" && git push origin ${version}`
 
   if (shell.exec(cmd).code) {
     console.log(chalk.red(`======发布版本"${version}"失败======`))
