@@ -3037,7 +3037,7 @@ export {
   FasWrench,
   FasXRay,
   FasYenSign,
-  FasYinYang,
+  FasYinYang
 }
 
  export default {
@@ -4557,5 +4557,5 @@ export {
   FasWrench,
   FasXRay,
   FasYenSign,
-  FasYinYang,
+  FasYinYang
 }
