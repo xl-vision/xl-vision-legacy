@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
+import { isServer } from '../../commons/utils/dom'
 
 const matchMedia = (query: string) => {
-  if (typeof window === 'undefined') {
+  if (isServer) {
     return {
       // tslint:disable-next-line: no-empty
-      addListener: () => {},
+      addListener: () => {
+      },
       matches: false,
       // tslint:disable-next-line: no-empty
-      removeListener: () => {}
+      removeListener: () => {
+      }
     }
   }
   return window.matchMedia(query)

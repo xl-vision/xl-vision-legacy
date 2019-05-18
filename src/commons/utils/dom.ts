@@ -2,6 +2,8 @@ import { oneOf } from './array'
 
 export const isClient = typeof window === 'object'
 
+export const isServer = !isClient
+
 export const on = <K extends keyof WindowEventMap> (
   type: K,
   listener: (this: Window, ev: WindowEventMap[K]) => any,

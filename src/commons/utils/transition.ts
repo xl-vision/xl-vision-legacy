@@ -1,3 +1,5 @@
+import { isClient } from './dom'
+
 export const nextFrame = requestAnimationFrame ||
                         webkitRequestAnimationFrame ||
                         // @ts-ignore
@@ -11,7 +13,7 @@ let transitionEndEvent = 'transitionend'
 let animationProp = 'animation'
 let animationEndEvent = 'animationend'
 
-if (typeof window !== 'undefined') {
+if (isClient) {
   if (window.ontransitionend === undefined &&
     // @ts-ignore
     window.onwebkittransitionend !== undefined

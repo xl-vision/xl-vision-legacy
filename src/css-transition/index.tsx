@@ -19,6 +19,11 @@ export type CssTransitionClassNames = string | {
 
 export interface CssTransitionProps extends TransitionProps {
   classNames?: CssTransitionClassNames
+  timeout?: number | {
+    appear?: number,
+    enter?: number,
+    leave?: number
+  }
 }
 
 export const displayName = `${namePrefix}-css-transition`
@@ -39,6 +44,7 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     leave,
     afterLeave,
     leaveCancelled,
+    timeout,
     ...others
   } = props
 
@@ -62,6 +68,20 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     }
   }, [classNames])
 
+  const timeoutMap = React.useMemo(() => {
+    if (!timeout) {
+      return null
+    }
+    if (typeof timeout === 'object') {
+      return timeout
+    }
+    return {
+      appear: timeout,
+      enter: timeout,
+      leave: timeout
+    }
+  }, [timeout])
+
   const beforeAppearWrapper = React.useCallback((el: HTMLElement) => {
     if (classNameMap) {
       classNameMap.appear && addClass(el, classNameMap.appear)
@@ -79,13 +99,16 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
         reflow(el)
         classNameMap.appearTo && addClass(el, classNameMap.appearTo)
         classNameMap.appear && removeClass(el, classNameMap.appear)
+      }
+      if (timeoutMap && timeoutMap.appear) {
+        setTimeout(done, timeoutMap.appear)
+      } else {
         onTransitionEnd(el, done)
       }
-
       const call = appear || enter
       call && call(el, done, isCancelled)
     }
-  }, [classNameMap, appear, enter])
+  }, [classNameMap, appear, enter, timeoutMap])
 
   const afterAppearWrapper = React.useCallback((el: HTMLElement) => {
     if (classNameMap) {
@@ -123,12 +146,15 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
         reflow(el)
         addClass(el, classNameMap.enterTo)
         removeClass(el, classNameMap.enter)
+      }
+      if (timeoutMap && timeoutMap.enter) {
+        setTimeout(done, timeoutMap.enter)
+      } else {
         onTransitionEnd(el, done)
       }
-
       enter && enter(el, done, isCancelled)
     }
-  }, [classNameMap, enter])
+  }, [classNameMap, enter, timeoutMap])
 
   const afterEnterWrapper = React.useCallback((el: HTMLElement) => {
     if (classNameMap) {
@@ -165,11 +191,15 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
         reflow(el)
         addClass(el, classNameMap.leaveTo)
         removeClass(el, classNameMap.leave)
+      }
+      if (timeoutMap && timeoutMap.leave) {
+        setTimeout(done, timeoutMap.leave)
+      } else {
         onTransitionEnd(el, done)
       }
     }
     leave && leave(el, done, isCancelled)
-  }, [classNameMap, leave])
+  }, [classNameMap, leave, timeoutMap])
 
   const afterLeaveWrapper = React.useCallback((el: HTMLElement) => {
     if (classNameMap) {
@@ -221,6 +251,11 @@ CssTransition.propTypes = {
     leave: PropTypes.string.isRequired,
     leaveActive: PropTypes.string.isRequired,
     leaveTo: PropTypes.string.isRequired
+  })]),
+  timeout: PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+    appear: PropTypes.number,
+    enter: PropTypes.number,
+    leave: PropTypes.number
   })])
 }
 

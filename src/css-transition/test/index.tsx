@@ -1,3 +1,11 @@
+jest.mock('../../commons/utils/transition', () => ({
+  onTransitionEnd: (_el: HTMLElement, done: () => void) => {
+    setTimeout(done, 1000)
+  },
+  // tslint:disable-next-line:no-empty
+  reflow: () => {}
+}))
+
 import { mount } from 'enzyme'
 import * as React from 'react'
 import { cleanup, fireEvent, render } from 'react-testing-library'
