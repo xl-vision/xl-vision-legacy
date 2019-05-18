@@ -20,7 +20,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span: ColSpanType
 }
 
-const displayName = `${namePrefix}-col`
+export const displayName = `${namePrefix}-col`
 
 const Col: React.FunctionComponent<ColProps> = props => {
   const { media, gutter } = React.useContext(RowContext)

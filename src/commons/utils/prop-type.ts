@@ -7,7 +7,7 @@ const getRealElement = (element: any) => {
   return element
 }
 
-export const childrenValidator = <T extends object>(displayName: string, allowArray = true) => {
+export const childrenValidator = <T extends object> (displayName: string, allowArray = true, isRequired = true) => {
   return (
     props: T,
     propName: keyof T,
@@ -16,6 +16,10 @@ export const childrenValidator = <T extends object>(displayName: string, allowAr
     _propFullName: string
   ) => {
     let propValue: any = props[propName]
+
+    if (!propValue && !isRequired) {
+      return null
+    }
 
     if (Array.isArray(propValue)) {
       if (!allowArray) {

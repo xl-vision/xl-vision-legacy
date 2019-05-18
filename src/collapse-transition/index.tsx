@@ -5,13 +5,13 @@ import { onTransitionEnd, reflow } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
 
 export interface CollapseTransitionProp {
-  children: React.ReactElement
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   forceRender?: boolean
   show: boolean
   transitionClassName?: string
 }
 
-const displayName = `${namePrefix}-collapse-transition`
+export const displayName = `${namePrefix}-collapse-transition`
 
 const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = props => {
   const { children, transitionClassName, show, forceRender } = props

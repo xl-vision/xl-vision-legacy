@@ -6,19 +6,19 @@ const config = {
   pathMap: [{
     input: path.join(__dirname, 'icons/font-awesome/brands/*.svg'),
     formater: name => `fab-${name}`,
-    output: 'src/package/icon/icons'
+    output: 'src/icon/icons'
   }, {
     input: path.join(__dirname, 'icons/font-awesome/regular/*.svg'),
     formater: name => `far-${name}`,
-    output: 'src/package/icon/icons'
+    output: 'src/icon/icons'
   }, {
     input: path.join(__dirname, 'icons/font-awesome/solid/*.svg'),
     formater: name => `fas-${name}`,
-    output: 'src/package/icon/icons'
+    output: 'src/icon/icons'
   }],
   template: path.join(__dirname, 'template/index.tsx')
 }
-const iconDestPath = path.join(__dirname, '../../src/package/icon/icons')
+const iconDestPath = path.join(__dirname, '../../src/icon/icons')
 const iconIndexPath = path.join(iconDestPath, '../index.ts')
 
 const toCamel = str => {

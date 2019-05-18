@@ -2,7 +2,7 @@ import * as React from 'react'
 import { namePrefix } from '../../commons/config'
 import createIcon from '../base/createIcon'
 
-const displayName = `${namePrefix}-fas-square-full`
+export const displayName = `${namePrefix}-fas-square-full`
 const svgElement = (
     <svg viewBox='0 0 512 512'>
         <path d='M512 512H0V0h512v512z'/>

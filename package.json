@@ -53,7 +53,7 @@
     "@types/enquire.js": "^2.1.1",
     "@types/enzyme": "^3.1.14",
     "@types/jest": "^24.0.11",
-    "@types/prop-types": "^15.5.6",
+    "@types/prop-types": "^15.7.1",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.3",
     "@types/react-router-dom": "^4.3.1",
@@ -83,9 +83,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
-    "@types/react": "^16.8.3",
     "classnames": "^2.2.6",
-    "prop-types": "^15.6.2"
+    "popper.js": "^1.15.0",
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^16.8.2"

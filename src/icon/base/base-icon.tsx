@@ -4,7 +4,7 @@ import * as React from 'react'
 import { namePrefix } from '../../commons/config'
 
 export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactElement<React.SVGProps<SVGSVGElement>>
+  children: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>
   className?: string
   color?: string
   rotate?: number

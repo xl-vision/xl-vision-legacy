@@ -7,7 +7,7 @@ import { FasSpinner } from '../icon'
 
 export type SpinSize = 'small' | 'default' | 'large'
 
-export type SpinIndicator = React.ReactElement
+export type SpinIndicator = React.ReactElement<React.HTMLAttributes<HTMLElement>>
 
 export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
@@ -20,7 +20,7 @@ export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
   wrapperClassName?: string
 }
 
-const displayName = `${namePrefix}-spin`
+export const displayName = `${namePrefix}-spin`
 
 const Spin: React.FunctionComponent<SpinProps> = props => {
   const {

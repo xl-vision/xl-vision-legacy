@@ -23,7 +23,7 @@ export interface TransitionProps {
   beforeAppear?: (el: HTMLElement) => void
   beforeEnter?: (el: HTMLElement) => void
   beforeLeave?: (el: HTMLElement) => void
-  children: React.ReactElement
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   enter?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   enterCancelled?: (el: HTMLElement) => void
   forceRender?: boolean
@@ -33,7 +33,7 @@ export interface TransitionProps {
   show: boolean
 }
 
-const displayName = `${namePrefix}-transition`
+export const displayName = `${namePrefix}-transition`
 
 const Transition: React.FunctionComponent<TransitionProps> = props => {
   const {
@@ -70,7 +70,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     isMounted = false
   })
 
-  const childrenRel = React.useRef<HTMLElement>()
+  const childrenRel = React.useRef<HTMLElement>(null)
 
   const display = React.useMemo(() => {
     // 还未初始化完成
@@ -181,7 +181,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       style.display = 'none'
     }
 
-    return React.cloneElement(children, {
+    return React.cloneElement<React.HTMLAttributes<HTMLElement>>(children, {
       ...children.props,
       ref: childrenRel,
       style

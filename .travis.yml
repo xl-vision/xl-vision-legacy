@@ -6,9 +6,7 @@ language: node_js
 node_js:
   - "10"
 install: npm install
-cache:
-  directories:
-    - $HOME/.npm
+cache: npm
 jobs:
   include:
     # 代码检查

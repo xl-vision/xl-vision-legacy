@@ -5,21 +5,23 @@ import { addClass, removeClass } from '../commons/utils/dom'
 import { onTransitionEnd, reflow } from '../commons/utils/transition'
 import Transition, { TransitionProps } from '../transition'
 
-export interface CssTransitionProps extends TransitionProps {
-  classNames?: string | {
-    appear?: string
-    appearActive?: string
-    appearTo?: string
-    enter: string
-    enterActive: string
-    enterTo: string
-    leave: string
-    leaveActive: string
-    leaveTo: string
-  }
+export type CssTransitionClassNames = string | {
+  appear?: string
+  appearActive?: string
+  appearTo?: string
+  enter: string
+  enterActive: string
+  enterTo: string
+  leave: string
+  leaveActive: string
+  leaveTo: string
 }
 
-const displayName = `${namePrefix}-css-transition`
+export interface CssTransitionProps extends TransitionProps {
+  classNames?: CssTransitionClassNames
+}
+
+export const displayName = `${namePrefix}-css-transition`
 
 const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 

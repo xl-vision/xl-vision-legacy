@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { childrenValidator } from '../commons/utils/prop-type'
+import { ButtonProps, displayName as buttonDisplayName } from './button'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactElement | React.ReactElement[]
+  children: React.ReactElement<ButtonProps> | React.ReactElement<ButtonProps>[]
   round?: boolean
   vertical?: boolean
 }
 
-const displayName = `${namePrefix}-button-group`
+export const displayName = `${namePrefix}-button-group`
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
   const { round, vertical, className, ...others } = props
@@ -29,7 +30,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
 ButtonGroup.displayName = displayName
 
 ButtonGroup.propTypes = {
-  children: childrenValidator(`${namePrefix}-button`),
+  children: childrenValidator(buttonDisplayName),
   round: PropTypes.bool,
   vertical: PropTypes.bool
 }

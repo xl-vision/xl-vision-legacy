@@ -5,7 +5,7 @@ import { namePrefix } from '../commons/config'
 import { FasCircleNotch } from '../icon'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
-  children?: React.ReactNode
+  children: React.ReactNode
   className?: string
   dashed?: boolean
   disabled?: boolean
@@ -19,7 +19,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HT
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
 
-const displayName = `${namePrefix}-button`
+export const displayName = `${namePrefix}-button`
 
 const formatChildren = (children: React.ReactNode) => {
   return React.Children.map(children, child => {
@@ -69,7 +69,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 Button.displayName = displayName
 
 Button.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   ghost: PropTypes.bool,

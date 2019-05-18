@@ -3,13 +3,14 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import useUpdate from '../commons/hooks/useUpdate'
+import { childrenValidator } from '../commons/utils/prop-type'
 import CollapseContext from './collapse-context'
-import { CollapseExpandIconPosition } from './collapse-panel'
+import { CollapseExpandIconPosition, CollapsePanelProps, displayName as collapsePanelDisplayName } from './collapse-panel'
 
 export interface CollapseProps {
   accordion?: boolean
   bordered?: boolean
-  children: React.ReactElement | React.ReactElement[]
+  children: React.ReactElement<CollapsePanelProps> | React.ReactElement<CollapsePanelProps>[]
   defaultActiveName?: string | string[]
   expandArrow?: (active: boolean) => React.ReactNode
   expandArrowPosition?: CollapseExpandIconPosition
@@ -18,7 +19,7 @@ export interface CollapseProps {
   showArrow?: boolean
 }
 
-const displayName = `${namePrefix}-collapse`
+export const displayName = `${namePrefix}-collapse`
 
 const Collapse: React.FunctionComponent<CollapseProps> = props => {
 
@@ -49,7 +50,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
   }, [activeNames])
 
   const childrenNode = React.useMemo(() => {
-    return React.Children.map<React.ReactElement, React.ReactElement>(children, (child, index) => {
+    return React.Children.map<React.ReactElement<CollapsePanelProps>, React.ReactElement<CollapsePanelProps>>(children, (child, index) => {
       const name = child.props.name || index + ''
       const extraNode = extra && extra(name)
       return React.cloneElement(child,{
@@ -84,7 +85,7 @@ Collapse.displayName = displayName
 Collapse.propTypes = {
   accordion: PropTypes.bool,
   bordered: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
+  children: childrenValidator(collapsePanelDisplayName),
   defaultActiveName: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.arrayOf(PropTypes.string.isRequired)]),
   expandArrow: PropTypes.func,
   expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left','right']),

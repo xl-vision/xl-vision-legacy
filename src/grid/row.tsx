@@ -3,19 +3,20 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { childrenValidator } from '../commons/utils/prop-type'
+import { ColProps, displayName as colDisplayName } from './col'
 import useMedia, { BreakPoint, breakPointArray } from './hooks/useMedia'
 import RowContext from './row-context'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'top' | 'middle' | 'bottom'
-  children: React.ReactElement | React.ReactElement[]
+  children: React.ReactElement<ColProps> | React.ReactElement<ColProps>[]
   className?: string
   gutter?: number | Partial<Record<BreakPoint, number>>
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
   type?: 'flex'
 }
 
-const displayName = `${namePrefix}-row`
+export const displayName = `${namePrefix}-row`
 
 const Row: React.FunctionComponent<RowProps> = props => {
   const { type, justify, align, className, style, children, gutter, ...others } = props
@@ -72,7 +73,7 @@ Row.propTypes = {
     'middle',
     'bottom'
   ]),
-  children: childrenValidator(`${namePrefix}-col`),
+  children: childrenValidator<ColProps>(colDisplayName),
   className: PropTypes.string,
   gutter: PropTypes.oneOfType([
     PropTypes.number,

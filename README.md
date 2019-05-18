@@ -54,7 +54,7 @@ Please refer to the [documentation](https://xl-vision.github.io/xl-vision/) for 
 $ git clone git@github.com:xl-vision/xl-vision.git
 $ cd xl-vision
 $ npm install
-$ npm run site:dev
+$ npm run site:start
 ```
 
 Open your browser and visit http://localhost:3000.

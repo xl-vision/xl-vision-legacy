@@ -21,7 +21,7 @@ export interface CollapsePanelProps {
   showArrow?: boolean
 }
 
-const displayName = `${namePrefix}-collapse-panel`
+export const displayName = `${namePrefix}-collapse-panel`
 
 const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
   const { name = '', header, children, disabled, className, forceRender = true, expandArrow, expandArrowPosition, extra, showArrow = true } = props
