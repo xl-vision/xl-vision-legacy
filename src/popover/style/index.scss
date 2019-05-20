@@ -1,0 +1,11 @@
+@import "../../style/commons/var";
+
+$popover: #{$--cls-prefix}-popover;
+
+.#{$popover} {
+  &__arrow {
+    width: 0;
+    height: 0;
+    border: 5px solid red;
+  }
+}

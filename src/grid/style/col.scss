@@ -15,6 +15,7 @@ $col: #{$--cls-prefix}-col;
     &-span-#{$i} {
       display: block;
       width: $i / $--grid-span * 100%;
+      min-height: 1px;
     }
 
     &-offset-#{$i} {

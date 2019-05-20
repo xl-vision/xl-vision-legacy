@@ -64,6 +64,11 @@ const routes: Route[] = [
         name: '折叠面板',
         path: '/collapse',
         component: import('../src/collapse/doc/index.md')
+      },
+      {
+        name: '气泡卡片',
+        path: '/popover',
+        component: import('../src/popover/doc/index.md')
       }
     ]
   },
