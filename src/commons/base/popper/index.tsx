@@ -1,12 +1,13 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { namePrefix } from '../commons/config'
-import useUpdate from '../commons/hooks/useUpdate'
-import { getPosition } from '../commons/utils/dom'
-import CssTransition, { CssTransitionClassNames } from '../css-transition'
+import { namePrefix } from '../../config'
+import useClickOutside from '../../hooks/useClickOutside'
+import useUpdate from '../../hooks/useUpdate'
+import { getPosition } from '../../utils/dom'
+import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 
 export type Placement =
-  'top'
+  | 'top'
   | 'left'
   | 'right'
   | 'bottom'
@@ -21,8 +22,8 @@ export type Placement =
 
 export interface PopperProps {
   allowPopupEnter: boolean
-  arrow?: (placement: Placement, center: { left: number, top: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  autoAdjustOverflow?: boolean,
+  arrow?: (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
+  // autoAdjustOverflow?: boolean,
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>,
   defaultVisible?: boolean,
   getPopupContainer?: () => HTMLElement,
@@ -32,7 +33,8 @@ export interface PopperProps {
   placement?: Placement
   popup: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   transitionName?: CssTransitionClassNames,
-  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu',
+  trigger?: 'hover' | 'focus' | 'click' | 'custom',
+  visible?: boolean,
 }
 
 export const displayName = `${namePrefix}-popper`
@@ -51,35 +53,25 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     trigger = 'hover',
     defaultVisible = false,
     allowPopupEnter = true,
-    arrow
+    arrow,
+    visible
   } = props
 
   const popupRef = React.useRef<HTMLDivElement>(null)
   const referenceRef = React.useRef<HTMLDivElement>(null)
 
-  const [visible, setVisible] = React.useState(defaultVisible)
+  const [actualVisible, setActualVisible] = React.useState(defaultVisible)
 
   const [popupPosition, setPopupPosition] = React.useState<{ bottom: number, left: number, right: number, top: number }>()
-  const [referencePosition, setChildrenPosition] = React.useState<{ bottom: number, left: number, right: number, top: number }>()
+  const [referencePosition, setReferencePosition] = React.useState<{ bottom: number, left: number, right: number, top: number }>()
 
   const [left, setLeft] = React.useState(0)
   const [top, setTop] = React.useState(0)
 
-  const popupBeforeEnter = React.useCallback(() => {
-    const popupPos = getPosition(popupRef.current!)
-    const referencePos = getPosition(referenceRef.current!)
-    if (!compareObject(popupPos, popupPosition)) {
-      setPopupPosition(popupPos)
-
+  React.useEffect(() => {
+    if (visible !== undefined) {
+      setActualVisible(visible)
     }
-    if (!compareObject(referencePos, referencePosition)) {
-      setChildrenPosition(referencePos)
-    }
-
-  }, [popupRef, referenceRef])
-
-  useUpdate(() => {
-    onVisibleChange && onVisibleChange(visible)
   }, [visible])
 
   React.useEffect(() => {
@@ -141,9 +133,13 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [placement, popupPosition, referencePosition])
 
+  useUpdate(() => {
+    onVisibleChange && onVisibleChange(actualVisible)
+  }, [actualVisible])
+
   const arrowCenter = React.useMemo(() => {
     if (!referencePosition || !popupPosition) {
-      return { left: 0, top: 0 }
+      return { x: 0, y: 0 }
     }
     const popupWidth = popupPosition.right - popupPosition.left
     const popupHeight = popupPosition.bottom - popupPosition.top
@@ -158,8 +154,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     const arrowTopTo = Math.floor(middleTop - top)
 
     return {
-      left: arrowLeftTo,
-      top: arrowTopTo
+      x: arrowLeftTo,
+      y: arrowTopTo
     }
 
   }, [popupPosition, referencePosition, left, top])
@@ -173,22 +169,52 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [top, left, overlayStyle])
 
+  const popupBeforeEnter = React.useCallback(() => {
+    if (!popupRef.current || !referenceRef.current) {
+      return
+    }
+    const popupPos = getPosition(popupRef.current)
+    const referencePos = getPosition(referenceRef.current)
+    if (!compareObject(popupPos, popupPosition)) {
+      setPopupPosition(popupPos)
+
+    }
+    if (!compareObject(referencePos, referencePosition)) {
+      setReferencePosition(referencePos)
+    }
+
+  }, [popupRef, referenceRef])
+
   const onMouseEnter = React.useCallback(() => {
     if (trigger === 'hover') {
-      setVisible(true)
+      setActualVisible(true)
     }
   }, [trigger])
   const onMouseLeave = React.useCallback(() => {
     if (trigger === 'hover') {
-      setVisible(false)
+      setActualVisible(false)
     }
   }, [trigger])
 
   const onPopupMouseEnter = React.useCallback(() => {
     if (!allowPopupEnter) {
-      setVisible(false)
+      setActualVisible(false)
     }
   }, [allowPopupEnter])
+
+  const onReferenceClick = React.useCallback(() => {
+    if (trigger === 'click') {
+      setActualVisible(true)
+    }
+  }, [trigger])
+
+  const onClickOutside = React.useCallback(() => {
+    if (trigger === 'click') {
+      setActualVisible(false)
+    }
+  }, [trigger])
+
+  useClickOutside(referenceRef, onClickOutside)
 
   const portal = ReactDOM.createPortal((
     <div
@@ -197,7 +223,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style={popupStyle}
       onMouseEnter={onPopupMouseEnter}
     >
-      <CssTransition show={visible} classNames={transitionName} beforeEnter={popupBeforeEnter}>
+      <CssTransition show={actualVisible} classNames={transitionName} beforeEnter={popupBeforeEnter}>
         <div>
           {arrow && arrow(placement, arrowCenter)}
           {popup}
@@ -214,6 +240,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       ref={referenceRef}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onClick={onReferenceClick}
     >
       {children}
       {portal}

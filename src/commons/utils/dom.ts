@@ -9,7 +9,7 @@ export const on = <K extends keyof WindowEventMap> (
   listener: (this: Window, ev: WindowEventMap[K]) => any,
   options?: boolean | AddEventListenerOptions
 ) => {
-  if (!isClient) {
+  if (isServer) {
     return
   }
   window.addEventListener(type, listener, options)
@@ -20,7 +20,7 @@ export const off = <K extends keyof WindowEventMap> (
   listener: (this: Window, ev: WindowEventMap[K]) => any,
   options?: boolean | EventListenerOptions
 ) => {
-  if (!isClient) {
+  if (isServer) {
     return
   }
   window.removeEventListener(type, listener, options)
@@ -68,4 +68,15 @@ export const getPosition = (el: HTMLElement) => {
     right,
     top
   }
+}
+
+export const include = (parent: HTMLElement, child: HTMLElement) => {
+  let temp: HTMLElement | null = child
+  while (temp) {
+    if (temp === parent) {
+      return true
+    }
+    temp = temp.parentElement
+  }
+  return false
 }

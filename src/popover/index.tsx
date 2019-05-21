@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as React from 'react'
+import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
-import Popper, { Placement, PopperProps } from '../popper'
 
 export interface PopoverProps extends PopperProps {
   xx: string
@@ -11,15 +11,15 @@ export const displayName = `${namePrefix}-popover`
 
 const Popover: React.FunctionComponent<PopoverProps> = props => {
 
-  const arrow = React.useCallback((placement: Placement, center: { left: number, top: number }) => {
+  const arrow = React.useCallback((placement: Placement, center: { x: number, y: number }) => {
     const classes = classnames(`${displayName}__arrow`, `${displayName}__arrow--${placement}`)
     return (
       <div
         className={classes}
         style={{
-          left: center.left - 5,
+          left: center.x - 5,
           position: 'absolute',
-          top: center.top - 5
+          top: center.y - 5
         }}
       />
     )
