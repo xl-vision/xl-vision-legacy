@@ -1,10 +1,10 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import { namePrefix } from '../../config'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUpdate from '../../hooks/useUpdate'
 import { getPosition } from '../../utils/dom'
-import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 
 export type Placement =
   | 'top'
