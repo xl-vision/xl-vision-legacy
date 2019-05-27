@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom'
 import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import { namePrefix } from '../../config'
 import useClickOutside from '../../hooks/useClickOutside'
+import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
 import { getPosition } from '../../utils/dom'
 
@@ -25,7 +26,8 @@ export interface PopperProps {
   arrow?: (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   // autoAdjustOverflow?: boolean,
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>,
-  defaultVisible?: boolean,
+  delayHide: number
+  delayShow: number,
   getPopupContainer?: () => HTMLElement,
   onVisibleChange?: (visible: boolean) => void,
   overlayClassName?: string,
@@ -51,26 +53,42 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     popup,
     transitionName,
     trigger = 'hover',
-    defaultVisible = false,
     allowPopupEnter = true,
     arrow,
-    visible
+    visible = false,
+    delayHide = 0,
+    delayShow = 0
   } = props
 
   const popupRef = React.useRef<HTMLDivElement>(null)
   const referenceRef = React.useRef<HTMLDivElement>(null)
+  const delayTimerRef = React.useRef<NodeJS.Timeout>()
 
-  const [actualVisible, setActualVisible] = React.useState(defaultVisible)
+  const [actualVisible, setActualVisible] = React.useState(visible)
 
   const [popupPosition, setPopupPosition] = React.useState<{ bottom: number, left: number, right: number, top: number }>()
   const [referencePosition, setReferencePosition] = React.useState<{ bottom: number, left: number, right: number, top: number }>()
 
   const [left, setLeft] = React.useState(0)
   const [top, setTop] = React.useState(0)
+  let isUnmount = false
+
+  useUnmount(() => {
+    isUnmount = true
+  })
+
+  const setActualWrapper = React.useCallback((isVisible: boolean) => {
+    clearTimeout(delayTimerRef.current!)
+    delayTimerRef.current = setTimeout(() => {
+      if (!isUnmount) {
+        setActualVisible(isVisible)
+      }
+    }, isVisible ? delayShow : delayHide)
+  }, [isUnmount, delayShow, delayHide, delayTimerRef])
 
   React.useEffect(() => {
-    if (visible !== undefined) {
-      setActualVisible(visible)
+    if (visible !== actualVisible) {
+      setActualWrapper(visible)
     }
   }, [visible])
 
@@ -187,50 +205,50 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const onMouseEnter = React.useCallback(() => {
     if (trigger === 'hover') {
-      setActualVisible(true)
+      setActualWrapper(true)
     }
   }, [trigger])
   const onMouseLeave = React.useCallback(() => {
     if (trigger === 'hover') {
-      setActualVisible(false)
+      setActualWrapper(false)
     }
-  }, [trigger])
+  }, [trigger, setActualWrapper])
 
   const onFocus = React.useCallback(() => {
     if (trigger === 'focus') {
-      setActualVisible(true)
+      setActualWrapper(true)
     }
-  }, [trigger])
+  }, [trigger, setActualWrapper])
 
   const onBlur = React.useCallback(() => {
     if (trigger === 'focus') {
-      setActualVisible(false)
+      setActualWrapper(false)
     }
-  }, [trigger])
+  }, [trigger, setActualWrapper])
 
   const onContextMenu = React.useCallback(() => {
     if (trigger === 'contextMenu') {
-      setActualVisible(true)
+      setActualWrapper(true)
     }
-  }, [trigger])
+  }, [trigger, setActualWrapper])
 
   const onPopupMouseEnter = React.useCallback(() => {
     if (!allowPopupEnter) {
-      setActualVisible(false)
+      setActualWrapper(false)
     }
-  }, [allowPopupEnter])
+  }, [allowPopupEnter, setActualWrapper])
 
   const onReferenceClick = React.useCallback(() => {
     if (trigger === 'click') {
-      setActualVisible(true)
+      setActualWrapper(true)
     }
-  }, [trigger])
+  }, [trigger, setActualWrapper])
 
   const onClickOutside = React.useCallback(() => {
     if (trigger !== 'custom') {
-      setActualVisible(false)
+      setActualWrapper(false)
     }
-  }, [trigger])
+  }, [trigger, setActualWrapper])
 
   useClickOutside(referenceRef, onClickOutside)
 
