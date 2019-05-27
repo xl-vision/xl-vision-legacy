@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
@@ -22,12 +23,12 @@ export type Placement =
   | 'rightBottom'
 
 export interface PopperProps {
-  allowPopupEnter: boolean
+  allowPopupEnter?: boolean
   arrow?: (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   // autoAdjustOverflow?: boolean,
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>,
-  delayHide: number
-  delayShow: number,
+  delayHide?: number
+  delayShow?: number,
   getPopupContainer?: () => HTMLElement,
   onVisibleChange?: (visible: boolean) => void,
   overlayClassName?: string,
@@ -288,6 +289,34 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 }
 
 Popper.displayName = displayName
+
+Popper.propTypes = {
+  allowPopupEnter: PropTypes.bool,
+  arrow: PropTypes.func,
+  children: PropTypes.element.isRequired,
+  delayHide: PropTypes.number,
+  delayShow: PropTypes.number,
+  getPopupContainer: PropTypes.func,
+  onVisibleChange: PropTypes.func,
+  overlayClassName: PropTypes.string,
+  overlayStyle: PropTypes.object,
+  placement: PropTypes.oneOf([
+    'top',
+    'left',
+    'right',
+    'bottom',
+    'topLeft',
+    'topRight',
+    'bottomLeft',
+    'bottomRight',
+    'leftTop',
+    'leftBottom',
+    'rightTop',
+    'rightBottom']),
+  popup: PropTypes.element.isRequired,
+  trigger: PropTypes.oneOf(['hover', 'focus', 'click', 'contextMenu', 'custom']),
+  visible: PropTypes.bool
+}
 
 export default Popper
 
