@@ -260,7 +260,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style={popupStyle}
       onMouseEnter={onPopupMouseEnter}
     >
-      <CssTransition show={actualVisible} classNames={transitionName} beforeEnter={popupBeforeEnter}>
+      <CssTransition isAppear={true} show={actualVisible} classNames={transitionName} beforeEnter={popupBeforeEnter}>
         <div>
           {arrow && arrow(placement, arrowCenter)}
           {popup}
