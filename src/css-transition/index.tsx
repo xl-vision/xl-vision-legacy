@@ -89,9 +89,8 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
       classNameMap.appearActive && addClass(el, classNameMap.appearActive)
     }
 
-    const call = beforeAppear || beforeEnter
-    call && call(el)
-  }, [classNameMap, beforeAppear, beforeEnter])
+    beforeAppear && beforeAppear(el)
+  }, [classNameMap, beforeAppear])
 
   const appearWrapper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
     if (!isCancelled()) {
@@ -105,10 +104,9 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
       } else {
         onTransitionEnd(el, done)
       }
-      const call = appear || enter
-      call && call(el, done, isCancelled)
+      appear && appear(el, done, isCancelled)
     }
-  }, [classNameMap, appear, enter, timeoutMap])
+  }, [classNameMap, appear, timeoutMap])
 
   const afterAppearWrapper = React.useCallback((el: HTMLElement) => {
     if (classNameMap) {
@@ -116,9 +114,8 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
       classNameMap.appear && removeClass(el, classNameMap.appear)
     }
 
-    const call = afterAppear || afterEnter
-    call && call(el)
-  }, [classNameMap, afterAppear, afterEnter])
+    afterAppear && afterAppear(el)
+  }, [classNameMap, afterAppear])
 
   const appearCancelledWrapper = React.useCallback((el: HTMLElement) => {
     if (classNameMap) {

@@ -49,16 +49,18 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     enterCancelled,
     leave,
     leaveCancelled,
-    forceRender
+    forceRender,
+    beforeAppear,
+    appear,
+    appearCancelled,
+    afterAppear
   } = props
 
-  let { beforeAppear, appear, appearCancelled, afterAppear } = props
-
   // 如果开启appear,默认使用enter的生命周期方法
-  beforeAppear = beforeAppear || beforeEnter
-  appear = appear || enter
-  afterAppear = afterAppear || afterEnter
-  appearCancelled = appearCancelled || enterCancelled
+  // beforeAppear = beforeAppear || beforeEnter
+  // appear = appear || enter
+  // afterAppear = afterAppear || afterEnter
+  // appearCancelled = appearCancelled || enterCancelled
 
   const [state, setState] = React.useState(State.STATE_INIT)
 
@@ -108,7 +110,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       // 此时说明appear动画还没有完成，需要触发appearCancelled
       if (state === State.STATE_APPEARING) {
         appearCancelled && appearCancelled(childrenRel.current!)
-      // 此时说明enter动画还没有完成，需要触发enterCancelled
+        // 此时说明enter动画还没有完成，需要触发enterCancelled
       } else if (state === State.STATE_ENTERING) {
         enterCancelled && enterCancelled(childrenRel.current!)
       }
@@ -157,7 +159,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       const wrapCallback = () => {
         if (!isCancelled() && isMounted) {
           // 防止重复触发
-          count ++
+          count++
           callback()
         }
       }
