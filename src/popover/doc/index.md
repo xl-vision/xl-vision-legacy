@@ -95,7 +95,7 @@ export default () => {
         <Col span={2}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='bottomLeft' popup={<div>popover text</div>}>
+          <Popover visible={true} placement='bottomLeft' popup={<div>popover text</div>}>
             <Button>bottomLeft</Button>
           </Popover>
         </Col>

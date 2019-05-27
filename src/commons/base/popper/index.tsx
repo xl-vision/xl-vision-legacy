@@ -33,7 +33,7 @@ export interface PopperProps {
   placement?: Placement
   popup: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   transitionName?: CssTransitionClassNames,
-  trigger?: 'hover' | 'focus' | 'click' | 'custom',
+  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom',
   visible?: boolean,
 }
 
@@ -196,6 +196,24 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [trigger])
 
+  const onFocus = React.useCallback(() => {
+    if (trigger === 'focus') {
+      setActualVisible(true)
+    }
+  }, [trigger])
+
+  const onBlur = React.useCallback(() => {
+    if (trigger === 'focus') {
+      setActualVisible(false)
+    }
+  }, [trigger])
+
+  const onContextMenu = React.useCallback(() => {
+    if (trigger === 'contextMenu') {
+      setActualVisible(true)
+    }
+  }, [trigger])
+
   const onPopupMouseEnter = React.useCallback(() => {
     if (!allowPopupEnter) {
       setActualVisible(false)
@@ -209,7 +227,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }, [trigger])
 
   const onClickOutside = React.useCallback(() => {
-    if (trigger === 'click') {
+    if (trigger !== 'custom') {
       setActualVisible(false)
     }
   }, [trigger])
@@ -240,7 +258,10 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       ref={referenceRef}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onFocus={onFocus}
       onClick={onReferenceClick}
+      onBlur={onBlur}
+      onContextMenu={onContextMenu}
     >
       {children}
       {portal}
