@@ -30,6 +30,7 @@ export interface PopperProps {
   delayHide?: number
   delayShow?: number,
   getPopupContainer?: () => HTMLElement,
+  offset?: number
   onVisibleChange?: (visible: boolean) => void,
   overlayClassName?: string,
   overlayStyle?: React.CSSProperties,
@@ -58,7 +59,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     arrow,
     visible = true,
     delayHide = 0,
-    delayShow = 0
+    delayShow = 0,
+    offset = 10
   } = props
 
   const popupRef = React.useRef<HTMLDivElement>(null)
@@ -170,24 +172,44 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     const middleTop = (topTo + bottomTo) / 2
     const middleLeft = (leftTo + rightTo) / 2
 
-    const arrowLeftTo = Math.floor(middleLeft - left)
-    const arrowTopTo = Math.floor(middleTop - top)
+    let arrowLeftTo = Math.floor(middleLeft - left)
+    let arrowTopTo = Math.floor(middleTop - top)
+
+    if (placement.startsWith('top')) {
+      arrowTopTo -= offset
+    } else if (placement.startsWith('bottom')) {
+      arrowTopTo += offset
+    } else if (placement.startsWith('left')) {
+      arrowLeftTo -= offset
+    } else {
+      arrowLeftTo += offset
+    }
 
     return {
       x: arrowLeftTo,
       y: arrowTopTo
     }
 
-  }, [popupPosition, referencePosition, left, top])
+  }, [popupPosition, referencePosition, left, top, placement])
 
-  const popupStyle: React.CSSProperties = React.useMemo(() => {
-    return {
+  const popupStyle = React.useMemo(() => {
+    const style: React.CSSProperties = {
       ...overlayStyle,
       left,
       position: 'absolute',
       top
     }
-  }, [top, left, overlayStyle])
+    if (placement.startsWith('top')) {
+      style.paddingBottom = offset
+    } else if (placement.startsWith('bottom')) {
+      style.paddingTop = offset
+    } else if (placement.startsWith('left')) {
+      style.paddingRight = offset
+    } else {
+      style.paddingLeft = offset
+    }
+    return style
+  }, [top, left, overlayStyle, placement])
 
   const setPosition = React.useCallback(() => {
     if (!popupRef.current || !referenceRef.current) {
