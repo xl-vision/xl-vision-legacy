@@ -34,10 +34,10 @@ export interface PopperProps {
   overlayClassName?: string,
   overlayStyle?: React.CSSProperties,
   placement?: Placement
-  popup: React.ReactElement<React.HTMLAttributes<HTMLElement>>
+  popup: (placement: Placement) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   transitionName?: CssTransitionClassNames,
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom',
-  visible?: boolean,
+  visible?: boolean
 }
 
 export const displayName = `${namePrefix}-popper`
@@ -63,6 +63,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const popupRef = React.useRef<HTMLDivElement>(null)
   const referenceRef = React.useRef<HTMLDivElement>(null)
+
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
 
   const [actualVisible, setActualVisible] = React.useState(visible)
@@ -194,11 +195,11 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
     const popupPos = getPosition(popupRef.current)
     const referencePos = getPosition(referenceRef.current)
-    if (!compareObject(popupPos, popupPosition)) {
+    if (!equalObject(popupPos, popupPosition)) {
       setPopupPosition(popupPos)
 
     }
-    if (!compareObject(referencePos, referencePosition)) {
+    if (!equalObject(referencePos, referencePosition)) {
       setReferencePosition(referencePos)
     }
 
@@ -260,10 +261,16 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style={popupStyle}
       onMouseEnter={onPopupMouseEnter}
     >
-      <CssTransition isAppear={true} show={actualVisible} classNames={transitionName} beforeEnter={popupBeforeEnter} beforeAppear={popupBeforeEnter}>
+      <CssTransition
+        isAppear={true}
+        show={actualVisible}
+        classNames={transitionName}
+        beforeEnter={popupBeforeEnter}
+        beforeAppear={popupBeforeEnter}
+      >
         <div>
           {arrow && arrow(placement, arrowCenter)}
-          {popup}
+          {popup(placement)}
         </div>
       </CssTransition>
     </div>
@@ -313,14 +320,14 @@ Popper.propTypes = {
     'leftBottom',
     'rightTop',
     'rightBottom']),
-  popup: PropTypes.element.isRequired,
+  popup: PropTypes.func.isRequired,
   trigger: PropTypes.oneOf(['hover', 'focus', 'click', 'contextMenu', 'custom']),
   visible: PropTypes.bool
 }
 
 export default Popper
 
-const compareObject = (left: any, right: any) => {
+const equalObject = (left: any, right: any) => {
   if (!left || !right) {
     return false
   }
