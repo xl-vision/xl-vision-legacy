@@ -83,19 +83,21 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
   }, [timeout])
 
   const beforeAppearWrapper = React.useCallback((el: HTMLElement) => {
+    beforeAppear && beforeAppear(el)
+
     if (classNameMap) {
       classNameMap.appear && addClass(el, classNameMap.appear)
-      removeClass(el, classNameMap.leaveTo)
-      classNameMap.appearActive && addClass(el, classNameMap.appearActive)
     }
 
-    beforeAppear && beforeAppear(el)
   }, [classNameMap, beforeAppear])
 
   const appearWrapper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+    appear && appear(el, done, isCancelled)
+
     if (!isCancelled()) {
       if (classNameMap) {
         reflow(el)
+        classNameMap.appearActive && addClass(el, classNameMap.appearActive)
         classNameMap.appearTo && addClass(el, classNameMap.appearTo)
         classNameMap.appear && removeClass(el, classNameMap.appear)
       }
@@ -104,43 +106,45 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
       } else {
         onTransitionEnd(el, done)
       }
-      appear && appear(el, done, isCancelled)
     }
   }, [classNameMap, appear, timeoutMap])
 
   const afterAppearWrapper = React.useCallback((el: HTMLElement) => {
+    afterAppear && afterAppear(el)
+
     if (classNameMap) {
       classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
-      classNameMap.appear && removeClass(el, classNameMap.appear)
+      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
     }
 
-    afterAppear && afterAppear(el)
   }, [classNameMap, afterAppear])
 
   const appearCancelledWrapper = React.useCallback((el: HTMLElement) => {
+    appearCancelled && appearCancelled(el)
+
     if (classNameMap) {
       classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
       classNameMap.appear && removeClass(el, classNameMap.appear)
-    }
+      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
 
-    const call = appearCancelled || enterCancelled
-    call && call(el)
+    }
   }, [classNameMap, appearCancelled, enterCancelled])
 
   const beforeEnterWrapper = React.useCallback((el: HTMLElement) => {
+    beforeEnter && beforeEnter(el)
+
     if (classNameMap) {
       addClass(el, classNameMap.enter)
-      removeClass(el, classNameMap.leaveTo)
-      addClass(el, classNameMap.enterActive)
     }
-
-    beforeEnter && beforeEnter(el)
   }, [classNameMap, beforeEnter])
 
   const enterWrapper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+    enter && enter(el, done, isCancelled)
+
     if (!isCancelled()) {
       if (classNameMap) {
         reflow(el)
+        addClass(el, classNameMap.enterActive)
         addClass(el, classNameMap.enterTo)
         removeClass(el, classNameMap.enter)
       }
@@ -149,43 +153,45 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
       } else {
         onTransitionEnd(el, done)
       }
-      enter && enter(el, done, isCancelled)
     }
   }, [classNameMap, enter, timeoutMap])
 
   const afterEnterWrapper = React.useCallback((el: HTMLElement) => {
+    afterEnter && afterEnter(el)
+
     if (classNameMap) {
       removeClass(el, classNameMap.enterActive)
-      removeClass(el, classNameMap.enter)
-    }
+      removeClass(el, classNameMap.enterTo)
 
-    afterEnter && afterEnter(el)
+    }
   }, [classNameMap, afterEnter])
 
   const enterCancelledWrapper = React.useCallback((el: HTMLElement) => {
+    enterCancelled && enterCancelled(el)
+
     if (classNameMap) {
       removeClass(el, classNameMap.enterActive)
       removeClass(el, classNameMap.enter)
-    }
+      removeClass(el, classNameMap.enterTo)
 
-    enterCancelled && enterCancelled(el)
+    }
   }, [classNameMap, enterCancelled])
 
   const beforeLeaveWrapper = React.useCallback((el: HTMLElement) => {
+    beforeLeave && beforeLeave(el)
+
     if (classNameMap) {
       addClass(el, classNameMap.leave)
-      removeClass(el, classNameMap.enterTo)
-      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
-      addClass(el, classNameMap.leaveActive)
     }
-
-    beforeLeave && beforeLeave(el)
   }, [classNameMap, beforeLeave])
 
   const leaveWrapper = React.useCallback((el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+    leave && leave(el, done, isCancelled)
+
     if (!isCancelled()) {
       if (classNameMap) {
         reflow(el)
+        addClass(el, classNameMap.leaveActive)
         addClass(el, classNameMap.leaveTo)
         removeClass(el, classNameMap.leave)
       }
@@ -195,25 +201,27 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
         onTransitionEnd(el, done)
       }
     }
-    leave && leave(el, done, isCancelled)
   }, [classNameMap, leave, timeoutMap])
 
   const afterLeaveWrapper = React.useCallback((el: HTMLElement) => {
+    afterLeave && afterLeave(el)
+
     if (classNameMap) {
       removeClass(el, classNameMap.leaveActive)
-      removeClass(el, classNameMap.leave)
-    }
+      removeClass(el, classNameMap.leaveTo)
 
-    afterLeave && afterLeave(el)
+    }
   }, [classNameMap, afterLeave])
 
   const leaveCancelledWrapper = React.useCallback((el: HTMLElement) => {
+    leaveCancelled && leaveCancelled(el)
+
     if (classNameMap) {
       removeClass(el, classNameMap.leaveActive)
       removeClass(el, classNameMap.leave)
-    }
+      removeClass(el, classNameMap.leaveTo)
 
-    leaveCancelled && leaveCancelled(el)
+    }
   }, [classNameMap, leaveCancelled])
 
   return (

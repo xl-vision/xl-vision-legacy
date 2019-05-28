@@ -8,7 +8,6 @@ $tooltip: #{$--cls-prefix}-tooltip;
     &--topLeft,
     &--top,
     &--topRight {
-      margin-top: -$--tooltip-border-width;
 
       @include arrow(bottom, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
     }
@@ -16,7 +15,6 @@ $tooltip: #{$--cls-prefix}-tooltip;
     &--bottomLeft,
     &--bottom,
     &--bottomRight {
-      margin-top: $--tooltip-border-width;
 
       @include arrow(top, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
     }
@@ -24,7 +22,6 @@ $tooltip: #{$--cls-prefix}-tooltip;
     &--leftTop,
     &--left,
     &--leftBottom {
-      margin-left: -$--tooltip-border-width;
 
       @include arrow(right, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
     }
@@ -32,7 +29,6 @@ $tooltip: #{$--cls-prefix}-tooltip;
     &--rightTop,
     &--right,
     &--rightBottom {
-      margin-left: $--tooltip-border-width;
 
       @include arrow(left, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
     }
@@ -47,18 +43,21 @@ $tooltip: #{$--cls-prefix}-tooltip;
   }
 
   &--fade-appear,
-  &--fade-enter {
+  &--fade-enter,
+  &--fade-leave-to {
     transform: scale(0.8);
     opacity: 0;
   }
 
   &--fade-appear-active,
-  &--fade-enter-active {
+  &--fade-enter-active,
+  &--fade-leave-active {
     transition: opacity $--tooltip-animation-duration ease-in-out, transform $--tooltip-animation-duration ease-in-out;
   }
 
   &--fade-appear-to,
-  &--fade-enter-to {
+  &--fade-enter-to,
+  &--fade-leave {
     transform: scale(1);
     opacity: 1;
   }

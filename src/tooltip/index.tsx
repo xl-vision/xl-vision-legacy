@@ -10,45 +10,20 @@ export interface TooltipProps extends PopperProps {
 
 export const displayName = `${namePrefix}-tooltip`
 
+/**
+ * 设置动画的原点
+ * @param placement
+ */
 const overlayStyleCb = (placement: Placement) => {
   const style: React.CSSProperties = {}
-  switch (placement) {
-    case 'topLeft':
-    case 'rightBottom': {
-      style.transformOrigin = '0% 100%'
-      break
-    }
-    case 'top': {
-      style.transformOrigin = '50% 100%'
-      break
-    }
-    case 'topRight':
-    case 'leftBottom': {
-      style.transformOrigin = '100% 100%'
-      break
-    }
-    case 'leftTop':
-    case 'bottomRight': {
-      style.transformOrigin = '100% 0%'
-      break
-    }
-    case 'left': {
-      style.transformOrigin = '100% 50%'
-      break
-    }
-    case 'rightTop':
-    case 'bottomLeft': {
-      style.transformOrigin = '0% 0%'
-      break
-    }
-    case 'right': {
-      style.transformOrigin = '0% 50%'
-      break
-    }
-    case 'bottom': {
-      style.transformOrigin = '50% 0%'
-      break
-    }
+  if (placement.startsWith('top')) {
+    style.transformOrigin = '50% 100%'
+  } else if (placement.startsWith('bottom')) {
+    style.transformOrigin = '50% 0%'
+  } else if (placement.startsWith('left')) {
+    style.transformOrigin = '100% 50%'
+  } else {
+    style.transformOrigin = '0% 50%'
   }
   return style
 }
@@ -73,16 +48,6 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
     let { x: left, y: top } = center
     left -= ARROW_WIDTH / 2
     top -= ARROW_HEIGHT / 2
-
-    if (_placement.startsWith('top')) {
-      // top += ARROW_HEIGHT / 2
-    } else if (_placement.startsWith('bottom')) {
-      top -= ARROW_HEIGHT / 2
-    } else if (_placement.startsWith('left')) {
-      left += ARROW_WIDTH / 2
-    } else {
-      left -= ARROW_WIDTH / 2
-    }
 
     const style: React.CSSProperties = {
       left,
@@ -122,6 +87,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
       transitionName={transitionName}
       overlayStyle={overlayStyle}
       {...others}
+      trigger={'click'}
     />
   )
 }

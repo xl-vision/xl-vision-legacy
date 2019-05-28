@@ -57,7 +57,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     trigger = 'hover',
     allowPopupEnter = true,
     arrow,
-    visible = true,
+    visible = false,
     delayHide = 0,
     delayShow = 0,
     offset = 0
@@ -160,37 +160,49 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }, [actualVisible])
 
   const arrowCenter = React.useMemo(() => {
+    let x = 0
+    let y = 0
     if (!referencePosition || !popupPosition) {
-      return { x: 0, y: 0 }
+      return { x, y }
     }
-    const popupWidth = popupPosition.right - popupPosition.left
-    const popupHeight = popupPosition.bottom - popupPosition.top
-    const leftTo = Math.max(left, referencePosition.left)
-    const rightTo = Math.min(left + popupWidth, referencePosition.right)
-    const topTo = Math.max(top, referencePosition.top)
-    const bottomTo = Math.min(top + popupHeight, referencePosition.bottom)
-    const middleTop = (topTo + bottomTo) / 2
-    const middleLeft = (leftTo + rightTo) / 2
 
-    let arrowLeftTo = Math.floor(middleLeft - left)
-    let arrowTopTo = Math.floor(middleTop - top)
+    const popupHeight = popupPosition.bottom - popupPosition.top
+    const popupWidth = popupPosition.right - popupPosition.left
+    const referenceHeight = referencePosition.bottom - referencePosition.top
+    const referenceWidth = referencePosition.right - referencePosition.left
 
     if (placement.startsWith('top')) {
-      arrowTopTo -= offset
+      y = popupHeight - offset
     } else if (placement.startsWith('bottom')) {
-      arrowTopTo += offset
+      y = 0
     } else if (placement.startsWith('left')) {
-      arrowLeftTo -= offset
-    } else {
-      arrowLeftTo += offset
+      x = popupWidth - offset
+    } else if (placement.startsWith('right')) {
+      x = 0
+    }
+
+    if (placement.endsWith('Left')) {
+      x = Math.min(popupWidth, referenceWidth) / 2
+    } else if (placement.endsWith('Right')) {
+      x = popupWidth - Math.min(popupWidth, referenceWidth) / 2
+    } else if (placement.endsWith('Top')) {
+      y = Math.min(popupHeight, referenceHeight) / 2
+    } else if (placement.endsWith('Bottom')) {
+      y = popupHeight - Math.min(popupHeight, referenceHeight) / 2
+    }
+
+    if (placement === 'top' || placement === 'bottom') {
+      x = popupWidth / 2
+    } else if (placement === 'left' || placement === 'right') {
+      y = popupHeight / 2
     }
 
     return {
-      x: arrowLeftTo,
-      y: arrowTopTo
+      x: Math.floor(x),
+      y: Math.floor(y)
     }
 
-  }, [popupPosition, referencePosition, left, top, placement])
+  }, [popupPosition, referencePosition, left, top, placement, offset])
 
   const popupStyle = React.useMemo(() => {
     const style: React.CSSProperties = {
@@ -301,11 +313,17 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     return overlayClassName
   }, [overlayClassName, placement])
 
-  const overlayStyleObj = React.useMemo(() => {
+  const overlayStyleObj: React.CSSProperties = React.useMemo(() => {
+    let style
     if (typeof overlayStyle === 'function') {
-      return overlayStyle(placement)
+      style = overlayStyle(placement)
+    } else {
+      style = overlayStyle
     }
-    return overlayStyle
+    return {
+      position: 'relative',
+      ...style
+    }
   }, [overlayStyle, placement])
 
   useClickOutside(referenceRef, onClickOutside)
