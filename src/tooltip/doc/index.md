@@ -8,8 +8,24 @@ imports:
 ---
 # Tooltip
 
-::: demo 基础用法
-基础用法
+::: demo 基本用法
+基本的使用方式
+
+```jsx
+export default () => {
+  return (
+    <Tooltip content={'tooltip text'}>
+      <span>Tooltip will show on mouse enter</span>
+    </Tooltip>
+  )
+
+}
+```
+
+:::
+
+::: demo 位置
+可以设置12个方向的位置
 
 ```jsx
 export default () => {
@@ -119,3 +135,25 @@ export default () => {
 ```
 
 :::
+
+## Tooltip API
+
+| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
+| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| content | 提示内容            | React.ReactNode  | -  | -| true|
+
+## 公共API
+
+| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
+| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|
+| delayHide | 延迟隐藏            | number  | -  | 0 | false|
+| delayShow | 延迟显示            | number  | -  | 0 | false|
+| getPopupContainer | 弹出框挂载的位置            | () => HTMLElement  | -  | ()=>document.body | false|
+| offset | 弹出框距离参考元素的距离            | number  | -  | - | false|
+| onVisibleChange | 弹出框弹出或隐藏事件            | (visible: boolean) => void  | -  | - | false|
+| overlayClassName | 弹出框className            | string / ((placement: Placement) => string)  | -  | - | false|
+| overlayStyle | 弹出框样式           | React.CSSProperties / ((placement: Placement) => React.CSSProperties)  | -  | - | false|
+| placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'topLeft' / 'topRight'/ 'bottomLeft' / 'bottomRight' / 'leftTop' / 'leftBottom' / 'rightTop' / 'rightBottom'  | -  | 'bottom' | false|
+| trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
+| visible | 手动设置visible           | boolean  | -  | - | false|

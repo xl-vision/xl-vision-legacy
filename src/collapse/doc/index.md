@@ -227,7 +227,7 @@ export default () => {
 
 :::
 
-## Collapse属性
+## Collapse API
 
 | 参数    | 说明             | 类型        | 可选值       | 默认值 | 是否必填|
 | ------- | --------------- | ---------- | -------- | ------ | -----|
@@ -241,7 +241,7 @@ export default () => {
 | onChange  | panel改变事件，函数参数为激活的panel的名字数组     | (activeNames: string[]) => void  |    -       |   -  | false|
 | showArrow  | 是否展示箭头     | boolean  |    -       |   false  | false|
 
-## CollapsePanel属性
+## CollapsePanel API
 
 | 参数    | 说明             | 类型        | 可选值       | 默认值 | 是否必填|
 | ------- | --------------- | ---------- | -------- | ------ | -----|

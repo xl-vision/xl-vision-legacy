@@ -5,28 +5,10 @@ import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
 
 export interface TooltipProps extends PopperProps {
-  content: React.ReactElement<React.HTMLAttributes<HTMLElement>>
+  content: React.ReactNode
 }
 
 export const displayName = `${namePrefix}-tooltip`
-
-/**
- * 设置动画的原点
- * @param placement
- */
-const overlayStyleCb = (placement: Placement) => {
-  const style: React.CSSProperties = {}
-  if (placement.startsWith('top')) {
-    style.transformOrigin = '50% 100%'
-  } else if (placement.startsWith('bottom')) {
-    style.transformOrigin = '50% 0%'
-  } else if (placement.startsWith('left')) {
-    style.transformOrigin = '100% 50%'
-  } else {
-    style.transformOrigin = '0% 50%'
-  }
-  return style
-}
 
 const ARROW_HEIGHT = 10
 const ARROW_WIDTH = ARROW_HEIGHT
@@ -35,13 +17,15 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
   const {
     content,
     offset = ARROW_HEIGHT / 2,
-    transitionName = `${displayName}--fade`,
     overlayStyle = overlayStyleCb,
     ...others
   } = props
 
   delete others.popup
   delete others.arrow
+  delete others.transitionName
+
+  const transitionName = `${displayName}--fade`
 
   const arrow = React.useCallback((_placement: Placement, center: { x: number, y: number }) => {
     const classes = classnames(`${displayName}__arrow`, `${displayName}__arrow--${_placement}`)
@@ -87,7 +71,6 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
       transitionName={transitionName}
       overlayStyle={overlayStyle}
       {...others}
-      trigger={'click'}
     />
   )
 }
@@ -95,7 +78,25 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
 Tooltip.displayName = displayName
 
 Tooltip.propTypes = {
-  content: PropTypes.element.isRequired
+  content: PropTypes.node.isRequired
 }
 
 export default Tooltip
+
+/**
+ * 设置动画的原点
+ * @param placement
+ */
+const overlayStyleCb = (placement: Placement) => {
+  const style: React.CSSProperties = {}
+  if (placement.startsWith('top')) {
+    style.transformOrigin = '50% 100%'
+  } else if (placement.startsWith('bottom')) {
+    style.transformOrigin = '50% 0%'
+  } else if (placement.startsWith('left')) {
+    style.transformOrigin = '100% 50%'
+  } else {
+    style.transformOrigin = '0% 50%'
+  }
+  return style
+}

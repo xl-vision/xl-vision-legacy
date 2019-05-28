@@ -35,7 +35,7 @@ export default () => {
 
 :::
 
-## CssTransition 属性
+## CssTransition API
 
 >CssTransition继承所有[Transition](/#/transition)属性
 

@@ -26,7 +26,7 @@ export interface PopperProps {
   allowPopupEnter?: boolean
   arrow?: (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   // autoAdjustOverflow?: boolean,
-  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
+  children: React.ReactNode
   delayHide?: number
   delayShow?: number
   getPopupContainer?: () => HTMLElement
@@ -35,7 +35,7 @@ export interface PopperProps {
   overlayClassName?: string | ((placement: Placement) => string),
   overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties),
   placement?: Placement
-  popup: (placement: Placement) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
+  popup: (placement: Placement) => React.ReactNode
   transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
   visible?: boolean
@@ -373,7 +373,7 @@ Popper.displayName = displayName
 Popper.propTypes = {
   allowPopupEnter: PropTypes.bool,
   arrow: PropTypes.func,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   delayHide: PropTypes.number,
   delayShow: PropTypes.number,
   getPopupContainer: PropTypes.func,

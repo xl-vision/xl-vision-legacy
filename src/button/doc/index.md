@@ -282,7 +282,7 @@ export default () => {
 
 :::
 
-## Button 属性
+## Button API
 
 | 参数    | 说明        | 类型       | 可选值   | 默认值 | 是否必填|
 | ------- | -------- | --------- | ------------ | ------ | --- |
@@ -297,7 +297,7 @@ export default () => {
 |shape|设置按钮的形状，通常`circle`与[Icon](#/icon)连用|string|cirlce/round|-|false|
 |type|设置按钮类型|string|default/primary/success/warning/error/text|default|false|
 
-## ButtonGroup属性
+## ButtonGroup API
 
 | 参数    | 说明        | 类型       | 可选值   | 默认值 | 是否必填|
 | ------- | -------- | --------- | ------------ | ------ | --- |
