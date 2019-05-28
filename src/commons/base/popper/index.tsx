@@ -6,7 +6,7 @@ import { namePrefix } from '../../config'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
-import { getPosition } from '../../utils/dom'
+import { getPosition, off, on } from '../../utils/dom'
 
 export type Placement =
   | 'top'
@@ -37,7 +37,7 @@ export interface PopperProps {
   popup: (placement: Placement) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   transitionName?: CssTransitionClassNames,
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom',
-  visible?: boolean
+  visible?: boolean,
 }
 
 export const displayName = `${namePrefix}-popper`
@@ -56,7 +56,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     trigger = 'hover',
     allowPopupEnter = true,
     arrow,
-    visible = false,
+    visible = true,
     delayHide = 0,
     delayShow = 0
   } = props
@@ -189,7 +189,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [top, left, overlayStyle])
 
-  const popupBeforeEnter = React.useCallback(() => {
+  const setPosition = React.useCallback(() => {
     if (!popupRef.current || !referenceRef.current) {
       return
     }
@@ -204,6 +204,20 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
 
   }, [popupRef, referenceRef])
+
+  React.useEffect(() => {
+    const rePosition = () => {
+      if (actualVisible) {
+        setPosition()
+      }
+    }
+    on('resize', rePosition)
+    on('scroll', rePosition)
+    return () => {
+      off('scroll', rePosition)
+      off('resize', rePosition)
+    }
+  }, [actualVisible, setPosition])
 
   const onMouseEnter = React.useCallback(() => {
     if (trigger === 'hover') {
@@ -265,8 +279,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         isAppear={true}
         show={actualVisible}
         classNames={transitionName}
-        beforeEnter={popupBeforeEnter}
-        beforeAppear={popupBeforeEnter}
+        beforeEnter={setPosition}
+        beforeAppear={setPosition}
       >
         <div>
           {arrow && arrow(placement, arrowCenter)}
