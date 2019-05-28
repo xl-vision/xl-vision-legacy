@@ -1,12 +1,12 @@
 ---
 imports:
   - import './index.scss'
-  - import Popover from '..'
+  - import Tooltip from '..'
   - import Button from '../../button'
   - import Row from '../../row'
   - import Col from '../../col'
 ---
-# Popover
+# Tooltip
 
 ::: demo 基础用法
 基础用法
@@ -19,19 +19,19 @@ export default () => {
         <Col span={2}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='topLeft' popup={<div>popover text</div>}>
+          <Tooltip placement='topLeft' content={<div>Tooltip text</div>}>
             <Button>topLeft</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}>
-          <Popover placement='top' popup={<div>popover text</div>}>
+          <Tooltip placement='top' content={<div>Tooltip text</div>}>
             <Button>top</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}>
-          <Popover placement='topRight' popup={<div>popover text</div>}>
+          <Tooltip placement='topRight' content={<div>Tooltip text</div>}>
             <Button>topRight</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}></Col>
         <Col span={2}></Col>
@@ -40,17 +40,17 @@ export default () => {
       <Row>
         <Col span={2}></Col>
         <Col span={4}>
-          <Popover placement='leftTop' popup={<div>popover text</div>}>
+          <Tooltip placement='leftTop' content={<div>Tooltip text</div>}>
             <Button>leftTop</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='rightTop' popup={<div>popover text</div>}>
+          <Tooltip placement='rightTop' content={<div>Tooltip text</div>}>
             <Button>rightTop</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={2}></Col>
       </Row>
@@ -58,17 +58,17 @@ export default () => {
       <Row>
         <Col span={2}></Col>
         <Col span={4}>
-          <Popover placement='left' popup={<div>popover text</div>}>
+          <Tooltip placement='left' content={<div>Tooltip text</div>}>
             <Button>left</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='right' popup={<div>popover text</div>}>
+          <Tooltip placement='right' content={<div>Tooltip text</div>}>
             <Button>right</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={2}></Col>
       </Row>
@@ -76,17 +76,17 @@ export default () => {
       <Row>
         <Col span={2}></Col>
         <Col span={4}>
-          <Popover placement='leftBottom' popup={<div>popover text</div>}>
+          <Tooltip placement='leftBottom' content={<div>Tooltip text</div>}>
             <Button>leftBottom</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='rightBottom' popup={<div>popover text</div>}>
+          <Tooltip placement='rightBottom' content={<div>Tooltip text</div>}>
             <Button>rightBottom</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={2}></Col>
       </Row>
@@ -95,19 +95,19 @@ export default () => {
         <Col span={2}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='bottomLeft' popup={<div>popover text</div>}>
+          <Tooltip placement='bottomLeft' content={<div>Tooltip text</div>}>
             <Button>bottomLeft</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}>
-          <Popover placement='bottom' popup={<div>popover text</div>}>
+          <Tooltip placement='bottom' content={<div>Tooltip text</div>}>
             <Button>bottom</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}>
-          <Popover placement='bottomRight' popup={<div>popover text</div>}>
+          <Tooltip placement='bottomRight' content={<div>Tooltip text</div>}>
             <Button>bottomRight</Button>
-          </Popover>
+          </Tooltip>
         </Col>
         <Col span={4}></Col>
         <Col span={2}></Col>

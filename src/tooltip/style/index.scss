@@ -1,0 +1,65 @@
+@import "../../style/commons/var";
+@import "../../style/mixins/arrow";
+
+$tooltip: #{$--cls-prefix}-tooltip;
+
+.#{$tooltip} {
+  &__arrow {
+    &--topLeft,
+    &--top,
+    &--topRight {
+      margin-top: -$--tooltip-border-width;
+
+      @include arrow(bottom, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+    }
+
+    &--bottomLeft,
+    &--bottom,
+    &--bottomRight {
+      margin-top: $--tooltip-border-width;
+
+      @include arrow(top, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+    }
+
+    &--leftTop,
+    &--left,
+    &--leftBottom {
+      margin-left: -$--tooltip-border-width;
+
+      @include arrow(right, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+    }
+
+    &--rightTop,
+    &--right,
+    &--rightBottom {
+      margin-left: $--tooltip-border-width;
+
+      @include arrow(left, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+    }
+  }
+
+  &__content {
+    padding: $--tooltip-border-padding-y $--tooltip-border-padding-x;
+    color: $--tooltip-color;
+    background-color: $--tooltip-bg-color;
+    border: $--tooltip-border-width solid $--tooltip-border-color;
+    border-radius: $--tooltip-border-radius;
+  }
+
+  &--fade-appear,
+  &--fade-enter {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  &--fade-appear-active,
+  &--fade-enter-active {
+    transition: opacity $--tooltip-animation-duration ease-in-out, transform $--tooltip-animation-duration ease-in-out;
+  }
+
+  &--fade-appear-to,
+  &--fade-enter-to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

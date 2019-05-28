@@ -1,0 +1,61 @@
+@mixin arrow($direction, $size, $borderSize, $bgColor, $borderColor) {
+  $innerSize: $size - $borderSize * 2;
+
+  border: 5px solid red;
+
+  //&::before {
+  //  top: 0;
+  //  left: 0;
+  //  border: $size / 2 solid transparent;
+  //}
+  //
+  //&::after {
+  //  top: $borderSize;
+  //  left: $borderSize;
+  //  border: $innerSize / 2 solid transparent;
+  //}
+  //
+  //&::before,
+  //&::after {
+  //  position: absolute;
+  //  display: block;
+  //  box-sizing: border-box;
+  //  content: '';
+  //  width: 0;
+  //  height: 0;
+  //}
+  //
+  //@if ($direction == top) {
+  //  &::before {
+  //    border-bottom-color: $borderColor;
+  //  }
+  //
+  //  &::after {
+  //    border-bottom-color: $bgColor;
+  //  }
+  //} @else if ($direction == bottom) {
+  //  &::before {
+  //    border-top-color: $borderColor;
+  //  }
+  //
+  //  &::after {
+  //    border-top-color: $bgColor;
+  //  }
+  //} @else if ($direction == left) {
+  //  &::before {
+  //    border-right-color: $borderColor;
+  //  }
+  //
+  //  &::after {
+  //    border-right-color: $bgColor;
+  //  }
+  //} @else {
+  //  &::before {
+  //    border-left-color: $borderColor;
+  //  }
+  //
+  //  &::after {
+  //    border-left-color: $bgColor;
+  //  }
+  //}
+}

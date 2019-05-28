@@ -26,19 +26,19 @@ export interface PopperProps {
   allowPopupEnter?: boolean
   arrow?: (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   // autoAdjustOverflow?: boolean,
-  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>,
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   delayHide?: number
-  delayShow?: number,
-  getPopupContainer?: () => HTMLElement,
+  delayShow?: number
+  getPopupContainer?: () => HTMLElement
   offset?: number
   onVisibleChange?: (visible: boolean) => void,
-  overlayClassName?: string,
-  overlayStyle?: React.CSSProperties,
+  overlayClassName?: string | ((placement: Placement) => string),
+  overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties),
   placement?: Placement
   popup: (placement: Placement) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  transitionName?: CssTransitionClassNames,
-  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom',
-  visible?: boolean,
+  transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
+  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
+  visible?: boolean
 }
 
 export const displayName = `${namePrefix}-popper`
@@ -60,7 +60,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     visible = true,
     delayHide = 0,
     delayShow = 0,
-    offset = 10
+    offset = 0
   } = props
 
   const popupRef = React.useRef<HTMLDivElement>(null)
@@ -194,7 +194,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const popupStyle = React.useMemo(() => {
     const style: React.CSSProperties = {
-      ...overlayStyle,
       left,
       position: 'absolute',
       top
@@ -209,7 +208,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style.paddingLeft = offset
     }
     return style
-  }, [top, left, overlayStyle, placement])
+  }, [top, left, placement])
 
   const setPosition = React.useCallback(() => {
     if (!popupRef.current || !referenceRef.current) {
@@ -288,23 +287,43 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [trigger, setActualWrapper])
 
+  const transitionClass = React.useMemo(() => {
+    if (typeof transitionName === 'function') {
+      return transitionName(placement)
+    }
+    return transitionName
+  }, [transitionName, placement])
+
+  const overlayClass = React.useMemo(() => {
+    if (typeof overlayClassName === 'function') {
+      return overlayClassName(placement)
+    }
+    return overlayClassName
+  }, [overlayClassName, placement])
+
+  const overlayStyleObj = React.useMemo(() => {
+    if (typeof overlayStyle === 'function') {
+      return overlayStyle(placement)
+    }
+    return overlayStyle
+  }, [overlayStyle, placement])
+
   useClickOutside(referenceRef, onClickOutside)
 
   const portal = ReactDOM.createPortal((
     <div
       ref={popupRef}
-      className={overlayClassName}
       style={popupStyle}
       onMouseEnter={onPopupMouseEnter}
     >
       <CssTransition
         isAppear={true}
         show={actualVisible}
-        classNames={transitionName}
+        classNames={transitionClass}
         beforeEnter={setPosition}
         beforeAppear={setPosition}
       >
-        <div>
+        <div className={overlayClass} style={overlayStyleObj}>
           {arrow && arrow(placement, arrowCenter)}
           {popup(placement)}
         </div>
@@ -341,8 +360,8 @@ Popper.propTypes = {
   delayShow: PropTypes.number,
   getPopupContainer: PropTypes.func,
   onVisibleChange: PropTypes.func,
-  overlayClassName: PropTypes.string,
-  overlayStyle: PropTypes.object,
+  overlayClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  overlayStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   placement: PropTypes.oneOf([
     'top',
     'left',
@@ -357,6 +376,17 @@ Popper.propTypes = {
     'rightTop',
     'rightBottom']),
   popup: PropTypes.func.isRequired,
+  transitionName: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
+    appear: PropTypes.string,
+    appearActive: PropTypes.string,
+    appearTo: PropTypes.string,
+    enter: PropTypes.string.isRequired,
+    enterActive: PropTypes.string.isRequired,
+    enterTo: PropTypes.string.isRequired,
+    leave: PropTypes.string.isRequired,
+    leaveActive: PropTypes.string.isRequired,
+    leaveTo: PropTypes.string.isRequired
+  }), PropTypes.func]),
   trigger: PropTypes.oneOf(['hover', 'focus', 'click', 'contextMenu', 'custom']),
   visible: PropTypes.bool
 }

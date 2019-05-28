@@ -181,3 +181,14 @@ $--collapse-panel-body--padding: $--collapse-panel-header--padding;
 $--collapse-panel-opacity-disabled: $--opacity-disabled;
 $--collapse-panel-header-icon-padding: 0.5rem;
 $--collapse-panel-animation-time: $--animation-duration;
+
+//tooltip
+$--tooltip-bg-color: $--color-gray-800;
+$--tooltip-color: $--bg-color;
+$--tooltip-border-color: $--tooltip-bg-color;
+$--tooltip-arrow-size: 10px;
+$--tooltip-border-width: $--border-width;
+$--tooltip-border-padding-x: 0.7rem;
+$--tooltip-border-padding-y: 0.4rem;
+$--tooltip-border-radius: $--border-radius;
+$--tooltip-animation-duration: $--animation-duration-fast;
