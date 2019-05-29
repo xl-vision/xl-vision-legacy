@@ -208,7 +208,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   }, [popupPosition, referencePosition, left, top, placement, offset])
 
-  const popupStyle = (() => {
+  const popupStyle = React.useMemo(() => {
     const style: React.CSSProperties = {
       left,
       position: 'absolute',
@@ -227,7 +227,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style.zIndex = getZIndex()
     }
     return style
-  })()
+  }, [left, top, offset, actualVisible])
 
   const setPosition = React.useCallback(() => {
     if (!popupRef.current || !referenceRef.current) {

@@ -9,28 +9,28 @@ $tooltip: #{$--cls-prefix}-tooltip;
     &--top,
     &--topRight {
 
-      @include arrow(bottom, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+      @include arrow(bottom, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
     &--bottomLeft,
     &--bottom,
     &--bottomRight {
 
-      @include arrow(top, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+      @include arrow(top, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
     &--leftTop,
     &--left,
     &--leftBottom {
 
-      @include arrow(right, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+      @include arrow(right, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
     &--rightTop,
     &--right,
     &--rightBottom {
 
-      @include arrow(left, $--tooltip-arrow-size, $--tooltip-border-width, $--tooltip-bg-color, $--tooltip-border-color);
+      @include arrow(left, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
   }
 
@@ -38,7 +38,6 @@ $tooltip: #{$--cls-prefix}-tooltip;
     padding: $--tooltip-border-padding-y $--tooltip-border-padding-x;
     color: $--tooltip-color;
     background-color: $--tooltip-bg-color;
-    border: $--tooltip-border-width solid $--tooltip-border-color;
     border-radius: $--tooltip-border-radius;
   }
 
