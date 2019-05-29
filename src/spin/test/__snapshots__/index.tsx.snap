@@ -42,7 +42,7 @@ exports[`spin 不同大小 1`] = `
                 <xl-fas-spinner
                   spin={true}
                 >
-                  <xl-icon
+                  <Memo(xl-icon)
                     spin={true}
                   >
                     <i
@@ -64,7 +64,7 @@ exports[`spin 不同大小 1`] = `
                         />
                       </svg>
                     </i>
-                  </xl-icon>
+                  </Memo(xl-icon)>
                 </xl-fas-spinner>
               </span>
               <span
@@ -116,7 +116,7 @@ exports[`spin 不同大小 1`] = `
                 <xl-fas-spinner
                   spin={true}
                 >
-                  <xl-icon
+                  <Memo(xl-icon)
                     spin={true}
                   >
                     <i
@@ -138,7 +138,7 @@ exports[`spin 不同大小 1`] = `
                         />
                       </svg>
                     </i>
-                  </xl-icon>
+                  </Memo(xl-icon)>
                 </xl-fas-spinner>
               </span>
               <span
@@ -190,7 +190,7 @@ exports[`spin 不同大小 1`] = `
                 <xl-fas-spinner
                   spin={true}
                 >
-                  <xl-icon
+                  <Memo(xl-icon)
                     spin={true}
                   >
                     <i
@@ -212,7 +212,7 @@ exports[`spin 不同大小 1`] = `
                         />
                       </svg>
                     </i>
-                  </xl-icon>
+                  </Memo(xl-icon)>
                 </xl-fas-spinner>
               </span>
               <span
@@ -266,7 +266,7 @@ exports[`spin 内嵌内容 1`] = `
               <xl-fas-spinner
                 spin={true}
               >
-                <xl-icon
+                <Memo(xl-icon)
                   spin={true}
                 >
                   <i
@@ -288,7 +288,7 @@ exports[`spin 内嵌内容 1`] = `
                       />
                     </svg>
                   </i>
-                </xl-icon>
+                </Memo(xl-icon)>
               </xl-fas-spinner>
             </span>
             <span
@@ -350,7 +350,7 @@ exports[`spin 基本用法 1`] = `
               <xl-fas-spinner
                 spin={true}
               >
-                <xl-icon
+                <Memo(xl-icon)
                   spin={true}
                 >
                   <i
@@ -372,7 +372,7 @@ exports[`spin 基本用法 1`] = `
                       />
                     </svg>
                   </i>
-                </xl-icon>
+                </Memo(xl-icon)>
               </xl-fas-spinner>
             </span>
             <span
@@ -432,7 +432,7 @@ exports[`spin 自定义指示器 1`] = `
               <xl-fas-circle-notch
                 spin={true}
               >
-                <xl-icon
+                <Memo(xl-icon)
                   spin={true}
                 >
                   <i
@@ -454,7 +454,7 @@ exports[`spin 自定义指示器 1`] = `
                       />
                     </svg>
                   </i>
-                </xl-icon>
+                </Memo(xl-icon)>
               </xl-fas-circle-notch>
             </span>
             <span
@@ -509,7 +509,7 @@ exports[`spin 自定义描述 1`] = `
               <xl-fas-spinner
                 spin={true}
               >
-                <xl-icon
+                <Memo(xl-icon)
                   spin={true}
                 >
                   <i
@@ -531,7 +531,7 @@ exports[`spin 自定义描述 1`] = `
                       />
                     </svg>
                   </i>
-                </xl-icon>
+                </Memo(xl-icon)>
               </xl-fas-spinner>
             </span>
             <span
@@ -590,7 +590,7 @@ exports[`spin 覆盖父元素 1`] = `
                 <xl-fas-spinner
                   spin={true}
                 >
-                  <xl-icon
+                  <Memo(xl-icon)
                     spin={true}
                   >
                     <i
@@ -612,7 +612,7 @@ exports[`spin 覆盖父元素 1`] = `
                         />
                       </svg>
                     </i>
-                  </xl-icon>
+                  </Memo(xl-icon)>
                 </xl-fas-spinner>
               </span>
               <span
