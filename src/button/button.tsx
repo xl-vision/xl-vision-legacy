@@ -15,6 +15,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HT
   loading?: boolean
   long?: boolean
   plain?: boolean
+  prefixCls?: string
   shape?: 'circle' | 'round'
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
@@ -31,22 +32,37 @@ const formatChildren = (children: React.ReactNode) => {
 }
 
 const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButtonElement & HTMLAnchorElement, ButtonProps>((props, ref) => {
-  const { dashed, disabled, ghost, plain, href, htmlType, loading, long, shape, type = 'default', className, children, ...others } = props
+  const {
+    dashed,
+    disabled,
+    ghost,
+    plain,
+    href,
+    htmlType,
+    loading,
+    long,
+    shape,
+    type = 'default',
+    className,
+    children,
+    prefixCls = displayName,
+    ...others
+  } = props
 
   const classes = classnames({
-    [displayName]: true,
-    [`${displayName}--${type}`]: true,
-    [`${displayName}--${shape}`]: shape,
-    [`${displayName}--dashed`]: dashed,
-    [`${displayName}--plain`]: plain,
-    [`${displayName}--ghost`]: ghost,
-    [`${displayName}--long`]: long,
-    [`${displayName}--loading`]: loading
+    [prefixCls]: true,
+    [`${prefixCls}--${type}`]: true,
+    [`${prefixCls}--${shape}`]: shape,
+    [`${prefixCls}--dashed`]: dashed,
+    [`${prefixCls}--plain`]: plain,
+    [`${prefixCls}--ghost`]: ghost,
+    [`${prefixCls}--long`]: long,
+    [`${prefixCls}--loading`]: loading
   }, className)
 
   const childrenWrapper = (
     <>
-      {loading && <FasCircleNotch className={`${displayName}__icon`} spin={true}/>}
+      {loading && <FasCircleNotch className={`${prefixCls}__icon`} spin={true}/>}
       {formatChildren(children)}
     </>
   )
@@ -78,6 +94,7 @@ Button.propTypes = {
   loading: PropTypes.bool,
   long: PropTypes.bool,
   plain: PropTypes.bool,
+  prefixCls: PropTypes.string,
   shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
   type: PropTypes.oneOf<'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'>(['default', 'primary', 'success', 'warning', 'error', 'text'])
 }

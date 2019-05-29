@@ -7,6 +7,7 @@ export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>
   className?: string
   color?: string
+  prefixCls?: string
   rotate?: number
   size?: number | string
   spin?: boolean
@@ -30,6 +31,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
     color,
     rotate,
     children,
+    prefixCls = displayName,
     ...others
   } = props
 
@@ -56,8 +58,8 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
 
   const classes = classnames(
     {
-      [displayName]: true,
-      [`${displayName}--spin`]: spin
+      [prefixCls]: true,
+      [`${prefixCls}--spin`]: spin
     },
     className
   )
@@ -96,6 +98,7 @@ BaseIcon.propTypes = {
   children: childrenValidator,
   className: PropTypes.string,
   color: PropTypes.string,
+  prefixCls: PropTypes.string,
   rotate: PropTypes.number,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   spin: PropTypes.bool

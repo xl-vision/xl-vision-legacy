@@ -14,6 +14,7 @@ export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
   cover?: boolean
   delay?: number
   indicator?: SpinIndicator
+  prefixCls?: string
   size?: SpinSize
   spinning?: boolean
   tip?: string
@@ -24,7 +25,17 @@ export const displayName = `${namePrefix}-spin`
 
 const Spin: React.FunctionComponent<SpinProps> = props => {
   const {
-    className, children, cover, delay, indicator, size = 'default', spinning = true, tip = 'loading', wrapperClassName, ...others
+    className,
+    children,
+    cover,
+    delay,
+    indicator,
+    size = 'default',
+    spinning = true,
+    tip = 'loading',
+    wrapperClassName,
+    prefixCls = displayName,
+    ...others
   } = props
 
   const [display, setDisplay] = React.useState(false)
@@ -41,26 +52,26 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
   }, [delay, spinning])
 
   const classes = classnames({
-    [displayName]: true,
-    [`${displayName}--spinning`]: display,
-    [`${displayName}--cover`]: cover,
-    [`${displayName}--nested`]: !!children
+    [prefixCls]: true,
+    [`${prefixCls}--spinning`]: display,
+    [`${prefixCls}--cover`]: cover,
+    [`${prefixCls}--nested`]: !!children
   }, className)
 
-  const wrapperClasses = classnames(`${displayName}__wrapper`, `${displayName}__wrapper--${size}`, wrapperClassName)
+  const wrapperClasses = classnames(`${prefixCls}__wrapper`, `${prefixCls}__wrapper--${size}`, wrapperClassName)
 
   const childrenEle = children && (
-    <div className={`${displayName}__children`}>
+    <div className={`${prefixCls}__children`}>
       {children}
     </div>
   )
   return (
     <div className={classes} {...others}>
-      <CssTransition show={display} classNames={`${displayName}__fade`}>
-        <div className={`${displayName}__fade`}>
+      <CssTransition show={display} classNames={`${prefixCls}__fade`}>
+        <div className={`${prefixCls}__fade`}>
           <div className={wrapperClasses}>
-            <span className={`${displayName}__indicator`}>{renderIndicator(indicator)}</span>
-            {tip && (<span className={`${displayName}__tip`}>{tip}</span>)}
+            <span className={`${prefixCls}__indicator`}>{renderIndicator(indicator)}</span>
+            {tip && (<span className={`${prefixCls}__tip`}>{tip}</span>)}
           </div>
         </div>
       </CssTransition>
@@ -76,6 +87,7 @@ Spin.propTypes = {
   cover: PropTypes.bool,
   delay: PropTypes.number,
   indicator: PropTypes.element,
+  prefixCls: PropTypes.string,
   size: PropTypes.oneOf(['small', 'default', 'large']),
   spinning: PropTypes.bool,
   tip: PropTypes.string,

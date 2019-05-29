@@ -151,6 +151,9 @@ export default () => {
       <Tooltip trigger='click' content={'click text'}>
         <Button>click</Button>
       </Tooltip>
+      <Tooltip trigger='focus' content={'focus text'}>
+        <Button>focus</Button>
+      </Tooltip>
       <Tooltip trigger='contextMenu' content={'contextMenu text'}>
         <Button>contextMenu</Button>
       </Tooltip>

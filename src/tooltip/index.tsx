@@ -1,11 +1,22 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
-import Popper, { Placement, PopperProps } from '../commons/base/popper'
+import Popper, { Placement } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
 
-export interface TooltipProps extends PopperProps {
+export interface TooltipProps {
+  allowPopupEnter?: boolean
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   content: React.ReactNode
+  delayHide?: number
+  delayShow?: number
+  getPopupContainer?: () => HTMLElement
+  offset?: number
+  onVisibleChange?: (visible: boolean) => void,
+  placement?: Placement
+  prefixCls?: string,
+  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
+  visible?: boolean
 }
 
 export const displayName = `${namePrefix}-tooltip`
@@ -17,52 +28,50 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
   const {
     content,
     offset = ARROW_HEIGHT / 2,
-    overlayStyle = overlayStyleCb,
+    prefixCls = displayName,
     ...others
   } = props
 
-  delete others.popup
-  delete others.arrow
-  delete others.transitionName
-
-  const transitionName = `${displayName}--fade`
+  const transitionName = `${prefixCls}--fade`
+  const overlayStyle = overlayStyleCb
 
   const arrow = React.useCallback((_placement: Placement, center: { x: number, y: number }) => {
-    const classes = classnames(`${displayName}__arrow`, `${displayName}__arrow--${_placement}`)
+    const classes = classnames(`${prefixCls}__arrow`, `${prefixCls}__arrow--${_placement}`)
     let { x: left, y: top } = center
     left -= ARROW_WIDTH / 2
     top -= ARROW_HEIGHT / 2
 
-    const style: React.CSSProperties = {
+    const _style: React.CSSProperties = {
       left,
       position: 'absolute',
       top
     }
 
     return (
-      <div className={classes} style={style}/>
+      <div className={classes} style={_style}/>
     )
-  }, [])
+  }, [prefixCls])
 
   const popup = React.useCallback((_placement: Placement) => {
-    const style: React.CSSProperties = {}
+    const _style: React.CSSProperties = {}
     if (_placement.startsWith('top')) {
-      style.paddingBottom = ARROW_HEIGHT / 2
+      _style.paddingBottom = ARROW_HEIGHT / 2
     } else if (_placement.startsWith('bottom')) {
-      style.paddingTop = ARROW_HEIGHT / 2
+      _style.paddingTop = ARROW_HEIGHT / 2
     } else if (_placement.startsWith('left')) {
-      style.paddingRight = ARROW_WIDTH / 2
+      _style.paddingRight = ARROW_WIDTH / 2
     } else {
-      style.paddingLeft = ARROW_WIDTH / 2
+      _style.paddingLeft = ARROW_WIDTH / 2
     }
+    const classes = classnames(`${prefixCls}__content`)
     return (
-      <div style={style}>
-        <div className={`${displayName}__content`}>
+      <div style={_style}>
+        <div className={classes}>
           {content}
         </div>
       </div>
     )
-  }, [])
+  }, [content, prefixCls])
   return (
     <Popper
       arrow={arrow}
@@ -78,7 +87,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
 Tooltip.displayName = displayName
 
 Tooltip.propTypes = {
-  content: PropTypes.node.isRequired
+  content: PropTypes.node.isRequired,
+  prefixCls: PropTypes.string
 }
 
 export default Tooltip

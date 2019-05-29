@@ -6,6 +6,7 @@ import { ButtonProps } from './button'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | React.ReactElement<ButtonProps>[]
+  prefixCls?: string
   round?: boolean
   vertical?: boolean
 }
@@ -13,12 +14,18 @@ export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
 export const displayName = `${namePrefix}-button-group`
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
-  const { round, vertical, className, ...others } = props
+  const {
+    round,
+    vertical,
+    className,
+    prefixCls = displayName,
+    ...others
+  } = props
   const classes = classnames({
-    [displayName]: true,
-    [`${displayName}--horizontal`]: !vertical,
-    [`${displayName}--vertical`]: vertical,
-    [`${displayName}--round`]: round
+    [prefixCls]: true,
+    [`${prefixCls}--horizontal`]: !vertical,
+    [`${prefixCls}--vertical`]: vertical,
+    [`${prefixCls}--round`]: round
   }, className)
 
   return (
@@ -30,6 +37,7 @@ ButtonGroup.displayName = displayName
 
 ButtonGroup.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
+  prefixCls: PropTypes.string,
   round: PropTypes.bool,
   vertical: PropTypes.bool
 }

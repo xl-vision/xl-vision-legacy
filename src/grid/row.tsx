@@ -13,13 +13,24 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   gutter?: number | Partial<Record<BreakPoint, number>>
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
+  prefixCls?: string
   type?: 'flex'
 }
 
 export const displayName = `${namePrefix}-row`
 
 const Row: React.FunctionComponent<RowProps> = props => {
-  const { type, justify, align, className, style, children, gutter, ...others } = props
+  const {
+    type,
+    justify,
+    align,
+    className,
+    style,
+    children,
+    gutter,
+    prefixCls = displayName,
+    ...others
+  } = props
 
   const media = useMedia()
 
@@ -39,10 +50,10 @@ const Row: React.FunctionComponent<RowProps> = props => {
 
   const classes = classnames(
     {
-      [displayName]: !type,
-      [`${displayName}-${type}`]: type,
-      [`${displayName}-${type}--${justify}`]: type && justify,
-      [`${displayName}-${type}--${align}`]: type && align
+      [prefixCls]: !type,
+      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${type}--${justify}`]: type && justify,
+      [`${prefixCls}-${type}--${align}`]: type && align
     },
     className
   )
@@ -87,6 +98,7 @@ Row.propTypes = {
     })
   ]),
   justify: PropTypes.oneOf<'start' | 'end' | 'center' | 'space-around' | 'space-between'>(['start', 'end', 'center', 'space-around', 'space-between']),
+  prefixCls: PropTypes.string,
   type: PropTypes.oneOf<'flex'>(['flex'])
 }
 export default Row

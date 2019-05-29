@@ -2,10 +2,7 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import {
-  BreakPoint,
-  breakPointArray
-} from './hooks/useMedia'
+import { BreakPoint, breakPointArray } from './hooks/useMedia'
 import RowContext from './row-context'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
@@ -15,6 +12,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   offset?: ColSpanType
   order?: ColSpanType
+  prefixCls?: string
   pull?: ColSpanType
   push?: ColSpanType
   span: ColSpanType
@@ -25,7 +23,18 @@ export const displayName = `${namePrefix}-col`
 const Col: React.FunctionComponent<ColProps> = props => {
   const { media, gutter } = React.useContext(RowContext)
 
-  const { className, children, style, span, order, offset, pull, push, ...others } = props
+  const {
+    className,
+    children,
+    style,
+    span,
+    order,
+    offset,
+    pull,
+    push,
+    prefixCls = displayName,
+    ...others
+  } = props
 
   const classes = React.useMemo(() => {
     const obj = {
@@ -35,22 +44,22 @@ const Col: React.FunctionComponent<ColProps> = props => {
       push,
       span
     }
-    const arr = [displayName]
+    const arr = [prefixCls]
     for (const prop of Object.keys(obj)) {
       const propValue = obj[prop as keyof typeof obj]
       if (typeof propValue === 'number') {
-        arr.push(`${displayName}-${prop}-${propValue}`)
+        arr.push(`${prefixCls}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
         for (const breakPoint of breakPointArray) {
           if (media[breakPoint] && propValue[breakPoint] !== undefined) {
-            arr.push(`${displayName}-${prop}-${propValue[breakPoint]}`)
+            arr.push(`${prefixCls}-${prop}-${propValue[breakPoint]}`)
             break
           }
         }
       }
     }
     return classnames(arr, className)
-  }, [media, span, order, offset, pull, push])
+  }, [media, span, order, offset, pull, push, prefixCls])
 
   const colStyle = React.useMemo(() => {
     return gutter > 0
@@ -120,6 +129,7 @@ Col.propTypes = {
   className: PropTypes.string,
   offset: spanValidator,
   order: spanValidator,
+  prefixCls: PropTypes.string,
   pull: spanValidator,
   push: spanValidator,
   span: spanValidator

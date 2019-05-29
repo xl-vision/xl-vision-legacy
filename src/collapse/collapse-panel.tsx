@@ -18,13 +18,26 @@ export interface CollapsePanelProps {
   forceRender?: boolean
   header: React.ReactNode
   name?: string
+  prefixCls?: string
   showArrow?: boolean
 }
 
 export const displayName = `${namePrefix}-collapse-panel`
 
 const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
-  const { name = '', header, children, disabled, className, forceRender = true, expandArrow, expandArrowPosition, extra, showArrow = true } = props
+  const {
+    name = '',
+    header,
+    children,
+    disabled,
+    className,
+    forceRender = true,
+    expandArrow,
+    expandArrowPosition,
+    extra,
+    showArrow = true,
+    prefixCls = displayName
+  } = props
   const { activeNames, clickCallback } = React.useContext(CollapseContext)
   const clickHandler = () => {
     if (!disabled) {
@@ -35,50 +48,50 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
   const show = activeNames.indexOf(name) !== -1
 
   const classes = React.useMemo(() => {
-    return classnames(displayName, {
-      [`${displayName}--disabled`]: disabled
+    return classnames(prefixCls, {
+      [`${prefixCls}--disabled`]: disabled
     }, className)
-  }, [className, disabled])
+  }, [className, disabled, prefixCls])
 
   const Arrow = React.useCallback((isActive: boolean) => {
     if (expandArrow) {
       return expandArrow(isActive)
     }
     return (
-            <FasAngleRight rotate={isActive ? 90 : 0}/>
+      <FasAngleRight rotate={isActive ? 90 : 0}/>
     )
   }, [expandArrow])
 
   const arrowClasses = React.useMemo(() => {
-    const arrowClassName = `${displayName}__header__arrow`
+    const arrowClassName = `${prefixCls}__header__arrow`
     return classnames(arrowClassName, {
       [`${arrowClassName}--right`]: expandArrowPosition === 'right'
     })
-  }, [expandArrowPosition])
+  }, [expandArrowPosition, prefixCls])
 
   const arrow = showArrow && (
-      <span className={arrowClasses}>
+    <span className={arrowClasses}>
           {Arrow(show)}
       </span>
   )
 
   return (
-        <div className={classes}>
-            <div className={`${displayName}__header`} onClick={clickHandler}>
-              {arrow}
-              {header}
-              <span className={`${displayName}__header__extra`}>
+    <div className={classes}>
+      <div className={`${prefixCls}__header`} onClick={clickHandler}>
+        {arrow}
+        {header}
+        <span className={`${prefixCls}__header__extra`}>
                 {extra}
               </span>
-            </div>
-            <CollapseTransition
-                forceRender={forceRender}
-                show={show}
-                transitionClassName={`${displayName}__body--slide`}
-            >
-                <div className={`${displayName}__body`}>{children}</div>
-            </CollapseTransition>
-        </div>
+      </div>
+      <CollapseTransition
+        forceRender={forceRender}
+        show={show}
+        transitionClassName={`${prefixCls}__body--slide`}
+      >
+        <div className={`${prefixCls}__body`}>{children}</div>
+      </CollapseTransition>
+    </div>
   )
 }
 
@@ -89,11 +102,12 @@ CollapsePanel.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   expandArrow: PropTypes.func,
-  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left','right']),
+  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left', 'right']),
   extra: PropTypes.node,
   forceRender: PropTypes.bool,
   header: PropTypes.node.isRequired,
   name: PropTypes.string,
+  prefixCls: PropTypes.string,
   showArrow: PropTypes.bool
 }
 
