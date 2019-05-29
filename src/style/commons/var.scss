@@ -185,8 +185,24 @@ $--collapse-panel-animation-time: $--animation-duration;
 //tooltip
 $--tooltip-bg-color: rgba($--color-gray-800, 0.85);
 $--tooltip-color: $--bg-color;
-$--tooltip-arrow-size: 10px;
-$--tooltip-border-padding-x: 0.7rem;
-$--tooltip-border-padding-y: 0.4rem;
+$--tooltip-arrow-size: 10px / 2;
+$--tooltip-padding-x: 0.7rem;
+$--tooltip-padding-y: 0.4rem;
 $--tooltip-border-radius: $--border-radius;
 $--tooltip-animation-duration: $--animation-duration-fast;
+
+//popover
+$--popover-bg-color: $--bg-color;
+$--popover-color: $--text-color;
+$--popover-border-color: $--border-color;
+$--popover-border-width: $--border-width;
+$--popover-arrow-size: 14px / 2;
+$--popover-header-min-width: 150px;
+$--popover-header-padding-x: 1rem;
+$--popover-header-font-weight: $--font-weight-bold;
+$--popover-header-padding-y: 0.5rem;
+$--popover-body-padding-x: $--popover-header-padding-x;
+$--popover-body-padding-y: $--popover-body-padding-x;
+$--popover-border-radius: $--border-radius;
+$--popover-animation-duration: $--animation-duration-fast;
+$--popover-box-shadow: 0 2px 8px rgba($--color-gray-1000, 0.15);

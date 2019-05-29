@@ -1,15 +1,13 @@
 @mixin arrowWithBorder($direction, $size, $bgColor, $borderSize, $borderColor) {
-  $innerSize: $size - $borderSize * 2;
+  $innerSize: $size * 2 - $borderSize * 2;
 
   &::before {
     top: 0;
     left: 0;
-    border: $size / 2 solid transparent;
+    border: $size solid transparent;
   }
 
   &::after {
-    top: $borderSize;
-    left: $borderSize;
     border: $innerSize / 2 solid transparent;
   }
 
@@ -29,6 +27,8 @@
     }
 
     &::after {
+      top: 2 * $borderSize;
+      left: $borderSize;
       border-bottom-color: $bgColor;
     }
   } @else if ($direction == bottom) {
@@ -37,6 +37,8 @@
     }
 
     &::after {
+      top: 0;
+      left: $borderSize;
       border-top-color: $bgColor;
     }
   } @else if ($direction == left) {
@@ -45,6 +47,8 @@
     }
 
     &::after {
+      top: $borderSize;
+      left: 2 * $borderSize;
       border-right-color: $bgColor;
     }
   } @else {
@@ -53,6 +57,8 @@
     }
 
     &::after {
+      top: $borderSize;
+      left: 0;
       border-left-color: $bgColor;
     }
   }
@@ -68,7 +74,7 @@
     content: '';
     width: 0;
     height: 0;
-    border: $size / 2 solid transparent;
+    border: $size solid transparent;
   }
 
   @if ($direction == top) {

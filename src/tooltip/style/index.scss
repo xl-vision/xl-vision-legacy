@@ -35,7 +35,7 @@ $tooltip: #{$--cls-prefix}-tooltip;
   }
 
   &__content {
-    padding: $--tooltip-border-padding-y $--tooltip-border-padding-x;
+    padding: $--tooltip-padding-y $--tooltip-padding-x;
     color: $--tooltip-color;
     background-color: $--tooltip-bg-color;
     border-radius: $--tooltip-border-radius;

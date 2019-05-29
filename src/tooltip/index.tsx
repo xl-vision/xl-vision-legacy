@@ -6,6 +6,7 @@ import { namePrefix } from '../commons/config'
 
 export interface TooltipProps {
   allowPopupEnter?: boolean
+  arrowSize?: number
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   content: React.ReactNode
   delayHide?: number
@@ -21,14 +22,12 @@ export interface TooltipProps {
 
 export const displayName = `${namePrefix}-tooltip`
 
-const ARROW_HEIGHT = 10
-const ARROW_WIDTH = ARROW_HEIGHT
-
 const Tooltip: React.FunctionComponent<TooltipProps> = props => {
   const {
     content,
-    offset = ARROW_HEIGHT / 2,
+    offset = 5,
     prefixCls = displayName,
+    arrowSize = 10,
     ...others
   } = props
 
@@ -38,8 +37,8 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
   const arrow = React.useCallback((_placement: Placement, center: { x: number, y: number }) => {
     const classes = classnames(`${prefixCls}__arrow`, `${prefixCls}__arrow--${_placement}`)
     let { x: left, y: top } = center
-    left -= ARROW_WIDTH / 2
-    top -= ARROW_HEIGHT / 2
+    left -= arrowSize / 2
+    top -= arrowSize / 2
 
     const _style: React.CSSProperties = {
       left,
@@ -55,13 +54,13 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
   const popup = React.useCallback((_placement: Placement) => {
     const _style: React.CSSProperties = {}
     if (_placement.startsWith('top')) {
-      _style.paddingBottom = ARROW_HEIGHT / 2
+      _style.paddingBottom = arrowSize / 2
     } else if (_placement.startsWith('bottom')) {
-      _style.paddingTop = ARROW_HEIGHT / 2
+      _style.paddingTop = arrowSize / 2
     } else if (_placement.startsWith('left')) {
-      _style.paddingRight = ARROW_WIDTH / 2
+      _style.paddingRight = arrowSize / 2
     } else {
-      _style.paddingLeft = ARROW_WIDTH / 2
+      _style.paddingLeft = arrowSize / 2
     }
     const classes = classnames(`${prefixCls}__content`)
     return (
@@ -87,6 +86,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
 Tooltip.displayName = displayName
 
 Tooltip.propTypes = {
+  arrowSize: PropTypes.number,
   content: PropTypes.node.isRequired,
   prefixCls: PropTypes.string
 }

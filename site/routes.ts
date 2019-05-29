@@ -69,6 +69,11 @@ const routes: Route[] = [
         name: '文字提示',
         path: '/tooltip',
         component: import('../src/tooltip/doc/index.md')
+      },
+      {
+        name: '气泡卡片',
+        path: '/popover',
+        component: import('../src/popover/doc/index.md')
       }
     ]
   },
