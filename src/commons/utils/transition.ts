@@ -1,4 +1,4 @@
-import { isClient } from './dom'
+import { isClient } from './env'
 
 export const nextFrame = requestAnimationFrame ||
                         webkitRequestAnimationFrame ||

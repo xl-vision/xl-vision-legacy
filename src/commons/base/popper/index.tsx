@@ -6,7 +6,9 @@ import { namePrefix } from '../../config'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
-import { getPosition, off, on } from '../../utils/dom'
+import { getPosition, include } from '../../utils/dom'
+import { mergeEvents, off, on } from '../../utils/event'
+import { getZIndex } from '../../utils/zIndex-manager'
 
 export type Placement =
   | 'top'
@@ -26,7 +28,7 @@ export interface PopperProps {
   allowPopupEnter?: boolean
   arrow?: (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   // autoAdjustOverflow?: boolean,
-  children: React.ReactNode
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   delayHide?: number
   delayShow?: number
   getPopupContainer?: () => HTMLElement
@@ -40,6 +42,8 @@ export interface PopperProps {
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
   visible?: boolean
 }
+
+const TIME_DELAY = 20
 
 export const displayName = `${namePrefix}-popper`
 
@@ -64,7 +68,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   } = props
 
   const popupRef = React.useRef<HTMLDivElement>(null)
-  const referenceRef = React.useRef<HTMLDivElement>(null)
+  const referenceRef = React.useRef<HTMLElement>(null)
 
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
 
@@ -81,14 +85,14 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     isUnmount = true
   })
 
-  const setActualWrapper = React.useCallback((isVisible: boolean) => {
+  const setActualWrapper = (isVisible: boolean) => {
     clearTimeout(delayTimerRef.current!)
     delayTimerRef.current = setTimeout(() => {
-      if (!isUnmount) {
+      if (!isUnmount && isVisible !== actualVisible) {
         setActualVisible(isVisible)
       }
-    }, isVisible ? delayShow : delayHide)
-  }, [isUnmount, delayShow, delayHide, delayTimerRef])
+    }, isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY))
+  }
 
   React.useEffect(() => {
     if (visible !== actualVisible) {
@@ -204,7 +208,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   }, [popupPosition, referencePosition, left, top, placement, offset])
 
-  const popupStyle = React.useMemo(() => {
+  const popupStyle = (() => {
     const style: React.CSSProperties = {
       left,
       position: 'absolute',
@@ -219,8 +223,11 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     } else {
       style.paddingLeft = offset
     }
+    if (actualVisible) {
+      style.zIndex = getZIndex()
+    }
     return style
-  }, [top, left, placement])
+  })()
 
   const setPosition = React.useCallback(() => {
     if (!popupRef.current || !referenceRef.current) {
@@ -252,52 +259,63 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [actualVisible, setPosition])
 
-  const onMouseEnter = React.useCallback(() => {
+  const onMouseEnter = () => {
+    // 如果是从popup移动过来，需要先清除popup的定时关闭
+    clearTimeout(delayTimerRef.current!)
     if (trigger === 'hover') {
       setActualWrapper(true)
     }
-  }, [trigger])
-  const onMouseLeave = React.useCallback(() => {
+  }
+  const onMouseLeave = () => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
-  }, [trigger, setActualWrapper])
+  }
 
-  const onFocus = React.useCallback(() => {
+  const onFocus = () => {
     if (trigger === 'focus') {
       setActualWrapper(true)
     }
-  }, [trigger, setActualWrapper])
+  }
 
-  const onBlur = React.useCallback(() => {
+  const onBlur = () => {
     if (trigger === 'focus') {
       setActualWrapper(false)
     }
-  }, [trigger, setActualWrapper])
+  }
 
-  const onContextMenu = React.useCallback(() => {
+  const onContextMenu = () => {
     if (trigger === 'contextMenu') {
       setActualWrapper(true)
     }
-  }, [trigger, setActualWrapper])
+  }
 
-  const onPopupMouseEnter = React.useCallback(() => {
+  const onPopupMouseEnter = () => {
+    clearTimeout(delayTimerRef.current!)
     if (!allowPopupEnter) {
       setActualWrapper(false)
     }
-  }, [allowPopupEnter, setActualWrapper])
+  }
 
-  const onReferenceClick = React.useCallback(() => {
+  const onPopupMouseLeave = () => {
+    if (trigger === 'hover') {
+      setActualWrapper(false)
+    }
+  }
+
+  const onReferenceClick = () => {
     if (trigger === 'click') {
       setActualWrapper(true)
     }
-  }, [trigger, setActualWrapper])
+  }
 
-  const onClickOutside = React.useCallback(() => {
-    if (trigger !== 'custom') {
-      setActualWrapper(false)
+  const onClickOutside = (e: MouseEvent) => {
+    if (trigger === 'click' || trigger === 'contextMenu') {
+      if (e.target instanceof HTMLElement && !include(popupRef.current!, e.target)) {
+        setActualWrapper(false)
+      }
     }
-  }, [trigger, setActualWrapper])
+  }
 
   const transitionClass = React.useMemo(() => {
     if (typeof transitionName === 'function') {
@@ -333,6 +351,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       ref={popupRef}
       style={popupStyle}
       onMouseEnter={onPopupMouseEnter}
+      onMouseLeave={onPopupMouseLeave}
     >
       <CssTransition
         isAppear={true}
@@ -349,22 +368,25 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     </div>
   ), getPopupContainer())
 
+  const childrenNode = React.useMemo(() => {
+    const { onBlur: _onBlur, onClick: _onClick, onContextMenu: _onContextMenu, onFocus: _onFocus, onMouseEnter: _onMouseEnter, onMouseLeave: _onMouseLeave, ...others } = children.props
+    return React.cloneElement(children, {
+      onBlur: mergeEvents(onBlur, _onBlur),
+      onClick: mergeEvents(onReferenceClick, _onClick),
+      onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
+      onFocus: mergeEvents(onFocus, _onFocus),
+      onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
+      onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave),
+      ref: referenceRef,
+      ...others
+    })
+  }, [children, onBlur, onReferenceClick, onContextMenu, onFocus, onMouseEnter, onMouseLeave, referenceRef])
+
   return (
-    <div
-      style={{
-        display: 'inline-block'
-      }}
-      ref={referenceRef}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onFocus={onFocus}
-      onClick={onReferenceClick}
-      onBlur={onBlur}
-      onContextMenu={onContextMenu}
-    >
-      {children}
+    <>
+      {childrenNode}
       {portal}
-    </div>
+    </>
   )
 }
 
@@ -373,7 +395,7 @@ Popper.displayName = displayName
 Popper.propTypes = {
   allowPopupEnter: PropTypes.bool,
   arrow: PropTypes.func,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   delayHide: PropTypes.number,
   delayShow: PropTypes.number,
   getPopupContainer: PropTypes.func,

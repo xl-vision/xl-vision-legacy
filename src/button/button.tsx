@@ -30,7 +30,7 @@ const formatChildren = (children: React.ReactNode) => {
   })
 }
 
-const Button: React.FunctionComponent<ButtonProps> = props => {
+const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButtonElement & HTMLAnchorElement, ButtonProps>((props, ref) => {
   const { dashed, disabled, ghost, plain, href, htmlType, loading, long, shape, type = 'default', className, children, ...others } = props
 
   const classes = classnames({
@@ -61,10 +61,10 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
   }
 
   if (href) {
-    return <a {...allProps}/>
+    return <a ref={ref} {...allProps}/>
   }
-  return <button {...allProps}/>
-}
+  return <button ref={ref} {...allProps}/>
+})
 
 Button.displayName = displayName
 
@@ -82,4 +82,4 @@ Button.propTypes = {
   type: PropTypes.oneOf<'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'>(['default', 'primary', 'success', 'warning', 'error', 'text'])
 }
 
-export default React.memo(Button)
+export default Button

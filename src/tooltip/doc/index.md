@@ -3,6 +3,7 @@ imports:
   - import './index.scss'
   - import Tooltip from '..'
   - import Button from '../../button'
+  - import ButtonGroup from '../../button-group'
   - import Row from '../../row'
   - import Col from '../../col'
 ---
@@ -129,6 +130,34 @@ export default () => {
         <Col span={2}></Col>
       </Row>
     </div>
+  )
+}
+
+```
+
+:::
+
+::: demo 支持不同的触发方式
+通过`trigger`指定触发方式
+
+```jsx
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+  return (
+    <ButtonGroup>
+      <Tooltip trigger='hover' content={'hover text'}>
+        <Button>hover</Button>
+      </Tooltip>
+      <Tooltip trigger='click' content={'click text'}>
+        <Button>click</Button>
+      </Tooltip>
+      <Tooltip trigger='contextMenu' content={'contextMenu text'}>
+        <Button>contextMenu</Button>
+      </Tooltip>
+      <Tooltip trigger='custom' visible={visible} content={'custom text'}>
+        <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
+      </Tooltip>
+    </ButtonGroup>
   )
 }
 

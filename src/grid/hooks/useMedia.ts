@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { isServer } from '../../commons/utils/dom'
+import { isServer } from '../../commons/utils/env'
 
 const matchMedia = (query: string) => {
   if (isServer) {

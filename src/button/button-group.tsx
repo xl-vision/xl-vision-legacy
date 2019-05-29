@@ -2,8 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import { childrenValidator } from '../commons/utils/prop-type'
-import { ButtonProps, displayName as buttonDisplayName } from './button'
+import { ButtonProps } from './button'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | React.ReactElement<ButtonProps>[]
@@ -30,7 +29,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
 ButtonGroup.displayName = displayName
 
 ButtonGroup.propTypes = {
-  children: childrenValidator(buttonDisplayName),
+  children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
   round: PropTypes.bool,
   vertical: PropTypes.bool
 }

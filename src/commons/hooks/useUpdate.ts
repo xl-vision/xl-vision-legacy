@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 const useUpdate = (update: () => void, dependencies: ReadonlyArray<any>) => {
-  const [state, setState] = useState(false)
+  const updateRef = useRef(false)
 
   useEffect(() => {
-    if (state) {
+    if (updateRef.current) {
       update()
     } else {
-      setState(true)
+      updateRef.current = true
     }
   }, dependencies)
 }
