@@ -9,6 +9,7 @@ exports[`Popconfirm Show Popconfirm 1`] = `
     visible={false}
   >
     <xl-tooltip
+      allowPopupEnter={true}
       arrowSize={14}
       content={
         <React.Fragment>
@@ -29,6 +30,7 @@ exports[`Popconfirm Show Popconfirm 1`] = `
           >
             <ForwardRef
               className="xl-popconfirm__btn"
+              onClick={[Function]}
               size="small"
               type="primary"
             >
@@ -36,6 +38,7 @@ exports[`Popconfirm Show Popconfirm 1`] = `
             </ForwardRef>
             <ForwardRef
               className="xl-popconfirm__btn"
+              onClick={[Function]}
               size="small"
               type="default"
             >
@@ -44,12 +47,15 @@ exports[`Popconfirm Show Popconfirm 1`] = `
           </div>
         </React.Fragment>
       }
+      onVisibleChange={[Function]}
       prefixCls="xl-popconfirm"
       visible={false}
     >
       <xl-popper
+        allowPopupEnter={true}
         arrow={[Function]}
         offset={5}
+        onVisibleChange={[Function]}
         overlayStyle={[Function]}
         popup={[Function]}
         transitionName="xl-popconfirm--fade"
@@ -141,6 +147,7 @@ exports[`Popconfirm Show Popconfirm 2`] = `
     visible={true}
   >
     <xl-tooltip
+      allowPopupEnter={true}
       arrowSize={14}
       content={
         <React.Fragment>
@@ -161,6 +168,7 @@ exports[`Popconfirm Show Popconfirm 2`] = `
           >
             <ForwardRef
               className="xl-popconfirm__btn"
+              onClick={[Function]}
               size="small"
               type="primary"
             >
@@ -168,6 +176,7 @@ exports[`Popconfirm Show Popconfirm 2`] = `
             </ForwardRef>
             <ForwardRef
               className="xl-popconfirm__btn"
+              onClick={[Function]}
               size="small"
               type="default"
             >
@@ -176,16 +185,19 @@ exports[`Popconfirm Show Popconfirm 2`] = `
           </div>
         </React.Fragment>
       }
+      onVisibleChange={[Function]}
       prefixCls="xl-popconfirm"
-      visible={true}
+      visible={false}
     >
       <xl-popper
+        allowPopupEnter={true}
         arrow={[Function]}
         offset={5}
+        onVisibleChange={[Function]}
         overlayStyle={[Function]}
         popup={[Function]}
         transitionName="xl-popconfirm--fade"
-        visible={true}
+        visible={false}
       >
         <xl-button
           onBlur={[Function]}

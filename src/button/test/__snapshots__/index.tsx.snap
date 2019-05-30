@@ -8,7 +8,7 @@ exports[`button 不可用状态 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default"
+      class="xl-button xl-button--default xl-button--size-default"
       disabled=""
     >
       <span>
@@ -16,7 +16,7 @@ exports[`button 不可用状态 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary"
+      class="xl-button xl-button--primary xl-button--size-default"
       disabled=""
     >
       <span>
@@ -24,7 +24,7 @@ exports[`button 不可用状态 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--success"
+      class="xl-button xl-button--success xl-button--size-default"
       disabled=""
     >
       <span>
@@ -32,7 +32,7 @@ exports[`button 不可用状态 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning"
+      class="xl-button xl-button--warning xl-button--size-default"
       disabled=""
     >
       <span>
@@ -40,7 +40,7 @@ exports[`button 不可用状态 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--error"
+      class="xl-button xl-button--error xl-button--size-default"
       disabled=""
     >
       <span>
@@ -48,7 +48,7 @@ exports[`button 不可用状态 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--text"
+      class="xl-button xl-button--text xl-button--size-default"
       disabled=""
     >
       <span>
@@ -67,7 +67,7 @@ exports[`button 加载中 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default xl-button--loading"
+      class="xl-button xl-button--default xl-button--size-default xl-button--loading"
     >
       <i
         class="xl-icon xl-icon--spin xl-button__icon"
@@ -87,7 +87,7 @@ exports[`button 加载中 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary xl-button--loading"
+      class="xl-button xl-button--primary xl-button--size-default xl-button--loading"
     >
       <i
         class="xl-icon xl-icon--spin xl-button__icon"
@@ -107,7 +107,7 @@ exports[`button 加载中 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--success xl-button--loading"
+      class="xl-button xl-button--success xl-button--size-default xl-button--loading"
     >
       <i
         class="xl-icon xl-icon--spin xl-button__icon"
@@ -127,7 +127,7 @@ exports[`button 加载中 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning xl-button--loading"
+      class="xl-button xl-button--warning xl-button--size-default xl-button--loading"
     >
       <i
         class="xl-icon xl-icon--spin xl-button__icon"
@@ -147,7 +147,7 @@ exports[`button 加载中 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--error xl-button--loading"
+      class="xl-button xl-button--error xl-button--size-default xl-button--loading"
     >
       <i
         class="xl-icon xl-icon--spin xl-button__icon"
@@ -167,7 +167,7 @@ exports[`button 加载中 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--text xl-button--loading"
+      class="xl-button xl-button--text xl-button--size-default xl-button--loading"
     >
       <i
         class="xl-icon xl-icon--spin xl-button__icon"
@@ -196,42 +196,42 @@ exports[`button 基本用法 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default"
+      class="xl-button xl-button--default xl-button--size-default"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary"
+      class="xl-button xl-button--primary xl-button--size-default"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success"
+      class="xl-button xl-button--success xl-button--size-default"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning"
+      class="xl-button xl-button--warning xl-button--size-default"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error"
+      class="xl-button xl-button--error xl-button--size-default"
     >
       <span>
         Error
       </span>
     </button>
     <button
-      class="xl-button xl-button--text"
+      class="xl-button xl-button--text xl-button--size-default"
     >
       <span>
         Text
@@ -242,42 +242,42 @@ exports[`button 基本用法 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default xl-button--plain"
+      class="xl-button xl-button--default xl-button--size-default xl-button--plain"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary xl-button--plain"
+      class="xl-button xl-button--primary xl-button--size-default xl-button--plain"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success xl-button--plain"
+      class="xl-button xl-button--success xl-button--size-default xl-button--plain"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning xl-button--plain"
+      class="xl-button xl-button--warning xl-button--size-default xl-button--plain"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error xl-button--plain"
+      class="xl-button xl-button--error xl-button--size-default xl-button--plain"
     >
       <span>
         Error
       </span>
     </button>
     <button
-      class="xl-button xl-button--text xl-button--plain"
+      class="xl-button xl-button--text xl-button--size-default xl-button--plain"
     >
       <span>
         Text
@@ -288,42 +288,42 @@ exports[`button 基本用法 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default xl-button--dashed xl-button--plain"
+      class="xl-button xl-button--default xl-button--size-default xl-button--dashed xl-button--plain"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary xl-button--dashed xl-button--plain"
+      class="xl-button xl-button--primary xl-button--size-default xl-button--dashed xl-button--plain"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success xl-button--dashed xl-button--plain"
+      class="xl-button xl-button--success xl-button--size-default xl-button--dashed xl-button--plain"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning xl-button--dashed xl-button--plain"
+      class="xl-button xl-button--warning xl-button--size-default xl-button--dashed xl-button--plain"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error xl-button--dashed xl-button--plain"
+      class="xl-button xl-button--error xl-button--size-default xl-button--dashed xl-button--plain"
     >
       <span>
         Error
       </span>
     </button>
     <button
-      class="xl-button xl-button--text xl-button--dashed xl-button--plain"
+      class="xl-button xl-button--text xl-button--size-default xl-button--dashed xl-button--plain"
     >
       <span>
         Text
@@ -334,7 +334,7 @@ exports[`button 基本用法 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default"
+      class="xl-button xl-button--default xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -354,7 +354,7 @@ exports[`button 基本用法 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary"
+      class="xl-button xl-button--primary xl-button--size-default"
     >
       <span>
         Primary
@@ -374,7 +374,7 @@ exports[`button 基本用法 1`] = `
       </i>
     </button>
     <button
-      class="xl-button xl-button--success"
+      class="xl-button xl-button--success xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -394,7 +394,7 @@ exports[`button 基本用法 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning"
+      class="xl-button xl-button--warning xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -414,7 +414,7 @@ exports[`button 基本用法 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--error"
+      class="xl-button xl-button--error xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -434,7 +434,7 @@ exports[`button 基本用法 1`] = `
       </span>
     </button>
     <button
-      class="xl-button xl-button--text"
+      class="xl-button xl-button--text xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -465,42 +465,42 @@ exports[`button 幽灵状态 1`] = `
     class="button-column ghost"
   >
     <button
-      class="xl-button xl-button--default xl-button--ghost"
+      class="xl-button xl-button--default xl-button--size-default xl-button--ghost"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary xl-button--ghost"
+      class="xl-button xl-button--primary xl-button--size-default xl-button--ghost"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success xl-button--ghost"
+      class="xl-button xl-button--success xl-button--size-default xl-button--ghost"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning xl-button--ghost"
+      class="xl-button xl-button--warning xl-button--size-default xl-button--ghost"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error xl-button--ghost"
+      class="xl-button xl-button--error xl-button--size-default xl-button--ghost"
     >
       <span>
         Error
       </span>
     </button>
     <button
-      class="xl-button xl-button--text xl-button--ghost"
+      class="xl-button xl-button--text xl-button--size-default xl-button--ghost"
     >
       <span>
         Text
@@ -518,7 +518,7 @@ exports[`button 指定href 1`] = `
     class="button-column"
   >
     <a
-      class="xl-button xl-button--default"
+      class="xl-button xl-button--default xl-button--size-default"
       href="#"
     >
       <span>
@@ -526,7 +526,7 @@ exports[`button 指定href 1`] = `
       </span>
     </a>
     <a
-      class="xl-button xl-button--primary"
+      class="xl-button xl-button--primary xl-button--size-default"
       href="#"
     >
       <span>
@@ -534,7 +534,7 @@ exports[`button 指定href 1`] = `
       </span>
     </a>
     <a
-      class="xl-button xl-button--success"
+      class="xl-button xl-button--success xl-button--size-default"
       href="#"
     >
       <span>
@@ -542,7 +542,7 @@ exports[`button 指定href 1`] = `
       </span>
     </a>
     <a
-      class="xl-button xl-button--warning"
+      class="xl-button xl-button--warning xl-button--size-default"
       href="#"
     >
       <span>
@@ -550,7 +550,7 @@ exports[`button 指定href 1`] = `
       </span>
     </a>
     <a
-      class="xl-button xl-button--error"
+      class="xl-button xl-button--error xl-button--size-default"
       href="#"
     >
       <span>
@@ -558,7 +558,7 @@ exports[`button 指定href 1`] = `
       </span>
     </a>
     <a
-      class="xl-button xl-button--text"
+      class="xl-button xl-button--text xl-button--size-default"
       href="#"
     >
       <span>
@@ -577,42 +577,42 @@ exports[`button 指定按钮形状 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default xl-button--round"
+      class="xl-button xl-button--default xl-button--round xl-button--size-default"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary xl-button--round"
+      class="xl-button xl-button--primary xl-button--round xl-button--size-default"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success xl-button--round"
+      class="xl-button xl-button--success xl-button--round xl-button--size-default"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning xl-button--round"
+      class="xl-button xl-button--warning xl-button--round xl-button--size-default"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error xl-button--round"
+      class="xl-button xl-button--error xl-button--round xl-button--size-default"
     >
       <span>
         Error
       </span>
     </button>
     <button
-      class="xl-button xl-button--text xl-button--round"
+      class="xl-button xl-button--text xl-button--round xl-button--size-default"
     >
       <span>
         Text
@@ -623,7 +623,7 @@ exports[`button 指定按钮形状 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default xl-button--circle"
+      class="xl-button xl-button--default xl-button--circle xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -640,7 +640,7 @@ exports[`button 指定按钮形状 1`] = `
       </i>
     </button>
     <button
-      class="xl-button xl-button--primary xl-button--circle"
+      class="xl-button xl-button--primary xl-button--circle xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -657,7 +657,7 @@ exports[`button 指定按钮形状 1`] = `
       </i>
     </button>
     <button
-      class="xl-button xl-button--success xl-button--circle"
+      class="xl-button xl-button--success xl-button--circle xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -674,7 +674,7 @@ exports[`button 指定按钮形状 1`] = `
       </i>
     </button>
     <button
-      class="xl-button xl-button--warning xl-button--circle"
+      class="xl-button xl-button--warning xl-button--circle xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -691,7 +691,7 @@ exports[`button 指定按钮形状 1`] = `
       </i>
     </button>
     <button
-      class="xl-button xl-button--error xl-button--circle"
+      class="xl-button xl-button--error xl-button--circle xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -708,7 +708,7 @@ exports[`button 指定按钮形状 1`] = `
       </i>
     </button>
     <button
-      class="xl-button xl-button--text xl-button--circle"
+      class="xl-button xl-button--text xl-button--circle xl-button--size-default"
     >
       <i
         class="xl-icon"
@@ -736,42 +736,42 @@ exports[`button 长按钮 1`] = `
     class="button-column"
   >
     <button
-      class="xl-button xl-button--default xl-button--long"
+      class="xl-button xl-button--default xl-button--size-default xl-button--long"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary xl-button--long"
+      class="xl-button xl-button--primary xl-button--size-default xl-button--long"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success xl-button--long"
+      class="xl-button xl-button--success xl-button--size-default xl-button--long"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning xl-button--long"
+      class="xl-button xl-button--warning xl-button--size-default xl-button--long"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error xl-button--long"
+      class="xl-button xl-button--error xl-button--size-default xl-button--long"
     >
       <span>
         Error
       </span>
     </button>
     <button
-      class="xl-button xl-button--text xl-button--long"
+      class="xl-button xl-button--text xl-button--size-default xl-button--long"
     >
       <span>
         Text
@@ -789,35 +789,35 @@ exports[`button-group 垂直按钮组 1`] = `
     class="xl-button-group xl-button-group--vertical"
   >
     <button
-      class="xl-button xl-button--default"
+      class="xl-button xl-button--default xl-button--size-default"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary"
+      class="xl-button xl-button--primary xl-button--size-default"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success"
+      class="xl-button xl-button--success xl-button--size-default"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning"
+      class="xl-button xl-button--warning xl-button--size-default"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error"
+      class="xl-button xl-button--error xl-button--size-default"
     >
       <span>
         Error
@@ -828,35 +828,35 @@ exports[`button-group 垂直按钮组 1`] = `
     class="xl-button-group xl-button-group--vertical xl-button-group--round"
   >
     <button
-      class="xl-button xl-button--default"
+      class="xl-button xl-button--default xl-button--size-default"
     >
       <span>
         Default
       </span>
     </button>
     <button
-      class="xl-button xl-button--primary"
+      class="xl-button xl-button--primary xl-button--size-default"
     >
       <span>
         Primary
       </span>
     </button>
     <button
-      class="xl-button xl-button--success"
+      class="xl-button xl-button--success xl-button--size-default"
     >
       <span>
         Success
       </span>
     </button>
     <button
-      class="xl-button xl-button--warning"
+      class="xl-button xl-button--warning xl-button--size-default"
     >
       <span>
         Warning
       </span>
     </button>
     <button
-      class="xl-button xl-button--error"
+      class="xl-button xl-button--error xl-button--size-default"
     >
       <span>
         Error
@@ -2480,35 +2480,35 @@ exports[`button-group 水平按钮组 1`] = `
       class="xl-button-group xl-button-group--horizontal"
     >
       <button
-        class="xl-button xl-button--default"
+        class="xl-button xl-button--default xl-button--size-default"
       >
         <span>
           Default
         </span>
       </button>
       <button
-        class="xl-button xl-button--primary"
+        class="xl-button xl-button--primary xl-button--size-default"
       >
         <span>
           Primary
         </span>
       </button>
       <button
-        class="xl-button xl-button--success"
+        class="xl-button xl-button--success xl-button--size-default"
       >
         <span>
           Success
         </span>
       </button>
       <button
-        class="xl-button xl-button--warning"
+        class="xl-button xl-button--warning xl-button--size-default"
       >
         <span>
           Warning
         </span>
       </button>
       <button
-        class="xl-button xl-button--error"
+        class="xl-button xl-button--error xl-button--size-default"
       >
         <span>
           Error
@@ -2521,35 +2521,35 @@ exports[`button-group 水平按钮组 1`] = `
       class="xl-button-group xl-button-group--horizontal xl-button-group--round"
     >
       <button
-        class="xl-button xl-button--default"
+        class="xl-button xl-button--default xl-button--size-default"
       >
         <span>
           Default
         </span>
       </button>
       <button
-        class="xl-button xl-button--primary"
+        class="xl-button xl-button--primary xl-button--size-default"
       >
         <span>
           Primary
         </span>
       </button>
       <button
-        class="xl-button xl-button--success"
+        class="xl-button xl-button--success xl-button--size-default"
       >
         <span>
           Success
         </span>
       </button>
       <button
-        class="xl-button xl-button--warning"
+        class="xl-button xl-button--warning xl-button--size-default"
       >
         <span>
           Warning
         </span>
       </button>
       <button
-        class="xl-button xl-button--error"
+        class="xl-button xl-button--error xl-button--size-default"
       >
         <span>
           Error
