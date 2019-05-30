@@ -173,7 +173,7 @@ export default () => {
       <Popconfirm trigger='contextMenu' content='Are you sure?'>
         <Button>contextMenu</Button>
       </Popconfirm>
-      <Popconfirm trigger='custom' visible={visible} content='Are you sure?'>
+      <Popconfirm trigger='custom' visible={visible} onVisibleChange={_visible => setVisible(_visible)} content='Are you sure?'>
         <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
       </Popconfirm>
     </ButtonGroup>

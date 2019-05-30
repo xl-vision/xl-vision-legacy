@@ -42,6 +42,10 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
 
   delete others.allowPopupEnter
 
+  React.useEffect(() => {
+    setActualVisible(visible)
+  }, [visible])
+
   const onVisibleChangeWrapper = React.useCallback((_visible: boolean) => {
     setActualVisible(_visible)
     onVisibleChange && onVisibleChange(_visible)
