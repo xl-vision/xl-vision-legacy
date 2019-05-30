@@ -62,7 +62,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
     } else {
       _style.paddingLeft = arrowSize / 2
     }
-    const classes = classnames(`${prefixCls}__content`)
+    const classes = classnames(`${prefixCls}__body`)
     return (
       <div style={_style}>
         <div className={classes}>

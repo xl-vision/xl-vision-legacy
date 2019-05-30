@@ -101,8 +101,8 @@ $--font-family:                 -apple-system,
                                 "Noto Color Emoji"                                  !default;
 
 $--font-size:                   1rem                                                !default;
-$--font-size-lg:                $--font-size * 1.25                                 !default;
-$--font-size-sm:                $--font-size * 0.875                                !default;
+$--font-size-lg:                $--font-size * 1.2                                 !default;
+$--font-size-sm:                $--font-size * 0.8                                !default;
 $--font-weight-lighter:         lighter                                             !default;
 $--font-weight-light:           300                                                 !default;
 $--font-weight:                 400                                                 !default;
@@ -142,13 +142,6 @@ $--icon-spin-time:              1.5s                                            
 // button
 $--button-bg-color:             $--bg-color                                         !default;
 $--button-border-color:         $--border-color                                     !default;
-$--button-font-weight:          $--font-weight                                      !default;
-$--button-border-width:         $--border-width                                     !default;
-$--button-padding-y:            0.4rem                                              !default;
-$--button-padding-x:            0.7rem                                              !default;
-$--button-font-size:            $--font-size                                        !default;
-$--button-line-height:          1                                                   !default;
-$--button-border-radius:        $--border-radius                                    !default;
 $--button-color-level:          $--color-level                                      !default;
 $--button-theme-color:          map_merge((), $--color-theme)                       !default;
 $--button-animation-time:       $--animation-duration-fast                          !default;
@@ -157,7 +150,28 @@ $--button-opacity-disabled:     $--opacity-disabled                             
 $--button-text-color:           $--text-color                                       !default;
 $--button-text-color-light:     $--text-color-light                                 !default;
 
-// spin
+$--button-default-font-weight:          $--font-weight                                      !default;
+$--button-default-border-width:         $--border-width                                     !default;
+$--button-default-padding-y:            0.3rem                                              !default;
+$--button-default-padding-x:            0.7rem                                              !default;
+$--button-default-font-size:            $--font-size                                        !default;
+$--button-default-border-radius:        $--border-radius                                    !default;
+
+$--button-large-font-weight:          $--button-default-font-weight                                      !default;
+$--button-large-border-width:         $--button-default-border-width                                     !default;
+$--button-large-padding-y:            $--button-default-padding-y * 1.2                                              !default;
+$--button-large-padding-x:            $--button-default-padding-x * 1.2                                              !default;
+$--button-large-font-size:            $--font-size-lg                                        !default;
+$--button-large-border-radius:        $--border-radius                                    !default;
+
+$--button-small-font-weight:          $--button-default-font-weight                                      !default;
+$--button-small-border-width:         $--button-default-border-width                                     !default;
+$--button-small-padding-y:            $--button-default-padding-y * 0.8                                              !default;
+$--button-small-padding-x:            $--button-default-padding-x * 0.8                                           !default;
+$--button-small-font-size:            $--font-size-sm                                        !default;
+$--button-small-border-radius:        $--border-radius                                    !default;
+
+  // spin
 $--spin-animation-time:         $--animation-duration                               !default;
 $--spin-tip-padding-top:        0.5rem                                              !default;
 $--spin-tip-font-size:          0.5em                                               !default;
@@ -198,11 +212,26 @@ $--popover-border-color: $--border-color;
 $--popover-border-width: $--border-width;
 $--popover-arrow-size: 14px / 2;
 $--popover-header-min-width: 150px;
-$--popover-header-padding-x: 1rem;
 $--popover-header-font-weight: $--font-weight-bold;
+$--popover-header-padding-x: 1rem;
 $--popover-header-padding-y: 0.5rem;
 $--popover-body-padding-x: $--popover-header-padding-x;
 $--popover-body-padding-y: $--popover-body-padding-x;
 $--popover-border-radius: $--border-radius;
 $--popover-animation-duration: $--animation-duration-fast;
 $--popover-box-shadow: 0 2px 8px rgba($--color-gray-1000, 0.15);
+
+//popconfirm
+$--popconfirm-bg-color: $--bg-color;
+$--popconfirm-color: $--text-color;
+$--popconfirm-border-color: $--border-color;
+$--popconfirm-border-width: $--border-width;
+$--popconfirm-arrow-size: 14px / 2;
+$--popconfirm-border-radius: $--border-radius;
+$--popconfirm-animation-duration: $--animation-duration-fast;
+$--popconfirm-box-shadow: 0 2px 8px rgba($--color-gray-1000, 0.15);
+$--popconfirm-content-padding-left: 0.5rem;
+$--popconfirm-message-margin: 0.8rem;
+$--popconfirm-action-margin: 0 0.8rem 0.8rem 0.8rem;
+$--popconfirm-btn-margin: 0.5rem;
+$--popconfirm-icon-color: $--color-warning;

@@ -23,7 +23,7 @@ const Popover: React.FunctionComponent<PopoverProps> = props => {
     return (
       <>
         <div className={`${prefixCls}__title`}>{title}</div>
-        <div className={`${prefixCls}__body`}>{content}</div>
+        <div className={`${prefixCls}__content`}>{content}</div>
       </>
     )
   }, [content, title, prefixCls])

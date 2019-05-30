@@ -330,7 +330,7 @@ export default () => {
 |plain|设置为朴素按钮|boolean|-|false|false|
 |shape|设置按钮的形状，通常`circle`与[Icon](#/icon)连用|string|cirlce/round|-|false|
 |type|设置按钮类型|string|default/primary/success/warning/error/text|default|false|
-|size|设置按钮大小，在ButtonGroup中，则此属性无效，需要使用ButtonGroup中的对应属性|string|default/large/small|default|false|
+|size|设置按钮大小|string|default/large/small|default|false|
 
 ## ButtonGroup API
 
@@ -338,4 +338,4 @@ export default () => {
 | ------- | -------- | --------- | ------------ | ------ | --- |
 |round|指定按钮组中按钮的圆角样式|boolean|-|false|false|
 |vertical|指定按钮组为垂直方向|boolean|-|false|false|
-|size|设置按钮大小|string|default/large/small|default|false|
+|size|设置按钮大小,如果按钮自动设置了size，则会覆盖这个值|string|default/large/small|default|false|

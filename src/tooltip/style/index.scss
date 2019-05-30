@@ -34,7 +34,7 @@ $tooltip: #{$--cls-prefix}-tooltip;
     }
   }
 
-  &__content {
+  &__body {
     padding: $--tooltip-padding-y $--tooltip-padding-x;
     color: $--tooltip-color;
     background-color: $--tooltip-bg-color;

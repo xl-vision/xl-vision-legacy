@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popconfirm Show Popconfirm 1`] = `
+<Demo
+  visible={false}
+>
+  <xl-popconfirm
+    content="content"
+    visible={false}
+  >
+    <xl-tooltip
+      arrowSize={14}
+      content={
+        <React.Fragment>
+          <div
+            className="xl-popconfirm__message"
+          >
+            <xl-fas-exclamation-circle
+              className="xl-popconfirm__icon"
+            />
+            <span
+              className="xl-popconfirm__content"
+            >
+              content
+            </span>
+          </div>
+          <div
+            className="xl-popconfirm__action"
+          >
+            <ForwardRef
+              className="xl-popconfirm__btn"
+              size="small"
+              type="primary"
+            >
+              Yes
+            </ForwardRef>
+            <ForwardRef
+              className="xl-popconfirm__btn"
+              size="small"
+              type="default"
+            >
+              No
+            </ForwardRef>
+          </div>
+        </React.Fragment>
+      }
+      prefixCls="xl-popconfirm"
+      visible={false}
+    >
+      <xl-popper
+        arrow={[Function]}
+        offset={5}
+        overlayStyle={[Function]}
+        popup={[Function]}
+        transitionName="xl-popconfirm--fade"
+        visible={false}
+      >
+        <xl-button
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <button
+            className="xl-button xl-button--default xl-button--size-default"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <span
+              key=".0"
+            >
+              Button
+            </span>
+          </button>
+        </xl-button>
+        <Portal
+          containerInfo={
+            <body>
+              <div
+                style="left: 0px; position: absolute; top: 0px; padding-top: 5px;"
+              />
+            </body>
+          }
+        >
+          <div
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "left": 0,
+                "paddingTop": 5,
+                "position": "absolute",
+                "top": 0,
+              }
+            }
+          >
+            <xl-css-transition
+              beforeAppear={[Function]}
+              beforeEnter={[Function]}
+              classNames="xl-popconfirm--fade"
+              isAppear={true}
+              show={false}
+            >
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                isAppear={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
+              />
+            </xl-css-transition>
+          </div>
+        </Portal>
+      </xl-popper>
+    </xl-tooltip>
+  </xl-popconfirm>
+</Demo>
+`;
+
+exports[`Popconfirm Show Popconfirm 2`] = `
+<Demo
+  visible={true}
+>
+  <xl-popconfirm
+    content="content"
+    visible={true}
+  >
+    <xl-tooltip
+      arrowSize={14}
+      content={
+        <React.Fragment>
+          <div
+            className="xl-popconfirm__message"
+          >
+            <xl-fas-exclamation-circle
+              className="xl-popconfirm__icon"
+            />
+            <span
+              className="xl-popconfirm__content"
+            >
+              content
+            </span>
+          </div>
+          <div
+            className="xl-popconfirm__action"
+          >
+            <ForwardRef
+              className="xl-popconfirm__btn"
+              size="small"
+              type="primary"
+            >
+              Yes
+            </ForwardRef>
+            <ForwardRef
+              className="xl-popconfirm__btn"
+              size="small"
+              type="default"
+            >
+              No
+            </ForwardRef>
+          </div>
+        </React.Fragment>
+      }
+      prefixCls="xl-popconfirm"
+      visible={true}
+    >
+      <xl-popper
+        arrow={[Function]}
+        offset={5}
+        overlayStyle={[Function]}
+        popup={[Function]}
+        transitionName="xl-popconfirm--fade"
+        visible={true}
+      >
+        <xl-button
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <button
+            className="xl-button xl-button--default xl-button--size-default"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+          >
+            <span
+              key=".0"
+            >
+              Button
+            </span>
+          </button>
+        </xl-button>
+        <Portal
+          containerInfo={
+            <body>
+              <div
+                style="left: 0px; position: absolute; top: 0px; padding-top: 5px;"
+              />
+            </body>
+          }
+        >
+          <div
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "left": 0,
+                "paddingTop": 5,
+                "position": "absolute",
+                "top": 0,
+              }
+            }
+          >
+            <xl-css-transition
+              beforeAppear={[Function]}
+              beforeEnter={[Function]}
+              classNames="xl-popconfirm--fade"
+              isAppear={true}
+              show={false}
+            >
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                isAppear={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
+              />
+            </xl-css-transition>
+          </div>
+        </Portal>
+      </xl-popper>
+    </xl-tooltip>
+  </xl-popconfirm>
+</Demo>
+`;

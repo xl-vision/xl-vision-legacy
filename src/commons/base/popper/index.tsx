@@ -95,9 +95,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }
 
   React.useEffect(() => {
-    if (visible !== actualVisible) {
-      setActualWrapper(visible)
-    }
+    // 直接设置
+    setActualVisible(visible)
   }, [visible])
 
   React.useEffect(() => {

@@ -1,0 +1,89 @@
+@import "../../style/commons/var";
+@import "../../style/mixins/arrow";
+
+$popconfirm: #{$--cls-prefix}-popconfirm;
+
+.#{$popconfirm} {
+  &__arrow {
+    &--topLeft,
+    &--top,
+    &--topRight {
+      margin-top: -$--popconfirm-border-width;
+
+      @include arrow(bottom, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+    }
+
+    &--bottomLeft,
+    &--bottom,
+    &--bottomRight {
+      margin-top: $--popconfirm-border-width;
+
+      @include arrow(top, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+    }
+
+    &--leftTop,
+    &--left,
+    &--leftBottom {
+      margin-left: -$--popconfirm-border-width;
+
+      @include arrow(right, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+    }
+
+    &--rightTop,
+    &--right,
+    &--rightBottom {
+      margin-left: $--popconfirm-border-width;
+
+      @include arrow(left, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+    }
+  }
+
+  &__body {
+    color: $--popconfirm-color;
+    background-color: $--popconfirm-bg-color;
+    border: $--popconfirm-border-width solid $--popconfirm-border-color;
+    border-radius: $--popconfirm-border-radius;
+    box-shadow: $--popconfirm-box-shadow;
+
+    @include clearfix();
+  }
+
+  &__message {
+    margin: $--popconfirm-message-margin;
+  }
+
+  &__content {
+    display: inline-block;
+    padding-left: $--popconfirm-content-padding-left;
+  }
+
+  &__action {
+    float: right;
+    margin: $--popconfirm-action-margin;
+  }
+
+  &__icon {
+    color: $--popconfirm-icon-color;
+  }
+
+  &__btn {
+    margin-left: $--popconfirm-btn-margin;
+  }
+
+  &--fade-enter,
+  &--fade-leave-to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  &--fade-enter-active,
+  &--fade-leave-active {
+    transition: opacity $--popconfirm-animation-duration ease-in-out, transform $--popconfirm-animation-duration ease-in-out;
+  }
+
+  &--fade-enter-to,
+  &--fade-leave {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

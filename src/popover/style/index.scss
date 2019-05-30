@@ -38,7 +38,7 @@ $popover: #{$--cls-prefix}-popover;
     }
   }
 
-  &__content {
+  &__body {
     color: $--popover-color;
     background-color: $--popover-bg-color;
     border: $--popover-border-width solid $--popover-border-color;
@@ -53,7 +53,7 @@ $popover: #{$--cls-prefix}-popover;
     border-bottom: $--popover-border-width solid $--popover-border-color;
   }
 
-  &__body {
+  &__content {
     padding: $--popover-body-padding-y $--popover-body-padding-x;
   }
 

@@ -55,7 +55,8 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButton
 
   let { size } = React.useContext(ButtonContext)
 
-  size = size || others.size || 'default'
+  // 如果设置了size，则强制使用这里的size
+  size = others.size || size || 'default'
 
   delete others.size
 

@@ -1,13 +1,13 @@
 ---
 imports:
   - import './index.scss'
-  - import Popover from '..'
+  - import Popconfirm from '..'
   - import Button from '../../button'
   - import ButtonGroup from '../../button-group'
   - import Row from '../../row'
   - import Col from '../../col'
 ---
-# Popover
+# Popconfirm
 
 ::: demo 基本用法
 基本的使用方式
@@ -15,9 +15,25 @@ imports:
 ```jsx
 export default () => {
   return (
-    <Popover title='Title' content={<div>Content</div>}>
-      <span>Popover will show on mouse enter</span>
-    </Popover>
+    <Popconfirm content='Are you sure?'>
+      <span>Popconfirm will show on mouse enter</span>
+    </Popconfirm>
+  )
+
+}
+```
+
+:::
+
+::: demo 点击事件
+点击事件
+
+```jsx
+export default () => {
+  return (
+    <Popconfirm onConfirm={()=>alert('confirm')} onCancel={()=>alert('cancel')} content='Are you sure?'>
+      <Button>button</Button>
+    </Popconfirm>
   )
 
 }
@@ -36,19 +52,19 @@ export default () => {
         <Col span={2}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='topLeft' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='topLeft' content='Are you sure?'>
             <Button>topLeft</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}>
-          <Popover placement='top' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='top' content='Are you sure?'>
             <Button>top</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}>
-          <Popover placement='topRight' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='topRight' content='Are you sure?'>
             <Button>topRight</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}></Col>
         <Col span={2}></Col>
@@ -57,17 +73,17 @@ export default () => {
       <Row>
         <Col span={2}></Col>
         <Col span={4}>
-          <Popover placement='leftTop' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='leftTop' content='Are you sure?'>
             <Button>leftTop</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='rightTop' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='rightTop' content='Are you sure?'>
             <Button>rightTop</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={2}></Col>
       </Row>
@@ -75,17 +91,17 @@ export default () => {
       <Row>
         <Col span={2}></Col>
         <Col span={4}>
-          <Popover placement='left' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='left' content='Are you sure?'>
             <Button>left</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='right' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='right' content='Are you sure?'>
             <Button>right</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={2}></Col>
       </Row>
@@ -93,17 +109,17 @@ export default () => {
       <Row>
         <Col span={2}></Col>
         <Col span={4}>
-          <Popover placement='leftBottom' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='leftBottom' content='Are you sure?'>
             <Button>leftBottom</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='rightBottom' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='rightBottom' content='Are you sure?'>
             <Button>rightBottom</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={2}></Col>
       </Row>
@@ -112,19 +128,19 @@ export default () => {
         <Col span={2}></Col>
         <Col span={4}></Col>
         <Col span={4}>
-          <Popover placement='bottomLeft' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='bottomLeft' content='Are you sure?'>
             <Button>bottomLeft</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}>
-          <Popover placement='bottom' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='bottom' content='Are you sure?'>
             <Button>bottom</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}>
-          <Popover placement='bottomRight' title='Title' content={<div>Content</div>}>
+          <Popconfirm placement='bottomRight' content='Are you sure?'>
             <Button>bottomRight</Button>
-          </Popover>
+          </Popconfirm>
         </Col>
         <Col span={4}></Col>
         <Col span={2}></Col>
@@ -145,21 +161,21 @@ export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
     <ButtonGroup>
-      <Popover trigger='hover' title='Title' content={<div>Content</div>}>
+      <Popconfirm trigger='hover' content='Are you sure?'>
         <Button>hover</Button>
-      </Popover>
-      <Popover trigger='click' title='Title' content={<div>Content</div>}>
+      </Popconfirm>
+      <Popconfirm trigger='click' content='Are you sure?'>
         <Button>click</Button>
-      </Popover>
-      <Popover trigger='focus' title='Title' content={<div>Content</div>}>
+      </Popconfirm>
+      <Popconfirm trigger='focus' content='Are you sure?'>
         <Button>focus</Button>
-      </Popover>
-      <Popover trigger='contextMenu' title='Title' content={<div>Content</div>}>
+      </Popconfirm>
+      <Popconfirm trigger='contextMenu' content='Are you sure?'>
         <Button>contextMenu</Button>
-      </Popover>
-      <Popover trigger='custom' visible={visible} title='Title' content={<div>Content</div>}>
+      </Popconfirm>
+      <Popconfirm trigger='custom' visible={visible} content='Are you sure?'>
         <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
-      </Popover>
+      </Popconfirm>
     </ButtonGroup>
   )
 }
@@ -168,7 +184,7 @@ export default () => {
 
 :::
 
-## Popover API
+## Popconfirm API
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |

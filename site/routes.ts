@@ -74,6 +74,11 @@ const routes: Route[] = [
         name: '气泡卡片',
         path: '/popover',
         component: import('../src/popover/doc/index.md')
+      },
+      {
+        name: '气泡确认框',
+        path: '/popconfirm',
+        component: import('../src/popconfirm/doc/index.md')
       }
     ]
   },
