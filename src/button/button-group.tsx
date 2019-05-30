@@ -2,12 +2,14 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import { ButtonProps } from './button'
+import { ButtonProps, ButtonSize } from './button'
+import ButtonContext from './button-context'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | React.ReactElement<ButtonProps>[]
   prefixCls?: string
   round?: boolean
+  size?: ButtonSize
   vertical?: boolean
 }
 
@@ -19,6 +21,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
     vertical,
     className,
     prefixCls = displayName,
+    size = 'default',
     ...others
   } = props
   const classes = classnames({
@@ -29,7 +32,9 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
   }, className)
 
   return (
-    <div className={classes} {...others}/>
+    <ButtonContext.Provider value={{ size }}>
+      <div className={classes} {...others}/>
+    </ButtonContext.Provider>
   )
 }
 
@@ -39,6 +44,7 @@ ButtonGroup.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
   prefixCls: PropTypes.string,
   round: PropTypes.bool,
+  size: PropTypes.oneOf(['large', 'default', 'small']),
   vertical: PropTypes.bool
 }
 

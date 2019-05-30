@@ -866,6 +866,1611 @@ exports[`button-group 垂直按钮组 1`] = `
 </div>
 `;
 
+exports[`button-group 按钮size 1`] = `
+<Demo
+  size="default"
+>
+  <div
+    className="button-wrapper"
+  >
+    <div
+      className="button-column"
+    >
+      <xl-button
+        size="default"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+    <div
+      className="button-column"
+    >
+      <xl-button
+        size="default"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+          <xl-fas-power-off
+            key=".1"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+    <div
+      className="button-column"
+    >
+      <xl-button
+        shape="round"
+        size="default"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--round xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="round"
+        size="default"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--round xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="circle"
+        size="default"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--circle xl-button--size-default"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="circle"
+        size="default"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--circle xl-button--size-default"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+    </div>
+  </div>
+</Demo>
+`;
+
+exports[`button-group 按钮size 2`] = `
+<Demo
+  size="small"
+>
+  <div
+    className="button-wrapper"
+  >
+    <div
+      className="button-column"
+    >
+      <xl-button
+        size="small"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+    <div
+      className="button-column"
+    >
+      <xl-button
+        size="small"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-small"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+          <xl-fas-power-off
+            key=".1"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-small"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-small"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-small"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-small"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+    <div
+      className="button-column"
+    >
+      <xl-button
+        shape="round"
+        size="small"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--round xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="round"
+        size="small"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--round xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="circle"
+        size="small"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--circle xl-button--size-small"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="circle"
+        size="small"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--circle xl-button--size-small"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+    </div>
+  </div>
+</Demo>
+`;
+
+exports[`button-group 按钮size 3`] = `
+<Demo
+  size="large"
+>
+  <div
+    className="button-wrapper"
+  >
+    <div
+      className="button-column"
+    >
+      <xl-button
+        size="large"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+    <div
+      className="button-column"
+    >
+      <xl-button
+        size="large"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-large"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+          <xl-fas-power-off
+            key=".1"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-large"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-large"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-large"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-large"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+          <span
+            key=".1"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+    <div
+      className="button-column"
+    >
+      <xl-button
+        shape="round"
+        size="large"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--round xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="round"
+        size="large"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--round xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="circle"
+        size="large"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--circle xl-button--size-large"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+      <xl-button
+        shape="circle"
+        size="large"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--circle xl-button--size-large"
+        >
+          <xl-fas-power-off
+            key=".0"
+          >
+            <Memo(xl-icon)>
+              <i
+                className="xl-icon"
+                style={Object {}}
+              >
+                <svg
+                  fill="currentColor"
+                  style={
+                    Object {
+                      "height": "1em",
+                      "width": "1em",
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+                  />
+                </svg>
+              </i>
+            </Memo(xl-icon)>
+          </xl-fas-power-off>
+        </button>
+      </xl-button>
+    </div>
+  </div>
+</Demo>
+`;
+
+exports[`button-group 按钮组size 1`] = `
+<Demo
+  size="default"
+>
+  <Memo(xl-button-group)
+    size="default"
+  >
+    <div
+      className="xl-button-group xl-button-group--horizontal"
+    >
+      <xl-button
+        size="default"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="default"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+        >
+          <span
+            key=".0"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </Memo(xl-button-group)>
+</Demo>
+`;
+
+exports[`button-group 按钮组size 2`] = `
+<Demo
+  size="small"
+>
+  <Memo(xl-button-group)
+    size="small"
+  >
+    <div
+      className="xl-button-group xl-button-group--horizontal"
+    >
+      <xl-button
+        size="small"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="small"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-small"
+        >
+          <span
+            key=".0"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </Memo(xl-button-group)>
+</Demo>
+`;
+
+exports[`button-group 按钮组size 3`] = `
+<Demo
+  size="large"
+>
+  <Memo(xl-button-group)
+    size="large"
+  >
+    <div
+      className="xl-button-group xl-button-group--horizontal"
+    >
+      <xl-button
+        size="large"
+      >
+        <button
+          className="xl-button xl-button--default xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        size="large"
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-large"
+        >
+          <span
+            key=".0"
+          >
+            Text
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </Memo(xl-button-group)>
+</Demo>
+`;
+
 exports[`button-group 水平按钮组 1`] = `
 <div
   class="button-wrapper"

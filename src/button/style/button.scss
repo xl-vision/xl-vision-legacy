@@ -53,15 +53,10 @@ $button: #{$--cls-prefix}-button;
 
 .#{$button} {
   display: inline-block;
-  padding: $--button-padding-y $--button-padding-x;
-  font-weight: $--button-font-weight;
-  font-size: $--button-font-size;
-  // line-height: $--button-line-height;
   white-space: nowrap;
   text-align: center;
   text-decoration: none;
-  border: $--button-border-width solid transparent;
-  border-radius: $--button-border-radius;
+  vertical-align: middle;
   outline: none;
   cursor: pointer;
   transition:
@@ -72,13 +67,58 @@ $button: #{$--cls-prefix}-button;
   -webkit-appearance: none;
   user-select: none;
 
-  &--round {
-    border-radius: $--button-padding-y + $--button-font-size;
+  &--size-default {
+    padding: $--button-default-padding-y $--button-default-padding-x;
+    font-weight: $--button-default-font-weight;
+    font-size: $--button-default-font-size;
+    border: $--button-default-border-width solid transparent;
+    border-radius: $--button-default-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $--button-default-padding-y + $--button-default-font-size;
+    }
+
+    &.#{$button}--circle {
+      min-height: $--button-default-padding-y * 2 + $--button-default-font-size;
+      padding: $--button-default-padding-y;
+    }
+  }
+
+  &--size-large {
+    padding: $--button-large-padding-y $--button-large-padding-x;
+    font-weight: $--button-large-font-weight;
+    font-size: $--button-large-font-size;
+    border: $--button-large-border-width solid transparent;
+    border-radius: $--button-large-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $--button-large-padding-y + $--button-large-font-size;
+    }
+
+    &.#{$button}--circle {
+      min-height: $--button-large-padding-y * 2 + $--button-large-font-size;
+      padding: $--button-large-padding-y;
+    }
+  }
+
+  &--size-small {
+    padding: $--button-small-padding-y $--button-small-padding-x;
+    font-weight: $--button-small-font-weight;
+    font-size: $--button-small-font-size;
+    border: $--button-small-border-width solid transparent;
+    border-radius: $--button-small-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $--button-small-padding-y + $--button-small-font-size;
+    }
+
+    &.#{$button}--circle {
+      min-height: $--button-small-padding-y * 2 + $--button-small-font-size;
+      padding: $--button-small-padding-y;
+    }
   }
 
   &--circle {
-    min-height: $--button-padding-y * 2 + $--button-font-size;
-    padding: $--button-padding-y;
     line-height: 0;
     vertical-align: middle;
     border-radius: 50%;

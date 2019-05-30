@@ -1,6 +1,7 @@
 import { mount, render } from 'enzyme'
 import * as React from 'react'
-import { Button, ButtonGroup } from '..'
+import { act } from 'react-testing-library'
+import { Button, ButtonGroup, ButtonSize } from '..'
 import Icon from '../../icon'
 
 describe('button', () => {
@@ -203,5 +204,93 @@ describe('button-group', () => {
       </div>
     )
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('按钮size', () => {
+    const Demo = ({ size }: { size: ButtonSize }) => {
+      return (
+        <div className='button-wrapper'>
+          <div className='button-column'>
+            <Button size={size}>Default</Button>
+            <Button size={size} type='primary'>Primary</Button>
+            <Button size={size} type='success'>Success</Button>
+            <Button size={size} type='warning'>Warning</Button>
+            <Button size={size} type='error'>Error</Button>
+            <Button size={size} type='text'>Text</Button>
+          </div>
+          <div className='button-column'>
+            <Button size={size}><Icon.FasPowerOff/>Default</Button>
+            <Button size={size} type='primary'>Primary<Icon.FasPowerOff/></Button>
+            <Button size={size} type='success'><Icon.FasPowerOff/>Success</Button>
+            <Button size={size} type='warning'><Icon.FasPowerOff/>Warning</Button>
+            <Button size={size} type='error'><Icon.FasPowerOff/>Error</Button>
+            <Button size={size} type='text'><Icon.FasPowerOff/>Text</Button>
+          </div>
+          <div className='button-column'>
+            <Button size={size} shape='round'>Default</Button>
+            <Button size={size} shape='round' type='primary'>Primary</Button>
+            <Button size={size} shape='circle'><Icon.FasPowerOff/></Button>
+            <Button size={size} shape='circle' type='primary'><Icon.FasPowerOff/></Button>
+          </div>
+        </div>
+      )
+    }
+
+    expect.assertions(3)
+    const wrapper = mount(<Demo size={'default'}/>)
+
+    expect(wrapper).toMatchSnapshot()
+
+    wrapper.setProps({
+      size: 'small'
+    })
+
+    act(() => {
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    wrapper.setProps({
+      size: 'large'
+    })
+
+    act(() => {
+      expect(wrapper).toMatchSnapshot()
+    })
+  })
+
+  it('按钮组size', () => {
+    const Demo = ({ size }: { size: ButtonSize }) => {
+      return (
+        <ButtonGroup size={size}>
+          <Button size={size}>Default</Button>
+          <Button size={size} type='primary'>Primary</Button>
+          <Button size={size} type='success'>Success</Button>
+          <Button size={size} type='warning'>Warning</Button>
+          <Button size={size} type='error'>Error</Button>
+          <Button size={size} type='text'>Text</Button>
+        </ButtonGroup>
+      )
+    }
+
+    expect.assertions(3)
+    const wrapper = mount(<Demo size={'default'}/>)
+
+    expect(wrapper).toMatchSnapshot()
+
+    wrapper.setProps({
+      size: 'small'
+    })
+
+    act(() => {
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    wrapper.setProps({
+      size: 'large'
+    })
+
+    act(() => {
+      expect(wrapper).toMatchSnapshot()
+    })
   })
 })

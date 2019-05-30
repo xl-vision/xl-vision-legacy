@@ -1,7 +1,7 @@
 import Button from './button'
 import ButtonGroup from './button-group'
 
-export { ButtonProps } from './button'
+export { ButtonProps, ButtonSize } from './button'
 export { ButtonGroupProps } from './button-group'
 
 export { Button, ButtonGroup }

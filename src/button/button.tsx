@@ -3,6 +3,9 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { FasCircleNotch } from '../icon'
+import ButtonContext from './button-context'
+
+export type ButtonSize = 'large' | 'default' | 'small'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   children: React.ReactNode
@@ -17,6 +20,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HT
   plain?: boolean
   prefixCls?: string
   shape?: 'circle' | 'round'
+  size?: ButtonSize
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
 
@@ -49,10 +53,17 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButton
     ...others
   } = props
 
+  let { size } = React.useContext(ButtonContext)
+
+  size = size || others.size || 'default'
+
+  delete others.size
+
   const classes = classnames({
     [prefixCls]: true,
     [`${prefixCls}--${type}`]: true,
     [`${prefixCls}--${shape}`]: shape,
+    [`${prefixCls}--size-${size}`]: size,
     [`${prefixCls}--dashed`]: dashed,
     [`${prefixCls}--plain`]: plain,
     [`${prefixCls}--ghost`]: ghost,
@@ -90,13 +101,14 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   ghost: PropTypes.bool,
   href: PropTypes.string,
-  htmlType: PropTypes.oneOf<'submit' | 'reset' | 'button'>(['submit', 'reset', 'button']),
+  htmlType: PropTypes.oneOf(['submit', 'reset', 'button']),
   loading: PropTypes.bool,
   long: PropTypes.bool,
   plain: PropTypes.bool,
   prefixCls: PropTypes.string,
   shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
-  type: PropTypes.oneOf<'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'>(['default', 'primary', 'success', 'warning', 'error', 'text'])
+  size: PropTypes.oneOf(['large', 'default', 'small']),
+  type: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text'])
 }
 
 export default Button

@@ -6,26 +6,6 @@ imports:
 ---
 # 按钮
 
-:::demo 加载中状态
-给按钮添加`loading`属性即可让按钮处于加载状态，此时icon属性会被loading组件覆盖
-
-```jsx
-export default () => {
-    const [state, setState] = React.useState(false)
-    const click = React.useCallback(()=>setState(!state),[])
-    return (
-        <div className='button-wrapper'>
-            <div className='button-column'>
-                <Button disabled={state}>Default</Button>
-                <Button type='text' onClick={click}>Text</Button>
-            </div>
-        </div>
-    )
-}
-```
-
-:::
-
 :::demo 基础用法
 通过`type`、`plain`、`dashed`指定按钮的样式，按钮中也可以添加[Icon](#/icon)。
 
@@ -97,6 +77,48 @@ export default () => {
             </div>
         </div>
     )
+}
+```
+
+:::
+
+::: demo 按钮大小
+通过`size`调整按钮大小
+
+```jsx
+export default () => {
+  const [size, setSize] = React.useState('default')
+  return (
+    <div className='button-wrapper'>
+      <ButtonGroup>
+        <Button onClick={() => setSize('large')} type={size==='large'?'primary':'default'}>L</Button>
+        <Button onClick={() => setSize('default')} type={size==='default'?'primary':'default'}>M</Button>
+        <Button onClick={() => setSize('small')} type={size==='small'?'primary':'default'}>S</Button>
+      </ButtonGroup>
+      <div className='button-column'>
+          <Button size={size}>Default</Button>
+          <Button size={size} type='primary'>Primary</Button>
+          <Button size={size} type='success'>Success</Button>
+          <Button size={size} type='warning'>Warning</Button>
+          <Button size={size} type='error'>Error</Button>
+          <Button size={size} type='text'>Text</Button>
+      </div>
+      <div className='button-column'>
+          <Button size={size}><Icon.FasPowerOff/>Default</Button>
+          <Button size={size} type='primary'>Primary<Icon.FasPowerOff/></Button>
+          <Button size={size} type='success'><Icon.FasPowerOff/>Success</Button>
+          <Button size={size} type='warning'><Icon.FasPowerOff/>Warning</Button>
+          <Button size={size} type='error'><Icon.FasPowerOff/>Error</Button>
+          <Button size={size} type='text'><Icon.FasPowerOff/>Text</Button>
+      </div>
+      <div className='button-column'>
+          <Button size={size} shape='round'>Default</Button>
+          <Button size={size} shape='round' type='primary'>Primary</Button>
+          <Button size={size} shape='circle'><Icon.FasPowerOff/></Button>
+          <Button size={size} shape='circle' type='primary'><Icon.FasPowerOff/></Button>
+      </div>
+      </div>
+  )
 }
 ```
 
@@ -217,34 +239,40 @@ export default () => {
 
 ```jsx
 export default () => {
-    return (
-        <div className='button-wrapper'>
-            <div>
-                <ButtonGroup>
-                    <Button>Default</Button>
-                    <Button type='primary'>Primary</Button>
-                    <Button type='success'>Success</Button>
-                    <Button type='warning'>Warning</Button>
-                    <Button type='error'>Error</Button>
-                </ButtonGroup>
-            </div>
-            <div>
-                <ButtonGroup round>
-                    <Button>Default</Button>
-                    <Button type='primary'>Primary</Button>
-                    <Button type='success'>Success</Button>
-                    <Button type='warning'>Warning</Button>
-                    <Button type='error'>Error</Button>
-                </ButtonGroup>
-            </div>
-            <div>
-                <ButtonGroup>
-                    <Button><Icon.FasChevronLeft/>上一页</Button>
-                    <Button>下一页<Icon.FasChevronRight/></Button>
-                </ButtonGroup>
-            </div>
-        </div>
-    )
+  const [size, setSize] = React.useState('default')
+  return (
+    <div className='button-wrapper'>
+      <ButtonGroup>
+        <Button onClick={() => setSize('large')} type={size==='large'?'primary':'default'}>L</Button>
+        <Button onClick={() => setSize('default')} type={size==='default'?'primary':'default'}>M</Button>
+        <Button onClick={() => setSize('small')} type={size==='small'?'primary':'default'}>S</Button>
+      </ButtonGroup>
+      <div>
+        <ButtonGroup size={size}>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+        </ButtonGroup>
+      </div>
+      <div>
+        <ButtonGroup round size={size}>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+        </ButtonGroup>
+      </div>
+      <div>
+        <ButtonGroup size={size}>
+          <Button><Icon.FasChevronLeft/>上一页</Button>
+          <Button>下一页<Icon.FasChevronRight/></Button>
+        </ButtonGroup>
+      </div>
+    </div>
+  )
 }
 ```
 
@@ -255,28 +283,34 @@ export default () => {
 
 ```jsx
 export default () => {
-    return (
-        <div className='button-wrapper'>
-            <ButtonGroup vertical>
-                <Button>Default</Button>
-                <Button type='primary'>Primary</Button>
-                <Button type='success'>Success</Button>
-                <Button type='warning'>Warning</Button>
-                <Button type='error'>Error</Button>
-            </ButtonGroup>
-            <ButtonGroup vertical round>
-                <Button>Default</Button>
-                <Button type='primary'>Primary</Button>
-                <Button type='success'>Success</Button>
-                <Button type='warning'>Warning</Button>
-                <Button type='error'>Error</Button>
-            </ButtonGroup>
-            <ButtonGroup vertical>
-                <Button><Icon.FasChevronUp/>上一页</Button>
-                <Button><Icon.FasChevronDown/>下一页</Button>
-            </ButtonGroup>
-        </div>
-    )
+  const [size, setSize] = React.useState('default')
+  return (
+    <div className='button-wrapper'>
+      <ButtonGroup size={size}>
+        <Button onClick={() => setSize('large')} type={size==='large'?'primary':'default'}>L</Button>
+        <Button onClick={() => setSize('default')} type={size==='default'?'primary':'default'}>M</Button>
+        <Button onClick={() => setSize('small')} type={size==='small'?'primary':'default'}>S</Button>
+      </ButtonGroup>
+      <ButtonGroup vertical size={size}>
+        <Button>Default</Button>
+        <Button type='primary'>Primary</Button>
+        <Button type='success'>Success</Button>
+        <Button type='warning'>Warning</Button>
+        <Button type='error'>Error</Button>
+      </ButtonGroup>
+      <ButtonGroup vertical round size={size}>
+        <Button>Default</Button>
+        <Button type='primary'>Primary</Button>
+        <Button type='success'>Success</Button>
+        <Button type='warning'>Warning</Button>
+        <Button type='error'>Error</Button>
+      </ButtonGroup>
+      <ButtonGroup vertical size={size}>
+        <Button><Icon.FasChevronUp/>上一页</Button>
+        <Button><Icon.FasChevronDown/>下一页</Button>
+      </ButtonGroup>
+    </div>
+  )
 }
 ```
 
@@ -296,6 +330,7 @@ export default () => {
 |plain|设置为朴素按钮|boolean|-|false|false|
 |shape|设置按钮的形状，通常`circle`与[Icon](#/icon)连用|string|cirlce/round|-|false|
 |type|设置按钮类型|string|default/primary/success/warning/error/text|default|false|
+|size|设置按钮大小，在ButtonGroup中，则此属性无效，需要使用ButtonGroup中的对应属性|string|default/large/small|default|false|
 
 ## ButtonGroup API
 
@@ -303,3 +338,4 @@ export default () => {
 | ------- | -------- | --------- | ------------ | ------ | --- |
 |round|指定按钮组中按钮的圆角样式|boolean|-|false|false|
 |vertical|指定按钮组为垂直方向|boolean|-|false|false|
+|size|设置按钮大小|string|default/large/small|default|false|
