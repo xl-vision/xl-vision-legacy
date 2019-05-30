@@ -4,6 +4,14 @@ import { Collapse, CollapsePanel } from '..'
 import { namePrefix } from '../../commons/config'
 import { FasArrowCircleRight, FasCog } from '../../icon'
 
+jest.mock('../../commons/utils/transition', () => ({
+  // tslint:disable-next-line:no-empty
+  nextFrame: (fn: Function) => fn(),
+  onTransitionEnd: (_el: HTMLElement, done: () => void) => {
+    setTimeout(done, 1000)
+  }
+}))
+
 describe('collapse', () => {
   it('测试展开收缩效果', () => {
     const wrapper = mount(

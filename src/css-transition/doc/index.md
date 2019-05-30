@@ -13,7 +13,7 @@ imports:
 
 ```jsx
 export default () => {
-     const [active, setActive] = React.useState(true)
+     const [active, setActive] = React.useState(false)
 
      return (
        <div>

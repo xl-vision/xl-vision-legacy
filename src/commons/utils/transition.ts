@@ -1,13 +1,5 @@
 import { isClient } from './env'
 
-export const nextFrame = requestAnimationFrame ||
-                        webkitRequestAnimationFrame ||
-                        // @ts-ignore
-                        mozRequestAnimationFrame ||
-                        ((callback: () => void) => {
-                          setTimeout(callback, 0)
-                        })
-
 let transitionProp = 'transition'
 let transitionEndEvent = 'transitionend'
 let animationProp = 'animation'
@@ -81,12 +73,6 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   el.addEventListener(event, onEnd)
 }
 
-export const reflow = (node: HTMLElement) => {
-  // force a repaint
-  // tslint:disable-next-line: no-unused-expression
-  node.scrollTop
-}
-
 const getTimeout = (delays: string[], durations: string[]) => {
   while (delays.length < durations.length) {
     delays = delays.concat(delays)
@@ -99,4 +85,16 @@ const getTimeout = (delays: string[], durations: string[]) => {
 
 const toMs = (s: string) => {
   return Number(s.slice(0, -1)) * 1000
+}
+
+const raf = isClient ?
+  window.requestAnimationFrame ?
+    window.requestAnimationFrame.bind(window)
+    : setTimeout
+  : (fn: Function) => fn()
+
+export const nextFrame = (fn: Function) => {
+  raf(() => {
+    raf(fn)
+  })
 }

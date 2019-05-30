@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import { onTransitionEnd, reflow } from '../commons/utils/transition'
+import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
 
 export interface CollapseTransitionProp {
@@ -38,11 +38,12 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
         }
       },
       enter (el: HTMLElement, done: () => void, isCancelled: () => boolean) {
-        if (!isCancelled()) {
-          reflow(el)
-          el.style.height = el.dataset.height + 'px'
-          onTransitionEnd(el, done)
-        }
+        nextFrame(() => {
+          if (!isCancelled()) {
+            el.style.height = el.dataset.height + 'px'
+            onTransitionEnd(el, done)
+          }
+        })
       },
       afterEnter: (el: HTMLElement) => {
         el.style.height = null
@@ -59,11 +60,12 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
         el.style.height = el.offsetHeight + 'px'
       },
       leave (el: HTMLElement, done: () => void, isCancelled: () => boolean) {
-        if (!isCancelled()) {
-          reflow(el)
-          el.style.height = '0'
-          onTransitionEnd(el, done)
-        }
+        nextFrame(() => {
+          if (!isCancelled()) {
+            el.style.height = '0'
+            onTransitionEnd(el, done)
+          }
+        })
       },
       afterLeave: (el: HTMLElement) => {
         el.style.height = null
@@ -81,7 +83,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
       {...transitionEvents}
     >
       <div className={transitionClassName} style={styles}>
-          {children}
+        {children}
       </div>
     </CssTransition>
   )

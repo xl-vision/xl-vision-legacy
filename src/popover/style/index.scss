@@ -57,20 +57,16 @@ $popover: #{$--cls-prefix}-popover;
     padding: $--popover-body-padding-y $--popover-body-padding-x;
   }
 
+  &--fade-enter-active,
+  &--fade-leave-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity $--popover-animation-duration ease-in-out, transform $--popover-animation-duration ease-in-out;
+  }
+
   &--fade-enter,
   &--fade-leave-to {
     transform: scale(0.8);
     opacity: 0;
-  }
-
-  &--fade-enter-active,
-  &--fade-leave-active {
-    transition: opacity $--popover-animation-duration ease-in-out, transform $--popover-animation-duration ease-in-out;
-  }
-
-  &--fade-enter-to,
-  &--fade-leave {
-    transform: scale(1);
-    opacity: 1;
   }
 }

@@ -1,9 +1,9 @@
 jest.mock('../../commons/utils/transition', () => ({
+  // tslint:disable-next-line:no-empty
+  nextFrame: (fn: Function) => fn(),
   onTransitionEnd: (_el: HTMLElement, done: () => void) => {
     setTimeout(done, 1000)
-  },
-  // tslint:disable-next-line:no-empty
-  reflow: () => {}
+  }
 }))
 
 import { mount } from 'enzyme'

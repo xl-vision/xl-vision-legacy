@@ -1232,7 +1232,6 @@ exports[`collapse 测试手风琴 3`] = `
                 style={
                   Object {
                     "boxSizing": "border-box",
-                    "display": "none",
                     "overflow": "hidden",
                     "paddingBottom": "0",
                     "paddingTop": "0",
@@ -3963,7 +3962,6 @@ exports[`collapse 测试默认展开的面板 2`] = `
                 style={
                   Object {
                     "boxSizing": "border-box",
-                    "display": "none",
                     "overflow": "hidden",
                     "paddingBottom": "0",
                     "paddingTop": "0",
@@ -4192,7 +4190,6 @@ exports[`collapse 测试默认展开的面板 3`] = `
                 style={
                   Object {
                     "boxSizing": "border-box",
-                    "display": "none",
                     "overflow": "hidden",
                     "paddingBottom": "0",
                     "paddingTop": "0",

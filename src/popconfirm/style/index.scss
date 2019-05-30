@@ -70,20 +70,16 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
     margin-left: $--popconfirm-btn-margin;
   }
 
+  &--fade-enter-active,
+  &--fade-leave-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity $--popconfirm-animation-duration ease-in-out, transform $--popconfirm-animation-duration ease-in-out;
+  }
+
   &--fade-enter,
   &--fade-leave-to {
     transform: scale(0.8);
     opacity: 0;
-  }
-
-  &--fade-enter-active,
-  &--fade-leave-active {
-    transition: opacity $--popconfirm-animation-duration ease-in-out, transform $--popconfirm-animation-duration ease-in-out;
-  }
-
-  &--fade-enter-to,
-  &--fade-leave {
-    transform: scale(1);
-    opacity: 1;
   }
 }

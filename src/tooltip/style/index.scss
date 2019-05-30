@@ -41,20 +41,16 @@ $tooltip: #{$--cls-prefix}-tooltip;
     border-radius: $--tooltip-border-radius;
   }
 
+  &--fade-enter-active,
+  &--fade-leave-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity $--tooltip-animation-duration ease-in-out, transform $--tooltip-animation-duration ease-in-out;
+  }
+
   &--fade-enter,
   &--fade-leave-to {
     transform: scale(0.8);
     opacity: 0;
-  }
-
-  &--fade-enter-active,
-  &--fade-leave-active {
-    transition: opacity $--tooltip-animation-duration ease-in-out, transform $--tooltip-animation-duration ease-in-out;
-  }
-
-  &--fade-enter-to,
-  &--fade-leave {
-    transform: scale(1);
-    opacity: 1;
   }
 }
