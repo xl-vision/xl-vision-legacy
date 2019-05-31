@@ -3,7 +3,8 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
   background-color: $--bg-color;
   // box-shadow: 0 2px 8px #f0f1f2;
   border-bottom: 1px solid $--border-color;
@@ -12,7 +13,7 @@
     text-decoration: none;
 
     img {
-      height: 4rem;
+      height: 3.5rem;
     }
   }
 }

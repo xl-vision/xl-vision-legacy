@@ -179,18 +179,18 @@ $button: #{$--cls-prefix}-button;
       border-color: color-level($color-active, -$--button-color-level);
     }
 
-    // &.#{$button}--plain,
-    // &.#{$button}--ghost {
-    //   background-color: transparent;
+    &.#{$button}--plain,
+    &.#{$button}--ghost {
+      background-color: transparent;
 
-    //   &:hover:not(:disabled),
-    //   &:focus:not(:disabled),
-    //   &:active:not(:disabled) {
-    //     color: $--color-primary;
-    //     background-color: transparent;
-    //     border-color: $--color-primary;
-    //   }
-    // }
+      &:hover:not(:disabled),
+      &:focus:not(:disabled),
+      &:active:not(:disabled) {
+        color: $--color-primary;
+        background-color: transparent;
+        border-color: $--color-primary;
+      }
+    }
   }
 
   &--text {

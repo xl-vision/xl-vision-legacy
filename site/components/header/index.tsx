@@ -11,8 +11,8 @@ export default function () {
         <img src={logo} alt=''/>
       </Link>
       <div>
-        <Button href={'https://github.com/xl-vision/xl-vision'} target={'_black'}>
-          <Icon.FabGithub/>仓库
+        <Button size={'small'} ghost={true} href={'https://github.com/xl-vision/xl-vision'} target={'_black'}>
+          <Icon.FabGithub/>github
         </Button>
       </div>
     </header>
