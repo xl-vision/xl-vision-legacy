@@ -23,14 +23,14 @@ const routes: Route[] = [
     redirect: '/grid'
   },
   {
-    name: '基础',
-    children: [
-      {
-        name: '色彩',
-        path: '/color',
-        component: import('./docs/color/index.md')
-      }
-    ]
+    name: '快速上手',
+    path: '/quickstart',
+    component: import('./docs/quickstart/index.md')
+  },
+  {
+    name: '色彩',
+    path: '/color',
+    component: import('./docs/color/index.md')
   },
   {
     name: '布局',
@@ -102,6 +102,6 @@ const routes: Route[] = [
       },
     ]
   }
-];
+]
 
-export default routes;
+export default routes

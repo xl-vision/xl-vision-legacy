@@ -149,25 +149,26 @@ $--button-icon-padding:         0.25rem                                         
 $--button-opacity-disabled:     $--opacity-disabled                                 !default;
 $--button-text-color:           $--text-color                                       !default;
 $--button-text-color-light:     $--text-color-light                                 !default;
+$--button-line-height: $--line-height !default;
 
+$--button-default-height: 2rem !default;
 $--button-default-font-weight:          $--font-weight                                      !default;
 $--button-default-border-width:         $--border-width                                     !default;
-$--button-default-padding-y:            0.3rem                                              !default;
-$--button-default-padding-x:            0.7rem                                              !default;
+$--button-default-padding-x:            0.8rem                                              !default;
 $--button-default-font-size:            $--font-size                                        !default;
 $--button-default-border-radius:        $--border-radius                                    !default;
 
+$--button-large-height: 2.5rem !default;
 $--button-large-font-weight:          $--button-default-font-weight                                      !default;
 $--button-large-border-width:         $--button-default-border-width                                     !default;
-$--button-large-padding-y:            $--button-default-padding-y * 1.2                                              !default;
 $--button-large-padding-x:            $--button-default-padding-x * 1.2                                              !default;
 $--button-large-font-size:            $--font-size-lg                                        !default;
 $--button-large-border-radius:        $--border-radius                                    !default;
 
+$--button-small-height: 1.5rem !default;
 $--button-small-font-weight:          $--button-default-font-weight                                      !default;
 $--button-small-border-width:         $--button-default-border-width                                     !default;
-$--button-small-padding-y:            $--button-default-padding-y * 0.8                                              !default;
-$--button-small-padding-x:            $--button-default-padding-x * 0.8                                           !default;
+$--button-small-padding-x:            $--button-default-padding-x * 0.6                                           !default;
 $--button-small-font-size:            $--font-size-sm                                        !default;
 $--button-small-border-radius:        $--border-radius                                    !default;
 

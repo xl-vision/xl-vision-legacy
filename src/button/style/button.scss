@@ -53,6 +53,7 @@ $button: #{$--cls-prefix}-button;
 
 .#{$button} {
   display: inline-block;
+  line-height: $--button-line-height;
   white-space: nowrap;
   text-align: center;
   text-decoration: none;
@@ -68,59 +69,61 @@ $button: #{$--cls-prefix}-button;
   user-select: none;
 
   &--size-default {
-    padding: $--button-default-padding-y $--button-default-padding-x;
+    height: $--button-default-height;
+    padding: 0 $--button-default-padding-x;
     font-weight: $--button-default-font-weight;
     font-size: $--button-default-font-size;
     border: $--button-default-border-width solid transparent;
     border-radius: $--button-default-border-radius;
 
     &.#{$button}--round {
-      border-radius: $--button-default-padding-y + $--button-default-font-size;
+      border-radius: $--button-default-height;
     }
 
     &.#{$button}--circle {
-      min-height: $--button-default-padding-y * 2 + $--button-default-font-size;
-      padding: $--button-default-padding-y;
+      width: $--button-default-height;
+      height: $--button-default-height;
     }
   }
 
   &--size-large {
-    padding: $--button-large-padding-y $--button-large-padding-x;
+    height: $--button-large-height;
+    padding: 0 $--button-large-padding-x;
     font-weight: $--button-large-font-weight;
     font-size: $--button-large-font-size;
     border: $--button-large-border-width solid transparent;
     border-radius: $--button-large-border-radius;
 
     &.#{$button}--round {
-      border-radius: $--button-large-padding-y + $--button-large-font-size;
+      border-radius: $--button-large-height;
     }
 
     &.#{$button}--circle {
-      min-height: $--button-large-padding-y * 2 + $--button-large-font-size;
-      padding: $--button-large-padding-y;
+      width: $--button-large-height;
+      height: $--button-large-height;
     }
   }
 
   &--size-small {
-    padding: $--button-small-padding-y $--button-small-padding-x;
+    height: $--button-small-height;
+    padding: 0 $--button-small-padding-x;
     font-weight: $--button-small-font-weight;
     font-size: $--button-small-font-size;
     border: $--button-small-border-width solid transparent;
     border-radius: $--button-small-border-radius;
 
     &.#{$button}--round {
-      border-radius: $--button-small-padding-y + $--button-small-font-size;
+      border-radius: $--button-small-height;
     }
 
     &.#{$button}--circle {
-      min-height: $--button-small-padding-y * 2 + $--button-small-font-size;
-      padding: $--button-small-padding-y;
+      width: $--button-small-height;
+      height: $--button-small-height;
     }
   }
 
   &--circle {
-    line-height: 0;
-    vertical-align: middle;
+    padding: 0;
     border-radius: 50%;
   }
 
@@ -149,6 +152,7 @@ $button: #{$--cls-prefix}-button;
   }
 
   &--default {
+    color: $--button-text-color;
     background-color: $--button-bg-color;
     border-color: $--button-border-color;
 

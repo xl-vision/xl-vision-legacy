@@ -1,6 +1,14 @@
 @import "../../assets/style/var";
 
 .md {
+  pre {
+    code {
+      font-size: 14px;
+      font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+      line-height: 2;
+    }
+  }
+
   display: block;
   padding: 1rem;
   font-size: 1rem;
@@ -10,7 +18,7 @@
   }
 
   &_code_inline {
-    $color: color-level($--color-primary, -$--color-level * 3);
+    $color: color-level($--color-primary, -$--color-level * 4);
 
     display: inline-block;
     height: 1rem;
@@ -24,10 +32,14 @@
 
   &_blockquote {
     margin: 0;
-    padding-left: 2rem;
+    padding: 0.25rem 0 0.25rem 2rem;
     line-height: 2;
-    background-color: color-level($--color-primary, -$--color-level * 4);
+    background-color: color-level($--color-gray-100, -$--color-level * 2);
     border-left: 4px solid $--color-primary;
+
+    p {
+      margin: 0;
+    }
   }
 
   // &_fence{
