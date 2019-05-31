@@ -17,7 +17,7 @@ imports:
 export default () => {
   return (
     <Popconfirm content='Are you sure?'>
-      <span>Popconfirm will show on mouse enter</span>
+      <Button>click me</Button>
     </Popconfirm>
   )
 
