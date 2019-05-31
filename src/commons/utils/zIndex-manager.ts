@@ -1,3 +1,5 @@
 let zIndex = 1000
 
-export const getZIndex = () => zIndex++
+export const increaseZIndex = () => ++zIndex
+
+export const getCurrentIndex = () => zIndex

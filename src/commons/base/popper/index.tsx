@@ -8,7 +8,7 @@ import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
 import { getPosition, include, isStyleSupport } from '../../utils/dom'
 import { mergeEvents, off, on } from '../../utils/event'
-import { getZIndex } from '../../utils/zIndex-manager'
+import { increaseZIndex } from '../../utils/zIndex-manager'
 
 export type Placement =
   | 'top'
@@ -229,7 +229,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style.paddingLeft = offset
     }
     if (actualVisible) {
-      style.zIndex = getZIndex()
+      style.zIndex = increaseZIndex()
     }
     return style
   }, [left, top, offset, actualVisible])
