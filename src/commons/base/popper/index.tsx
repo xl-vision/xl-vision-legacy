@@ -359,6 +359,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       onMouseLeave={onPopupMouseLeave}
     >
       <CssTransition
+        forceRender={true}
         isAppear={true}
         show={actualVisible}
         classNames={transitionClass}

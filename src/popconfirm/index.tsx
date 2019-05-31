@@ -30,6 +30,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
     prefixCls = displayName,
     arrowSize = 14,
     visible,
+    trigger = 'click',
     onVisibleChange,
     ...others
   } = props
@@ -94,6 +95,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
 
   return (
     <Tooltip
+      trigger={trigger}
       onVisibleChange={onVisibleChangeWrapper}
       visible={actualVisible}
       // 必须允许进入
