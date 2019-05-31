@@ -10,9 +10,11 @@ export default function () {
       <Link to='/' className='logo'>
         <img src={logo} alt=''/>
       </Link>
-      <Button href={'https://github.com/xl-vision/xl-vision'}>
-        <Icon.FabGithub/>
-      </Button>
+      <div>
+        <Button href={'https://github.com/xl-vision/xl-vision'} target={'_black'}>
+          <Icon.FabGithub/>仓库
+        </Button>
+      </div>
     </header>
   )
 }

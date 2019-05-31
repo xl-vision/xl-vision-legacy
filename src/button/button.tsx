@@ -2,12 +2,18 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
+import { Omit } from '../commons/types'
 import { FasCircleNotch } from '../icon'
 import ButtonContext from './button-context'
 
 export type ButtonSize = 'large' | 'default' | 'small'
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
+export type ButtonProps =
+  & BaseButtonProps
+  & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'>
+  & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>
+
+export interface BaseButtonProps {
   children: React.ReactNode
   className?: string
   dashed?: boolean

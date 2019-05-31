@@ -52,7 +52,9 @@ $button: #{$--cls-prefix}-button;
 }
 
 .#{$button} {
+  position: relative;
   display: inline-block;
+  box-sizing: border-box;
   line-height: $--button-line-height;
   white-space: nowrap;
   text-align: center;
@@ -60,13 +62,15 @@ $button: #{$--cls-prefix}-button;
   vertical-align: middle;
   outline: none;
   cursor: pointer;
-  transition:
-    color $--button-animation-time ease-in-out,
-    border-color $--button-animation-time ease-in-out,
-    background-color $--button-animation-time ease-in-out,
-    box-shadow $--button-animation-time ease-in-out;
+  transition: all $--button-animation-time ease-in-out;
   -webkit-appearance: none;
   user-select: none;
+  touch-action: manipulation;
+
+  > span {
+    display: inline-block;
+    pointer-events: none;
+  }
 
   &--size-default {
     height: $--button-default-height;
@@ -226,5 +230,19 @@ $button: #{$--cls-prefix}-button;
     &:active:not(:disabled) {
       background-color: $--bg-color;
     }
+  }
+}
+
+a {
+  &.#{$button}--size-large {
+    line-height: $--button-large-height;
+  }
+
+  &.#{$button}--size-default {
+    line-height: $--button-default-height;
+  }
+
+  &.#{$button}--size-small {
+    line-height: $--button-small-height;
   }
 }

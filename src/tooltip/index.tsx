@@ -1,23 +1,14 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
-import Popper, { Placement } from '../commons/base/popper'
+import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
+import { Omit } from '../commons/types'
 
-export interface TooltipProps {
-  allowPopupEnter?: boolean
+export interface TooltipProps extends Omit<Omit<PopperProps, 'popup'>, 'arrow'> {
   arrowSize?: number
-  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   content: React.ReactNode
-  delayHide?: number
-  delayShow?: number
-  getPopupContainer?: () => HTMLElement
-  offset?: number
-  onVisibleChange?: (visible: boolean) => void,
-  placement?: Placement
   prefixCls?: string,
-  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
-  visible?: boolean
 }
 
 export const displayName = `${namePrefix}-tooltip`
@@ -31,8 +22,11 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
     ...others
   } = props
 
-  const transitionName = `${prefixCls}--fade`
-  const overlayStyle = overlayStyleCb
+  const transitionName = others.transitionName || `${prefixCls}--fade`
+  const overlayStyle = others.overlayStyle || overlayStyleCb
+
+  delete others.transitionName
+  delete others.overlayStyle
 
   const arrow = React.useCallback((_placement: Placement, center: { x: number, y: number }) => {
     const classes = classnames(`${prefixCls}__arrow`, `${prefixCls}__arrow--${_placement}`)
