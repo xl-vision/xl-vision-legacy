@@ -19,6 +19,7 @@ A feature-rich React component library.
 * Support SSR.
 * Use typescript for static type checking.
 * Based on react hooks instead of class.
+* Minimal dependence.
 
 # :computer: Environment
 
