@@ -6,6 +6,7 @@ imports:
   - import ButtonGroup from '../../button-group'
   - import Row from '../../row'
   - import Col from '../../col'
+  - import {FasSkullCrossbones} from '../../icon'
 ---
 # Popconfirm
 
@@ -184,17 +185,48 @@ export default () => {
 
 :::
 
+::: demo 自定义按钮
+自定义按钮
+
+```jsx
+export default () => {
+  return (
+    <Popconfirm content='Are you sure?' confirmText='确定' cancelText='取消' confirmType='error' cancelType='warning'>
+      <Button>click</Button>
+    </Popconfirm>
+  )
+}
+```
+
+:::
+
+::: demo 自定义icon
+自定义icon
+
+```jsx
+export default () => {
+  return (
+    <Popconfirm content='Are you sure?' icon={<FasSkullCrossbones color='red'/>}>
+      <Button>click</Button>
+    </Popconfirm>
+  )
+}
+```
+
+:::
+
 ## Popconfirm API
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| cancelText | 取消按钮的内容           | string  | -  | -| false|
+| cancelType | 取消按钮的类型           | string  | default / primary / success / warning / error / text  | -| false|
+| onCancel | 点击取消按钮的回调           |  (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | -  | -| false|
+| confirmText | 确认按钮的内容           | string  | -  | -| false|
+| confirmType | 确认按钮的类型           | string  | default / primary / success / warning / error / text  | -| false|
+| onConfirm | 点击取消按钮的回调           |  (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | -  | -| false|
+| icon | 自定义图标            | React.ReactNode  | -  | -| false|
 | content | 提示内容            | React.ReactNode  | -  | -| true|
-
-## 公共API
-
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
-| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
-| allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|
 | delayHide | 延迟隐藏            | number  | -  | 0 | false|
 | delayShow | 延迟显示            | number  | -  | 0 | false|
 | getPopupContainer | 弹出框挂载的位置            | () => HTMLElement  | -  | ()=>document.body | false|

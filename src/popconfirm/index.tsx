@@ -8,10 +8,10 @@ import Tooltip, { TooltipProps } from '../tooltip'
 export interface PopconfirmProps extends TooltipProps {
   cancelText?: string
   cancelType?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
+  confirmText?: string
+  confirmType?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
   content: React.ReactNode
   icon?: React.ReactNode
-  okText?: string
-  okType?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
   onCancel?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
   onConfirm?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
@@ -21,8 +21,8 @@ export const displayName = `${namePrefix}-popconfirm`
 const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
   const {
     content,
-    okText = 'Yes',
-    okType = 'primary',
+    confirmText = 'Yes',
+    confirmType = 'primary',
     cancelText = 'No',
     cancelType = 'default',
     onConfirm,
@@ -75,10 +75,10 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
           <Button
             size={'small'}
             className={`${prefixCls}__btn`}
-            type={okType}
+            type={confirmType}
             onClick={onConfirmWrapper}
           >
-            {okText}
+            {confirmText}
           </Button>
           <Button
             size={'small'}
@@ -91,7 +91,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
         </div>
       </>
     )
-  }, [content, icon, prefixCls, onCancelWrapper, onConfirmWrapper, okText, okType, cancelText, cancelType])
+  }, [content, icon, prefixCls, onCancelWrapper, onConfirmWrapper, confirmText, confirmType, cancelText, cancelType])
 
   return (
     <Tooltip
@@ -111,7 +111,14 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
 Popconfirm.displayName = displayName
 
 Popconfirm.propTypes = {
-  content: PropTypes.node.isRequired
+  cancelText: PropTypes.string,
+  cancelType: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text']),
+  confirmText: PropTypes.string,
+  confirmType: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text']),
+  content: PropTypes.node.isRequired,
+  icon: PropTypes.node,
+  onCancel: PropTypes.func,
+  onConfirm: PropTypes.func
 }
 
 export default Popconfirm
