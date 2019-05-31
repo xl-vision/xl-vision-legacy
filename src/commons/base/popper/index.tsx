@@ -6,7 +6,7 @@ import { namePrefix } from '../../config'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
-import { getPosition, include } from '../../utils/dom'
+import { getPosition, include, isStyleSupport } from '../../utils/dom'
 import { mergeEvents, off, on } from '../../utils/event'
 import { getZIndex } from '../../utils/zIndex-manager'
 
@@ -40,10 +40,12 @@ export interface PopperProps {
   popup: (placement: Placement) => React.ReactNode
   transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
-  visible?: boolean
+  visible?: boolean,
 }
 
 const TIME_DELAY = 20
+
+const isTransformSupport = isStyleSupport('transform')
 
 export const displayName = `${namePrefix}-popper`
 
@@ -79,6 +81,9 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const [left, setLeft] = React.useState(0)
   const [top, setTop] = React.useState(0)
+
+  // 延迟渲染弹出框，只在第一次需要弹出时才渲染
+  const [needMount, setNeedMount] = React.useState(false)
   let isUnmount = false
 
   useUnmount(() => {
@@ -86,6 +91,10 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   })
 
   const setActualWrapper = (isVisible: boolean) => {
+    if (isVisible && !needMount) {
+      setNeedMount(true)
+    }
+
     clearTimeout(delayTimerRef.current!)
     delayTimerRef.current = setTimeout(() => {
       if (!isUnmount && isVisible !== actualVisible) {
@@ -95,66 +104,52 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }
 
   React.useEffect(() => {
-    // 直接设置
-    setActualVisible(visible)
+    setActualWrapper(visible)
   }, [visible])
 
   React.useEffect(() => {
     if (!referencePosition || !popupPosition) {
       return
     }
+    let topTo = 0
+    let leftTo = 0
     if (placement.startsWith('top')) {
-      const topTo = Math.floor(referencePosition.top - popupPosition.bottom + top)
-      if (topTo !== top) {
-        setTop(topTo)
-      }
+      topTo = referencePosition.top - popupPosition.bottom
     } else if (placement.startsWith('bottom')) {
-      const topTo = Math.floor(referencePosition.bottom - popupPosition.top + top)
-      if (topTo !== top) {
-        setTop(topTo)
-      }
+      topTo = referencePosition.bottom - popupPosition.top
     } else if (placement.startsWith('left')) {
-      const leftTo = Math.floor(referencePosition.left - popupPosition.right + left)
-      if (leftTo !== left) {
-        setLeft(leftTo)
-      }
+      leftTo = referencePosition.left - popupPosition.right
     } else if (placement.startsWith('right')) {
-      const leftTo = Math.floor(referencePosition.right - popupPosition.left + left)
-      if (leftTo !== left) {
-        setLeft(leftTo)
-      }
+      leftTo = referencePosition.right - popupPosition.left
     }
     if (placement.endsWith('Left')) {
-      const leftTo = Math.floor(referencePosition.left - popupPosition.left + left)
-      if (leftTo !== left) {
-        setLeft(leftTo)
-      }
+      leftTo = referencePosition.left - popupPosition.left
     } else if (placement.endsWith('Right')) {
-      const leftTo = Math.floor(referencePosition.right - popupPosition.right + left)
-      if (leftTo !== left) {
-        setLeft(leftTo)
-      }
+      leftTo = referencePosition.right - popupPosition.right
     } else if (placement.endsWith('Top')) {
-      const topTo = Math.floor(referencePosition.top - popupPosition.top + top)
-      if (topTo !== top) {
-        setTop(topTo)
-      }
+      topTo = referencePosition.top - popupPosition.top
     } else if (placement.endsWith('Bottom')) {
-      const topTo = Math.floor(referencePosition.bottom - popupPosition.bottom + top)
-      if (topTo !== top) {
-        setTop(topTo)
-      }
+      topTo = referencePosition.bottom - popupPosition.bottom
     }
     if (placement === 'top' || placement === 'bottom') {
-      const leftTo = Math.floor((referencePosition.left + referencePosition.right - popupPosition.right - popupPosition.left) / 2 + left)
-      if (leftTo !== left) {
-        setLeft(leftTo)
-      }
+      leftTo = (referencePosition.left + referencePosition.right - popupPosition.right - popupPosition.left) / 2
     } else if (placement === 'left' || placement === 'right') {
-      const topTo = Math.floor((referencePosition.top + referencePosition.bottom - popupPosition.top - popupPosition.bottom) / 2 + top)
-      if (topTo !== top) {
-        setTop(topTo)
-      }
+      topTo = (referencePosition.top + referencePosition.bottom - popupPosition.top - popupPosition.bottom) / 2
+    }
+
+    // 如果使用绝对定位，必须考虑已经有的位移量，
+    // transform定位，不会改变元素的原始位置
+    if (!isTransformSupport) {
+      topTo += top
+      leftTo += left
+    }
+    topTo = Math.floor(topTo)
+    leftTo = Math.floor(leftTo)
+    if (topTo !== top) {
+      setTop(topTo)
+    }
+    if (leftTo !== left) {
+      setLeft(leftTo)
     }
   }, [placement, popupPosition, referencePosition])
 
@@ -208,11 +203,22 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }, [popupPosition, referencePosition, left, top, placement, offset])
 
   const popupStyle = React.useMemo(() => {
+
     const style: React.CSSProperties = {
-      left,
-      position: 'absolute',
-      top
+      position: 'absolute'
     }
+
+    if (isTransformSupport) {
+      style.left = 0
+      style.top = 0
+      style.transform = `translate(${left}px,${top}px)`
+      style.willChange = 'transform'
+    } else {
+      style.left = left
+      style.top = top
+      style.willChange = 'left, top'
+    }
+
     if (placement.startsWith('top')) {
       style.paddingBottom = offset
     } else if (placement.startsWith('bottom')) {
@@ -384,7 +390,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   return (
     <>
       {childrenNode}
-      {portal}
+      {needMount && portal}
     </>
   )
 }

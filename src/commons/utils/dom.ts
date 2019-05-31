@@ -1,4 +1,5 @@
 import { oneOf } from './array'
+import { isServer } from './env'
 
 export const getClasses = (element: HTMLElement) => {
   const classes = (element.className || '').trim()
@@ -53,4 +54,26 @@ export const include = (parent: HTMLElement, child: HTMLElement) => {
     temp = temp.parentElement
   }
   return false
+}
+
+export const isStyleSupport = (styleProperty: string) => {
+  if (isServer) {
+    return true
+  }
+  const div = document.createElement('div')
+  const styles = div.style
+  let result = false
+  if (styleProperty in styles) {
+    result = true
+  } else {
+    const vendors = ['o', 'moz', 'webkit']
+    for (const prefix of vendors) {
+      const prop = prefix + styleProperty.replace(/^[a-z]/, val => val.toUpperCase())
+      if (prop in styles) {
+        result = true
+        break
+      }
+    }
+  }
+  return result
 }
