@@ -14,7 +14,6 @@ import '@xl-vision/xl-vision/dist/index.production.css'
 import './index.css'
 
 const App = () => {
-
     return (
         <Button>button</Button>
     )
