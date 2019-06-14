@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import { CssTransition } from '..'
 import { namePrefix } from '../commons/config'
-import { FasSpinner } from '../icon'
+import { IconFasSpinner } from '../icon'
 
 export type SpinSize = 'small' | 'default' | 'large'
 
@@ -97,5 +97,5 @@ Spin.propTypes = {
 export default Spin
 
 const renderIndicator = (indicator?: SpinIndicator) => {
-  return indicator || <FasSpinner spin={true}/>
+  return indicator || <IconFasSpinner spin={true}/>
 }

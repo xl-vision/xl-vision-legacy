@@ -2,4560 +2,3041 @@
 // tslint:disable
 
 import createIcon from './base/createIcon'
-import Fab500px from './icons/fab-500px'
-import FabAccessibleIcon from './icons/fab-accessible-icon'
-import FabAccusoft from './icons/fab-accusoft'
-import FabAcquisitionsIncorporated from './icons/fab-acquisitions-incorporated'
-import FabAdn from './icons/fab-adn'
-import FabAdobe from './icons/fab-adobe'
-import FabAdversal from './icons/fab-adversal'
-import FabAffiliatetheme from './icons/fab-affiliatetheme'
-import FabAirbnb from './icons/fab-airbnb'
-import FabAlgolia from './icons/fab-algolia'
-import FabAlipay from './icons/fab-alipay'
-import FabAmazonPay from './icons/fab-amazon-pay'
-import FabAmazon from './icons/fab-amazon'
-import FabAmilia from './icons/fab-amilia'
-import FabAndroid from './icons/fab-android'
-import FabAngellist from './icons/fab-angellist'
-import FabAngrycreative from './icons/fab-angrycreative'
-import FabAngular from './icons/fab-angular'
-import FabAppStoreIos from './icons/fab-app-store-ios'
-import FabAppStore from './icons/fab-app-store'
-import FabApper from './icons/fab-apper'
-import FabApplePay from './icons/fab-apple-pay'
-import FabApple from './icons/fab-apple'
-import FabArtstation from './icons/fab-artstation'
-import FabAsymmetrik from './icons/fab-asymmetrik'
-import FabAtlassian from './icons/fab-atlassian'
-import FabAudible from './icons/fab-audible'
-import FabAutoprefixer from './icons/fab-autoprefixer'
-import FabAvianex from './icons/fab-avianex'
-import FabAviato from './icons/fab-aviato'
-import FabAws from './icons/fab-aws'
-import FabBandcamp from './icons/fab-bandcamp'
-import FabBattleNet from './icons/fab-battle-net'
-import FabBehanceSquare from './icons/fab-behance-square'
-import FabBehance from './icons/fab-behance'
-import FabBimobject from './icons/fab-bimobject'
-import FabBitbucket from './icons/fab-bitbucket'
-import FabBitcoin from './icons/fab-bitcoin'
-import FabBity from './icons/fab-bity'
-import FabBlackTie from './icons/fab-black-tie'
-import FabBlackberry from './icons/fab-blackberry'
-import FabBloggerB from './icons/fab-blogger-b'
-import FabBlogger from './icons/fab-blogger'
-import FabBluetoothB from './icons/fab-bluetooth-b'
-import FabBluetooth from './icons/fab-bluetooth'
-import FabBootstrap from './icons/fab-bootstrap'
-import FabBtc from './icons/fab-btc'
-import FabBuffer from './icons/fab-buffer'
-import FabBuromobelexperte from './icons/fab-buromobelexperte'
-import FabBuysellads from './icons/fab-buysellads'
-import FabCanadianMapleLeaf from './icons/fab-canadian-maple-leaf'
-import FabCcAmazonPay from './icons/fab-cc-amazon-pay'
-import FabCcAmex from './icons/fab-cc-amex'
-import FabCcApplePay from './icons/fab-cc-apple-pay'
-import FabCcDinersClub from './icons/fab-cc-diners-club'
-import FabCcDiscover from './icons/fab-cc-discover'
-import FabCcJcb from './icons/fab-cc-jcb'
-import FabCcMastercard from './icons/fab-cc-mastercard'
-import FabCcPaypal from './icons/fab-cc-paypal'
-import FabCcStripe from './icons/fab-cc-stripe'
-import FabCcVisa from './icons/fab-cc-visa'
-import FabCentercode from './icons/fab-centercode'
-import FabCentos from './icons/fab-centos'
-import FabChrome from './icons/fab-chrome'
-import FabChromecast from './icons/fab-chromecast'
-import FabCloudscale from './icons/fab-cloudscale'
-import FabCloudsmith from './icons/fab-cloudsmith'
-import FabCloudversify from './icons/fab-cloudversify'
-import FabCodepen from './icons/fab-codepen'
-import FabCodiepie from './icons/fab-codiepie'
-import FabConfluence from './icons/fab-confluence'
-import FabConnectdevelop from './icons/fab-connectdevelop'
-import FabContao from './icons/fab-contao'
-import FabCpanel from './icons/fab-cpanel'
-import FabCreativeCommonsBy from './icons/fab-creative-commons-by'
-import FabCreativeCommonsNcEu from './icons/fab-creative-commons-nc-eu'
-import FabCreativeCommonsNcJp from './icons/fab-creative-commons-nc-jp'
-import FabCreativeCommonsNc from './icons/fab-creative-commons-nc'
-import FabCreativeCommonsNd from './icons/fab-creative-commons-nd'
-import FabCreativeCommonsPdAlt from './icons/fab-creative-commons-pd-alt'
-import FabCreativeCommonsPd from './icons/fab-creative-commons-pd'
-import FabCreativeCommonsRemix from './icons/fab-creative-commons-remix'
-import FabCreativeCommonsSa from './icons/fab-creative-commons-sa'
-import FabCreativeCommonsSamplingPlus from './icons/fab-creative-commons-sampling-plus'
-import FabCreativeCommonsSampling from './icons/fab-creative-commons-sampling'
-import FabCreativeCommonsShare from './icons/fab-creative-commons-share'
-import FabCreativeCommonsZero from './icons/fab-creative-commons-zero'
-import FabCreativeCommons from './icons/fab-creative-commons'
-import FabCriticalRole from './icons/fab-critical-role'
-import FabCss3Alt from './icons/fab-css3-alt'
-import FabCss3 from './icons/fab-css3'
-import FabCuttlefish from './icons/fab-cuttlefish'
-import FabDAndDBeyond from './icons/fab-d-and-d-beyond'
-import FabDAndD from './icons/fab-d-and-d'
-import FabDashcube from './icons/fab-dashcube'
-import FabDelicious from './icons/fab-delicious'
-import FabDeploydog from './icons/fab-deploydog'
-import FabDeskpro from './icons/fab-deskpro'
-import FabDev from './icons/fab-dev'
-import FabDeviantart from './icons/fab-deviantart'
-import FabDhl from './icons/fab-dhl'
-import FabDiaspora from './icons/fab-diaspora'
-import FabDigg from './icons/fab-digg'
-import FabDigitalOcean from './icons/fab-digital-ocean'
-import FabDiscord from './icons/fab-discord'
-import FabDiscourse from './icons/fab-discourse'
-import FabDochub from './icons/fab-dochub'
-import FabDocker from './icons/fab-docker'
-import FabDraft2digital from './icons/fab-draft2digital'
-import FabDribbbleSquare from './icons/fab-dribbble-square'
-import FabDribbble from './icons/fab-dribbble'
-import FabDropbox from './icons/fab-dropbox'
-import FabDrupal from './icons/fab-drupal'
-import FabDyalog from './icons/fab-dyalog'
-import FabEarlybirds from './icons/fab-earlybirds'
-import FabEbay from './icons/fab-ebay'
-import FabEdge from './icons/fab-edge'
-import FabElementor from './icons/fab-elementor'
-import FabEllo from './icons/fab-ello'
-import FabEmber from './icons/fab-ember'
-import FabEmpire from './icons/fab-empire'
-import FabEnvira from './icons/fab-envira'
-import FabErlang from './icons/fab-erlang'
-import FabEthereum from './icons/fab-ethereum'
-import FabEtsy from './icons/fab-etsy'
-import FabEvernote from './icons/fab-evernote'
-import FabExpeditedssl from './icons/fab-expeditedssl'
-import FabFacebookF from './icons/fab-facebook-f'
-import FabFacebookMessenger from './icons/fab-facebook-messenger'
-import FabFacebookSquare from './icons/fab-facebook-square'
-import FabFacebook from './icons/fab-facebook'
-import FabFantasyFlightGames from './icons/fab-fantasy-flight-games'
-import FabFedex from './icons/fab-fedex'
-import FabFedora from './icons/fab-fedora'
-import FabFigma from './icons/fab-figma'
-import FabFirefox from './icons/fab-firefox'
-import FabFirstOrderAlt from './icons/fab-first-order-alt'
-import FabFirstOrder from './icons/fab-first-order'
-import FabFirstdraft from './icons/fab-firstdraft'
-import FabFlickr from './icons/fab-flickr'
-import FabFlipboard from './icons/fab-flipboard'
-import FabFly from './icons/fab-fly'
-import FabFontAwesomeAlt from './icons/fab-font-awesome-alt'
-import FabFontAwesomeFlag from './icons/fab-font-awesome-flag'
-import FabFontAwesomeLogoFull from './icons/fab-font-awesome-logo-full'
-import FabFontAwesome from './icons/fab-font-awesome'
-import FabFonticonsFi from './icons/fab-fonticons-fi'
-import FabFonticons from './icons/fab-fonticons'
-import FabFortAwesomeAlt from './icons/fab-fort-awesome-alt'
-import FabFortAwesome from './icons/fab-fort-awesome'
-import FabForumbee from './icons/fab-forumbee'
-import FabFoursquare from './icons/fab-foursquare'
-import FabFreeCodeCamp from './icons/fab-free-code-camp'
-import FabFreebsd from './icons/fab-freebsd'
-import FabFulcrum from './icons/fab-fulcrum'
-import FabGalacticRepublic from './icons/fab-galactic-republic'
-import FabGalacticSenate from './icons/fab-galactic-senate'
-import FabGetPocket from './icons/fab-get-pocket'
-import FabGgCircle from './icons/fab-gg-circle'
-import FabGg from './icons/fab-gg'
-import FabGitSquare from './icons/fab-git-square'
-import FabGit from './icons/fab-git'
-import FabGithubAlt from './icons/fab-github-alt'
-import FabGithubSquare from './icons/fab-github-square'
-import FabGithub from './icons/fab-github'
-import FabGitkraken from './icons/fab-gitkraken'
-import FabGitlab from './icons/fab-gitlab'
-import FabGitter from './icons/fab-gitter'
-import FabGlideG from './icons/fab-glide-g'
-import FabGlide from './icons/fab-glide'
-import FabGofore from './icons/fab-gofore'
-import FabGoodreadsG from './icons/fab-goodreads-g'
-import FabGoodreads from './icons/fab-goodreads'
-import FabGoogleDrive from './icons/fab-google-drive'
-import FabGooglePlay from './icons/fab-google-play'
-import FabGooglePlusG from './icons/fab-google-plus-g'
-import FabGooglePlusSquare from './icons/fab-google-plus-square'
-import FabGooglePlus from './icons/fab-google-plus'
-import FabGoogleWallet from './icons/fab-google-wallet'
-import FabGoogle from './icons/fab-google'
-import FabGratipay from './icons/fab-gratipay'
-import FabGrav from './icons/fab-grav'
-import FabGripfire from './icons/fab-gripfire'
-import FabGrunt from './icons/fab-grunt'
-import FabGulp from './icons/fab-gulp'
-import FabHackerNewsSquare from './icons/fab-hacker-news-square'
-import FabHackerNews from './icons/fab-hacker-news'
-import FabHackerrank from './icons/fab-hackerrank'
-import FabHips from './icons/fab-hips'
-import FabHireAHelper from './icons/fab-hire-a-helper'
-import FabHooli from './icons/fab-hooli'
-import FabHornbill from './icons/fab-hornbill'
-import FabHotjar from './icons/fab-hotjar'
-import FabHouzz from './icons/fab-houzz'
-import FabHtml5 from './icons/fab-html5'
-import FabHubspot from './icons/fab-hubspot'
-import FabImdb from './icons/fab-imdb'
-import FabInstagram from './icons/fab-instagram'
-import FabIntercom from './icons/fab-intercom'
-import FabInternetExplorer from './icons/fab-internet-explorer'
-import FabInvision from './icons/fab-invision'
-import FabIoxhost from './icons/fab-ioxhost'
-import FabItchIo from './icons/fab-itch-io'
-import FabItunesNote from './icons/fab-itunes-note'
-import FabItunes from './icons/fab-itunes'
-import FabJava from './icons/fab-java'
-import FabJediOrder from './icons/fab-jedi-order'
-import FabJenkins from './icons/fab-jenkins'
-import FabJira from './icons/fab-jira'
-import FabJoget from './icons/fab-joget'
-import FabJoomla from './icons/fab-joomla'
-import FabJsSquare from './icons/fab-js-square'
-import FabJs from './icons/fab-js'
-import FabJsfiddle from './icons/fab-jsfiddle'
-import FabKaggle from './icons/fab-kaggle'
-import FabKeybase from './icons/fab-keybase'
-import FabKeycdn from './icons/fab-keycdn'
-import FabKickstarterK from './icons/fab-kickstarter-k'
-import FabKickstarter from './icons/fab-kickstarter'
-import FabKorvue from './icons/fab-korvue'
-import FabLaravel from './icons/fab-laravel'
-import FabLastfmSquare from './icons/fab-lastfm-square'
-import FabLastfm from './icons/fab-lastfm'
-import FabLeanpub from './icons/fab-leanpub'
-import FabLess from './icons/fab-less'
-import FabLine from './icons/fab-line'
-import FabLinkedinIn from './icons/fab-linkedin-in'
-import FabLinkedin from './icons/fab-linkedin'
-import FabLinode from './icons/fab-linode'
-import FabLinux from './icons/fab-linux'
-import FabLyft from './icons/fab-lyft'
-import FabMagento from './icons/fab-magento'
-import FabMailchimp from './icons/fab-mailchimp'
-import FabMandalorian from './icons/fab-mandalorian'
-import FabMarkdown from './icons/fab-markdown'
-import FabMastodon from './icons/fab-mastodon'
-import FabMaxcdn from './icons/fab-maxcdn'
-import FabMedapps from './icons/fab-medapps'
-import FabMediumM from './icons/fab-medium-m'
-import FabMedium from './icons/fab-medium'
-import FabMedrt from './icons/fab-medrt'
-import FabMeetup from './icons/fab-meetup'
-import FabMegaport from './icons/fab-megaport'
-import FabMendeley from './icons/fab-mendeley'
-import FabMicrosoft from './icons/fab-microsoft'
-import FabMix from './icons/fab-mix'
-import FabMixcloud from './icons/fab-mixcloud'
-import FabMizuni from './icons/fab-mizuni'
-import FabModx from './icons/fab-modx'
-import FabMonero from './icons/fab-monero'
-import FabNapster from './icons/fab-napster'
-import FabNeos from './icons/fab-neos'
-import FabNimblr from './icons/fab-nimblr'
-import FabNintendoSwitch from './icons/fab-nintendo-switch'
-import FabNodeJs from './icons/fab-node-js'
-import FabNode from './icons/fab-node'
-import FabNpm from './icons/fab-npm'
-import FabNs8 from './icons/fab-ns8'
-import FabNutritionix from './icons/fab-nutritionix'
-import FabOdnoklassnikiSquare from './icons/fab-odnoklassniki-square'
-import FabOdnoklassniki from './icons/fab-odnoklassniki'
-import FabOldRepublic from './icons/fab-old-republic'
-import FabOpencart from './icons/fab-opencart'
-import FabOpenid from './icons/fab-openid'
-import FabOpera from './icons/fab-opera'
-import FabOptinMonster from './icons/fab-optin-monster'
-import FabOsi from './icons/fab-osi'
-import FabPage4 from './icons/fab-page4'
-import FabPagelines from './icons/fab-pagelines'
-import FabPalfed from './icons/fab-palfed'
-import FabPatreon from './icons/fab-patreon'
-import FabPaypal from './icons/fab-paypal'
-import FabPennyArcade from './icons/fab-penny-arcade'
-import FabPeriscope from './icons/fab-periscope'
-import FabPhabricator from './icons/fab-phabricator'
-import FabPhoenixFramework from './icons/fab-phoenix-framework'
-import FabPhoenixSquadron from './icons/fab-phoenix-squadron'
-import FabPhp from './icons/fab-php'
-import FabPiedPiperAlt from './icons/fab-pied-piper-alt'
-import FabPiedPiperHat from './icons/fab-pied-piper-hat'
-import FabPiedPiperPp from './icons/fab-pied-piper-pp'
-import FabPiedPiper from './icons/fab-pied-piper'
-import FabPinterestP from './icons/fab-pinterest-p'
-import FabPinterestSquare from './icons/fab-pinterest-square'
-import FabPinterest from './icons/fab-pinterest'
-import FabPlaystation from './icons/fab-playstation'
-import FabProductHunt from './icons/fab-product-hunt'
-import FabPushed from './icons/fab-pushed'
-import FabPython from './icons/fab-python'
-import FabQq from './icons/fab-qq'
-import FabQuinscape from './icons/fab-quinscape'
-import FabQuora from './icons/fab-quora'
-import FabRProject from './icons/fab-r-project'
-import FabRaspberryPi from './icons/fab-raspberry-pi'
-import FabRavelry from './icons/fab-ravelry'
-import FabReact from './icons/fab-react'
-import FabReacteurope from './icons/fab-reacteurope'
-import FabReadme from './icons/fab-readme'
-import FabRebel from './icons/fab-rebel'
-import FabRedRiver from './icons/fab-red-river'
-import FabRedditAlien from './icons/fab-reddit-alien'
-import FabRedditSquare from './icons/fab-reddit-square'
-import FabReddit from './icons/fab-reddit'
-import FabRedhat from './icons/fab-redhat'
-import FabRenren from './icons/fab-renren'
-import FabReplyd from './icons/fab-replyd'
-import FabResearchgate from './icons/fab-researchgate'
-import FabResolving from './icons/fab-resolving'
-import FabRev from './icons/fab-rev'
-import FabRocketchat from './icons/fab-rocketchat'
-import FabRockrms from './icons/fab-rockrms'
-import FabSafari from './icons/fab-safari'
-import FabSalesforce from './icons/fab-salesforce'
-import FabSass from './icons/fab-sass'
-import FabSchlix from './icons/fab-schlix'
-import FabScribd from './icons/fab-scribd'
-import FabSearchengin from './icons/fab-searchengin'
-import FabSellcast from './icons/fab-sellcast'
-import FabSellsy from './icons/fab-sellsy'
-import FabServicestack from './icons/fab-servicestack'
-import FabShirtsinbulk from './icons/fab-shirtsinbulk'
-import FabShopware from './icons/fab-shopware'
-import FabSimplybuilt from './icons/fab-simplybuilt'
-import FabSistrix from './icons/fab-sistrix'
-import FabSith from './icons/fab-sith'
-import FabSketch from './icons/fab-sketch'
-import FabSkyatlas from './icons/fab-skyatlas'
-import FabSkype from './icons/fab-skype'
-import FabSlackHash from './icons/fab-slack-hash'
-import FabSlack from './icons/fab-slack'
-import FabSlideshare from './icons/fab-slideshare'
-import FabSnapchatGhost from './icons/fab-snapchat-ghost'
-import FabSnapchatSquare from './icons/fab-snapchat-square'
-import FabSnapchat from './icons/fab-snapchat'
-import FabSoundcloud from './icons/fab-soundcloud'
-import FabSourcetree from './icons/fab-sourcetree'
-import FabSpeakap from './icons/fab-speakap'
-import FabSpeakerDeck from './icons/fab-speaker-deck'
-import FabSpotify from './icons/fab-spotify'
-import FabSquarespace from './icons/fab-squarespace'
-import FabStackExchange from './icons/fab-stack-exchange'
-import FabStackOverflow from './icons/fab-stack-overflow'
-import FabStaylinked from './icons/fab-staylinked'
-import FabSteamSquare from './icons/fab-steam-square'
-import FabSteamSymbol from './icons/fab-steam-symbol'
-import FabSteam from './icons/fab-steam'
-import FabStickerMule from './icons/fab-sticker-mule'
-import FabStrava from './icons/fab-strava'
-import FabStripeS from './icons/fab-stripe-s'
-import FabStripe from './icons/fab-stripe'
-import FabStudiovinari from './icons/fab-studiovinari'
-import FabStumbleuponCircle from './icons/fab-stumbleupon-circle'
-import FabStumbleupon from './icons/fab-stumbleupon'
-import FabSuperpowers from './icons/fab-superpowers'
-import FabSupple from './icons/fab-supple'
-import FabSuse from './icons/fab-suse'
-import FabSymfony from './icons/fab-symfony'
-import FabTeamspeak from './icons/fab-teamspeak'
-import FabTelegramPlane from './icons/fab-telegram-plane'
-import FabTelegram from './icons/fab-telegram'
-import FabTencentWeibo from './icons/fab-tencent-weibo'
-import FabTheRedYeti from './icons/fab-the-red-yeti'
-import FabThemeco from './icons/fab-themeco'
-import FabThemeisle from './icons/fab-themeisle'
-import FabThinkPeaks from './icons/fab-think-peaks'
-import FabTradeFederation from './icons/fab-trade-federation'
-import FabTrello from './icons/fab-trello'
-import FabTripadvisor from './icons/fab-tripadvisor'
-import FabTumblrSquare from './icons/fab-tumblr-square'
-import FabTumblr from './icons/fab-tumblr'
-import FabTwitch from './icons/fab-twitch'
-import FabTwitterSquare from './icons/fab-twitter-square'
-import FabTwitter from './icons/fab-twitter'
-import FabTypo3 from './icons/fab-typo3'
-import FabUber from './icons/fab-uber'
-import FabUbuntu from './icons/fab-ubuntu'
-import FabUikit from './icons/fab-uikit'
-import FabUniregistry from './icons/fab-uniregistry'
-import FabUntappd from './icons/fab-untappd'
-import FabUps from './icons/fab-ups'
-import FabUsb from './icons/fab-usb'
-import FabUsps from './icons/fab-usps'
-import FabUssunnah from './icons/fab-ussunnah'
-import FabVaadin from './icons/fab-vaadin'
-import FabViacoin from './icons/fab-viacoin'
-import FabViadeoSquare from './icons/fab-viadeo-square'
-import FabViadeo from './icons/fab-viadeo'
-import FabViber from './icons/fab-viber'
-import FabVimeoSquare from './icons/fab-vimeo-square'
-import FabVimeoV from './icons/fab-vimeo-v'
-import FabVimeo from './icons/fab-vimeo'
-import FabVine from './icons/fab-vine'
-import FabVk from './icons/fab-vk'
-import FabVnv from './icons/fab-vnv'
-import FabVuejs from './icons/fab-vuejs'
-import FabWaze from './icons/fab-waze'
-import FabWeebly from './icons/fab-weebly'
-import FabWeibo from './icons/fab-weibo'
-import FabWeixin from './icons/fab-weixin'
-import FabWhatsappSquare from './icons/fab-whatsapp-square'
-import FabWhatsapp from './icons/fab-whatsapp'
-import FabWhmcs from './icons/fab-whmcs'
-import FabWikipediaW from './icons/fab-wikipedia-w'
-import FabWindows from './icons/fab-windows'
-import FabWix from './icons/fab-wix'
-import FabWizardsOfTheCoast from './icons/fab-wizards-of-the-coast'
-import FabWolfPackBattalion from './icons/fab-wolf-pack-battalion'
-import FabWordpressSimple from './icons/fab-wordpress-simple'
-import FabWordpress from './icons/fab-wordpress'
-import FabWpbeginner from './icons/fab-wpbeginner'
-import FabWpexplorer from './icons/fab-wpexplorer'
-import FabWpforms from './icons/fab-wpforms'
-import FabWpressr from './icons/fab-wpressr'
-import FabXbox from './icons/fab-xbox'
-import FabXingSquare from './icons/fab-xing-square'
-import FabXing from './icons/fab-xing'
-import FabYCombinator from './icons/fab-y-combinator'
-import FabYahoo from './icons/fab-yahoo'
-import FabYammer from './icons/fab-yammer'
-import FabYandexInternational from './icons/fab-yandex-international'
-import FabYandex from './icons/fab-yandex'
-import FabYarn from './icons/fab-yarn'
-import FabYelp from './icons/fab-yelp'
-import FabYoast from './icons/fab-yoast'
-import FabYoutubeSquare from './icons/fab-youtube-square'
-import FabYoutube from './icons/fab-youtube'
-import FabZhihu from './icons/fab-zhihu'
-import FarAddressBook from './icons/far-address-book'
-import FarAddressCard from './icons/far-address-card'
-import FarAngry from './icons/far-angry'
-import FarArrowAltCircleDown from './icons/far-arrow-alt-circle-down'
-import FarArrowAltCircleLeft from './icons/far-arrow-alt-circle-left'
-import FarArrowAltCircleRight from './icons/far-arrow-alt-circle-right'
-import FarArrowAltCircleUp from './icons/far-arrow-alt-circle-up'
-import FarBellSlash from './icons/far-bell-slash'
-import FarBell from './icons/far-bell'
-import FarBookmark from './icons/far-bookmark'
-import FarBuilding from './icons/far-building'
-import FarCalendarAlt from './icons/far-calendar-alt'
-import FarCalendarCheck from './icons/far-calendar-check'
-import FarCalendarMinus from './icons/far-calendar-minus'
-import FarCalendarPlus from './icons/far-calendar-plus'
-import FarCalendarTimes from './icons/far-calendar-times'
-import FarCalendar from './icons/far-calendar'
-import FarCaretSquareDown from './icons/far-caret-square-down'
-import FarCaretSquareLeft from './icons/far-caret-square-left'
-import FarCaretSquareRight from './icons/far-caret-square-right'
-import FarCaretSquareUp from './icons/far-caret-square-up'
-import FarChartBar from './icons/far-chart-bar'
-import FarCheckCircle from './icons/far-check-circle'
-import FarCheckSquare from './icons/far-check-square'
-import FarCircle from './icons/far-circle'
-import FarClipboard from './icons/far-clipboard'
-import FarClock from './icons/far-clock'
-import FarClone from './icons/far-clone'
-import FarClosedCaptioning from './icons/far-closed-captioning'
-import FarCommentAlt from './icons/far-comment-alt'
-import FarCommentDots from './icons/far-comment-dots'
-import FarComment from './icons/far-comment'
-import FarComments from './icons/far-comments'
-import FarCompass from './icons/far-compass'
-import FarCopy from './icons/far-copy'
-import FarCopyright from './icons/far-copyright'
-import FarCreditCard from './icons/far-credit-card'
-import FarDizzy from './icons/far-dizzy'
-import FarDotCircle from './icons/far-dot-circle'
-import FarEdit from './icons/far-edit'
-import FarEnvelopeOpen from './icons/far-envelope-open'
-import FarEnvelope from './icons/far-envelope'
-import FarEyeSlash from './icons/far-eye-slash'
-import FarEye from './icons/far-eye'
-import FarFileAlt from './icons/far-file-alt'
-import FarFileArchive from './icons/far-file-archive'
-import FarFileAudio from './icons/far-file-audio'
-import FarFileCode from './icons/far-file-code'
-import FarFileExcel from './icons/far-file-excel'
-import FarFileImage from './icons/far-file-image'
-import FarFilePdf from './icons/far-file-pdf'
-import FarFilePowerpoint from './icons/far-file-powerpoint'
-import FarFileVideo from './icons/far-file-video'
-import FarFileWord from './icons/far-file-word'
-import FarFile from './icons/far-file'
-import FarFlag from './icons/far-flag'
-import FarFlushed from './icons/far-flushed'
-import FarFolderOpen from './icons/far-folder-open'
-import FarFolder from './icons/far-folder'
-import FarFontAwesomeLogoFull from './icons/far-font-awesome-logo-full'
-import FarFrownOpen from './icons/far-frown-open'
-import FarFrown from './icons/far-frown'
-import FarFutbol from './icons/far-futbol'
-import FarGem from './icons/far-gem'
-import FarGrimace from './icons/far-grimace'
-import FarGrinAlt from './icons/far-grin-alt'
-import FarGrinBeamSweat from './icons/far-grin-beam-sweat'
-import FarGrinBeam from './icons/far-grin-beam'
-import FarGrinHearts from './icons/far-grin-hearts'
-import FarGrinSquintTears from './icons/far-grin-squint-tears'
-import FarGrinSquint from './icons/far-grin-squint'
-import FarGrinStars from './icons/far-grin-stars'
-import FarGrinTears from './icons/far-grin-tears'
-import FarGrinTongueSquint from './icons/far-grin-tongue-squint'
-import FarGrinTongueWink from './icons/far-grin-tongue-wink'
-import FarGrinTongue from './icons/far-grin-tongue'
-import FarGrinWink from './icons/far-grin-wink'
-import FarGrin from './icons/far-grin'
-import FarHandLizard from './icons/far-hand-lizard'
-import FarHandPaper from './icons/far-hand-paper'
-import FarHandPeace from './icons/far-hand-peace'
-import FarHandPointDown from './icons/far-hand-point-down'
-import FarHandPointLeft from './icons/far-hand-point-left'
-import FarHandPointRight from './icons/far-hand-point-right'
-import FarHandPointUp from './icons/far-hand-point-up'
-import FarHandPointer from './icons/far-hand-pointer'
-import FarHandRock from './icons/far-hand-rock'
-import FarHandScissors from './icons/far-hand-scissors'
-import FarHandSpock from './icons/far-hand-spock'
-import FarHandshake from './icons/far-handshake'
-import FarHdd from './icons/far-hdd'
-import FarHeart from './icons/far-heart'
-import FarHospital from './icons/far-hospital'
-import FarHourglass from './icons/far-hourglass'
-import FarIdBadge from './icons/far-id-badge'
-import FarIdCard from './icons/far-id-card'
-import FarImage from './icons/far-image'
-import FarImages from './icons/far-images'
-import FarKeyboard from './icons/far-keyboard'
-import FarKissBeam from './icons/far-kiss-beam'
-import FarKissWinkHeart from './icons/far-kiss-wink-heart'
-import FarKiss from './icons/far-kiss'
-import FarLaughBeam from './icons/far-laugh-beam'
-import FarLaughSquint from './icons/far-laugh-squint'
-import FarLaughWink from './icons/far-laugh-wink'
-import FarLaugh from './icons/far-laugh'
-import FarLemon from './icons/far-lemon'
-import FarLifeRing from './icons/far-life-ring'
-import FarLightbulb from './icons/far-lightbulb'
-import FarListAlt from './icons/far-list-alt'
-import FarMap from './icons/far-map'
-import FarMehBlank from './icons/far-meh-blank'
-import FarMehRollingEyes from './icons/far-meh-rolling-eyes'
-import FarMeh from './icons/far-meh'
-import FarMinusSquare from './icons/far-minus-square'
-import FarMoneyBillAlt from './icons/far-money-bill-alt'
-import FarMoon from './icons/far-moon'
-import FarNewspaper from './icons/far-newspaper'
-import FarObjectGroup from './icons/far-object-group'
-import FarObjectUngroup from './icons/far-object-ungroup'
-import FarPaperPlane from './icons/far-paper-plane'
-import FarPauseCircle from './icons/far-pause-circle'
-import FarPlayCircle from './icons/far-play-circle'
-import FarPlusSquare from './icons/far-plus-square'
-import FarQuestionCircle from './icons/far-question-circle'
-import FarRegistered from './icons/far-registered'
-import FarSadCry from './icons/far-sad-cry'
-import FarSadTear from './icons/far-sad-tear'
-import FarSave from './icons/far-save'
-import FarShareSquare from './icons/far-share-square'
-import FarSmileBeam from './icons/far-smile-beam'
-import FarSmileWink from './icons/far-smile-wink'
-import FarSmile from './icons/far-smile'
-import FarSnowflake from './icons/far-snowflake'
-import FarSquare from './icons/far-square'
-import FarStarHalf from './icons/far-star-half'
-import FarStar from './icons/far-star'
-import FarStickyNote from './icons/far-sticky-note'
-import FarStopCircle from './icons/far-stop-circle'
-import FarSun from './icons/far-sun'
-import FarSurprise from './icons/far-surprise'
-import FarThumbsDown from './icons/far-thumbs-down'
-import FarThumbsUp from './icons/far-thumbs-up'
-import FarTimesCircle from './icons/far-times-circle'
-import FarTired from './icons/far-tired'
-import FarTrashAlt from './icons/far-trash-alt'
-import FarUserCircle from './icons/far-user-circle'
-import FarUser from './icons/far-user'
-import FarWindowClose from './icons/far-window-close'
-import FarWindowMaximize from './icons/far-window-maximize'
-import FarWindowMinimize from './icons/far-window-minimize'
-import FarWindowRestore from './icons/far-window-restore'
-import FasAd from './icons/fas-ad'
-import FasAddressBook from './icons/fas-address-book'
-import FasAddressCard from './icons/fas-address-card'
-import FasAdjust from './icons/fas-adjust'
-import FasAirFreshener from './icons/fas-air-freshener'
-import FasAlignCenter from './icons/fas-align-center'
-import FasAlignJustify from './icons/fas-align-justify'
-import FasAlignLeft from './icons/fas-align-left'
-import FasAlignRight from './icons/fas-align-right'
-import FasAllergies from './icons/fas-allergies'
-import FasAmbulance from './icons/fas-ambulance'
-import FasAmericanSignLanguageInterpreting from './icons/fas-american-sign-language-interpreting'
-import FasAnchor from './icons/fas-anchor'
-import FasAngleDoubleDown from './icons/fas-angle-double-down'
-import FasAngleDoubleLeft from './icons/fas-angle-double-left'
-import FasAngleDoubleRight from './icons/fas-angle-double-right'
-import FasAngleDoubleUp from './icons/fas-angle-double-up'
-import FasAngleDown from './icons/fas-angle-down'
-import FasAngleLeft from './icons/fas-angle-left'
-import FasAngleRight from './icons/fas-angle-right'
-import FasAngleUp from './icons/fas-angle-up'
-import FasAngry from './icons/fas-angry'
-import FasAnkh from './icons/fas-ankh'
-import FasAppleAlt from './icons/fas-apple-alt'
-import FasArchive from './icons/fas-archive'
-import FasArchway from './icons/fas-archway'
-import FasArrowAltCircleDown from './icons/fas-arrow-alt-circle-down'
-import FasArrowAltCircleLeft from './icons/fas-arrow-alt-circle-left'
-import FasArrowAltCircleRight from './icons/fas-arrow-alt-circle-right'
-import FasArrowAltCircleUp from './icons/fas-arrow-alt-circle-up'
-import FasArrowCircleDown from './icons/fas-arrow-circle-down'
-import FasArrowCircleLeft from './icons/fas-arrow-circle-left'
-import FasArrowCircleRight from './icons/fas-arrow-circle-right'
-import FasArrowCircleUp from './icons/fas-arrow-circle-up'
-import FasArrowDown from './icons/fas-arrow-down'
-import FasArrowLeft from './icons/fas-arrow-left'
-import FasArrowRight from './icons/fas-arrow-right'
-import FasArrowUp from './icons/fas-arrow-up'
-import FasArrowsAltH from './icons/fas-arrows-alt-h'
-import FasArrowsAltV from './icons/fas-arrows-alt-v'
-import FasArrowsAlt from './icons/fas-arrows-alt'
-import FasAssistiveListeningSystems from './icons/fas-assistive-listening-systems'
-import FasAsterisk from './icons/fas-asterisk'
-import FasAt from './icons/fas-at'
-import FasAtlas from './icons/fas-atlas'
-import FasAtom from './icons/fas-atom'
-import FasAudioDescription from './icons/fas-audio-description'
-import FasAward from './icons/fas-award'
-import FasBabyCarriage from './icons/fas-baby-carriage'
-import FasBaby from './icons/fas-baby'
-import FasBackspace from './icons/fas-backspace'
-import FasBackward from './icons/fas-backward'
-import FasBacon from './icons/fas-bacon'
-import FasBalanceScale from './icons/fas-balance-scale'
-import FasBan from './icons/fas-ban'
-import FasBandAid from './icons/fas-band-aid'
-import FasBarcode from './icons/fas-barcode'
-import FasBars from './icons/fas-bars'
-import FasBaseballBall from './icons/fas-baseball-ball'
-import FasBasketballBall from './icons/fas-basketball-ball'
-import FasBath from './icons/fas-bath'
-import FasBatteryEmpty from './icons/fas-battery-empty'
-import FasBatteryFull from './icons/fas-battery-full'
-import FasBatteryHalf from './icons/fas-battery-half'
-import FasBatteryQuarter from './icons/fas-battery-quarter'
-import FasBatteryThreeQuarters from './icons/fas-battery-three-quarters'
-import FasBed from './icons/fas-bed'
-import FasBeer from './icons/fas-beer'
-import FasBellSlash from './icons/fas-bell-slash'
-import FasBell from './icons/fas-bell'
-import FasBezierCurve from './icons/fas-bezier-curve'
-import FasBible from './icons/fas-bible'
-import FasBicycle from './icons/fas-bicycle'
-import FasBinoculars from './icons/fas-binoculars'
-import FasBiohazard from './icons/fas-biohazard'
-import FasBirthdayCake from './icons/fas-birthday-cake'
-import FasBlenderPhone from './icons/fas-blender-phone'
-import FasBlender from './icons/fas-blender'
-import FasBlind from './icons/fas-blind'
-import FasBlog from './icons/fas-blog'
-import FasBold from './icons/fas-bold'
-import FasBolt from './icons/fas-bolt'
-import FasBomb from './icons/fas-bomb'
-import FasBone from './icons/fas-bone'
-import FasBong from './icons/fas-bong'
-import FasBookDead from './icons/fas-book-dead'
-import FasBookMedical from './icons/fas-book-medical'
-import FasBookOpen from './icons/fas-book-open'
-import FasBookReader from './icons/fas-book-reader'
-import FasBook from './icons/fas-book'
-import FasBookmark from './icons/fas-bookmark'
-import FasBowlingBall from './icons/fas-bowling-ball'
-import FasBoxOpen from './icons/fas-box-open'
-import FasBox from './icons/fas-box'
-import FasBoxes from './icons/fas-boxes'
-import FasBraille from './icons/fas-braille'
-import FasBrain from './icons/fas-brain'
-import FasBreadSlice from './icons/fas-bread-slice'
-import FasBriefcaseMedical from './icons/fas-briefcase-medical'
-import FasBriefcase from './icons/fas-briefcase'
-import FasBroadcastTower from './icons/fas-broadcast-tower'
-import FasBroom from './icons/fas-broom'
-import FasBrush from './icons/fas-brush'
-import FasBug from './icons/fas-bug'
-import FasBuilding from './icons/fas-building'
-import FasBullhorn from './icons/fas-bullhorn'
-import FasBullseye from './icons/fas-bullseye'
-import FasBurn from './icons/fas-burn'
-import FasBusAlt from './icons/fas-bus-alt'
-import FasBus from './icons/fas-bus'
-import FasBusinessTime from './icons/fas-business-time'
-import FasCalculator from './icons/fas-calculator'
-import FasCalendarAlt from './icons/fas-calendar-alt'
-import FasCalendarCheck from './icons/fas-calendar-check'
-import FasCalendarDay from './icons/fas-calendar-day'
-import FasCalendarMinus from './icons/fas-calendar-minus'
-import FasCalendarPlus from './icons/fas-calendar-plus'
-import FasCalendarTimes from './icons/fas-calendar-times'
-import FasCalendarWeek from './icons/fas-calendar-week'
-import FasCalendar from './icons/fas-calendar'
-import FasCameraRetro from './icons/fas-camera-retro'
-import FasCamera from './icons/fas-camera'
-import FasCampground from './icons/fas-campground'
-import FasCandyCane from './icons/fas-candy-cane'
-import FasCannabis from './icons/fas-cannabis'
-import FasCapsules from './icons/fas-capsules'
-import FasCarAlt from './icons/fas-car-alt'
-import FasCarBattery from './icons/fas-car-battery'
-import FasCarCrash from './icons/fas-car-crash'
-import FasCarSide from './icons/fas-car-side'
-import FasCar from './icons/fas-car'
-import FasCaretDown from './icons/fas-caret-down'
-import FasCaretLeft from './icons/fas-caret-left'
-import FasCaretRight from './icons/fas-caret-right'
-import FasCaretSquareDown from './icons/fas-caret-square-down'
-import FasCaretSquareLeft from './icons/fas-caret-square-left'
-import FasCaretSquareRight from './icons/fas-caret-square-right'
-import FasCaretSquareUp from './icons/fas-caret-square-up'
-import FasCaretUp from './icons/fas-caret-up'
-import FasCarrot from './icons/fas-carrot'
-import FasCartArrowDown from './icons/fas-cart-arrow-down'
-import FasCartPlus from './icons/fas-cart-plus'
-import FasCashRegister from './icons/fas-cash-register'
-import FasCat from './icons/fas-cat'
-import FasCertificate from './icons/fas-certificate'
-import FasChair from './icons/fas-chair'
-import FasChalkboardTeacher from './icons/fas-chalkboard-teacher'
-import FasChalkboard from './icons/fas-chalkboard'
-import FasChargingStation from './icons/fas-charging-station'
-import FasChartArea from './icons/fas-chart-area'
-import FasChartBar from './icons/fas-chart-bar'
-import FasChartLine from './icons/fas-chart-line'
-import FasChartPie from './icons/fas-chart-pie'
-import FasCheckCircle from './icons/fas-check-circle'
-import FasCheckDouble from './icons/fas-check-double'
-import FasCheckSquare from './icons/fas-check-square'
-import FasCheck from './icons/fas-check'
-import FasCheese from './icons/fas-cheese'
-import FasChessBishop from './icons/fas-chess-bishop'
-import FasChessBoard from './icons/fas-chess-board'
-import FasChessKing from './icons/fas-chess-king'
-import FasChessKnight from './icons/fas-chess-knight'
-import FasChessPawn from './icons/fas-chess-pawn'
-import FasChessQueen from './icons/fas-chess-queen'
-import FasChessRook from './icons/fas-chess-rook'
-import FasChess from './icons/fas-chess'
-import FasChevronCircleDown from './icons/fas-chevron-circle-down'
-import FasChevronCircleLeft from './icons/fas-chevron-circle-left'
-import FasChevronCircleRight from './icons/fas-chevron-circle-right'
-import FasChevronCircleUp from './icons/fas-chevron-circle-up'
-import FasChevronDown from './icons/fas-chevron-down'
-import FasChevronLeft from './icons/fas-chevron-left'
-import FasChevronRight from './icons/fas-chevron-right'
-import FasChevronUp from './icons/fas-chevron-up'
-import FasChild from './icons/fas-child'
-import FasChurch from './icons/fas-church'
-import FasCircleNotch from './icons/fas-circle-notch'
-import FasCircle from './icons/fas-circle'
-import FasCity from './icons/fas-city'
-import FasClinicMedical from './icons/fas-clinic-medical'
-import FasClipboardCheck from './icons/fas-clipboard-check'
-import FasClipboardList from './icons/fas-clipboard-list'
-import FasClipboard from './icons/fas-clipboard'
-import FasClock from './icons/fas-clock'
-import FasClone from './icons/fas-clone'
-import FasClosedCaptioning from './icons/fas-closed-captioning'
-import FasCloudDownloadAlt from './icons/fas-cloud-download-alt'
-import FasCloudMeatball from './icons/fas-cloud-meatball'
-import FasCloudMoonRain from './icons/fas-cloud-moon-rain'
-import FasCloudMoon from './icons/fas-cloud-moon'
-import FasCloudRain from './icons/fas-cloud-rain'
-import FasCloudShowersHeavy from './icons/fas-cloud-showers-heavy'
-import FasCloudSunRain from './icons/fas-cloud-sun-rain'
-import FasCloudSun from './icons/fas-cloud-sun'
-import FasCloudUploadAlt from './icons/fas-cloud-upload-alt'
-import FasCloud from './icons/fas-cloud'
-import FasCocktail from './icons/fas-cocktail'
-import FasCodeBranch from './icons/fas-code-branch'
-import FasCode from './icons/fas-code'
-import FasCoffee from './icons/fas-coffee'
-import FasCog from './icons/fas-cog'
-import FasCogs from './icons/fas-cogs'
-import FasCoins from './icons/fas-coins'
-import FasColumns from './icons/fas-columns'
-import FasCommentAlt from './icons/fas-comment-alt'
-import FasCommentDollar from './icons/fas-comment-dollar'
-import FasCommentDots from './icons/fas-comment-dots'
-import FasCommentMedical from './icons/fas-comment-medical'
-import FasCommentSlash from './icons/fas-comment-slash'
-import FasComment from './icons/fas-comment'
-import FasCommentsDollar from './icons/fas-comments-dollar'
-import FasComments from './icons/fas-comments'
-import FasCompactDisc from './icons/fas-compact-disc'
-import FasCompass from './icons/fas-compass'
-import FasCompressArrowsAlt from './icons/fas-compress-arrows-alt'
-import FasCompress from './icons/fas-compress'
-import FasConciergeBell from './icons/fas-concierge-bell'
-import FasCookieBite from './icons/fas-cookie-bite'
-import FasCookie from './icons/fas-cookie'
-import FasCopy from './icons/fas-copy'
-import FasCopyright from './icons/fas-copyright'
-import FasCouch from './icons/fas-couch'
-import FasCreditCard from './icons/fas-credit-card'
-import FasCropAlt from './icons/fas-crop-alt'
-import FasCrop from './icons/fas-crop'
-import FasCross from './icons/fas-cross'
-import FasCrosshairs from './icons/fas-crosshairs'
-import FasCrow from './icons/fas-crow'
-import FasCrown from './icons/fas-crown'
-import FasCrutch from './icons/fas-crutch'
-import FasCube from './icons/fas-cube'
-import FasCubes from './icons/fas-cubes'
-import FasCut from './icons/fas-cut'
-import FasDatabase from './icons/fas-database'
-import FasDeaf from './icons/fas-deaf'
-import FasDemocrat from './icons/fas-democrat'
-import FasDesktop from './icons/fas-desktop'
-import FasDharmachakra from './icons/fas-dharmachakra'
-import FasDiagnoses from './icons/fas-diagnoses'
-import FasDiceD20 from './icons/fas-dice-d20'
-import FasDiceD6 from './icons/fas-dice-d6'
-import FasDiceFive from './icons/fas-dice-five'
-import FasDiceFour from './icons/fas-dice-four'
-import FasDiceOne from './icons/fas-dice-one'
-import FasDiceSix from './icons/fas-dice-six'
-import FasDiceThree from './icons/fas-dice-three'
-import FasDiceTwo from './icons/fas-dice-two'
-import FasDice from './icons/fas-dice'
-import FasDigitalTachograph from './icons/fas-digital-tachograph'
-import FasDirections from './icons/fas-directions'
-import FasDivide from './icons/fas-divide'
-import FasDizzy from './icons/fas-dizzy'
-import FasDna from './icons/fas-dna'
-import FasDog from './icons/fas-dog'
-import FasDollarSign from './icons/fas-dollar-sign'
-import FasDollyFlatbed from './icons/fas-dolly-flatbed'
-import FasDolly from './icons/fas-dolly'
-import FasDonate from './icons/fas-donate'
-import FasDoorClosed from './icons/fas-door-closed'
-import FasDoorOpen from './icons/fas-door-open'
-import FasDotCircle from './icons/fas-dot-circle'
-import FasDove from './icons/fas-dove'
-import FasDownload from './icons/fas-download'
-import FasDraftingCompass from './icons/fas-drafting-compass'
-import FasDragon from './icons/fas-dragon'
-import FasDrawPolygon from './icons/fas-draw-polygon'
-import FasDrumSteelpan from './icons/fas-drum-steelpan'
-import FasDrum from './icons/fas-drum'
-import FasDrumstickBite from './icons/fas-drumstick-bite'
-import FasDumbbell from './icons/fas-dumbbell'
-import FasDumpsterFire from './icons/fas-dumpster-fire'
-import FasDumpster from './icons/fas-dumpster'
-import FasDungeon from './icons/fas-dungeon'
-import FasEdit from './icons/fas-edit'
-import FasEgg from './icons/fas-egg'
-import FasEject from './icons/fas-eject'
-import FasEllipsisH from './icons/fas-ellipsis-h'
-import FasEllipsisV from './icons/fas-ellipsis-v'
-import FasEnvelopeOpenText from './icons/fas-envelope-open-text'
-import FasEnvelopeOpen from './icons/fas-envelope-open'
-import FasEnvelopeSquare from './icons/fas-envelope-square'
-import FasEnvelope from './icons/fas-envelope'
-import FasEquals from './icons/fas-equals'
-import FasEraser from './icons/fas-eraser'
-import FasEthernet from './icons/fas-ethernet'
-import FasEuroSign from './icons/fas-euro-sign'
-import FasExchangeAlt from './icons/fas-exchange-alt'
-import FasExclamationCircle from './icons/fas-exclamation-circle'
-import FasExclamationTriangle from './icons/fas-exclamation-triangle'
-import FasExclamation from './icons/fas-exclamation'
-import FasExpandArrowsAlt from './icons/fas-expand-arrows-alt'
-import FasExpand from './icons/fas-expand'
-import FasExternalLinkAlt from './icons/fas-external-link-alt'
-import FasExternalLinkSquareAlt from './icons/fas-external-link-square-alt'
-import FasEyeDropper from './icons/fas-eye-dropper'
-import FasEyeSlash from './icons/fas-eye-slash'
-import FasEye from './icons/fas-eye'
-import FasFastBackward from './icons/fas-fast-backward'
-import FasFastForward from './icons/fas-fast-forward'
-import FasFax from './icons/fas-fax'
-import FasFeatherAlt from './icons/fas-feather-alt'
-import FasFeather from './icons/fas-feather'
-import FasFemale from './icons/fas-female'
-import FasFighterJet from './icons/fas-fighter-jet'
-import FasFileAlt from './icons/fas-file-alt'
-import FasFileArchive from './icons/fas-file-archive'
-import FasFileAudio from './icons/fas-file-audio'
-import FasFileCode from './icons/fas-file-code'
-import FasFileContract from './icons/fas-file-contract'
-import FasFileCsv from './icons/fas-file-csv'
-import FasFileDownload from './icons/fas-file-download'
-import FasFileExcel from './icons/fas-file-excel'
-import FasFileExport from './icons/fas-file-export'
-import FasFileImage from './icons/fas-file-image'
-import FasFileImport from './icons/fas-file-import'
-import FasFileInvoiceDollar from './icons/fas-file-invoice-dollar'
-import FasFileInvoice from './icons/fas-file-invoice'
-import FasFileMedicalAlt from './icons/fas-file-medical-alt'
-import FasFileMedical from './icons/fas-file-medical'
-import FasFilePdf from './icons/fas-file-pdf'
-import FasFilePowerpoint from './icons/fas-file-powerpoint'
-import FasFilePrescription from './icons/fas-file-prescription'
-import FasFileSignature from './icons/fas-file-signature'
-import FasFileUpload from './icons/fas-file-upload'
-import FasFileVideo from './icons/fas-file-video'
-import FasFileWord from './icons/fas-file-word'
-import FasFile from './icons/fas-file'
-import FasFillDrip from './icons/fas-fill-drip'
-import FasFill from './icons/fas-fill'
-import FasFilm from './icons/fas-film'
-import FasFilter from './icons/fas-filter'
-import FasFingerprint from './icons/fas-fingerprint'
-import FasFireAlt from './icons/fas-fire-alt'
-import FasFireExtinguisher from './icons/fas-fire-extinguisher'
-import FasFire from './icons/fas-fire'
-import FasFirstAid from './icons/fas-first-aid'
-import FasFish from './icons/fas-fish'
-import FasFistRaised from './icons/fas-fist-raised'
-import FasFlagCheckered from './icons/fas-flag-checkered'
-import FasFlagUsa from './icons/fas-flag-usa'
-import FasFlag from './icons/fas-flag'
-import FasFlask from './icons/fas-flask'
-import FasFlushed from './icons/fas-flushed'
-import FasFolderMinus from './icons/fas-folder-minus'
-import FasFolderOpen from './icons/fas-folder-open'
-import FasFolderPlus from './icons/fas-folder-plus'
-import FasFolder from './icons/fas-folder'
-import FasFontAwesomeLogoFull from './icons/fas-font-awesome-logo-full'
-import FasFont from './icons/fas-font'
-import FasFootballBall from './icons/fas-football-ball'
-import FasForward from './icons/fas-forward'
-import FasFrog from './icons/fas-frog'
-import FasFrownOpen from './icons/fas-frown-open'
-import FasFrown from './icons/fas-frown'
-import FasFunnelDollar from './icons/fas-funnel-dollar'
-import FasFutbol from './icons/fas-futbol'
-import FasGamepad from './icons/fas-gamepad'
-import FasGasPump from './icons/fas-gas-pump'
-import FasGavel from './icons/fas-gavel'
-import FasGem from './icons/fas-gem'
-import FasGenderless from './icons/fas-genderless'
-import FasGhost from './icons/fas-ghost'
-import FasGift from './icons/fas-gift'
-import FasGifts from './icons/fas-gifts'
-import FasGlassCheers from './icons/fas-glass-cheers'
-import FasGlassMartiniAlt from './icons/fas-glass-martini-alt'
-import FasGlassMartini from './icons/fas-glass-martini'
-import FasGlassWhiskey from './icons/fas-glass-whiskey'
-import FasGlasses from './icons/fas-glasses'
-import FasGlobeAfrica from './icons/fas-globe-africa'
-import FasGlobeAmericas from './icons/fas-globe-americas'
-import FasGlobeAsia from './icons/fas-globe-asia'
-import FasGlobeEurope from './icons/fas-globe-europe'
-import FasGlobe from './icons/fas-globe'
-import FasGolfBall from './icons/fas-golf-ball'
-import FasGopuram from './icons/fas-gopuram'
-import FasGraduationCap from './icons/fas-graduation-cap'
-import FasGreaterThanEqual from './icons/fas-greater-than-equal'
-import FasGreaterThan from './icons/fas-greater-than'
-import FasGrimace from './icons/fas-grimace'
-import FasGrinAlt from './icons/fas-grin-alt'
-import FasGrinBeamSweat from './icons/fas-grin-beam-sweat'
-import FasGrinBeam from './icons/fas-grin-beam'
-import FasGrinHearts from './icons/fas-grin-hearts'
-import FasGrinSquintTears from './icons/fas-grin-squint-tears'
-import FasGrinSquint from './icons/fas-grin-squint'
-import FasGrinStars from './icons/fas-grin-stars'
-import FasGrinTears from './icons/fas-grin-tears'
-import FasGrinTongueSquint from './icons/fas-grin-tongue-squint'
-import FasGrinTongueWink from './icons/fas-grin-tongue-wink'
-import FasGrinTongue from './icons/fas-grin-tongue'
-import FasGrinWink from './icons/fas-grin-wink'
-import FasGrin from './icons/fas-grin'
-import FasGripHorizontal from './icons/fas-grip-horizontal'
-import FasGripLinesVertical from './icons/fas-grip-lines-vertical'
-import FasGripLines from './icons/fas-grip-lines'
-import FasGripVertical from './icons/fas-grip-vertical'
-import FasGuitar from './icons/fas-guitar'
-import FasHSquare from './icons/fas-h-square'
-import FasHamburger from './icons/fas-hamburger'
-import FasHammer from './icons/fas-hammer'
-import FasHamsa from './icons/fas-hamsa'
-import FasHandHoldingHeart from './icons/fas-hand-holding-heart'
-import FasHandHoldingUsd from './icons/fas-hand-holding-usd'
-import FasHandHolding from './icons/fas-hand-holding'
-import FasHandLizard from './icons/fas-hand-lizard'
-import FasHandMiddleFinger from './icons/fas-hand-middle-finger'
-import FasHandPaper from './icons/fas-hand-paper'
-import FasHandPeace from './icons/fas-hand-peace'
-import FasHandPointDown from './icons/fas-hand-point-down'
-import FasHandPointLeft from './icons/fas-hand-point-left'
-import FasHandPointRight from './icons/fas-hand-point-right'
-import FasHandPointUp from './icons/fas-hand-point-up'
-import FasHandPointer from './icons/fas-hand-pointer'
-import FasHandRock from './icons/fas-hand-rock'
-import FasHandScissors from './icons/fas-hand-scissors'
-import FasHandSpock from './icons/fas-hand-spock'
-import FasHandsHelping from './icons/fas-hands-helping'
-import FasHands from './icons/fas-hands'
-import FasHandshake from './icons/fas-handshake'
-import FasHanukiah from './icons/fas-hanukiah'
-import FasHardHat from './icons/fas-hard-hat'
-import FasHashtag from './icons/fas-hashtag'
-import FasHatWizard from './icons/fas-hat-wizard'
-import FasHaykal from './icons/fas-haykal'
-import FasHdd from './icons/fas-hdd'
-import FasHeading from './icons/fas-heading'
-import FasHeadphonesAlt from './icons/fas-headphones-alt'
-import FasHeadphones from './icons/fas-headphones'
-import FasHeadset from './icons/fas-headset'
-import FasHeartBroken from './icons/fas-heart-broken'
-import FasHeart from './icons/fas-heart'
-import FasHeartbeat from './icons/fas-heartbeat'
-import FasHelicopter from './icons/fas-helicopter'
-import FasHighlighter from './icons/fas-highlighter'
-import FasHiking from './icons/fas-hiking'
-import FasHippo from './icons/fas-hippo'
-import FasHistory from './icons/fas-history'
-import FasHockeyPuck from './icons/fas-hockey-puck'
-import FasHollyBerry from './icons/fas-holly-berry'
-import FasHome from './icons/fas-home'
-import FasHorseHead from './icons/fas-horse-head'
-import FasHorse from './icons/fas-horse'
-import FasHospitalAlt from './icons/fas-hospital-alt'
-import FasHospitalSymbol from './icons/fas-hospital-symbol'
-import FasHospital from './icons/fas-hospital'
-import FasHotTub from './icons/fas-hot-tub'
-import FasHotdog from './icons/fas-hotdog'
-import FasHotel from './icons/fas-hotel'
-import FasHourglassEnd from './icons/fas-hourglass-end'
-import FasHourglassHalf from './icons/fas-hourglass-half'
-import FasHourglassStart from './icons/fas-hourglass-start'
-import FasHourglass from './icons/fas-hourglass'
-import FasHouseDamage from './icons/fas-house-damage'
-import FasHryvnia from './icons/fas-hryvnia'
-import FasICursor from './icons/fas-i-cursor'
-import FasIceCream from './icons/fas-ice-cream'
-import FasIcicles from './icons/fas-icicles'
-import FasIdBadge from './icons/fas-id-badge'
-import FasIdCardAlt from './icons/fas-id-card-alt'
-import FasIdCard from './icons/fas-id-card'
-import FasIgloo from './icons/fas-igloo'
-import FasImage from './icons/fas-image'
-import FasImages from './icons/fas-images'
-import FasInbox from './icons/fas-inbox'
-import FasIndent from './icons/fas-indent'
-import FasIndustry from './icons/fas-industry'
-import FasInfinity from './icons/fas-infinity'
-import FasInfoCircle from './icons/fas-info-circle'
-import FasInfo from './icons/fas-info'
-import FasItalic from './icons/fas-italic'
-import FasJedi from './icons/fas-jedi'
-import FasJoint from './icons/fas-joint'
-import FasJournalWhills from './icons/fas-journal-whills'
-import FasKaaba from './icons/fas-kaaba'
-import FasKey from './icons/fas-key'
-import FasKeyboard from './icons/fas-keyboard'
-import FasKhanda from './icons/fas-khanda'
-import FasKissBeam from './icons/fas-kiss-beam'
-import FasKissWinkHeart from './icons/fas-kiss-wink-heart'
-import FasKiss from './icons/fas-kiss'
-import FasKiwiBird from './icons/fas-kiwi-bird'
-import FasLandmark from './icons/fas-landmark'
-import FasLanguage from './icons/fas-language'
-import FasLaptopCode from './icons/fas-laptop-code'
-import FasLaptopMedical from './icons/fas-laptop-medical'
-import FasLaptop from './icons/fas-laptop'
-import FasLaughBeam from './icons/fas-laugh-beam'
-import FasLaughSquint from './icons/fas-laugh-squint'
-import FasLaughWink from './icons/fas-laugh-wink'
-import FasLaugh from './icons/fas-laugh'
-import FasLayerGroup from './icons/fas-layer-group'
-import FasLeaf from './icons/fas-leaf'
-import FasLemon from './icons/fas-lemon'
-import FasLessThanEqual from './icons/fas-less-than-equal'
-import FasLessThan from './icons/fas-less-than'
-import FasLevelDownAlt from './icons/fas-level-down-alt'
-import FasLevelUpAlt from './icons/fas-level-up-alt'
-import FasLifeRing from './icons/fas-life-ring'
-import FasLightbulb from './icons/fas-lightbulb'
-import FasLink from './icons/fas-link'
-import FasLiraSign from './icons/fas-lira-sign'
-import FasListAlt from './icons/fas-list-alt'
-import FasListOl from './icons/fas-list-ol'
-import FasListUl from './icons/fas-list-ul'
-import FasList from './icons/fas-list'
-import FasLocationArrow from './icons/fas-location-arrow'
-import FasLockOpen from './icons/fas-lock-open'
-import FasLock from './icons/fas-lock'
-import FasLongArrowAltDown from './icons/fas-long-arrow-alt-down'
-import FasLongArrowAltLeft from './icons/fas-long-arrow-alt-left'
-import FasLongArrowAltRight from './icons/fas-long-arrow-alt-right'
-import FasLongArrowAltUp from './icons/fas-long-arrow-alt-up'
-import FasLowVision from './icons/fas-low-vision'
-import FasLuggageCart from './icons/fas-luggage-cart'
-import FasMagic from './icons/fas-magic'
-import FasMagnet from './icons/fas-magnet'
-import FasMailBulk from './icons/fas-mail-bulk'
-import FasMale from './icons/fas-male'
-import FasMapMarkedAlt from './icons/fas-map-marked-alt'
-import FasMapMarked from './icons/fas-map-marked'
-import FasMapMarkerAlt from './icons/fas-map-marker-alt'
-import FasMapMarker from './icons/fas-map-marker'
-import FasMapPin from './icons/fas-map-pin'
-import FasMapSigns from './icons/fas-map-signs'
-import FasMap from './icons/fas-map'
-import FasMarker from './icons/fas-marker'
-import FasMarsDouble from './icons/fas-mars-double'
-import FasMarsStrokeH from './icons/fas-mars-stroke-h'
-import FasMarsStrokeV from './icons/fas-mars-stroke-v'
-import FasMarsStroke from './icons/fas-mars-stroke'
-import FasMars from './icons/fas-mars'
-import FasMask from './icons/fas-mask'
-import FasMedal from './icons/fas-medal'
-import FasMedkit from './icons/fas-medkit'
-import FasMehBlank from './icons/fas-meh-blank'
-import FasMehRollingEyes from './icons/fas-meh-rolling-eyes'
-import FasMeh from './icons/fas-meh'
-import FasMemory from './icons/fas-memory'
-import FasMenorah from './icons/fas-menorah'
-import FasMercury from './icons/fas-mercury'
-import FasMeteor from './icons/fas-meteor'
-import FasMicrochip from './icons/fas-microchip'
-import FasMicrophoneAltSlash from './icons/fas-microphone-alt-slash'
-import FasMicrophoneAlt from './icons/fas-microphone-alt'
-import FasMicrophoneSlash from './icons/fas-microphone-slash'
-import FasMicrophone from './icons/fas-microphone'
-import FasMicroscope from './icons/fas-microscope'
-import FasMinusCircle from './icons/fas-minus-circle'
-import FasMinusSquare from './icons/fas-minus-square'
-import FasMinus from './icons/fas-minus'
-import FasMitten from './icons/fas-mitten'
-import FasMobileAlt from './icons/fas-mobile-alt'
-import FasMobile from './icons/fas-mobile'
-import FasMoneyBillAlt from './icons/fas-money-bill-alt'
-import FasMoneyBillWaveAlt from './icons/fas-money-bill-wave-alt'
-import FasMoneyBillWave from './icons/fas-money-bill-wave'
-import FasMoneyBill from './icons/fas-money-bill'
-import FasMoneyCheckAlt from './icons/fas-money-check-alt'
-import FasMoneyCheck from './icons/fas-money-check'
-import FasMonument from './icons/fas-monument'
-import FasMoon from './icons/fas-moon'
-import FasMortarPestle from './icons/fas-mortar-pestle'
-import FasMosque from './icons/fas-mosque'
-import FasMotorcycle from './icons/fas-motorcycle'
-import FasMountain from './icons/fas-mountain'
-import FasMousePointer from './icons/fas-mouse-pointer'
-import FasMugHot from './icons/fas-mug-hot'
-import FasMusic from './icons/fas-music'
-import FasNetworkWired from './icons/fas-network-wired'
-import FasNeuter from './icons/fas-neuter'
-import FasNewspaper from './icons/fas-newspaper'
-import FasNotEqual from './icons/fas-not-equal'
-import FasNotesMedical from './icons/fas-notes-medical'
-import FasObjectGroup from './icons/fas-object-group'
-import FasObjectUngroup from './icons/fas-object-ungroup'
-import FasOilCan from './icons/fas-oil-can'
-import FasOm from './icons/fas-om'
-import FasOtter from './icons/fas-otter'
-import FasOutdent from './icons/fas-outdent'
-import FasPager from './icons/fas-pager'
-import FasPaintBrush from './icons/fas-paint-brush'
-import FasPaintRoller from './icons/fas-paint-roller'
-import FasPalette from './icons/fas-palette'
-import FasPallet from './icons/fas-pallet'
-import FasPaperPlane from './icons/fas-paper-plane'
-import FasPaperclip from './icons/fas-paperclip'
-import FasParachuteBox from './icons/fas-parachute-box'
-import FasParagraph from './icons/fas-paragraph'
-import FasParking from './icons/fas-parking'
-import FasPassport from './icons/fas-passport'
-import FasPastafarianism from './icons/fas-pastafarianism'
-import FasPaste from './icons/fas-paste'
-import FasPauseCircle from './icons/fas-pause-circle'
-import FasPause from './icons/fas-pause'
-import FasPaw from './icons/fas-paw'
-import FasPeace from './icons/fas-peace'
-import FasPenAlt from './icons/fas-pen-alt'
-import FasPenFancy from './icons/fas-pen-fancy'
-import FasPenNib from './icons/fas-pen-nib'
-import FasPenSquare from './icons/fas-pen-square'
-import FasPen from './icons/fas-pen'
-import FasPencilAlt from './icons/fas-pencil-alt'
-import FasPencilRuler from './icons/fas-pencil-ruler'
-import FasPeopleCarry from './icons/fas-people-carry'
-import FasPepperHot from './icons/fas-pepper-hot'
-import FasPercent from './icons/fas-percent'
-import FasPercentage from './icons/fas-percentage'
-import FasPersonBooth from './icons/fas-person-booth'
-import FasPhoneSlash from './icons/fas-phone-slash'
-import FasPhoneSquare from './icons/fas-phone-square'
-import FasPhoneVolume from './icons/fas-phone-volume'
-import FasPhone from './icons/fas-phone'
-import FasPiggyBank from './icons/fas-piggy-bank'
-import FasPills from './icons/fas-pills'
-import FasPizzaSlice from './icons/fas-pizza-slice'
-import FasPlaceOfWorship from './icons/fas-place-of-worship'
-import FasPlaneArrival from './icons/fas-plane-arrival'
-import FasPlaneDeparture from './icons/fas-plane-departure'
-import FasPlane from './icons/fas-plane'
-import FasPlayCircle from './icons/fas-play-circle'
-import FasPlay from './icons/fas-play'
-import FasPlug from './icons/fas-plug'
-import FasPlusCircle from './icons/fas-plus-circle'
-import FasPlusSquare from './icons/fas-plus-square'
-import FasPlus from './icons/fas-plus'
-import FasPodcast from './icons/fas-podcast'
-import FasPollH from './icons/fas-poll-h'
-import FasPoll from './icons/fas-poll'
-import FasPooStorm from './icons/fas-poo-storm'
-import FasPoo from './icons/fas-poo'
-import FasPoop from './icons/fas-poop'
-import FasPortrait from './icons/fas-portrait'
-import FasPoundSign from './icons/fas-pound-sign'
-import FasPowerOff from './icons/fas-power-off'
-import FasPray from './icons/fas-pray'
-import FasPrayingHands from './icons/fas-praying-hands'
-import FasPrescriptionBottleAlt from './icons/fas-prescription-bottle-alt'
-import FasPrescriptionBottle from './icons/fas-prescription-bottle'
-import FasPrescription from './icons/fas-prescription'
-import FasPrint from './icons/fas-print'
-import FasProcedures from './icons/fas-procedures'
-import FasProjectDiagram from './icons/fas-project-diagram'
-import FasPuzzlePiece from './icons/fas-puzzle-piece'
-import FasQrcode from './icons/fas-qrcode'
-import FasQuestionCircle from './icons/fas-question-circle'
-import FasQuestion from './icons/fas-question'
-import FasQuidditch from './icons/fas-quidditch'
-import FasQuoteLeft from './icons/fas-quote-left'
-import FasQuoteRight from './icons/fas-quote-right'
-import FasQuran from './icons/fas-quran'
-import FasRadiationAlt from './icons/fas-radiation-alt'
-import FasRadiation from './icons/fas-radiation'
-import FasRainbow from './icons/fas-rainbow'
-import FasRandom from './icons/fas-random'
-import FasReceipt from './icons/fas-receipt'
-import FasRecycle from './icons/fas-recycle'
-import FasRedoAlt from './icons/fas-redo-alt'
-import FasRedo from './icons/fas-redo'
-import FasRegistered from './icons/fas-registered'
-import FasReplyAll from './icons/fas-reply-all'
-import FasReply from './icons/fas-reply'
-import FasRepublican from './icons/fas-republican'
-import FasRestroom from './icons/fas-restroom'
-import FasRetweet from './icons/fas-retweet'
-import FasRibbon from './icons/fas-ribbon'
-import FasRing from './icons/fas-ring'
-import FasRoad from './icons/fas-road'
-import FasRobot from './icons/fas-robot'
-import FasRocket from './icons/fas-rocket'
-import FasRoute from './icons/fas-route'
-import FasRssSquare from './icons/fas-rss-square'
-import FasRss from './icons/fas-rss'
-import FasRubleSign from './icons/fas-ruble-sign'
-import FasRulerCombined from './icons/fas-ruler-combined'
-import FasRulerHorizontal from './icons/fas-ruler-horizontal'
-import FasRulerVertical from './icons/fas-ruler-vertical'
-import FasRuler from './icons/fas-ruler'
-import FasRunning from './icons/fas-running'
-import FasRupeeSign from './icons/fas-rupee-sign'
-import FasSadCry from './icons/fas-sad-cry'
-import FasSadTear from './icons/fas-sad-tear'
-import FasSatelliteDish from './icons/fas-satellite-dish'
-import FasSatellite from './icons/fas-satellite'
-import FasSave from './icons/fas-save'
-import FasSchool from './icons/fas-school'
-import FasScrewdriver from './icons/fas-screwdriver'
-import FasScroll from './icons/fas-scroll'
-import FasSdCard from './icons/fas-sd-card'
-import FasSearchDollar from './icons/fas-search-dollar'
-import FasSearchLocation from './icons/fas-search-location'
-import FasSearchMinus from './icons/fas-search-minus'
-import FasSearchPlus from './icons/fas-search-plus'
-import FasSearch from './icons/fas-search'
-import FasSeedling from './icons/fas-seedling'
-import FasServer from './icons/fas-server'
-import FasShapes from './icons/fas-shapes'
-import FasShareAltSquare from './icons/fas-share-alt-square'
-import FasShareAlt from './icons/fas-share-alt'
-import FasShareSquare from './icons/fas-share-square'
-import FasShare from './icons/fas-share'
-import FasShekelSign from './icons/fas-shekel-sign'
-import FasShieldAlt from './icons/fas-shield-alt'
-import FasShip from './icons/fas-ship'
-import FasShippingFast from './icons/fas-shipping-fast'
-import FasShoePrints from './icons/fas-shoe-prints'
-import FasShoppingBag from './icons/fas-shopping-bag'
-import FasShoppingBasket from './icons/fas-shopping-basket'
-import FasShoppingCart from './icons/fas-shopping-cart'
-import FasShower from './icons/fas-shower'
-import FasShuttleVan from './icons/fas-shuttle-van'
-import FasSignInAlt from './icons/fas-sign-in-alt'
-import FasSignLanguage from './icons/fas-sign-language'
-import FasSignOutAlt from './icons/fas-sign-out-alt'
-import FasSign from './icons/fas-sign'
-import FasSignal from './icons/fas-signal'
-import FasSignature from './icons/fas-signature'
-import FasSimCard from './icons/fas-sim-card'
-import FasSitemap from './icons/fas-sitemap'
-import FasSkating from './icons/fas-skating'
-import FasSkiingNordic from './icons/fas-skiing-nordic'
-import FasSkiing from './icons/fas-skiing'
-import FasSkullCrossbones from './icons/fas-skull-crossbones'
-import FasSkull from './icons/fas-skull'
-import FasSlash from './icons/fas-slash'
-import FasSleigh from './icons/fas-sleigh'
-import FasSlidersH from './icons/fas-sliders-h'
-import FasSmileBeam from './icons/fas-smile-beam'
-import FasSmileWink from './icons/fas-smile-wink'
-import FasSmile from './icons/fas-smile'
-import FasSmog from './icons/fas-smog'
-import FasSmokingBan from './icons/fas-smoking-ban'
-import FasSmoking from './icons/fas-smoking'
-import FasSms from './icons/fas-sms'
-import FasSnowboarding from './icons/fas-snowboarding'
-import FasSnowflake from './icons/fas-snowflake'
-import FasSnowman from './icons/fas-snowman'
-import FasSnowplow from './icons/fas-snowplow'
-import FasSocks from './icons/fas-socks'
-import FasSolarPanel from './icons/fas-solar-panel'
-import FasSortAlphaDown from './icons/fas-sort-alpha-down'
-import FasSortAlphaUp from './icons/fas-sort-alpha-up'
-import FasSortAmountDown from './icons/fas-sort-amount-down'
-import FasSortAmountUp from './icons/fas-sort-amount-up'
-import FasSortDown from './icons/fas-sort-down'
-import FasSortNumericDown from './icons/fas-sort-numeric-down'
-import FasSortNumericUp from './icons/fas-sort-numeric-up'
-import FasSortUp from './icons/fas-sort-up'
-import FasSort from './icons/fas-sort'
-import FasSpa from './icons/fas-spa'
-import FasSpaceShuttle from './icons/fas-space-shuttle'
-import FasSpider from './icons/fas-spider'
-import FasSpinner from './icons/fas-spinner'
-import FasSplotch from './icons/fas-splotch'
-import FasSprayCan from './icons/fas-spray-can'
-import FasSquareFull from './icons/fas-square-full'
-import FasSquareRootAlt from './icons/fas-square-root-alt'
-import FasSquare from './icons/fas-square'
-import FasStamp from './icons/fas-stamp'
-import FasStarAndCrescent from './icons/fas-star-and-crescent'
-import FasStarHalfAlt from './icons/fas-star-half-alt'
-import FasStarHalf from './icons/fas-star-half'
-import FasStarOfDavid from './icons/fas-star-of-david'
-import FasStarOfLife from './icons/fas-star-of-life'
-import FasStar from './icons/fas-star'
-import FasStepBackward from './icons/fas-step-backward'
-import FasStepForward from './icons/fas-step-forward'
-import FasStethoscope from './icons/fas-stethoscope'
-import FasStickyNote from './icons/fas-sticky-note'
-import FasStopCircle from './icons/fas-stop-circle'
-import FasStop from './icons/fas-stop'
-import FasStopwatch from './icons/fas-stopwatch'
-import FasStoreAlt from './icons/fas-store-alt'
-import FasStore from './icons/fas-store'
-import FasStream from './icons/fas-stream'
-import FasStreetView from './icons/fas-street-view'
-import FasStrikethrough from './icons/fas-strikethrough'
-import FasStroopwafel from './icons/fas-stroopwafel'
-import FasSubscript from './icons/fas-subscript'
-import FasSubway from './icons/fas-subway'
-import FasSuitcaseRolling from './icons/fas-suitcase-rolling'
-import FasSuitcase from './icons/fas-suitcase'
-import FasSun from './icons/fas-sun'
-import FasSuperscript from './icons/fas-superscript'
-import FasSurprise from './icons/fas-surprise'
-import FasSwatchbook from './icons/fas-swatchbook'
-import FasSwimmer from './icons/fas-swimmer'
-import FasSwimmingPool from './icons/fas-swimming-pool'
-import FasSynagogue from './icons/fas-synagogue'
-import FasSyncAlt from './icons/fas-sync-alt'
-import FasSync from './icons/fas-sync'
-import FasSyringe from './icons/fas-syringe'
-import FasTableTennis from './icons/fas-table-tennis'
-import FasTable from './icons/fas-table'
-import FasTabletAlt from './icons/fas-tablet-alt'
-import FasTablet from './icons/fas-tablet'
-import FasTablets from './icons/fas-tablets'
-import FasTachometerAlt from './icons/fas-tachometer-alt'
-import FasTag from './icons/fas-tag'
-import FasTags from './icons/fas-tags'
-import FasTape from './icons/fas-tape'
-import FasTasks from './icons/fas-tasks'
-import FasTaxi from './icons/fas-taxi'
-import FasTeethOpen from './icons/fas-teeth-open'
-import FasTeeth from './icons/fas-teeth'
-import FasTemperatureHigh from './icons/fas-temperature-high'
-import FasTemperatureLow from './icons/fas-temperature-low'
-import FasTenge from './icons/fas-tenge'
-import FasTerminal from './icons/fas-terminal'
-import FasTextHeight from './icons/fas-text-height'
-import FasTextWidth from './icons/fas-text-width'
-import FasThLarge from './icons/fas-th-large'
-import FasThList from './icons/fas-th-list'
-import FasTh from './icons/fas-th'
-import FasTheaterMasks from './icons/fas-theater-masks'
-import FasThermometerEmpty from './icons/fas-thermometer-empty'
-import FasThermometerFull from './icons/fas-thermometer-full'
-import FasThermometerHalf from './icons/fas-thermometer-half'
-import FasThermometerQuarter from './icons/fas-thermometer-quarter'
-import FasThermometerThreeQuarters from './icons/fas-thermometer-three-quarters'
-import FasThermometer from './icons/fas-thermometer'
-import FasThumbsDown from './icons/fas-thumbs-down'
-import FasThumbsUp from './icons/fas-thumbs-up'
-import FasThumbtack from './icons/fas-thumbtack'
-import FasTicketAlt from './icons/fas-ticket-alt'
-import FasTimesCircle from './icons/fas-times-circle'
-import FasTimes from './icons/fas-times'
-import FasTintSlash from './icons/fas-tint-slash'
-import FasTint from './icons/fas-tint'
-import FasTired from './icons/fas-tired'
-import FasToggleOff from './icons/fas-toggle-off'
-import FasToggleOn from './icons/fas-toggle-on'
-import FasToiletPaper from './icons/fas-toilet-paper'
-import FasToilet from './icons/fas-toilet'
-import FasToolbox from './icons/fas-toolbox'
-import FasTools from './icons/fas-tools'
-import FasTooth from './icons/fas-tooth'
-import FasTorah from './icons/fas-torah'
-import FasToriiGate from './icons/fas-torii-gate'
-import FasTractor from './icons/fas-tractor'
-import FasTrademark from './icons/fas-trademark'
-import FasTrafficLight from './icons/fas-traffic-light'
-import FasTrain from './icons/fas-train'
-import FasTram from './icons/fas-tram'
-import FasTransgenderAlt from './icons/fas-transgender-alt'
-import FasTransgender from './icons/fas-transgender'
-import FasTrashAlt from './icons/fas-trash-alt'
-import FasTrashRestoreAlt from './icons/fas-trash-restore-alt'
-import FasTrashRestore from './icons/fas-trash-restore'
-import FasTrash from './icons/fas-trash'
-import FasTree from './icons/fas-tree'
-import FasTrophy from './icons/fas-trophy'
-import FasTruckLoading from './icons/fas-truck-loading'
-import FasTruckMonster from './icons/fas-truck-monster'
-import FasTruckMoving from './icons/fas-truck-moving'
-import FasTruckPickup from './icons/fas-truck-pickup'
-import FasTruck from './icons/fas-truck'
-import FasTshirt from './icons/fas-tshirt'
-import FasTty from './icons/fas-tty'
-import FasTv from './icons/fas-tv'
-import FasUmbrellaBeach from './icons/fas-umbrella-beach'
-import FasUmbrella from './icons/fas-umbrella'
-import FasUnderline from './icons/fas-underline'
-import FasUndoAlt from './icons/fas-undo-alt'
-import FasUndo from './icons/fas-undo'
-import FasUniversalAccess from './icons/fas-universal-access'
-import FasUniversity from './icons/fas-university'
-import FasUnlink from './icons/fas-unlink'
-import FasUnlockAlt from './icons/fas-unlock-alt'
-import FasUnlock from './icons/fas-unlock'
-import FasUpload from './icons/fas-upload'
-import FasUserAltSlash from './icons/fas-user-alt-slash'
-import FasUserAlt from './icons/fas-user-alt'
-import FasUserAstronaut from './icons/fas-user-astronaut'
-import FasUserCheck from './icons/fas-user-check'
-import FasUserCircle from './icons/fas-user-circle'
-import FasUserClock from './icons/fas-user-clock'
-import FasUserCog from './icons/fas-user-cog'
-import FasUserEdit from './icons/fas-user-edit'
-import FasUserFriends from './icons/fas-user-friends'
-import FasUserGraduate from './icons/fas-user-graduate'
-import FasUserInjured from './icons/fas-user-injured'
-import FasUserLock from './icons/fas-user-lock'
-import FasUserMd from './icons/fas-user-md'
-import FasUserMinus from './icons/fas-user-minus'
-import FasUserNinja from './icons/fas-user-ninja'
-import FasUserNurse from './icons/fas-user-nurse'
-import FasUserPlus from './icons/fas-user-plus'
-import FasUserSecret from './icons/fas-user-secret'
-import FasUserShield from './icons/fas-user-shield'
-import FasUserSlash from './icons/fas-user-slash'
-import FasUserTag from './icons/fas-user-tag'
-import FasUserTie from './icons/fas-user-tie'
-import FasUserTimes from './icons/fas-user-times'
-import FasUser from './icons/fas-user'
-import FasUsersCog from './icons/fas-users-cog'
-import FasUsers from './icons/fas-users'
-import FasUtensilSpoon from './icons/fas-utensil-spoon'
-import FasUtensils from './icons/fas-utensils'
-import FasVectorSquare from './icons/fas-vector-square'
-import FasVenusDouble from './icons/fas-venus-double'
-import FasVenusMars from './icons/fas-venus-mars'
-import FasVenus from './icons/fas-venus'
-import FasVial from './icons/fas-vial'
-import FasVials from './icons/fas-vials'
-import FasVideoSlash from './icons/fas-video-slash'
-import FasVideo from './icons/fas-video'
-import FasVihara from './icons/fas-vihara'
-import FasVolleyballBall from './icons/fas-volleyball-ball'
-import FasVolumeDown from './icons/fas-volume-down'
-import FasVolumeMute from './icons/fas-volume-mute'
-import FasVolumeOff from './icons/fas-volume-off'
-import FasVolumeUp from './icons/fas-volume-up'
-import FasVoteYea from './icons/fas-vote-yea'
-import FasVrCardboard from './icons/fas-vr-cardboard'
-import FasWalking from './icons/fas-walking'
-import FasWallet from './icons/fas-wallet'
-import FasWarehouse from './icons/fas-warehouse'
-import FasWater from './icons/fas-water'
-import FasWaveSquare from './icons/fas-wave-square'
-import FasWeightHanging from './icons/fas-weight-hanging'
-import FasWeight from './icons/fas-weight'
-import FasWheelchair from './icons/fas-wheelchair'
-import FasWifi from './icons/fas-wifi'
-import FasWind from './icons/fas-wind'
-import FasWindowClose from './icons/fas-window-close'
-import FasWindowMaximize from './icons/fas-window-maximize'
-import FasWindowMinimize from './icons/fas-window-minimize'
-import FasWindowRestore from './icons/fas-window-restore'
-import FasWineBottle from './icons/fas-wine-bottle'
-import FasWineGlassAlt from './icons/fas-wine-glass-alt'
-import FasWineGlass from './icons/fas-wine-glass'
-import FasWonSign from './icons/fas-won-sign'
-import FasWrench from './icons/fas-wrench'
-import FasXRay from './icons/fas-x-ray'
-import FasYenSign from './icons/fas-yen-sign'
-import FasYinYang from './icons/fas-yin-yang'
+import IconFab500px from './icons/fab-500px'
+import IconFabAccessibleIcon from './icons/fab-accessible-icon'
+import IconFabAccusoft from './icons/fab-accusoft'
+import IconFabAcquisitionsIncorporated from './icons/fab-acquisitions-incorporated'
+import IconFabAdn from './icons/fab-adn'
+import IconFabAdobe from './icons/fab-adobe'
+import IconFabAdversal from './icons/fab-adversal'
+import IconFabAffiliatetheme from './icons/fab-affiliatetheme'
+import IconFabAirbnb from './icons/fab-airbnb'
+import IconFabAlgolia from './icons/fab-algolia'
+import IconFabAlipay from './icons/fab-alipay'
+import IconFabAmazonPay from './icons/fab-amazon-pay'
+import IconFabAmazon from './icons/fab-amazon'
+import IconFabAmilia from './icons/fab-amilia'
+import IconFabAndroid from './icons/fab-android'
+import IconFabAngellist from './icons/fab-angellist'
+import IconFabAngrycreative from './icons/fab-angrycreative'
+import IconFabAngular from './icons/fab-angular'
+import IconFabAppStoreIos from './icons/fab-app-store-ios'
+import IconFabAppStore from './icons/fab-app-store'
+import IconFabApper from './icons/fab-apper'
+import IconFabApplePay from './icons/fab-apple-pay'
+import IconFabApple from './icons/fab-apple'
+import IconFabArtstation from './icons/fab-artstation'
+import IconFabAsymmetrik from './icons/fab-asymmetrik'
+import IconFabAtlassian from './icons/fab-atlassian'
+import IconFabAudible from './icons/fab-audible'
+import IconFabAutoprefixer from './icons/fab-autoprefixer'
+import IconFabAvianex from './icons/fab-avianex'
+import IconFabAviato from './icons/fab-aviato'
+import IconFabAws from './icons/fab-aws'
+import IconFabBandcamp from './icons/fab-bandcamp'
+import IconFabBattleNet from './icons/fab-battle-net'
+import IconFabBehanceSquare from './icons/fab-behance-square'
+import IconFabBehance from './icons/fab-behance'
+import IconFabBimobject from './icons/fab-bimobject'
+import IconFabBitbucket from './icons/fab-bitbucket'
+import IconFabBitcoin from './icons/fab-bitcoin'
+import IconFabBity from './icons/fab-bity'
+import IconFabBlackTie from './icons/fab-black-tie'
+import IconFabBlackberry from './icons/fab-blackberry'
+import IconFabBloggerB from './icons/fab-blogger-b'
+import IconFabBlogger from './icons/fab-blogger'
+import IconFabBluetoothB from './icons/fab-bluetooth-b'
+import IconFabBluetooth from './icons/fab-bluetooth'
+import IconFabBootstrap from './icons/fab-bootstrap'
+import IconFabBtc from './icons/fab-btc'
+import IconFabBuffer from './icons/fab-buffer'
+import IconFabBuromobelexperte from './icons/fab-buromobelexperte'
+import IconFabBuysellads from './icons/fab-buysellads'
+import IconFabCanadianMapleLeaf from './icons/fab-canadian-maple-leaf'
+import IconFabCcAmazonPay from './icons/fab-cc-amazon-pay'
+import IconFabCcAmex from './icons/fab-cc-amex'
+import IconFabCcApplePay from './icons/fab-cc-apple-pay'
+import IconFabCcDinersClub from './icons/fab-cc-diners-club'
+import IconFabCcDiscover from './icons/fab-cc-discover'
+import IconFabCcJcb from './icons/fab-cc-jcb'
+import IconFabCcMastercard from './icons/fab-cc-mastercard'
+import IconFabCcPaypal from './icons/fab-cc-paypal'
+import IconFabCcStripe from './icons/fab-cc-stripe'
+import IconFabCcVisa from './icons/fab-cc-visa'
+import IconFabCentercode from './icons/fab-centercode'
+import IconFabCentos from './icons/fab-centos'
+import IconFabChrome from './icons/fab-chrome'
+import IconFabChromecast from './icons/fab-chromecast'
+import IconFabCloudscale from './icons/fab-cloudscale'
+import IconFabCloudsmith from './icons/fab-cloudsmith'
+import IconFabCloudversify from './icons/fab-cloudversify'
+import IconFabCodepen from './icons/fab-codepen'
+import IconFabCodiepie from './icons/fab-codiepie'
+import IconFabConfluence from './icons/fab-confluence'
+import IconFabConnectdevelop from './icons/fab-connectdevelop'
+import IconFabContao from './icons/fab-contao'
+import IconFabCpanel from './icons/fab-cpanel'
+import IconFabCreativeCommonsBy from './icons/fab-creative-commons-by'
+import IconFabCreativeCommonsNcEu from './icons/fab-creative-commons-nc-eu'
+import IconFabCreativeCommonsNcJp from './icons/fab-creative-commons-nc-jp'
+import IconFabCreativeCommonsNc from './icons/fab-creative-commons-nc'
+import IconFabCreativeCommonsNd from './icons/fab-creative-commons-nd'
+import IconFabCreativeCommonsPdAlt from './icons/fab-creative-commons-pd-alt'
+import IconFabCreativeCommonsPd from './icons/fab-creative-commons-pd'
+import IconFabCreativeCommonsRemix from './icons/fab-creative-commons-remix'
+import IconFabCreativeCommonsSa from './icons/fab-creative-commons-sa'
+import IconFabCreativeCommonsSamplingPlus from './icons/fab-creative-commons-sampling-plus'
+import IconFabCreativeCommonsSampling from './icons/fab-creative-commons-sampling'
+import IconFabCreativeCommonsShare from './icons/fab-creative-commons-share'
+import IconFabCreativeCommonsZero from './icons/fab-creative-commons-zero'
+import IconFabCreativeCommons from './icons/fab-creative-commons'
+import IconFabCriticalRole from './icons/fab-critical-role'
+import IconFabCss3Alt from './icons/fab-css3-alt'
+import IconFabCss3 from './icons/fab-css3'
+import IconFabCuttlefish from './icons/fab-cuttlefish'
+import IconFabDAndDBeyond from './icons/fab-d-and-d-beyond'
+import IconFabDAndD from './icons/fab-d-and-d'
+import IconFabDashcube from './icons/fab-dashcube'
+import IconFabDelicious from './icons/fab-delicious'
+import IconFabDeploydog from './icons/fab-deploydog'
+import IconFabDeskpro from './icons/fab-deskpro'
+import IconFabDev from './icons/fab-dev'
+import IconFabDeviantart from './icons/fab-deviantart'
+import IconFabDhl from './icons/fab-dhl'
+import IconFabDiaspora from './icons/fab-diaspora'
+import IconFabDigg from './icons/fab-digg'
+import IconFabDigitalOcean from './icons/fab-digital-ocean'
+import IconFabDiscord from './icons/fab-discord'
+import IconFabDiscourse from './icons/fab-discourse'
+import IconFabDochub from './icons/fab-dochub'
+import IconFabDocker from './icons/fab-docker'
+import IconFabDraft2digital from './icons/fab-draft2digital'
+import IconFabDribbbleSquare from './icons/fab-dribbble-square'
+import IconFabDribbble from './icons/fab-dribbble'
+import IconFabDropbox from './icons/fab-dropbox'
+import IconFabDrupal from './icons/fab-drupal'
+import IconFabDyalog from './icons/fab-dyalog'
+import IconFabEarlybirds from './icons/fab-earlybirds'
+import IconFabEbay from './icons/fab-ebay'
+import IconFabEdge from './icons/fab-edge'
+import IconFabElementor from './icons/fab-elementor'
+import IconFabEllo from './icons/fab-ello'
+import IconFabEmber from './icons/fab-ember'
+import IconFabEmpire from './icons/fab-empire'
+import IconFabEnvira from './icons/fab-envira'
+import IconFabErlang from './icons/fab-erlang'
+import IconFabEthereum from './icons/fab-ethereum'
+import IconFabEtsy from './icons/fab-etsy'
+import IconFabEvernote from './icons/fab-evernote'
+import IconFabExpeditedssl from './icons/fab-expeditedssl'
+import IconFabFacebookF from './icons/fab-facebook-f'
+import IconFabFacebookMessenger from './icons/fab-facebook-messenger'
+import IconFabFacebookSquare from './icons/fab-facebook-square'
+import IconFabFacebook from './icons/fab-facebook'
+import IconFabFantasyFlightGames from './icons/fab-fantasy-flight-games'
+import IconFabFedex from './icons/fab-fedex'
+import IconFabFedora from './icons/fab-fedora'
+import IconFabFigma from './icons/fab-figma'
+import IconFabFirefox from './icons/fab-firefox'
+import IconFabFirstOrderAlt from './icons/fab-first-order-alt'
+import IconFabFirstOrder from './icons/fab-first-order'
+import IconFabFirstdraft from './icons/fab-firstdraft'
+import IconFabFlickr from './icons/fab-flickr'
+import IconFabFlipboard from './icons/fab-flipboard'
+import IconFabFly from './icons/fab-fly'
+import IconFabFontAwesomeAlt from './icons/fab-font-awesome-alt'
+import IconFabFontAwesomeFlag from './icons/fab-font-awesome-flag'
+import IconFabFontAwesomeLogoFull from './icons/fab-font-awesome-logo-full'
+import IconFabFontAwesome from './icons/fab-font-awesome'
+import IconFabFonticonsFi from './icons/fab-fonticons-fi'
+import IconFabFonticons from './icons/fab-fonticons'
+import IconFabFortAwesomeAlt from './icons/fab-fort-awesome-alt'
+import IconFabFortAwesome from './icons/fab-fort-awesome'
+import IconFabForumbee from './icons/fab-forumbee'
+import IconFabFoursquare from './icons/fab-foursquare'
+import IconFabFreeCodeCamp from './icons/fab-free-code-camp'
+import IconFabFreebsd from './icons/fab-freebsd'
+import IconFabFulcrum from './icons/fab-fulcrum'
+import IconFabGalacticRepublic from './icons/fab-galactic-republic'
+import IconFabGalacticSenate from './icons/fab-galactic-senate'
+import IconFabGetPocket from './icons/fab-get-pocket'
+import IconFabGgCircle from './icons/fab-gg-circle'
+import IconFabGg from './icons/fab-gg'
+import IconFabGitSquare from './icons/fab-git-square'
+import IconFabGit from './icons/fab-git'
+import IconFabGithubAlt from './icons/fab-github-alt'
+import IconFabGithubSquare from './icons/fab-github-square'
+import IconFabGithub from './icons/fab-github'
+import IconFabGitkraken from './icons/fab-gitkraken'
+import IconFabGitlab from './icons/fab-gitlab'
+import IconFabGitter from './icons/fab-gitter'
+import IconFabGlideG from './icons/fab-glide-g'
+import IconFabGlide from './icons/fab-glide'
+import IconFabGofore from './icons/fab-gofore'
+import IconFabGoodreadsG from './icons/fab-goodreads-g'
+import IconFabGoodreads from './icons/fab-goodreads'
+import IconFabGoogleDrive from './icons/fab-google-drive'
+import IconFabGooglePlay from './icons/fab-google-play'
+import IconFabGooglePlusG from './icons/fab-google-plus-g'
+import IconFabGooglePlusSquare from './icons/fab-google-plus-square'
+import IconFabGooglePlus from './icons/fab-google-plus'
+import IconFabGoogleWallet from './icons/fab-google-wallet'
+import IconFabGoogle from './icons/fab-google'
+import IconFabGratipay from './icons/fab-gratipay'
+import IconFabGrav from './icons/fab-grav'
+import IconFabGripfire from './icons/fab-gripfire'
+import IconFabGrunt from './icons/fab-grunt'
+import IconFabGulp from './icons/fab-gulp'
+import IconFabHackerNewsSquare from './icons/fab-hacker-news-square'
+import IconFabHackerNews from './icons/fab-hacker-news'
+import IconFabHackerrank from './icons/fab-hackerrank'
+import IconFabHips from './icons/fab-hips'
+import IconFabHireAHelper from './icons/fab-hire-a-helper'
+import IconFabHooli from './icons/fab-hooli'
+import IconFabHornbill from './icons/fab-hornbill'
+import IconFabHotjar from './icons/fab-hotjar'
+import IconFabHouzz from './icons/fab-houzz'
+import IconFabHtml5 from './icons/fab-html5'
+import IconFabHubspot from './icons/fab-hubspot'
+import IconFabImdb from './icons/fab-imdb'
+import IconFabInstagram from './icons/fab-instagram'
+import IconFabIntercom from './icons/fab-intercom'
+import IconFabInternetExplorer from './icons/fab-internet-explorer'
+import IconFabInvision from './icons/fab-invision'
+import IconFabIoxhost from './icons/fab-ioxhost'
+import IconFabItchIo from './icons/fab-itch-io'
+import IconFabItunesNote from './icons/fab-itunes-note'
+import IconFabItunes from './icons/fab-itunes'
+import IconFabJava from './icons/fab-java'
+import IconFabJediOrder from './icons/fab-jedi-order'
+import IconFabJenkins from './icons/fab-jenkins'
+import IconFabJira from './icons/fab-jira'
+import IconFabJoget from './icons/fab-joget'
+import IconFabJoomla from './icons/fab-joomla'
+import IconFabJsSquare from './icons/fab-js-square'
+import IconFabJs from './icons/fab-js'
+import IconFabJsfiddle from './icons/fab-jsfiddle'
+import IconFabKaggle from './icons/fab-kaggle'
+import IconFabKeybase from './icons/fab-keybase'
+import IconFabKeycdn from './icons/fab-keycdn'
+import IconFabKickstarterK from './icons/fab-kickstarter-k'
+import IconFabKickstarter from './icons/fab-kickstarter'
+import IconFabKorvue from './icons/fab-korvue'
+import IconFabLaravel from './icons/fab-laravel'
+import IconFabLastfmSquare from './icons/fab-lastfm-square'
+import IconFabLastfm from './icons/fab-lastfm'
+import IconFabLeanpub from './icons/fab-leanpub'
+import IconFabLess from './icons/fab-less'
+import IconFabLine from './icons/fab-line'
+import IconFabLinkedinIn from './icons/fab-linkedin-in'
+import IconFabLinkedin from './icons/fab-linkedin'
+import IconFabLinode from './icons/fab-linode'
+import IconFabLinux from './icons/fab-linux'
+import IconFabLyft from './icons/fab-lyft'
+import IconFabMagento from './icons/fab-magento'
+import IconFabMailchimp from './icons/fab-mailchimp'
+import IconFabMandalorian from './icons/fab-mandalorian'
+import IconFabMarkdown from './icons/fab-markdown'
+import IconFabMastodon from './icons/fab-mastodon'
+import IconFabMaxcdn from './icons/fab-maxcdn'
+import IconFabMedapps from './icons/fab-medapps'
+import IconFabMediumM from './icons/fab-medium-m'
+import IconFabMedium from './icons/fab-medium'
+import IconFabMedrt from './icons/fab-medrt'
+import IconFabMeetup from './icons/fab-meetup'
+import IconFabMegaport from './icons/fab-megaport'
+import IconFabMendeley from './icons/fab-mendeley'
+import IconFabMicrosoft from './icons/fab-microsoft'
+import IconFabMix from './icons/fab-mix'
+import IconFabMixcloud from './icons/fab-mixcloud'
+import IconFabMizuni from './icons/fab-mizuni'
+import IconFabModx from './icons/fab-modx'
+import IconFabMonero from './icons/fab-monero'
+import IconFabNapster from './icons/fab-napster'
+import IconFabNeos from './icons/fab-neos'
+import IconFabNimblr from './icons/fab-nimblr'
+import IconFabNintendoSwitch from './icons/fab-nintendo-switch'
+import IconFabNodeJs from './icons/fab-node-js'
+import IconFabNode from './icons/fab-node'
+import IconFabNpm from './icons/fab-npm'
+import IconFabNs8 from './icons/fab-ns8'
+import IconFabNutritionix from './icons/fab-nutritionix'
+import IconFabOdnoklassnikiSquare from './icons/fab-odnoklassniki-square'
+import IconFabOdnoklassniki from './icons/fab-odnoklassniki'
+import IconFabOldRepublic from './icons/fab-old-republic'
+import IconFabOpencart from './icons/fab-opencart'
+import IconFabOpenid from './icons/fab-openid'
+import IconFabOpera from './icons/fab-opera'
+import IconFabOptinMonster from './icons/fab-optin-monster'
+import IconFabOsi from './icons/fab-osi'
+import IconFabPage4 from './icons/fab-page4'
+import IconFabPagelines from './icons/fab-pagelines'
+import IconFabPalfed from './icons/fab-palfed'
+import IconFabPatreon from './icons/fab-patreon'
+import IconFabPaypal from './icons/fab-paypal'
+import IconFabPennyArcade from './icons/fab-penny-arcade'
+import IconFabPeriscope from './icons/fab-periscope'
+import IconFabPhabricator from './icons/fab-phabricator'
+import IconFabPhoenixFramework from './icons/fab-phoenix-framework'
+import IconFabPhoenixSquadron from './icons/fab-phoenix-squadron'
+import IconFabPhp from './icons/fab-php'
+import IconFabPiedPiperAlt from './icons/fab-pied-piper-alt'
+import IconFabPiedPiperHat from './icons/fab-pied-piper-hat'
+import IconFabPiedPiperPp from './icons/fab-pied-piper-pp'
+import IconFabPiedPiper from './icons/fab-pied-piper'
+import IconFabPinterestP from './icons/fab-pinterest-p'
+import IconFabPinterestSquare from './icons/fab-pinterest-square'
+import IconFabPinterest from './icons/fab-pinterest'
+import IconFabPlaystation from './icons/fab-playstation'
+import IconFabProductHunt from './icons/fab-product-hunt'
+import IconFabPushed from './icons/fab-pushed'
+import IconFabPython from './icons/fab-python'
+import IconFabQq from './icons/fab-qq'
+import IconFabQuinscape from './icons/fab-quinscape'
+import IconFabQuora from './icons/fab-quora'
+import IconFabRProject from './icons/fab-r-project'
+import IconFabRaspberryPi from './icons/fab-raspberry-pi'
+import IconFabRavelry from './icons/fab-ravelry'
+import IconFabReact from './icons/fab-react'
+import IconFabReacteurope from './icons/fab-reacteurope'
+import IconFabReadme from './icons/fab-readme'
+import IconFabRebel from './icons/fab-rebel'
+import IconFabRedRiver from './icons/fab-red-river'
+import IconFabRedditAlien from './icons/fab-reddit-alien'
+import IconFabRedditSquare from './icons/fab-reddit-square'
+import IconFabReddit from './icons/fab-reddit'
+import IconFabRedhat from './icons/fab-redhat'
+import IconFabRenren from './icons/fab-renren'
+import IconFabReplyd from './icons/fab-replyd'
+import IconFabResearchgate from './icons/fab-researchgate'
+import IconFabResolving from './icons/fab-resolving'
+import IconFabRev from './icons/fab-rev'
+import IconFabRocketchat from './icons/fab-rocketchat'
+import IconFabRockrms from './icons/fab-rockrms'
+import IconFabSafari from './icons/fab-safari'
+import IconFabSalesforce from './icons/fab-salesforce'
+import IconFabSass from './icons/fab-sass'
+import IconFabSchlix from './icons/fab-schlix'
+import IconFabScribd from './icons/fab-scribd'
+import IconFabSearchengin from './icons/fab-searchengin'
+import IconFabSellcast from './icons/fab-sellcast'
+import IconFabSellsy from './icons/fab-sellsy'
+import IconFabServicestack from './icons/fab-servicestack'
+import IconFabShirtsinbulk from './icons/fab-shirtsinbulk'
+import IconFabShopware from './icons/fab-shopware'
+import IconFabSimplybuilt from './icons/fab-simplybuilt'
+import IconFabSistrix from './icons/fab-sistrix'
+import IconFabSith from './icons/fab-sith'
+import IconFabSketch from './icons/fab-sketch'
+import IconFabSkyatlas from './icons/fab-skyatlas'
+import IconFabSkype from './icons/fab-skype'
+import IconFabSlackHash from './icons/fab-slack-hash'
+import IconFabSlack from './icons/fab-slack'
+import IconFabSlideshare from './icons/fab-slideshare'
+import IconFabSnapchatGhost from './icons/fab-snapchat-ghost'
+import IconFabSnapchatSquare from './icons/fab-snapchat-square'
+import IconFabSnapchat from './icons/fab-snapchat'
+import IconFabSoundcloud from './icons/fab-soundcloud'
+import IconFabSourcetree from './icons/fab-sourcetree'
+import IconFabSpeakap from './icons/fab-speakap'
+import IconFabSpeakerDeck from './icons/fab-speaker-deck'
+import IconFabSpotify from './icons/fab-spotify'
+import IconFabSquarespace from './icons/fab-squarespace'
+import IconFabStackExchange from './icons/fab-stack-exchange'
+import IconFabStackOverflow from './icons/fab-stack-overflow'
+import IconFabStaylinked from './icons/fab-staylinked'
+import IconFabSteamSquare from './icons/fab-steam-square'
+import IconFabSteamSymbol from './icons/fab-steam-symbol'
+import IconFabSteam from './icons/fab-steam'
+import IconFabStickerMule from './icons/fab-sticker-mule'
+import IconFabStrava from './icons/fab-strava'
+import IconFabStripeS from './icons/fab-stripe-s'
+import IconFabStripe from './icons/fab-stripe'
+import IconFabStudiovinari from './icons/fab-studiovinari'
+import IconFabStumbleuponCircle from './icons/fab-stumbleupon-circle'
+import IconFabStumbleupon from './icons/fab-stumbleupon'
+import IconFabSuperpowers from './icons/fab-superpowers'
+import IconFabSupple from './icons/fab-supple'
+import IconFabSuse from './icons/fab-suse'
+import IconFabSymfony from './icons/fab-symfony'
+import IconFabTeamspeak from './icons/fab-teamspeak'
+import IconFabTelegramPlane from './icons/fab-telegram-plane'
+import IconFabTelegram from './icons/fab-telegram'
+import IconFabTencentWeibo from './icons/fab-tencent-weibo'
+import IconFabTheRedYeti from './icons/fab-the-red-yeti'
+import IconFabThemeco from './icons/fab-themeco'
+import IconFabThemeisle from './icons/fab-themeisle'
+import IconFabThinkPeaks from './icons/fab-think-peaks'
+import IconFabTradeFederation from './icons/fab-trade-federation'
+import IconFabTrello from './icons/fab-trello'
+import IconFabTripadvisor from './icons/fab-tripadvisor'
+import IconFabTumblrSquare from './icons/fab-tumblr-square'
+import IconFabTumblr from './icons/fab-tumblr'
+import IconFabTwitch from './icons/fab-twitch'
+import IconFabTwitterSquare from './icons/fab-twitter-square'
+import IconFabTwitter from './icons/fab-twitter'
+import IconFabTypo3 from './icons/fab-typo3'
+import IconFabUber from './icons/fab-uber'
+import IconFabUbuntu from './icons/fab-ubuntu'
+import IconFabUikit from './icons/fab-uikit'
+import IconFabUniregistry from './icons/fab-uniregistry'
+import IconFabUntappd from './icons/fab-untappd'
+import IconFabUps from './icons/fab-ups'
+import IconFabUsb from './icons/fab-usb'
+import IconFabUsps from './icons/fab-usps'
+import IconFabUssunnah from './icons/fab-ussunnah'
+import IconFabVaadin from './icons/fab-vaadin'
+import IconFabViacoin from './icons/fab-viacoin'
+import IconFabViadeoSquare from './icons/fab-viadeo-square'
+import IconFabViadeo from './icons/fab-viadeo'
+import IconFabViber from './icons/fab-viber'
+import IconFabVimeoSquare from './icons/fab-vimeo-square'
+import IconFabVimeoV from './icons/fab-vimeo-v'
+import IconFabVimeo from './icons/fab-vimeo'
+import IconFabVine from './icons/fab-vine'
+import IconFabVk from './icons/fab-vk'
+import IconFabVnv from './icons/fab-vnv'
+import IconFabVuejs from './icons/fab-vuejs'
+import IconFabWaze from './icons/fab-waze'
+import IconFabWeebly from './icons/fab-weebly'
+import IconFabWeibo from './icons/fab-weibo'
+import IconFabWeixin from './icons/fab-weixin'
+import IconFabWhatsappSquare from './icons/fab-whatsapp-square'
+import IconFabWhatsapp from './icons/fab-whatsapp'
+import IconFabWhmcs from './icons/fab-whmcs'
+import IconFabWikipediaW from './icons/fab-wikipedia-w'
+import IconFabWindows from './icons/fab-windows'
+import IconFabWix from './icons/fab-wix'
+import IconFabWizardsOfTheCoast from './icons/fab-wizards-of-the-coast'
+import IconFabWolfPackBattalion from './icons/fab-wolf-pack-battalion'
+import IconFabWordpressSimple from './icons/fab-wordpress-simple'
+import IconFabWordpress from './icons/fab-wordpress'
+import IconFabWpbeginner from './icons/fab-wpbeginner'
+import IconFabWpexplorer from './icons/fab-wpexplorer'
+import IconFabWpforms from './icons/fab-wpforms'
+import IconFabWpressr from './icons/fab-wpressr'
+import IconFabXbox from './icons/fab-xbox'
+import IconFabXingSquare from './icons/fab-xing-square'
+import IconFabXing from './icons/fab-xing'
+import IconFabYCombinator from './icons/fab-y-combinator'
+import IconFabYahoo from './icons/fab-yahoo'
+import IconFabYammer from './icons/fab-yammer'
+import IconFabYandexInternational from './icons/fab-yandex-international'
+import IconFabYandex from './icons/fab-yandex'
+import IconFabYarn from './icons/fab-yarn'
+import IconFabYelp from './icons/fab-yelp'
+import IconFabYoast from './icons/fab-yoast'
+import IconFabYoutubeSquare from './icons/fab-youtube-square'
+import IconFabYoutube from './icons/fab-youtube'
+import IconFabZhihu from './icons/fab-zhihu'
+import IconFarAddressBook from './icons/far-address-book'
+import IconFarAddressCard from './icons/far-address-card'
+import IconFarAngry from './icons/far-angry'
+import IconFarArrowAltCircleDown from './icons/far-arrow-alt-circle-down'
+import IconFarArrowAltCircleLeft from './icons/far-arrow-alt-circle-left'
+import IconFarArrowAltCircleRight from './icons/far-arrow-alt-circle-right'
+import IconFarArrowAltCircleUp from './icons/far-arrow-alt-circle-up'
+import IconFarBellSlash from './icons/far-bell-slash'
+import IconFarBell from './icons/far-bell'
+import IconFarBookmark from './icons/far-bookmark'
+import IconFarBuilding from './icons/far-building'
+import IconFarCalendarAlt from './icons/far-calendar-alt'
+import IconFarCalendarCheck from './icons/far-calendar-check'
+import IconFarCalendarMinus from './icons/far-calendar-minus'
+import IconFarCalendarPlus from './icons/far-calendar-plus'
+import IconFarCalendarTimes from './icons/far-calendar-times'
+import IconFarCalendar from './icons/far-calendar'
+import IconFarCaretSquareDown from './icons/far-caret-square-down'
+import IconFarCaretSquareLeft from './icons/far-caret-square-left'
+import IconFarCaretSquareRight from './icons/far-caret-square-right'
+import IconFarCaretSquareUp from './icons/far-caret-square-up'
+import IconFarChartBar from './icons/far-chart-bar'
+import IconFarCheckCircle from './icons/far-check-circle'
+import IconFarCheckSquare from './icons/far-check-square'
+import IconFarCircle from './icons/far-circle'
+import IconFarClipboard from './icons/far-clipboard'
+import IconFarClock from './icons/far-clock'
+import IconFarClone from './icons/far-clone'
+import IconFarClosedCaptioning from './icons/far-closed-captioning'
+import IconFarCommentAlt from './icons/far-comment-alt'
+import IconFarCommentDots from './icons/far-comment-dots'
+import IconFarComment from './icons/far-comment'
+import IconFarComments from './icons/far-comments'
+import IconFarCompass from './icons/far-compass'
+import IconFarCopy from './icons/far-copy'
+import IconFarCopyright from './icons/far-copyright'
+import IconFarCreditCard from './icons/far-credit-card'
+import IconFarDizzy from './icons/far-dizzy'
+import IconFarDotCircle from './icons/far-dot-circle'
+import IconFarEdit from './icons/far-edit'
+import IconFarEnvelopeOpen from './icons/far-envelope-open'
+import IconFarEnvelope from './icons/far-envelope'
+import IconFarEyeSlash from './icons/far-eye-slash'
+import IconFarEye from './icons/far-eye'
+import IconFarFileAlt from './icons/far-file-alt'
+import IconFarFileArchive from './icons/far-file-archive'
+import IconFarFileAudio from './icons/far-file-audio'
+import IconFarFileCode from './icons/far-file-code'
+import IconFarFileExcel from './icons/far-file-excel'
+import IconFarFileImage from './icons/far-file-image'
+import IconFarFilePdf from './icons/far-file-pdf'
+import IconFarFilePowerpoint from './icons/far-file-powerpoint'
+import IconFarFileVideo from './icons/far-file-video'
+import IconFarFileWord from './icons/far-file-word'
+import IconFarFile from './icons/far-file'
+import IconFarFlag from './icons/far-flag'
+import IconFarFlushed from './icons/far-flushed'
+import IconFarFolderOpen from './icons/far-folder-open'
+import IconFarFolder from './icons/far-folder'
+import IconFarFontAwesomeLogoFull from './icons/far-font-awesome-logo-full'
+import IconFarFrownOpen from './icons/far-frown-open'
+import IconFarFrown from './icons/far-frown'
+import IconFarFutbol from './icons/far-futbol'
+import IconFarGem from './icons/far-gem'
+import IconFarGrimace from './icons/far-grimace'
+import IconFarGrinAlt from './icons/far-grin-alt'
+import IconFarGrinBeamSweat from './icons/far-grin-beam-sweat'
+import IconFarGrinBeam from './icons/far-grin-beam'
+import IconFarGrinHearts from './icons/far-grin-hearts'
+import IconFarGrinSquintTears from './icons/far-grin-squint-tears'
+import IconFarGrinSquint from './icons/far-grin-squint'
+import IconFarGrinStars from './icons/far-grin-stars'
+import IconFarGrinTears from './icons/far-grin-tears'
+import IconFarGrinTongueSquint from './icons/far-grin-tongue-squint'
+import IconFarGrinTongueWink from './icons/far-grin-tongue-wink'
+import IconFarGrinTongue from './icons/far-grin-tongue'
+import IconFarGrinWink from './icons/far-grin-wink'
+import IconFarGrin from './icons/far-grin'
+import IconFarHandLizard from './icons/far-hand-lizard'
+import IconFarHandPaper from './icons/far-hand-paper'
+import IconFarHandPeace from './icons/far-hand-peace'
+import IconFarHandPointDown from './icons/far-hand-point-down'
+import IconFarHandPointLeft from './icons/far-hand-point-left'
+import IconFarHandPointRight from './icons/far-hand-point-right'
+import IconFarHandPointUp from './icons/far-hand-point-up'
+import IconFarHandPointer from './icons/far-hand-pointer'
+import IconFarHandRock from './icons/far-hand-rock'
+import IconFarHandScissors from './icons/far-hand-scissors'
+import IconFarHandSpock from './icons/far-hand-spock'
+import IconFarHandshake from './icons/far-handshake'
+import IconFarHdd from './icons/far-hdd'
+import IconFarHeart from './icons/far-heart'
+import IconFarHospital from './icons/far-hospital'
+import IconFarHourglass from './icons/far-hourglass'
+import IconFarIdBadge from './icons/far-id-badge'
+import IconFarIdCard from './icons/far-id-card'
+import IconFarImage from './icons/far-image'
+import IconFarImages from './icons/far-images'
+import IconFarKeyboard from './icons/far-keyboard'
+import IconFarKissBeam from './icons/far-kiss-beam'
+import IconFarKissWinkHeart from './icons/far-kiss-wink-heart'
+import IconFarKiss from './icons/far-kiss'
+import IconFarLaughBeam from './icons/far-laugh-beam'
+import IconFarLaughSquint from './icons/far-laugh-squint'
+import IconFarLaughWink from './icons/far-laugh-wink'
+import IconFarLaugh from './icons/far-laugh'
+import IconFarLemon from './icons/far-lemon'
+import IconFarLifeRing from './icons/far-life-ring'
+import IconFarLightbulb from './icons/far-lightbulb'
+import IconFarListAlt from './icons/far-list-alt'
+import IconFarMap from './icons/far-map'
+import IconFarMehBlank from './icons/far-meh-blank'
+import IconFarMehRollingEyes from './icons/far-meh-rolling-eyes'
+import IconFarMeh from './icons/far-meh'
+import IconFarMinusSquare from './icons/far-minus-square'
+import IconFarMoneyBillAlt from './icons/far-money-bill-alt'
+import IconFarMoon from './icons/far-moon'
+import IconFarNewspaper from './icons/far-newspaper'
+import IconFarObjectGroup from './icons/far-object-group'
+import IconFarObjectUngroup from './icons/far-object-ungroup'
+import IconFarPaperPlane from './icons/far-paper-plane'
+import IconFarPauseCircle from './icons/far-pause-circle'
+import IconFarPlayCircle from './icons/far-play-circle'
+import IconFarPlusSquare from './icons/far-plus-square'
+import IconFarQuestionCircle from './icons/far-question-circle'
+import IconFarRegistered from './icons/far-registered'
+import IconFarSadCry from './icons/far-sad-cry'
+import IconFarSadTear from './icons/far-sad-tear'
+import IconFarSave from './icons/far-save'
+import IconFarShareSquare from './icons/far-share-square'
+import IconFarSmileBeam from './icons/far-smile-beam'
+import IconFarSmileWink from './icons/far-smile-wink'
+import IconFarSmile from './icons/far-smile'
+import IconFarSnowflake from './icons/far-snowflake'
+import IconFarSquare from './icons/far-square'
+import IconFarStarHalf from './icons/far-star-half'
+import IconFarStar from './icons/far-star'
+import IconFarStickyNote from './icons/far-sticky-note'
+import IconFarStopCircle from './icons/far-stop-circle'
+import IconFarSun from './icons/far-sun'
+import IconFarSurprise from './icons/far-surprise'
+import IconFarThumbsDown from './icons/far-thumbs-down'
+import IconFarThumbsUp from './icons/far-thumbs-up'
+import IconFarTimesCircle from './icons/far-times-circle'
+import IconFarTired from './icons/far-tired'
+import IconFarTrashAlt from './icons/far-trash-alt'
+import IconFarUserCircle from './icons/far-user-circle'
+import IconFarUser from './icons/far-user'
+import IconFarWindowClose from './icons/far-window-close'
+import IconFarWindowMaximize from './icons/far-window-maximize'
+import IconFarWindowMinimize from './icons/far-window-minimize'
+import IconFarWindowRestore from './icons/far-window-restore'
+import IconFasAd from './icons/fas-ad'
+import IconFasAddressBook from './icons/fas-address-book'
+import IconFasAddressCard from './icons/fas-address-card'
+import IconFasAdjust from './icons/fas-adjust'
+import IconFasAirFreshener from './icons/fas-air-freshener'
+import IconFasAlignCenter from './icons/fas-align-center'
+import IconFasAlignJustify from './icons/fas-align-justify'
+import IconFasAlignLeft from './icons/fas-align-left'
+import IconFasAlignRight from './icons/fas-align-right'
+import IconFasAllergies from './icons/fas-allergies'
+import IconFasAmbulance from './icons/fas-ambulance'
+import IconFasAmericanSignLanguageInterpreting from './icons/fas-american-sign-language-interpreting'
+import IconFasAnchor from './icons/fas-anchor'
+import IconFasAngleDoubleDown from './icons/fas-angle-double-down'
+import IconFasAngleDoubleLeft from './icons/fas-angle-double-left'
+import IconFasAngleDoubleRight from './icons/fas-angle-double-right'
+import IconFasAngleDoubleUp from './icons/fas-angle-double-up'
+import IconFasAngleDown from './icons/fas-angle-down'
+import IconFasAngleLeft from './icons/fas-angle-left'
+import IconFasAngleRight from './icons/fas-angle-right'
+import IconFasAngleUp from './icons/fas-angle-up'
+import IconFasAngry from './icons/fas-angry'
+import IconFasAnkh from './icons/fas-ankh'
+import IconFasAppleAlt from './icons/fas-apple-alt'
+import IconFasArchive from './icons/fas-archive'
+import IconFasArchway from './icons/fas-archway'
+import IconFasArrowAltCircleDown from './icons/fas-arrow-alt-circle-down'
+import IconFasArrowAltCircleLeft from './icons/fas-arrow-alt-circle-left'
+import IconFasArrowAltCircleRight from './icons/fas-arrow-alt-circle-right'
+import IconFasArrowAltCircleUp from './icons/fas-arrow-alt-circle-up'
+import IconFasArrowCircleDown from './icons/fas-arrow-circle-down'
+import IconFasArrowCircleLeft from './icons/fas-arrow-circle-left'
+import IconFasArrowCircleRight from './icons/fas-arrow-circle-right'
+import IconFasArrowCircleUp from './icons/fas-arrow-circle-up'
+import IconFasArrowDown from './icons/fas-arrow-down'
+import IconFasArrowLeft from './icons/fas-arrow-left'
+import IconFasArrowRight from './icons/fas-arrow-right'
+import IconFasArrowUp from './icons/fas-arrow-up'
+import IconFasArrowsAltH from './icons/fas-arrows-alt-h'
+import IconFasArrowsAltV from './icons/fas-arrows-alt-v'
+import IconFasArrowsAlt from './icons/fas-arrows-alt'
+import IconFasAssistiveListeningSystems from './icons/fas-assistive-listening-systems'
+import IconFasAsterisk from './icons/fas-asterisk'
+import IconFasAt from './icons/fas-at'
+import IconFasAtlas from './icons/fas-atlas'
+import IconFasAtom from './icons/fas-atom'
+import IconFasAudioDescription from './icons/fas-audio-description'
+import IconFasAward from './icons/fas-award'
+import IconFasBabyCarriage from './icons/fas-baby-carriage'
+import IconFasBaby from './icons/fas-baby'
+import IconFasBackspace from './icons/fas-backspace'
+import IconFasBackward from './icons/fas-backward'
+import IconFasBacon from './icons/fas-bacon'
+import IconFasBalanceScale from './icons/fas-balance-scale'
+import IconFasBan from './icons/fas-ban'
+import IconFasBandAid from './icons/fas-band-aid'
+import IconFasBarcode from './icons/fas-barcode'
+import IconFasBars from './icons/fas-bars'
+import IconFasBaseballBall from './icons/fas-baseball-ball'
+import IconFasBasketballBall from './icons/fas-basketball-ball'
+import IconFasBath from './icons/fas-bath'
+import IconFasBatteryEmpty from './icons/fas-battery-empty'
+import IconFasBatteryFull from './icons/fas-battery-full'
+import IconFasBatteryHalf from './icons/fas-battery-half'
+import IconFasBatteryQuarter from './icons/fas-battery-quarter'
+import IconFasBatteryThreeQuarters from './icons/fas-battery-three-quarters'
+import IconFasBed from './icons/fas-bed'
+import IconFasBeer from './icons/fas-beer'
+import IconFasBellSlash from './icons/fas-bell-slash'
+import IconFasBell from './icons/fas-bell'
+import IconFasBezierCurve from './icons/fas-bezier-curve'
+import IconFasBible from './icons/fas-bible'
+import IconFasBicycle from './icons/fas-bicycle'
+import IconFasBinoculars from './icons/fas-binoculars'
+import IconFasBiohazard from './icons/fas-biohazard'
+import IconFasBirthdayCake from './icons/fas-birthday-cake'
+import IconFasBlenderPhone from './icons/fas-blender-phone'
+import IconFasBlender from './icons/fas-blender'
+import IconFasBlind from './icons/fas-blind'
+import IconFasBlog from './icons/fas-blog'
+import IconFasBold from './icons/fas-bold'
+import IconFasBolt from './icons/fas-bolt'
+import IconFasBomb from './icons/fas-bomb'
+import IconFasBone from './icons/fas-bone'
+import IconFasBong from './icons/fas-bong'
+import IconFasBookDead from './icons/fas-book-dead'
+import IconFasBookMedical from './icons/fas-book-medical'
+import IconFasBookOpen from './icons/fas-book-open'
+import IconFasBookReader from './icons/fas-book-reader'
+import IconFasBook from './icons/fas-book'
+import IconFasBookmark from './icons/fas-bookmark'
+import IconFasBowlingBall from './icons/fas-bowling-ball'
+import IconFasBoxOpen from './icons/fas-box-open'
+import IconFasBox from './icons/fas-box'
+import IconFasBoxes from './icons/fas-boxes'
+import IconFasBraille from './icons/fas-braille'
+import IconFasBrain from './icons/fas-brain'
+import IconFasBreadSlice from './icons/fas-bread-slice'
+import IconFasBriefcaseMedical from './icons/fas-briefcase-medical'
+import IconFasBriefcase from './icons/fas-briefcase'
+import IconFasBroadcastTower from './icons/fas-broadcast-tower'
+import IconFasBroom from './icons/fas-broom'
+import IconFasBrush from './icons/fas-brush'
+import IconFasBug from './icons/fas-bug'
+import IconFasBuilding from './icons/fas-building'
+import IconFasBullhorn from './icons/fas-bullhorn'
+import IconFasBullseye from './icons/fas-bullseye'
+import IconFasBurn from './icons/fas-burn'
+import IconFasBusAlt from './icons/fas-bus-alt'
+import IconFasBus from './icons/fas-bus'
+import IconFasBusinessTime from './icons/fas-business-time'
+import IconFasCalculator from './icons/fas-calculator'
+import IconFasCalendarAlt from './icons/fas-calendar-alt'
+import IconFasCalendarCheck from './icons/fas-calendar-check'
+import IconFasCalendarDay from './icons/fas-calendar-day'
+import IconFasCalendarMinus from './icons/fas-calendar-minus'
+import IconFasCalendarPlus from './icons/fas-calendar-plus'
+import IconFasCalendarTimes from './icons/fas-calendar-times'
+import IconFasCalendarWeek from './icons/fas-calendar-week'
+import IconFasCalendar from './icons/fas-calendar'
+import IconFasCameraRetro from './icons/fas-camera-retro'
+import IconFasCamera from './icons/fas-camera'
+import IconFasCampground from './icons/fas-campground'
+import IconFasCandyCane from './icons/fas-candy-cane'
+import IconFasCannabis from './icons/fas-cannabis'
+import IconFasCapsules from './icons/fas-capsules'
+import IconFasCarAlt from './icons/fas-car-alt'
+import IconFasCarBattery from './icons/fas-car-battery'
+import IconFasCarCrash from './icons/fas-car-crash'
+import IconFasCarSide from './icons/fas-car-side'
+import IconFasCar from './icons/fas-car'
+import IconFasCaretDown from './icons/fas-caret-down'
+import IconFasCaretLeft from './icons/fas-caret-left'
+import IconFasCaretRight from './icons/fas-caret-right'
+import IconFasCaretSquareDown from './icons/fas-caret-square-down'
+import IconFasCaretSquareLeft from './icons/fas-caret-square-left'
+import IconFasCaretSquareRight from './icons/fas-caret-square-right'
+import IconFasCaretSquareUp from './icons/fas-caret-square-up'
+import IconFasCaretUp from './icons/fas-caret-up'
+import IconFasCarrot from './icons/fas-carrot'
+import IconFasCartArrowDown from './icons/fas-cart-arrow-down'
+import IconFasCartPlus from './icons/fas-cart-plus'
+import IconFasCashRegister from './icons/fas-cash-register'
+import IconFasCat from './icons/fas-cat'
+import IconFasCertificate from './icons/fas-certificate'
+import IconFasChair from './icons/fas-chair'
+import IconFasChalkboardTeacher from './icons/fas-chalkboard-teacher'
+import IconFasChalkboard from './icons/fas-chalkboard'
+import IconFasChargingStation from './icons/fas-charging-station'
+import IconFasChartArea from './icons/fas-chart-area'
+import IconFasChartBar from './icons/fas-chart-bar'
+import IconFasChartLine from './icons/fas-chart-line'
+import IconFasChartPie from './icons/fas-chart-pie'
+import IconFasCheckCircle from './icons/fas-check-circle'
+import IconFasCheckDouble from './icons/fas-check-double'
+import IconFasCheckSquare from './icons/fas-check-square'
+import IconFasCheck from './icons/fas-check'
+import IconFasCheese from './icons/fas-cheese'
+import IconFasChessBishop from './icons/fas-chess-bishop'
+import IconFasChessBoard from './icons/fas-chess-board'
+import IconFasChessKing from './icons/fas-chess-king'
+import IconFasChessKnight from './icons/fas-chess-knight'
+import IconFasChessPawn from './icons/fas-chess-pawn'
+import IconFasChessQueen from './icons/fas-chess-queen'
+import IconFasChessRook from './icons/fas-chess-rook'
+import IconFasChess from './icons/fas-chess'
+import IconFasChevronCircleDown from './icons/fas-chevron-circle-down'
+import IconFasChevronCircleLeft from './icons/fas-chevron-circle-left'
+import IconFasChevronCircleRight from './icons/fas-chevron-circle-right'
+import IconFasChevronCircleUp from './icons/fas-chevron-circle-up'
+import IconFasChevronDown from './icons/fas-chevron-down'
+import IconFasChevronLeft from './icons/fas-chevron-left'
+import IconFasChevronRight from './icons/fas-chevron-right'
+import IconFasChevronUp from './icons/fas-chevron-up'
+import IconFasChild from './icons/fas-child'
+import IconFasChurch from './icons/fas-church'
+import IconFasCircleNotch from './icons/fas-circle-notch'
+import IconFasCircle from './icons/fas-circle'
+import IconFasCity from './icons/fas-city'
+import IconFasClinicMedical from './icons/fas-clinic-medical'
+import IconFasClipboardCheck from './icons/fas-clipboard-check'
+import IconFasClipboardList from './icons/fas-clipboard-list'
+import IconFasClipboard from './icons/fas-clipboard'
+import IconFasClock from './icons/fas-clock'
+import IconFasClone from './icons/fas-clone'
+import IconFasClosedCaptioning from './icons/fas-closed-captioning'
+import IconFasCloudDownloadAlt from './icons/fas-cloud-download-alt'
+import IconFasCloudMeatball from './icons/fas-cloud-meatball'
+import IconFasCloudMoonRain from './icons/fas-cloud-moon-rain'
+import IconFasCloudMoon from './icons/fas-cloud-moon'
+import IconFasCloudRain from './icons/fas-cloud-rain'
+import IconFasCloudShowersHeavy from './icons/fas-cloud-showers-heavy'
+import IconFasCloudSunRain from './icons/fas-cloud-sun-rain'
+import IconFasCloudSun from './icons/fas-cloud-sun'
+import IconFasCloudUploadAlt from './icons/fas-cloud-upload-alt'
+import IconFasCloud from './icons/fas-cloud'
+import IconFasCocktail from './icons/fas-cocktail'
+import IconFasCodeBranch from './icons/fas-code-branch'
+import IconFasCode from './icons/fas-code'
+import IconFasCoffee from './icons/fas-coffee'
+import IconFasCog from './icons/fas-cog'
+import IconFasCogs from './icons/fas-cogs'
+import IconFasCoins from './icons/fas-coins'
+import IconFasColumns from './icons/fas-columns'
+import IconFasCommentAlt from './icons/fas-comment-alt'
+import IconFasCommentDollar from './icons/fas-comment-dollar'
+import IconFasCommentDots from './icons/fas-comment-dots'
+import IconFasCommentMedical from './icons/fas-comment-medical'
+import IconFasCommentSlash from './icons/fas-comment-slash'
+import IconFasComment from './icons/fas-comment'
+import IconFasCommentsDollar from './icons/fas-comments-dollar'
+import IconFasComments from './icons/fas-comments'
+import IconFasCompactDisc from './icons/fas-compact-disc'
+import IconFasCompass from './icons/fas-compass'
+import IconFasCompressArrowsAlt from './icons/fas-compress-arrows-alt'
+import IconFasCompress from './icons/fas-compress'
+import IconFasConciergeBell from './icons/fas-concierge-bell'
+import IconFasCookieBite from './icons/fas-cookie-bite'
+import IconFasCookie from './icons/fas-cookie'
+import IconFasCopy from './icons/fas-copy'
+import IconFasCopyright from './icons/fas-copyright'
+import IconFasCouch from './icons/fas-couch'
+import IconFasCreditCard from './icons/fas-credit-card'
+import IconFasCropAlt from './icons/fas-crop-alt'
+import IconFasCrop from './icons/fas-crop'
+import IconFasCross from './icons/fas-cross'
+import IconFasCrosshairs from './icons/fas-crosshairs'
+import IconFasCrow from './icons/fas-crow'
+import IconFasCrown from './icons/fas-crown'
+import IconFasCrutch from './icons/fas-crutch'
+import IconFasCube from './icons/fas-cube'
+import IconFasCubes from './icons/fas-cubes'
+import IconFasCut from './icons/fas-cut'
+import IconFasDatabase from './icons/fas-database'
+import IconFasDeaf from './icons/fas-deaf'
+import IconFasDemocrat from './icons/fas-democrat'
+import IconFasDesktop from './icons/fas-desktop'
+import IconFasDharmachakra from './icons/fas-dharmachakra'
+import IconFasDiagnoses from './icons/fas-diagnoses'
+import IconFasDiceD20 from './icons/fas-dice-d20'
+import IconFasDiceD6 from './icons/fas-dice-d6'
+import IconFasDiceFive from './icons/fas-dice-five'
+import IconFasDiceFour from './icons/fas-dice-four'
+import IconFasDiceOne from './icons/fas-dice-one'
+import IconFasDiceSix from './icons/fas-dice-six'
+import IconFasDiceThree from './icons/fas-dice-three'
+import IconFasDiceTwo from './icons/fas-dice-two'
+import IconFasDice from './icons/fas-dice'
+import IconFasDigitalTachograph from './icons/fas-digital-tachograph'
+import IconFasDirections from './icons/fas-directions'
+import IconFasDivide from './icons/fas-divide'
+import IconFasDizzy from './icons/fas-dizzy'
+import IconFasDna from './icons/fas-dna'
+import IconFasDog from './icons/fas-dog'
+import IconFasDollarSign from './icons/fas-dollar-sign'
+import IconFasDollyFlatbed from './icons/fas-dolly-flatbed'
+import IconFasDolly from './icons/fas-dolly'
+import IconFasDonate from './icons/fas-donate'
+import IconFasDoorClosed from './icons/fas-door-closed'
+import IconFasDoorOpen from './icons/fas-door-open'
+import IconFasDotCircle from './icons/fas-dot-circle'
+import IconFasDove from './icons/fas-dove'
+import IconFasDownload from './icons/fas-download'
+import IconFasDraftingCompass from './icons/fas-drafting-compass'
+import IconFasDragon from './icons/fas-dragon'
+import IconFasDrawPolygon from './icons/fas-draw-polygon'
+import IconFasDrumSteelpan from './icons/fas-drum-steelpan'
+import IconFasDrum from './icons/fas-drum'
+import IconFasDrumstickBite from './icons/fas-drumstick-bite'
+import IconFasDumbbell from './icons/fas-dumbbell'
+import IconFasDumpsterFire from './icons/fas-dumpster-fire'
+import IconFasDumpster from './icons/fas-dumpster'
+import IconFasDungeon from './icons/fas-dungeon'
+import IconFasEdit from './icons/fas-edit'
+import IconFasEgg from './icons/fas-egg'
+import IconFasEject from './icons/fas-eject'
+import IconFasEllipsisH from './icons/fas-ellipsis-h'
+import IconFasEllipsisV from './icons/fas-ellipsis-v'
+import IconFasEnvelopeOpenText from './icons/fas-envelope-open-text'
+import IconFasEnvelopeOpen from './icons/fas-envelope-open'
+import IconFasEnvelopeSquare from './icons/fas-envelope-square'
+import IconFasEnvelope from './icons/fas-envelope'
+import IconFasEquals from './icons/fas-equals'
+import IconFasEraser from './icons/fas-eraser'
+import IconFasEthernet from './icons/fas-ethernet'
+import IconFasEuroSign from './icons/fas-euro-sign'
+import IconFasExchangeAlt from './icons/fas-exchange-alt'
+import IconFasExclamationCircle from './icons/fas-exclamation-circle'
+import IconFasExclamationTriangle from './icons/fas-exclamation-triangle'
+import IconFasExclamation from './icons/fas-exclamation'
+import IconFasExpandArrowsAlt from './icons/fas-expand-arrows-alt'
+import IconFasExpand from './icons/fas-expand'
+import IconFasExternalLinkAlt from './icons/fas-external-link-alt'
+import IconFasExternalLinkSquareAlt from './icons/fas-external-link-square-alt'
+import IconFasEyeDropper from './icons/fas-eye-dropper'
+import IconFasEyeSlash from './icons/fas-eye-slash'
+import IconFasEye from './icons/fas-eye'
+import IconFasFastBackward from './icons/fas-fast-backward'
+import IconFasFastForward from './icons/fas-fast-forward'
+import IconFasFax from './icons/fas-fax'
+import IconFasFeatherAlt from './icons/fas-feather-alt'
+import IconFasFeather from './icons/fas-feather'
+import IconFasFemale from './icons/fas-female'
+import IconFasFighterJet from './icons/fas-fighter-jet'
+import IconFasFileAlt from './icons/fas-file-alt'
+import IconFasFileArchive from './icons/fas-file-archive'
+import IconFasFileAudio from './icons/fas-file-audio'
+import IconFasFileCode from './icons/fas-file-code'
+import IconFasFileContract from './icons/fas-file-contract'
+import IconFasFileCsv from './icons/fas-file-csv'
+import IconFasFileDownload from './icons/fas-file-download'
+import IconFasFileExcel from './icons/fas-file-excel'
+import IconFasFileExport from './icons/fas-file-export'
+import IconFasFileImage from './icons/fas-file-image'
+import IconFasFileImport from './icons/fas-file-import'
+import IconFasFileInvoiceDollar from './icons/fas-file-invoice-dollar'
+import IconFasFileInvoice from './icons/fas-file-invoice'
+import IconFasFileMedicalAlt from './icons/fas-file-medical-alt'
+import IconFasFileMedical from './icons/fas-file-medical'
+import IconFasFilePdf from './icons/fas-file-pdf'
+import IconFasFilePowerpoint from './icons/fas-file-powerpoint'
+import IconFasFilePrescription from './icons/fas-file-prescription'
+import IconFasFileSignature from './icons/fas-file-signature'
+import IconFasFileUpload from './icons/fas-file-upload'
+import IconFasFileVideo from './icons/fas-file-video'
+import IconFasFileWord from './icons/fas-file-word'
+import IconFasFile from './icons/fas-file'
+import IconFasFillDrip from './icons/fas-fill-drip'
+import IconFasFill from './icons/fas-fill'
+import IconFasFilm from './icons/fas-film'
+import IconFasFilter from './icons/fas-filter'
+import IconFasFingerprint from './icons/fas-fingerprint'
+import IconFasFireAlt from './icons/fas-fire-alt'
+import IconFasFireExtinguisher from './icons/fas-fire-extinguisher'
+import IconFasFire from './icons/fas-fire'
+import IconFasFirstAid from './icons/fas-first-aid'
+import IconFasFish from './icons/fas-fish'
+import IconFasFistRaised from './icons/fas-fist-raised'
+import IconFasFlagCheckered from './icons/fas-flag-checkered'
+import IconFasFlagUsa from './icons/fas-flag-usa'
+import IconFasFlag from './icons/fas-flag'
+import IconFasFlask from './icons/fas-flask'
+import IconFasFlushed from './icons/fas-flushed'
+import IconFasFolderMinus from './icons/fas-folder-minus'
+import IconFasFolderOpen from './icons/fas-folder-open'
+import IconFasFolderPlus from './icons/fas-folder-plus'
+import IconFasFolder from './icons/fas-folder'
+import IconFasFontAwesomeLogoFull from './icons/fas-font-awesome-logo-full'
+import IconFasFont from './icons/fas-font'
+import IconFasFootballBall from './icons/fas-football-ball'
+import IconFasForward from './icons/fas-forward'
+import IconFasFrog from './icons/fas-frog'
+import IconFasFrownOpen from './icons/fas-frown-open'
+import IconFasFrown from './icons/fas-frown'
+import IconFasFunnelDollar from './icons/fas-funnel-dollar'
+import IconFasFutbol from './icons/fas-futbol'
+import IconFasGamepad from './icons/fas-gamepad'
+import IconFasGasPump from './icons/fas-gas-pump'
+import IconFasGavel from './icons/fas-gavel'
+import IconFasGem from './icons/fas-gem'
+import IconFasGenderless from './icons/fas-genderless'
+import IconFasGhost from './icons/fas-ghost'
+import IconFasGift from './icons/fas-gift'
+import IconFasGifts from './icons/fas-gifts'
+import IconFasGlassCheers from './icons/fas-glass-cheers'
+import IconFasGlassMartiniAlt from './icons/fas-glass-martini-alt'
+import IconFasGlassMartini from './icons/fas-glass-martini'
+import IconFasGlassWhiskey from './icons/fas-glass-whiskey'
+import IconFasGlasses from './icons/fas-glasses'
+import IconFasGlobeAfrica from './icons/fas-globe-africa'
+import IconFasGlobeAmericas from './icons/fas-globe-americas'
+import IconFasGlobeAsia from './icons/fas-globe-asia'
+import IconFasGlobeEurope from './icons/fas-globe-europe'
+import IconFasGlobe from './icons/fas-globe'
+import IconFasGolfBall from './icons/fas-golf-ball'
+import IconFasGopuram from './icons/fas-gopuram'
+import IconFasGraduationCap from './icons/fas-graduation-cap'
+import IconFasGreaterThanEqual from './icons/fas-greater-than-equal'
+import IconFasGreaterThan from './icons/fas-greater-than'
+import IconFasGrimace from './icons/fas-grimace'
+import IconFasGrinAlt from './icons/fas-grin-alt'
+import IconFasGrinBeamSweat from './icons/fas-grin-beam-sweat'
+import IconFasGrinBeam from './icons/fas-grin-beam'
+import IconFasGrinHearts from './icons/fas-grin-hearts'
+import IconFasGrinSquintTears from './icons/fas-grin-squint-tears'
+import IconFasGrinSquint from './icons/fas-grin-squint'
+import IconFasGrinStars from './icons/fas-grin-stars'
+import IconFasGrinTears from './icons/fas-grin-tears'
+import IconFasGrinTongueSquint from './icons/fas-grin-tongue-squint'
+import IconFasGrinTongueWink from './icons/fas-grin-tongue-wink'
+import IconFasGrinTongue from './icons/fas-grin-tongue'
+import IconFasGrinWink from './icons/fas-grin-wink'
+import IconFasGrin from './icons/fas-grin'
+import IconFasGripHorizontal from './icons/fas-grip-horizontal'
+import IconFasGripLinesVertical from './icons/fas-grip-lines-vertical'
+import IconFasGripLines from './icons/fas-grip-lines'
+import IconFasGripVertical from './icons/fas-grip-vertical'
+import IconFasGuitar from './icons/fas-guitar'
+import IconFasHSquare from './icons/fas-h-square'
+import IconFasHamburger from './icons/fas-hamburger'
+import IconFasHammer from './icons/fas-hammer'
+import IconFasHamsa from './icons/fas-hamsa'
+import IconFasHandHoldingHeart from './icons/fas-hand-holding-heart'
+import IconFasHandHoldingUsd from './icons/fas-hand-holding-usd'
+import IconFasHandHolding from './icons/fas-hand-holding'
+import IconFasHandLizard from './icons/fas-hand-lizard'
+import IconFasHandMiddleFinger from './icons/fas-hand-middle-finger'
+import IconFasHandPaper from './icons/fas-hand-paper'
+import IconFasHandPeace from './icons/fas-hand-peace'
+import IconFasHandPointDown from './icons/fas-hand-point-down'
+import IconFasHandPointLeft from './icons/fas-hand-point-left'
+import IconFasHandPointRight from './icons/fas-hand-point-right'
+import IconFasHandPointUp from './icons/fas-hand-point-up'
+import IconFasHandPointer from './icons/fas-hand-pointer'
+import IconFasHandRock from './icons/fas-hand-rock'
+import IconFasHandScissors from './icons/fas-hand-scissors'
+import IconFasHandSpock from './icons/fas-hand-spock'
+import IconFasHandsHelping from './icons/fas-hands-helping'
+import IconFasHands from './icons/fas-hands'
+import IconFasHandshake from './icons/fas-handshake'
+import IconFasHanukiah from './icons/fas-hanukiah'
+import IconFasHardHat from './icons/fas-hard-hat'
+import IconFasHashtag from './icons/fas-hashtag'
+import IconFasHatWizard from './icons/fas-hat-wizard'
+import IconFasHaykal from './icons/fas-haykal'
+import IconFasHdd from './icons/fas-hdd'
+import IconFasHeading from './icons/fas-heading'
+import IconFasHeadphonesAlt from './icons/fas-headphones-alt'
+import IconFasHeadphones from './icons/fas-headphones'
+import IconFasHeadset from './icons/fas-headset'
+import IconFasHeartBroken from './icons/fas-heart-broken'
+import IconFasHeart from './icons/fas-heart'
+import IconFasHeartbeat from './icons/fas-heartbeat'
+import IconFasHelicopter from './icons/fas-helicopter'
+import IconFasHighlighter from './icons/fas-highlighter'
+import IconFasHiking from './icons/fas-hiking'
+import IconFasHippo from './icons/fas-hippo'
+import IconFasHistory from './icons/fas-history'
+import IconFasHockeyPuck from './icons/fas-hockey-puck'
+import IconFasHollyBerry from './icons/fas-holly-berry'
+import IconFasHome from './icons/fas-home'
+import IconFasHorseHead from './icons/fas-horse-head'
+import IconFasHorse from './icons/fas-horse'
+import IconFasHospitalAlt from './icons/fas-hospital-alt'
+import IconFasHospitalSymbol from './icons/fas-hospital-symbol'
+import IconFasHospital from './icons/fas-hospital'
+import IconFasHotTub from './icons/fas-hot-tub'
+import IconFasHotdog from './icons/fas-hotdog'
+import IconFasHotel from './icons/fas-hotel'
+import IconFasHourglassEnd from './icons/fas-hourglass-end'
+import IconFasHourglassHalf from './icons/fas-hourglass-half'
+import IconFasHourglassStart from './icons/fas-hourglass-start'
+import IconFasHourglass from './icons/fas-hourglass'
+import IconFasHouseDamage from './icons/fas-house-damage'
+import IconFasHryvnia from './icons/fas-hryvnia'
+import IconFasICursor from './icons/fas-i-cursor'
+import IconFasIceCream from './icons/fas-ice-cream'
+import IconFasIcicles from './icons/fas-icicles'
+import IconFasIdBadge from './icons/fas-id-badge'
+import IconFasIdCardAlt from './icons/fas-id-card-alt'
+import IconFasIdCard from './icons/fas-id-card'
+import IconFasIgloo from './icons/fas-igloo'
+import IconFasImage from './icons/fas-image'
+import IconFasImages from './icons/fas-images'
+import IconFasInbox from './icons/fas-inbox'
+import IconFasIndent from './icons/fas-indent'
+import IconFasIndustry from './icons/fas-industry'
+import IconFasInfinity from './icons/fas-infinity'
+import IconFasInfoCircle from './icons/fas-info-circle'
+import IconFasInfo from './icons/fas-info'
+import IconFasItalic from './icons/fas-italic'
+import IconFasJedi from './icons/fas-jedi'
+import IconFasJoint from './icons/fas-joint'
+import IconFasJournalWhills from './icons/fas-journal-whills'
+import IconFasKaaba from './icons/fas-kaaba'
+import IconFasKey from './icons/fas-key'
+import IconFasKeyboard from './icons/fas-keyboard'
+import IconFasKhanda from './icons/fas-khanda'
+import IconFasKissBeam from './icons/fas-kiss-beam'
+import IconFasKissWinkHeart from './icons/fas-kiss-wink-heart'
+import IconFasKiss from './icons/fas-kiss'
+import IconFasKiwiBird from './icons/fas-kiwi-bird'
+import IconFasLandmark from './icons/fas-landmark'
+import IconFasLanguage from './icons/fas-language'
+import IconFasLaptopCode from './icons/fas-laptop-code'
+import IconFasLaptopMedical from './icons/fas-laptop-medical'
+import IconFasLaptop from './icons/fas-laptop'
+import IconFasLaughBeam from './icons/fas-laugh-beam'
+import IconFasLaughSquint from './icons/fas-laugh-squint'
+import IconFasLaughWink from './icons/fas-laugh-wink'
+import IconFasLaugh from './icons/fas-laugh'
+import IconFasLayerGroup from './icons/fas-layer-group'
+import IconFasLeaf from './icons/fas-leaf'
+import IconFasLemon from './icons/fas-lemon'
+import IconFasLessThanEqual from './icons/fas-less-than-equal'
+import IconFasLessThan from './icons/fas-less-than'
+import IconFasLevelDownAlt from './icons/fas-level-down-alt'
+import IconFasLevelUpAlt from './icons/fas-level-up-alt'
+import IconFasLifeRing from './icons/fas-life-ring'
+import IconFasLightbulb from './icons/fas-lightbulb'
+import IconFasLink from './icons/fas-link'
+import IconFasLiraSign from './icons/fas-lira-sign'
+import IconFasListAlt from './icons/fas-list-alt'
+import IconFasListOl from './icons/fas-list-ol'
+import IconFasListUl from './icons/fas-list-ul'
+import IconFasList from './icons/fas-list'
+import IconFasLocationArrow from './icons/fas-location-arrow'
+import IconFasLockOpen from './icons/fas-lock-open'
+import IconFasLock from './icons/fas-lock'
+import IconFasLongArrowAltDown from './icons/fas-long-arrow-alt-down'
+import IconFasLongArrowAltLeft from './icons/fas-long-arrow-alt-left'
+import IconFasLongArrowAltRight from './icons/fas-long-arrow-alt-right'
+import IconFasLongArrowAltUp from './icons/fas-long-arrow-alt-up'
+import IconFasLowVision from './icons/fas-low-vision'
+import IconFasLuggageCart from './icons/fas-luggage-cart'
+import IconFasMagic from './icons/fas-magic'
+import IconFasMagnet from './icons/fas-magnet'
+import IconFasMailBulk from './icons/fas-mail-bulk'
+import IconFasMale from './icons/fas-male'
+import IconFasMapMarkedAlt from './icons/fas-map-marked-alt'
+import IconFasMapMarked from './icons/fas-map-marked'
+import IconFasMapMarkerAlt from './icons/fas-map-marker-alt'
+import IconFasMapMarker from './icons/fas-map-marker'
+import IconFasMapPin from './icons/fas-map-pin'
+import IconFasMapSigns from './icons/fas-map-signs'
+import IconFasMap from './icons/fas-map'
+import IconFasMarker from './icons/fas-marker'
+import IconFasMarsDouble from './icons/fas-mars-double'
+import IconFasMarsStrokeH from './icons/fas-mars-stroke-h'
+import IconFasMarsStrokeV from './icons/fas-mars-stroke-v'
+import IconFasMarsStroke from './icons/fas-mars-stroke'
+import IconFasMars from './icons/fas-mars'
+import IconFasMask from './icons/fas-mask'
+import IconFasMedal from './icons/fas-medal'
+import IconFasMedkit from './icons/fas-medkit'
+import IconFasMehBlank from './icons/fas-meh-blank'
+import IconFasMehRollingEyes from './icons/fas-meh-rolling-eyes'
+import IconFasMeh from './icons/fas-meh'
+import IconFasMemory from './icons/fas-memory'
+import IconFasMenorah from './icons/fas-menorah'
+import IconFasMercury from './icons/fas-mercury'
+import IconFasMeteor from './icons/fas-meteor'
+import IconFasMicrochip from './icons/fas-microchip'
+import IconFasMicrophoneAltSlash from './icons/fas-microphone-alt-slash'
+import IconFasMicrophoneAlt from './icons/fas-microphone-alt'
+import IconFasMicrophoneSlash from './icons/fas-microphone-slash'
+import IconFasMicrophone from './icons/fas-microphone'
+import IconFasMicroscope from './icons/fas-microscope'
+import IconFasMinusCircle from './icons/fas-minus-circle'
+import IconFasMinusSquare from './icons/fas-minus-square'
+import IconFasMinus from './icons/fas-minus'
+import IconFasMitten from './icons/fas-mitten'
+import IconFasMobileAlt from './icons/fas-mobile-alt'
+import IconFasMobile from './icons/fas-mobile'
+import IconFasMoneyBillAlt from './icons/fas-money-bill-alt'
+import IconFasMoneyBillWaveAlt from './icons/fas-money-bill-wave-alt'
+import IconFasMoneyBillWave from './icons/fas-money-bill-wave'
+import IconFasMoneyBill from './icons/fas-money-bill'
+import IconFasMoneyCheckAlt from './icons/fas-money-check-alt'
+import IconFasMoneyCheck from './icons/fas-money-check'
+import IconFasMonument from './icons/fas-monument'
+import IconFasMoon from './icons/fas-moon'
+import IconFasMortarPestle from './icons/fas-mortar-pestle'
+import IconFasMosque from './icons/fas-mosque'
+import IconFasMotorcycle from './icons/fas-motorcycle'
+import IconFasMountain from './icons/fas-mountain'
+import IconFasMousePointer from './icons/fas-mouse-pointer'
+import IconFasMugHot from './icons/fas-mug-hot'
+import IconFasMusic from './icons/fas-music'
+import IconFasNetworkWired from './icons/fas-network-wired'
+import IconFasNeuter from './icons/fas-neuter'
+import IconFasNewspaper from './icons/fas-newspaper'
+import IconFasNotEqual from './icons/fas-not-equal'
+import IconFasNotesMedical from './icons/fas-notes-medical'
+import IconFasObjectGroup from './icons/fas-object-group'
+import IconFasObjectUngroup from './icons/fas-object-ungroup'
+import IconFasOilCan from './icons/fas-oil-can'
+import IconFasOm from './icons/fas-om'
+import IconFasOtter from './icons/fas-otter'
+import IconFasOutdent from './icons/fas-outdent'
+import IconFasPager from './icons/fas-pager'
+import IconFasPaintBrush from './icons/fas-paint-brush'
+import IconFasPaintRoller from './icons/fas-paint-roller'
+import IconFasPalette from './icons/fas-palette'
+import IconFasPallet from './icons/fas-pallet'
+import IconFasPaperPlane from './icons/fas-paper-plane'
+import IconFasPaperclip from './icons/fas-paperclip'
+import IconFasParachuteBox from './icons/fas-parachute-box'
+import IconFasParagraph from './icons/fas-paragraph'
+import IconFasParking from './icons/fas-parking'
+import IconFasPassport from './icons/fas-passport'
+import IconFasPastafarianism from './icons/fas-pastafarianism'
+import IconFasPaste from './icons/fas-paste'
+import IconFasPauseCircle from './icons/fas-pause-circle'
+import IconFasPause from './icons/fas-pause'
+import IconFasPaw from './icons/fas-paw'
+import IconFasPeace from './icons/fas-peace'
+import IconFasPenAlt from './icons/fas-pen-alt'
+import IconFasPenFancy from './icons/fas-pen-fancy'
+import IconFasPenNib from './icons/fas-pen-nib'
+import IconFasPenSquare from './icons/fas-pen-square'
+import IconFasPen from './icons/fas-pen'
+import IconFasPencilAlt from './icons/fas-pencil-alt'
+import IconFasPencilRuler from './icons/fas-pencil-ruler'
+import IconFasPeopleCarry from './icons/fas-people-carry'
+import IconFasPepperHot from './icons/fas-pepper-hot'
+import IconFasPercent from './icons/fas-percent'
+import IconFasPercentage from './icons/fas-percentage'
+import IconFasPersonBooth from './icons/fas-person-booth'
+import IconFasPhoneSlash from './icons/fas-phone-slash'
+import IconFasPhoneSquare from './icons/fas-phone-square'
+import IconFasPhoneVolume from './icons/fas-phone-volume'
+import IconFasPhone from './icons/fas-phone'
+import IconFasPiggyBank from './icons/fas-piggy-bank'
+import IconFasPills from './icons/fas-pills'
+import IconFasPizzaSlice from './icons/fas-pizza-slice'
+import IconFasPlaceOfWorship from './icons/fas-place-of-worship'
+import IconFasPlaneArrival from './icons/fas-plane-arrival'
+import IconFasPlaneDeparture from './icons/fas-plane-departure'
+import IconFasPlane from './icons/fas-plane'
+import IconFasPlayCircle from './icons/fas-play-circle'
+import IconFasPlay from './icons/fas-play'
+import IconFasPlug from './icons/fas-plug'
+import IconFasPlusCircle from './icons/fas-plus-circle'
+import IconFasPlusSquare from './icons/fas-plus-square'
+import IconFasPlus from './icons/fas-plus'
+import IconFasPodcast from './icons/fas-podcast'
+import IconFasPollH from './icons/fas-poll-h'
+import IconFasPoll from './icons/fas-poll'
+import IconFasPooStorm from './icons/fas-poo-storm'
+import IconFasPoo from './icons/fas-poo'
+import IconFasPoop from './icons/fas-poop'
+import IconFasPortrait from './icons/fas-portrait'
+import IconFasPoundSign from './icons/fas-pound-sign'
+import IconFasPowerOff from './icons/fas-power-off'
+import IconFasPray from './icons/fas-pray'
+import IconFasPrayingHands from './icons/fas-praying-hands'
+import IconFasPrescriptionBottleAlt from './icons/fas-prescription-bottle-alt'
+import IconFasPrescriptionBottle from './icons/fas-prescription-bottle'
+import IconFasPrescription from './icons/fas-prescription'
+import IconFasPrint from './icons/fas-print'
+import IconFasProcedures from './icons/fas-procedures'
+import IconFasProjectDiagram from './icons/fas-project-diagram'
+import IconFasPuzzlePiece from './icons/fas-puzzle-piece'
+import IconFasQrcode from './icons/fas-qrcode'
+import IconFasQuestionCircle from './icons/fas-question-circle'
+import IconFasQuestion from './icons/fas-question'
+import IconFasQuidditch from './icons/fas-quidditch'
+import IconFasQuoteLeft from './icons/fas-quote-left'
+import IconFasQuoteRight from './icons/fas-quote-right'
+import IconFasQuran from './icons/fas-quran'
+import IconFasRadiationAlt from './icons/fas-radiation-alt'
+import IconFasRadiation from './icons/fas-radiation'
+import IconFasRainbow from './icons/fas-rainbow'
+import IconFasRandom from './icons/fas-random'
+import IconFasReceipt from './icons/fas-receipt'
+import IconFasRecycle from './icons/fas-recycle'
+import IconFasRedoAlt from './icons/fas-redo-alt'
+import IconFasRedo from './icons/fas-redo'
+import IconFasRegistered from './icons/fas-registered'
+import IconFasReplyAll from './icons/fas-reply-all'
+import IconFasReply from './icons/fas-reply'
+import IconFasRepublican from './icons/fas-republican'
+import IconFasRestroom from './icons/fas-restroom'
+import IconFasRetweet from './icons/fas-retweet'
+import IconFasRibbon from './icons/fas-ribbon'
+import IconFasRing from './icons/fas-ring'
+import IconFasRoad from './icons/fas-road'
+import IconFasRobot from './icons/fas-robot'
+import IconFasRocket from './icons/fas-rocket'
+import IconFasRoute from './icons/fas-route'
+import IconFasRssSquare from './icons/fas-rss-square'
+import IconFasRss from './icons/fas-rss'
+import IconFasRubleSign from './icons/fas-ruble-sign'
+import IconFasRulerCombined from './icons/fas-ruler-combined'
+import IconFasRulerHorizontal from './icons/fas-ruler-horizontal'
+import IconFasRulerVertical from './icons/fas-ruler-vertical'
+import IconFasRuler from './icons/fas-ruler'
+import IconFasRunning from './icons/fas-running'
+import IconFasRupeeSign from './icons/fas-rupee-sign'
+import IconFasSadCry from './icons/fas-sad-cry'
+import IconFasSadTear from './icons/fas-sad-tear'
+import IconFasSatelliteDish from './icons/fas-satellite-dish'
+import IconFasSatellite from './icons/fas-satellite'
+import IconFasSave from './icons/fas-save'
+import IconFasSchool from './icons/fas-school'
+import IconFasScrewdriver from './icons/fas-screwdriver'
+import IconFasScroll from './icons/fas-scroll'
+import IconFasSdCard from './icons/fas-sd-card'
+import IconFasSearchDollar from './icons/fas-search-dollar'
+import IconFasSearchLocation from './icons/fas-search-location'
+import IconFasSearchMinus from './icons/fas-search-minus'
+import IconFasSearchPlus from './icons/fas-search-plus'
+import IconFasSearch from './icons/fas-search'
+import IconFasSeedling from './icons/fas-seedling'
+import IconFasServer from './icons/fas-server'
+import IconFasShapes from './icons/fas-shapes'
+import IconFasShareAltSquare from './icons/fas-share-alt-square'
+import IconFasShareAlt from './icons/fas-share-alt'
+import IconFasShareSquare from './icons/fas-share-square'
+import IconFasShare from './icons/fas-share'
+import IconFasShekelSign from './icons/fas-shekel-sign'
+import IconFasShieldAlt from './icons/fas-shield-alt'
+import IconFasShip from './icons/fas-ship'
+import IconFasShippingFast from './icons/fas-shipping-fast'
+import IconFasShoePrints from './icons/fas-shoe-prints'
+import IconFasShoppingBag from './icons/fas-shopping-bag'
+import IconFasShoppingBasket from './icons/fas-shopping-basket'
+import IconFasShoppingCart from './icons/fas-shopping-cart'
+import IconFasShower from './icons/fas-shower'
+import IconFasShuttleVan from './icons/fas-shuttle-van'
+import IconFasSignInAlt from './icons/fas-sign-in-alt'
+import IconFasSignLanguage from './icons/fas-sign-language'
+import IconFasSignOutAlt from './icons/fas-sign-out-alt'
+import IconFasSign from './icons/fas-sign'
+import IconFasSignal from './icons/fas-signal'
+import IconFasSignature from './icons/fas-signature'
+import IconFasSimCard from './icons/fas-sim-card'
+import IconFasSitemap from './icons/fas-sitemap'
+import IconFasSkating from './icons/fas-skating'
+import IconFasSkiingNordic from './icons/fas-skiing-nordic'
+import IconFasSkiing from './icons/fas-skiing'
+import IconFasSkullCrossbones from './icons/fas-skull-crossbones'
+import IconFasSkull from './icons/fas-skull'
+import IconFasSlash from './icons/fas-slash'
+import IconFasSleigh from './icons/fas-sleigh'
+import IconFasSlidersH from './icons/fas-sliders-h'
+import IconFasSmileBeam from './icons/fas-smile-beam'
+import IconFasSmileWink from './icons/fas-smile-wink'
+import IconFasSmile from './icons/fas-smile'
+import IconFasSmog from './icons/fas-smog'
+import IconFasSmokingBan from './icons/fas-smoking-ban'
+import IconFasSmoking from './icons/fas-smoking'
+import IconFasSms from './icons/fas-sms'
+import IconFasSnowboarding from './icons/fas-snowboarding'
+import IconFasSnowflake from './icons/fas-snowflake'
+import IconFasSnowman from './icons/fas-snowman'
+import IconFasSnowplow from './icons/fas-snowplow'
+import IconFasSocks from './icons/fas-socks'
+import IconFasSolarPanel from './icons/fas-solar-panel'
+import IconFasSortAlphaDown from './icons/fas-sort-alpha-down'
+import IconFasSortAlphaUp from './icons/fas-sort-alpha-up'
+import IconFasSortAmountDown from './icons/fas-sort-amount-down'
+import IconFasSortAmountUp from './icons/fas-sort-amount-up'
+import IconFasSortDown from './icons/fas-sort-down'
+import IconFasSortNumericDown from './icons/fas-sort-numeric-down'
+import IconFasSortNumericUp from './icons/fas-sort-numeric-up'
+import IconFasSortUp from './icons/fas-sort-up'
+import IconFasSort from './icons/fas-sort'
+import IconFasSpa from './icons/fas-spa'
+import IconFasSpaceShuttle from './icons/fas-space-shuttle'
+import IconFasSpider from './icons/fas-spider'
+import IconFasSpinner from './icons/fas-spinner'
+import IconFasSplotch from './icons/fas-splotch'
+import IconFasSprayCan from './icons/fas-spray-can'
+import IconFasSquareFull from './icons/fas-square-full'
+import IconFasSquareRootAlt from './icons/fas-square-root-alt'
+import IconFasSquare from './icons/fas-square'
+import IconFasStamp from './icons/fas-stamp'
+import IconFasStarAndCrescent from './icons/fas-star-and-crescent'
+import IconFasStarHalfAlt from './icons/fas-star-half-alt'
+import IconFasStarHalf from './icons/fas-star-half'
+import IconFasStarOfDavid from './icons/fas-star-of-david'
+import IconFasStarOfLife from './icons/fas-star-of-life'
+import IconFasStar from './icons/fas-star'
+import IconFasStepBackward from './icons/fas-step-backward'
+import IconFasStepForward from './icons/fas-step-forward'
+import IconFasStethoscope from './icons/fas-stethoscope'
+import IconFasStickyNote from './icons/fas-sticky-note'
+import IconFasStopCircle from './icons/fas-stop-circle'
+import IconFasStop from './icons/fas-stop'
+import IconFasStopwatch from './icons/fas-stopwatch'
+import IconFasStoreAlt from './icons/fas-store-alt'
+import IconFasStore from './icons/fas-store'
+import IconFasStream from './icons/fas-stream'
+import IconFasStreetView from './icons/fas-street-view'
+import IconFasStrikethrough from './icons/fas-strikethrough'
+import IconFasStroopwafel from './icons/fas-stroopwafel'
+import IconFasSubscript from './icons/fas-subscript'
+import IconFasSubway from './icons/fas-subway'
+import IconFasSuitcaseRolling from './icons/fas-suitcase-rolling'
+import IconFasSuitcase from './icons/fas-suitcase'
+import IconFasSun from './icons/fas-sun'
+import IconFasSuperscript from './icons/fas-superscript'
+import IconFasSurprise from './icons/fas-surprise'
+import IconFasSwatchbook from './icons/fas-swatchbook'
+import IconFasSwimmer from './icons/fas-swimmer'
+import IconFasSwimmingPool from './icons/fas-swimming-pool'
+import IconFasSynagogue from './icons/fas-synagogue'
+import IconFasSyncAlt from './icons/fas-sync-alt'
+import IconFasSync from './icons/fas-sync'
+import IconFasSyringe from './icons/fas-syringe'
+import IconFasTableTennis from './icons/fas-table-tennis'
+import IconFasTable from './icons/fas-table'
+import IconFasTabletAlt from './icons/fas-tablet-alt'
+import IconFasTablet from './icons/fas-tablet'
+import IconFasTablets from './icons/fas-tablets'
+import IconFasTachometerAlt from './icons/fas-tachometer-alt'
+import IconFasTag from './icons/fas-tag'
+import IconFasTags from './icons/fas-tags'
+import IconFasTape from './icons/fas-tape'
+import IconFasTasks from './icons/fas-tasks'
+import IconFasTaxi from './icons/fas-taxi'
+import IconFasTeethOpen from './icons/fas-teeth-open'
+import IconFasTeeth from './icons/fas-teeth'
+import IconFasTemperatureHigh from './icons/fas-temperature-high'
+import IconFasTemperatureLow from './icons/fas-temperature-low'
+import IconFasTenge from './icons/fas-tenge'
+import IconFasTerminal from './icons/fas-terminal'
+import IconFasTextHeight from './icons/fas-text-height'
+import IconFasTextWidth from './icons/fas-text-width'
+import IconFasThLarge from './icons/fas-th-large'
+import IconFasThList from './icons/fas-th-list'
+import IconFasTh from './icons/fas-th'
+import IconFasTheaterMasks from './icons/fas-theater-masks'
+import IconFasThermometerEmpty from './icons/fas-thermometer-empty'
+import IconFasThermometerFull from './icons/fas-thermometer-full'
+import IconFasThermometerHalf from './icons/fas-thermometer-half'
+import IconFasThermometerQuarter from './icons/fas-thermometer-quarter'
+import IconFasThermometerThreeQuarters from './icons/fas-thermometer-three-quarters'
+import IconFasThermometer from './icons/fas-thermometer'
+import IconFasThumbsDown from './icons/fas-thumbs-down'
+import IconFasThumbsUp from './icons/fas-thumbs-up'
+import IconFasThumbtack from './icons/fas-thumbtack'
+import IconFasTicketAlt from './icons/fas-ticket-alt'
+import IconFasTimesCircle from './icons/fas-times-circle'
+import IconFasTimes from './icons/fas-times'
+import IconFasTintSlash from './icons/fas-tint-slash'
+import IconFasTint from './icons/fas-tint'
+import IconFasTired from './icons/fas-tired'
+import IconFasToggleOff from './icons/fas-toggle-off'
+import IconFasToggleOn from './icons/fas-toggle-on'
+import IconFasToiletPaper from './icons/fas-toilet-paper'
+import IconFasToilet from './icons/fas-toilet'
+import IconFasToolbox from './icons/fas-toolbox'
+import IconFasTools from './icons/fas-tools'
+import IconFasTooth from './icons/fas-tooth'
+import IconFasTorah from './icons/fas-torah'
+import IconFasToriiGate from './icons/fas-torii-gate'
+import IconFasTractor from './icons/fas-tractor'
+import IconFasTrademark from './icons/fas-trademark'
+import IconFasTrafficLight from './icons/fas-traffic-light'
+import IconFasTrain from './icons/fas-train'
+import IconFasTram from './icons/fas-tram'
+import IconFasTransgenderAlt from './icons/fas-transgender-alt'
+import IconFasTransgender from './icons/fas-transgender'
+import IconFasTrashAlt from './icons/fas-trash-alt'
+import IconFasTrashRestoreAlt from './icons/fas-trash-restore-alt'
+import IconFasTrashRestore from './icons/fas-trash-restore'
+import IconFasTrash from './icons/fas-trash'
+import IconFasTree from './icons/fas-tree'
+import IconFasTrophy from './icons/fas-trophy'
+import IconFasTruckLoading from './icons/fas-truck-loading'
+import IconFasTruckMonster from './icons/fas-truck-monster'
+import IconFasTruckMoving from './icons/fas-truck-moving'
+import IconFasTruckPickup from './icons/fas-truck-pickup'
+import IconFasTruck from './icons/fas-truck'
+import IconFasTshirt from './icons/fas-tshirt'
+import IconFasTty from './icons/fas-tty'
+import IconFasTv from './icons/fas-tv'
+import IconFasUmbrellaBeach from './icons/fas-umbrella-beach'
+import IconFasUmbrella from './icons/fas-umbrella'
+import IconFasUnderline from './icons/fas-underline'
+import IconFasUndoAlt from './icons/fas-undo-alt'
+import IconFasUndo from './icons/fas-undo'
+import IconFasUniversalAccess from './icons/fas-universal-access'
+import IconFasUniversity from './icons/fas-university'
+import IconFasUnlink from './icons/fas-unlink'
+import IconFasUnlockAlt from './icons/fas-unlock-alt'
+import IconFasUnlock from './icons/fas-unlock'
+import IconFasUpload from './icons/fas-upload'
+import IconFasUserAltSlash from './icons/fas-user-alt-slash'
+import IconFasUserAlt from './icons/fas-user-alt'
+import IconFasUserAstronaut from './icons/fas-user-astronaut'
+import IconFasUserCheck from './icons/fas-user-check'
+import IconFasUserCircle from './icons/fas-user-circle'
+import IconFasUserClock from './icons/fas-user-clock'
+import IconFasUserCog from './icons/fas-user-cog'
+import IconFasUserEdit from './icons/fas-user-edit'
+import IconFasUserFriends from './icons/fas-user-friends'
+import IconFasUserGraduate from './icons/fas-user-graduate'
+import IconFasUserInjured from './icons/fas-user-injured'
+import IconFasUserLock from './icons/fas-user-lock'
+import IconFasUserMd from './icons/fas-user-md'
+import IconFasUserMinus from './icons/fas-user-minus'
+import IconFasUserNinja from './icons/fas-user-ninja'
+import IconFasUserNurse from './icons/fas-user-nurse'
+import IconFasUserPlus from './icons/fas-user-plus'
+import IconFasUserSecret from './icons/fas-user-secret'
+import IconFasUserShield from './icons/fas-user-shield'
+import IconFasUserSlash from './icons/fas-user-slash'
+import IconFasUserTag from './icons/fas-user-tag'
+import IconFasUserTie from './icons/fas-user-tie'
+import IconFasUserTimes from './icons/fas-user-times'
+import IconFasUser from './icons/fas-user'
+import IconFasUsersCog from './icons/fas-users-cog'
+import IconFasUsers from './icons/fas-users'
+import IconFasUtensilSpoon from './icons/fas-utensil-spoon'
+import IconFasUtensils from './icons/fas-utensils'
+import IconFasVectorSquare from './icons/fas-vector-square'
+import IconFasVenusDouble from './icons/fas-venus-double'
+import IconFasVenusMars from './icons/fas-venus-mars'
+import IconFasVenus from './icons/fas-venus'
+import IconFasVial from './icons/fas-vial'
+import IconFasVials from './icons/fas-vials'
+import IconFasVideoSlash from './icons/fas-video-slash'
+import IconFasVideo from './icons/fas-video'
+import IconFasVihara from './icons/fas-vihara'
+import IconFasVolleyballBall from './icons/fas-volleyball-ball'
+import IconFasVolumeDown from './icons/fas-volume-down'
+import IconFasVolumeMute from './icons/fas-volume-mute'
+import IconFasVolumeOff from './icons/fas-volume-off'
+import IconFasVolumeUp from './icons/fas-volume-up'
+import IconFasVoteYea from './icons/fas-vote-yea'
+import IconFasVrCardboard from './icons/fas-vr-cardboard'
+import IconFasWalking from './icons/fas-walking'
+import IconFasWallet from './icons/fas-wallet'
+import IconFasWarehouse from './icons/fas-warehouse'
+import IconFasWater from './icons/fas-water'
+import IconFasWaveSquare from './icons/fas-wave-square'
+import IconFasWeightHanging from './icons/fas-weight-hanging'
+import IconFasWeight from './icons/fas-weight'
+import IconFasWheelchair from './icons/fas-wheelchair'
+import IconFasWifi from './icons/fas-wifi'
+import IconFasWind from './icons/fas-wind'
+import IconFasWindowClose from './icons/fas-window-close'
+import IconFasWindowMaximize from './icons/fas-window-maximize'
+import IconFasWindowMinimize from './icons/fas-window-minimize'
+import IconFasWindowRestore from './icons/fas-window-restore'
+import IconFasWineBottle from './icons/fas-wine-bottle'
+import IconFasWineGlassAlt from './icons/fas-wine-glass-alt'
+import IconFasWineGlass from './icons/fas-wine-glass'
+import IconFasWonSign from './icons/fas-won-sign'
+import IconFasWrench from './icons/fas-wrench'
+import IconFasXRay from './icons/fas-x-ray'
+import IconFasYenSign from './icons/fas-yen-sign'
+import IconFasYinYang from './icons/fas-yin-yang'
 export { BaseIconProps } from './base/base-icon'
 export { IconProps } from './base/createIcon'
 export {
   createIcon,
-  Fab500px,
-  FabAccessibleIcon,
-  FabAccusoft,
-  FabAcquisitionsIncorporated,
-  FabAdn,
-  FabAdobe,
-  FabAdversal,
-  FabAffiliatetheme,
-  FabAirbnb,
-  FabAlgolia,
-  FabAlipay,
-  FabAmazonPay,
-  FabAmazon,
-  FabAmilia,
-  FabAndroid,
-  FabAngellist,
-  FabAngrycreative,
-  FabAngular,
-  FabAppStoreIos,
-  FabAppStore,
-  FabApper,
-  FabApplePay,
-  FabApple,
-  FabArtstation,
-  FabAsymmetrik,
-  FabAtlassian,
-  FabAudible,
-  FabAutoprefixer,
-  FabAvianex,
-  FabAviato,
-  FabAws,
-  FabBandcamp,
-  FabBattleNet,
-  FabBehanceSquare,
-  FabBehance,
-  FabBimobject,
-  FabBitbucket,
-  FabBitcoin,
-  FabBity,
-  FabBlackTie,
-  FabBlackberry,
-  FabBloggerB,
-  FabBlogger,
-  FabBluetoothB,
-  FabBluetooth,
-  FabBootstrap,
-  FabBtc,
-  FabBuffer,
-  FabBuromobelexperte,
-  FabBuysellads,
-  FabCanadianMapleLeaf,
-  FabCcAmazonPay,
-  FabCcAmex,
-  FabCcApplePay,
-  FabCcDinersClub,
-  FabCcDiscover,
-  FabCcJcb,
-  FabCcMastercard,
-  FabCcPaypal,
-  FabCcStripe,
-  FabCcVisa,
-  FabCentercode,
-  FabCentos,
-  FabChrome,
-  FabChromecast,
-  FabCloudscale,
-  FabCloudsmith,
-  FabCloudversify,
-  FabCodepen,
-  FabCodiepie,
-  FabConfluence,
-  FabConnectdevelop,
-  FabContao,
-  FabCpanel,
-  FabCreativeCommonsBy,
-  FabCreativeCommonsNcEu,
-  FabCreativeCommonsNcJp,
-  FabCreativeCommonsNc,
-  FabCreativeCommonsNd,
-  FabCreativeCommonsPdAlt,
-  FabCreativeCommonsPd,
-  FabCreativeCommonsRemix,
-  FabCreativeCommonsSa,
-  FabCreativeCommonsSamplingPlus,
-  FabCreativeCommonsSampling,
-  FabCreativeCommonsShare,
-  FabCreativeCommonsZero,
-  FabCreativeCommons,
-  FabCriticalRole,
-  FabCss3Alt,
-  FabCss3,
-  FabCuttlefish,
-  FabDAndDBeyond,
-  FabDAndD,
-  FabDashcube,
-  FabDelicious,
-  FabDeploydog,
-  FabDeskpro,
-  FabDev,
-  FabDeviantart,
-  FabDhl,
-  FabDiaspora,
-  FabDigg,
-  FabDigitalOcean,
-  FabDiscord,
-  FabDiscourse,
-  FabDochub,
-  FabDocker,
-  FabDraft2digital,
-  FabDribbbleSquare,
-  FabDribbble,
-  FabDropbox,
-  FabDrupal,
-  FabDyalog,
-  FabEarlybirds,
-  FabEbay,
-  FabEdge,
-  FabElementor,
-  FabEllo,
-  FabEmber,
-  FabEmpire,
-  FabEnvira,
-  FabErlang,
-  FabEthereum,
-  FabEtsy,
-  FabEvernote,
-  FabExpeditedssl,
-  FabFacebookF,
-  FabFacebookMessenger,
-  FabFacebookSquare,
-  FabFacebook,
-  FabFantasyFlightGames,
-  FabFedex,
-  FabFedora,
-  FabFigma,
-  FabFirefox,
-  FabFirstOrderAlt,
-  FabFirstOrder,
-  FabFirstdraft,
-  FabFlickr,
-  FabFlipboard,
-  FabFly,
-  FabFontAwesomeAlt,
-  FabFontAwesomeFlag,
-  FabFontAwesomeLogoFull,
-  FabFontAwesome,
-  FabFonticonsFi,
-  FabFonticons,
-  FabFortAwesomeAlt,
-  FabFortAwesome,
-  FabForumbee,
-  FabFoursquare,
-  FabFreeCodeCamp,
-  FabFreebsd,
-  FabFulcrum,
-  FabGalacticRepublic,
-  FabGalacticSenate,
-  FabGetPocket,
-  FabGgCircle,
-  FabGg,
-  FabGitSquare,
-  FabGit,
-  FabGithubAlt,
-  FabGithubSquare,
-  FabGithub,
-  FabGitkraken,
-  FabGitlab,
-  FabGitter,
-  FabGlideG,
-  FabGlide,
-  FabGofore,
-  FabGoodreadsG,
-  FabGoodreads,
-  FabGoogleDrive,
-  FabGooglePlay,
-  FabGooglePlusG,
-  FabGooglePlusSquare,
-  FabGooglePlus,
-  FabGoogleWallet,
-  FabGoogle,
-  FabGratipay,
-  FabGrav,
-  FabGripfire,
-  FabGrunt,
-  FabGulp,
-  FabHackerNewsSquare,
-  FabHackerNews,
-  FabHackerrank,
-  FabHips,
-  FabHireAHelper,
-  FabHooli,
-  FabHornbill,
-  FabHotjar,
-  FabHouzz,
-  FabHtml5,
-  FabHubspot,
-  FabImdb,
-  FabInstagram,
-  FabIntercom,
-  FabInternetExplorer,
-  FabInvision,
-  FabIoxhost,
-  FabItchIo,
-  FabItunesNote,
-  FabItunes,
-  FabJava,
-  FabJediOrder,
-  FabJenkins,
-  FabJira,
-  FabJoget,
-  FabJoomla,
-  FabJsSquare,
-  FabJs,
-  FabJsfiddle,
-  FabKaggle,
-  FabKeybase,
-  FabKeycdn,
-  FabKickstarterK,
-  FabKickstarter,
-  FabKorvue,
-  FabLaravel,
-  FabLastfmSquare,
-  FabLastfm,
-  FabLeanpub,
-  FabLess,
-  FabLine,
-  FabLinkedinIn,
-  FabLinkedin,
-  FabLinode,
-  FabLinux,
-  FabLyft,
-  FabMagento,
-  FabMailchimp,
-  FabMandalorian,
-  FabMarkdown,
-  FabMastodon,
-  FabMaxcdn,
-  FabMedapps,
-  FabMediumM,
-  FabMedium,
-  FabMedrt,
-  FabMeetup,
-  FabMegaport,
-  FabMendeley,
-  FabMicrosoft,
-  FabMix,
-  FabMixcloud,
-  FabMizuni,
-  FabModx,
-  FabMonero,
-  FabNapster,
-  FabNeos,
-  FabNimblr,
-  FabNintendoSwitch,
-  FabNodeJs,
-  FabNode,
-  FabNpm,
-  FabNs8,
-  FabNutritionix,
-  FabOdnoklassnikiSquare,
-  FabOdnoklassniki,
-  FabOldRepublic,
-  FabOpencart,
-  FabOpenid,
-  FabOpera,
-  FabOptinMonster,
-  FabOsi,
-  FabPage4,
-  FabPagelines,
-  FabPalfed,
-  FabPatreon,
-  FabPaypal,
-  FabPennyArcade,
-  FabPeriscope,
-  FabPhabricator,
-  FabPhoenixFramework,
-  FabPhoenixSquadron,
-  FabPhp,
-  FabPiedPiperAlt,
-  FabPiedPiperHat,
-  FabPiedPiperPp,
-  FabPiedPiper,
-  FabPinterestP,
-  FabPinterestSquare,
-  FabPinterest,
-  FabPlaystation,
-  FabProductHunt,
-  FabPushed,
-  FabPython,
-  FabQq,
-  FabQuinscape,
-  FabQuora,
-  FabRProject,
-  FabRaspberryPi,
-  FabRavelry,
-  FabReact,
-  FabReacteurope,
-  FabReadme,
-  FabRebel,
-  FabRedRiver,
-  FabRedditAlien,
-  FabRedditSquare,
-  FabReddit,
-  FabRedhat,
-  FabRenren,
-  FabReplyd,
-  FabResearchgate,
-  FabResolving,
-  FabRev,
-  FabRocketchat,
-  FabRockrms,
-  FabSafari,
-  FabSalesforce,
-  FabSass,
-  FabSchlix,
-  FabScribd,
-  FabSearchengin,
-  FabSellcast,
-  FabSellsy,
-  FabServicestack,
-  FabShirtsinbulk,
-  FabShopware,
-  FabSimplybuilt,
-  FabSistrix,
-  FabSith,
-  FabSketch,
-  FabSkyatlas,
-  FabSkype,
-  FabSlackHash,
-  FabSlack,
-  FabSlideshare,
-  FabSnapchatGhost,
-  FabSnapchatSquare,
-  FabSnapchat,
-  FabSoundcloud,
-  FabSourcetree,
-  FabSpeakap,
-  FabSpeakerDeck,
-  FabSpotify,
-  FabSquarespace,
-  FabStackExchange,
-  FabStackOverflow,
-  FabStaylinked,
-  FabSteamSquare,
-  FabSteamSymbol,
-  FabSteam,
-  FabStickerMule,
-  FabStrava,
-  FabStripeS,
-  FabStripe,
-  FabStudiovinari,
-  FabStumbleuponCircle,
-  FabStumbleupon,
-  FabSuperpowers,
-  FabSupple,
-  FabSuse,
-  FabSymfony,
-  FabTeamspeak,
-  FabTelegramPlane,
-  FabTelegram,
-  FabTencentWeibo,
-  FabTheRedYeti,
-  FabThemeco,
-  FabThemeisle,
-  FabThinkPeaks,
-  FabTradeFederation,
-  FabTrello,
-  FabTripadvisor,
-  FabTumblrSquare,
-  FabTumblr,
-  FabTwitch,
-  FabTwitterSquare,
-  FabTwitter,
-  FabTypo3,
-  FabUber,
-  FabUbuntu,
-  FabUikit,
-  FabUniregistry,
-  FabUntappd,
-  FabUps,
-  FabUsb,
-  FabUsps,
-  FabUssunnah,
-  FabVaadin,
-  FabViacoin,
-  FabViadeoSquare,
-  FabViadeo,
-  FabViber,
-  FabVimeoSquare,
-  FabVimeoV,
-  FabVimeo,
-  FabVine,
-  FabVk,
-  FabVnv,
-  FabVuejs,
-  FabWaze,
-  FabWeebly,
-  FabWeibo,
-  FabWeixin,
-  FabWhatsappSquare,
-  FabWhatsapp,
-  FabWhmcs,
-  FabWikipediaW,
-  FabWindows,
-  FabWix,
-  FabWizardsOfTheCoast,
-  FabWolfPackBattalion,
-  FabWordpressSimple,
-  FabWordpress,
-  FabWpbeginner,
-  FabWpexplorer,
-  FabWpforms,
-  FabWpressr,
-  FabXbox,
-  FabXingSquare,
-  FabXing,
-  FabYCombinator,
-  FabYahoo,
-  FabYammer,
-  FabYandexInternational,
-  FabYandex,
-  FabYarn,
-  FabYelp,
-  FabYoast,
-  FabYoutubeSquare,
-  FabYoutube,
-  FabZhihu,
-  FarAddressBook,
-  FarAddressCard,
-  FarAngry,
-  FarArrowAltCircleDown,
-  FarArrowAltCircleLeft,
-  FarArrowAltCircleRight,
-  FarArrowAltCircleUp,
-  FarBellSlash,
-  FarBell,
-  FarBookmark,
-  FarBuilding,
-  FarCalendarAlt,
-  FarCalendarCheck,
-  FarCalendarMinus,
-  FarCalendarPlus,
-  FarCalendarTimes,
-  FarCalendar,
-  FarCaretSquareDown,
-  FarCaretSquareLeft,
-  FarCaretSquareRight,
-  FarCaretSquareUp,
-  FarChartBar,
-  FarCheckCircle,
-  FarCheckSquare,
-  FarCircle,
-  FarClipboard,
-  FarClock,
-  FarClone,
-  FarClosedCaptioning,
-  FarCommentAlt,
-  FarCommentDots,
-  FarComment,
-  FarComments,
-  FarCompass,
-  FarCopy,
-  FarCopyright,
-  FarCreditCard,
-  FarDizzy,
-  FarDotCircle,
-  FarEdit,
-  FarEnvelopeOpen,
-  FarEnvelope,
-  FarEyeSlash,
-  FarEye,
-  FarFileAlt,
-  FarFileArchive,
-  FarFileAudio,
-  FarFileCode,
-  FarFileExcel,
-  FarFileImage,
-  FarFilePdf,
-  FarFilePowerpoint,
-  FarFileVideo,
-  FarFileWord,
-  FarFile,
-  FarFlag,
-  FarFlushed,
-  FarFolderOpen,
-  FarFolder,
-  FarFontAwesomeLogoFull,
-  FarFrownOpen,
-  FarFrown,
-  FarFutbol,
-  FarGem,
-  FarGrimace,
-  FarGrinAlt,
-  FarGrinBeamSweat,
-  FarGrinBeam,
-  FarGrinHearts,
-  FarGrinSquintTears,
-  FarGrinSquint,
-  FarGrinStars,
-  FarGrinTears,
-  FarGrinTongueSquint,
-  FarGrinTongueWink,
-  FarGrinTongue,
-  FarGrinWink,
-  FarGrin,
-  FarHandLizard,
-  FarHandPaper,
-  FarHandPeace,
-  FarHandPointDown,
-  FarHandPointLeft,
-  FarHandPointRight,
-  FarHandPointUp,
-  FarHandPointer,
-  FarHandRock,
-  FarHandScissors,
-  FarHandSpock,
-  FarHandshake,
-  FarHdd,
-  FarHeart,
-  FarHospital,
-  FarHourglass,
-  FarIdBadge,
-  FarIdCard,
-  FarImage,
-  FarImages,
-  FarKeyboard,
-  FarKissBeam,
-  FarKissWinkHeart,
-  FarKiss,
-  FarLaughBeam,
-  FarLaughSquint,
-  FarLaughWink,
-  FarLaugh,
-  FarLemon,
-  FarLifeRing,
-  FarLightbulb,
-  FarListAlt,
-  FarMap,
-  FarMehBlank,
-  FarMehRollingEyes,
-  FarMeh,
-  FarMinusSquare,
-  FarMoneyBillAlt,
-  FarMoon,
-  FarNewspaper,
-  FarObjectGroup,
-  FarObjectUngroup,
-  FarPaperPlane,
-  FarPauseCircle,
-  FarPlayCircle,
-  FarPlusSquare,
-  FarQuestionCircle,
-  FarRegistered,
-  FarSadCry,
-  FarSadTear,
-  FarSave,
-  FarShareSquare,
-  FarSmileBeam,
-  FarSmileWink,
-  FarSmile,
-  FarSnowflake,
-  FarSquare,
-  FarStarHalf,
-  FarStar,
-  FarStickyNote,
-  FarStopCircle,
-  FarSun,
-  FarSurprise,
-  FarThumbsDown,
-  FarThumbsUp,
-  FarTimesCircle,
-  FarTired,
-  FarTrashAlt,
-  FarUserCircle,
-  FarUser,
-  FarWindowClose,
-  FarWindowMaximize,
-  FarWindowMinimize,
-  FarWindowRestore,
-  FasAd,
-  FasAddressBook,
-  FasAddressCard,
-  FasAdjust,
-  FasAirFreshener,
-  FasAlignCenter,
-  FasAlignJustify,
-  FasAlignLeft,
-  FasAlignRight,
-  FasAllergies,
-  FasAmbulance,
-  FasAmericanSignLanguageInterpreting,
-  FasAnchor,
-  FasAngleDoubleDown,
-  FasAngleDoubleLeft,
-  FasAngleDoubleRight,
-  FasAngleDoubleUp,
-  FasAngleDown,
-  FasAngleLeft,
-  FasAngleRight,
-  FasAngleUp,
-  FasAngry,
-  FasAnkh,
-  FasAppleAlt,
-  FasArchive,
-  FasArchway,
-  FasArrowAltCircleDown,
-  FasArrowAltCircleLeft,
-  FasArrowAltCircleRight,
-  FasArrowAltCircleUp,
-  FasArrowCircleDown,
-  FasArrowCircleLeft,
-  FasArrowCircleRight,
-  FasArrowCircleUp,
-  FasArrowDown,
-  FasArrowLeft,
-  FasArrowRight,
-  FasArrowUp,
-  FasArrowsAltH,
-  FasArrowsAltV,
-  FasArrowsAlt,
-  FasAssistiveListeningSystems,
-  FasAsterisk,
-  FasAt,
-  FasAtlas,
-  FasAtom,
-  FasAudioDescription,
-  FasAward,
-  FasBabyCarriage,
-  FasBaby,
-  FasBackspace,
-  FasBackward,
-  FasBacon,
-  FasBalanceScale,
-  FasBan,
-  FasBandAid,
-  FasBarcode,
-  FasBars,
-  FasBaseballBall,
-  FasBasketballBall,
-  FasBath,
-  FasBatteryEmpty,
-  FasBatteryFull,
-  FasBatteryHalf,
-  FasBatteryQuarter,
-  FasBatteryThreeQuarters,
-  FasBed,
-  FasBeer,
-  FasBellSlash,
-  FasBell,
-  FasBezierCurve,
-  FasBible,
-  FasBicycle,
-  FasBinoculars,
-  FasBiohazard,
-  FasBirthdayCake,
-  FasBlenderPhone,
-  FasBlender,
-  FasBlind,
-  FasBlog,
-  FasBold,
-  FasBolt,
-  FasBomb,
-  FasBone,
-  FasBong,
-  FasBookDead,
-  FasBookMedical,
-  FasBookOpen,
-  FasBookReader,
-  FasBook,
-  FasBookmark,
-  FasBowlingBall,
-  FasBoxOpen,
-  FasBox,
-  FasBoxes,
-  FasBraille,
-  FasBrain,
-  FasBreadSlice,
-  FasBriefcaseMedical,
-  FasBriefcase,
-  FasBroadcastTower,
-  FasBroom,
-  FasBrush,
-  FasBug,
-  FasBuilding,
-  FasBullhorn,
-  FasBullseye,
-  FasBurn,
-  FasBusAlt,
-  FasBus,
-  FasBusinessTime,
-  FasCalculator,
-  FasCalendarAlt,
-  FasCalendarCheck,
-  FasCalendarDay,
-  FasCalendarMinus,
-  FasCalendarPlus,
-  FasCalendarTimes,
-  FasCalendarWeek,
-  FasCalendar,
-  FasCameraRetro,
-  FasCamera,
-  FasCampground,
-  FasCandyCane,
-  FasCannabis,
-  FasCapsules,
-  FasCarAlt,
-  FasCarBattery,
-  FasCarCrash,
-  FasCarSide,
-  FasCar,
-  FasCaretDown,
-  FasCaretLeft,
-  FasCaretRight,
-  FasCaretSquareDown,
-  FasCaretSquareLeft,
-  FasCaretSquareRight,
-  FasCaretSquareUp,
-  FasCaretUp,
-  FasCarrot,
-  FasCartArrowDown,
-  FasCartPlus,
-  FasCashRegister,
-  FasCat,
-  FasCertificate,
-  FasChair,
-  FasChalkboardTeacher,
-  FasChalkboard,
-  FasChargingStation,
-  FasChartArea,
-  FasChartBar,
-  FasChartLine,
-  FasChartPie,
-  FasCheckCircle,
-  FasCheckDouble,
-  FasCheckSquare,
-  FasCheck,
-  FasCheese,
-  FasChessBishop,
-  FasChessBoard,
-  FasChessKing,
-  FasChessKnight,
-  FasChessPawn,
-  FasChessQueen,
-  FasChessRook,
-  FasChess,
-  FasChevronCircleDown,
-  FasChevronCircleLeft,
-  FasChevronCircleRight,
-  FasChevronCircleUp,
-  FasChevronDown,
-  FasChevronLeft,
-  FasChevronRight,
-  FasChevronUp,
-  FasChild,
-  FasChurch,
-  FasCircleNotch,
-  FasCircle,
-  FasCity,
-  FasClinicMedical,
-  FasClipboardCheck,
-  FasClipboardList,
-  FasClipboard,
-  FasClock,
-  FasClone,
-  FasClosedCaptioning,
-  FasCloudDownloadAlt,
-  FasCloudMeatball,
-  FasCloudMoonRain,
-  FasCloudMoon,
-  FasCloudRain,
-  FasCloudShowersHeavy,
-  FasCloudSunRain,
-  FasCloudSun,
-  FasCloudUploadAlt,
-  FasCloud,
-  FasCocktail,
-  FasCodeBranch,
-  FasCode,
-  FasCoffee,
-  FasCog,
-  FasCogs,
-  FasCoins,
-  FasColumns,
-  FasCommentAlt,
-  FasCommentDollar,
-  FasCommentDots,
-  FasCommentMedical,
-  FasCommentSlash,
-  FasComment,
-  FasCommentsDollar,
-  FasComments,
-  FasCompactDisc,
-  FasCompass,
-  FasCompressArrowsAlt,
-  FasCompress,
-  FasConciergeBell,
-  FasCookieBite,
-  FasCookie,
-  FasCopy,
-  FasCopyright,
-  FasCouch,
-  FasCreditCard,
-  FasCropAlt,
-  FasCrop,
-  FasCross,
-  FasCrosshairs,
-  FasCrow,
-  FasCrown,
-  FasCrutch,
-  FasCube,
-  FasCubes,
-  FasCut,
-  FasDatabase,
-  FasDeaf,
-  FasDemocrat,
-  FasDesktop,
-  FasDharmachakra,
-  FasDiagnoses,
-  FasDiceD20,
-  FasDiceD6,
-  FasDiceFive,
-  FasDiceFour,
-  FasDiceOne,
-  FasDiceSix,
-  FasDiceThree,
-  FasDiceTwo,
-  FasDice,
-  FasDigitalTachograph,
-  FasDirections,
-  FasDivide,
-  FasDizzy,
-  FasDna,
-  FasDog,
-  FasDollarSign,
-  FasDollyFlatbed,
-  FasDolly,
-  FasDonate,
-  FasDoorClosed,
-  FasDoorOpen,
-  FasDotCircle,
-  FasDove,
-  FasDownload,
-  FasDraftingCompass,
-  FasDragon,
-  FasDrawPolygon,
-  FasDrumSteelpan,
-  FasDrum,
-  FasDrumstickBite,
-  FasDumbbell,
-  FasDumpsterFire,
-  FasDumpster,
-  FasDungeon,
-  FasEdit,
-  FasEgg,
-  FasEject,
-  FasEllipsisH,
-  FasEllipsisV,
-  FasEnvelopeOpenText,
-  FasEnvelopeOpen,
-  FasEnvelopeSquare,
-  FasEnvelope,
-  FasEquals,
-  FasEraser,
-  FasEthernet,
-  FasEuroSign,
-  FasExchangeAlt,
-  FasExclamationCircle,
-  FasExclamationTriangle,
-  FasExclamation,
-  FasExpandArrowsAlt,
-  FasExpand,
-  FasExternalLinkAlt,
-  FasExternalLinkSquareAlt,
-  FasEyeDropper,
-  FasEyeSlash,
-  FasEye,
-  FasFastBackward,
-  FasFastForward,
-  FasFax,
-  FasFeatherAlt,
-  FasFeather,
-  FasFemale,
-  FasFighterJet,
-  FasFileAlt,
-  FasFileArchive,
-  FasFileAudio,
-  FasFileCode,
-  FasFileContract,
-  FasFileCsv,
-  FasFileDownload,
-  FasFileExcel,
-  FasFileExport,
-  FasFileImage,
-  FasFileImport,
-  FasFileInvoiceDollar,
-  FasFileInvoice,
-  FasFileMedicalAlt,
-  FasFileMedical,
-  FasFilePdf,
-  FasFilePowerpoint,
-  FasFilePrescription,
-  FasFileSignature,
-  FasFileUpload,
-  FasFileVideo,
-  FasFileWord,
-  FasFile,
-  FasFillDrip,
-  FasFill,
-  FasFilm,
-  FasFilter,
-  FasFingerprint,
-  FasFireAlt,
-  FasFireExtinguisher,
-  FasFire,
-  FasFirstAid,
-  FasFish,
-  FasFistRaised,
-  FasFlagCheckered,
-  FasFlagUsa,
-  FasFlag,
-  FasFlask,
-  FasFlushed,
-  FasFolderMinus,
-  FasFolderOpen,
-  FasFolderPlus,
-  FasFolder,
-  FasFontAwesomeLogoFull,
-  FasFont,
-  FasFootballBall,
-  FasForward,
-  FasFrog,
-  FasFrownOpen,
-  FasFrown,
-  FasFunnelDollar,
-  FasFutbol,
-  FasGamepad,
-  FasGasPump,
-  FasGavel,
-  FasGem,
-  FasGenderless,
-  FasGhost,
-  FasGift,
-  FasGifts,
-  FasGlassCheers,
-  FasGlassMartiniAlt,
-  FasGlassMartini,
-  FasGlassWhiskey,
-  FasGlasses,
-  FasGlobeAfrica,
-  FasGlobeAmericas,
-  FasGlobeAsia,
-  FasGlobeEurope,
-  FasGlobe,
-  FasGolfBall,
-  FasGopuram,
-  FasGraduationCap,
-  FasGreaterThanEqual,
-  FasGreaterThan,
-  FasGrimace,
-  FasGrinAlt,
-  FasGrinBeamSweat,
-  FasGrinBeam,
-  FasGrinHearts,
-  FasGrinSquintTears,
-  FasGrinSquint,
-  FasGrinStars,
-  FasGrinTears,
-  FasGrinTongueSquint,
-  FasGrinTongueWink,
-  FasGrinTongue,
-  FasGrinWink,
-  FasGrin,
-  FasGripHorizontal,
-  FasGripLinesVertical,
-  FasGripLines,
-  FasGripVertical,
-  FasGuitar,
-  FasHSquare,
-  FasHamburger,
-  FasHammer,
-  FasHamsa,
-  FasHandHoldingHeart,
-  FasHandHoldingUsd,
-  FasHandHolding,
-  FasHandLizard,
-  FasHandMiddleFinger,
-  FasHandPaper,
-  FasHandPeace,
-  FasHandPointDown,
-  FasHandPointLeft,
-  FasHandPointRight,
-  FasHandPointUp,
-  FasHandPointer,
-  FasHandRock,
-  FasHandScissors,
-  FasHandSpock,
-  FasHandsHelping,
-  FasHands,
-  FasHandshake,
-  FasHanukiah,
-  FasHardHat,
-  FasHashtag,
-  FasHatWizard,
-  FasHaykal,
-  FasHdd,
-  FasHeading,
-  FasHeadphonesAlt,
-  FasHeadphones,
-  FasHeadset,
-  FasHeartBroken,
-  FasHeart,
-  FasHeartbeat,
-  FasHelicopter,
-  FasHighlighter,
-  FasHiking,
-  FasHippo,
-  FasHistory,
-  FasHockeyPuck,
-  FasHollyBerry,
-  FasHome,
-  FasHorseHead,
-  FasHorse,
-  FasHospitalAlt,
-  FasHospitalSymbol,
-  FasHospital,
-  FasHotTub,
-  FasHotdog,
-  FasHotel,
-  FasHourglassEnd,
-  FasHourglassHalf,
-  FasHourglassStart,
-  FasHourglass,
-  FasHouseDamage,
-  FasHryvnia,
-  FasICursor,
-  FasIceCream,
-  FasIcicles,
-  FasIdBadge,
-  FasIdCardAlt,
-  FasIdCard,
-  FasIgloo,
-  FasImage,
-  FasImages,
-  FasInbox,
-  FasIndent,
-  FasIndustry,
-  FasInfinity,
-  FasInfoCircle,
-  FasInfo,
-  FasItalic,
-  FasJedi,
-  FasJoint,
-  FasJournalWhills,
-  FasKaaba,
-  FasKey,
-  FasKeyboard,
-  FasKhanda,
-  FasKissBeam,
-  FasKissWinkHeart,
-  FasKiss,
-  FasKiwiBird,
-  FasLandmark,
-  FasLanguage,
-  FasLaptopCode,
-  FasLaptopMedical,
-  FasLaptop,
-  FasLaughBeam,
-  FasLaughSquint,
-  FasLaughWink,
-  FasLaugh,
-  FasLayerGroup,
-  FasLeaf,
-  FasLemon,
-  FasLessThanEqual,
-  FasLessThan,
-  FasLevelDownAlt,
-  FasLevelUpAlt,
-  FasLifeRing,
-  FasLightbulb,
-  FasLink,
-  FasLiraSign,
-  FasListAlt,
-  FasListOl,
-  FasListUl,
-  FasList,
-  FasLocationArrow,
-  FasLockOpen,
-  FasLock,
-  FasLongArrowAltDown,
-  FasLongArrowAltLeft,
-  FasLongArrowAltRight,
-  FasLongArrowAltUp,
-  FasLowVision,
-  FasLuggageCart,
-  FasMagic,
-  FasMagnet,
-  FasMailBulk,
-  FasMale,
-  FasMapMarkedAlt,
-  FasMapMarked,
-  FasMapMarkerAlt,
-  FasMapMarker,
-  FasMapPin,
-  FasMapSigns,
-  FasMap,
-  FasMarker,
-  FasMarsDouble,
-  FasMarsStrokeH,
-  FasMarsStrokeV,
-  FasMarsStroke,
-  FasMars,
-  FasMask,
-  FasMedal,
-  FasMedkit,
-  FasMehBlank,
-  FasMehRollingEyes,
-  FasMeh,
-  FasMemory,
-  FasMenorah,
-  FasMercury,
-  FasMeteor,
-  FasMicrochip,
-  FasMicrophoneAltSlash,
-  FasMicrophoneAlt,
-  FasMicrophoneSlash,
-  FasMicrophone,
-  FasMicroscope,
-  FasMinusCircle,
-  FasMinusSquare,
-  FasMinus,
-  FasMitten,
-  FasMobileAlt,
-  FasMobile,
-  FasMoneyBillAlt,
-  FasMoneyBillWaveAlt,
-  FasMoneyBillWave,
-  FasMoneyBill,
-  FasMoneyCheckAlt,
-  FasMoneyCheck,
-  FasMonument,
-  FasMoon,
-  FasMortarPestle,
-  FasMosque,
-  FasMotorcycle,
-  FasMountain,
-  FasMousePointer,
-  FasMugHot,
-  FasMusic,
-  FasNetworkWired,
-  FasNeuter,
-  FasNewspaper,
-  FasNotEqual,
-  FasNotesMedical,
-  FasObjectGroup,
-  FasObjectUngroup,
-  FasOilCan,
-  FasOm,
-  FasOtter,
-  FasOutdent,
-  FasPager,
-  FasPaintBrush,
-  FasPaintRoller,
-  FasPalette,
-  FasPallet,
-  FasPaperPlane,
-  FasPaperclip,
-  FasParachuteBox,
-  FasParagraph,
-  FasParking,
-  FasPassport,
-  FasPastafarianism,
-  FasPaste,
-  FasPauseCircle,
-  FasPause,
-  FasPaw,
-  FasPeace,
-  FasPenAlt,
-  FasPenFancy,
-  FasPenNib,
-  FasPenSquare,
-  FasPen,
-  FasPencilAlt,
-  FasPencilRuler,
-  FasPeopleCarry,
-  FasPepperHot,
-  FasPercent,
-  FasPercentage,
-  FasPersonBooth,
-  FasPhoneSlash,
-  FasPhoneSquare,
-  FasPhoneVolume,
-  FasPhone,
-  FasPiggyBank,
-  FasPills,
-  FasPizzaSlice,
-  FasPlaceOfWorship,
-  FasPlaneArrival,
-  FasPlaneDeparture,
-  FasPlane,
-  FasPlayCircle,
-  FasPlay,
-  FasPlug,
-  FasPlusCircle,
-  FasPlusSquare,
-  FasPlus,
-  FasPodcast,
-  FasPollH,
-  FasPoll,
-  FasPooStorm,
-  FasPoo,
-  FasPoop,
-  FasPortrait,
-  FasPoundSign,
-  FasPowerOff,
-  FasPray,
-  FasPrayingHands,
-  FasPrescriptionBottleAlt,
-  FasPrescriptionBottle,
-  FasPrescription,
-  FasPrint,
-  FasProcedures,
-  FasProjectDiagram,
-  FasPuzzlePiece,
-  FasQrcode,
-  FasQuestionCircle,
-  FasQuestion,
-  FasQuidditch,
-  FasQuoteLeft,
-  FasQuoteRight,
-  FasQuran,
-  FasRadiationAlt,
-  FasRadiation,
-  FasRainbow,
-  FasRandom,
-  FasReceipt,
-  FasRecycle,
-  FasRedoAlt,
-  FasRedo,
-  FasRegistered,
-  FasReplyAll,
-  FasReply,
-  FasRepublican,
-  FasRestroom,
-  FasRetweet,
-  FasRibbon,
-  FasRing,
-  FasRoad,
-  FasRobot,
-  FasRocket,
-  FasRoute,
-  FasRssSquare,
-  FasRss,
-  FasRubleSign,
-  FasRulerCombined,
-  FasRulerHorizontal,
-  FasRulerVertical,
-  FasRuler,
-  FasRunning,
-  FasRupeeSign,
-  FasSadCry,
-  FasSadTear,
-  FasSatelliteDish,
-  FasSatellite,
-  FasSave,
-  FasSchool,
-  FasScrewdriver,
-  FasScroll,
-  FasSdCard,
-  FasSearchDollar,
-  FasSearchLocation,
-  FasSearchMinus,
-  FasSearchPlus,
-  FasSearch,
-  FasSeedling,
-  FasServer,
-  FasShapes,
-  FasShareAltSquare,
-  FasShareAlt,
-  FasShareSquare,
-  FasShare,
-  FasShekelSign,
-  FasShieldAlt,
-  FasShip,
-  FasShippingFast,
-  FasShoePrints,
-  FasShoppingBag,
-  FasShoppingBasket,
-  FasShoppingCart,
-  FasShower,
-  FasShuttleVan,
-  FasSignInAlt,
-  FasSignLanguage,
-  FasSignOutAlt,
-  FasSign,
-  FasSignal,
-  FasSignature,
-  FasSimCard,
-  FasSitemap,
-  FasSkating,
-  FasSkiingNordic,
-  FasSkiing,
-  FasSkullCrossbones,
-  FasSkull,
-  FasSlash,
-  FasSleigh,
-  FasSlidersH,
-  FasSmileBeam,
-  FasSmileWink,
-  FasSmile,
-  FasSmog,
-  FasSmokingBan,
-  FasSmoking,
-  FasSms,
-  FasSnowboarding,
-  FasSnowflake,
-  FasSnowman,
-  FasSnowplow,
-  FasSocks,
-  FasSolarPanel,
-  FasSortAlphaDown,
-  FasSortAlphaUp,
-  FasSortAmountDown,
-  FasSortAmountUp,
-  FasSortDown,
-  FasSortNumericDown,
-  FasSortNumericUp,
-  FasSortUp,
-  FasSort,
-  FasSpa,
-  FasSpaceShuttle,
-  FasSpider,
-  FasSpinner,
-  FasSplotch,
-  FasSprayCan,
-  FasSquareFull,
-  FasSquareRootAlt,
-  FasSquare,
-  FasStamp,
-  FasStarAndCrescent,
-  FasStarHalfAlt,
-  FasStarHalf,
-  FasStarOfDavid,
-  FasStarOfLife,
-  FasStar,
-  FasStepBackward,
-  FasStepForward,
-  FasStethoscope,
-  FasStickyNote,
-  FasStopCircle,
-  FasStop,
-  FasStopwatch,
-  FasStoreAlt,
-  FasStore,
-  FasStream,
-  FasStreetView,
-  FasStrikethrough,
-  FasStroopwafel,
-  FasSubscript,
-  FasSubway,
-  FasSuitcaseRolling,
-  FasSuitcase,
-  FasSun,
-  FasSuperscript,
-  FasSurprise,
-  FasSwatchbook,
-  FasSwimmer,
-  FasSwimmingPool,
-  FasSynagogue,
-  FasSyncAlt,
-  FasSync,
-  FasSyringe,
-  FasTableTennis,
-  FasTable,
-  FasTabletAlt,
-  FasTablet,
-  FasTablets,
-  FasTachometerAlt,
-  FasTag,
-  FasTags,
-  FasTape,
-  FasTasks,
-  FasTaxi,
-  FasTeethOpen,
-  FasTeeth,
-  FasTemperatureHigh,
-  FasTemperatureLow,
-  FasTenge,
-  FasTerminal,
-  FasTextHeight,
-  FasTextWidth,
-  FasThLarge,
-  FasThList,
-  FasTh,
-  FasTheaterMasks,
-  FasThermometerEmpty,
-  FasThermometerFull,
-  FasThermometerHalf,
-  FasThermometerQuarter,
-  FasThermometerThreeQuarters,
-  FasThermometer,
-  FasThumbsDown,
-  FasThumbsUp,
-  FasThumbtack,
-  FasTicketAlt,
-  FasTimesCircle,
-  FasTimes,
-  FasTintSlash,
-  FasTint,
-  FasTired,
-  FasToggleOff,
-  FasToggleOn,
-  FasToiletPaper,
-  FasToilet,
-  FasToolbox,
-  FasTools,
-  FasTooth,
-  FasTorah,
-  FasToriiGate,
-  FasTractor,
-  FasTrademark,
-  FasTrafficLight,
-  FasTrain,
-  FasTram,
-  FasTransgenderAlt,
-  FasTransgender,
-  FasTrashAlt,
-  FasTrashRestoreAlt,
-  FasTrashRestore,
-  FasTrash,
-  FasTree,
-  FasTrophy,
-  FasTruckLoading,
-  FasTruckMonster,
-  FasTruckMoving,
-  FasTruckPickup,
-  FasTruck,
-  FasTshirt,
-  FasTty,
-  FasTv,
-  FasUmbrellaBeach,
-  FasUmbrella,
-  FasUnderline,
-  FasUndoAlt,
-  FasUndo,
-  FasUniversalAccess,
-  FasUniversity,
-  FasUnlink,
-  FasUnlockAlt,
-  FasUnlock,
-  FasUpload,
-  FasUserAltSlash,
-  FasUserAlt,
-  FasUserAstronaut,
-  FasUserCheck,
-  FasUserCircle,
-  FasUserClock,
-  FasUserCog,
-  FasUserEdit,
-  FasUserFriends,
-  FasUserGraduate,
-  FasUserInjured,
-  FasUserLock,
-  FasUserMd,
-  FasUserMinus,
-  FasUserNinja,
-  FasUserNurse,
-  FasUserPlus,
-  FasUserSecret,
-  FasUserShield,
-  FasUserSlash,
-  FasUserTag,
-  FasUserTie,
-  FasUserTimes,
-  FasUser,
-  FasUsersCog,
-  FasUsers,
-  FasUtensilSpoon,
-  FasUtensils,
-  FasVectorSquare,
-  FasVenusDouble,
-  FasVenusMars,
-  FasVenus,
-  FasVial,
-  FasVials,
-  FasVideoSlash,
-  FasVideo,
-  FasVihara,
-  FasVolleyballBall,
-  FasVolumeDown,
-  FasVolumeMute,
-  FasVolumeOff,
-  FasVolumeUp,
-  FasVoteYea,
-  FasVrCardboard,
-  FasWalking,
-  FasWallet,
-  FasWarehouse,
-  FasWater,
-  FasWaveSquare,
-  FasWeightHanging,
-  FasWeight,
-  FasWheelchair,
-  FasWifi,
-  FasWind,
-  FasWindowClose,
-  FasWindowMaximize,
-  FasWindowMinimize,
-  FasWindowRestore,
-  FasWineBottle,
-  FasWineGlassAlt,
-  FasWineGlass,
-  FasWonSign,
-  FasWrench,
-  FasXRay,
-  FasYenSign,
-  FasYinYang
+  IconFab500px,
+  IconFabAccessibleIcon,
+  IconFabAccusoft,
+  IconFabAcquisitionsIncorporated,
+  IconFabAdn,
+  IconFabAdobe,
+  IconFabAdversal,
+  IconFabAffiliatetheme,
+  IconFabAirbnb,
+  IconFabAlgolia,
+  IconFabAlipay,
+  IconFabAmazonPay,
+  IconFabAmazon,
+  IconFabAmilia,
+  IconFabAndroid,
+  IconFabAngellist,
+  IconFabAngrycreative,
+  IconFabAngular,
+  IconFabAppStoreIos,
+  IconFabAppStore,
+  IconFabApper,
+  IconFabApplePay,
+  IconFabApple,
+  IconFabArtstation,
+  IconFabAsymmetrik,
+  IconFabAtlassian,
+  IconFabAudible,
+  IconFabAutoprefixer,
+  IconFabAvianex,
+  IconFabAviato,
+  IconFabAws,
+  IconFabBandcamp,
+  IconFabBattleNet,
+  IconFabBehanceSquare,
+  IconFabBehance,
+  IconFabBimobject,
+  IconFabBitbucket,
+  IconFabBitcoin,
+  IconFabBity,
+  IconFabBlackTie,
+  IconFabBlackberry,
+  IconFabBloggerB,
+  IconFabBlogger,
+  IconFabBluetoothB,
+  IconFabBluetooth,
+  IconFabBootstrap,
+  IconFabBtc,
+  IconFabBuffer,
+  IconFabBuromobelexperte,
+  IconFabBuysellads,
+  IconFabCanadianMapleLeaf,
+  IconFabCcAmazonPay,
+  IconFabCcAmex,
+  IconFabCcApplePay,
+  IconFabCcDinersClub,
+  IconFabCcDiscover,
+  IconFabCcJcb,
+  IconFabCcMastercard,
+  IconFabCcPaypal,
+  IconFabCcStripe,
+  IconFabCcVisa,
+  IconFabCentercode,
+  IconFabCentos,
+  IconFabChrome,
+  IconFabChromecast,
+  IconFabCloudscale,
+  IconFabCloudsmith,
+  IconFabCloudversify,
+  IconFabCodepen,
+  IconFabCodiepie,
+  IconFabConfluence,
+  IconFabConnectdevelop,
+  IconFabContao,
+  IconFabCpanel,
+  IconFabCreativeCommonsBy,
+  IconFabCreativeCommonsNcEu,
+  IconFabCreativeCommonsNcJp,
+  IconFabCreativeCommonsNc,
+  IconFabCreativeCommonsNd,
+  IconFabCreativeCommonsPdAlt,
+  IconFabCreativeCommonsPd,
+  IconFabCreativeCommonsRemix,
+  IconFabCreativeCommonsSa,
+  IconFabCreativeCommonsSamplingPlus,
+  IconFabCreativeCommonsSampling,
+  IconFabCreativeCommonsShare,
+  IconFabCreativeCommonsZero,
+  IconFabCreativeCommons,
+  IconFabCriticalRole,
+  IconFabCss3Alt,
+  IconFabCss3,
+  IconFabCuttlefish,
+  IconFabDAndDBeyond,
+  IconFabDAndD,
+  IconFabDashcube,
+  IconFabDelicious,
+  IconFabDeploydog,
+  IconFabDeskpro,
+  IconFabDev,
+  IconFabDeviantart,
+  IconFabDhl,
+  IconFabDiaspora,
+  IconFabDigg,
+  IconFabDigitalOcean,
+  IconFabDiscord,
+  IconFabDiscourse,
+  IconFabDochub,
+  IconFabDocker,
+  IconFabDraft2digital,
+  IconFabDribbbleSquare,
+  IconFabDribbble,
+  IconFabDropbox,
+  IconFabDrupal,
+  IconFabDyalog,
+  IconFabEarlybirds,
+  IconFabEbay,
+  IconFabEdge,
+  IconFabElementor,
+  IconFabEllo,
+  IconFabEmber,
+  IconFabEmpire,
+  IconFabEnvira,
+  IconFabErlang,
+  IconFabEthereum,
+  IconFabEtsy,
+  IconFabEvernote,
+  IconFabExpeditedssl,
+  IconFabFacebookF,
+  IconFabFacebookMessenger,
+  IconFabFacebookSquare,
+  IconFabFacebook,
+  IconFabFantasyFlightGames,
+  IconFabFedex,
+  IconFabFedora,
+  IconFabFigma,
+  IconFabFirefox,
+  IconFabFirstOrderAlt,
+  IconFabFirstOrder,
+  IconFabFirstdraft,
+  IconFabFlickr,
+  IconFabFlipboard,
+  IconFabFly,
+  IconFabFontAwesomeAlt,
+  IconFabFontAwesomeFlag,
+  IconFabFontAwesomeLogoFull,
+  IconFabFontAwesome,
+  IconFabFonticonsFi,
+  IconFabFonticons,
+  IconFabFortAwesomeAlt,
+  IconFabFortAwesome,
+  IconFabForumbee,
+  IconFabFoursquare,
+  IconFabFreeCodeCamp,
+  IconFabFreebsd,
+  IconFabFulcrum,
+  IconFabGalacticRepublic,
+  IconFabGalacticSenate,
+  IconFabGetPocket,
+  IconFabGgCircle,
+  IconFabGg,
+  IconFabGitSquare,
+  IconFabGit,
+  IconFabGithubAlt,
+  IconFabGithubSquare,
+  IconFabGithub,
+  IconFabGitkraken,
+  IconFabGitlab,
+  IconFabGitter,
+  IconFabGlideG,
+  IconFabGlide,
+  IconFabGofore,
+  IconFabGoodreadsG,
+  IconFabGoodreads,
+  IconFabGoogleDrive,
+  IconFabGooglePlay,
+  IconFabGooglePlusG,
+  IconFabGooglePlusSquare,
+  IconFabGooglePlus,
+  IconFabGoogleWallet,
+  IconFabGoogle,
+  IconFabGratipay,
+  IconFabGrav,
+  IconFabGripfire,
+  IconFabGrunt,
+  IconFabGulp,
+  IconFabHackerNewsSquare,
+  IconFabHackerNews,
+  IconFabHackerrank,
+  IconFabHips,
+  IconFabHireAHelper,
+  IconFabHooli,
+  IconFabHornbill,
+  IconFabHotjar,
+  IconFabHouzz,
+  IconFabHtml5,
+  IconFabHubspot,
+  IconFabImdb,
+  IconFabInstagram,
+  IconFabIntercom,
+  IconFabInternetExplorer,
+  IconFabInvision,
+  IconFabIoxhost,
+  IconFabItchIo,
+  IconFabItunesNote,
+  IconFabItunes,
+  IconFabJava,
+  IconFabJediOrder,
+  IconFabJenkins,
+  IconFabJira,
+  IconFabJoget,
+  IconFabJoomla,
+  IconFabJsSquare,
+  IconFabJs,
+  IconFabJsfiddle,
+  IconFabKaggle,
+  IconFabKeybase,
+  IconFabKeycdn,
+  IconFabKickstarterK,
+  IconFabKickstarter,
+  IconFabKorvue,
+  IconFabLaravel,
+  IconFabLastfmSquare,
+  IconFabLastfm,
+  IconFabLeanpub,
+  IconFabLess,
+  IconFabLine,
+  IconFabLinkedinIn,
+  IconFabLinkedin,
+  IconFabLinode,
+  IconFabLinux,
+  IconFabLyft,
+  IconFabMagento,
+  IconFabMailchimp,
+  IconFabMandalorian,
+  IconFabMarkdown,
+  IconFabMastodon,
+  IconFabMaxcdn,
+  IconFabMedapps,
+  IconFabMediumM,
+  IconFabMedium,
+  IconFabMedrt,
+  IconFabMeetup,
+  IconFabMegaport,
+  IconFabMendeley,
+  IconFabMicrosoft,
+  IconFabMix,
+  IconFabMixcloud,
+  IconFabMizuni,
+  IconFabModx,
+  IconFabMonero,
+  IconFabNapster,
+  IconFabNeos,
+  IconFabNimblr,
+  IconFabNintendoSwitch,
+  IconFabNodeJs,
+  IconFabNode,
+  IconFabNpm,
+  IconFabNs8,
+  IconFabNutritionix,
+  IconFabOdnoklassnikiSquare,
+  IconFabOdnoklassniki,
+  IconFabOldRepublic,
+  IconFabOpencart,
+  IconFabOpenid,
+  IconFabOpera,
+  IconFabOptinMonster,
+  IconFabOsi,
+  IconFabPage4,
+  IconFabPagelines,
+  IconFabPalfed,
+  IconFabPatreon,
+  IconFabPaypal,
+  IconFabPennyArcade,
+  IconFabPeriscope,
+  IconFabPhabricator,
+  IconFabPhoenixFramework,
+  IconFabPhoenixSquadron,
+  IconFabPhp,
+  IconFabPiedPiperAlt,
+  IconFabPiedPiperHat,
+  IconFabPiedPiperPp,
+  IconFabPiedPiper,
+  IconFabPinterestP,
+  IconFabPinterestSquare,
+  IconFabPinterest,
+  IconFabPlaystation,
+  IconFabProductHunt,
+  IconFabPushed,
+  IconFabPython,
+  IconFabQq,
+  IconFabQuinscape,
+  IconFabQuora,
+  IconFabRProject,
+  IconFabRaspberryPi,
+  IconFabRavelry,
+  IconFabReact,
+  IconFabReacteurope,
+  IconFabReadme,
+  IconFabRebel,
+  IconFabRedRiver,
+  IconFabRedditAlien,
+  IconFabRedditSquare,
+  IconFabReddit,
+  IconFabRedhat,
+  IconFabRenren,
+  IconFabReplyd,
+  IconFabResearchgate,
+  IconFabResolving,
+  IconFabRev,
+  IconFabRocketchat,
+  IconFabRockrms,
+  IconFabSafari,
+  IconFabSalesforce,
+  IconFabSass,
+  IconFabSchlix,
+  IconFabScribd,
+  IconFabSearchengin,
+  IconFabSellcast,
+  IconFabSellsy,
+  IconFabServicestack,
+  IconFabShirtsinbulk,
+  IconFabShopware,
+  IconFabSimplybuilt,
+  IconFabSistrix,
+  IconFabSith,
+  IconFabSketch,
+  IconFabSkyatlas,
+  IconFabSkype,
+  IconFabSlackHash,
+  IconFabSlack,
+  IconFabSlideshare,
+  IconFabSnapchatGhost,
+  IconFabSnapchatSquare,
+  IconFabSnapchat,
+  IconFabSoundcloud,
+  IconFabSourcetree,
+  IconFabSpeakap,
+  IconFabSpeakerDeck,
+  IconFabSpotify,
+  IconFabSquarespace,
+  IconFabStackExchange,
+  IconFabStackOverflow,
+  IconFabStaylinked,
+  IconFabSteamSquare,
+  IconFabSteamSymbol,
+  IconFabSteam,
+  IconFabStickerMule,
+  IconFabStrava,
+  IconFabStripeS,
+  IconFabStripe,
+  IconFabStudiovinari,
+  IconFabStumbleuponCircle,
+  IconFabStumbleupon,
+  IconFabSuperpowers,
+  IconFabSupple,
+  IconFabSuse,
+  IconFabSymfony,
+  IconFabTeamspeak,
+  IconFabTelegramPlane,
+  IconFabTelegram,
+  IconFabTencentWeibo,
+  IconFabTheRedYeti,
+  IconFabThemeco,
+  IconFabThemeisle,
+  IconFabThinkPeaks,
+  IconFabTradeFederation,
+  IconFabTrello,
+  IconFabTripadvisor,
+  IconFabTumblrSquare,
+  IconFabTumblr,
+  IconFabTwitch,
+  IconFabTwitterSquare,
+  IconFabTwitter,
+  IconFabTypo3,
+  IconFabUber,
+  IconFabUbuntu,
+  IconFabUikit,
+  IconFabUniregistry,
+  IconFabUntappd,
+  IconFabUps,
+  IconFabUsb,
+  IconFabUsps,
+  IconFabUssunnah,
+  IconFabVaadin,
+  IconFabViacoin,
+  IconFabViadeoSquare,
+  IconFabViadeo,
+  IconFabViber,
+  IconFabVimeoSquare,
+  IconFabVimeoV,
+  IconFabVimeo,
+  IconFabVine,
+  IconFabVk,
+  IconFabVnv,
+  IconFabVuejs,
+  IconFabWaze,
+  IconFabWeebly,
+  IconFabWeibo,
+  IconFabWeixin,
+  IconFabWhatsappSquare,
+  IconFabWhatsapp,
+  IconFabWhmcs,
+  IconFabWikipediaW,
+  IconFabWindows,
+  IconFabWix,
+  IconFabWizardsOfTheCoast,
+  IconFabWolfPackBattalion,
+  IconFabWordpressSimple,
+  IconFabWordpress,
+  IconFabWpbeginner,
+  IconFabWpexplorer,
+  IconFabWpforms,
+  IconFabWpressr,
+  IconFabXbox,
+  IconFabXingSquare,
+  IconFabXing,
+  IconFabYCombinator,
+  IconFabYahoo,
+  IconFabYammer,
+  IconFabYandexInternational,
+  IconFabYandex,
+  IconFabYarn,
+  IconFabYelp,
+  IconFabYoast,
+  IconFabYoutubeSquare,
+  IconFabYoutube,
+  IconFabZhihu,
+  IconFarAddressBook,
+  IconFarAddressCard,
+  IconFarAngry,
+  IconFarArrowAltCircleDown,
+  IconFarArrowAltCircleLeft,
+  IconFarArrowAltCircleRight,
+  IconFarArrowAltCircleUp,
+  IconFarBellSlash,
+  IconFarBell,
+  IconFarBookmark,
+  IconFarBuilding,
+  IconFarCalendarAlt,
+  IconFarCalendarCheck,
+  IconFarCalendarMinus,
+  IconFarCalendarPlus,
+  IconFarCalendarTimes,
+  IconFarCalendar,
+  IconFarCaretSquareDown,
+  IconFarCaretSquareLeft,
+  IconFarCaretSquareRight,
+  IconFarCaretSquareUp,
+  IconFarChartBar,
+  IconFarCheckCircle,
+  IconFarCheckSquare,
+  IconFarCircle,
+  IconFarClipboard,
+  IconFarClock,
+  IconFarClone,
+  IconFarClosedCaptioning,
+  IconFarCommentAlt,
+  IconFarCommentDots,
+  IconFarComment,
+  IconFarComments,
+  IconFarCompass,
+  IconFarCopy,
+  IconFarCopyright,
+  IconFarCreditCard,
+  IconFarDizzy,
+  IconFarDotCircle,
+  IconFarEdit,
+  IconFarEnvelopeOpen,
+  IconFarEnvelope,
+  IconFarEyeSlash,
+  IconFarEye,
+  IconFarFileAlt,
+  IconFarFileArchive,
+  IconFarFileAudio,
+  IconFarFileCode,
+  IconFarFileExcel,
+  IconFarFileImage,
+  IconFarFilePdf,
+  IconFarFilePowerpoint,
+  IconFarFileVideo,
+  IconFarFileWord,
+  IconFarFile,
+  IconFarFlag,
+  IconFarFlushed,
+  IconFarFolderOpen,
+  IconFarFolder,
+  IconFarFontAwesomeLogoFull,
+  IconFarFrownOpen,
+  IconFarFrown,
+  IconFarFutbol,
+  IconFarGem,
+  IconFarGrimace,
+  IconFarGrinAlt,
+  IconFarGrinBeamSweat,
+  IconFarGrinBeam,
+  IconFarGrinHearts,
+  IconFarGrinSquintTears,
+  IconFarGrinSquint,
+  IconFarGrinStars,
+  IconFarGrinTears,
+  IconFarGrinTongueSquint,
+  IconFarGrinTongueWink,
+  IconFarGrinTongue,
+  IconFarGrinWink,
+  IconFarGrin,
+  IconFarHandLizard,
+  IconFarHandPaper,
+  IconFarHandPeace,
+  IconFarHandPointDown,
+  IconFarHandPointLeft,
+  IconFarHandPointRight,
+  IconFarHandPointUp,
+  IconFarHandPointer,
+  IconFarHandRock,
+  IconFarHandScissors,
+  IconFarHandSpock,
+  IconFarHandshake,
+  IconFarHdd,
+  IconFarHeart,
+  IconFarHospital,
+  IconFarHourglass,
+  IconFarIdBadge,
+  IconFarIdCard,
+  IconFarImage,
+  IconFarImages,
+  IconFarKeyboard,
+  IconFarKissBeam,
+  IconFarKissWinkHeart,
+  IconFarKiss,
+  IconFarLaughBeam,
+  IconFarLaughSquint,
+  IconFarLaughWink,
+  IconFarLaugh,
+  IconFarLemon,
+  IconFarLifeRing,
+  IconFarLightbulb,
+  IconFarListAlt,
+  IconFarMap,
+  IconFarMehBlank,
+  IconFarMehRollingEyes,
+  IconFarMeh,
+  IconFarMinusSquare,
+  IconFarMoneyBillAlt,
+  IconFarMoon,
+  IconFarNewspaper,
+  IconFarObjectGroup,
+  IconFarObjectUngroup,
+  IconFarPaperPlane,
+  IconFarPauseCircle,
+  IconFarPlayCircle,
+  IconFarPlusSquare,
+  IconFarQuestionCircle,
+  IconFarRegistered,
+  IconFarSadCry,
+  IconFarSadTear,
+  IconFarSave,
+  IconFarShareSquare,
+  IconFarSmileBeam,
+  IconFarSmileWink,
+  IconFarSmile,
+  IconFarSnowflake,
+  IconFarSquare,
+  IconFarStarHalf,
+  IconFarStar,
+  IconFarStickyNote,
+  IconFarStopCircle,
+  IconFarSun,
+  IconFarSurprise,
+  IconFarThumbsDown,
+  IconFarThumbsUp,
+  IconFarTimesCircle,
+  IconFarTired,
+  IconFarTrashAlt,
+  IconFarUserCircle,
+  IconFarUser,
+  IconFarWindowClose,
+  IconFarWindowMaximize,
+  IconFarWindowMinimize,
+  IconFarWindowRestore,
+  IconFasAd,
+  IconFasAddressBook,
+  IconFasAddressCard,
+  IconFasAdjust,
+  IconFasAirFreshener,
+  IconFasAlignCenter,
+  IconFasAlignJustify,
+  IconFasAlignLeft,
+  IconFasAlignRight,
+  IconFasAllergies,
+  IconFasAmbulance,
+  IconFasAmericanSignLanguageInterpreting,
+  IconFasAnchor,
+  IconFasAngleDoubleDown,
+  IconFasAngleDoubleLeft,
+  IconFasAngleDoubleRight,
+  IconFasAngleDoubleUp,
+  IconFasAngleDown,
+  IconFasAngleLeft,
+  IconFasAngleRight,
+  IconFasAngleUp,
+  IconFasAngry,
+  IconFasAnkh,
+  IconFasAppleAlt,
+  IconFasArchive,
+  IconFasArchway,
+  IconFasArrowAltCircleDown,
+  IconFasArrowAltCircleLeft,
+  IconFasArrowAltCircleRight,
+  IconFasArrowAltCircleUp,
+  IconFasArrowCircleDown,
+  IconFasArrowCircleLeft,
+  IconFasArrowCircleRight,
+  IconFasArrowCircleUp,
+  IconFasArrowDown,
+  IconFasArrowLeft,
+  IconFasArrowRight,
+  IconFasArrowUp,
+  IconFasArrowsAltH,
+  IconFasArrowsAltV,
+  IconFasArrowsAlt,
+  IconFasAssistiveListeningSystems,
+  IconFasAsterisk,
+  IconFasAt,
+  IconFasAtlas,
+  IconFasAtom,
+  IconFasAudioDescription,
+  IconFasAward,
+  IconFasBabyCarriage,
+  IconFasBaby,
+  IconFasBackspace,
+  IconFasBackward,
+  IconFasBacon,
+  IconFasBalanceScale,
+  IconFasBan,
+  IconFasBandAid,
+  IconFasBarcode,
+  IconFasBars,
+  IconFasBaseballBall,
+  IconFasBasketballBall,
+  IconFasBath,
+  IconFasBatteryEmpty,
+  IconFasBatteryFull,
+  IconFasBatteryHalf,
+  IconFasBatteryQuarter,
+  IconFasBatteryThreeQuarters,
+  IconFasBed,
+  IconFasBeer,
+  IconFasBellSlash,
+  IconFasBell,
+  IconFasBezierCurve,
+  IconFasBible,
+  IconFasBicycle,
+  IconFasBinoculars,
+  IconFasBiohazard,
+  IconFasBirthdayCake,
+  IconFasBlenderPhone,
+  IconFasBlender,
+  IconFasBlind,
+  IconFasBlog,
+  IconFasBold,
+  IconFasBolt,
+  IconFasBomb,
+  IconFasBone,
+  IconFasBong,
+  IconFasBookDead,
+  IconFasBookMedical,
+  IconFasBookOpen,
+  IconFasBookReader,
+  IconFasBook,
+  IconFasBookmark,
+  IconFasBowlingBall,
+  IconFasBoxOpen,
+  IconFasBox,
+  IconFasBoxes,
+  IconFasBraille,
+  IconFasBrain,
+  IconFasBreadSlice,
+  IconFasBriefcaseMedical,
+  IconFasBriefcase,
+  IconFasBroadcastTower,
+  IconFasBroom,
+  IconFasBrush,
+  IconFasBug,
+  IconFasBuilding,
+  IconFasBullhorn,
+  IconFasBullseye,
+  IconFasBurn,
+  IconFasBusAlt,
+  IconFasBus,
+  IconFasBusinessTime,
+  IconFasCalculator,
+  IconFasCalendarAlt,
+  IconFasCalendarCheck,
+  IconFasCalendarDay,
+  IconFasCalendarMinus,
+  IconFasCalendarPlus,
+  IconFasCalendarTimes,
+  IconFasCalendarWeek,
+  IconFasCalendar,
+  IconFasCameraRetro,
+  IconFasCamera,
+  IconFasCampground,
+  IconFasCandyCane,
+  IconFasCannabis,
+  IconFasCapsules,
+  IconFasCarAlt,
+  IconFasCarBattery,
+  IconFasCarCrash,
+  IconFasCarSide,
+  IconFasCar,
+  IconFasCaretDown,
+  IconFasCaretLeft,
+  IconFasCaretRight,
+  IconFasCaretSquareDown,
+  IconFasCaretSquareLeft,
+  IconFasCaretSquareRight,
+  IconFasCaretSquareUp,
+  IconFasCaretUp,
+  IconFasCarrot,
+  IconFasCartArrowDown,
+  IconFasCartPlus,
+  IconFasCashRegister,
+  IconFasCat,
+  IconFasCertificate,
+  IconFasChair,
+  IconFasChalkboardTeacher,
+  IconFasChalkboard,
+  IconFasChargingStation,
+  IconFasChartArea,
+  IconFasChartBar,
+  IconFasChartLine,
+  IconFasChartPie,
+  IconFasCheckCircle,
+  IconFasCheckDouble,
+  IconFasCheckSquare,
+  IconFasCheck,
+  IconFasCheese,
+  IconFasChessBishop,
+  IconFasChessBoard,
+  IconFasChessKing,
+  IconFasChessKnight,
+  IconFasChessPawn,
+  IconFasChessQueen,
+  IconFasChessRook,
+  IconFasChess,
+  IconFasChevronCircleDown,
+  IconFasChevronCircleLeft,
+  IconFasChevronCircleRight,
+  IconFasChevronCircleUp,
+  IconFasChevronDown,
+  IconFasChevronLeft,
+  IconFasChevronRight,
+  IconFasChevronUp,
+  IconFasChild,
+  IconFasChurch,
+  IconFasCircleNotch,
+  IconFasCircle,
+  IconFasCity,
+  IconFasClinicMedical,
+  IconFasClipboardCheck,
+  IconFasClipboardList,
+  IconFasClipboard,
+  IconFasClock,
+  IconFasClone,
+  IconFasClosedCaptioning,
+  IconFasCloudDownloadAlt,
+  IconFasCloudMeatball,
+  IconFasCloudMoonRain,
+  IconFasCloudMoon,
+  IconFasCloudRain,
+  IconFasCloudShowersHeavy,
+  IconFasCloudSunRain,
+  IconFasCloudSun,
+  IconFasCloudUploadAlt,
+  IconFasCloud,
+  IconFasCocktail,
+  IconFasCodeBranch,
+  IconFasCode,
+  IconFasCoffee,
+  IconFasCog,
+  IconFasCogs,
+  IconFasCoins,
+  IconFasColumns,
+  IconFasCommentAlt,
+  IconFasCommentDollar,
+  IconFasCommentDots,
+  IconFasCommentMedical,
+  IconFasCommentSlash,
+  IconFasComment,
+  IconFasCommentsDollar,
+  IconFasComments,
+  IconFasCompactDisc,
+  IconFasCompass,
+  IconFasCompressArrowsAlt,
+  IconFasCompress,
+  IconFasConciergeBell,
+  IconFasCookieBite,
+  IconFasCookie,
+  IconFasCopy,
+  IconFasCopyright,
+  IconFasCouch,
+  IconFasCreditCard,
+  IconFasCropAlt,
+  IconFasCrop,
+  IconFasCross,
+  IconFasCrosshairs,
+  IconFasCrow,
+  IconFasCrown,
+  IconFasCrutch,
+  IconFasCube,
+  IconFasCubes,
+  IconFasCut,
+  IconFasDatabase,
+  IconFasDeaf,
+  IconFasDemocrat,
+  IconFasDesktop,
+  IconFasDharmachakra,
+  IconFasDiagnoses,
+  IconFasDiceD20,
+  IconFasDiceD6,
+  IconFasDiceFive,
+  IconFasDiceFour,
+  IconFasDiceOne,
+  IconFasDiceSix,
+  IconFasDiceThree,
+  IconFasDiceTwo,
+  IconFasDice,
+  IconFasDigitalTachograph,
+  IconFasDirections,
+  IconFasDivide,
+  IconFasDizzy,
+  IconFasDna,
+  IconFasDog,
+  IconFasDollarSign,
+  IconFasDollyFlatbed,
+  IconFasDolly,
+  IconFasDonate,
+  IconFasDoorClosed,
+  IconFasDoorOpen,
+  IconFasDotCircle,
+  IconFasDove,
+  IconFasDownload,
+  IconFasDraftingCompass,
+  IconFasDragon,
+  IconFasDrawPolygon,
+  IconFasDrumSteelpan,
+  IconFasDrum,
+  IconFasDrumstickBite,
+  IconFasDumbbell,
+  IconFasDumpsterFire,
+  IconFasDumpster,
+  IconFasDungeon,
+  IconFasEdit,
+  IconFasEgg,
+  IconFasEject,
+  IconFasEllipsisH,
+  IconFasEllipsisV,
+  IconFasEnvelopeOpenText,
+  IconFasEnvelopeOpen,
+  IconFasEnvelopeSquare,
+  IconFasEnvelope,
+  IconFasEquals,
+  IconFasEraser,
+  IconFasEthernet,
+  IconFasEuroSign,
+  IconFasExchangeAlt,
+  IconFasExclamationCircle,
+  IconFasExclamationTriangle,
+  IconFasExclamation,
+  IconFasExpandArrowsAlt,
+  IconFasExpand,
+  IconFasExternalLinkAlt,
+  IconFasExternalLinkSquareAlt,
+  IconFasEyeDropper,
+  IconFasEyeSlash,
+  IconFasEye,
+  IconFasFastBackward,
+  IconFasFastForward,
+  IconFasFax,
+  IconFasFeatherAlt,
+  IconFasFeather,
+  IconFasFemale,
+  IconFasFighterJet,
+  IconFasFileAlt,
+  IconFasFileArchive,
+  IconFasFileAudio,
+  IconFasFileCode,
+  IconFasFileContract,
+  IconFasFileCsv,
+  IconFasFileDownload,
+  IconFasFileExcel,
+  IconFasFileExport,
+  IconFasFileImage,
+  IconFasFileImport,
+  IconFasFileInvoiceDollar,
+  IconFasFileInvoice,
+  IconFasFileMedicalAlt,
+  IconFasFileMedical,
+  IconFasFilePdf,
+  IconFasFilePowerpoint,
+  IconFasFilePrescription,
+  IconFasFileSignature,
+  IconFasFileUpload,
+  IconFasFileVideo,
+  IconFasFileWord,
+  IconFasFile,
+  IconFasFillDrip,
+  IconFasFill,
+  IconFasFilm,
+  IconFasFilter,
+  IconFasFingerprint,
+  IconFasFireAlt,
+  IconFasFireExtinguisher,
+  IconFasFire,
+  IconFasFirstAid,
+  IconFasFish,
+  IconFasFistRaised,
+  IconFasFlagCheckered,
+  IconFasFlagUsa,
+  IconFasFlag,
+  IconFasFlask,
+  IconFasFlushed,
+  IconFasFolderMinus,
+  IconFasFolderOpen,
+  IconFasFolderPlus,
+  IconFasFolder,
+  IconFasFontAwesomeLogoFull,
+  IconFasFont,
+  IconFasFootballBall,
+  IconFasForward,
+  IconFasFrog,
+  IconFasFrownOpen,
+  IconFasFrown,
+  IconFasFunnelDollar,
+  IconFasFutbol,
+  IconFasGamepad,
+  IconFasGasPump,
+  IconFasGavel,
+  IconFasGem,
+  IconFasGenderless,
+  IconFasGhost,
+  IconFasGift,
+  IconFasGifts,
+  IconFasGlassCheers,
+  IconFasGlassMartiniAlt,
+  IconFasGlassMartini,
+  IconFasGlassWhiskey,
+  IconFasGlasses,
+  IconFasGlobeAfrica,
+  IconFasGlobeAmericas,
+  IconFasGlobeAsia,
+  IconFasGlobeEurope,
+  IconFasGlobe,
+  IconFasGolfBall,
+  IconFasGopuram,
+  IconFasGraduationCap,
+  IconFasGreaterThanEqual,
+  IconFasGreaterThan,
+  IconFasGrimace,
+  IconFasGrinAlt,
+  IconFasGrinBeamSweat,
+  IconFasGrinBeam,
+  IconFasGrinHearts,
+  IconFasGrinSquintTears,
+  IconFasGrinSquint,
+  IconFasGrinStars,
+  IconFasGrinTears,
+  IconFasGrinTongueSquint,
+  IconFasGrinTongueWink,
+  IconFasGrinTongue,
+  IconFasGrinWink,
+  IconFasGrin,
+  IconFasGripHorizontal,
+  IconFasGripLinesVertical,
+  IconFasGripLines,
+  IconFasGripVertical,
+  IconFasGuitar,
+  IconFasHSquare,
+  IconFasHamburger,
+  IconFasHammer,
+  IconFasHamsa,
+  IconFasHandHoldingHeart,
+  IconFasHandHoldingUsd,
+  IconFasHandHolding,
+  IconFasHandLizard,
+  IconFasHandMiddleFinger,
+  IconFasHandPaper,
+  IconFasHandPeace,
+  IconFasHandPointDown,
+  IconFasHandPointLeft,
+  IconFasHandPointRight,
+  IconFasHandPointUp,
+  IconFasHandPointer,
+  IconFasHandRock,
+  IconFasHandScissors,
+  IconFasHandSpock,
+  IconFasHandsHelping,
+  IconFasHands,
+  IconFasHandshake,
+  IconFasHanukiah,
+  IconFasHardHat,
+  IconFasHashtag,
+  IconFasHatWizard,
+  IconFasHaykal,
+  IconFasHdd,
+  IconFasHeading,
+  IconFasHeadphonesAlt,
+  IconFasHeadphones,
+  IconFasHeadset,
+  IconFasHeartBroken,
+  IconFasHeart,
+  IconFasHeartbeat,
+  IconFasHelicopter,
+  IconFasHighlighter,
+  IconFasHiking,
+  IconFasHippo,
+  IconFasHistory,
+  IconFasHockeyPuck,
+  IconFasHollyBerry,
+  IconFasHome,
+  IconFasHorseHead,
+  IconFasHorse,
+  IconFasHospitalAlt,
+  IconFasHospitalSymbol,
+  IconFasHospital,
+  IconFasHotTub,
+  IconFasHotdog,
+  IconFasHotel,
+  IconFasHourglassEnd,
+  IconFasHourglassHalf,
+  IconFasHourglassStart,
+  IconFasHourglass,
+  IconFasHouseDamage,
+  IconFasHryvnia,
+  IconFasICursor,
+  IconFasIceCream,
+  IconFasIcicles,
+  IconFasIdBadge,
+  IconFasIdCardAlt,
+  IconFasIdCard,
+  IconFasIgloo,
+  IconFasImage,
+  IconFasImages,
+  IconFasInbox,
+  IconFasIndent,
+  IconFasIndustry,
+  IconFasInfinity,
+  IconFasInfoCircle,
+  IconFasInfo,
+  IconFasItalic,
+  IconFasJedi,
+  IconFasJoint,
+  IconFasJournalWhills,
+  IconFasKaaba,
+  IconFasKey,
+  IconFasKeyboard,
+  IconFasKhanda,
+  IconFasKissBeam,
+  IconFasKissWinkHeart,
+  IconFasKiss,
+  IconFasKiwiBird,
+  IconFasLandmark,
+  IconFasLanguage,
+  IconFasLaptopCode,
+  IconFasLaptopMedical,
+  IconFasLaptop,
+  IconFasLaughBeam,
+  IconFasLaughSquint,
+  IconFasLaughWink,
+  IconFasLaugh,
+  IconFasLayerGroup,
+  IconFasLeaf,
+  IconFasLemon,
+  IconFasLessThanEqual,
+  IconFasLessThan,
+  IconFasLevelDownAlt,
+  IconFasLevelUpAlt,
+  IconFasLifeRing,
+  IconFasLightbulb,
+  IconFasLink,
+  IconFasLiraSign,
+  IconFasListAlt,
+  IconFasListOl,
+  IconFasListUl,
+  IconFasList,
+  IconFasLocationArrow,
+  IconFasLockOpen,
+  IconFasLock,
+  IconFasLongArrowAltDown,
+  IconFasLongArrowAltLeft,
+  IconFasLongArrowAltRight,
+  IconFasLongArrowAltUp,
+  IconFasLowVision,
+  IconFasLuggageCart,
+  IconFasMagic,
+  IconFasMagnet,
+  IconFasMailBulk,
+  IconFasMale,
+  IconFasMapMarkedAlt,
+  IconFasMapMarked,
+  IconFasMapMarkerAlt,
+  IconFasMapMarker,
+  IconFasMapPin,
+  IconFasMapSigns,
+  IconFasMap,
+  IconFasMarker,
+  IconFasMarsDouble,
+  IconFasMarsStrokeH,
+  IconFasMarsStrokeV,
+  IconFasMarsStroke,
+  IconFasMars,
+  IconFasMask,
+  IconFasMedal,
+  IconFasMedkit,
+  IconFasMehBlank,
+  IconFasMehRollingEyes,
+  IconFasMeh,
+  IconFasMemory,
+  IconFasMenorah,
+  IconFasMercury,
+  IconFasMeteor,
+  IconFasMicrochip,
+  IconFasMicrophoneAltSlash,
+  IconFasMicrophoneAlt,
+  IconFasMicrophoneSlash,
+  IconFasMicrophone,
+  IconFasMicroscope,
+  IconFasMinusCircle,
+  IconFasMinusSquare,
+  IconFasMinus,
+  IconFasMitten,
+  IconFasMobileAlt,
+  IconFasMobile,
+  IconFasMoneyBillAlt,
+  IconFasMoneyBillWaveAlt,
+  IconFasMoneyBillWave,
+  IconFasMoneyBill,
+  IconFasMoneyCheckAlt,
+  IconFasMoneyCheck,
+  IconFasMonument,
+  IconFasMoon,
+  IconFasMortarPestle,
+  IconFasMosque,
+  IconFasMotorcycle,
+  IconFasMountain,
+  IconFasMousePointer,
+  IconFasMugHot,
+  IconFasMusic,
+  IconFasNetworkWired,
+  IconFasNeuter,
+  IconFasNewspaper,
+  IconFasNotEqual,
+  IconFasNotesMedical,
+  IconFasObjectGroup,
+  IconFasObjectUngroup,
+  IconFasOilCan,
+  IconFasOm,
+  IconFasOtter,
+  IconFasOutdent,
+  IconFasPager,
+  IconFasPaintBrush,
+  IconFasPaintRoller,
+  IconFasPalette,
+  IconFasPallet,
+  IconFasPaperPlane,
+  IconFasPaperclip,
+  IconFasParachuteBox,
+  IconFasParagraph,
+  IconFasParking,
+  IconFasPassport,
+  IconFasPastafarianism,
+  IconFasPaste,
+  IconFasPauseCircle,
+  IconFasPause,
+  IconFasPaw,
+  IconFasPeace,
+  IconFasPenAlt,
+  IconFasPenFancy,
+  IconFasPenNib,
+  IconFasPenSquare,
+  IconFasPen,
+  IconFasPencilAlt,
+  IconFasPencilRuler,
+  IconFasPeopleCarry,
+  IconFasPepperHot,
+  IconFasPercent,
+  IconFasPercentage,
+  IconFasPersonBooth,
+  IconFasPhoneSlash,
+  IconFasPhoneSquare,
+  IconFasPhoneVolume,
+  IconFasPhone,
+  IconFasPiggyBank,
+  IconFasPills,
+  IconFasPizzaSlice,
+  IconFasPlaceOfWorship,
+  IconFasPlaneArrival,
+  IconFasPlaneDeparture,
+  IconFasPlane,
+  IconFasPlayCircle,
+  IconFasPlay,
+  IconFasPlug,
+  IconFasPlusCircle,
+  IconFasPlusSquare,
+  IconFasPlus,
+  IconFasPodcast,
+  IconFasPollH,
+  IconFasPoll,
+  IconFasPooStorm,
+  IconFasPoo,
+  IconFasPoop,
+  IconFasPortrait,
+  IconFasPoundSign,
+  IconFasPowerOff,
+  IconFasPray,
+  IconFasPrayingHands,
+  IconFasPrescriptionBottleAlt,
+  IconFasPrescriptionBottle,
+  IconFasPrescription,
+  IconFasPrint,
+  IconFasProcedures,
+  IconFasProjectDiagram,
+  IconFasPuzzlePiece,
+  IconFasQrcode,
+  IconFasQuestionCircle,
+  IconFasQuestion,
+  IconFasQuidditch,
+  IconFasQuoteLeft,
+  IconFasQuoteRight,
+  IconFasQuran,
+  IconFasRadiationAlt,
+  IconFasRadiation,
+  IconFasRainbow,
+  IconFasRandom,
+  IconFasReceipt,
+  IconFasRecycle,
+  IconFasRedoAlt,
+  IconFasRedo,
+  IconFasRegistered,
+  IconFasReplyAll,
+  IconFasReply,
+  IconFasRepublican,
+  IconFasRestroom,
+  IconFasRetweet,
+  IconFasRibbon,
+  IconFasRing,
+  IconFasRoad,
+  IconFasRobot,
+  IconFasRocket,
+  IconFasRoute,
+  IconFasRssSquare,
+  IconFasRss,
+  IconFasRubleSign,
+  IconFasRulerCombined,
+  IconFasRulerHorizontal,
+  IconFasRulerVertical,
+  IconFasRuler,
+  IconFasRunning,
+  IconFasRupeeSign,
+  IconFasSadCry,
+  IconFasSadTear,
+  IconFasSatelliteDish,
+  IconFasSatellite,
+  IconFasSave,
+  IconFasSchool,
+  IconFasScrewdriver,
+  IconFasScroll,
+  IconFasSdCard,
+  IconFasSearchDollar,
+  IconFasSearchLocation,
+  IconFasSearchMinus,
+  IconFasSearchPlus,
+  IconFasSearch,
+  IconFasSeedling,
+  IconFasServer,
+  IconFasShapes,
+  IconFasShareAltSquare,
+  IconFasShareAlt,
+  IconFasShareSquare,
+  IconFasShare,
+  IconFasShekelSign,
+  IconFasShieldAlt,
+  IconFasShip,
+  IconFasShippingFast,
+  IconFasShoePrints,
+  IconFasShoppingBag,
+  IconFasShoppingBasket,
+  IconFasShoppingCart,
+  IconFasShower,
+  IconFasShuttleVan,
+  IconFasSignInAlt,
+  IconFasSignLanguage,
+  IconFasSignOutAlt,
+  IconFasSign,
+  IconFasSignal,
+  IconFasSignature,
+  IconFasSimCard,
+  IconFasSitemap,
+  IconFasSkating,
+  IconFasSkiingNordic,
+  IconFasSkiing,
+  IconFasSkullCrossbones,
+  IconFasSkull,
+  IconFasSlash,
+  IconFasSleigh,
+  IconFasSlidersH,
+  IconFasSmileBeam,
+  IconFasSmileWink,
+  IconFasSmile,
+  IconFasSmog,
+  IconFasSmokingBan,
+  IconFasSmoking,
+  IconFasSms,
+  IconFasSnowboarding,
+  IconFasSnowflake,
+  IconFasSnowman,
+  IconFasSnowplow,
+  IconFasSocks,
+  IconFasSolarPanel,
+  IconFasSortAlphaDown,
+  IconFasSortAlphaUp,
+  IconFasSortAmountDown,
+  IconFasSortAmountUp,
+  IconFasSortDown,
+  IconFasSortNumericDown,
+  IconFasSortNumericUp,
+  IconFasSortUp,
+  IconFasSort,
+  IconFasSpa,
+  IconFasSpaceShuttle,
+  IconFasSpider,
+  IconFasSpinner,
+  IconFasSplotch,
+  IconFasSprayCan,
+  IconFasSquareFull,
+  IconFasSquareRootAlt,
+  IconFasSquare,
+  IconFasStamp,
+  IconFasStarAndCrescent,
+  IconFasStarHalfAlt,
+  IconFasStarHalf,
+  IconFasStarOfDavid,
+  IconFasStarOfLife,
+  IconFasStar,
+  IconFasStepBackward,
+  IconFasStepForward,
+  IconFasStethoscope,
+  IconFasStickyNote,
+  IconFasStopCircle,
+  IconFasStop,
+  IconFasStopwatch,
+  IconFasStoreAlt,
+  IconFasStore,
+  IconFasStream,
+  IconFasStreetView,
+  IconFasStrikethrough,
+  IconFasStroopwafel,
+  IconFasSubscript,
+  IconFasSubway,
+  IconFasSuitcaseRolling,
+  IconFasSuitcase,
+  IconFasSun,
+  IconFasSuperscript,
+  IconFasSurprise,
+  IconFasSwatchbook,
+  IconFasSwimmer,
+  IconFasSwimmingPool,
+  IconFasSynagogue,
+  IconFasSyncAlt,
+  IconFasSync,
+  IconFasSyringe,
+  IconFasTableTennis,
+  IconFasTable,
+  IconFasTabletAlt,
+  IconFasTablet,
+  IconFasTablets,
+  IconFasTachometerAlt,
+  IconFasTag,
+  IconFasTags,
+  IconFasTape,
+  IconFasTasks,
+  IconFasTaxi,
+  IconFasTeethOpen,
+  IconFasTeeth,
+  IconFasTemperatureHigh,
+  IconFasTemperatureLow,
+  IconFasTenge,
+  IconFasTerminal,
+  IconFasTextHeight,
+  IconFasTextWidth,
+  IconFasThLarge,
+  IconFasThList,
+  IconFasTh,
+  IconFasTheaterMasks,
+  IconFasThermometerEmpty,
+  IconFasThermometerFull,
+  IconFasThermometerHalf,
+  IconFasThermometerQuarter,
+  IconFasThermometerThreeQuarters,
+  IconFasThermometer,
+  IconFasThumbsDown,
+  IconFasThumbsUp,
+  IconFasThumbtack,
+  IconFasTicketAlt,
+  IconFasTimesCircle,
+  IconFasTimes,
+  IconFasTintSlash,
+  IconFasTint,
+  IconFasTired,
+  IconFasToggleOff,
+  IconFasToggleOn,
+  IconFasToiletPaper,
+  IconFasToilet,
+  IconFasToolbox,
+  IconFasTools,
+  IconFasTooth,
+  IconFasTorah,
+  IconFasToriiGate,
+  IconFasTractor,
+  IconFasTrademark,
+  IconFasTrafficLight,
+  IconFasTrain,
+  IconFasTram,
+  IconFasTransgenderAlt,
+  IconFasTransgender,
+  IconFasTrashAlt,
+  IconFasTrashRestoreAlt,
+  IconFasTrashRestore,
+  IconFasTrash,
+  IconFasTree,
+  IconFasTrophy,
+  IconFasTruckLoading,
+  IconFasTruckMonster,
+  IconFasTruckMoving,
+  IconFasTruckPickup,
+  IconFasTruck,
+  IconFasTshirt,
+  IconFasTty,
+  IconFasTv,
+  IconFasUmbrellaBeach,
+  IconFasUmbrella,
+  IconFasUnderline,
+  IconFasUndoAlt,
+  IconFasUndo,
+  IconFasUniversalAccess,
+  IconFasUniversity,
+  IconFasUnlink,
+  IconFasUnlockAlt,
+  IconFasUnlock,
+  IconFasUpload,
+  IconFasUserAltSlash,
+  IconFasUserAlt,
+  IconFasUserAstronaut,
+  IconFasUserCheck,
+  IconFasUserCircle,
+  IconFasUserClock,
+  IconFasUserCog,
+  IconFasUserEdit,
+  IconFasUserFriends,
+  IconFasUserGraduate,
+  IconFasUserInjured,
+  IconFasUserLock,
+  IconFasUserMd,
+  IconFasUserMinus,
+  IconFasUserNinja,
+  IconFasUserNurse,
+  IconFasUserPlus,
+  IconFasUserSecret,
+  IconFasUserShield,
+  IconFasUserSlash,
+  IconFasUserTag,
+  IconFasUserTie,
+  IconFasUserTimes,
+  IconFasUser,
+  IconFasUsersCog,
+  IconFasUsers,
+  IconFasUtensilSpoon,
+  IconFasUtensils,
+  IconFasVectorSquare,
+  IconFasVenusDouble,
+  IconFasVenusMars,
+  IconFasVenus,
+  IconFasVial,
+  IconFasVials,
+  IconFasVideoSlash,
+  IconFasVideo,
+  IconFasVihara,
+  IconFasVolleyballBall,
+  IconFasVolumeDown,
+  IconFasVolumeMute,
+  IconFasVolumeOff,
+  IconFasVolumeUp,
+  IconFasVoteYea,
+  IconFasVrCardboard,
+  IconFasWalking,
+  IconFasWallet,
+  IconFasWarehouse,
+  IconFasWater,
+  IconFasWaveSquare,
+  IconFasWeightHanging,
+  IconFasWeight,
+  IconFasWheelchair,
+  IconFasWifi,
+  IconFasWind,
+  IconFasWindowClose,
+  IconFasWindowMaximize,
+  IconFasWindowMinimize,
+  IconFasWindowRestore,
+  IconFasWineBottle,
+  IconFasWineGlassAlt,
+  IconFasWineGlass,
+  IconFasWonSign,
+  IconFasWrench,
+  IconFasXRay,
+  IconFasYenSign,
+  IconFasYinYang
 }
 
- export default {
-  createIcon,
-  Fab500px,
-  FabAccessibleIcon,
-  FabAccusoft,
-  FabAcquisitionsIncorporated,
-  FabAdn,
-  FabAdobe,
-  FabAdversal,
-  FabAffiliatetheme,
-  FabAirbnb,
-  FabAlgolia,
-  FabAlipay,
-  FabAmazonPay,
-  FabAmazon,
-  FabAmilia,
-  FabAndroid,
-  FabAngellist,
-  FabAngrycreative,
-  FabAngular,
-  FabAppStoreIos,
-  FabAppStore,
-  FabApper,
-  FabApplePay,
-  FabApple,
-  FabArtstation,
-  FabAsymmetrik,
-  FabAtlassian,
-  FabAudible,
-  FabAutoprefixer,
-  FabAvianex,
-  FabAviato,
-  FabAws,
-  FabBandcamp,
-  FabBattleNet,
-  FabBehanceSquare,
-  FabBehance,
-  FabBimobject,
-  FabBitbucket,
-  FabBitcoin,
-  FabBity,
-  FabBlackTie,
-  FabBlackberry,
-  FabBloggerB,
-  FabBlogger,
-  FabBluetoothB,
-  FabBluetooth,
-  FabBootstrap,
-  FabBtc,
-  FabBuffer,
-  FabBuromobelexperte,
-  FabBuysellads,
-  FabCanadianMapleLeaf,
-  FabCcAmazonPay,
-  FabCcAmex,
-  FabCcApplePay,
-  FabCcDinersClub,
-  FabCcDiscover,
-  FabCcJcb,
-  FabCcMastercard,
-  FabCcPaypal,
-  FabCcStripe,
-  FabCcVisa,
-  FabCentercode,
-  FabCentos,
-  FabChrome,
-  FabChromecast,
-  FabCloudscale,
-  FabCloudsmith,
-  FabCloudversify,
-  FabCodepen,
-  FabCodiepie,
-  FabConfluence,
-  FabConnectdevelop,
-  FabContao,
-  FabCpanel,
-  FabCreativeCommonsBy,
-  FabCreativeCommonsNcEu,
-  FabCreativeCommonsNcJp,
-  FabCreativeCommonsNc,
-  FabCreativeCommonsNd,
-  FabCreativeCommonsPdAlt,
-  FabCreativeCommonsPd,
-  FabCreativeCommonsRemix,
-  FabCreativeCommonsSa,
-  FabCreativeCommonsSamplingPlus,
-  FabCreativeCommonsSampling,
-  FabCreativeCommonsShare,
-  FabCreativeCommonsZero,
-  FabCreativeCommons,
-  FabCriticalRole,
-  FabCss3Alt,
-  FabCss3,
-  FabCuttlefish,
-  FabDAndDBeyond,
-  FabDAndD,
-  FabDashcube,
-  FabDelicious,
-  FabDeploydog,
-  FabDeskpro,
-  FabDev,
-  FabDeviantart,
-  FabDhl,
-  FabDiaspora,
-  FabDigg,
-  FabDigitalOcean,
-  FabDiscord,
-  FabDiscourse,
-  FabDochub,
-  FabDocker,
-  FabDraft2digital,
-  FabDribbbleSquare,
-  FabDribbble,
-  FabDropbox,
-  FabDrupal,
-  FabDyalog,
-  FabEarlybirds,
-  FabEbay,
-  FabEdge,
-  FabElementor,
-  FabEllo,
-  FabEmber,
-  FabEmpire,
-  FabEnvira,
-  FabErlang,
-  FabEthereum,
-  FabEtsy,
-  FabEvernote,
-  FabExpeditedssl,
-  FabFacebookF,
-  FabFacebookMessenger,
-  FabFacebookSquare,
-  FabFacebook,
-  FabFantasyFlightGames,
-  FabFedex,
-  FabFedora,
-  FabFigma,
-  FabFirefox,
-  FabFirstOrderAlt,
-  FabFirstOrder,
-  FabFirstdraft,
-  FabFlickr,
-  FabFlipboard,
-  FabFly,
-  FabFontAwesomeAlt,
-  FabFontAwesomeFlag,
-  FabFontAwesomeLogoFull,
-  FabFontAwesome,
-  FabFonticonsFi,
-  FabFonticons,
-  FabFortAwesomeAlt,
-  FabFortAwesome,
-  FabForumbee,
-  FabFoursquare,
-  FabFreeCodeCamp,
-  FabFreebsd,
-  FabFulcrum,
-  FabGalacticRepublic,
-  FabGalacticSenate,
-  FabGetPocket,
-  FabGgCircle,
-  FabGg,
-  FabGitSquare,
-  FabGit,
-  FabGithubAlt,
-  FabGithubSquare,
-  FabGithub,
-  FabGitkraken,
-  FabGitlab,
-  FabGitter,
-  FabGlideG,
-  FabGlide,
-  FabGofore,
-  FabGoodreadsG,
-  FabGoodreads,
-  FabGoogleDrive,
-  FabGooglePlay,
-  FabGooglePlusG,
-  FabGooglePlusSquare,
-  FabGooglePlus,
-  FabGoogleWallet,
-  FabGoogle,
-  FabGratipay,
-  FabGrav,
-  FabGripfire,
-  FabGrunt,
-  FabGulp,
-  FabHackerNewsSquare,
-  FabHackerNews,
-  FabHackerrank,
-  FabHips,
-  FabHireAHelper,
-  FabHooli,
-  FabHornbill,
-  FabHotjar,
-  FabHouzz,
-  FabHtml5,
-  FabHubspot,
-  FabImdb,
-  FabInstagram,
-  FabIntercom,
-  FabInternetExplorer,
-  FabInvision,
-  FabIoxhost,
-  FabItchIo,
-  FabItunesNote,
-  FabItunes,
-  FabJava,
-  FabJediOrder,
-  FabJenkins,
-  FabJira,
-  FabJoget,
-  FabJoomla,
-  FabJsSquare,
-  FabJs,
-  FabJsfiddle,
-  FabKaggle,
-  FabKeybase,
-  FabKeycdn,
-  FabKickstarterK,
-  FabKickstarter,
-  FabKorvue,
-  FabLaravel,
-  FabLastfmSquare,
-  FabLastfm,
-  FabLeanpub,
-  FabLess,
-  FabLine,
-  FabLinkedinIn,
-  FabLinkedin,
-  FabLinode,
-  FabLinux,
-  FabLyft,
-  FabMagento,
-  FabMailchimp,
-  FabMandalorian,
-  FabMarkdown,
-  FabMastodon,
-  FabMaxcdn,
-  FabMedapps,
-  FabMediumM,
-  FabMedium,
-  FabMedrt,
-  FabMeetup,
-  FabMegaport,
-  FabMendeley,
-  FabMicrosoft,
-  FabMix,
-  FabMixcloud,
-  FabMizuni,
-  FabModx,
-  FabMonero,
-  FabNapster,
-  FabNeos,
-  FabNimblr,
-  FabNintendoSwitch,
-  FabNodeJs,
-  FabNode,
-  FabNpm,
-  FabNs8,
-  FabNutritionix,
-  FabOdnoklassnikiSquare,
-  FabOdnoklassniki,
-  FabOldRepublic,
-  FabOpencart,
-  FabOpenid,
-  FabOpera,
-  FabOptinMonster,
-  FabOsi,
-  FabPage4,
-  FabPagelines,
-  FabPalfed,
-  FabPatreon,
-  FabPaypal,
-  FabPennyArcade,
-  FabPeriscope,
-  FabPhabricator,
-  FabPhoenixFramework,
-  FabPhoenixSquadron,
-  FabPhp,
-  FabPiedPiperAlt,
-  FabPiedPiperHat,
-  FabPiedPiperPp,
-  FabPiedPiper,
-  FabPinterestP,
-  FabPinterestSquare,
-  FabPinterest,
-  FabPlaystation,
-  FabProductHunt,
-  FabPushed,
-  FabPython,
-  FabQq,
-  FabQuinscape,
-  FabQuora,
-  FabRProject,
-  FabRaspberryPi,
-  FabRavelry,
-  FabReact,
-  FabReacteurope,
-  FabReadme,
-  FabRebel,
-  FabRedRiver,
-  FabRedditAlien,
-  FabRedditSquare,
-  FabReddit,
-  FabRedhat,
-  FabRenren,
-  FabReplyd,
-  FabResearchgate,
-  FabResolving,
-  FabRev,
-  FabRocketchat,
-  FabRockrms,
-  FabSafari,
-  FabSalesforce,
-  FabSass,
-  FabSchlix,
-  FabScribd,
-  FabSearchengin,
-  FabSellcast,
-  FabSellsy,
-  FabServicestack,
-  FabShirtsinbulk,
-  FabShopware,
-  FabSimplybuilt,
-  FabSistrix,
-  FabSith,
-  FabSketch,
-  FabSkyatlas,
-  FabSkype,
-  FabSlackHash,
-  FabSlack,
-  FabSlideshare,
-  FabSnapchatGhost,
-  FabSnapchatSquare,
-  FabSnapchat,
-  FabSoundcloud,
-  FabSourcetree,
-  FabSpeakap,
-  FabSpeakerDeck,
-  FabSpotify,
-  FabSquarespace,
-  FabStackExchange,
-  FabStackOverflow,
-  FabStaylinked,
-  FabSteamSquare,
-  FabSteamSymbol,
-  FabSteam,
-  FabStickerMule,
-  FabStrava,
-  FabStripeS,
-  FabStripe,
-  FabStudiovinari,
-  FabStumbleuponCircle,
-  FabStumbleupon,
-  FabSuperpowers,
-  FabSupple,
-  FabSuse,
-  FabSymfony,
-  FabTeamspeak,
-  FabTelegramPlane,
-  FabTelegram,
-  FabTencentWeibo,
-  FabTheRedYeti,
-  FabThemeco,
-  FabThemeisle,
-  FabThinkPeaks,
-  FabTradeFederation,
-  FabTrello,
-  FabTripadvisor,
-  FabTumblrSquare,
-  FabTumblr,
-  FabTwitch,
-  FabTwitterSquare,
-  FabTwitter,
-  FabTypo3,
-  FabUber,
-  FabUbuntu,
-  FabUikit,
-  FabUniregistry,
-  FabUntappd,
-  FabUps,
-  FabUsb,
-  FabUsps,
-  FabUssunnah,
-  FabVaadin,
-  FabViacoin,
-  FabViadeoSquare,
-  FabViadeo,
-  FabViber,
-  FabVimeoSquare,
-  FabVimeoV,
-  FabVimeo,
-  FabVine,
-  FabVk,
-  FabVnv,
-  FabVuejs,
-  FabWaze,
-  FabWeebly,
-  FabWeibo,
-  FabWeixin,
-  FabWhatsappSquare,
-  FabWhatsapp,
-  FabWhmcs,
-  FabWikipediaW,
-  FabWindows,
-  FabWix,
-  FabWizardsOfTheCoast,
-  FabWolfPackBattalion,
-  FabWordpressSimple,
-  FabWordpress,
-  FabWpbeginner,
-  FabWpexplorer,
-  FabWpforms,
-  FabWpressr,
-  FabXbox,
-  FabXingSquare,
-  FabXing,
-  FabYCombinator,
-  FabYahoo,
-  FabYammer,
-  FabYandexInternational,
-  FabYandex,
-  FabYarn,
-  FabYelp,
-  FabYoast,
-  FabYoutubeSquare,
-  FabYoutube,
-  FabZhihu,
-  FarAddressBook,
-  FarAddressCard,
-  FarAngry,
-  FarArrowAltCircleDown,
-  FarArrowAltCircleLeft,
-  FarArrowAltCircleRight,
-  FarArrowAltCircleUp,
-  FarBellSlash,
-  FarBell,
-  FarBookmark,
-  FarBuilding,
-  FarCalendarAlt,
-  FarCalendarCheck,
-  FarCalendarMinus,
-  FarCalendarPlus,
-  FarCalendarTimes,
-  FarCalendar,
-  FarCaretSquareDown,
-  FarCaretSquareLeft,
-  FarCaretSquareRight,
-  FarCaretSquareUp,
-  FarChartBar,
-  FarCheckCircle,
-  FarCheckSquare,
-  FarCircle,
-  FarClipboard,
-  FarClock,
-  FarClone,
-  FarClosedCaptioning,
-  FarCommentAlt,
-  FarCommentDots,
-  FarComment,
-  FarComments,
-  FarCompass,
-  FarCopy,
-  FarCopyright,
-  FarCreditCard,
-  FarDizzy,
-  FarDotCircle,
-  FarEdit,
-  FarEnvelopeOpen,
-  FarEnvelope,
-  FarEyeSlash,
-  FarEye,
-  FarFileAlt,
-  FarFileArchive,
-  FarFileAudio,
-  FarFileCode,
-  FarFileExcel,
-  FarFileImage,
-  FarFilePdf,
-  FarFilePowerpoint,
-  FarFileVideo,
-  FarFileWord,
-  FarFile,
-  FarFlag,
-  FarFlushed,
-  FarFolderOpen,
-  FarFolder,
-  FarFontAwesomeLogoFull,
-  FarFrownOpen,
-  FarFrown,
-  FarFutbol,
-  FarGem,
-  FarGrimace,
-  FarGrinAlt,
-  FarGrinBeamSweat,
-  FarGrinBeam,
-  FarGrinHearts,
-  FarGrinSquintTears,
-  FarGrinSquint,
-  FarGrinStars,
-  FarGrinTears,
-  FarGrinTongueSquint,
-  FarGrinTongueWink,
-  FarGrinTongue,
-  FarGrinWink,
-  FarGrin,
-  FarHandLizard,
-  FarHandPaper,
-  FarHandPeace,
-  FarHandPointDown,
-  FarHandPointLeft,
-  FarHandPointRight,
-  FarHandPointUp,
-  FarHandPointer,
-  FarHandRock,
-  FarHandScissors,
-  FarHandSpock,
-  FarHandshake,
-  FarHdd,
-  FarHeart,
-  FarHospital,
-  FarHourglass,
-  FarIdBadge,
-  FarIdCard,
-  FarImage,
-  FarImages,
-  FarKeyboard,
-  FarKissBeam,
-  FarKissWinkHeart,
-  FarKiss,
-  FarLaughBeam,
-  FarLaughSquint,
-  FarLaughWink,
-  FarLaugh,
-  FarLemon,
-  FarLifeRing,
-  FarLightbulb,
-  FarListAlt,
-  FarMap,
-  FarMehBlank,
-  FarMehRollingEyes,
-  FarMeh,
-  FarMinusSquare,
-  FarMoneyBillAlt,
-  FarMoon,
-  FarNewspaper,
-  FarObjectGroup,
-  FarObjectUngroup,
-  FarPaperPlane,
-  FarPauseCircle,
-  FarPlayCircle,
-  FarPlusSquare,
-  FarQuestionCircle,
-  FarRegistered,
-  FarSadCry,
-  FarSadTear,
-  FarSave,
-  FarShareSquare,
-  FarSmileBeam,
-  FarSmileWink,
-  FarSmile,
-  FarSnowflake,
-  FarSquare,
-  FarStarHalf,
-  FarStar,
-  FarStickyNote,
-  FarStopCircle,
-  FarSun,
-  FarSurprise,
-  FarThumbsDown,
-  FarThumbsUp,
-  FarTimesCircle,
-  FarTired,
-  FarTrashAlt,
-  FarUserCircle,
-  FarUser,
-  FarWindowClose,
-  FarWindowMaximize,
-  FarWindowMinimize,
-  FarWindowRestore,
-  FasAd,
-  FasAddressBook,
-  FasAddressCard,
-  FasAdjust,
-  FasAirFreshener,
-  FasAlignCenter,
-  FasAlignJustify,
-  FasAlignLeft,
-  FasAlignRight,
-  FasAllergies,
-  FasAmbulance,
-  FasAmericanSignLanguageInterpreting,
-  FasAnchor,
-  FasAngleDoubleDown,
-  FasAngleDoubleLeft,
-  FasAngleDoubleRight,
-  FasAngleDoubleUp,
-  FasAngleDown,
-  FasAngleLeft,
-  FasAngleRight,
-  FasAngleUp,
-  FasAngry,
-  FasAnkh,
-  FasAppleAlt,
-  FasArchive,
-  FasArchway,
-  FasArrowAltCircleDown,
-  FasArrowAltCircleLeft,
-  FasArrowAltCircleRight,
-  FasArrowAltCircleUp,
-  FasArrowCircleDown,
-  FasArrowCircleLeft,
-  FasArrowCircleRight,
-  FasArrowCircleUp,
-  FasArrowDown,
-  FasArrowLeft,
-  FasArrowRight,
-  FasArrowUp,
-  FasArrowsAltH,
-  FasArrowsAltV,
-  FasArrowsAlt,
-  FasAssistiveListeningSystems,
-  FasAsterisk,
-  FasAt,
-  FasAtlas,
-  FasAtom,
-  FasAudioDescription,
-  FasAward,
-  FasBabyCarriage,
-  FasBaby,
-  FasBackspace,
-  FasBackward,
-  FasBacon,
-  FasBalanceScale,
-  FasBan,
-  FasBandAid,
-  FasBarcode,
-  FasBars,
-  FasBaseballBall,
-  FasBasketballBall,
-  FasBath,
-  FasBatteryEmpty,
-  FasBatteryFull,
-  FasBatteryHalf,
-  FasBatteryQuarter,
-  FasBatteryThreeQuarters,
-  FasBed,
-  FasBeer,
-  FasBellSlash,
-  FasBell,
-  FasBezierCurve,
-  FasBible,
-  FasBicycle,
-  FasBinoculars,
-  FasBiohazard,
-  FasBirthdayCake,
-  FasBlenderPhone,
-  FasBlender,
-  FasBlind,
-  FasBlog,
-  FasBold,
-  FasBolt,
-  FasBomb,
-  FasBone,
-  FasBong,
-  FasBookDead,
-  FasBookMedical,
-  FasBookOpen,
-  FasBookReader,
-  FasBook,
-  FasBookmark,
-  FasBowlingBall,
-  FasBoxOpen,
-  FasBox,
-  FasBoxes,
-  FasBraille,
-  FasBrain,
-  FasBreadSlice,
-  FasBriefcaseMedical,
-  FasBriefcase,
-  FasBroadcastTower,
-  FasBroom,
-  FasBrush,
-  FasBug,
-  FasBuilding,
-  FasBullhorn,
-  FasBullseye,
-  FasBurn,
-  FasBusAlt,
-  FasBus,
-  FasBusinessTime,
-  FasCalculator,
-  FasCalendarAlt,
-  FasCalendarCheck,
-  FasCalendarDay,
-  FasCalendarMinus,
-  FasCalendarPlus,
-  FasCalendarTimes,
-  FasCalendarWeek,
-  FasCalendar,
-  FasCameraRetro,
-  FasCamera,
-  FasCampground,
-  FasCandyCane,
-  FasCannabis,
-  FasCapsules,
-  FasCarAlt,
-  FasCarBattery,
-  FasCarCrash,
-  FasCarSide,
-  FasCar,
-  FasCaretDown,
-  FasCaretLeft,
-  FasCaretRight,
-  FasCaretSquareDown,
-  FasCaretSquareLeft,
-  FasCaretSquareRight,
-  FasCaretSquareUp,
-  FasCaretUp,
-  FasCarrot,
-  FasCartArrowDown,
-  FasCartPlus,
-  FasCashRegister,
-  FasCat,
-  FasCertificate,
-  FasChair,
-  FasChalkboardTeacher,
-  FasChalkboard,
-  FasChargingStation,
-  FasChartArea,
-  FasChartBar,
-  FasChartLine,
-  FasChartPie,
-  FasCheckCircle,
-  FasCheckDouble,
-  FasCheckSquare,
-  FasCheck,
-  FasCheese,
-  FasChessBishop,
-  FasChessBoard,
-  FasChessKing,
-  FasChessKnight,
-  FasChessPawn,
-  FasChessQueen,
-  FasChessRook,
-  FasChess,
-  FasChevronCircleDown,
-  FasChevronCircleLeft,
-  FasChevronCircleRight,
-  FasChevronCircleUp,
-  FasChevronDown,
-  FasChevronLeft,
-  FasChevronRight,
-  FasChevronUp,
-  FasChild,
-  FasChurch,
-  FasCircleNotch,
-  FasCircle,
-  FasCity,
-  FasClinicMedical,
-  FasClipboardCheck,
-  FasClipboardList,
-  FasClipboard,
-  FasClock,
-  FasClone,
-  FasClosedCaptioning,
-  FasCloudDownloadAlt,
-  FasCloudMeatball,
-  FasCloudMoonRain,
-  FasCloudMoon,
-  FasCloudRain,
-  FasCloudShowersHeavy,
-  FasCloudSunRain,
-  FasCloudSun,
-  FasCloudUploadAlt,
-  FasCloud,
-  FasCocktail,
-  FasCodeBranch,
-  FasCode,
-  FasCoffee,
-  FasCog,
-  FasCogs,
-  FasCoins,
-  FasColumns,
-  FasCommentAlt,
-  FasCommentDollar,
-  FasCommentDots,
-  FasCommentMedical,
-  FasCommentSlash,
-  FasComment,
-  FasCommentsDollar,
-  FasComments,
-  FasCompactDisc,
-  FasCompass,
-  FasCompressArrowsAlt,
-  FasCompress,
-  FasConciergeBell,
-  FasCookieBite,
-  FasCookie,
-  FasCopy,
-  FasCopyright,
-  FasCouch,
-  FasCreditCard,
-  FasCropAlt,
-  FasCrop,
-  FasCross,
-  FasCrosshairs,
-  FasCrow,
-  FasCrown,
-  FasCrutch,
-  FasCube,
-  FasCubes,
-  FasCut,
-  FasDatabase,
-  FasDeaf,
-  FasDemocrat,
-  FasDesktop,
-  FasDharmachakra,
-  FasDiagnoses,
-  FasDiceD20,
-  FasDiceD6,
-  FasDiceFive,
-  FasDiceFour,
-  FasDiceOne,
-  FasDiceSix,
-  FasDiceThree,
-  FasDiceTwo,
-  FasDice,
-  FasDigitalTachograph,
-  FasDirections,
-  FasDivide,
-  FasDizzy,
-  FasDna,
-  FasDog,
-  FasDollarSign,
-  FasDollyFlatbed,
-  FasDolly,
-  FasDonate,
-  FasDoorClosed,
-  FasDoorOpen,
-  FasDotCircle,
-  FasDove,
-  FasDownload,
-  FasDraftingCompass,
-  FasDragon,
-  FasDrawPolygon,
-  FasDrumSteelpan,
-  FasDrum,
-  FasDrumstickBite,
-  FasDumbbell,
-  FasDumpsterFire,
-  FasDumpster,
-  FasDungeon,
-  FasEdit,
-  FasEgg,
-  FasEject,
-  FasEllipsisH,
-  FasEllipsisV,
-  FasEnvelopeOpenText,
-  FasEnvelopeOpen,
-  FasEnvelopeSquare,
-  FasEnvelope,
-  FasEquals,
-  FasEraser,
-  FasEthernet,
-  FasEuroSign,
-  FasExchangeAlt,
-  FasExclamationCircle,
-  FasExclamationTriangle,
-  FasExclamation,
-  FasExpandArrowsAlt,
-  FasExpand,
-  FasExternalLinkAlt,
-  FasExternalLinkSquareAlt,
-  FasEyeDropper,
-  FasEyeSlash,
-  FasEye,
-  FasFastBackward,
-  FasFastForward,
-  FasFax,
-  FasFeatherAlt,
-  FasFeather,
-  FasFemale,
-  FasFighterJet,
-  FasFileAlt,
-  FasFileArchive,
-  FasFileAudio,
-  FasFileCode,
-  FasFileContract,
-  FasFileCsv,
-  FasFileDownload,
-  FasFileExcel,
-  FasFileExport,
-  FasFileImage,
-  FasFileImport,
-  FasFileInvoiceDollar,
-  FasFileInvoice,
-  FasFileMedicalAlt,
-  FasFileMedical,
-  FasFilePdf,
-  FasFilePowerpoint,
-  FasFilePrescription,
-  FasFileSignature,
-  FasFileUpload,
-  FasFileVideo,
-  FasFileWord,
-  FasFile,
-  FasFillDrip,
-  FasFill,
-  FasFilm,
-  FasFilter,
-  FasFingerprint,
-  FasFireAlt,
-  FasFireExtinguisher,
-  FasFire,
-  FasFirstAid,
-  FasFish,
-  FasFistRaised,
-  FasFlagCheckered,
-  FasFlagUsa,
-  FasFlag,
-  FasFlask,
-  FasFlushed,
-  FasFolderMinus,
-  FasFolderOpen,
-  FasFolderPlus,
-  FasFolder,
-  FasFontAwesomeLogoFull,
-  FasFont,
-  FasFootballBall,
-  FasForward,
-  FasFrog,
-  FasFrownOpen,
-  FasFrown,
-  FasFunnelDollar,
-  FasFutbol,
-  FasGamepad,
-  FasGasPump,
-  FasGavel,
-  FasGem,
-  FasGenderless,
-  FasGhost,
-  FasGift,
-  FasGifts,
-  FasGlassCheers,
-  FasGlassMartiniAlt,
-  FasGlassMartini,
-  FasGlassWhiskey,
-  FasGlasses,
-  FasGlobeAfrica,
-  FasGlobeAmericas,
-  FasGlobeAsia,
-  FasGlobeEurope,
-  FasGlobe,
-  FasGolfBall,
-  FasGopuram,
-  FasGraduationCap,
-  FasGreaterThanEqual,
-  FasGreaterThan,
-  FasGrimace,
-  FasGrinAlt,
-  FasGrinBeamSweat,
-  FasGrinBeam,
-  FasGrinHearts,
-  FasGrinSquintTears,
-  FasGrinSquint,
-  FasGrinStars,
-  FasGrinTears,
-  FasGrinTongueSquint,
-  FasGrinTongueWink,
-  FasGrinTongue,
-  FasGrinWink,
-  FasGrin,
-  FasGripHorizontal,
-  FasGripLinesVertical,
-  FasGripLines,
-  FasGripVertical,
-  FasGuitar,
-  FasHSquare,
-  FasHamburger,
-  FasHammer,
-  FasHamsa,
-  FasHandHoldingHeart,
-  FasHandHoldingUsd,
-  FasHandHolding,
-  FasHandLizard,
-  FasHandMiddleFinger,
-  FasHandPaper,
-  FasHandPeace,
-  FasHandPointDown,
-  FasHandPointLeft,
-  FasHandPointRight,
-  FasHandPointUp,
-  FasHandPointer,
-  FasHandRock,
-  FasHandScissors,
-  FasHandSpock,
-  FasHandsHelping,
-  FasHands,
-  FasHandshake,
-  FasHanukiah,
-  FasHardHat,
-  FasHashtag,
-  FasHatWizard,
-  FasHaykal,
-  FasHdd,
-  FasHeading,
-  FasHeadphonesAlt,
-  FasHeadphones,
-  FasHeadset,
-  FasHeartBroken,
-  FasHeart,
-  FasHeartbeat,
-  FasHelicopter,
-  FasHighlighter,
-  FasHiking,
-  FasHippo,
-  FasHistory,
-  FasHockeyPuck,
-  FasHollyBerry,
-  FasHome,
-  FasHorseHead,
-  FasHorse,
-  FasHospitalAlt,
-  FasHospitalSymbol,
-  FasHospital,
-  FasHotTub,
-  FasHotdog,
-  FasHotel,
-  FasHourglassEnd,
-  FasHourglassHalf,
-  FasHourglassStart,
-  FasHourglass,
-  FasHouseDamage,
-  FasHryvnia,
-  FasICursor,
-  FasIceCream,
-  FasIcicles,
-  FasIdBadge,
-  FasIdCardAlt,
-  FasIdCard,
-  FasIgloo,
-  FasImage,
-  FasImages,
-  FasInbox,
-  FasIndent,
-  FasIndustry,
-  FasInfinity,
-  FasInfoCircle,
-  FasInfo,
-  FasItalic,
-  FasJedi,
-  FasJoint,
-  FasJournalWhills,
-  FasKaaba,
-  FasKey,
-  FasKeyboard,
-  FasKhanda,
-  FasKissBeam,
-  FasKissWinkHeart,
-  FasKiss,
-  FasKiwiBird,
-  FasLandmark,
-  FasLanguage,
-  FasLaptopCode,
-  FasLaptopMedical,
-  FasLaptop,
-  FasLaughBeam,
-  FasLaughSquint,
-  FasLaughWink,
-  FasLaugh,
-  FasLayerGroup,
-  FasLeaf,
-  FasLemon,
-  FasLessThanEqual,
-  FasLessThan,
-  FasLevelDownAlt,
-  FasLevelUpAlt,
-  FasLifeRing,
-  FasLightbulb,
-  FasLink,
-  FasLiraSign,
-  FasListAlt,
-  FasListOl,
-  FasListUl,
-  FasList,
-  FasLocationArrow,
-  FasLockOpen,
-  FasLock,
-  FasLongArrowAltDown,
-  FasLongArrowAltLeft,
-  FasLongArrowAltRight,
-  FasLongArrowAltUp,
-  FasLowVision,
-  FasLuggageCart,
-  FasMagic,
-  FasMagnet,
-  FasMailBulk,
-  FasMale,
-  FasMapMarkedAlt,
-  FasMapMarked,
-  FasMapMarkerAlt,
-  FasMapMarker,
-  FasMapPin,
-  FasMapSigns,
-  FasMap,
-  FasMarker,
-  FasMarsDouble,
-  FasMarsStrokeH,
-  FasMarsStrokeV,
-  FasMarsStroke,
-  FasMars,
-  FasMask,
-  FasMedal,
-  FasMedkit,
-  FasMehBlank,
-  FasMehRollingEyes,
-  FasMeh,
-  FasMemory,
-  FasMenorah,
-  FasMercury,
-  FasMeteor,
-  FasMicrochip,
-  FasMicrophoneAltSlash,
-  FasMicrophoneAlt,
-  FasMicrophoneSlash,
-  FasMicrophone,
-  FasMicroscope,
-  FasMinusCircle,
-  FasMinusSquare,
-  FasMinus,
-  FasMitten,
-  FasMobileAlt,
-  FasMobile,
-  FasMoneyBillAlt,
-  FasMoneyBillWaveAlt,
-  FasMoneyBillWave,
-  FasMoneyBill,
-  FasMoneyCheckAlt,
-  FasMoneyCheck,
-  FasMonument,
-  FasMoon,
-  FasMortarPestle,
-  FasMosque,
-  FasMotorcycle,
-  FasMountain,
-  FasMousePointer,
-  FasMugHot,
-  FasMusic,
-  FasNetworkWired,
-  FasNeuter,
-  FasNewspaper,
-  FasNotEqual,
-  FasNotesMedical,
-  FasObjectGroup,
-  FasObjectUngroup,
-  FasOilCan,
-  FasOm,
-  FasOtter,
-  FasOutdent,
-  FasPager,
-  FasPaintBrush,
-  FasPaintRoller,
-  FasPalette,
-  FasPallet,
-  FasPaperPlane,
-  FasPaperclip,
-  FasParachuteBox,
-  FasParagraph,
-  FasParking,
-  FasPassport,
-  FasPastafarianism,
-  FasPaste,
-  FasPauseCircle,
-  FasPause,
-  FasPaw,
-  FasPeace,
-  FasPenAlt,
-  FasPenFancy,
-  FasPenNib,
-  FasPenSquare,
-  FasPen,
-  FasPencilAlt,
-  FasPencilRuler,
-  FasPeopleCarry,
-  FasPepperHot,
-  FasPercent,
-  FasPercentage,
-  FasPersonBooth,
-  FasPhoneSlash,
-  FasPhoneSquare,
-  FasPhoneVolume,
-  FasPhone,
-  FasPiggyBank,
-  FasPills,
-  FasPizzaSlice,
-  FasPlaceOfWorship,
-  FasPlaneArrival,
-  FasPlaneDeparture,
-  FasPlane,
-  FasPlayCircle,
-  FasPlay,
-  FasPlug,
-  FasPlusCircle,
-  FasPlusSquare,
-  FasPlus,
-  FasPodcast,
-  FasPollH,
-  FasPoll,
-  FasPooStorm,
-  FasPoo,
-  FasPoop,
-  FasPortrait,
-  FasPoundSign,
-  FasPowerOff,
-  FasPray,
-  FasPrayingHands,
-  FasPrescriptionBottleAlt,
-  FasPrescriptionBottle,
-  FasPrescription,
-  FasPrint,
-  FasProcedures,
-  FasProjectDiagram,
-  FasPuzzlePiece,
-  FasQrcode,
-  FasQuestionCircle,
-  FasQuestion,
-  FasQuidditch,
-  FasQuoteLeft,
-  FasQuoteRight,
-  FasQuran,
-  FasRadiationAlt,
-  FasRadiation,
-  FasRainbow,
-  FasRandom,
-  FasReceipt,
-  FasRecycle,
-  FasRedoAlt,
-  FasRedo,
-  FasRegistered,
-  FasReplyAll,
-  FasReply,
-  FasRepublican,
-  FasRestroom,
-  FasRetweet,
-  FasRibbon,
-  FasRing,
-  FasRoad,
-  FasRobot,
-  FasRocket,
-  FasRoute,
-  FasRssSquare,
-  FasRss,
-  FasRubleSign,
-  FasRulerCombined,
-  FasRulerHorizontal,
-  FasRulerVertical,
-  FasRuler,
-  FasRunning,
-  FasRupeeSign,
-  FasSadCry,
-  FasSadTear,
-  FasSatelliteDish,
-  FasSatellite,
-  FasSave,
-  FasSchool,
-  FasScrewdriver,
-  FasScroll,
-  FasSdCard,
-  FasSearchDollar,
-  FasSearchLocation,
-  FasSearchMinus,
-  FasSearchPlus,
-  FasSearch,
-  FasSeedling,
-  FasServer,
-  FasShapes,
-  FasShareAltSquare,
-  FasShareAlt,
-  FasShareSquare,
-  FasShare,
-  FasShekelSign,
-  FasShieldAlt,
-  FasShip,
-  FasShippingFast,
-  FasShoePrints,
-  FasShoppingBag,
-  FasShoppingBasket,
-  FasShoppingCart,
-  FasShower,
-  FasShuttleVan,
-  FasSignInAlt,
-  FasSignLanguage,
-  FasSignOutAlt,
-  FasSign,
-  FasSignal,
-  FasSignature,
-  FasSimCard,
-  FasSitemap,
-  FasSkating,
-  FasSkiingNordic,
-  FasSkiing,
-  FasSkullCrossbones,
-  FasSkull,
-  FasSlash,
-  FasSleigh,
-  FasSlidersH,
-  FasSmileBeam,
-  FasSmileWink,
-  FasSmile,
-  FasSmog,
-  FasSmokingBan,
-  FasSmoking,
-  FasSms,
-  FasSnowboarding,
-  FasSnowflake,
-  FasSnowman,
-  FasSnowplow,
-  FasSocks,
-  FasSolarPanel,
-  FasSortAlphaDown,
-  FasSortAlphaUp,
-  FasSortAmountDown,
-  FasSortAmountUp,
-  FasSortDown,
-  FasSortNumericDown,
-  FasSortNumericUp,
-  FasSortUp,
-  FasSort,
-  FasSpa,
-  FasSpaceShuttle,
-  FasSpider,
-  FasSpinner,
-  FasSplotch,
-  FasSprayCan,
-  FasSquareFull,
-  FasSquareRootAlt,
-  FasSquare,
-  FasStamp,
-  FasStarAndCrescent,
-  FasStarHalfAlt,
-  FasStarHalf,
-  FasStarOfDavid,
-  FasStarOfLife,
-  FasStar,
-  FasStepBackward,
-  FasStepForward,
-  FasStethoscope,
-  FasStickyNote,
-  FasStopCircle,
-  FasStop,
-  FasStopwatch,
-  FasStoreAlt,
-  FasStore,
-  FasStream,
-  FasStreetView,
-  FasStrikethrough,
-  FasStroopwafel,
-  FasSubscript,
-  FasSubway,
-  FasSuitcaseRolling,
-  FasSuitcase,
-  FasSun,
-  FasSuperscript,
-  FasSurprise,
-  FasSwatchbook,
-  FasSwimmer,
-  FasSwimmingPool,
-  FasSynagogue,
-  FasSyncAlt,
-  FasSync,
-  FasSyringe,
-  FasTableTennis,
-  FasTable,
-  FasTabletAlt,
-  FasTablet,
-  FasTablets,
-  FasTachometerAlt,
-  FasTag,
-  FasTags,
-  FasTape,
-  FasTasks,
-  FasTaxi,
-  FasTeethOpen,
-  FasTeeth,
-  FasTemperatureHigh,
-  FasTemperatureLow,
-  FasTenge,
-  FasTerminal,
-  FasTextHeight,
-  FasTextWidth,
-  FasThLarge,
-  FasThList,
-  FasTh,
-  FasTheaterMasks,
-  FasThermometerEmpty,
-  FasThermometerFull,
-  FasThermometerHalf,
-  FasThermometerQuarter,
-  FasThermometerThreeQuarters,
-  FasThermometer,
-  FasThumbsDown,
-  FasThumbsUp,
-  FasThumbtack,
-  FasTicketAlt,
-  FasTimesCircle,
-  FasTimes,
-  FasTintSlash,
-  FasTint,
-  FasTired,
-  FasToggleOff,
-  FasToggleOn,
-  FasToiletPaper,
-  FasToilet,
-  FasToolbox,
-  FasTools,
-  FasTooth,
-  FasTorah,
-  FasToriiGate,
-  FasTractor,
-  FasTrademark,
-  FasTrafficLight,
-  FasTrain,
-  FasTram,
-  FasTransgenderAlt,
-  FasTransgender,
-  FasTrashAlt,
-  FasTrashRestoreAlt,
-  FasTrashRestore,
-  FasTrash,
-  FasTree,
-  FasTrophy,
-  FasTruckLoading,
-  FasTruckMonster,
-  FasTruckMoving,
-  FasTruckPickup,
-  FasTruck,
-  FasTshirt,
-  FasTty,
-  FasTv,
-  FasUmbrellaBeach,
-  FasUmbrella,
-  FasUnderline,
-  FasUndoAlt,
-  FasUndo,
-  FasUniversalAccess,
-  FasUniversity,
-  FasUnlink,
-  FasUnlockAlt,
-  FasUnlock,
-  FasUpload,
-  FasUserAltSlash,
-  FasUserAlt,
-  FasUserAstronaut,
-  FasUserCheck,
-  FasUserCircle,
-  FasUserClock,
-  FasUserCog,
-  FasUserEdit,
-  FasUserFriends,
-  FasUserGraduate,
-  FasUserInjured,
-  FasUserLock,
-  FasUserMd,
-  FasUserMinus,
-  FasUserNinja,
-  FasUserNurse,
-  FasUserPlus,
-  FasUserSecret,
-  FasUserShield,
-  FasUserSlash,
-  FasUserTag,
-  FasUserTie,
-  FasUserTimes,
-  FasUser,
-  FasUsersCog,
-  FasUsers,
-  FasUtensilSpoon,
-  FasUtensils,
-  FasVectorSquare,
-  FasVenusDouble,
-  FasVenusMars,
-  FasVenus,
-  FasVial,
-  FasVials,
-  FasVideoSlash,
-  FasVideo,
-  FasVihara,
-  FasVolleyballBall,
-  FasVolumeDown,
-  FasVolumeMute,
-  FasVolumeOff,
-  FasVolumeUp,
-  FasVoteYea,
-  FasVrCardboard,
-  FasWalking,
-  FasWallet,
-  FasWarehouse,
-  FasWater,
-  FasWaveSquare,
-  FasWeightHanging,
-  FasWeight,
-  FasWheelchair,
-  FasWifi,
-  FasWind,
-  FasWindowClose,
-  FasWindowMaximize,
-  FasWindowMinimize,
-  FasWindowRestore,
-  FasWineBottle,
-  FasWineGlassAlt,
-  FasWineGlass,
-  FasWonSign,
-  FasWrench,
-  FasXRay,
-  FasYenSign,
-  FasYinYang
-}

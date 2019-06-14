@@ -1,6 +1,6 @@
 export { version } from './commons/config'
 export { default as Row } from './row'
-export { default as Icon } from './icon'
+export * from './icon'
 export { default as Col } from './col'
 export { default as Button } from './button'
 export { default as ButtonGroup } from './button-group'

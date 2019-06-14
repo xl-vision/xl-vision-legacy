@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import CollapseTransition from '../collapse-transition'
 import { namePrefix } from '../commons/config'
-import { FasAngleRight } from '../icon'
+import { IconFasAngleRight } from '../icon'
 import CollapseContext from './collapse-context'
 
 export type CollapseExpandIconPosition = 'left' | 'right'
@@ -58,7 +58,7 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
       return expandArrow(isActive)
     }
     return (
-      <FasAngleRight rotate={isActive ? 90 : 0}/>
+      <IconFasAngleRight rotate={isActive ? 90 : 0}/>
     )
   }, [expandArrow])
 

@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { Omit } from '../commons/types'
-import { FasCircleNotch } from '../icon'
+import { IconFasCircleNotch } from '../icon'
 import ButtonContext from './button-context'
 
 export type ButtonSize = 'large' | 'default' | 'small'
@@ -80,7 +80,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButton
 
   const childrenWrapper = (
     <>
-      {loading && <FasCircleNotch className={`${prefixCls}__icon`} spin={true}/>}
+      {loading && <IconFasCircleNotch className={`${prefixCls}__icon`} spin={true}/>}
       {formatChildren(children)}
     </>
   )
