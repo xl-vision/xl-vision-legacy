@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import { Omit } from '../commons/types'
-import { FasCircleNotch } from '../icon'
+import FasCircleNotch from '../icon/icons/fas-circle-notch'
 import ButtonContext from './button-context'
 
 export type ButtonSize = 'large' | 'default' | 'small'

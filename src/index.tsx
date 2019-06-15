@@ -10,6 +10,4 @@ export { default as Collapse } from './collapse'
 export { default as CollapsePanel } from './collapse-panel'
 export { default as Tooltip } from './tooltip'
 export { default as Popover } from './popover'
-
-import * as icon from './icon'
-export const Icon = icon
+export { default as Icon } from './icon'

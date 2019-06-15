@@ -2,7 +2,8 @@ import { mount } from 'enzyme'
 import * as React from 'react'
 import { Collapse, CollapsePanel } from '..'
 import { namePrefix } from '../../commons/config'
-import { FasArrowCircleRight, FasCog } from '../../icon'
+import FasArrowCircleRight from '../../icon/icons/fas-arrow-circle-right'
+import FasCog from '../../icon/icons/fas-cog'
 
 jest.mock('../../commons/utils/transition', () => ({
   // tslint:disable-next-line:no-empty

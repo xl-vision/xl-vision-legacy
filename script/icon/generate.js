@@ -60,7 +60,7 @@ const run = async () => {
 
   allContent += 'export { BaseIconProps } from \'./base/base-icon\'\n'
   allContent += 'export { IconProps } from \'./base/createIcon\'\n'
-  allContent += `export ${exportContent}\n`
+  allContent += `export default ${exportContent}\nexport ${exportContent}\n`
 
   fs.writeFileSync(iconIndexPath, allContent)
 }

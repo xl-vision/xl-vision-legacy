@@ -2,7 +2,7 @@ import { mount, render } from 'enzyme'
 import * as React from 'react'
 import { act } from 'react-testing-library'
 import { Button, ButtonGroup, ButtonSize } from '..'
-import { FasPowerOff } from '../../icon'
+import FasPowerOff from '../../icon/icons/fas-power-off'
 
 describe('button', () => {
   it('基本用法', () => {

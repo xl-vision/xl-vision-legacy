@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import Button from '../button'
 import { namePrefix } from '../commons/config'
-import { FasExclamationCircle } from '../icon'
+import FasExclamationCircle from '../icon/icons/fas-exclamation-circle'
 import Tooltip, { TooltipProps } from '../tooltip'
 
 export interface PopconfirmProps extends TooltipProps {

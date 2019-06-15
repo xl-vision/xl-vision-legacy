@@ -1,7 +1,7 @@
 import { mount } from 'enzyme'
 import * as React from 'react'
 import Spin from '..'
-import { FasCircleNotch } from '../../icon'
+import FasCircleNotch from '../../icon/icons/fas-circle-notch'
 
 describe('spin', () => {
   it('基本用法', () => {
