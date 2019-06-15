@@ -2,7 +2,7 @@ import { mount, render } from 'enzyme'
 import * as React from 'react'
 import { act } from 'react-testing-library'
 import { Button, ButtonGroup, ButtonSize } from '..'
-import Icon from '../../icon'
+import {FasPowerOff} from '../../icon'
 
 describe('button', () => {
   it('基本用法', () => {
@@ -33,12 +33,12 @@ describe('button', () => {
           <Button plain={true} dashed={true} type='text'>Text</Button>
         </div>
         <div className='button-column'>
-          <Button><Icon.FasPowerOff/>Default</Button>
-          <Button type='primary'>Primary<Icon.FasPowerOff/></Button>
-          <Button type='success'><Icon.FasPowerOff/>Success</Button>
-          <Button type='warning'><Icon.FasPowerOff/>Warning</Button>
-          <Button type='error'><Icon.FasPowerOff/>Error</Button>
-          <Button type='text'><Icon.FasPowerOff/>Text</Button>
+          <Button><FasPowerOff/>Default</Button>
+          <Button type='primary'>Primary<FasPowerOff/></Button>
+          <Button type='success'><FasPowerOff/>Success</Button>
+          <Button type='warning'><FasPowerOff/>Warning</Button>
+          <Button type='error'><FasPowerOff/>Error</Button>
+          <Button type='text'><FasPowerOff/>Text</Button>
         </div>
       </div>
     )
@@ -57,12 +57,12 @@ describe('button', () => {
           <Button shape='round' type='text'>Text</Button>
         </div>
         <div className='button-column'>
-          <Button shape='circle'><Icon.FasPowerOff/></Button>
-          <Button shape='circle' type='primary'><Icon.FasPowerOff/></Button>
-          <Button shape='circle' type='success'><Icon.FasPowerOff/></Button>
-          <Button shape='circle' type='warning'><Icon.FasPowerOff/></Button>
-          <Button shape='circle' type='error'><Icon.FasPowerOff/></Button>
-          <Button shape='circle' type='text'><Icon.FasPowerOff/></Button>
+          <Button shape='circle'><FasPowerOff/></Button>
+          <Button shape='circle' type='primary'><FasPowerOff/></Button>
+          <Button shape='circle' type='success'><FasPowerOff/></Button>
+          <Button shape='circle' type='warning'><FasPowerOff/></Button>
+          <Button shape='circle' type='error'><FasPowerOff/></Button>
+          <Button shape='circle' type='text'><FasPowerOff/></Button>
         </div>
       </div>
     )
@@ -219,18 +219,18 @@ describe('button-group', () => {
             <Button size={size} type='text'>Text</Button>
           </div>
           <div className='button-column'>
-            <Button size={size}><Icon.FasPowerOff/>Default</Button>
-            <Button size={size} type='primary'>Primary<Icon.FasPowerOff/></Button>
-            <Button size={size} type='success'><Icon.FasPowerOff/>Success</Button>
-            <Button size={size} type='warning'><Icon.FasPowerOff/>Warning</Button>
-            <Button size={size} type='error'><Icon.FasPowerOff/>Error</Button>
-            <Button size={size} type='text'><Icon.FasPowerOff/>Text</Button>
+            <Button size={size}><FasPowerOff/>Default</Button>
+            <Button size={size} type='primary'>Primary<FasPowerOff/></Button>
+            <Button size={size} type='success'><FasPowerOff/>Success</Button>
+            <Button size={size} type='warning'><FasPowerOff/>Warning</Button>
+            <Button size={size} type='error'><FasPowerOff/>Error</Button>
+            <Button size={size} type='text'><FasPowerOff/>Text</Button>
           </div>
           <div className='button-column'>
             <Button size={size} shape='round'>Default</Button>
             <Button size={size} shape='round' type='primary'>Primary</Button>
-            <Button size={size} shape='circle'><Icon.FasPowerOff/></Button>
-            <Button size={size} shape='circle' type='primary'><Icon.FasPowerOff/></Button>
+            <Button size={size} shape='circle'><FasPowerOff/></Button>
+            <Button size={size} shape='circle' type='primary'><FasPowerOff/></Button>
           </div>
         </div>
       )

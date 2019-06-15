@@ -1,6 +1,5 @@
 export { version } from './commons/config'
 export { default as Row } from './row'
-export * from './icon'
 export { default as Col } from './col'
 export { default as Button } from './button'
 export { default as ButtonGroup } from './button-group'
@@ -11,3 +10,6 @@ export { default as Collapse } from './collapse'
 export { default as CollapsePanel } from './collapse-panel'
 export { default as Tooltip } from './tooltip'
 export { default as Popover } from './popover'
+
+import * as icon from './icon'
+export const Icon = icon

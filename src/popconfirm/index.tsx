@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import * as React from 'react'
 import Button from '../button'
 import { namePrefix } from '../commons/config'
-import { IconFasExclamationCircle } from '../icon'
+import { FasExclamationCircle } from '../icon'
 import Tooltip, { TooltipProps } from '../tooltip'
 
 export interface PopconfirmProps extends TooltipProps {
@@ -37,7 +37,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
-  const icon = others.icon || <IconFasExclamationCircle className={`${prefixCls}__icon`}/>
+  const icon = others.icon || <FasExclamationCircle className={`${prefixCls}__icon`}/>
 
   delete others.icon
 
