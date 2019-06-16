@@ -87,7 +87,7 @@ const toMs = (s: string) => {
   return Number(s.slice(0, -1)) * 1000
 }
 
-const raf = isClient ?
+export const raf = isClient ?
   window.requestAnimationFrame ?
     window.requestAnimationFrame.bind(window)
     : setTimeout

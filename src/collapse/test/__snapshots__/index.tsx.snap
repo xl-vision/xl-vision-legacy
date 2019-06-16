@@ -64,7 +64,6 @@ exports[`collapse 测试展开收缩效果 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -104,9 +103,17 @@ exports[`collapse 测试展开收缩效果 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -173,7 +180,6 @@ exports[`collapse 测试展开收缩效果 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -213,9 +219,17 @@ exports[`collapse 测试展开收缩效果 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -291,7 +305,6 @@ exports[`collapse 测试展开收缩效果 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -330,9 +343,17 @@ exports[`collapse 测试展开收缩效果 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -399,7 +420,6 @@ exports[`collapse 测试展开收缩效果 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -439,9 +459,17 @@ exports[`collapse 测试展开收缩效果 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -517,7 +545,6 @@ exports[`collapse 测试展开收缩效果 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -556,9 +583,17 @@ exports[`collapse 测试展开收缩效果 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -625,7 +660,6 @@ exports[`collapse 测试展开收缩效果 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -664,9 +698,17 @@ exports[`collapse 测试展开收缩效果 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -744,7 +786,6 @@ exports[`collapse 测试手风琴 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -784,9 +825,17 @@ exports[`collapse 测试手风琴 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -853,7 +902,6 @@ exports[`collapse 测试手风琴 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -893,9 +941,17 @@ exports[`collapse 测试手风琴 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -973,7 +1029,6 @@ exports[`collapse 测试手风琴 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1012,9 +1067,17 @@ exports[`collapse 测试手风琴 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1081,7 +1144,6 @@ exports[`collapse 测试手风琴 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1121,9 +1183,17 @@ exports[`collapse 测试手风琴 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1201,7 +1271,6 @@ exports[`collapse 测试手风琴 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1240,9 +1309,17 @@ exports[`collapse 测试手风琴 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1309,7 +1386,6 @@ exports[`collapse 测试手风琴 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1348,9 +1424,17 @@ exports[`collapse 测试手风琴 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1429,7 +1513,6 @@ exports[`collapse 测试指定箭头位置 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1469,9 +1552,17 @@ exports[`collapse 测试指定箭头位置 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1539,7 +1630,6 @@ exports[`collapse 测试指定箭头位置 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1579,9 +1669,17 @@ exports[`collapse 测试指定箭头位置 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1659,7 +1757,6 @@ exports[`collapse 测试无边框 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1699,9 +1796,17 @@ exports[`collapse 测试无边框 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1768,7 +1873,6 @@ exports[`collapse 测试无边框 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1808,9 +1912,17 @@ exports[`collapse 测试无边框 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1888,7 +2000,6 @@ exports[`collapse 测试无边框 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -1927,9 +2038,17 @@ exports[`collapse 测试无边框 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -1996,7 +2115,6 @@ exports[`collapse 测试无边框 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2036,9 +2154,17 @@ exports[`collapse 测试无边框 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2116,7 +2242,6 @@ exports[`collapse 测试无边框 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2155,9 +2280,17 @@ exports[`collapse 测试无边框 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2224,7 +2357,6 @@ exports[`collapse 测试无边框 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2263,9 +2395,17 @@ exports[`collapse 测试无边框 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2344,7 +2484,6 @@ exports[`collapse 测试禁用面板 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2384,9 +2523,17 @@ exports[`collapse 测试禁用面板 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2453,7 +2600,6 @@ exports[`collapse 测试禁用面板 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2493,9 +2639,17 @@ exports[`collapse 测试禁用面板 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2574,7 +2728,6 @@ exports[`collapse 测试禁用面板 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2614,9 +2767,17 @@ exports[`collapse 测试禁用面板 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2683,7 +2844,6 @@ exports[`collapse 测试禁用面板 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2723,9 +2883,17 @@ exports[`collapse 测试禁用面板 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2804,7 +2972,6 @@ exports[`collapse 测试禁用面板 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2844,9 +3011,17 @@ exports[`collapse 测试禁用面板 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -2913,7 +3088,6 @@ exports[`collapse 测试禁用面板 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -2952,9 +3126,17 @@ exports[`collapse 测试禁用面板 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3033,7 +3215,6 @@ exports[`collapse 测试自定义箭头 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3073,9 +3254,17 @@ exports[`collapse 测试自定义箭头 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3143,7 +3332,6 @@ exports[`collapse 测试自定义箭头 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3183,9 +3371,17 @@ exports[`collapse 测试自定义箭头 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3229,7 +3425,6 @@ exports[`collapse 测试隐藏箭头 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3269,9 +3464,17 @@ exports[`collapse 测试隐藏箭头 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3304,7 +3507,6 @@ exports[`collapse 测试隐藏箭头 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3344,9 +3546,17 @@ exports[`collapse 测试隐藏箭头 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3449,7 +3659,6 @@ exports[`collapse 测试额外内容 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3489,9 +3698,17 @@ exports[`collapse 测试额外内容 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3583,7 +3800,6 @@ exports[`collapse 测试额外内容 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3623,9 +3839,17 @@ exports[`collapse 测试额外内容 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3703,7 +3927,6 @@ exports[`collapse 测试默认展开的面板 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3742,9 +3965,17 @@ exports[`collapse 测试默认展开的面板 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3811,7 +4042,6 @@ exports[`collapse 测试默认展开的面板 1`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3851,9 +4081,17 @@ exports[`collapse 测试默认展开的面板 1`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -3931,7 +4169,6 @@ exports[`collapse 测试默认展开的面板 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -3970,9 +4207,17 @@ exports[`collapse 测试默认展开的面板 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -4039,7 +4284,6 @@ exports[`collapse 测试默认展开的面板 2`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -4079,9 +4323,17 @@ exports[`collapse 测试默认展开的面板 2`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -4159,7 +4411,6 @@ exports[`collapse 测试默认展开的面板 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -4198,9 +4449,17 @@ exports[`collapse 测试默认展开的面板 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body1
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body1
+                  </div>
                 </div>
               </div>
             </xl-transition>
@@ -4267,7 +4526,6 @@ exports[`collapse 测试默认展开的面板 3`] = `
         >
           <xl-css-transition
             afterEnter={[Function]}
-            afterLeave={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
             enter={[Function]}
@@ -4306,9 +4564,17 @@ exports[`collapse 测试默认展开的面板 3`] = `
                 }
               >
                 <div
-                  className="xl-collapse-panel__body"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
                 >
-                  body2
+                  <div
+                    className="xl-collapse-panel__body"
+                  >
+                    body2
+                  </div>
                 </div>
               </div>
             </xl-transition>
