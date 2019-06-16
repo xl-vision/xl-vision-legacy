@@ -147,19 +147,18 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   }, [state])
 
   const onTransitionEnd = React.useMemo(() => {
-    let count = 0
-    return (callback: () => void, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
-      count++
-      const match = count
+    let cb: () => void
+    return (callback: (() => void) & {isCancelled?: boolean}, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
+      cb = callback
       const ele = childrenRel.current!
 
-      const isCancelled = () => match !== count
+      const isCancelled = () => callback !== cb || !!callback.isCancelled
 
       // 判断回调是否执行了
       const wrapCallback = () => {
         if (!isCancelled() && isMounted) {
           // 防止重复触发
-          count++
+          callback.isCancelled = true
           callback()
         }
       }
