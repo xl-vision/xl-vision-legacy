@@ -15,7 +15,7 @@ export const addClass = (element: HTMLElement, className: string) => {
     return
   }
   const _className = (element.className || '') + ` ${className}`
-  element.className = _className.replace(/\s+/, ' ')
+  element.className = _className.replace(/\s+/, ' ').trim()
 }
 
 export const removeClass = (element: HTMLElement, className: string) => {
@@ -23,7 +23,7 @@ export const removeClass = (element: HTMLElement, className: string) => {
     return
   }
   const _className = (element.className || '').replace(className, ' ')
-  element.className = _className.replace(/\s+/, ' ')
+  element.className = _className.replace(/\s+/, ' ').trim()
 }
 
 export const getPosition = (el: HTMLElement) => {

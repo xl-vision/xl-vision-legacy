@@ -236,3 +236,26 @@ $--popconfirm-message-margin: 0.8rem;
 $--popconfirm-action-margin: 0 0.8rem 0.8rem 0.8rem;
 $--popconfirm-btn-margin: 0.5rem;
 $--popconfirm-icon-color: $--color-warning;
+
+//carousel
+$--carousel-arrow-between: 1rem;
+$--carousel-arrow-size: 2rem;
+$--carousel-arrow-bg-color: rgba($--color-black, 0.1);
+$--carousel-arrow-color: $--color-white;
+$--carousel-arrow-bg-color-hover: rgba($--color-black, 0.2);
+$--carousel-arrow-animation-duration: $--animation-duration;
+$--carousel-slide-animation: transform $--animation-duration ease-in-out;
+$--carousel-dot-between: 3px;
+$--carousel-dot-list-between: 1rem;
+$--carousel-dot-height: 3px;
+$--carousel-dot-width: 20px;
+$--carousel-dot-width-active: 25px;
+$--carousel-dot-circle-size: 6px;
+$--carousel-dot-click-padding: 5px;
+$--carousel-dot-bg-color: #fff;
+$--carousel-dot-opacity: 0.3;
+$--carousel-dot-opacity-hover: 1;
+
+$--carousel-dot-animation: all $--animation-duration ease-in-out;
+
+

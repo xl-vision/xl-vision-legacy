@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const useUpdate = (update: () => void, dependencies: ReadonlyArray<any>) => {
+const useUpdate = (update: () => void, dependencies?: ReadonlyArray<any>) => {
   const updateRef = useRef(false)
 
   useEffect(() => {

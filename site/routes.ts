@@ -79,6 +79,11 @@ const routes: Route[] = [
         name: '气泡确认框',
         path: '/popconfirm',
         component: import('../src/popconfirm/doc/index.md')
+      },
+      {
+        name: '轮播图',
+        path: '/carousel',
+        component: import('../src/carousel/doc/index.md')
       }
     ]
   },
