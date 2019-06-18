@@ -81,7 +81,7 @@ const routes: Route[] = [
         component: import('../src/popconfirm/doc/index.md')
       },
       {
-        name: '轮播图',
+        name: '走马灯',
         path: '/carousel',
         component: import('../src/carousel/doc/index.md')
       }

@@ -34,7 +34,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     // tslint:disable-next-line: no-empty
     afterChange = () => {},
     arrow = 'hover',
-    autoPlay = true,
+    autoPlay = false,
     autoPlayDuration = 3000,
     circleDot = false,
     defaultIndex = 0,
@@ -111,7 +111,27 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     }
   }, [tempIndex, isAnimate])
 
+  const changeSlide = React.useCallback((index: number) => {
+    setActiveIndex(prev => {
+      if (prev === childrenArray.length + 1) {
+        setAnimate(false)
+        setTempIndex(index)
+        return 1
+      } else if (prev === 0) {
+        setAnimate(false)
+        setTempIndex(index)
+        return childrenArray.length
+      } else {
+        setAnimate(true)
+        return index
+      }
+    })
+  }, [childrenArray])
+
   const toPrev = React.useCallback(() => {
+    if (childrenArray.length <= 1) {
+      return
+    }
     if (loop) {
       setActiveIndex(prev => {
         if (prev === 0) {
@@ -137,6 +157,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   }, [loop, childrenArray])
 
   const toNext = React.useCallback(() => {
+    if (childrenArray.length <= 1) {
+      return
+    }
     if (loop) {
       setActiveIndex(prev => {
         if (prev === childrenArray.length + 1) {
@@ -204,7 +227,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
           <ul className={`${prefixCls}__dot-list`}>
               {childrenArray.map((_item, index) => {
                 const _classes = classnames(`${prefixCls}__dot`)
-                const onClick = () => setActiveIndex(index + 1)
+                const onClick = () => changeSlide(index + 1)
                 return (
                       <li key={index} className={_classes} onClick={onClick}>
                           {dotRender(index, currentIndex)}
@@ -235,27 +258,27 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const arrowNode = (
     <>
       <CssTransition
-        forceRender={true}
-        show={arrow === 'always' || (arrow === 'hover' && hover)}
-        classNames={`${prefixCls}__arrow--fade`}
+          forceRender={true}
+          show={((loop && childrenArray.length > 1) || currentIndex > 0) && (arrow === 'always' || (arrow === 'hover' && hover))}
+          classNames={`${prefixCls}__arrow--fade`}
       >
         <button
-          className={`${prefixCls}__arrow ${prefixCls}__arrow--first`}
-          onClick={toPrev}
+            className={`${prefixCls}__arrow ${prefixCls}__arrow--first`}
+            onClick={toPrev}
         >
-            {direction === 'vertical' ? <FasAngleUp/> : <FasAngleLeft />}
+          {direction === 'vertical' ? <FasAngleUp/> : <FasAngleLeft />}
         </button>
       </CssTransition>
       <CssTransition
-        forceRender={true}
-        show={arrow === 'always' || (arrow === 'hover' && hover)}
-        classNames={`${prefixCls}__arrow--fade`}
+          forceRender={true}
+          show={((loop && childrenArray.length > 1) || currentIndex < childrenArray.length - 1) && (arrow === 'always' || (arrow === 'hover' && hover))}
+          classNames={`${prefixCls}__arrow--fade`}
       >
         <button
-          className={`${prefixCls}__arrow ${prefixCls}__arrow--last`}
-          onClick={toNext}
+            className={`${prefixCls}__arrow ${prefixCls}__arrow--last`}
+            onClick={toNext}
         >
-            {direction === 'vertical' ? <FasAngleDown/> : <FasAngleRight />}
+          {direction === 'vertical' ? <FasAngleDown/> : <FasAngleRight/>}
         </button>
       </CssTransition>
     </>
