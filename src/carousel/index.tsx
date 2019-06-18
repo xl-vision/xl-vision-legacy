@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 import useUpdate from '../commons/hooks/useUpdate'
@@ -10,7 +11,7 @@ import FasAngleRight from '../icon/icons/fas-angle-right'
 import FasAngleUp from '../icon/icons/fas-angle-up'
 
 export interface CarouselProps {
-  arrow: 'hover' | 'always' | 'none'
+  arrow?: 'hover' | 'always' | 'none'
   autoPlay?: boolean
   autoPlayDuration?: number
   children: React.ReactElement | React.ReactElement[]
@@ -307,6 +308,21 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
 Carousel.displayName = displayName
 
-Carousel.propTypes = {}
+Carousel.propTypes = {
+  arrow: PropTypes.oneOf(['hover', 'always', 'none']),
+  autoPlay: PropTypes.bool,
+  autoPlayDuration: PropTypes.number,
+  children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
+  circleDot: PropTypes.bool,
+  defaultIndex: PropTypes.number,
+  direction: PropTypes.oneOf(['horizontal', 'vertical']),
+  dotRender: PropTypes.func,
+  dots: PropTypes.bool,
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  loop: PropTypes.bool,
+  onChange: PropTypes.func,
+  prefixCls: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+}
 
 export default Carousel
