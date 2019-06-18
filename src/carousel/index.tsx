@@ -10,7 +10,6 @@ import FasAngleRight from '../icon/icons/fas-angle-right'
 import FasAngleUp from '../icon/icons/fas-angle-up'
 
 export interface CarouselProps {
-  afterChange?: (current: number) => void
   arrow: 'hover' | 'always' | 'none'
   autoPlay?: boolean
   autoPlayDuration?: number
@@ -22,7 +21,9 @@ export interface CarouselProps {
   dots?: boolean
   height?: number | string
   loop?: boolean
+  onChange?: (current: number) => void
   prefixCls?: string
+  width?: number | string
 }
 
 export const displayName = `${namePrefix}-carousel`
@@ -31,8 +32,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const {
     children,
     height = 'auto',
+    width = '100%',
     // tslint:disable-next-line: no-empty
-    afterChange = () => {},
+    onChange = () => {},
     arrow = 'hover',
     autoPlay = false,
     autoPlayDuration = 3000,
@@ -92,8 +94,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   })()
 
   useUpdate(() => {
-    afterChange(currentIndex)
-  }, [currentIndex, afterChange, childrenArray])
+    onChange(currentIndex)
+  }, [currentIndex, onChange, childrenArray])
 
   React.useEffect(() => {
     const handler = () => {
@@ -292,7 +294,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-        <div className={`${prefixCls}__item-list-wrapper`} style={{ height }} ref={wrapperRef}>
+        <div className={`${prefixCls}__item-list-wrapper`} style={{ height, width }} ref={wrapperRef}>
           <div className={listClasses} style={listStyle} ref={listRef}>
             {childrenContainer}
           </div>

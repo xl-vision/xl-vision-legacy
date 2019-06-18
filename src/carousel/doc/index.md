@@ -12,7 +12,7 @@ imports:
 
 export default () => {
   return (
-    <Carousel height={300}>
+    <Carousel height={300} onChange={index => console.log(index)}>
       <div className={'carousel_item'}>0</div>
       <div className={'carousel_item'}>1</div>
       <div className={'carousel_item'}>2</div>
@@ -113,3 +113,21 @@ export default () => {
 ```
 
 :::
+
+## Carousel API
+
+| 参数    | 说明             | 类型        | 可选值       | 默认值 | 是否必填|
+| ------- | --------------- | ---------- | -------- | ------ | -----|
+| arrow  | 箭头显示方式     | string |   hover/always/none    |   hover   | false|
+| autoPlay  | 是否自动播放     | boolean |      -       |   false  | false|
+| children  | -     | ReactElement/ReactElement[] |    -       |   -  | true|
+| circleDot  | 指示器是否显示为圆形(自定义指示器时会失效)     | boolean |    -       |   false  | false|
+| defaultIndex  | 默认显示页     | number  |    -       |   0  | false|
+| direction  | 轮播方式(水平/垂直)     | string  |    horizontal/vertical      |   horizontal  | false|
+| dotRender  | 自定义指示器    | (index: number, activeIndex: number) => React.ReactNode  |    -       |   -  | false|
+| dots  | 是否显示指示器     | boolean  |    -       |   true  | false|
+| height  | 指定走马灯高度     | number/string  |    -       |   auto  | false|
+| width  | 指定走马灯宽度     | number/string  |    -       |   100%  | false|
+| loop  | 是否循环展示     | boolean  |    -       |   true  | false|
+| onChange  | 切换幻灯片回调     | (current: number) => void  |    -       |   -  | false|
+| prefixCls  | class前缀     | string  |    -       |   xl-carousel  | false|
