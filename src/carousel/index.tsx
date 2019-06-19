@@ -20,6 +20,7 @@ export interface CarouselProps {
   direction?: 'horizontal' | 'vertical'
   dotRender?: (index: number, activeIndex: number) => React.ReactNode
   dots?: boolean
+  dotTrigger?: 'click' | 'hover'
   height?: number | string
   loop?: boolean
   onChange?: (current: number) => void
@@ -42,6 +43,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     circleDot = false,
     defaultIndex = 0,
     direction = 'horizontal',
+    dotTrigger = 'click',
     dotRender = ((index: number, current: number) => (
         <button
             className={classnames(`${prefixCls}__dot-inner`, {
@@ -230,9 +232,18 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
           <ul className={`${prefixCls}__dot-list`}>
               {childrenArray.map((_item, index) => {
                 const _classes = classnames(`${prefixCls}__dot`)
-                const onClick = () => changeSlide(index + 1)
+                const onDotClick = () => {
+                  if (dotTrigger === 'click') {
+                    changeSlide(index + 1)
+                  }
+                }
+                const onDotMouseEnter = () => {
+                  if (dotTrigger === 'hover') {
+                    changeSlide(index + 1)
+                  }
+                }
                 return (
-                      <li key={index} className={_classes} onClick={onClick}>
+                      <li key={index} className={_classes} onClick={onDotClick} onMouseEnter={onDotMouseEnter}>
                           {dotRender(index, currentIndex)}
                       </li>
                 )
@@ -317,6 +328,7 @@ Carousel.propTypes = {
   defaultIndex: PropTypes.number,
   direction: PropTypes.oneOf(['horizontal', 'vertical']),
   dotRender: PropTypes.func,
+  dotTrigger: PropTypes.oneOf(['hover', 'click']),
   dots: PropTypes.bool,
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   loop: PropTypes.bool,

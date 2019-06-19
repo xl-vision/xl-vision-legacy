@@ -131,3 +131,4 @@ export default () => {
 | loop  | 是否循环展示     | boolean  |    -       |   true  | false|
 | onChange  | 切换幻灯片回调     | (current: number) => void  |    -       |   -  | false|
 | prefixCls  | class前缀     | string  |    -       |   xl-carousel  | false|
+| dotTrigger  | 指示器触发方式     | string  |    hover/click       |   click  | false|
