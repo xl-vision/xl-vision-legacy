@@ -11,7 +11,7 @@ const useClickOutside = (ref: RefObject<HTMLElement>, handler: (e: MouseEvent) =
     if (e.target instanceof HTMLElement && !include(el, e.target)) {
       handler(e)
     }
-  }, [handler, ref.current])
+  }, [handler, ref])
   useEffect(() => {
     on('click', fn)
     return () => {
