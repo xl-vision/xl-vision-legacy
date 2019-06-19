@@ -1,8 +1,8 @@
 const __DEV__ = process.env.NODE_ENV !== 'production'
 
-export const warning = __DEV__ ? ((condition: boolean, format: string, ...args: string) => {
+export const warning = __DEV__ ? ((condition: boolean, format: string, ...args: string[]) => {
   if (condition) {
-    printWarning(format, ...args)
+    printWarning(format, args)
   }
 
 // tslint:disable-next-line:no-empty
