@@ -5,6 +5,7 @@ import { namePrefix } from '../commons/config'
 import useDrag, { DragPosition } from '../commons/hooks/useDrag'
 import useUpdate from '../commons/hooks/useUpdate'
 import { off, on } from '../commons/utils/event'
+import { nextFrame } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
 import FasAngleDown from '../icon/icons/fas-angle-down'
 import FasAngleLeft from '../icon/icons/fas-angle-left'
@@ -28,6 +29,7 @@ export interface CarouselProps {
   moveThreshold?: number
   onChange?: (current: number) => void
   prefixCls?: string
+  slide?: boolean
   width?: number | string
 }
 
@@ -35,8 +37,8 @@ export const displayName = `${namePrefix}-carousel`
 
 const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const {
-    moveRatio = 1,
-    moveThreshold = 0.2,
+    moveRatio = 1.2,
+    moveThreshold = 0.15,
     children,
     height = 'auto',
     width = '100%',
@@ -61,48 +63,109 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     )),
     dots = true,
     loop = true,
-    prefixCls = displayName
+    prefixCls = displayName,
+    slide = true
   } = props
 
   const [activeIndex, setActiveIndex] = React.useState(defaultIndex + 1)
-  const [tempIndex, setTempIndex] = React.useState()
   const [size, setSize] = React.useState(0)
   const [hover, setHover] = React.useState(false)
   const [drag, setDrag] = React.useState(false)
   const [isAnimate, setAnimate] = React.useState(false)
+  // 滑动的距离
+  const [distance, setDistance] = React.useState(0)
 
   const wrapperRef = React.useRef<HTMLDivElement>(null)
-  const listRef = React.useRef<HTMLDivElement>(null)
-
-  const [distance, setDistance] = React.useState(0)
+  const carouselRef = React.useRef<HTMLDivElement>(null)
 
   // 转成数组
   const childrenArray = React.useMemo(() => {
     return React.Children.map<React.ReactElement, React.ReactElement>(
-      children,
-      it => it
+        children,
+        it => it
     )
   }, [children])
 
+  // 滑动处理函数
+  const onDragHandler = React.useCallback((start: DragPosition, _end: DragPosition, isEnd: boolean) => {
+    if (!slide) {
+      return
+    }
+    // 单个幻灯片不允许移动
+    if (childrenArray.length <= 1) {
+      return
+    }
+
+    setDrag(true)
+
+    // 判断当前幻灯片临界情况
+    setActiveIndex(prev => {
+      // 禁止动画
+      setAnimate(false)
+
+      // 末尾，切到第一张幻灯片
+      if (prev === childrenArray.length + 1) {
+        return 1
+      }
+      // 开头，切换到最后一张幻灯片
+      if (prev === 0) {
+        return childrenArray.length
+      }
+
+      return prev
+    })
+
+    // 向左滑动实际是向右切换
+    const _distance = direction === 'horizontal' ? start.x - _end.x : start.y - _end.y
+    setAnimate(false)
+    setDistance(moveRatio * _distance)
+
+    if (isEnd) {
+      setDrag(false)
+      if (_distance === 0) {
+        return
+      }
+      setAnimate(true)
+      // 判断需要切换幻灯片数量
+      const abs = Math.abs(_distance)
+      const num = Math.floor((abs + size * (1 - moveThreshold)) / size) * (_distance / abs)
+
+      setActiveIndex(prev => {
+        let target = prev + num
+        if (target < 1) {
+          target = 1
+        } else if (target > childrenArray.length) {
+          target = childrenArray.length
+        }
+        return target
+      })
+      setDistance(0)
+    }
+  },[moveRatio, direction, size, childrenArray, moveThreshold, slide])
+
+  // 绑定滑动事件
+  useDrag(carouselRef, onDragHandler, true)
+
   const calculateSize = React.useCallback(() => {
-    const ele = wrapperRef.current
-    if (!ele) {
+    const el = wrapperRef.current
+    if (!el) {
       return 0
     }
     if (direction === 'vertical') {
-      return ele.offsetHeight
+      return el.offsetHeight
     }
-    return ele.offsetWidth
+    return el.offsetWidth
   }, [wrapperRef, direction])
 
-  const currentIndex = (() => {
+  // 理论当前显示的幻灯片索引
+  const currentIndex = React.useMemo(() => {
     if (activeIndex === 0) {
       return childrenArray.length - 1
     } else if (activeIndex === childrenArray.length + 1) {
       return 0
     }
     return activeIndex - 1
-  })()
+  }, [activeIndex, childrenArray])
 
   useUpdate(() => {
     onChange(currentIndex)
@@ -117,85 +180,51 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     return () => off('resize', handler)
   }, [calculateSize])
 
-  React.useEffect(() => {
-    if (tempIndex && !isAnimate) {
-      setAnimate(true)
-      setActiveIndex(tempIndex)
-      setTempIndex(null)
-    }
-  }, [tempIndex, isAnimate])
-
   const changeSlide = React.useCallback((index: number) => {
+    if (childrenArray.length <= 1) {
+      return
+    }
+    if (index < 0) {
+      index = childrenArray.length - 1
+    } else if (index > childrenArray.length + 1) {
+      index = 2
+    }
+
     setActiveIndex(prev => {
-      if (prev === childrenArray.length + 1) {
+      if (prev === 0 || prev === childrenArray.length + 1) {
+        nextFrame(() => {
+          setAnimate(true)
+          setActiveIndex(index)
+        })
+
         setAnimate(false)
-        setTempIndex(index)
-        return 1
-      } else if (prev === 0) {
-        setAnimate(false)
-        setTempIndex(index)
-        return childrenArray.length
+        if (prev === 0) {
+          return childrenArray.length
+        } else {
+          return 1
+        }
       } else {
         setAnimate(true)
-        return index
       }
+      return index
     })
   }, [childrenArray])
 
-  const toPrev = React.useCallback(() => {
-    if (childrenArray.length <= 1) {
-      return
-    }
-    if (loop) {
-      setActiveIndex(prev => {
-        if (prev === 0) {
-          setAnimate(false)
-          setTempIndex(childrenArray.length - 1)
-          return childrenArray.length
-        } else {
-          setAnimate(true)
-          return prev - 1
-        }
-      })
+  const toPrev = () => {
+    if (!loop && activeIndex === 1) {
+      changeSlide(childrenArray.length)
     } else {
-      setActiveIndex(prev => {
-        setAnimate(true)
-        if (prev === 1) {
-          return childrenArray.length
-        } else {
-
-          return prev - 1
-        }
-      })
+      changeSlide(activeIndex - 1)
     }
-  }, [loop, childrenArray])
+  }
 
-  const toNext = React.useCallback(() => {
-    if (childrenArray.length <= 1) {
-      return
-    }
-    if (loop) {
-      setActiveIndex(prev => {
-        if (prev === childrenArray.length + 1) {
-          setAnimate(false)
-          setTempIndex(2)
-          return 1
-        } else {
-          setAnimate(true)
-          return prev + 1
-        }
-      })
+  const toNext = () => {
+    if (!loop && activeIndex === childrenArray.length) {
+      changeSlide(1)
     } else {
-      setActiveIndex(prev => {
-        setAnimate(true)
-        if (prev === childrenArray.length) {
-          return 1
-        } else {
-          return prev + 1
-        }
-      })
+      changeSlide(activeIndex + 1)
     }
-  },[loop, childrenArray])
+  }
 
   React.useEffect(() => {
     if (hover || drag || !autoPlay) {
@@ -260,8 +289,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
           </ul>
       )
 
-  const listClasses = classnames(`${prefixCls}__item-list`,{
-    [`${prefixCls}__item-list--animate`] : isAnimate
+  const listClasses = classnames(`${prefixCls}__item-list`, {
+    [`${prefixCls}__item-list--animate`]: isAnimate
   })
 
   const listStyle = (() => {
@@ -317,71 +346,15 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   const classes = classnames(prefixCls,`${prefixCls}--${direction}`)
 
-  const cb = React.useCallback((start: DragPosition, _end: DragPosition, isEnd: boolean) => {
-    // 单个幻灯片不允许移动
-    if (childrenArray.length === 1) {
-      return
-    }
-    setDrag(true)
-
-    // 判断当前幻灯片临界情况
-    setActiveIndex(prev => {
-      // 禁止动画
-      setAnimate(false)
-
-      // 末尾，切到第一张幻灯片
-      if (prev === childrenArray.length + 1) {
-        return 1
-      }
-      // 开头，切换到最后一张幻灯片
-      if (prev === 0) {
-        return childrenArray.length
-      }
-
-      return prev
-    })
-
-    // 向左滑动实际是向右切换
-    const _distance = direction === 'horizontal' ? start.x - _end.x : start.y - _end.y
-    setAnimate(false)
-    setDistance(moveRatio * _distance)
-
-    if (isEnd) {
-      setDrag(false)
-      if (_distance === 0) {
-        return
-      }
-      setAnimate(true)
-      // 判断需要切换幻灯片数量
-      const abs = Math.abs(_distance)
-      const num = Math.floor((abs + size * (1 - moveThreshold)) / size) * (_distance / abs)
-
-      setActiveIndex(prev => {
-        let target = prev + num
-        if (target < 1) {
-          target = 1
-        } else if (target > childrenArray.length) {
-          target = childrenArray.length
-        }
-        return target
-      })
-      setDistance(0)
-    }
-  },[moveRatio, direction, size, childrenArray, moveThreshold])
-
-  const ref = React.useRef<HTMLDivElement>(null)
-
-  useDrag(ref, cb)
-
   return (
     <div
-      ref={ref}
+      ref={carouselRef}
       className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
         <div className={`${prefixCls}__item-list-wrapper`} style={{ height, width }} ref={wrapperRef}>
-          <div className={listClasses} style={listStyle} ref={listRef}>
+          <div className={listClasses} style={listStyle}>
             {childrenContainer}
           </div>
         </div>
@@ -440,6 +413,7 @@ Carousel.propTypes = {
   moveThreshold: checkMoveThreshold,
   onChange: PropTypes.func,
   prefixCls: PropTypes.string,
+  slide: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 

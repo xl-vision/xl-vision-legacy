@@ -14,6 +14,7 @@ export interface DragPosition {
 const useDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPosition, end: DragPosition, isEnd: boolean) => void, allowOutView: boolean = false) => {
   const startPosRef = useRef({ x: 0, y: 0 })
   const endPosRef = useRef({ x: 0, y: 0 })
+  const isMoveRef = useRef(false)
   const isDragRef = useRef(false)
 
   const mousedownHandler = useCallback((e: MouseEvent) => {
@@ -30,6 +31,7 @@ const useDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPosition, end
     if (isDragRef.current) {
       e.preventDefault()
       e.stopPropagation()
+      isMoveRef.current = true
       endPosRef.current = {
         x: e.pageX,
         y: e.pageY
@@ -40,14 +42,19 @@ const useDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPosition, end
 
   const mouseupHandler = useCallback((e: MouseEvent) => {
     if (isDragRef.current) {
-      e.preventDefault()
-      e.stopPropagation()
-      isDragRef.current = false
-      endPosRef.current = {
-        x: e.pageX,
-        y: e.pageY
+      if (isMoveRef.current) {
+        e.preventDefault()
+        e.stopPropagation()
+        endPosRef.current = {
+          x: e.pageX,
+          y: e.pageY
+        }
+        handler(startPosRef.current, endPosRef.current, true)
       }
-      handler(startPosRef.current, endPosRef.current, true)
+
+      isDragRef.current = false
+      isMoveRef.current = false
+
     }
   }, [isDragRef, startPosRef, endPosRef,handler])
 
