@@ -211,7 +211,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     if (isTransformSupport) {
       style.left = 0
       style.top = 0
-      style.transform = `translate(${left}px,${top}px)`
+      style.transform = `translate3d(${left}px,${top}px, 0)`
       style.willChange = 'transform'
     } else {
       style.left = left
