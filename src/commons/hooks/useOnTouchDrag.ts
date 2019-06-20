@@ -14,8 +14,6 @@ const useOnTouchDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPositi
   const isDragRef = useRef(false)
 
   const touchstartHandler = useCallback((e: TouchEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
     isDragRef.current = true
     startPosRef.current = {
       x: e.touches[0].pageX,
@@ -26,8 +24,6 @@ const useOnTouchDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPositi
   const touchendHandler = useCallback((e: TouchEvent) => {
     if (isDragRef.current) {
       if (isMoveRef.current) {
-        e.preventDefault()
-        e.stopPropagation()
         if (e.touches.length > 0) {
           endPosRef.current = {
             x: e.touches[0].pageX,
@@ -45,8 +41,6 @@ const useOnTouchDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPositi
 
   const touchmoveHandler = useCallback((e: TouchEvent) => {
     if (isDragRef.current) {
-      e.preventDefault()
-      e.stopPropagation()
       isMoveRef.current = true
       const touch = e.touches[0]
       endPosRef.current = {

@@ -287,16 +287,23 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
                 const _classes = classnames(`${prefixCls}__dot`)
                 const onDotClick = () => {
                   if (dotTrigger === 'click') {
+                    setAnimate(true)
                     setActiveIndexWrap(index + 1)
                   }
                 }
                 const onDotMouseEnter = () => {
                   if (dotTrigger === 'hover') {
+                    setAnimate(true)
                     setActiveIndexWrap(index + 1)
                   }
                 }
                 return (
-                      <li key={index} className={_classes} onClick={onDotClick} onMouseEnter={onDotMouseEnter}>
+                      <li
+                        key={index}
+                        className={_classes}
+                        onClick={onDotClick}
+                        onMouseEnter={onDotMouseEnter}
+                      >
                           {dotRender(index, currentIndex)}
                       </li>
                 )

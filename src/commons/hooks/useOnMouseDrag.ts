@@ -18,8 +18,6 @@ const useOnMouseDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPositi
   const isDragRef = useRef(false)
 
   const mousedownHandler = useCallback((e: MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
     isDragRef.current = true
     startPosRef.current = {
       x: e.pageX,
@@ -29,8 +27,6 @@ const useOnMouseDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPositi
 
   const mousemoveHandler = useCallback((e: MouseEvent) => {
     if (isDragRef.current) {
-      e.preventDefault()
-      e.stopPropagation()
       isMoveRef.current = true
       endPosRef.current = {
         x: e.pageX,
@@ -43,8 +39,6 @@ const useOnMouseDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPositi
   const mouseupHandler = useCallback((e: MouseEvent) => {
     if (isDragRef.current) {
       if (isMoveRef.current) {
-        e.preventDefault()
-        e.stopPropagation()
         endPosRef.current = {
           x: e.pageX,
           y: e.pageY
