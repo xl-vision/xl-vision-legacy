@@ -18,6 +18,7 @@ export interface CarouselProps {
   autoPlayDuration?: number
   children: React.ReactElement | React.ReactElement[]
   circleDot?: boolean
+  damping?: number,
   defaultIndex?: number
   direction?: 'horizontal' | 'vertical'
   dotRender?: (index: number, activeIndex: number) => React.ReactNode
@@ -25,8 +26,6 @@ export interface CarouselProps {
   dotTrigger?: 'click' | 'hover'
   height?: number | string
   loop?: boolean
-  moveRatio: number
-  moveThreshold?: number
   onChange?: (current: number) => void
   prefixCls?: string
   slide?: boolean
@@ -34,11 +33,9 @@ export interface CarouselProps {
 }
 
 export const displayName = `${namePrefix}-carousel`
-
 const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const {
-    moveRatio = 1.2,
-    moveThreshold = 0.15,
+    damping = 35,
     children,
     height = 'auto',
     width = '100%',
@@ -86,6 +83,56 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     )
   }, [children])
 
+  // 包装，处理特殊情况
+  const setActiveIndexWrap = React.useCallback((cb: ((last: number) => number) | number) => {
+    let call: (last: number) => number
+    if (typeof cb === 'function') {
+      call = cb
+    } else {
+      call = () => cb
+    }
+    setActiveIndex(prev => {
+      if (prev === 0 || prev === childrenArray.length + 1) {
+        const index = prev === 0 ? childrenArray.length : 1
+        // 获取之前的动画
+        setAnimate(prevAnimate => {
+          nextFrame(() => {
+            setAnimate(prevAnimate)
+            setActiveIndex(call(index))
+          })
+          // 先关闭动画
+          return false
+        })
+
+        return index
+      }
+      return call(prev)
+    })
+  },[childrenArray])
+
+  const toPrev = React.useCallback(() => {
+    setAnimate(true)
+    setActiveIndexWrap(prev => {
+      if (!loop && prev === 1) {
+        return childrenArray.length
+      }
+      return prev - 1
+    })
+  }, [setActiveIndexWrap, loop, childrenArray])
+
+  const toNext = React.useCallback(() => {
+    setAnimate(true)
+    setActiveIndexWrap(prev => {
+      if (!loop && prev === childrenArray.length) {
+        return 1
+      }
+      return prev + 1
+    })
+  }, [setActiveIndexWrap, loop, childrenArray])
+
+  // 记录拖拽开始时间
+  const startTimeRef = React.useRef(0)
+
   // 滑动处理函数
   const onDragHandler = React.useCallback((start: DragPosition, _end: DragPosition, isEnd: boolean) => {
     if (!slide) {
@@ -96,55 +143,67 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       return
     }
 
-    setDrag(true)
-
-    // 判断当前幻灯片临界情况
-    setActiveIndex(prev => {
-      // 禁止动画
+    if (!startTimeRef.current) {
+      setDrag(true)
+      startTimeRef.current = Date.now()
       setAnimate(false)
-
-      // 末尾，切到第一张幻灯片
-      if (prev === childrenArray.length + 1) {
-        return 1
-      }
-      // 开头，切换到最后一张幻灯片
-      if (prev === 0) {
-        return childrenArray.length
-      }
-
-      return prev
-    })
-
+      // 处理边界
+      setActiveIndexWrap(prev => prev)
+    }
     // 向左滑动实际是向右切换
     const _distance = direction === 'horizontal' ? start.x - _end.x : start.y - _end.y
-    setAnimate(false)
-    setDistance(moveRatio * _distance)
+    // 滑动时保持和鼠标一致，不需要动画
+    setDistance(_distance)
 
     if (isEnd) {
-      setDrag(false)
+      // 恢复动画
+      setAnimate(true)
+
+      const endTime = Date.now()
+      const startTime = startTimeRef.current
       if (_distance === 0) {
         return
       }
-      setAnimate(true)
-      // 判断需要切换幻灯片数量
-      const abs = Math.abs(_distance)
-      const num = Math.floor((abs + size * (1 - moveThreshold)) / size) * (_distance / abs)
 
-      setActiveIndex(prev => {
-        let target = prev + num
-        if (target < 1) {
-          target = 1
-        } else if (target > childrenArray.length) {
-          target = childrenArray.length
-        }
-        return target
-      })
+      // 判断需要切换幻灯片数量
+      let abs = Math.abs(_distance)
+      // 滑动速度
+      const speed = abs * 1000 / (endTime - startTime)
+      // 还可以滑动的距离
+      // 0.5*v^2/a
+      const lastDist = speed * speed / (2 * damping)
+      // 预计总共滑动距离
+      abs += lastDist
+
+      // 判断是否滑动到下一页
+      if (abs >= size) {
+        setActiveIndexWrap(prev => {
+          if (_distance > 0) {
+            if (!loop && prev === childrenArray.length) {
+              return prev
+            } else {
+              return prev + 1
+            }
+          } else {
+            if (!loop && prev === 1) {
+              return prev
+            } else {
+              return prev - 1
+            }
+          }
+        })
+      }
+
       setDistance(0)
+
+      // 释放
+      startTimeRef.current = 0
+      setDrag(false)
     }
-  },[moveRatio, direction, size, childrenArray, moveThreshold, slide])
+  },[direction, size, childrenArray, damping, slide, startTimeRef, loop])
 
   // 绑定滑动事件
-  useDrag(carouselRef, onDragHandler, true)
+  useDrag(carouselRef, onDragHandler, false)
 
   const calculateSize = React.useCallback(() => {
     const el = wrapperRef.current
@@ -179,52 +238,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     on('resize', handler)
     return () => off('resize', handler)
   }, [calculateSize])
-
-  const changeSlide = React.useCallback((index: number) => {
-    if (childrenArray.length <= 1) {
-      return
-    }
-    if (index < 0) {
-      index = childrenArray.length - 1
-    } else if (index > childrenArray.length + 1) {
-      index = 2
-    }
-
-    setActiveIndex(prev => {
-      if (prev === 0 || prev === childrenArray.length + 1) {
-        nextFrame(() => {
-          setAnimate(true)
-          setActiveIndex(index)
-        })
-
-        setAnimate(false)
-        if (prev === 0) {
-          return childrenArray.length
-        } else {
-          return 1
-        }
-      } else {
-        setAnimate(true)
-      }
-      return index
-    })
-  }, [childrenArray])
-
-  const toPrev = () => {
-    if (!loop && activeIndex === 1) {
-      changeSlide(childrenArray.length)
-    } else {
-      changeSlide(activeIndex - 1)
-    }
-  }
-
-  const toNext = () => {
-    if (!loop && activeIndex === childrenArray.length) {
-      changeSlide(1)
-    } else {
-      changeSlide(activeIndex + 1)
-    }
-  }
 
   React.useEffect(() => {
     if (hover || drag || !autoPlay) {
@@ -272,12 +285,12 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
                 const _classes = classnames(`${prefixCls}__dot`)
                 const onDotClick = () => {
                   if (dotTrigger === 'click') {
-                    changeSlide(index + 1)
+                    setActiveIndexWrap(index + 1)
                   }
                 }
                 const onDotMouseEnter = () => {
                   if (dotTrigger === 'hover') {
-                    changeSlide(index + 1)
+                    setActiveIndexWrap(index + 1)
                   }
                 }
                 return (
@@ -301,10 +314,11 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
     let _distance = distance
     // 拖拽不允许超出最后一张幻灯片和第一张幻灯片
-    if ((activeIndex >= childrenArray.length && _distance > 0) || (activeIndex <= 1 && _distance < 0)) {
-      _distance = 0
+    if (!loop) {
+      if ((activeIndex >= childrenArray.length && _distance > 0) || (activeIndex <= 1 && _distance < 0)) {
+        _distance = 0
+      }
     }
-
     _distance += size * activeIndex
 
     if (direction === 'vertical') {
@@ -366,7 +380,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
 Carousel.displayName = displayName
 
-const checkMoveRadio: PropTypes.Validator<number> = (props, propName) => {
+const checkDamping: PropTypes.Validator<number> = (props, propName) => {
   // @ts-ignore
   const val = props[propName]
   if (val !== undefined) {
@@ -381,27 +395,13 @@ const checkMoveRadio: PropTypes.Validator<number> = (props, propName) => {
   return null
 }
 
-const checkMoveThreshold: PropTypes.Validator<number> = (props, propName) => {
-  // @ts-ignore
-  const val = props[propName]
-  if (val !== undefined) {
-    if (typeof val === 'number') {
-      if (val <= 0 || val >= 1) {
-        return new Error(`${propName} should be between 0 and 1 except 0 and 1`)
-      }
-    } else {
-      return new Error(`${propName} should be number`)
-    }
-  }
-  return null
-}
-
 Carousel.propTypes = {
   arrow: PropTypes.oneOf(['hover', 'always', 'none']),
   autoPlay: PropTypes.bool,
   autoPlayDuration: PropTypes.number,
   children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
   circleDot: PropTypes.bool,
+  damping: checkDamping,
   defaultIndex: PropTypes.number,
   direction: PropTypes.oneOf(['horizontal', 'vertical']),
   dotRender: PropTypes.func,
@@ -409,8 +409,6 @@ Carousel.propTypes = {
   dots: PropTypes.bool,
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   loop: PropTypes.bool,
-  moveRatio: checkMoveRadio,
-  moveThreshold: checkMoveThreshold,
   onChange: PropTypes.func,
   prefixCls: PropTypes.string,
   slide: PropTypes.bool,

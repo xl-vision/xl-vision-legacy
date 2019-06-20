@@ -150,6 +150,5 @@ export default () => {
 | onChange  | 切换幻灯片回调     | (current: number) => void  |    -       |   -  | false|
 | prefixCls  | class前缀     | string  |    -       |   xl-carousel  | false|
 | dotTrigger  | 指示器触发方式     | string  |    hover/click       |   click  | false|
-| moveRatio  | 幻灯片滑动位移与拖拽位移的比例     | number  |    > 0       |   1.2  | false|
-| moveThreshold  | 幻灯片滑动位移达到幻灯片尺寸的比例，达到这个比例就会触发幻灯片跳转     | number  |    0~1之间，不包括0，1       |   0.15  | false|
+| damping  | 阻尼系数,影响滑动换页的难度     | number  |    >0       |   35  | false|
 | slide  | 允许滑动操作     | boolean  |    -       |   true  | false|
