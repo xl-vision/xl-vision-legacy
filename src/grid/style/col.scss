@@ -11,7 +11,7 @@ $col: #{$--cls-prefix}-col;
     display: none;
   }
 
-  @for $i from 1 to $--grid-span {
+  @for $i from 1 to $--grid-span+1 {
     &-span-#{$i} {
       display: block;
       width: $i / $--grid-span * 100%;

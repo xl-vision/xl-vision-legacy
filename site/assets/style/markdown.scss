@@ -1,6 +1,11 @@
 @import "../../assets/style/var";
 
 .md {
+  display: block;
+  padding: 1rem;
+  overflow: scroll;
+  font-size: 1rem;
+
   pre {
     code {
       font-size: 14px;
@@ -8,10 +13,6 @@
       line-height: 2;
     }
   }
-
-  display: block;
-  padding: 1rem;
-  font-size: 1rem;
 
   .demobox {
     margin-bottom: 1rem;
@@ -58,7 +59,6 @@
   }
 
   &_table {
-    width: 100%;
     font-size: 1rem;
     line-height: 1.5rem;
     border-collapse: collapse;
