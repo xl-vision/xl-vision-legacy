@@ -45,8 +45,8 @@ export const getPosition = (el: HTMLElement) => {
   }
 }
 
-export const include = (parent: HTMLElement, child: HTMLElement) => {
-  let temp: HTMLElement | null = child
+export const include = (parent: Element, child: Element) => {
+  let temp: Element | null = child
   while (temp) {
     if (temp === parent) {
       return true

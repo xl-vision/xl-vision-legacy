@@ -2,7 +2,8 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
-import useDrag, { DragPosition } from '../commons/hooks/useDrag'
+import useOnMouseDrag, { DragPosition } from '../commons/hooks/useOnMouseDrag'
+import useOnTouchDrag from '../commons/hooks/useOnTouchDrag'
 import useUpdate from '../commons/hooks/useUpdate'
 import { off, on } from '../commons/utils/event'
 import { nextFrame } from '../commons/utils/transition'
@@ -203,7 +204,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   },[direction, size, childrenArray, damping, slide, startTimeRef, loop])
 
   // 绑定滑动事件
-  useDrag(carouselRef, onDragHandler, false)
+  useOnMouseDrag(carouselRef, onDragHandler, false)
+  useOnTouchDrag(carouselRef, onDragHandler, false)
 
   const calculateSize = React.useCallback(() => {
     const el = wrapperRef.current

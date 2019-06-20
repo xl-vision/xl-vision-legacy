@@ -11,7 +11,7 @@ export interface DragPosition {
  * @param handler
  * @param allowOutView 是否允许鼠标超出指定元素范围
  */
-const useDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPosition, end: DragPosition, isEnd: boolean) => void, allowOutView: boolean = false) => {
+const useOnMouseDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPosition, end: DragPosition, isEnd: boolean) => void, allowOutView: boolean = false) => {
   const startPosRef = useRef({ x: 0, y: 0 })
   const endPosRef = useRef({ x: 0, y: 0 })
   const isMoveRef = useRef(false)
@@ -89,4 +89,4 @@ const useDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPosition, end
   }, [ref, mousedownHandler, mousemoveHandler, mouseupHandler, allowOutView])
 }
 
-export default useDrag
+export default useOnMouseDrag
