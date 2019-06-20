@@ -1,4 +1,4 @@
-export const throttle = <Fn extends Function>(func: Fn, wait: number, options?: any): Fn => {
+export const throttle = <Fn extends Function> (func: Fn, wait: number, options?: any): Fn => {
   /* options的默认值
    *  表示首次调用返回值方法时，会马上调用func；否则仅会记录当前时刻，当第二次调用的时间间隔超过wait时，才调用func。
    *  options.leading = true

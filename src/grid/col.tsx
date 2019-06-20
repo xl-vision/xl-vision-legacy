@@ -84,10 +84,8 @@ const spanValidator = (
   props: ColProps,
   propName: keyof ColProps,
   componentName: string,
-  // @ts-ignore
-  location: string,
-  // @ts-ignore
-  propFullName: string
+  _location: string,
+  _propFullName: string
 ) => {
   const propValue = props[propName]
   if (typeof propValue === 'undefined') {

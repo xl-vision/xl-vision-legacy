@@ -149,7 +149,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
 
   const onTransitionEnd = React.useMemo(() => {
     let cb: () => void
-    return (callback: (() => void) & {isCancelled?: boolean}, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
+    return (callback: (() => void) & { isCancelled?: boolean }, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
       cb = callback
       const ele = childrenRel.current!
 

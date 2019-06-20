@@ -6,8 +6,8 @@ export { CollapseProps } from './collapse'
 export { CollapseExpandIconPosition } from './collapse-panel'
 
 export {
-    Collapse,
-    CollapsePanel
+  Collapse,
+  CollapsePanel
 }
 
 export default Collapse

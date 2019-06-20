@@ -50,14 +50,14 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     direction = 'horizontal',
     dotTrigger = 'click',
     dotRender = ((index: number, current: number) => (
-        <button
-            className={classnames(`${prefixCls}__dot-inner`, {
-              [`${prefixCls}__dot-inner--circle`]: circleDot,
-              [`${prefixCls}__dot-inner--active`]: index === current
-            })}
-        >
-            {index}
-        </button>
+      <button
+        className={classnames(`${prefixCls}__dot-inner`, {
+          [`${prefixCls}__dot-inner--circle`]: circleDot,
+          [`${prefixCls}__dot-inner--active`]: index === current
+        })}
+      >
+        {index}
+      </button>
     )),
     dots = true,
     loop = true,
@@ -79,8 +79,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   // 转成数组
   const childrenArray = React.useMemo(() => {
     return React.Children.map<React.ReactElement, React.ReactElement>(
-        children,
-        it => it
+      children,
+      it => it
     )
   }, [children])
 
@@ -109,7 +109,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       }
       return call(prev)
     })
-  },[childrenArray])
+  }, [childrenArray])
 
   const toPrev = React.useCallback(() => {
     setAnimate(true)
@@ -201,7 +201,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       startTimeRef.current = 0
       setDrag(false)
     }
-  },[direction, size, childrenArray, damping, slide, startTimeRef, loop])
+  }, [direction, size, childrenArray, damping, slide, startTimeRef, loop])
 
   // 绑定滑动事件
   useOnMouseDrag(carouselRef, onDragHandler, false)
@@ -266,9 +266,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         [direction === 'vertical' ? 'height' : 'width']: size
       }
       return (
-          <div className={childClasses} style={childStyle} key={index}>
-              {node}
-          </div>
+        <div className={childClasses} style={childStyle} key={index}>
+          {node}
+        </div>
       )
     }
     const list: React.ReactElement[] = []
@@ -282,34 +282,34 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   }, [childrenArray, size, direction])
 
   const dotsNode = dots && (
-          <ul className={`${prefixCls}__dot-list`}>
-              {childrenArray.map((_item, index) => {
-                const _classes = classnames(`${prefixCls}__dot`)
-                const onDotClick = () => {
-                  if (dotTrigger === 'click') {
-                    setAnimate(true)
-                    setActiveIndexWrap(index + 1)
-                  }
-                }
-                const onDotMouseEnter = () => {
-                  if (dotTrigger === 'hover') {
-                    setAnimate(true)
-                    setActiveIndexWrap(index + 1)
-                  }
-                }
-                return (
-                      <li
-                        key={index}
-                        className={_classes}
-                        onClick={onDotClick}
-                        onMouseEnter={onDotMouseEnter}
-                      >
-                          {dotRender(index, currentIndex)}
-                      </li>
-                )
-              })}
-          </ul>
-      )
+    <ul className={`${prefixCls}__dot-list`}>
+      {childrenArray.map((_item, index) => {
+        const _classes = classnames(`${prefixCls}__dot`)
+        const onDotClick = () => {
+          if (dotTrigger === 'click') {
+            setAnimate(true)
+            setActiveIndexWrap(index + 1)
+          }
+        }
+        const onDotMouseEnter = () => {
+          if (dotTrigger === 'hover') {
+            setAnimate(true)
+            setActiveIndexWrap(index + 1)
+          }
+        }
+        return (
+          <li
+            key={index}
+            className={_classes}
+            onClick={onDotClick}
+            onMouseEnter={onDotMouseEnter}
+          >
+            {dotRender(index, currentIndex)}
+          </li>
+        )
+      })}
+    </ul>
+  )
 
   const listClasses = classnames(`${prefixCls}__item-list`, {
     [`${prefixCls}__item-list--animate`]: isAnimate
@@ -341,25 +341,25 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const arrowNode = (
     <>
       <CssTransition
-          forceRender={true}
-          show={((loop && childrenArray.length > 1) || currentIndex > 0) && (arrow === 'always' || (arrow === 'hover' && hover))}
-          classNames={`${prefixCls}__arrow--fade`}
+        forceRender={true}
+        show={((loop && childrenArray.length > 1) || currentIndex > 0) && (arrow === 'always' || (arrow === 'hover' && hover))}
+        classNames={`${prefixCls}__arrow--fade`}
       >
         <button
-            className={`${prefixCls}__arrow ${prefixCls}__arrow--first`}
-            onClick={toPrev}
+          className={`${prefixCls}__arrow ${prefixCls}__arrow--first`}
+          onClick={toPrev}
         >
-          {direction === 'vertical' ? <FasAngleUp/> : <FasAngleLeft />}
+          {direction === 'vertical' ? <FasAngleUp/> : <FasAngleLeft/>}
         </button>
       </CssTransition>
       <CssTransition
-          forceRender={true}
-          show={((loop && childrenArray.length > 1) || currentIndex < childrenArray.length - 1) && (arrow === 'always' || (arrow === 'hover' && hover))}
-          classNames={`${prefixCls}__arrow--fade`}
+        forceRender={true}
+        show={((loop && childrenArray.length > 1) || currentIndex < childrenArray.length - 1) && (arrow === 'always' || (arrow === 'hover' && hover))}
+        classNames={`${prefixCls}__arrow--fade`}
       >
         <button
-            className={`${prefixCls}__arrow ${prefixCls}__arrow--last`}
-            onClick={toNext}
+          className={`${prefixCls}__arrow ${prefixCls}__arrow--last`}
+          onClick={toNext}
         >
           {direction === 'vertical' ? <FasAngleDown/> : <FasAngleRight/>}
         </button>
@@ -367,7 +367,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     </>
   )
 
-  const classes = classnames(prefixCls,`${prefixCls}--${direction}`)
+  const classes = classnames(prefixCls, `${prefixCls}--${direction}`)
 
   return (
     <div
@@ -376,13 +376,13 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-        <div className={`${prefixCls}__item-list-wrapper`} style={{ height, width }} ref={wrapperRef}>
-          <div className={listClasses} style={listStyle}>
-            {childrenContainer}
-          </div>
+      <div className={`${prefixCls}__item-list-wrapper`} style={{ height, width }} ref={wrapperRef}>
+        <div className={listClasses} style={listStyle}>
+          {childrenContainer}
         </div>
-        {arrowNode}
-        {dotsNode}
+      </div>
+      {arrowNode}
+      {dotsNode}
     </div>
   )
 }

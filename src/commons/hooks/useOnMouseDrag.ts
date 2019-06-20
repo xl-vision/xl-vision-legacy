@@ -50,7 +50,7 @@ const useOnMouseDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPositi
       isMoveRef.current = false
 
     }
-  }, [isDragRef, startPosRef, endPosRef,handler])
+  }, [isDragRef, startPosRef, endPosRef, handler])
 
   useEffect(() => {
     const el = ref.current
