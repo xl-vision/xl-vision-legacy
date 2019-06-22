@@ -6,7 +6,7 @@ import { namePrefix } from '../../config'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
-import { getPosition, include, isStyleSupport } from '../../utils/dom'
+import { getPosition, include } from '../../utils/dom'
 import { mergeEvents, off, on } from '../../utils/event'
 import { increaseZIndex } from '../../utils/zIndex-manager'
 
@@ -45,7 +45,9 @@ export interface PopperProps {
 
 const TIME_DELAY = 20
 
-const isTransformSupport = isStyleSupport('transform')
+// const isTransformSupport = isStyleSupport('transform')
+// 使用transform时，嵌套使用会导致定位不准确，所以暂且禁用
+const isTransformSupport = false
 
 export const displayName = `${namePrefix}-popper`
 
