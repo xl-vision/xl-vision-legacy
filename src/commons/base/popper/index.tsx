@@ -6,10 +6,9 @@ import { namePrefix } from '../../config'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
-import { getPosition, include } from '../../utils/dom'
+import { getPosition } from '../../utils/dom'
 import { mergeEvents, off, on } from '../../utils/event'
 import { increaseZIndex } from '../../utils/zIndex-manager'
-import PopperContext from './popper-context'
 
 export type Placement =
   | 'top'
@@ -71,9 +70,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     delayShow = 0,
     offset = 0
   } = props
-
-  // 用来支持嵌套popper
-  const { onPopupClick } = React.useContext(PopperContext)
 
   const popupRef = React.useRef<HTMLDivElement>(null)
   const referenceRef = React.useRef<HTMLElement>(null)
@@ -320,19 +316,19 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }
 
-  const onClickOutside = (e: MouseEvent) => {
+  const onClickOutside = () => {
     if (trigger === 'click' || trigger === 'contextMenu') {
-      if (e.target instanceof HTMLElement && !include(popupRef.current!, e.target)) {
-        setActualWrapper(false)
-      }
+      setActualWrapper(false)
     }
   }
 
-  const onPopupClickWrapper = React.useCallback(() => {
-    // 让clickoutside先触发
-    setTimeout(() => setActualWrapper(true), TIME_DELAY)
-    onPopupClick()
-  }, [onPopupClick, setActualWrapper])
+  const onPopupClick = React.useCallback(() => {
+    // 让clickoutside先触发，此方法会取消onClickoutside
+    // 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了
+    if (trigger === 'click' || trigger === 'contextMenu') {
+      setTimeout(() => setActualWrapper(true), TIME_DELAY / 2)
+    }
+  }, [setActualWrapper, trigger])
 
   const transitionClass = React.useMemo(() => {
     if (typeof transitionName === 'function') {
@@ -364,17 +360,12 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   useClickOutside(referenceRef, onClickOutside)
 
   const portal = ReactDOM.createPortal((
-    <PopperContext.Provider
-      value={{
-        onPopupClick: onPopupClickWrapper
-      }}
-    >
     <div
       ref={popupRef}
       style={popupStyle}
       onMouseEnter={onPopupMouseEnter}
       onMouseLeave={onPopupMouseLeave}
-      onClick={onPopupClickWrapper}
+      onClick={onPopupClick}
     >
       <CssTransition
         forceRender={true}
@@ -390,7 +381,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         </div>
       </CssTransition>
     </div>
-    </PopperContext.Provider>
   ), getPopupContainer())
 
   const childrenNode = React.useMemo(() => {
