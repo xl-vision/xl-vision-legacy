@@ -75,6 +75,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   const referenceRef = React.useRef<HTMLElement>(null)
 
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
+  const isUnmountRef = React.useRef(false)
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
@@ -86,10 +87,9 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   // 延迟渲染弹出框，只在第一次需要弹出时才渲染
   const [needMount, setNeedMount] = React.useState(false)
-  let isUnmount = false
 
   useUnmount(() => {
-    isUnmount = true
+    isUnmountRef.current = true
   })
 
   const setActualWrapper = React.useCallback((isVisible: boolean) => {
@@ -99,11 +99,11 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
     clearTimeout(delayTimerRef.current!)
     delayTimerRef.current = setTimeout(() => {
-      if (!isUnmount) {
+      if (!isUnmountRef.current) {
         setActualVisible(isVisible)
       }
     }, isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY))
-  }, [needMount,delayTimerRef, isUnmount, delayShow, delayHide])
+  }, [delayTimerRef, isUnmountRef, delayShow, delayHide])
 
   React.useEffect(() => {
     setActualWrapper(visible)
@@ -266,65 +266,66 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [actualVisible, setPosition])
 
-  const onMouseEnter = () => {
+  const onMouseEnter = React.useCallback(() => {
     // 如果是从popup移动过来，需要先清除popup的定时关闭
     clearTimeout(delayTimerRef.current!)
     if (trigger === 'hover') {
       setActualWrapper(true)
     }
-  }
-  const onMouseLeave = () => {
+  }, [delayTimerRef, setActualWrapper, trigger])
+  const onMouseLeave = React.useCallback(() => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
-  }
+  }, [delayTimerRef, setActualWrapper, trigger])
 
-  const onFocus = () => {
+  const onFocus = React.useCallback(() => {
     if (trigger === 'focus') {
       setActualWrapper(true)
     }
-  }
+  }, [delayTimerRef, setActualWrapper, trigger])
 
-  const onBlur = () => {
+  const onBlur = React.useCallback(() => {
     if (trigger === 'focus') {
       setActualWrapper(false)
     }
-  }
+  }, [delayTimerRef, setActualWrapper, trigger])
 
-  const onContextMenu = () => {
+  const onContextMenu = React.useCallback(() => {
     if (trigger === 'contextMenu') {
       setActualWrapper(true)
     }
-  }
+  }, [delayTimerRef, setActualWrapper, trigger])
 
-  const onPopupMouseEnter = () => {
+  const onPopupMouseEnter = React.useCallback(() => {
     clearTimeout(delayTimerRef.current!)
     if (!allowPopupEnter) {
       setActualWrapper(false)
     }
-  }
+  }, [delayTimerRef, setActualWrapper, allowPopupEnter])
 
-  const onPopupMouseLeave = () => {
+  const onPopupMouseLeave = React.useCallback(() => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
-  }
+  }, [setActualWrapper, trigger])
 
-  const onReferenceClick = () => {
+  const onReferenceClick = React.useCallback(() => {
     if (trigger === 'click') {
       setActualWrapper(true)
     }
-  }
+  }, [setActualWrapper, trigger])
 
-  const onClickOutside = () => {
+  const onClickOutside = React.useCallback(() => {
     if (trigger === 'click' || trigger === 'contextMenu') {
       setActualWrapper(false)
     }
-  }
+  }, [setActualWrapper, trigger])
 
   const onPopupClick = React.useCallback(() => {
     // 让clickoutside先触发，此方法会取消onClickoutside
     // 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了
+    // 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
     if (trigger === 'click' || trigger === 'contextMenu') {
       setTimeout(() => setActualWrapper(true), TIME_DELAY / 2)
     }
