@@ -1,6 +1,6 @@
 ---
 imports:
-    - import { Collapse, CollapsePanel } from '..'
+    - import Collapse from '..'
     - import { FasArrowCircleRight, FasCog } from '../../icon'
     - import './index.scss'
 ---
@@ -16,9 +16,9 @@ imports:
 export default () => {
     return (
         <Collapse>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -34,9 +34,9 @@ export default () => {
 export default () => {
     return (
         <Collapse bordered={false}>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -52,9 +52,9 @@ export default () => {
 export default () => {
     return (
         <Collapse accordion>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -70,9 +70,9 @@ export default () => {
 export default () => {
     return (
         <Collapse>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel disabled header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel disabled header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -89,9 +89,9 @@ export default () => {
 export default () => {
     return (
         <Collapse defaultActiveName={['0']}>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -107,15 +107,15 @@ export default () => {
 export default () => {
     return (
         <Collapse>
-            <CollapsePanel header={'header1'}>
+            <Collapse.Panel header={'header1'}>
                 <Collapse>
-                    <CollapsePanel header={'header1'}>body</CollapsePanel>
-                    <CollapsePanel header={'header1'}>body</CollapsePanel>
-                    <CollapsePanel header={'header1'}>body</CollapsePanel>
+                    <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+                    <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+                    <Collapse.Panel header={'header1'}>body</Collapse.Panel>
                 </Collapse>
-            </CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            </Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -134,9 +134,9 @@ export default () => {
     }
     return (
         <Collapse onChange={onChange}>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -152,9 +152,9 @@ export default () => {
 export default () => {
     return (
         <Collapse expandArrowPosition={'right'}>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -170,9 +170,9 @@ export default () => {
 export default () => {
     return (
         <Collapse showArrow={false}>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -191,9 +191,9 @@ export default () => {
     }
     return (
         <Collapse expandArrow={expandArrow}>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -216,9 +216,9 @@ export default () => {
     }
     return (
         <Collapse extra={extra}>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
-            <CollapsePanel header={'header1'}>body</CollapsePanel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
+            <Collapse.Panel header={'header1'}>body</Collapse.Panel>
         </Collapse>
     )
 }
@@ -234,7 +234,7 @@ export default () => {
 | prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | accordion  | 手风琴模式     | boolean |      -       |   false   | false|
 | bordered  | 是否显示边框     | boolean |      -       |   true  | false|
-| children  | 必须为CollapsePanel或其数组     | ReactElement/ReactElement[] |    -       |   -  | true|
+| children  | 必须为Collapse.Panel或其数组     | ReactElement/ReactElement[] |    -       |   -  | true|
 | defaultActiveName  | 默认展开的panel的名称或其数组     | string/string[] |    -       |   -  | false|
 | expandArrow  | 自定义箭头，函数参数为panel的展开状态     | (active: boolean) => ReactNode  |    -       |   -  | false|
 | expandArrowPosition  | 箭头展示的位置     | string  |    left/right       |   -  | false|
@@ -242,7 +242,7 @@ export default () => {
 | onChange  | panel改变事件，函数参数为激活的panel的名字数组     | (activeNames: string[]) => void  |    -       |   -  | false|
 | showArrow  | 是否展示箭头     | boolean  |    -       |   false  | false|
 
-## CollapsePanel API
+## Panel API
 
 | 参数    | 说明             | 类型        | 可选值       | 默认值 | 是否必填|
 | ------- | --------------- | ---------- | -------- | ------ | -----|

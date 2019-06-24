@@ -1,7 +1,7 @@
 ---
 imports:
   - import './index.scss'
-  - import { Dropdown } from '..'
+  - import Dropdown from '..'
   - import { FasAngleRight, FasAngleDown } from '../../icon'
   - import Button from '../../button'
 ---
@@ -115,7 +115,7 @@ const [visible, setVisible] = React.useState(false)
 | trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
 | visible | 手动设置visible           | boolean  | -  | - | false|
 
-## DropdownItem API
+## Item API
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
@@ -123,7 +123,7 @@ const [visible, setVisible] = React.useState(false)
 | children | 菜单内容            | React.ReactNode | -  | -| true|
 | disabled | 是否禁用            | boolean  | -  | -| false|
 
-## DropdownDivider API
+## Divider API
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |

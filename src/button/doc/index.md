@@ -1,6 +1,6 @@
 ---
 imports:
-    - import { Button, ButtonGroup} from '..'
+    - import Button from '..'
     - import Icon from '../../icon'
     - import './style.scss'
 ---
@@ -90,11 +90,11 @@ export default () => {
   const [size, setSize] = React.useState('default')
   return (
     <div className='button-wrapper'>
-      <ButtonGroup>
+      <Button.Group>
         <Button onClick={() => setSize('large')} type={size==='large'?'primary':'default'}>L</Button>
         <Button onClick={() => setSize('default')} type={size==='default'?'primary':'default'}>M</Button>
         <Button onClick={() => setSize('small')} type={size==='small'?'primary':'default'}>S</Button>
-      </ButtonGroup>
+      </Button.Group>
       <div className='button-column'>
           <Button size={size}>Default</Button>
           <Button size={size} type='primary'>Primary</Button>
@@ -242,34 +242,34 @@ export default () => {
   const [size, setSize] = React.useState('default')
   return (
     <div className='button-wrapper'>
-      <ButtonGroup>
+      <Button.Group>
         <Button onClick={() => setSize('large')} type={size==='large'?'primary':'default'}>L</Button>
         <Button onClick={() => setSize('default')} type={size==='default'?'primary':'default'}>M</Button>
         <Button onClick={() => setSize('small')} type={size==='small'?'primary':'default'}>S</Button>
-      </ButtonGroup>
+      </Button.Group>
       <div>
-        <ButtonGroup size={size}>
+        <Button.Group size={size}>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
-        </ButtonGroup>
+        </Button.Group>
       </div>
       <div>
-        <ButtonGroup round size={size}>
+        <Button.Group round size={size}>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
-        </ButtonGroup>
+        </Button.Group>
       </div>
       <div>
-        <ButtonGroup size={size}>
+        <Button.Group size={size}>
           <Button><Icon.FasChevronLeft/>上一页</Button>
           <Button>下一页<Icon.FasChevronRight/></Button>
-        </ButtonGroup>
+        </Button.Group>
       </div>
     </div>
   )
@@ -286,29 +286,29 @@ export default () => {
   const [size, setSize] = React.useState('default')
   return (
     <div className='button-wrapper'>
-      <ButtonGroup size={size}>
+      <Button.Group size={size}>
         <Button onClick={() => setSize('large')} type={size==='large'?'primary':'default'}>L</Button>
         <Button onClick={() => setSize('default')} type={size==='default'?'primary':'default'}>M</Button>
         <Button onClick={() => setSize('small')} type={size==='small'?'primary':'default'}>S</Button>
-      </ButtonGroup>
-      <ButtonGroup vertical size={size}>
+      </Button.Group>
+      <Button.Group vertical size={size}>
         <Button>Default</Button>
         <Button type='primary'>Primary</Button>
         <Button type='success'>Success</Button>
         <Button type='warning'>Warning</Button>
         <Button type='error'>Error</Button>
-      </ButtonGroup>
-      <ButtonGroup vertical round size={size}>
+      </Button.Group>
+      <Button.Group vertical round size={size}>
         <Button>Default</Button>
         <Button type='primary'>Primary</Button>
         <Button type='success'>Success</Button>
         <Button type='warning'>Warning</Button>
         <Button type='error'>Error</Button>
-      </ButtonGroup>
-      <ButtonGroup vertical size={size}>
+      </Button.Group>
+      <Button.Group vertical size={size}>
         <Button><Icon.FasChevronUp/>上一页</Button>
         <Button><Icon.FasChevronDown/>下一页</Button>
-      </ButtonGroup>
+      </Button.Group>
     </div>
   )
 }
@@ -333,7 +333,7 @@ export default () => {
 |type|设置按钮类型|string|default/primary/success/warning/error/text|default|false|
 |size|设置按钮大小|string|default/large/small|default|false|
 
-## ButtonGroup API
+## Group API
 
 | 参数    | 说明        | 类型       | 可选值   | 默认值 | 是否必填|
 | ------- | -------- | --------- | ------------ | ------ | --- |
