@@ -9,6 +9,7 @@ import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
 import { mergeEvents, off, on } from '../../utils/event'
 import { increaseZIndex } from '../../utils/zIndex-manager'
+import PopperContext from './popper-context'
 
 export { Placement } from '../../hooks/useAlign'
 
@@ -68,22 +69,12 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   // 延迟渲染弹出框，只在第一次需要弹出时才渲染
   const [needMount, setNeedMount] = React.useState(false)
 
+  // 处理子popper
+  const closeHandlerRef = React.useRef<(() => void)[]>([])
+
   /**
-   * 窗口改变的时候，需要重置位置
+   * 延迟设置visible，多次调用，只有最后一次生效
    */
-  React.useEffect(() => {
-    on('resize', updatePosition)
-    on('scroll', updatePosition)
-    return () => {
-      off('scroll', updatePosition)
-      off('resize', updatePosition)
-    }
-  }, [updatePosition])
-
-  useUnmount(() => {
-    isUnmountRef.current = true
-  })
-
   const setActualWrapper = React.useCallback((isVisible: boolean) => {
     if (isVisible) {
       setNeedMount(true)
@@ -92,13 +83,64 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     clearTimeout(delayTimerRef.current!)
     delayTimerRef.current = setTimeout(() => {
       if (!isUnmountRef.current) {
+        if (!isVisible) {
+          // 隐藏所有子popper
+          closeHandlerRef.current.forEach(it => it())
+        }
         setActualVisible(isVisible)
       }
     }, isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY))
-  }, [delayTimerRef, isUnmountRef, delayShow, delayHide])
+  }, [delayTimerRef, isUnmountRef, delayShow, delayHide, closeHandlerRef])
+
+  /**
+   * 处理父popper
+   */
+  const { addCloseHandler: addParentCloseHandler, removeCloseHandler: removeParentCloseHandler } = React.useContext(PopperContext)
 
   React.useEffect(() => {
-    setActualWrapper(visible)
+    const handler = () => setActualWrapper(false)
+    addParentCloseHandler(handler)
+    return () => {
+      removeParentCloseHandler(handler)
+    }
+  }, [addParentCloseHandler, removeParentCloseHandler])
+
+  // 子popper函数
+  const addCloseHandler = React.useCallback((handler: () => void) => {
+    closeHandlerRef.current.push(handler)
+  }, [closeHandlerRef])
+
+  const removeCloseHandler = React.useCallback((handler: () => void) => {
+    const arr = closeHandlerRef.current
+    closeHandlerRef.current = arr.slice(arr.indexOf(handler), 1)
+  }, [closeHandlerRef])
+
+  // 判断是否当前组件被卸载
+  useUnmount(() => {
+    isUnmountRef.current = true
+  })
+
+  /**
+   * 窗口改变的时候，需要重置位置
+   */
+  React.useEffect(() => {
+    if (actualVisible) {
+      on('resize', updatePosition)
+      on('scroll', updatePosition)
+    }
+    return () => {
+      if (actualVisible) {
+        off('scroll', updatePosition)
+        off('resize', updatePosition)
+      }
+    }
+  }, [updatePosition, actualVisible])
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setActualWrapper(visible)
+      // 保证这个方法最后调用
+    }, TIME_DELAY * 0.5)
   }, [visible])
 
   useUpdate(() => {
@@ -177,6 +219,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       setActualWrapper(true)
     }
   }, [delayTimerRef, setActualWrapper, trigger])
+
   const onMouseLeave = React.useCallback(() => {
     if (trigger === 'hover') {
       setActualWrapper(false)
@@ -231,7 +274,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     // 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了
     // 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
     if (trigger === 'click' || trigger === 'contextMenu') {
-      setTimeout(() => setActualWrapper(true), TIME_DELAY / 2)
+      setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
     }
   }, [setActualWrapper, trigger])
 
@@ -265,27 +308,34 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   useClickOutside(referenceRef, onClickOutside)
 
   const portal = ReactDOM.createPortal((
-    <div
-      ref={popupRef}
-      style={allPopupStyle}
-      onMouseEnter={onPopupMouseEnter}
-      onMouseLeave={onPopupMouseLeave}
-      onClick={onPopupClick}
+    <PopperContext.Provider
+      value={{
+        addCloseHandler,
+        removeCloseHandler
+      }}
     >
-      <CssTransition
-        forceRender={true}
-        isAppear={true}
-        show={actualVisible}
-        classNames={transitionClass}
-        beforeEnter={updatePosition}
-        beforeAppear={updatePosition}
+      <div
+        ref={popupRef}
+        style={allPopupStyle}
+        onMouseEnter={onPopupMouseEnter}
+        onMouseLeave={onPopupMouseLeave}
+        onClick={onPopupClick}
       >
-        <div className={overlayClass} style={overlayStyleObj}>
-          {arrow && arrow(placement, arrowCenter)}
-          {popup(placement)}
-        </div>
-      </CssTransition>
-    </div>
+        <CssTransition
+          forceRender={true}
+          isAppear={true}
+          show={actualVisible}
+          classNames={transitionClass}
+          beforeEnter={updatePosition}
+          beforeAppear={updatePosition}
+        >
+          <div className={overlayClass} style={overlayStyleObj}>
+            {arrow && arrow(placement, arrowCenter)}
+            {popup(placement)}
+          </div>
+        </CssTransition>
+      </div>
+    </PopperContext.Provider>
   ), getPopupContainer())
 
   const childrenNode = React.useMemo(() => {
