@@ -20,7 +20,7 @@ export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
 const routes: Route[] = [
   {
     path: '/',
-    redirect: '/grid'
+    redirect: '/row'
   },
   {
     name: '快速上手',

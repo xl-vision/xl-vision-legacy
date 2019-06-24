@@ -1,6 +1,6 @@
 ---
 imports:
-  - import {Row, Col} from '..'
+  - import { Row, Col } from '..'
   - import './style.scss'
 ---
 

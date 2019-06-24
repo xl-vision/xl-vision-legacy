@@ -23,7 +23,7 @@ export default class Layout extends React.Component<{}, {}> {
                 <Content />
               </Row.Col>
             </Row>
-            <Footer />
+            <Footer/>
           </div>
         </Router>
       </React.StrictMode>
