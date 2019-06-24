@@ -19,14 +19,13 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
     offset = 5,
     prefixCls = displayName,
     arrowSize = 10,
+    overlayStyle = overlayStyleCb,
     ...others
   } = props
 
   const transitionName = others.transitionName || `${prefixCls}--fade`
-  const overlayStyle = others.overlayStyle || overlayStyleCb
 
   delete others.transitionName
-  delete others.overlayStyle
 
   const arrow = React.useCallback((_placement: Placement, center: { x: number, y: number }) => {
     const classes = classnames(`${prefixCls}__arrow`, `${prefixCls}__arrow--${_placement}`)

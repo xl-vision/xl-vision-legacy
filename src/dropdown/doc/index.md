@@ -1,23 +1,94 @@
 ---
 imports:
   - import './index.scss'
-  - import Tooltip from '..'
+  - import { Dropdown } from '..'
+  - import { FasAngleRight, FasAngleDown } from '../../icon'
   - import Button from '../../button'
-  - import ButtonGroup from '../../button-group'
-  - import Row from '../../row'
-  - import Col from '../../col'
 ---
-# Tooltip
+# Dropdown
 
 ::: demo 基本用法
-基本的使用方式
+基本用法
 
 ```jsx
 export default () => {
+  const menus = (
+    <>
+      <Dropdown.Item>1st menu item</Dropdown.Item>
+      <Dropdown.Item>2nd menu item</Dropdown.Item>
+      <Dropdown.Divider/>
+      <Dropdown.Item>3rd menu item</Dropdown.Item>
+    </>
+  )
   return (
-    <Tooltip content={'tooltip text'}>
-      <span>Tooltip will show on mouse enter</span>
-    </Tooltip>
+    <Dropdown overlay={menus}>
+      <Button type="text" href='#'>hover me</Button>
+    </Dropdown>
+  )
+}
+```
+
+:::
+
+::: demo 不可用菜单项
+禁止部分菜单项
+
+```jsx
+export default () => {
+  const menus = (
+    <>
+      <Dropdown.Item>1st menu item</Dropdown.Item>
+      <Dropdown.Divider/>
+      <Dropdown.Item disabled>2nd menu item</Dropdown.Item>
+      <Dropdown.Divider/>
+      <Dropdown.Item>3rd menu item</Dropdown.Item>
+    </>
+  )
+  return (
+    <Dropdown overlay={menus}>
+      <Button type="text" href='#'>hover me</Button>
+    </Dropdown>
+  )
+}
+```
+
+:::
+
+::: demo 嵌套使用
+嵌套使用
+
+```jsx
+export default () => {
+const [visible, setVisible] = React.useState(false)
+  const submenus = (
+    <>
+      <Dropdown.Item>menu1</Dropdown.Item>
+      <Dropdown.Item>menu2</Dropdown.Item>
+      <Dropdown.Item onClick={() => {
+        setVisible(false)
+      }}>click me to close</Dropdown.Item>
+    </>
+  )
+  const menus = (
+    <>
+      <Dropdown.Item>menu1</Dropdown.Item>
+      <Dropdown.Item>menu2</Dropdown.Item>
+      <Dropdown.Item>menu3</Dropdown.Item>
+      <Dropdown overlay={submenus} placement='rightTop'>
+        <Dropdown.Item>
+          Dropdown
+          <FasAngleRight/>
+        </Dropdown.Item>
+      </Dropdown>
+    </>
+  )
+  return (
+    <Dropdown overlay={menus} visible={visible} onVisibleChange={visible => setVisible(visible)}>
+      <Button>
+        Dropdown
+        <FasAngleDown/>
+      </Button>
+    </Dropdown>
   )
 
 }
@@ -25,150 +96,7 @@ export default () => {
 
 :::
 
-::: demo 位置
-可以设置12个方向的位置
-
-```jsx
-export default () => {
-  return (
-    <div>
-      <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
-          <Tooltip placement='topLeft' content={<div>Tooltip text</div>}>
-            <Button>topLeft</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}>
-          <Tooltip placement='top' content={<div>Tooltip text</div>}>
-            <Button>top</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}>
-          <Tooltip placement='topRight' content={<div>Tooltip text</div>}>
-            <Button>topRight</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
-      </Row>
-      <div style={{height: '2rem'}}/>
-      <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
-          <Tooltip placement='leftTop' content={<div>Tooltip text</div>}>
-            <Button>leftTop</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
-          <Tooltip placement='rightTop' content={<div>Tooltip text</div>}>
-            <Button>rightTop</Button>
-          </Tooltip>
-        </Col>
-        <Col span={2}></Col>
-      </Row>
-      <div style={{height: '2rem'}}/>
-      <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
-          <Tooltip placement='left' content={<div>Tooltip text</div>}>
-            <Button>left</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
-          <Tooltip placement='right' content={<div>Tooltip text</div>}>
-            <Button>right</Button>
-          </Tooltip>
-        </Col>
-        <Col span={2}></Col>
-      </Row>
-      <div style={{height: '2rem'}}/>
-      <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
-          <Tooltip placement='leftBottom' content={<div>Tooltip text</div>}>
-            <Button>leftBottom</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
-          <Tooltip placement='rightBottom' content={<div>Tooltip text</div>}>
-            <Button>rightBottom</Button>
-          </Tooltip>
-        </Col>
-        <Col span={2}></Col>
-      </Row>
-      <div style={{height: '2rem'}}/>
-      <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
-          <Tooltip placement='bottomLeft' content={<div>Tooltip text</div>}>
-            <Button>bottomLeft</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}>
-          <Tooltip placement='bottom' content={<div>Tooltip text</div>}>
-            <Button>bottom</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}>
-          <Tooltip placement='bottomRight' content={<div>Tooltip text</div>}>
-            <Button>bottomRight</Button>
-          </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
-      </Row>
-    </div>
-  )
-}
-
-```
-
-:::
-
-::: demo 支持不同的触发方式
-通过`trigger`指定触发方式
-
-```jsx
-export default () => {
-  const [visible, setVisible] = React.useState(false)
-  return (
-    <ButtonGroup>
-      <Tooltip trigger='hover' content={'hover text'}>
-        <Button>hover</Button>
-      </Tooltip>
-      <Tooltip trigger='click' content={'click text'}>
-        <Button>click</Button>
-      </Tooltip>
-      <Tooltip trigger='focus' content={'focus text'}>
-        <Button>focus</Button>
-      </Tooltip>
-      <Tooltip trigger='contextMenu' content={'contextMenu text'}>
-        <Button>contextMenu</Button>
-      </Tooltip>
-      <Tooltip trigger='custom' visible={visible} content={'custom text'}>
-        <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
-      </Tooltip>
-    </ButtonGroup>
-  )
-}
-
-```
-
-:::
-
-## Tooltip API
+## Dropdown API
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |

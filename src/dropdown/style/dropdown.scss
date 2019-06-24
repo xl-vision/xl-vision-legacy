@@ -1,0 +1,33 @@
+@import '../../style/commons/var';
+
+$dropdown: #{$--cls-prefix}-dropdown;
+
+.#{$dropdown} {
+  &__overlay-wrapper {
+    box-sizing: border-box;
+    padding: $--dropdown-wrapper-padding;
+  }
+
+  &__overlay {
+    margin: 0;
+    padding: $--dropdown-padding;
+    list-style: none;
+    background-color: $--dropdown-bg-color;
+    border-radius: $--dropdown-border-radius;
+    outline: none;
+    box-shadow: $--dropdown-box-shadow;
+  }
+
+  &--slide-enter-active,
+  &--slide-leave-active {
+    transform: scaleY(1);
+    opacity: 1;
+    transition: $--dropdown-animation;
+  }
+
+  &--slide-enter,
+  &--slide-leave-to {
+    transform: scaleY(0.5);
+    opacity: 0;
+  }
+}

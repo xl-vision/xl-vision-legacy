@@ -6,4 +6,10 @@ export { ButtonGroupProps } from './button-group'
 
 export { Button, ButtonGroup }
 
-export default Button
+const ButtonWithGroup: (typeof Button) & {
+  Group: typeof ButtonGroup
+} = Button as any
+
+ButtonWithGroup.Group = ButtonGroup
+
+export default ButtonWithGroup

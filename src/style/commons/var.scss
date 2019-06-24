@@ -255,7 +255,17 @@ $--carousel-dot-click-padding: 5px;
 $--carousel-dot-bg-color: #fff;
 $--carousel-dot-opacity: 0.3;
 $--carousel-dot-opacity-hover: 1;
-
 $--carousel-dot-animation: all $--animation-duration ease-in-out;
 
+//dropdown
+$--dropdown-wrapper-padding: 5px;
+$--dropdown-bg-color: $--bg-color;
+$--dropdown-box-shadow: 0 1px 6px rgba($--color-black, 0.2);
+$--dropdown-border-radius: $--border-radius;
+$--dropdown-padding: 4px 0;
+$--dropdown-item-padding: 5px 12px;
+$--dropdown-item-bg-color-hover: color-level($--color-primary, -$--color-level * 4.5);
+$--dropdown-animation: all $--animation-duration-fast ease-in-out;
+$--dropdown-item-disabled: $--opacity-disabled;
+$--dropdown-divider-color: $--border-color;
 

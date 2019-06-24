@@ -3,9 +3,7 @@ imports:
   - import './index.scss'
   - import Popover from '..'
   - import Button from '../../button'
-  - import ButtonGroup from '../../button-group'
   - import Row from '../../row'
-  - import Col from '../../col'
 ---
 # Popover
 
@@ -33,101 +31,101 @@ export default () => {
   return (
     <div>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='topLeft' title='Title' content={<div>Content</div>}>
             <Button>topLeft</Button>
           </Popover>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popover placement='top' title='Title' content={<div>Content</div>}>
             <Button>top</Button>
           </Popover>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popover placement='topRight' title='Title' content={<div>Content</div>}>
             <Button>topRight</Button>
           </Popover>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='leftTop' title='Title' content={<div>Content</div>}>
             <Button>leftTop</Button>
           </Popover>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='rightTop' title='Title' content={<div>Content</div>}>
             <Button>rightTop</Button>
           </Popover>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='left' title='Title' content={<div>Content</div>}>
             <Button>left</Button>
           </Popover>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='right' title='Title' content={<div>Content</div>}>
             <Button>right</Button>
           </Popover>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='leftBottom' title='Title' content={<div>Content</div>}>
             <Button>leftBottom</Button>
           </Popover>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='rightBottom' title='Title' content={<div>Content</div>}>
             <Button>rightBottom</Button>
           </Popover>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popover placement='bottomLeft' title='Title' content={<div>Content</div>}>
             <Button>bottomLeft</Button>
           </Popover>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popover placement='bottom' title='Title' content={<div>Content</div>}>
             <Button>bottom</Button>
           </Popover>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popover placement='bottomRight' title='Title' content={<div>Content</div>}>
             <Button>bottomRight</Button>
           </Popover>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
     </div>
   )
@@ -144,7 +142,7 @@ export default () => {
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
-    <ButtonGroup>
+    <Button.Group>
       <Popover trigger='hover' title='Title' content={<div>Content</div>}>
         <Button>hover</Button>
       </Popover>
@@ -160,7 +158,7 @@ export default () => {
       <Popover trigger='custom' visible={visible} title='Title' content={<div>Content</div>}>
         <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
       </Popover>
-    </ButtonGroup>
+    </Button.Group>
   )
 }
 

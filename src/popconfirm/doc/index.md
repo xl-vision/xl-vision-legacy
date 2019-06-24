@@ -3,9 +3,7 @@ imports:
   - import './index.scss'
   - import Popconfirm from '..'
   - import Button from '../../button'
-  - import ButtonGroup from '../../button-group'
   - import Row from '../../row'
-  - import Col from '../../col'
   - import {FasSkullCrossbones} from '../../icon'
 ---
 # Popconfirm
@@ -50,101 +48,101 @@ export default () => {
   return (
     <div>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='topLeft' content='Are you sure?'>
             <Button>topLeft</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='top' content='Are you sure?'>
             <Button>top</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='topRight' content='Are you sure?'>
             <Button>topRight</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='leftTop' content='Are you sure?'>
             <Button>leftTop</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='rightTop' content='Are you sure?'>
             <Button>rightTop</Button>
           </Popconfirm>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='left' content='Are you sure?'>
             <Button>left</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='right' content='Are you sure?'>
             <Button>right</Button>
           </Popconfirm>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='leftBottom' content='Are you sure?'>
             <Button>leftBottom</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='rightBottom' content='Are you sure?'>
             <Button>rightBottom</Button>
           </Popconfirm>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='bottomLeft' content='Are you sure?'>
             <Button>bottomLeft</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='bottom' content='Are you sure?'>
             <Button>bottom</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Popconfirm placement='bottomRight' content='Are you sure?'>
             <Button>bottomRight</Button>
           </Popconfirm>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
     </div>
   )
@@ -161,7 +159,7 @@ export default () => {
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
-    <ButtonGroup>
+    <Button.Group>
       <Popconfirm trigger='hover' content='Are you sure?'>
         <Button>hover</Button>
       </Popconfirm>
@@ -177,7 +175,7 @@ export default () => {
       <Popconfirm trigger='custom' visible={visible} onVisibleChange={_visible => setVisible(_visible)} content='Are you sure?'>
         <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
       </Popconfirm>
-    </ButtonGroup>
+    </Button.Group>
   )
 }
 

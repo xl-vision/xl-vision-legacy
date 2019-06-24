@@ -3,9 +3,7 @@ imports:
   - import './index.scss'
   - import Tooltip from '..'
   - import Button from '../../button'
-  - import ButtonGroup from '../../button-group'
   - import Row from '../../row'
-  - import Col from '../../col'
 ---
 # Tooltip
 
@@ -33,101 +31,101 @@ export default () => {
   return (
     <div>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='topLeft' content={<div>Tooltip text</div>}>
             <Button>topLeft</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='top' content={<div>Tooltip text</div>}>
             <Button>top</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='topRight' content={<div>Tooltip text</div>}>
             <Button>topRight</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='leftTop' content={<div>Tooltip text</div>}>
             <Button>leftTop</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='rightTop' content={<div>Tooltip text</div>}>
             <Button>rightTop</Button>
           </Tooltip>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='left' content={<div>Tooltip text</div>}>
             <Button>left</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='right' content={<div>Tooltip text</div>}>
             <Button>right</Button>
           </Tooltip>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='leftBottom' content={<div>Tooltip text</div>}>
             <Button>leftBottom</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='rightBottom' content={<div>Tooltip text</div>}>
             <Button>rightBottom</Button>
           </Tooltip>
-        </Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
       <div style={{height: '2rem'}}/>
       <Row>
-        <Col span={2}></Col>
-        <Col span={4}></Col>
-        <Col span={4}>
+        <Row.Col span={2}></Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='bottomLeft' content={<div>Tooltip text</div>}>
             <Button>bottomLeft</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='bottom' content={<div>Tooltip text</div>}>
             <Button>bottom</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}>
+        </Row.Col>
+        <Row.Col span={4}>
           <Tooltip placement='bottomRight' content={<div>Tooltip text</div>}>
             <Button>bottomRight</Button>
           </Tooltip>
-        </Col>
-        <Col span={4}></Col>
-        <Col span={2}></Col>
+        </Row.Col>
+        <Row.Col span={4}></Row.Col>
+        <Row.Col span={2}></Row.Col>
       </Row>
     </div>
   )
@@ -144,7 +142,7 @@ export default () => {
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
-    <ButtonGroup>
+    <Button.Group>
       <Tooltip trigger='hover' content={'hover text'}>
         <Button>hover</Button>
       </Tooltip>
@@ -160,7 +158,7 @@ export default () => {
       <Tooltip trigger='custom' visible={visible} content={'custom text'}>
         <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
       </Tooltip>
-    </ButtonGroup>
+    </Button.Group>
   )
 }
 

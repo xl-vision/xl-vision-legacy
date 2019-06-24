@@ -10,4 +10,10 @@ export {
   CollapsePanel
 }
 
-export default Collapse
+const CollapseWithPanel: (typeof Collapse) & {
+  Panel: typeof CollapsePanel
+} = Collapse as any
+
+CollapseWithPanel.Panel = CollapsePanel
+
+export default CollapseWithPanel

@@ -37,8 +37,8 @@ const routes: Route[] = [
     children: [
       {
         name: '栅格布局',
-        path: '/grid',
-        component: import('../src/grid/doc/index.md')
+        path: '/row',
+        component: import('../src/row/doc/index.md')
       }
     ]
   },
@@ -69,6 +69,11 @@ const routes: Route[] = [
         name: '文字提示',
         path: '/tooltip',
         component: import('../src/tooltip/doc/index.md')
+      },
+      {
+        name: '下拉菜单',
+        path: '/dropdown',
+        component: import('../src/dropdown/doc/index.md')
       },
       {
         name: '气泡卡片',
