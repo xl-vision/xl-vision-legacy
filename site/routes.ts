@@ -33,16 +33,6 @@ const routes: Route[] = [
     component: import('./docs/color/index.md')
   },
   {
-    name: '布局',
-    children: [
-      {
-        name: '栅格布局',
-        path: '/row',
-        component: import('../src/row/doc/index.md')
-      }
-    ]
-  },
-  {
     name: '基础组件',
     children: [
       {
@@ -55,25 +45,35 @@ const routes: Route[] = [
         path: '/button',
         component: import('../src/button/doc/index.md')
       },
+    ]
+  },
+  {
+    name: '布局',
+    children: [
       {
-        name: '加载中',
-        path: '/spin',
-        component: import('../src/spin/doc/index.md')
-      },
-      {
-        name: '折叠面板',
-        path: '/collapse',
-        component: import('../src/collapse/doc/index.md')
-      },
-      {
-        name: '文字提示',
-        path: '/tooltip',
-        component: import('../src/tooltip/doc/index.md')
-      },
+        name: '栅格布局',
+        path: '/row',
+        component: import('../src/row/doc/index.md')
+      }
+    ]
+  },
+  {
+    name: '导航组件',
+    children: [
       {
         name: '下拉菜单',
         path: '/dropdown',
         component: import('../src/dropdown/doc/index.md')
+      },
+    ]
+  },
+  {
+    name: '数据展示',
+    children: [
+      {
+        name: '文字提示',
+        path: '/tooltip',
+        component: import('../src/tooltip/doc/index.md')
       },
       {
         name: '气泡卡片',
@@ -81,15 +81,30 @@ const routes: Route[] = [
         component: import('../src/popover/doc/index.md')
       },
       {
+        name: '走马灯',
+        path: '/carousel',
+        component: import('../src/carousel/doc/index.md')
+      },
+      {
+        name: '折叠面板',
+        path: '/collapse',
+        component: import('../src/collapse/doc/index.md')
+      },
+    ]
+  },
+  {
+    name: '反馈组件',
+    children: [
+      {
         name: '气泡确认框',
         path: '/popconfirm',
         component: import('../src/popconfirm/doc/index.md')
       },
       {
-        name: '走马灯',
-        path: '/carousel',
-        component: import('../src/carousel/doc/index.md')
-      }
+        name: '加载中',
+        path: '/spin',
+        component: import('../src/spin/doc/index.md')
+      },
     ]
   },
   {
