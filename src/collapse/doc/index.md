@@ -231,6 +231,7 @@ export default () => {
 
 | 参数    | 说明             | 类型        | 可选值       | 默认值 | 是否必填|
 | ------- | --------------- | ---------- | -------- | ------ | -----|
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | accordion  | 手风琴模式     | boolean |      -       |   false   | false|
 | bordered  | 是否显示边框     | boolean |      -       |   true  | false|
 | children  | 必须为CollapsePanel或其数组     | ReactElement/ReactElement[] |    -       |   -  | true|
@@ -245,6 +246,7 @@ export default () => {
 
 | 参数    | 说明             | 类型        | 可选值       | 默认值 | 是否必填|
 | ------- | --------------- | ---------- | -------- | ------ | -----|
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | children  | 面板内容     | ReactElement/ReactElement[] |    -       |   -  | true|
 | className  | 自定义面板class     | string |    -       |   -  | false|
 | disabled  | 是否禁止     | boolean |    -       |   false  | false|

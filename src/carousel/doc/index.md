@@ -136,6 +136,7 @@ export default () => {
 
 | 参数    | 说明             | 类型        | 可选值       | 默认值 | 是否必填|
 | ------- | --------------- | ---------- | -------- | ------ | -----|
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | arrow  | 箭头显示方式     | string |   hover/always/none    |   hover   | false|
 | autoPlay  | 是否自动播放     | boolean |      -       |   false  | false|
 | children  | -     | ReactElement/ReactElement[] |    -       |   -  | true|
@@ -148,7 +149,6 @@ export default () => {
 | width  | 指定走马灯宽度     | number/string  |    -       |   100%  | false|
 | loop  | 是否循环展示     | boolean  |    -       |   true  | false|
 | onChange  | 切换幻灯片回调     | (current: number) => void  |    -       |   -  | false|
-| prefixCls  | class前缀     | string  |    -       |   xl-carousel  | false|
 | dotTrigger  | 指示器触发方式     | string  |    hover/click       |   click  | false|
 | damping  | 阻尼系数,影响滑动换页的难度     | number  |    >0       |   35  | false|
 | slide  | 允许滑动操作     | boolean  |    -       |   true  | false|

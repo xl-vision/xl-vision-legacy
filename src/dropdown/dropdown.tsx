@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
@@ -49,7 +50,9 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
 
 Dropdown.displayName = displayName
 
-Dropdown.propTypes = {}
+Dropdown.propTypes = {
+  overlay: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired
+}
 
 export default Dropdown
 

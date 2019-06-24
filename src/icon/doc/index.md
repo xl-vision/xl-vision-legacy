@@ -34,6 +34,7 @@ export default function() {
 
 | 参数   | 说明         | 类型          | 可选值 | 默认值 |是否必填|
 | ------ | ------------ | ------------- | ------ | ------ |--|
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | size   | 图标大小     | number/string | -      | -      |false|
 | color  | 图标颜色     | string        | -      | -      |false|
 | spin   | 图标是否旋转 | boolean       | false  | -      |false|

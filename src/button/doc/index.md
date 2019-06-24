@@ -320,6 +320,7 @@ export default () => {
 
 | 参数    | 说明        | 类型       | 可选值   | 默认值 | 是否必填|
 | ------- | -------- | --------- | ------------ | ------ | --- |
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | dashed|设置按钮边框为虚线样式，需要和`plain`连用才能显示出效果|boolean|-|false|false|
 | disabled|禁止按钮|boolean|-|false|false|
 |ghost|幽灵属性，使按钮背景透明|boolean|-|false|false|
@@ -336,6 +337,7 @@ export default () => {
 
 | 参数    | 说明        | 类型       | 可选值   | 默认值 | 是否必填|
 | ------- | -------- | --------- | ------------ | ------ | --- |
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 |round|指定按钮组中按钮的圆角样式|boolean|-|false|false|
 |vertical|指定按钮组为垂直方向|boolean|-|false|false|
 |size|设置按钮大小,如果按钮自动设置了size，则会覆盖这个值|string|default/large/small|default|false|

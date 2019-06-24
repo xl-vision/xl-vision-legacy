@@ -121,6 +121,7 @@ export default function () {
 
 | 参数    | 说明        | 类型       | 可选值   | 默认值 |是否必填|
 | ------- | -------- | --------- | ------------ | ------ |---|
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | cover|覆盖父元素，此时父元素的position需要为`absolute`或者`relative`|boolean|-|false|false|
 | delay|延迟显示加载效果的时间（防止闪烁）|number(毫秒)|-|-|false|
 | indicator|自定义加载指示器|ReactElement|-|-|false|

@@ -402,6 +402,7 @@ export default function() {
 
 | 参数    | 说明                                  | 类型            | 可选值                                              | 默认值 |是否必填|
 | ------- | ------------------------------------- | --------------- | --------------------------------------------------- | ------ |---|
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | gutter  | 内容块间隙(支持响应式)                | number / object | >=0                                                 | 0      |false|
 | type    | 布局类型                              | flex            | -                                                   | -      |false|
 | justify | 栅格左右对齐方式(在`type=flex`下有效) | string          | start / end / center / space-around / space-between | —      |false|
@@ -411,6 +412,7 @@ export default function() {
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 |是否必填|
 | ------ | ------------------------------------------ | --------------- | ------ | ------ |---|
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | span   | 栅格占据的列数(支持响应式)(**0 表示隐藏**) | number / object | 0-24   | —      |true|
 | offset | 栅格左侧的间隔列数(支持响应式)             | number / object | 1-24   | —      |false|
 | push   | 栅格向右移动的列数(支持响应式)             | number / object | 1-24   | —      |false|

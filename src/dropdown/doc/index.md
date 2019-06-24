@@ -100,12 +100,9 @@ const [visible, setVisible] = React.useState(false)
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
-| content | 提示内容            | React.ReactNode  | -  | -| true|
-
-## 公共API
-
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
-| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
+| children | 参考元素            | React.ReactElement  | -  | -| true|
+| overlay | 弹出菜单            | React.ReactElement/React.ReactElement[]  | -  | -| true|
 | allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|
 | delayHide | 延迟隐藏            | number  | -  | 0 | false|
 | delayShow | 延迟显示            | number  | -  | 0 | false|
@@ -117,3 +114,17 @@ const [visible, setVisible] = React.useState(false)
 | placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'topLeft' / 'topRight'/ 'bottomLeft' / 'bottomRight' / 'leftTop' / 'leftBottom' / 'rightTop' / 'rightBottom'  | -  | 'bottom' | false|
 | trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
 | visible | 手动设置visible           | boolean  | -  | - | false|
+
+## DropdownItem API
+
+| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
+| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
+| children | 菜单内容            | React.ReactNode | -  | -| true|
+| disabled | 是否禁用            | boolean  | -  | -| false|
+
+## DropdownDivider API
+
+| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
+| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 
@@ -17,6 +18,8 @@ const DropdownDivider: React.FunctionComponent<DropdownDividerProps> = props => 
 
 DropdownDivider.displayName = displayName
 
-DropdownDivider.propTypes = {}
+DropdownDivider.propTypes = {
+  prefixCls: PropTypes.string
+}
 
 export default DropdownDivider

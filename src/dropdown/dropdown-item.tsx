@@ -1,9 +1,10 @@
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
 
 export interface DropdownItemProps extends React.HTMLAttributes<HTMLLIElement> {
-  children: React.ReactElement
+  children: React.ReactNode
   disabled?: boolean
   prefixCls?: string
 }
@@ -82,6 +83,10 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
 
 DropdownItem.displayName = displayName
 
-DropdownItem.propTypes = {}
+DropdownItem.propTypes = {
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+  prefixCls: PropTypes.string
+}
 
 export default DropdownItem

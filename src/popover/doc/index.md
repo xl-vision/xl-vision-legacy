@@ -170,6 +170,8 @@ export default () => {
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
+| children | 参考元素            | React.ReactElement  | -  | -| true|
 | content | 提示内容            | React.ReactNode  | -  | -| true|
 | title | 标题            | React.ReactNode  | -  | -| true|
 | allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|

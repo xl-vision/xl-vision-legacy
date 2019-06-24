@@ -217,6 +217,8 @@ export default () => {
 
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| prefixCls | 自定义类名前缀            | string  | -  | -| false|
+| children | 参考元素            | React.ReactElement  | -  | -| true|
 | cancelText | 取消按钮的内容           | string  | -  | -| false|
 | cancelType | 取消按钮的类型           | string  | default / primary / success / warning / error / text  | -| false|
 | onCancel | 点击取消按钮的回调           |  (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | -  | -| false|
