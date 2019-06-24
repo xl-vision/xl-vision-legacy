@@ -3,26 +3,14 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import { namePrefix } from '../../config'
+import useAlign, { Placement } from '../../hooks/useAlign'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
-import { getPosition } from '../../utils/dom'
 import { mergeEvents, off, on } from '../../utils/event'
 import { increaseZIndex } from '../../utils/zIndex-manager'
 
-export type Placement =
-  | 'top'
-  | 'left'
-  | 'right'
-  | 'bottom'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomRight'
-  | 'leftTop'
-  | 'leftBottom'
-  | 'rightTop'
-  | 'rightBottom'
+export { Placement } from '../../hooks/useAlign'
 
 export interface PopperProps {
   allowPopupEnter?: boolean
@@ -44,10 +32,6 @@ export interface PopperProps {
 }
 
 const TIME_DELAY = 20
-
-// const isTransformSupport = isStyleSupport('transform')
-// 使用transform时，嵌套使用会导致定位不准确，所以暂且禁用
-const isTransformSupport = false
 
 export const displayName = `${namePrefix}-popper`
 
@@ -79,14 +63,22 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
-  const [popupPosition, setPopupPosition] = React.useState<{ bottom: number, left: number, right: number, top: number }>()
-  const [referencePosition, setReferencePosition] = React.useState<{ bottom: number, left: number, right: number, top: number }>()
-
-  const [left, setLeft] = React.useState(0)
-  const [top, setTop] = React.useState(0)
+  const { updatePosition, popupPosition, referencePosition, popupStyle } = useAlign(referenceRef, popupRef, placement)
 
   // 延迟渲染弹出框，只在第一次需要弹出时才渲染
   const [needMount, setNeedMount] = React.useState(false)
+
+  /**
+   * 窗口改变的时候，需要重置位置
+   */
+  React.useEffect(() => {
+    on('resize', updatePosition)
+    on('scroll', updatePosition)
+    return () => {
+      off('scroll', updatePosition)
+      off('resize', updatePosition)
+    }
+  }, [updatePosition])
 
   useUnmount(() => {
     isUnmountRef.current = true
@@ -108,52 +100,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   React.useEffect(() => {
     setActualWrapper(visible)
   }, [visible])
-
-  React.useEffect(() => {
-    if (!referencePosition || !popupPosition) {
-      return
-    }
-    let topTo = 0
-    let leftTo = 0
-    if (placement.startsWith('top')) {
-      topTo = referencePosition.top - popupPosition.bottom
-    } else if (placement.startsWith('bottom')) {
-      topTo = referencePosition.bottom - popupPosition.top
-    } else if (placement.startsWith('left')) {
-      leftTo = referencePosition.left - popupPosition.right
-    } else if (placement.startsWith('right')) {
-      leftTo = referencePosition.right - popupPosition.left
-    }
-    if (placement.endsWith('Left')) {
-      leftTo = referencePosition.left - popupPosition.left
-    } else if (placement.endsWith('Right')) {
-      leftTo = referencePosition.right - popupPosition.right
-    } else if (placement.endsWith('Top')) {
-      topTo = referencePosition.top - popupPosition.top
-    } else if (placement.endsWith('Bottom')) {
-      topTo = referencePosition.bottom - popupPosition.bottom
-    }
-    if (placement === 'top' || placement === 'bottom') {
-      leftTo = (referencePosition.left + referencePosition.right - popupPosition.right - popupPosition.left) / 2
-    } else if (placement === 'left' || placement === 'right') {
-      topTo = (referencePosition.top + referencePosition.bottom - popupPosition.top - popupPosition.bottom) / 2
-    }
-
-    // 如果使用绝对定位，必须考虑已经有的位移量，
-    // transform定位，不会改变元素的原始位置
-    if (!isTransformSupport) {
-      topTo += top
-      leftTo += left
-    }
-    topTo = Math.floor(topTo)
-    leftTo = Math.floor(leftTo)
-    if (topTo !== top) {
-      setTop(topTo)
-    }
-    if (leftTo !== left) {
-      setLeft(leftTo)
-    }
-  }, [placement, popupPosition, referencePosition])
 
   useUpdate(() => {
     onVisibleChange && onVisibleChange(actualVisible)
@@ -202,23 +148,11 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       y: Math.floor(y)
     }
 
-  }, [popupPosition, referencePosition, left, top, placement, offset])
+  }, [popupPosition, referencePosition, placement, offset])
 
-  const popupStyle = React.useMemo(() => {
-
-    const style: React.CSSProperties = {
-      position: 'absolute'
-    }
-
-    if (isTransformSupport) {
-      style.left = 0
-      style.top = 0
-      style.transform = `translate3d(${left}px,${top}px, 0)`
-      style.willChange = 'transform'
-    } else {
-      style.left = left
-      style.top = top
-      style.willChange = 'left, top'
+  const allPopupStyle = React.useMemo(() => {
+    const style = {
+      ...popupStyle
     }
 
     if (placement.startsWith('top')) {
@@ -234,37 +168,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style.zIndex = increaseZIndex()
     }
     return style
-  }, [left, top, offset, actualVisible])
-
-  const setPosition = React.useCallback(() => {
-    if (!popupRef.current || !referenceRef.current) {
-      return
-    }
-    const popupPos = getPosition(popupRef.current)
-    const referencePos = getPosition(referenceRef.current)
-    if (!equalObject(popupPos, popupPosition)) {
-      setPopupPosition(popupPos)
-
-    }
-    if (!equalObject(referencePos, referencePosition)) {
-      setReferencePosition(referencePos)
-    }
-
-  }, [popupRef, referenceRef])
-
-  React.useEffect(() => {
-    const rePosition = () => {
-      if (actualVisible) {
-        setPosition()
-      }
-    }
-    on('resize', rePosition)
-    on('scroll', rePosition)
-    return () => {
-      off('scroll', rePosition)
-      off('resize', rePosition)
-    }
-  }, [actualVisible, setPosition])
+  }, [placement, offset, actualVisible, popupStyle])
 
   const onMouseEnter = React.useCallback(() => {
     // 如果是从popup移动过来，需要先清除popup的定时关闭
@@ -363,7 +267,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   const portal = ReactDOM.createPortal((
     <div
       ref={popupRef}
-      style={popupStyle}
+      style={allPopupStyle}
       onMouseEnter={onPopupMouseEnter}
       onMouseLeave={onPopupMouseLeave}
       onClick={onPopupClick}
@@ -373,8 +277,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         isAppear={true}
         show={actualVisible}
         classNames={transitionClass}
-        beforeEnter={setPosition}
-        beforeAppear={setPosition}
+        beforeEnter={updatePosition}
+        beforeAppear={updatePosition}
       >
         <div className={overlayClass} style={overlayStyleObj}>
           {arrow && arrow(placement, arrowCenter)}
@@ -448,15 +352,3 @@ Popper.propTypes = {
 }
 
 export default Popper
-
-const equalObject = (left: any, right: any) => {
-  if (!left || !right) {
-    return false
-  }
-  for (const key of Object.keys(left)) {
-    if (left[key] !== right[key]) {
-      return false
-    }
-  }
-  return true
-}
