@@ -27,6 +27,8 @@ const buildMenus = (routeArray: Route[]) => {
   return <ul className='menus'>{nodes}</ul>
 }
 
-export default function () {
+const Aside = () => {
   return <div className='aside'>{buildMenus(routes)}</div>
 }
+
+export default Aside

@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-carousel-transition'
 imports:
     - import CollapseTransition from '..'
     - import Button from '../../button'

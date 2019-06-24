@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-transition'
 imports:
     - import Transition from '..'
     - import Button from '../../button'

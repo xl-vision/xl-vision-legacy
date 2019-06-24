@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-button'
 imports:
     - import Button from '..'
     - import Icon from '../../icon'

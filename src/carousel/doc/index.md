@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-carousel'
 imports:
     - import { Carousel, Button, ButtonGroup } from '../..'
     - import './index.scss'

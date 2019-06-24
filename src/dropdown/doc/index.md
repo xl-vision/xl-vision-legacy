@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-dropdown'
 imports:
   - import './index.scss'
   - import Dropdown from '..'

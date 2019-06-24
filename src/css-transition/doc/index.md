@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-css-transition'
 imports:
     - import CssTransition from '..'
     - import Button from '../../button'

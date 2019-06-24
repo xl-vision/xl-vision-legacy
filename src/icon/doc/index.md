@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-icon'
 imports:
   - import Icon from '..'
   - import IconSelect from 'site/components/icon-select'

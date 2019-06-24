@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-tooltip'
 imports:
   - import './index.scss'
   - import Tooltip from '..'

@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-row'
 imports:
   - import Row from '..'
   - import './style.scss'

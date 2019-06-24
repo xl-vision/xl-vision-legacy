@@ -87,8 +87,5 @@
   },
   "peerDependencies": {
     "react": "^16.8.2"
-  },
-  "sideEffects": [
-    "dist/*"
-  ]
+  }
 }

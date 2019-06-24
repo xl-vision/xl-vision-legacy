@@ -46,7 +46,7 @@ const addRoute = (routeArray: Route[], level = '1') => {
 
 addRoute(routes)
 
-export default function () {
+const Content = () => {
   return (
     <div className='content'>
       <React.Suspense fallback={<Spin cover={true}/>}>
@@ -55,3 +55,4 @@ export default function () {
     </div>
   )
 }
+export default Content

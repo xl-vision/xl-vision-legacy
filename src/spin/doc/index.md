@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-spin'
 imports:
     - import './index.scss'
     - import Spin from '..'

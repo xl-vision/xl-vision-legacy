@@ -1,8 +1,9 @@
 ---
+displayName: 'docs-collapse'
 imports:
-    - import Collapse from '..'
-    - import { FasArrowCircleRight, FasCog } from '../../icon'
-    - import './index.scss'
+  - import Collapse from '..'
+  - import { FasArrowCircleRight, FasCog } from '../../icon'
+  - import './index.scss'
 ---
 
 # 折叠面板

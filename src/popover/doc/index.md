@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-popover'
 imports:
   - import './index.scss'
   - import Popover from '..'

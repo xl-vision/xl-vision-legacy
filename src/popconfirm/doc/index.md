@@ -1,4 +1,5 @@
 ---
+displayName: 'docs-popconfirm'
 imports:
   - import './index.scss'
   - import Popconfirm from '..'

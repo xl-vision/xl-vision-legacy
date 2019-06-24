@@ -4,7 +4,7 @@ import { Button, Icon } from '../../../src'
 import logo from '../../assets/img/logo.png'
 import './index.scss'
 
-export default function () {
+const Header = () => {
   return (
     <header className='header'>
       <Link to='/' className='logo'>
@@ -18,3 +18,5 @@ export default function () {
     </header>
   )
 }
+
+export default Header
