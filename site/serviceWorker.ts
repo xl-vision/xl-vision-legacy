@@ -13,10 +13,10 @@ interface Config {
   onUpdate?: (registration: ServiceWorkerRegistration) => void
 }
 
-const PUBLIC_URL = '/xl-vision'
+const PUBLIC_URL = process.env.NODE_ENV === 'production' ? '/xl-vision' : ''
 
 export function register (config?: Config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(
       PUBLIC_URL,
