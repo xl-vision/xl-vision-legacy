@@ -1,11 +1,15 @@
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { namePrefix } from '../../config'
 import useIsMounted from '../../hooks/useIsMounted'
 
 export interface PortalProp {
   children: React.ReactNode,
   getContainer: () => Element
 }
+
+export const displayName = `${namePrefix}-portal`
 
 /**
  * 支持服务端渲染
@@ -17,14 +21,14 @@ const Portal: React.FunctionComponent<PortalProp> = props => {
 
   const isMounted = useIsMounted()
 
-  const el = React.useMemo(() => {
-    if (isMounted) {
-      return ReactDOM.createPortal(children, getContainer())
-    }
-    return null
-  }, [isMounted, getContainer, children])
+  return isMounted ? ReactDOM.createPortal(children, getContainer()) : null
+}
 
-  return el
+Portal.displayName = displayName
+
+Portal.propTypes = {
+  children: PropTypes.node.isRequired,
+  getContainer: PropTypes.func.isRequired
 }
 
 export default Portal
