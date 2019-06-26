@@ -20,7 +20,7 @@ export interface PopperProps {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   delayHide?: number
   delayShow?: number
-  getPopupContainer?: () => HTMLElement
+  getPopupContainer?: () => Element
   offset?: number
   onVisibleChange?: (visible: boolean) => void,
   overlayClassName?: string | ((placement: Placement) => string),
