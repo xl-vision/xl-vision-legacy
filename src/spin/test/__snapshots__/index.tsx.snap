@@ -14,7 +14,7 @@ exports[`spin 不同大小 1`] = `
         classNames="xl-spin__fade"
         show={true}
       >
-        <xl-transition-wrapper
+        <xl-transition
           afterAppear={[Function]}
           afterEnter={[Function]}
           afterLeave={[Function]}
@@ -29,68 +29,52 @@ exports[`spin 不同大小 1`] = `
           leaveCancelled={[Function]}
           show={true}
         >
-          <xl-transition
-            afterAppear={[Function]}
-            afterEnter={[Function]}
-            afterLeave={[Function]}
-            appear={[Function]}
-            appearCancelled={[Function]}
-            beforeAppear={[Function]}
-            beforeEnter={[Function]}
-            beforeLeave={[Function]}
-            enter={[Function]}
-            enterCancelled={[Function]}
-            leave={[Function]}
-            leaveCancelled={[Function]}
-            show={true}
+          <div
+            className="xl-spin__fade"
+            style={Object {}}
           >
             <div
-              className="xl-spin__fade"
-              style={Object {}}
+              className="xl-spin__wrapper xl-spin__wrapper--small"
             >
-              <div
-                className="xl-spin__wrapper xl-spin__wrapper--small"
+              <span
+                className="xl-spin__indicator"
               >
-                <span
-                  className="xl-spin__indicator"
+                <xl-fas-spinner
+                  spin={true}
                 >
-                  <xl-fas-spinner
+                  <Memo(xl-icon)
                     spin={true}
                   >
-                    <Memo(xl-icon)
-                      spin={true}
+                    <i
+                      className="xl-icon xl-icon--spin"
+                      style={Object {}}
                     >
-                      <i
-                        className="xl-icon xl-icon--spin"
-                        style={Object {}}
-                      >
-                        <svg
-                          fill="currentColor"
-                          style={
-                            Object {
-                              "height": "1em",
-                              "width": "1em",
-                            }
+                      <svg
+                        fill="currentColor"
+                        style={
+                          Object {
+                            "height": "1em",
+                            "width": "1em",
                           }
-                          viewBox="0 0 512 512"
-                        >
-                          <path
-                            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-                          />
-                        </svg>
-                      </i>
-                    </Memo(xl-icon)>
-                  </xl-fas-spinner>
-                </span>
-                <span
-                  className="xl-spin__tip"
-                >
-                  loading
-                </span>
-              </div>
+                        }
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+                        />
+                      </svg>
+                    </i>
+                  </Memo(xl-icon)>
+                </xl-fas-spinner>
+              </span>
+              <span
+                className="xl-spin__tip"
+              >
+                loading
+              </span>
             </div>
-          </xl-transition>
-        </xl-transition-wrapper>
+          </div>
+        </xl-transition>
       </xl-css-transition>
     </div>
   </xl-spin>
@@ -102,203 +86,6 @@ exports[`spin 不同大小 1`] = `
     >
       <xl-css-transition
         classNames="xl-spin__fade"
-        show={true}
-      >
-        <xl-transition-wrapper
-          afterAppear={[Function]}
-          afterEnter={[Function]}
-          afterLeave={[Function]}
-          appear={[Function]}
-          appearCancelled={[Function]}
-          beforeAppear={[Function]}
-          beforeEnter={[Function]}
-          beforeLeave={[Function]}
-          enter={[Function]}
-          enterCancelled={[Function]}
-          leave={[Function]}
-          leaveCancelled={[Function]}
-          show={true}
-        >
-          <xl-transition
-            afterAppear={[Function]}
-            afterEnter={[Function]}
-            afterLeave={[Function]}
-            appear={[Function]}
-            appearCancelled={[Function]}
-            beforeAppear={[Function]}
-            beforeEnter={[Function]}
-            beforeLeave={[Function]}
-            enter={[Function]}
-            enterCancelled={[Function]}
-            leave={[Function]}
-            leaveCancelled={[Function]}
-            show={true}
-          >
-            <div
-              className="xl-spin__fade"
-              style={Object {}}
-            >
-              <div
-                className="xl-spin__wrapper xl-spin__wrapper--default"
-              >
-                <span
-                  className="xl-spin__indicator"
-                >
-                  <xl-fas-spinner
-                    spin={true}
-                  >
-                    <Memo(xl-icon)
-                      spin={true}
-                    >
-                      <i
-                        className="xl-icon xl-icon--spin"
-                        style={Object {}}
-                      >
-                        <svg
-                          fill="currentColor"
-                          style={
-                            Object {
-                              "height": "1em",
-                              "width": "1em",
-                            }
-                          }
-                          viewBox="0 0 512 512"
-                        >
-                          <path
-                            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-                          />
-                        </svg>
-                      </i>
-                    </Memo(xl-icon)>
-                  </xl-fas-spinner>
-                </span>
-                <span
-                  className="xl-spin__tip"
-                >
-                  loading
-                </span>
-              </div>
-            </div>
-          </xl-transition>
-        </xl-transition-wrapper>
-      </xl-css-transition>
-    </div>
-  </xl-spin>
-  <xl-spin
-    size="large"
-  >
-    <div
-      className="xl-spin xl-spin--spinning"
-    >
-      <xl-css-transition
-        classNames="xl-spin__fade"
-        show={true}
-      >
-        <xl-transition-wrapper
-          afterAppear={[Function]}
-          afterEnter={[Function]}
-          afterLeave={[Function]}
-          appear={[Function]}
-          appearCancelled={[Function]}
-          beforeAppear={[Function]}
-          beforeEnter={[Function]}
-          beforeLeave={[Function]}
-          enter={[Function]}
-          enterCancelled={[Function]}
-          leave={[Function]}
-          leaveCancelled={[Function]}
-          show={true}
-        >
-          <xl-transition
-            afterAppear={[Function]}
-            afterEnter={[Function]}
-            afterLeave={[Function]}
-            appear={[Function]}
-            appearCancelled={[Function]}
-            beforeAppear={[Function]}
-            beforeEnter={[Function]}
-            beforeLeave={[Function]}
-            enter={[Function]}
-            enterCancelled={[Function]}
-            leave={[Function]}
-            leaveCancelled={[Function]}
-            show={true}
-          >
-            <div
-              className="xl-spin__fade"
-              style={Object {}}
-            >
-              <div
-                className="xl-spin__wrapper xl-spin__wrapper--large"
-              >
-                <span
-                  className="xl-spin__indicator"
-                >
-                  <xl-fas-spinner
-                    spin={true}
-                  >
-                    <Memo(xl-icon)
-                      spin={true}
-                    >
-                      <i
-                        className="xl-icon xl-icon--spin"
-                        style={Object {}}
-                      >
-                        <svg
-                          fill="currentColor"
-                          style={
-                            Object {
-                              "height": "1em",
-                              "width": "1em",
-                            }
-                          }
-                          viewBox="0 0 512 512"
-                        >
-                          <path
-                            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-                          />
-                        </svg>
-                      </i>
-                    </Memo(xl-icon)>
-                  </xl-fas-spinner>
-                </span>
-                <span
-                  className="xl-spin__tip"
-                >
-                  loading
-                </span>
-              </div>
-            </div>
-          </xl-transition>
-        </xl-transition-wrapper>
-      </xl-css-transition>
-    </div>
-  </xl-spin>
-</div>
-`;
-
-exports[`spin 内嵌内容 1`] = `
-<xl-spin>
-  <div
-    className="xl-spin xl-spin--spinning xl-spin--nested"
-  >
-    <xl-css-transition
-      classNames="xl-spin__fade"
-      show={true}
-    >
-      <xl-transition-wrapper
-        afterAppear={[Function]}
-        afterEnter={[Function]}
-        afterLeave={[Function]}
-        appear={[Function]}
-        appearCancelled={[Function]}
-        beforeAppear={[Function]}
-        beforeEnter={[Function]}
-        beforeLeave={[Function]}
-        enter={[Function]}
-        enterCancelled={[Function]}
-        leave={[Function]}
-        leaveCancelled={[Function]}
         show={true}
       >
         <xl-transition
@@ -362,7 +149,156 @@ exports[`spin 内嵌内容 1`] = `
             </div>
           </div>
         </xl-transition>
-      </xl-transition-wrapper>
+      </xl-css-transition>
+    </div>
+  </xl-spin>
+  <xl-spin
+    size="large"
+  >
+    <div
+      className="xl-spin xl-spin--spinning"
+    >
+      <xl-css-transition
+        classNames="xl-spin__fade"
+        show={true}
+      >
+        <xl-transition
+          afterAppear={[Function]}
+          afterEnter={[Function]}
+          afterLeave={[Function]}
+          appear={[Function]}
+          appearCancelled={[Function]}
+          beforeAppear={[Function]}
+          beforeEnter={[Function]}
+          beforeLeave={[Function]}
+          enter={[Function]}
+          enterCancelled={[Function]}
+          leave={[Function]}
+          leaveCancelled={[Function]}
+          show={true}
+        >
+          <div
+            className="xl-spin__fade"
+            style={Object {}}
+          >
+            <div
+              className="xl-spin__wrapper xl-spin__wrapper--large"
+            >
+              <span
+                className="xl-spin__indicator"
+              >
+                <xl-fas-spinner
+                  spin={true}
+                >
+                  <Memo(xl-icon)
+                    spin={true}
+                  >
+                    <i
+                      className="xl-icon xl-icon--spin"
+                      style={Object {}}
+                    >
+                      <svg
+                        fill="currentColor"
+                        style={
+                          Object {
+                            "height": "1em",
+                            "width": "1em",
+                          }
+                        }
+                        viewBox="0 0 512 512"
+                      >
+                        <path
+                          d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+                        />
+                      </svg>
+                    </i>
+                  </Memo(xl-icon)>
+                </xl-fas-spinner>
+              </span>
+              <span
+                className="xl-spin__tip"
+              >
+                loading
+              </span>
+            </div>
+          </div>
+        </xl-transition>
+      </xl-css-transition>
+    </div>
+  </xl-spin>
+</div>
+`;
+
+exports[`spin 内嵌内容 1`] = `
+<xl-spin>
+  <div
+    className="xl-spin xl-spin--spinning xl-spin--nested"
+  >
+    <xl-css-transition
+      classNames="xl-spin__fade"
+      show={true}
+    >
+      <xl-transition
+        afterAppear={[Function]}
+        afterEnter={[Function]}
+        afterLeave={[Function]}
+        appear={[Function]}
+        appearCancelled={[Function]}
+        beforeAppear={[Function]}
+        beforeEnter={[Function]}
+        beforeLeave={[Function]}
+        enter={[Function]}
+        enterCancelled={[Function]}
+        leave={[Function]}
+        leaveCancelled={[Function]}
+        show={true}
+      >
+        <div
+          className="xl-spin__fade"
+          style={Object {}}
+        >
+          <div
+            className="xl-spin__wrapper xl-spin__wrapper--default"
+          >
+            <span
+              className="xl-spin__indicator"
+            >
+              <xl-fas-spinner
+                spin={true}
+              >
+                <Memo(xl-icon)
+                  spin={true}
+                >
+                  <i
+                    className="xl-icon xl-icon--spin"
+                    style={Object {}}
+                  >
+                    <svg
+                      fill="currentColor"
+                      style={
+                        Object {
+                          "height": "1em",
+                          "width": "1em",
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+                      />
+                    </svg>
+                  </i>
+                </Memo(xl-icon)>
+              </xl-fas-spinner>
+            </span>
+            <span
+              className="xl-spin__tip"
+            >
+              loading
+            </span>
+          </div>
+        </div>
+      </xl-transition>
     </xl-css-transition>
     <div
       className="xl-spin__children"
@@ -386,7 +322,7 @@ exports[`spin 基本用法 1`] = `
       classNames="xl-spin__fade"
       show={true}
     >
-      <xl-transition-wrapper
+      <xl-transition
         afterAppear={[Function]}
         afterEnter={[Function]}
         afterLeave={[Function]}
@@ -399,6 +335,231 @@ exports[`spin 基本用法 1`] = `
         enterCancelled={[Function]}
         leave={[Function]}
         leaveCancelled={[Function]}
+        show={true}
+      >
+        <div
+          className="xl-spin__fade"
+          style={Object {}}
+        >
+          <div
+            className="xl-spin__wrapper xl-spin__wrapper--default"
+          >
+            <span
+              className="xl-spin__indicator"
+            >
+              <xl-fas-spinner
+                spin={true}
+              >
+                <Memo(xl-icon)
+                  spin={true}
+                >
+                  <i
+                    className="xl-icon xl-icon--spin"
+                    style={Object {}}
+                  >
+                    <svg
+                      fill="currentColor"
+                      style={
+                        Object {
+                          "height": "1em",
+                          "width": "1em",
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+                      />
+                    </svg>
+                  </i>
+                </Memo(xl-icon)>
+              </xl-fas-spinner>
+            </span>
+            <span
+              className="xl-spin__tip"
+            >
+              loading
+            </span>
+          </div>
+        </div>
+      </xl-transition>
+    </xl-css-transition>
+  </div>
+</xl-spin>
+`;
+
+exports[`spin 自定义指示器 1`] = `
+<xl-spin
+  indicator={
+    <xl-fas-circle-notch
+      spin={true}
+    />
+  }
+  tip="Loading..."
+>
+  <div
+    className="xl-spin xl-spin--spinning"
+  >
+    <xl-css-transition
+      classNames="xl-spin__fade"
+      show={true}
+    >
+      <xl-transition
+        afterAppear={[Function]}
+        afterEnter={[Function]}
+        afterLeave={[Function]}
+        appear={[Function]}
+        appearCancelled={[Function]}
+        beforeAppear={[Function]}
+        beforeEnter={[Function]}
+        beforeLeave={[Function]}
+        enter={[Function]}
+        enterCancelled={[Function]}
+        leave={[Function]}
+        leaveCancelled={[Function]}
+        show={true}
+      >
+        <div
+          className="xl-spin__fade"
+          style={Object {}}
+        >
+          <div
+            className="xl-spin__wrapper xl-spin__wrapper--default"
+          >
+            <span
+              className="xl-spin__indicator"
+            >
+              <xl-fas-circle-notch
+                spin={true}
+              >
+                <Memo(xl-icon)
+                  spin={true}
+                >
+                  <i
+                    className="xl-icon xl-icon--spin"
+                    style={Object {}}
+                  >
+                    <svg
+                      fill="currentColor"
+                      style={
+                        Object {
+                          "height": "1em",
+                          "width": "1em",
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
+                      />
+                    </svg>
+                  </i>
+                </Memo(xl-icon)>
+              </xl-fas-circle-notch>
+            </span>
+            <span
+              className="xl-spin__tip"
+            >
+              Loading...
+            </span>
+          </div>
+        </div>
+      </xl-transition>
+    </xl-css-transition>
+  </div>
+</xl-spin>
+`;
+
+exports[`spin 自定义描述 1`] = `
+<xl-spin
+  tip="Loading..."
+>
+  <div
+    className="xl-spin xl-spin--spinning"
+  >
+    <xl-css-transition
+      classNames="xl-spin__fade"
+      show={true}
+    >
+      <xl-transition
+        afterAppear={[Function]}
+        afterEnter={[Function]}
+        afterLeave={[Function]}
+        appear={[Function]}
+        appearCancelled={[Function]}
+        beforeAppear={[Function]}
+        beforeEnter={[Function]}
+        beforeLeave={[Function]}
+        enter={[Function]}
+        enterCancelled={[Function]}
+        leave={[Function]}
+        leaveCancelled={[Function]}
+        show={true}
+      >
+        <div
+          className="xl-spin__fade"
+          style={Object {}}
+        >
+          <div
+            className="xl-spin__wrapper xl-spin__wrapper--default"
+          >
+            <span
+              className="xl-spin__indicator"
+            >
+              <xl-fas-spinner
+                spin={true}
+              >
+                <Memo(xl-icon)
+                  spin={true}
+                >
+                  <i
+                    className="xl-icon xl-icon--spin"
+                    style={Object {}}
+                  >
+                    <svg
+                      fill="currentColor"
+                      style={
+                        Object {
+                          "height": "1em",
+                          "width": "1em",
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+                      />
+                    </svg>
+                  </i>
+                </Memo(xl-icon)>
+              </xl-fas-spinner>
+            </span>
+            <span
+              className="xl-spin__tip"
+            >
+              Loading...
+            </span>
+          </div>
+        </div>
+      </xl-transition>
+    </xl-css-transition>
+  </div>
+</xl-spin>
+`;
+
+exports[`spin 覆盖父元素 1`] = `
+<div
+  className="inner"
+>
+  Further details about the context of this alert.
+  <xl-spin
+    cover={true}
+  >
+    <div
+      className="xl-spin xl-spin--spinning xl-spin--cover"
+    >
+      <xl-css-transition
+        classNames="xl-spin__fade"
         show={true}
       >
         <xl-transition
@@ -462,295 +623,6 @@ exports[`spin 基本用法 1`] = `
             </div>
           </div>
         </xl-transition>
-      </xl-transition-wrapper>
-    </xl-css-transition>
-  </div>
-</xl-spin>
-`;
-
-exports[`spin 自定义指示器 1`] = `
-<xl-spin
-  indicator={
-    <xl-fas-circle-notch
-      spin={true}
-    />
-  }
-  tip="Loading..."
->
-  <div
-    className="xl-spin xl-spin--spinning"
-  >
-    <xl-css-transition
-      classNames="xl-spin__fade"
-      show={true}
-    >
-      <xl-transition-wrapper
-        afterAppear={[Function]}
-        afterEnter={[Function]}
-        afterLeave={[Function]}
-        appear={[Function]}
-        appearCancelled={[Function]}
-        beforeAppear={[Function]}
-        beforeEnter={[Function]}
-        beforeLeave={[Function]}
-        enter={[Function]}
-        enterCancelled={[Function]}
-        leave={[Function]}
-        leaveCancelled={[Function]}
-        show={true}
-      >
-        <xl-transition
-          afterAppear={[Function]}
-          afterEnter={[Function]}
-          afterLeave={[Function]}
-          appear={[Function]}
-          appearCancelled={[Function]}
-          beforeAppear={[Function]}
-          beforeEnter={[Function]}
-          beforeLeave={[Function]}
-          enter={[Function]}
-          enterCancelled={[Function]}
-          leave={[Function]}
-          leaveCancelled={[Function]}
-          show={true}
-        >
-          <div
-            className="xl-spin__fade"
-            style={Object {}}
-          >
-            <div
-              className="xl-spin__wrapper xl-spin__wrapper--default"
-            >
-              <span
-                className="xl-spin__indicator"
-              >
-                <xl-fas-circle-notch
-                  spin={true}
-                >
-                  <Memo(xl-icon)
-                    spin={true}
-                  >
-                    <i
-                      className="xl-icon xl-icon--spin"
-                      style={Object {}}
-                    >
-                      <svg
-                        fill="currentColor"
-                        style={
-                          Object {
-                            "height": "1em",
-                            "width": "1em",
-                          }
-                        }
-                        viewBox="0 0 512 512"
-                      >
-                        <path
-                          d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
-                        />
-                      </svg>
-                    </i>
-                  </Memo(xl-icon)>
-                </xl-fas-circle-notch>
-              </span>
-              <span
-                className="xl-spin__tip"
-              >
-                Loading...
-              </span>
-            </div>
-          </div>
-        </xl-transition>
-      </xl-transition-wrapper>
-    </xl-css-transition>
-  </div>
-</xl-spin>
-`;
-
-exports[`spin 自定义描述 1`] = `
-<xl-spin
-  tip="Loading..."
->
-  <div
-    className="xl-spin xl-spin--spinning"
-  >
-    <xl-css-transition
-      classNames="xl-spin__fade"
-      show={true}
-    >
-      <xl-transition-wrapper
-        afterAppear={[Function]}
-        afterEnter={[Function]}
-        afterLeave={[Function]}
-        appear={[Function]}
-        appearCancelled={[Function]}
-        beforeAppear={[Function]}
-        beforeEnter={[Function]}
-        beforeLeave={[Function]}
-        enter={[Function]}
-        enterCancelled={[Function]}
-        leave={[Function]}
-        leaveCancelled={[Function]}
-        show={true}
-      >
-        <xl-transition
-          afterAppear={[Function]}
-          afterEnter={[Function]}
-          afterLeave={[Function]}
-          appear={[Function]}
-          appearCancelled={[Function]}
-          beforeAppear={[Function]}
-          beforeEnter={[Function]}
-          beforeLeave={[Function]}
-          enter={[Function]}
-          enterCancelled={[Function]}
-          leave={[Function]}
-          leaveCancelled={[Function]}
-          show={true}
-        >
-          <div
-            className="xl-spin__fade"
-            style={Object {}}
-          >
-            <div
-              className="xl-spin__wrapper xl-spin__wrapper--default"
-            >
-              <span
-                className="xl-spin__indicator"
-              >
-                <xl-fas-spinner
-                  spin={true}
-                >
-                  <Memo(xl-icon)
-                    spin={true}
-                  >
-                    <i
-                      className="xl-icon xl-icon--spin"
-                      style={Object {}}
-                    >
-                      <svg
-                        fill="currentColor"
-                        style={
-                          Object {
-                            "height": "1em",
-                            "width": "1em",
-                          }
-                        }
-                        viewBox="0 0 512 512"
-                      >
-                        <path
-                          d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-                        />
-                      </svg>
-                    </i>
-                  </Memo(xl-icon)>
-                </xl-fas-spinner>
-              </span>
-              <span
-                className="xl-spin__tip"
-              >
-                Loading...
-              </span>
-            </div>
-          </div>
-        </xl-transition>
-      </xl-transition-wrapper>
-    </xl-css-transition>
-  </div>
-</xl-spin>
-`;
-
-exports[`spin 覆盖父元素 1`] = `
-<div
-  className="inner"
->
-  Further details about the context of this alert.
-  <xl-spin
-    cover={true}
-  >
-    <div
-      className="xl-spin xl-spin--spinning xl-spin--cover"
-    >
-      <xl-css-transition
-        classNames="xl-spin__fade"
-        show={true}
-      >
-        <xl-transition-wrapper
-          afterAppear={[Function]}
-          afterEnter={[Function]}
-          afterLeave={[Function]}
-          appear={[Function]}
-          appearCancelled={[Function]}
-          beforeAppear={[Function]}
-          beforeEnter={[Function]}
-          beforeLeave={[Function]}
-          enter={[Function]}
-          enterCancelled={[Function]}
-          leave={[Function]}
-          leaveCancelled={[Function]}
-          show={true}
-        >
-          <xl-transition
-            afterAppear={[Function]}
-            afterEnter={[Function]}
-            afterLeave={[Function]}
-            appear={[Function]}
-            appearCancelled={[Function]}
-            beforeAppear={[Function]}
-            beforeEnter={[Function]}
-            beforeLeave={[Function]}
-            enter={[Function]}
-            enterCancelled={[Function]}
-            leave={[Function]}
-            leaveCancelled={[Function]}
-            show={true}
-          >
-            <div
-              className="xl-spin__fade"
-              style={Object {}}
-            >
-              <div
-                className="xl-spin__wrapper xl-spin__wrapper--default"
-              >
-                <span
-                  className="xl-spin__indicator"
-                >
-                  <xl-fas-spinner
-                    spin={true}
-                  >
-                    <Memo(xl-icon)
-                      spin={true}
-                    >
-                      <i
-                        className="xl-icon xl-icon--spin"
-                        style={Object {}}
-                      >
-                        <svg
-                          fill="currentColor"
-                          style={
-                            Object {
-                              "height": "1em",
-                              "width": "1em",
-                            }
-                          }
-                          viewBox="0 0 512 512"
-                        >
-                          <path
-                            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
-                          />
-                        </svg>
-                      </i>
-                    </Memo(xl-icon)>
-                  </xl-fas-spinner>
-                </span>
-                <span
-                  className="xl-spin__tip"
-                >
-                  loading
-                </span>
-              </div>
-            </div>
-          </xl-transition>
-        </xl-transition-wrapper>
       </xl-css-transition>
     </div>
   </xl-spin>
