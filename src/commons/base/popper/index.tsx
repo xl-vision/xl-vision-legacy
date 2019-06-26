@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
 import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import { namePrefix } from '../../config'
 import useAlign, { Placement } from '../../hooks/useAlign'
@@ -9,6 +8,7 @@ import useUnmount from '../../hooks/useUnmount'
 import useUpdate from '../../hooks/useUpdate'
 import { mergeEvents, off, on } from '../../utils/event'
 import { increaseZIndex } from '../../utils/zIndex-manager'
+import Portal from '../portal'
 import PopperContext from './popper-context'
 
 export { Placement } from '../../hooks/useAlign'
@@ -307,36 +307,38 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   useClickOutside(referenceRef, onClickOutside)
 
-  const portal = ReactDOM.createPortal((
-    <PopperContext.Provider
-      value={{
-        addCloseHandler,
-        removeCloseHandler
-      }}
-    >
-      <div
-        ref={popupRef}
-        style={allPopupStyle}
-        onMouseEnter={onPopupMouseEnter}
-        onMouseLeave={onPopupMouseLeave}
-        onClick={onPopupClick}
+  const portal = (
+    <Portal getContainer={getPopupContainer}>
+      <PopperContext.Provider
+        value={{
+          addCloseHandler,
+          removeCloseHandler
+        }}
       >
-        <CssTransition
-          forceRender={true}
-          isAppear={true}
-          show={actualVisible}
-          classNames={transitionClass}
-          beforeEnter={updatePosition}
-          beforeAppear={updatePosition}
+        <div
+          ref={popupRef}
+          style={allPopupStyle}
+          onMouseEnter={onPopupMouseEnter}
+          onMouseLeave={onPopupMouseLeave}
+          onClick={onPopupClick}
         >
-          <div className={overlayClass} style={overlayStyleObj}>
-            {arrow && arrow(placement, arrowCenter)}
-            {popup(placement)}
-          </div>
-        </CssTransition>
-      </div>
-    </PopperContext.Provider>
-  ), getPopupContainer())
+          <CssTransition
+            forceRender={true}
+            isAppear={true}
+            show={actualVisible}
+            classNames={transitionClass}
+            beforeEnter={updatePosition}
+            beforeAppear={updatePosition}
+          >
+            <div className={overlayClass} style={overlayStyleObj}>
+              {arrow && arrow(placement, arrowCenter)}
+              {popup(placement)}
+            </div>
+          </CssTransition>
+        </div>
+      </PopperContext.Provider>
+    </Portal>
+  )
 
   const childrenNode = React.useMemo(() => {
     const { onBlur: _onBlur, onClick: _onClick, onContextMenu: _onContextMenu, onFocus: _onFocus, onMouseEnter: _onMouseEnter, onMouseLeave: _onMouseLeave, ...others } = children.props
