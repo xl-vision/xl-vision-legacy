@@ -237,7 +237,10 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     const handler = () => {
       setSize(calculateSize())
     }
-    handler()
+    // 有时候计算太快，可能div还没来得及伸展开
+    nextFrame(() => {
+      handler()
+    })
     on('resize', handler)
     return () => off('resize', handler)
   }, [calculateSize])
