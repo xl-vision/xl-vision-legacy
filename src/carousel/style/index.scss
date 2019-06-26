@@ -29,6 +29,7 @@ $carousel: #{$--cls-prefix}-carousel;
   }
 
   &__item {
+    box-sizing: border-box;
     overflow: hidden;
   }
 
@@ -97,7 +98,8 @@ $carousel: #{$--cls-prefix}-carousel;
 
   &--horizontal {
     .#{$carousel}__item {
-      display: inline-block;
+      display: block;
+      float: left;
     }
 
     .#{$carousel}__arrow {

@@ -38,7 +38,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const {
     damping = 35,
     children,
-    height = 'auto',
+    height = '100%',
     width = '100%',
     // tslint:disable-next-line: no-empty
     onChange = () => {},
