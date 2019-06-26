@@ -34,6 +34,7 @@ $carousel: #{$--cls-prefix}-carousel;
   &__item {
     display: block;
     box-sizing: border-box;
+    min-height: 1px;
     overflow: hidden;
   }
 
