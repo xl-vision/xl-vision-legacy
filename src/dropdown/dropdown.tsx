@@ -6,7 +6,6 @@ import { Omit } from '../commons/types'
 
 export interface DropdownProps extends Omit<PopperProps, 'popup'> {
   overlay: React.ReactElement | React.ReactElement[]
-  placement: Placement
   prefixCls?: string
 }
 
@@ -36,22 +35,23 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   )
 
   return (
-      <Popper
-        popup={popup}
-        trigger={trigger}
-        placement={placement}
-        overlayStyle={overlayStyle}
-        overlayClassName={overlayClassName}
-        transitionName={transitionName}
-        {...others}
-      />
+    <Popper
+      popup={popup}
+      trigger={trigger}
+      placement={placement}
+      overlayStyle={overlayStyle}
+      overlayClassName={overlayClassName}
+      transitionName={transitionName}
+      {...others}
+    />
   )
 }
 
 Dropdown.displayName = displayName
 
 Dropdown.propTypes = {
-  overlay: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired
+  overlay: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
+  prefixCls: PropTypes.string
 }
 
 export default Dropdown
