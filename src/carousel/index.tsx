@@ -96,9 +96,10 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       if (prev === 0 || prev === childrenArray.length + 1) {
         const index = prev === 0 ? childrenArray.length : 1
         // 获取之前的动画
-        setAnimate(prevAnimate => {
+        setAnimate(() => {
           nextFrame(() => {
-            setAnimate(prevAnimate)
+            // 开启动画
+            setAnimate(true)
             setActiveIndex(call(index))
           })
           // 先关闭动画
@@ -247,7 +248,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     }
     const id = setInterval(toNext, autoPlayDuration)
     return () => {
-      clearTimeout(id)
+      clearInterval(id)
     }
   }, [autoPlay, hover, autoPlayDuration, toNext, drag])
 
