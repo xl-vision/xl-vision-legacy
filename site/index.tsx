@@ -10,4 +10,5 @@ import './assets/style/index.scss'
 
 ReactDom.render(<Layout />, document.querySelector('#app'))
 
-ServiceWorker.register()
+// 本地开发不开启pwa
+process.env.NODE_ENV === 'production' ? ServiceWorker.register() : ServiceWorker.unregister()
