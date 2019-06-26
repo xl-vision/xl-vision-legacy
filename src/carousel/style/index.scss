@@ -29,6 +29,7 @@ $carousel: #{$--cls-prefix}-carousel;
   }
 
   &__item {
+    display: block;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -98,7 +99,6 @@ $carousel: #{$--cls-prefix}-carousel;
 
   &--horizontal {
     .#{$carousel}__item {
-      display: block;
       float: left;
     }
 
@@ -150,9 +150,9 @@ $carousel: #{$--cls-prefix}-carousel;
   }
 
   &--vertical {
-    .#{$carousel}__item {
-      display: block;
-    }
+    //.#{$carousel}__item {
+    //  display: block;
+    //}
 
     .#{$carousel}__arrow {
       left: 50%;
