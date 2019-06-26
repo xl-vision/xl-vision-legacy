@@ -15,7 +15,9 @@ imports:
 export default () => {
   const menus = (
     <>
-      <Dropdown.Item>1st menu item</Dropdown.Item>
+      <Dropdown.Item>
+        <a href="?">1st menu item</a>
+      </Dropdown.Item>
       <Dropdown.Item>2nd menu item</Dropdown.Item>
       <Dropdown.Divider/>
       <Dropdown.Item>3rd menu item</Dropdown.Item>

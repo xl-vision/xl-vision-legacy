@@ -4,7 +4,8 @@ $dropdown-item: #{$--cls-prefix}-dropdown-item;
 
 .#{$dropdown-item} {
   margin: 0;
-  padding: $--dropdown-item-padding;
+  padding: $--dropdown-item-padding-y $--dropdown-item-padding-x;
+  color: $--dropdown-text-color;
   white-space: nowrap;
   cursor: pointer;
 
@@ -19,5 +20,14 @@ $dropdown-item: #{$--cls-prefix}-dropdown-item;
     &:hover {
       background-color: inherit;
     }
+  }
+
+  > a {
+    display: block;
+    margin: (-$--dropdown-item-padding-y) (-$--dropdown-item-padding-x);
+    padding: $--dropdown-item-padding-y $--dropdown-item-padding-x;
+    color: $--dropdown-text-color;
+    text-decoration: none;
+    transition: $--dropdown-animation;
   }
 }

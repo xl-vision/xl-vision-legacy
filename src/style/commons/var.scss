@@ -263,9 +263,11 @@ $--dropdown-bg-color: $--bg-color;
 $--dropdown-box-shadow: 0 1px 6px rgba($--color-black, 0.2);
 $--dropdown-border-radius: $--border-radius;
 $--dropdown-padding: 4px 0;
-$--dropdown-item-padding: 5px 12px;
+$--dropdown-item-padding-x: 12px;
+$--dropdown-item-padding-y: 5px;
 $--dropdown-item-bg-color-hover: color-level($--color-primary, -$--color-level * 4.5);
 $--dropdown-animation: all $--animation-duration-fast ease-in-out;
 $--dropdown-item-disabled: $--opacity-disabled;
 $--dropdown-divider-color: $--border-color;
+$--dropdown-text-color: $--text-color;
 
