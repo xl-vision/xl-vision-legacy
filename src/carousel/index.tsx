@@ -375,8 +375,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      style={{ height, width }}
     >
-      <div className={`${prefixCls}__item-list-wrapper`} style={{ height, width }} ref={wrapperRef}>
+      <div className={`${prefixCls}__item-list-wrapper`} ref={wrapperRef}>
         <div className={listClasses} style={listStyle}>
           {childrenContainer}
         </div>

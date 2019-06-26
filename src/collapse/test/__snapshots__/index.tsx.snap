@@ -73,7 +73,7 @@ exports[`collapse 测试展开收缩效果 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -89,34 +89,51 @@ exports[`collapse 测试展开收缩效果 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -189,7 +206,7 @@ exports[`collapse 测试展开收缩效果 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -205,34 +222,51 @@ exports[`collapse 测试展开收缩效果 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -314,7 +348,7 @@ exports[`collapse 测试展开收缩效果 2`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -330,33 +364,50 @@ exports[`collapse 测试展开收缩效果 2`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -429,7 +480,7 @@ exports[`collapse 测试展开收缩效果 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -445,34 +496,51 @@ exports[`collapse 测试展开收缩效果 2`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -554,7 +622,7 @@ exports[`collapse 测试展开收缩效果 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -570,33 +638,50 @@ exports[`collapse 测试展开收缩效果 3`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -669,7 +754,7 @@ exports[`collapse 测试展开收缩效果 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -685,33 +770,50 @@ exports[`collapse 测试展开收缩效果 3`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -795,7 +897,7 @@ exports[`collapse 测试手风琴 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -811,34 +913,51 @@ exports[`collapse 测试手风琴 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -911,7 +1030,7 @@ exports[`collapse 测试手风琴 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -927,34 +1046,51 @@ exports[`collapse 测试手风琴 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1038,7 +1174,7 @@ exports[`collapse 测试手风琴 2`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1054,33 +1190,50 @@ exports[`collapse 测试手风琴 2`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1153,7 +1306,7 @@ exports[`collapse 测试手风琴 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1169,34 +1322,51 @@ exports[`collapse 测试手风琴 2`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1280,7 +1450,7 @@ exports[`collapse 测试手风琴 3`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1296,33 +1466,50 @@ exports[`collapse 测试手风琴 3`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1395,7 +1582,7 @@ exports[`collapse 测试手风琴 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1411,33 +1598,50 @@ exports[`collapse 测试手风琴 3`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1522,7 +1726,7 @@ exports[`collapse 测试指定箭头位置 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1538,34 +1742,51 @@ exports[`collapse 测试指定箭头位置 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1639,7 +1860,7 @@ exports[`collapse 测试指定箭头位置 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1655,34 +1876,51 @@ exports[`collapse 测试指定箭头位置 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1766,7 +2004,7 @@ exports[`collapse 测试无边框 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1782,34 +2020,51 @@ exports[`collapse 测试无边框 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -1882,7 +2137,7 @@ exports[`collapse 测试无边框 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1898,34 +2153,51 @@ exports[`collapse 测试无边框 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2009,7 +2281,7 @@ exports[`collapse 测试无边框 2`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2025,33 +2297,50 @@ exports[`collapse 测试无边框 2`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2124,7 +2413,7 @@ exports[`collapse 测试无边框 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2140,34 +2429,51 @@ exports[`collapse 测试无边框 2`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2251,7 +2557,7 @@ exports[`collapse 测试无边框 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2267,33 +2573,50 @@ exports[`collapse 测试无边框 3`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2366,7 +2689,7 @@ exports[`collapse 测试无边框 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2382,33 +2705,50 @@ exports[`collapse 测试无边框 3`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2493,7 +2833,7 @@ exports[`collapse 测试禁用面板 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2509,34 +2849,51 @@ exports[`collapse 测试禁用面板 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2609,7 +2966,7 @@ exports[`collapse 测试禁用面板 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2625,34 +2982,51 @@ exports[`collapse 测试禁用面板 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2737,7 +3111,7 @@ exports[`collapse 测试禁用面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2753,34 +3127,51 @@ exports[`collapse 测试禁用面板 2`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2853,7 +3244,7 @@ exports[`collapse 测试禁用面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2869,34 +3260,51 @@ exports[`collapse 测试禁用面板 2`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -2981,7 +3389,7 @@ exports[`collapse 测试禁用面板 3`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2997,34 +3405,51 @@ exports[`collapse 测试禁用面板 3`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3097,7 +3522,7 @@ exports[`collapse 测试禁用面板 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3113,33 +3538,50 @@ exports[`collapse 测试禁用面板 3`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3224,7 +3666,7 @@ exports[`collapse 测试自定义箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3240,34 +3682,51 @@ exports[`collapse 测试自定义箭头 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3341,7 +3800,7 @@ exports[`collapse 测试自定义箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3357,34 +3816,51 @@ exports[`collapse 测试自定义箭头 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3434,7 +3910,7 @@ exports[`collapse 测试隐藏箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3450,34 +3926,51 @@ exports[`collapse 测试隐藏箭头 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3516,7 +4009,7 @@ exports[`collapse 测试隐藏箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3532,34 +4025,51 @@ exports[`collapse 测试隐藏箭头 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3668,7 +4178,7 @@ exports[`collapse 测试额外内容 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3684,34 +4194,51 @@ exports[`collapse 测试额外内容 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3809,7 +4336,7 @@ exports[`collapse 测试额外内容 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3825,34 +4352,51 @@ exports[`collapse 测试额外内容 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -3936,7 +4480,7 @@ exports[`collapse 测试默认展开的面板 1`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3952,33 +4496,50 @@ exports[`collapse 测试默认展开的面板 1`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -4051,7 +4612,7 @@ exports[`collapse 测试默认展开的面板 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4067,34 +4628,51 @@ exports[`collapse 测试默认展开的面板 1`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -4178,7 +4756,7 @@ exports[`collapse 测试默认展开的面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4194,33 +4772,50 @@ exports[`collapse 测试默认展开的面板 2`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -4293,7 +4888,7 @@ exports[`collapse 测试默认展开的面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4309,34 +4904,51 @@ exports[`collapse 测试默认展开的面板 2`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "display": "none",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "display": "none",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -4420,7 +5032,7 @@ exports[`collapse 测试默认展开的面板 3`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4436,33 +5048,50 @@ exports[`collapse 测试默认展开的面板 3`] = `
               leaveCancelled={[Function]}
               show={false}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={false}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body1
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body1
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
@@ -4535,7 +5164,7 @@ exports[`collapse 测试默认展开的面板 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <xl-transition-wrapper
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4551,33 +5180,50 @@ exports[`collapse 测试默认展开的面板 3`] = `
               leaveCancelled={[Function]}
               show={true}
             >
-              <div
-                className="xl-collapse-panel__body--slide"
-                style={
-                  Object {
-                    "boxSizing": "border-box",
-                    "overflow": "hidden",
-                    "paddingBottom": "0",
-                    "paddingTop": "0",
-                    "transition": "",
-                  }
-                }
+              <xl-transition
+                afterAppear={[Function]}
+                afterEnter={[Function]}
+                afterLeave={[Function]}
+                appear={[Function]}
+                appearCancelled={[Function]}
+                beforeAppear={[Function]}
+                beforeEnter={[Function]}
+                beforeLeave={[Function]}
+                enter={[Function]}
+                enterCancelled={[Function]}
+                forceRender={true}
+                leave={[Function]}
+                leaveCancelled={[Function]}
+                show={true}
               >
                 <div
+                  className="xl-collapse-panel__body--slide"
                   style={
                     Object {
-                      "position": "relative",
+                      "boxSizing": "border-box",
+                      "overflow": "hidden",
+                      "paddingBottom": "0",
+                      "paddingTop": "0",
+                      "transition": "",
                     }
                   }
                 >
                   <div
-                    className="xl-collapse-panel__body"
+                    style={
+                      Object {
+                        "position": "relative",
+                      }
+                    }
                   >
-                    body2
+                    <div
+                      className="xl-collapse-panel__body"
+                    >
+                      body2
+                    </div>
                   </div>
                 </div>
-              </div>
-            </xl-transition>
+              </xl-transition>
+            </xl-transition-wrapper>
           </xl-css-transition>
         </xl-collapse-transition>
       </div>
