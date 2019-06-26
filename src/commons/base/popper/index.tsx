@@ -194,7 +194,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const allPopupStyle = React.useMemo(() => {
     const style = {
-      ...popupStyle
+      ...popupStyle,
+      zIndex: increaseZIndex()
     }
 
     if (placement.startsWith('top')) {
@@ -205,9 +206,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style.paddingRight = offset
     } else {
       style.paddingLeft = offset
-    }
-    if (actualVisible) {
-      style.zIndex = increaseZIndex()
     }
     return style
   }, [placement, offset, actualVisible, popupStyle])
