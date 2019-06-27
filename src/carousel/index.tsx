@@ -246,11 +246,16 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     if (hover || drag || !autoPlay) {
       return
     }
+
+    if (childrenArray.length <= 1) {
+      return
+    }
+
     const id = setInterval(toNext, autoPlayDuration)
     return () => {
       clearInterval(id)
     }
-  }, [autoPlay, hover, autoPlayDuration, toNext, drag])
+  }, [autoPlay, hover, autoPlayDuration, toNext, drag, childrenArray])
 
   const onMouseEnter = React.useCallback(() => {
     setHover(true)
