@@ -189,8 +189,8 @@ export default () => {
 | delayShow | 延迟显示            | number  | -  | 0 | false|
 | delayHide | 延迟隐藏            | number  | -  | 0 | false|
 | allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|
-| children | 参考元素            | React.ReactElement<React.HTMLAttributes<HTMLElement>>  | -  | - | true|
-| arrow | 箭头           | (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>  | -  | - | false|
+| children | 参考元素            | React.ReactElement  | -  | - | true|
+| arrow | 箭头           | (placement: Placement, center: { x: number, y: number }) => React.ReactElement  | -  | - | false|
 | offset | 弹出框距离参考元素的距离            | number  | -  | - | false|
 | onVisibleChange | 显示状态改变时的回调            | (visible: boolean) => void  | -  | - | false|
 | popup | 弹出框            | (placement: Placement) => React.ReactNode  | -  | - | true|
