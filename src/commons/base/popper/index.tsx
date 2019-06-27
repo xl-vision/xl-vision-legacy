@@ -21,6 +21,7 @@ export interface PopperProps {
   delayHide?: number
   delayShow?: number
   getPopupContainer?: () => Element
+  lazyRender?: boolean
   offset?: number
   onVisibleChange?: (visible: boolean) => void,
   overlayClassName?: string | ((placement: Placement) => string),
@@ -29,7 +30,7 @@ export interface PopperProps {
   popup: (placement: Placement) => React.ReactNode
   transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
-  visible?: boolean,
+  visible?: boolean
 }
 
 const TIME_DELAY = 20
@@ -39,6 +40,7 @@ export const displayName = `${namePrefix}-popper`
 const Popper: React.FunctionComponent<PopperProps> = props => {
   const {
     // autoAdjustOverflow,
+    lazyRender = true,
     children,
     getPopupContainer = () => document.body,
     onVisibleChange,
@@ -355,7 +357,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   return (
     <>
       {childrenNode}
-      {needMount && portal}
+      {(!lazyRender || needMount) && portal}
     </>
   )
 }
@@ -369,6 +371,7 @@ Popper.propTypes = {
   delayHide: PropTypes.number,
   delayShow: PropTypes.number,
   getPopupContainer: PropTypes.func,
+  lazyRender: PropTypes.bool,
   onVisibleChange: PropTypes.func,
   overlayClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   overlayStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),

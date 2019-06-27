@@ -216,10 +216,11 @@ export default () => {
 
 ## Popconfirm API
 
+>公共属性请参考[Tooltip](#/tooltip)
+
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
 | prefixCls | 自定义类名前缀            | string  | -  | -| false|
-| children | 参考元素            | React.ReactElement  | -  | -| true|
 | cancelText | 取消按钮的内容           | string  | -  | -| false|
 | cancelType | 取消按钮的类型           | string  | default / primary / success / warning / error / text  | -| false|
 | onCancel | 点击取消按钮的回调           |  (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | -  | -| false|
@@ -228,13 +229,3 @@ export default () => {
 | onConfirm | 点击取消按钮的回调           |  (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | -  | -| false|
 | icon | 自定义图标            | React.ReactNode  | -  | -| false|
 | content | 提示内容            | React.ReactNode  | -  | -| true|
-| delayHide | 延迟隐藏            | number  | -  | 0 | false|
-| delayShow | 延迟显示            | number  | -  | 0 | false|
-| getPopupContainer | 弹出框挂载的位置            | () => HTMLElement  | -  | ()=>document.body | false|
-| offset | 弹出框距离参考元素的距离            | number  | -  | - | false|
-| onVisibleChange | 弹出框弹出或隐藏事件            | (visible: boolean) => void  | -  | - | false|
-| overlayClassName | 弹出框className            | string / ((placement: Placement) => string)  | -  | - | false|
-| overlayStyle | 弹出框样式           | React.CSSProperties / ((placement: Placement) => React.CSSProperties)  | -  | - | false|
-| placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'topLeft' / 'topRight'/ 'bottomLeft' / 'bottomRight' / 'leftTop' / 'leftBottom' / 'rightTop' / 'rightBottom'  | -  | 'bottom' | false|
-| trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
-| visible | 手动设置visible           | boolean  | -  | - | false|

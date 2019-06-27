@@ -172,16 +172,26 @@ export default () => {
 | 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
 | ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
 | prefixCls | 自定义类名前缀            | string  | -  | -| false|
-| children | 参考元素            | React.ReactElement  | -  | -| true|
-| content | 提示内容            | React.ReactNode  | -  | -| true|
-| allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|
-| delayHide | 延迟隐藏            | number  | -  | 0 | false|
-| delayShow | 延迟显示            | number  | -  | 0 | false|
-| getPopupContainer | 弹出框挂载的位置            | () => HTMLElement  | -  | ()=>document.body | false|
-| offset | 弹出框距离参考元素的距离            | number  | -  | - | false|
-| onVisibleChange | 弹出框弹出或隐藏事件            | (visible: boolean) => void  | -  | - | false|
-| overlayClassName | 弹出框className            | string / ((placement: Placement) => string)  | -  | - | false|
-| overlayStyle | 弹出框样式           | React.CSSProperties / ((placement: Placement) => React.CSSProperties)  | -  | - | false|
-| placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'topLeft' / 'topRight'/ 'bottomLeft' / 'bottomRight' / 'leftTop' / 'leftBottom' / 'rightTop' / 'rightBottom'  | -  | 'bottom' | false|
-| trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
+| content | 提示内容,覆盖popup属性            | React.ReactNode  | -  | -| true|
+
+## Popup公共API
+
+| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
+| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
+| lazyRender | 延时挂载弹出框           | boolean  | -  | - | true|
 | visible | 手动设置visible           | boolean  | -  | - | false|
+| trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
+| placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'topLeft' / 'topRight'/ 'bottomLeft' / 'bottomRight' / 'leftTop' / 'leftBottom' / 'rightTop' / 'rightBottom'  | -  | 'bottom' | false|
+| overlayStyle | 弹出框样式           | React.CSSProperties / ((placement: Placement) => React.CSSProperties)  | -  | - | false|
+| overlayClassName | 弹出框className            | string / ((placement: Placement) => string)  | -  | - | false|
+| onVisibleChange | 弹出框弹出或隐藏事件            | (visible: boolean) => void  | -  | - | false|
+| getPopupContainer | 弹出框挂载的位置            | () => HTMLElement  | -  | ()=>document.body | false|
+| delayShow | 延迟显示            | number  | -  | 0 | false|
+| delayHide | 延迟隐藏            | number  | -  | 0 | false|
+| allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|
+| children | 参考元素            | React.ReactElement<React.HTMLAttributes<HTMLElement>>  | -  | - | true|
+| arrow | 箭头           | (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>  | -  | - | false|
+| offset | 弹出框距离参考元素的距离            | number  | -  | - | false|
+| onVisibleChange | 显示状态改变时的回调            | (visible: boolean) => void  | -  | - | false|
+| popup | 弹出框            | (placement: Placement) => React.ReactNode  | -  | - | true|
+| transitionName | 显示隐藏时的动画className            | CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)  | -  | - | false|
