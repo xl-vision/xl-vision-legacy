@@ -108,6 +108,16 @@ const routes: Route[] = [
     ]
   },
   {
+    name: '编辑器',
+    children: [
+      {
+        name: '编辑器',
+        path: '/editor',
+        component: import('../src/editor/doc/index.md')
+      }
+    ]
+  },
+  {
     name: '动画',
     children: [
       {
