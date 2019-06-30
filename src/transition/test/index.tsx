@@ -1,255 +1,376 @@
 import { mount } from 'enzyme'
 import * as React from 'react'
-import { cleanup, fireEvent, render } from 'react-testing-library'
 import Transition from '..'
-import { Button } from '../../button'
 
-afterEach(cleanup)
 describe('Transition', () => {
-  it('测试生命周期', () => {
-    expect.hasAssertions()
+  it('测试isAppear为true，且show为true时的生命周期', () => {
     const call = jest.fn()
+    // tslint:disable
+    const wrapper = mount(
+      <Transition
+        show={true}
+        isAppear={true}
+        beforeAppear={() => call('beforeAppear')}
+        appear={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`appear`)
+            done()
+          }
+        }}
+        afterAppear={() => call('afterAppear')}
+        appearCancelled={() => call('appearCancelled')}
+        beforeEnter={() => call('beforeEnter')}
+        enter={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`enter`)
+            done()
+          }
+        }}
+        afterEnter={() => call('afterEnter')}
+        enterCancelled={() => call('enterCancelled')}
+        beforeLeave={() => call('beforeLeave')}
+        leave={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`leave`)
+            done()
+          }
+        }}
+        afterLeave={() => call('afterLeave')}
+        leaveCancelled={() => call('leaveCancelled')}
+      >
+        <div/>
+      </Transition>
+    )
+    // tslint:enable
+    wrapper.update()
 
-    const Demo = () => {
-      const [active, setActive] = React.useState(true)
-      const beforeAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeAppear')
-      }, [])
-
-      const appear = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('appear')
-        done()
-      }, [])
-
-      const afterAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterAppear')
-
-      }, [])
-
-      const appearCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('appearCancelled')
-      }, [])
-
-      const beforeEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeEnter')
-      }, [])
-
-      const enter = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('enter')
-        done()
-      }, [])
-
-      const afterEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterEnter')
-      }, [])
-
-      const enterCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('enterCancelled')
-      }, [])
-
-      const beforeLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeLeave')
-      }, [])
-
-      const leave = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('leave')
-        done()
-      }, [])
-
-      const afterLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterLeave')
-      }, [])
-
-      const leaveCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('leaveCancelled')
-      }, [])
-
-      return (
-        <div>
-          <Transition
-            show={active}
-            isAppear={true}
-            beforeAppear={beforeAppear}
-            appear={appear}
-            afterAppear={afterAppear}
-            appearCancelled={appearCancelled}
-
-            beforeEnter={beforeEnter}
-            enter={enter}
-            afterEnter={afterEnter}
-            enterCancelled={enterCancelled}
-
-            beforeLeave={beforeLeave}
-            leave={leave}
-            afterLeave={afterLeave}
-            leaveCancelled={leaveCancelled}
-          >
-            <div className='demo'>DEMO</div>
-          </Transition>
-          {/* tslint:disable-next-line */}
-          <Button onClick={() => setActive(!active)}>active</Button>
-        </div>
-      )
-    }
-
-    const demo = render(<Demo/>)
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeAppear')
     expect(call.mock.calls[1][0]).toBe('appear')
     expect(call.mock.calls[2][0]).toBe('afterAppear')
-    call.mockReset()
-    fireEvent.click(demo.getByText(/active/))
+    call.mockClear()
+
+    wrapper.setProps({
+      show: false
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
     expect(call.mock.calls[1][0]).toBe('leave')
     expect(call.mock.calls[2][0]).toBe('afterLeave')
-    call.mockReset()
-    fireEvent.click(demo.getByText(/active/))
+    call.mockClear()
+
+    wrapper.setProps({
+      show: true
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
     expect(call.mock.calls[2][0]).toBe('afterEnter')
-    call.mockReset()
+    call.mockClear()
   })
 
-  it('测试包含cancelled的生命周期', () => {
-    jest.useFakeTimers()
-    expect.hasAssertions()
+  it('测试isAppear为true，且show为false时的生命周期', () => {
     const call = jest.fn()
+    // tslint:disable
+    const wrapper = mount(
+      <Transition
+        show={false}
+        isAppear={true}
+        beforeAppear={() => call('beforeAppear')}
+        appear={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`appear`)
+            done()
+          }
+        }}
+        afterAppear={() => call('afterAppear')}
+        appearCancelled={() => call('appearCancelled')}
+        beforeEnter={() => call('beforeEnter')}
+        enter={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`enter`)
+            done()
+          }
+        }}
+        afterEnter={() => call('afterEnter')}
+        enterCancelled={() => call('enterCancelled')}
+        beforeLeave={() => call('beforeLeave')}
+        leave={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`leave`)
+            done()
+          }
+        }}
+        afterLeave={() => call('afterLeave')}
+        leaveCancelled={() => call('leaveCancelled')}
+      >
+        <div/>
+      </Transition>
+    )
+    // tslint:enable
+    wrapper.update()
 
-    const Demo = () => {
-      const [active, setActive] = React.useState(true)
-      const beforeAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeAppear')
-      }, [])
+    expect(call.mock.calls.length).toBe(0)
 
-      const appear = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        setTimeout(() => {
-          call('appear')
-          done()
-        }, 1000)
-      }, [])
+    wrapper.setProps({
+      show: true
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[2][0]).toBe('afterEnter')
+    call.mockClear()
 
-      const afterAppear = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterAppear')
-      }, [])
+    wrapper.setProps({
+      show: false
+    })
 
-      const appearCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('appearCancelled')
-      }, [])
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeLeave')
+    expect(call.mock.calls[1][0]).toBe('leave')
+    expect(call.mock.calls[2][0]).toBe('afterLeave')
+    call.mockClear()
 
-      const beforeEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeEnter')
-      }, [])
+    wrapper.setProps({
+      show: true
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[2][0]).toBe('afterEnter')
+    call.mockClear()
+  })
 
-      const enter = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('enter')
-        done()
-      }, [])
+  it('测试未设置isAppear且show为false时生命周期', () => {
+    const call = jest.fn()
+    // tslint:disable
+    const wrapper = mount(
+      <Transition
+        show={false}
+        beforeAppear={() => call('beforeAppear')}
+        appear={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`appear`)
+            done()
+          }
+        }}
+        afterAppear={() => call('afterAppear')}
+        appearCancelled={() => call('appearCancelled')}
+        beforeEnter={() => call('beforeEnter')}
+        enter={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`enter`)
+            done()
+          }
+        }}
+        afterEnter={() => call('afterEnter')}
+        enterCancelled={() => call('enterCancelled')}
+        beforeLeave={() => call('beforeLeave')}
+        leave={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`leave`)
+            done()
+          }
+        }}
+        afterLeave={() => call('afterLeave')}
+        leaveCancelled={() => call('leaveCancelled')}
+      >
+        <div/>
+      </Transition>
+    )
+    // tslint:enable
+    wrapper.update()
 
-      const afterEnter = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterEnter')
-      }, [])
+    expect(call.mock.calls.length).toBe(0)
 
-      const enterCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('enterCancelled')
-      }, [])
+    wrapper.setProps({
+      show: true
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[2][0]).toBe('afterEnter')
+    call.mockClear()
 
-      const beforeLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('beforeLeave')
-      }, [])
+    wrapper.setProps({
+      show: false
+    })
 
-      const leave = React.useCallback((el, done) => {
-        expect(el).not.toBeNull()
-        call('leave')
-        done()
-      }, [])
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeLeave')
+    expect(call.mock.calls[1][0]).toBe('leave')
+    expect(call.mock.calls[2][0]).toBe('afterLeave')
+    call.mockClear()
 
-      const afterLeave = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('afterLeave')
-      }, [])
+    wrapper.setProps({
+      show: true
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[2][0]).toBe('afterEnter')
+    call.mockClear()
+  })
+  it('测试未设置isAppear且show为true时的生命周期', () => {
+    const call = jest.fn()
+    // tslint:disable
+    const wrapper = mount(
+      <Transition
+        show={true}
+        beforeAppear={() => call('beforeAppear')}
+        appear={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`appear`)
+            done()
+          }
+        }}
+        afterAppear={() => call('afterAppear')}
+        appearCancelled={() => call('appearCancelled')}
+        beforeEnter={() => call('beforeEnter')}
+        enter={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`enter`)
+            done()
+          }
+        }}
+        afterEnter={() => call('afterEnter')}
+        enterCancelled={() => call('enterCancelled')}
+        beforeLeave={() => call('beforeLeave')}
+        leave={(_el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`leave`)
+            done()
+          }
+        }}
+        afterLeave={() => call('afterLeave')}
+        leaveCancelled={() => call('leaveCancelled')}
+      >
+        <div/>
+      </Transition>
+    )
+    // tslint:enable
+    wrapper.update()
 
-      const leaveCancelled = React.useCallback(el => {
-        expect(el).not.toBeNull()
-        call('leaveCancelled')
-      }, [])
+    expect(call.mock.calls.length).toBe(0)
 
-      return (
-        <div>
-          <Transition
-            show={active}
-            isAppear={true}
-            beforeAppear={beforeAppear}
-            appear={appear}
-            afterAppear={afterAppear}
-            appearCancelled={appearCancelled}
+    wrapper.setProps({
+      show: false
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeLeave')
+    expect(call.mock.calls[1][0]).toBe('leave')
+    expect(call.mock.calls[2][0]).toBe('afterLeave')
+    call.mockClear()
 
-            beforeEnter={beforeEnter}
-            enter={enter}
-            afterEnter={afterEnter}
-            enterCancelled={enterCancelled}
+    wrapper.setProps({
+      show: true
+    })
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[2][0]).toBe('afterEnter')
+    call.mockClear()
+  })
+  it('测试cancelled生命周期', () => {
+    const call = jest.fn()
+    // tslint:disable
+    const wrapper = mount(
+      <Transition
+        isAppear={true}
+        show={true}
+        beforeAppear={() => call('beforeAppear')}
+        appear={(_el, _done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`appear`)
+            // done()
+          }
+        }}
+        afterAppear={() => call('afterAppear')}
+        appearCancelled={() => call('appearCancelled')}
+        beforeEnter={() => call('beforeEnter')}
+        enter={(_el, _done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`enter`)
+            // done()
+          }
+        }}
+        afterEnter={() => call('afterEnter')}
+        enterCancelled={() => call('enterCancelled')}
+        beforeLeave={() => call('beforeLeave')}
+        leave={(_el, _done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`leave`)
+            // done()
+          }
+        }}
+        afterLeave={() => call('afterLeave')}
+        leaveCancelled={() => call('leaveCancelled')}
+      >
+        <div/>
+      </Transition>
+    )
+    // tslint:enable
 
-            beforeLeave={beforeLeave}
-            leave={leave}
-            afterLeave={afterLeave}
-            leaveCancelled={leaveCancelled}
-          >
-            <div className='demo'>DEMO</div>
-          </Transition>
-          {/* tslint:disable-next-line */}
-          <Button onClick={() => setActive(!active)}>active</Button>
-        </div>
-      )
-    }
+    expect(call.mock.calls.length).toBe(2)
 
-    const demo = render(<Demo/>)
-    expect(call.mock.calls.length).toBe(1)
     expect(call.mock.calls[0][0]).toBe('beforeAppear')
-    fireEvent.click(demo.getByText(/active/))
-    expect(call.mock.calls.length).toBe(5)
-    expect(call.mock.calls[1][0]).toBe('appearCancelled')
+    expect(call.mock.calls[1][0]).toBe('appear')
+    call.mockClear()
 
-    expect(call.mock.calls[2][0]).toBe('beforeLeave')
-    expect(call.mock.calls[3][0]).toBe('leave')
-    expect(call.mock.calls[4][0]).toBe('afterLeave')
-    jest.runAllTimers()
-    expect(call.mock.calls.length).toBe(6)
-    expect(call.mock.calls[5][0]).toBe('appear')
-    call.mockReset()
+    wrapper.setProps({
+      show: false
+    })
+
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('appearCancelled')
+    expect(call.mock.calls[1][0]).toBe('beforeLeave')
+    expect(call.mock.calls[2][0]).toBe('leave')
+    call.mockClear()
+
+    wrapper.setProps({
+      show: true
+    })
+
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('leaveCancelled')
+    expect(call.mock.calls[1][0]).toBe('beforeEnter')
+    expect(call.mock.calls[2][0]).toBe('enter')
+    call.mockClear()
+
+    wrapper.setProps({
+      show: false
+    })
+
+    wrapper.update()
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('enterCancelled')
+    expect(call.mock.calls[1][0]).toBe('beforeLeave')
+    expect(call.mock.calls[2][0]).toBe('leave')
+    call.mockClear()
   })
 
   it('测试forceRender', () => {
     const wrapper = mount(
-        <Transition show={false} forceRender={false}>
-          <div/>
-        </Transition>
+      <Transition show={false} forceRender={false}>
+        <div/>
+      </Transition>
     )
 
     expect(wrapper.getDOMNode()).toBeNull()
+
     wrapper.setProps({
       show: true
     })
-    // TODO
     wrapper.update()
     expect(wrapper.getDOMNode()).not.toBeNull()
 
@@ -257,7 +378,6 @@ describe('Transition', () => {
       forceRender: true,
       show: false
     })
-    // TODO
     wrapper.update()
     expect(wrapper.getDOMNode()).not.toBeNull()
 
@@ -265,7 +385,6 @@ describe('Transition', () => {
       forceRender: true,
       show: true
     })
-    // TODO
     wrapper.update()
     expect(wrapper.getDOMNode()).not.toBeNull()
   })

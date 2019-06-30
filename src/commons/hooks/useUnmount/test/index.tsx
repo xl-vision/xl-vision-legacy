@@ -1,6 +1,6 @@
 import { mount } from 'enzyme'
 import * as React from 'react'
-import useUnmount from '../useUnmount'
+import useUnmount from '..'
 
 describe('useUnmount', () => {
   it('测试组件卸载时触发，其余时候不触发', () => {

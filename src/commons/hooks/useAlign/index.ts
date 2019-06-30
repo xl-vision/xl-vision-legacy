@@ -1,5 +1,5 @@
 import { CSSProperties, RefObject, useCallback, useEffect, useMemo, useState } from 'react'
-import { getPosition } from '../utils/dom'
+import { getPosition } from '../../utils/dom'
 
 export type Placement =
   | 'top'

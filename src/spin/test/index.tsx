@@ -4,6 +4,9 @@ import Spin from '..'
 import FasCircleNotch from '../../icon/icons/fas-circle-notch'
 
 describe('spin', () => {
+  beforeAll(() => {
+    jest.useRealTimers()
+  })
   it('基本用法', () => {
     const wrapper = mount(<Spin/>)
     expect(wrapper).toMatchSnapshot()
@@ -55,35 +58,18 @@ describe('spin', () => {
 
   test.todo('启动加载和关闭加载')
   // it('启动加载和关闭加载', async () => {
-  //   const TestComp = () => {
-  //     const [display, setDisplay] = React.useState(true)
-  //     const clickHandler = () => {
-  //       setDisplay(!display)
-  //     }
-  //     return (
-  //       <div className='wrapper'>
-  //         <Spin spinning={display}>
-  //           <div className='inner'>Further details about the context of this alert.</div>
-  //         </Spin>
-  //         <Button onClick={clickHandler}>{display ? '关闭' : '打开'}</Button>
-  //       </div>
-  //     )
-  //   }
   //   const wrapper = mount(
-  //     <TestComp/>
+  //     <Spin spinning={true}>
+  //       <div className='inner'>Further details about the context of this alert.</div>
+  //     </Spin>
   //   )
   //   expect(wrapper.find('.xl-spin--spinning')).not.toBeNull()
-  //   wrapper.find('button').simulate('click')
-  //   await sleep(500)
-  //   console.log(wrapper.find('.xl-spin--spinning').debug())
+  //   wrapper.setProps({
+  //     spinning: false
+  //   })
+  //   wrapper.update()
+  //   await wait(100)
+  //   console.log(wrapper.debug())
   //   expect(wrapper.find('.xl-spin--spinning')).toBeNull()
   // })
 })
-
-// function sleep (time: number) {
-//   return new Promise(resolve => {
-//     setTimeout(() => {
-//       resolve()
-//     }, time)
-//   })
-// }

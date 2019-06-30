@@ -6,7 +6,7 @@ module.exports = {
     './script/test/setup.js'
   ],
   testMatch: [
-    '**/src/**/test/*.ts?(x)'
+    '**/src/**/test/index.ts?(x)'
   ],
   // collectCoverage: true,
   collectCoverageFrom: [

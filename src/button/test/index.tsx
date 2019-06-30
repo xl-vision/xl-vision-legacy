@@ -1,6 +1,5 @@
 import { mount, render } from 'enzyme'
 import * as React from 'react'
-import { act } from 'react-testing-library'
 import { Button, ButtonGroup, ButtonSize } from '..'
 import FasPowerOff from '../../icon/icons/fas-power-off'
 
@@ -245,17 +244,13 @@ describe('button-group', () => {
       size: 'small'
     })
 
-    act(() => {
-      expect(wrapper).toMatchSnapshot()
-    })
+    expect(wrapper).toMatchSnapshot()
 
     wrapper.setProps({
       size: 'large'
     })
 
-    act(() => {
-      expect(wrapper).toMatchSnapshot()
-    })
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('按钮组size', () => {
@@ -281,16 +276,12 @@ describe('button-group', () => {
       size: 'small'
     })
 
-    act(() => {
-      expect(wrapper).toMatchSnapshot()
-    })
+    expect(wrapper).toMatchSnapshot()
 
     wrapper.setProps({
       size: 'large'
     })
 
-    act(() => {
-      expect(wrapper).toMatchSnapshot()
-    })
+    expect(wrapper).toMatchSnapshot()
   })
 })

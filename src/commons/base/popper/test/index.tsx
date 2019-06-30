@@ -1,7 +1,33 @@
 // import { mount } from 'enzyme'
 // import * as React from 'react'
+// import Popper from '..'
+// import wait from '../../../test/wait'
 
 describe('Popper', () => {
+  beforeAll(() => {
+    jest.useRealTimers()
+  })
+  // it('测试基本用法', async () => {
+  //   const wrapper = mount(
+  //     // tslint:disable-next-line:jsx-no-lambda
+  //     <Popper popup={() => <div/>}>
+  //       <div className={'content'}/>
+  //     </Popper>
+  //   )
+  //
+  //   await wait(100)
+  //   expect(wrapper).toMatchSnapshot()
+  //
+  //   wrapper.find('.content').simulate('mouseenter')
+  //   wrapper.update()
+  //   await wait(200)
+  //   expect(wrapper).toMatchSnapshot()
+  //
+  //   wrapper.find('.content').simulate('mouseleave')
+  //   wrapper.update()
+  //   await wait(100)
+  //   expect(wrapper).toMatchSnapshot()
+  // })
   it.todo('测试弹出框延迟挂载')
   it.todo('测试onVisibleChange')
   it.todo('测试触发条件:hover')

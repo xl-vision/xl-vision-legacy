@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect } from 'react'
-import { include } from '../utils/dom'
-import { off, on } from '../utils/event'
+import { include } from '../../utils/dom'
+import { off, on } from '../../utils/event'
 
 const useClickOutside = (ref: RefObject<HTMLElement>, handler: (e: MouseEvent) => void) => {
   const fn = useCallback((e: MouseEvent) => {

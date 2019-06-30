@@ -39,7 +39,7 @@ const useLayoutEffect = isClient ? React.useLayoutEffect : React.useEffect
 
 export const displayName = `${namePrefix}-transition`
 
-const Index: React.FunctionComponent<TransitionProps> = props => {
+const Transition: React.FunctionComponent<TransitionProps> = props => {
   const {
     show,
     // 初次挂载时，如果是进入状态，是否触发appear动画
@@ -153,18 +153,18 @@ const Index: React.FunctionComponent<TransitionProps> = props => {
 
   const onTransitionEnd = React.useMemo(() => {
     let cb: () => void
-    return (callback: (() => void) & { isCancelled?: boolean }, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
+    return (callback: (() => void) & { isFinished?: boolean }, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
       cb = callback
       const ele = childrenRel.current!
 
-      const isCancelled = () => callback !== cb || !!callback.isCancelled
+      const isCancelled = () => callback !== cb || !!callback.isFinished
 
       // 判断回调是否执行了
       const wrapCallback = () => {
         if (!isCancelled() && !isUnMounted) {
-          // 防止重复触发
-          callback.isCancelled = true
           callback()
+          // 防止重复触发
+          callback.isFinished = true
         }
       }
       if (action) {
@@ -195,9 +195,9 @@ const Index: React.FunctionComponent<TransitionProps> = props => {
   }, [children, display, forceRender, childrenRel])
 }
 
-Index.displayName = displayName
+Transition.displayName = displayName
 
-Index.propTypes = {
+Transition.propTypes = {
   afterAppear: PropTypes.func,
   afterEnter: PropTypes.func,
   afterLeave: PropTypes.func,
@@ -216,4 +216,4 @@ Index.propTypes = {
   show: PropTypes.bool.isRequired
 }
 
-export default Index
+export default Transition

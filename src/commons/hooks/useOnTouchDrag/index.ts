@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useRef } from 'react'
-import { include } from '../utils/dom'
-import { DragPosition } from './useOnMouseDrag'
+import { include } from '../../utils/dom'
+import { DragPosition } from '../useOnMouseDrag'
 
 /**
  * @param ref

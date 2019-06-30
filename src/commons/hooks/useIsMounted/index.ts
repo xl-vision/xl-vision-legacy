@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import useMount from './useMount'
+import useMount from '../useMount'
 
 const useIsMounted = () => {
   const [state, setState] = useState(false)
