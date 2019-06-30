@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Operation, Value } from 'slate'
 import { Editor as SlateEditor } from 'slate-react'
 import { namePrefix } from '../commons/config'
+import { Plugin } from './plugin'
+import Bold from './plugins/bold'
 
 export interface EditorProps {
   onChange?: (html: string) => void
@@ -10,8 +12,14 @@ export interface EditorProps {
 
 export const displayName = `${namePrefix}-editor`
 
+const plugins: Plugin[] = [
+  Bold
+]
+
 const Editor: React.FunctionComponent<EditorProps> = props => {
   const {} = props
+
+  const editorRef = React.useRef<any>()
 
   const [editorValue, setEditorValue] = React.useState(Value.fromJSON({
     document: {
@@ -29,12 +37,28 @@ const Editor: React.FunctionComponent<EditorProps> = props => {
     setEditorValue(change.value)
   }, [])
 
+  const toolbar = React.useMemo(() => plugins
+    .filter(it => it.type === 'toolbar')
+    .map(it => it.getButton(editorRef))
+    .map((it, index) => {
+      return React.cloneElement(it, {
+        key: index
+      })
+    }), [editorRef])
+
+  const editorPlugins = React.useMemo(() => plugins.map(it => it.options), [])
+
   return (
-    <SlateEditor
-      placeholder={'11111'}
-      value={editorValue}
-      onChange={onChangeHandler}
-    />
+    <div>
+      <div>{toolbar}</div>
+      <SlateEditor
+        placeholder={'11111'}
+        value={editorValue}
+        onChange={onChangeHandler}
+        plugins={editorPlugins}
+        ref={editorRef}
+      />
+    </div>
   )
 }
 
