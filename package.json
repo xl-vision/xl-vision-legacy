@@ -84,7 +84,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "classnames": "^2.2.6",
-    "immutable": "^4.0.0-rc.12",
+    "immutable": "^3.8.2",
     "prop-types": "^15.7.2",
     "slate": "^0.47.4",
     "slate-react": "^0.22.4"
