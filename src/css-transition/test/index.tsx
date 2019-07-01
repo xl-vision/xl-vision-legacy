@@ -1,8 +1,20 @@
 import { mount } from 'enzyme'
 import * as React from 'react'
-import CssTransition from '..'
+import CssTransition, { CssTransitionClassNames } from '..'
 import wait from '../../commons/test/wait'
 import * as TransitionUtils from '../../commons/utils/transition'
+
+const classnameMap: CssTransitionClassNames = {
+  appear: 'appear',
+  appearActive: 'appearActive',
+  appearTo: 'appearTo',
+  enter: 'enter',
+  enterActive: 'enterActive',
+  enterTo: 'enterTo',
+  leave: 'leave',
+  leaveActive: 'leaveActive',
+  leaveTo: 'leavtTo'
+}
 
 describe('CssTransition', () => {
 
@@ -26,6 +38,7 @@ describe('CssTransition', () => {
         show={true}
         isAppear={true}
         beforeAppear={() => call('beforeAppear')}
+        classNames={classnameMap}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
@@ -95,6 +108,7 @@ describe('CssTransition', () => {
       <CssTransition
         show={false}
         isAppear={true}
+        classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -170,6 +184,7 @@ describe('CssTransition', () => {
     const wrapper = mount(
       <CssTransition
         show={false}
+        classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -245,6 +260,7 @@ describe('CssTransition', () => {
     const wrapper = mount(
       <CssTransition
         show={true}
+        classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -307,13 +323,15 @@ describe('CssTransition', () => {
   it('测试包含cancelled的生命周期', async () => {
     // 阻止onTransitionEnd完成
     // tslint:disable-next-line:no-empty
-    spy.mockImplementation(() => {})
+    spy.mockImplementation(() => {
+    })
     const call = jest.fn()
     // tslint:disable
     const wrapper = mount(
       <CssTransition
         show={true}
         isAppear={true}
+        classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
@@ -388,8 +406,6 @@ describe('CssTransition', () => {
   })
 
   it('测试包含className调用时机', () => {
-    expect.assertions(2)
-
     const wrapper = mount(
       <CssTransition
         show={false}
@@ -406,6 +422,5 @@ describe('CssTransition', () => {
     })
     wrapper.update()
     expect(wrapper.getDOMNode().className.indexOf('transition')).not.toEqual(-1)
-
   })
 })
