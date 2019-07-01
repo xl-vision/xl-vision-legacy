@@ -5,7 +5,6 @@ import { namePrefix } from '../../config'
 import useAlign, { Placement } from '../../hooks/useAlign'
 import useClickOutside from '../../hooks/useClickOutside'
 import useUnmount from '../../hooks/useUnmount'
-import useUpdate from '../../hooks/useUpdate'
 import { mergeEvents, off, on } from '../../utils/event'
 import { increaseZIndex } from '../../utils/zIndex-manager'
 import Portal from '../portal'
@@ -145,7 +144,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }, TIME_DELAY * 0.5)
   }, [visible])
 
-  useUpdate(() => {
+  React.useEffect(() => {
     onVisibleChange && onVisibleChange(actualVisible)
   }, [actualVisible])
 

@@ -3,8 +3,10 @@ import * as React from 'react'
 import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
 import { Omit } from '../commons/types'
+import DropdownContext from './dropdown-context'
 
 export interface DropdownProps extends Omit<PopperProps, 'popup'> {
+  closeOnClick?: boolean
   overlay: React.ReactElement | React.ReactElement[]
   prefixCls?: string
 }
@@ -19,14 +21,44 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
     trigger = 'hover',
     prefixCls = displayName,
     overlayStyle = overlayStyleCb,
+    visible: visibleProp = false,
+    onVisibleChange: onVisibleChangeProp,
     ...others
   } = props
 
   const transitionName = others.transitionName || `${prefixCls}--slide`
   const overlayClassName = others.overlayClassName || (_placement => `${prefixCls}--${_placement}`)
 
+  // 考虑嵌套使用的情况
+  const { closeOnClick: closeOnClickContext, close: closeContext } = React.useContext(DropdownContext)
+
+  const closeOnClick = typeof others.closeOnClick === 'undefined' ? closeOnClickContext : others.closeOnClick
+
   delete others.transitionName
   delete others.overlayClassName
+  delete others.closeOnClick
+
+  const [visible, setVisible] = React.useState(visibleProp)
+
+  React.useEffect(() => {
+    setVisible(visibleProp)
+  }, [visibleProp])
+
+  React.useEffect(() => {
+    onVisibleChangeProp && onVisibleChangeProp(visible)
+  }, [visible])
+
+  const close = React.useCallback(() => {
+    setVisible(false)
+    // 如果父组件也设置了，则关闭父组件
+    if (closeOnClickContext) {
+      closeContext()
+    }
+  }, [closeOnClickContext, closeContext])
+
+  const onVisibleChange = React.useCallback((_visible: boolean) => {
+    setVisible(_visible)
+  }, [])
 
   const popup = () => (
     <div className={`${prefixCls}__overlay-wrapper`}>
@@ -35,15 +67,24 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   )
 
   return (
-    <Popper
-      popup={popup}
-      trigger={trigger}
-      placement={placement}
-      overlayStyle={overlayStyle}
-      overlayClassName={overlayClassName}
-      transitionName={transitionName}
-      {...others}
-    />
+    <DropdownContext.Provider
+      value={{
+        close,
+        closeOnClick
+      }}
+    >
+      <Popper
+        popup={popup}
+        trigger={trigger}
+        placement={placement}
+        overlayStyle={overlayStyle}
+        overlayClassName={overlayClassName}
+        transitionName={transitionName}
+        onVisibleChange={onVisibleChange}
+        visible={visible}
+        {...others}
+      />
+    </DropdownContext.Provider>
   )
 }
 

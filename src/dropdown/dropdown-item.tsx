@@ -2,6 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
 import { namePrefix } from '../commons/config'
+import DropdownContext from './dropdown-context'
 
 export interface DropdownItemProps extends React.HTMLAttributes<HTMLLIElement> {
   children: React.ReactNode
@@ -24,6 +25,8 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
     ...others
   } = props
 
+  const { closeOnClick, close } = React.useContext(DropdownContext)
+
   const classes = classnames(prefixCls, {
     [`${prefixCls}--disabled`]: disabled
   })
@@ -45,6 +48,9 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
       e.stopPropagation()
     } else {
       onClick && onClick(e)
+      if (closeOnClick) {
+        close()
+      }
     }
   }, [disabled, onClick])
 

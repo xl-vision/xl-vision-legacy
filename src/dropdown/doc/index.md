@@ -99,6 +99,41 @@ const [visible, setVisible] = React.useState(false)
 
 :::
 
+::: demo 点击后关闭
+点击后关闭
+
+```jsx
+export default () => {
+ const submenus = (
+     <>
+       <Dropdown.Item>submenu1</Dropdown.Item>
+       <Dropdown.Item>submenu2</Dropdown.Item>
+       <Dropdown.Item>submenu3</Dropdown.Item>
+     </>
+   )
+   const menus = (
+     <>
+       <Dropdown.Item>menu1</Dropdown.Item>
+       <Dropdown.Item>menu2</Dropdown.Item>
+       <Dropdown.Item>menu3</Dropdown.Item>
+       <Dropdown overlay={submenus} placement='rightTop'>
+         <Dropdown.Item>
+           Dropdown
+           <FasAngleRight/>
+         </Dropdown.Item>
+       </Dropdown>
+     </>
+   )
+  return (
+    <Dropdown overlay={menus} closeOnClick={true}>
+      <Button type="text" href='#'>hover me</Button>
+    </Dropdown>
+  )
+}
+```
+
+:::
+
 ## Dropdown API
 
 >公共属性请参考[Tooltip](#/tooltip)
@@ -108,6 +143,7 @@ const [visible, setVisible] = React.useState(false)
 | prefixCls | 自定义类名前缀            | string  | -  | -| false|
 | children | 参考元素            | React.ReactElement  | -  | -| true|
 | overlay | 弹出菜单            | React.ReactElement/React.ReactElement[]  | -  | -| true|
+| closeOnClick | 点击item时关闭弹出框            | boolean  | -  | false | false|
 
 ## Item API
 
