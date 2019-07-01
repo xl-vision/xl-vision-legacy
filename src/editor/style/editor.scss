@@ -1,1 +1,14 @@
 @import "../../style/commons/var";
+
+$editor: #{$--cls-prefix}-editor;
+
+.#{$editor} {
+  box-sizing: border-box;
+  background-color: $--editor-bg-color;
+  border: $--editor-border-width solid $--editor-border-color;
+
+  &__content {
+    box-sizing: border-box;
+    padding: $--editor-content-padding;
+  }
+}

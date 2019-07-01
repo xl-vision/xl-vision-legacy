@@ -1,0 +1,23 @@
+@import "../../style/commons/var";
+
+$toolbar: #{$--cls-prefix}-editor__toolbar;
+
+.#{$toolbar} {
+  box-sizing: border-box;
+  background-color: $--editor-bg-color;
+  border-bottom: $--editor-toolbar-width solid $--editor-border-color;
+
+  &__btn {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: $--editor-toolbar-btn-margin;
+    padding: $--editor-toolbar-btn-padding;
+    cursor: pointer;
+    transition: all $--editor-toolbar-animation-time;
+
+    &--active,
+    &:hover {
+      background-color: $--editor-toolbar-bg-color-hover;
+    }
+  }
+}

@@ -4,7 +4,9 @@ import { Operation, Value } from 'slate'
 import { Editor as SlateEditor, Plugin } from 'slate-react'
 import { namePrefix } from '../commons/config'
 import BoldPlugin from './plugins/bold'
-import ImagePlugin from './plugins/image'
+import ItalicPlugin from './plugins/italic'
+import StrikethroughPlugin from './plugins/strikethrough'
+import UnderlinePlugin from './plugins/underline'
 import Toolbar from './toolbar'
 
 export interface EditorProps {
@@ -16,7 +18,9 @@ export const displayName = `${namePrefix}-editor`
 
 const PLUGINS: Plugin[] = [
   BoldPlugin,
-  ImagePlugin
+  UnderlinePlugin,
+  ItalicPlugin,
+  StrikethroughPlugin
 ]
 
 const Editor: React.FunctionComponent<EditorProps> = props => {

@@ -271,3 +271,13 @@ $--dropdown-item-disabled: $--opacity-disabled;
 $--dropdown-divider-color: $--border-color;
 $--dropdown-text-color: $--text-color;
 
+//editor
+$--editor-border-color: $--border-color;
+$--editor-border-width: $--border-width;
+$--editor-content-padding: 8px;
+$--editor-toolbar-width: 3px;
+$--editor-toolbar-btn-padding: 5px 8px;
+$--editor-toolbar-btn-margin: 3px;
+$--editor-bg-color: $--bg-color;
+$--editor-toolbar-bg-color-hover: color-level($--editor-bg-color, $--color-level);
+$--editor-toolbar-animation-time: $--animation-duration;
