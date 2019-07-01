@@ -1,8 +1,0 @@
-@import "../../style/commons/var";
-@import "../../style/mixins/clearfix";
-
-$rich-editor: #{$--cls-prefix}-editor;
-
-.#{$rich-editor} {
-  padding: 0;
-}
