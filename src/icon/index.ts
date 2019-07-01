@@ -162,6 +162,7 @@ import FabGalacticSenate from './icons/fab-galactic-senate'
 import FabGetPocket from './icons/fab-get-pocket'
 import FabGgCircle from './icons/fab-gg-circle'
 import FabGg from './icons/fab-gg'
+import FabGitAlt from './icons/fab-git-alt'
 import FabGitSquare from './icons/fab-git-square'
 import FabGit from './icons/fab-git'
 import FabGithubAlt from './icons/fab-github-alt'
@@ -344,6 +345,7 @@ import FabSpotify from './icons/fab-spotify'
 import FabSquarespace from './icons/fab-squarespace'
 import FabStackExchange from './icons/fab-stack-exchange'
 import FabStackOverflow from './icons/fab-stack-overflow'
+import FabStackpath from './icons/fab-stackpath'
 import FabStaylinked from './icons/fab-staylinked'
 import FabSteamSquare from './icons/fab-steam-square'
 import FabSteamSymbol from './icons/fab-steam-symbol'
@@ -634,6 +636,8 @@ import FasBaby from './icons/fas-baby'
 import FasBackspace from './icons/fas-backspace'
 import FasBackward from './icons/fas-backward'
 import FasBacon from './icons/fas-bacon'
+import FasBalanceScaleLeft from './icons/fas-balance-scale-left'
+import FasBalanceScaleRight from './icons/fas-balance-scale-right'
 import FasBalanceScale from './icons/fas-balance-scale'
 import FasBan from './icons/fas-ban'
 import FasBandAid from './icons/fas-band-aid'
@@ -654,6 +658,7 @@ import FasBell from './icons/fas-bell'
 import FasBezierCurve from './icons/fas-bezier-curve'
 import FasBible from './icons/fas-bible'
 import FasBicycle from './icons/fas-bicycle'
+import FasBiking from './icons/fas-biking'
 import FasBinoculars from './icons/fas-binoculars'
 import FasBiohazard from './icons/fas-biohazard'
 import FasBirthdayCake from './icons/fas-birthday-cake'
@@ -672,6 +677,9 @@ import FasBookOpen from './icons/fas-book-open'
 import FasBookReader from './icons/fas-book-reader'
 import FasBook from './icons/fas-book'
 import FasBookmark from './icons/fas-bookmark'
+import FasBorderAll from './icons/fas-border-all'
+import FasBorderNone from './icons/fas-border-none'
+import FasBorderStyle from './icons/fas-border-style'
 import FasBowlingBall from './icons/fas-bowling-ball'
 import FasBoxOpen from './icons/fas-box-open'
 import FasBox from './icons/fas-box'
@@ -878,6 +886,7 @@ import FasExternalLinkSquareAlt from './icons/fas-external-link-square-alt'
 import FasEyeDropper from './icons/fas-eye-dropper'
 import FasEyeSlash from './icons/fas-eye-slash'
 import FasEye from './icons/fas-eye'
+import FasFan from './icons/fas-fan'
 import FasFastBackward from './icons/fas-fast-backward'
 import FasFastForward from './icons/fas-fast-forward'
 import FasFax from './icons/fas-fax'
@@ -1039,6 +1048,7 @@ import FasHryvnia from './icons/fas-hryvnia'
 import FasICursor from './icons/fas-i-cursor'
 import FasIceCream from './icons/fas-ice-cream'
 import FasIcicles from './icons/fas-icicles'
+import FasIcons from './icons/fas-icons'
 import FasIdBadge from './icons/fas-id-badge'
 import FasIdCardAlt from './icons/fas-id-card-alt'
 import FasIdCard from './icons/fas-id-card'
@@ -1190,10 +1200,13 @@ import FasPepperHot from './icons/fas-pepper-hot'
 import FasPercent from './icons/fas-percent'
 import FasPercentage from './icons/fas-percentage'
 import FasPersonBooth from './icons/fas-person-booth'
+import FasPhoneAlt from './icons/fas-phone-alt'
 import FasPhoneSlash from './icons/fas-phone-slash'
+import FasPhoneSquareAlt from './icons/fas-phone-square-alt'
 import FasPhoneSquare from './icons/fas-phone-square'
 import FasPhoneVolume from './icons/fas-phone-volume'
 import FasPhone from './icons/fas-phone'
+import FasPhotoVideo from './icons/fas-photo-video'
 import FasPiggyBank from './icons/fas-piggy-bank'
 import FasPills from './icons/fas-pills'
 import FasPizzaSlice from './icons/fas-pizza-slice'
@@ -1241,6 +1254,7 @@ import FasRecycle from './icons/fas-recycle'
 import FasRedoAlt from './icons/fas-redo-alt'
 import FasRedo from './icons/fas-redo'
 import FasRegistered from './icons/fas-registered'
+import FasRemoveFormat from './icons/fas-remove-format'
 import FasReplyAll from './icons/fas-reply-all'
 import FasReply from './icons/fas-reply'
 import FasRepublican from './icons/fas-republican'
@@ -1321,17 +1335,24 @@ import FasSnowman from './icons/fas-snowman'
 import FasSnowplow from './icons/fas-snowplow'
 import FasSocks from './icons/fas-socks'
 import FasSolarPanel from './icons/fas-solar-panel'
+import FasSortAlphaDownAlt from './icons/fas-sort-alpha-down-alt'
 import FasSortAlphaDown from './icons/fas-sort-alpha-down'
+import FasSortAlphaUpAlt from './icons/fas-sort-alpha-up-alt'
 import FasSortAlphaUp from './icons/fas-sort-alpha-up'
+import FasSortAmountDownAlt from './icons/fas-sort-amount-down-alt'
 import FasSortAmountDown from './icons/fas-sort-amount-down'
+import FasSortAmountUpAlt from './icons/fas-sort-amount-up-alt'
 import FasSortAmountUp from './icons/fas-sort-amount-up'
 import FasSortDown from './icons/fas-sort-down'
+import FasSortNumericDownAlt from './icons/fas-sort-numeric-down-alt'
 import FasSortNumericDown from './icons/fas-sort-numeric-down'
+import FasSortNumericUpAlt from './icons/fas-sort-numeric-up-alt'
 import FasSortNumericUp from './icons/fas-sort-numeric-up'
 import FasSortUp from './icons/fas-sort-up'
 import FasSort from './icons/fas-sort'
 import FasSpa from './icons/fas-spa'
 import FasSpaceShuttle from './icons/fas-space-shuttle'
+import FasSpellCheck from './icons/fas-spell-check'
 import FasSpider from './icons/fas-spider'
 import FasSpinner from './icons/fas-spinner'
 import FasSplotch from './icons/fas-splotch'
@@ -1489,6 +1510,7 @@ import FasVials from './icons/fas-vials'
 import FasVideoSlash from './icons/fas-video-slash'
 import FasVideo from './icons/fas-video'
 import FasVihara from './icons/fas-vihara'
+import FasVoicemail from './icons/fas-voicemail'
 import FasVolleyballBall from './icons/fas-volleyball-ball'
 import FasVolumeDown from './icons/fas-volume-down'
 import FasVolumeMute from './icons/fas-volume-mute'
@@ -1682,6 +1704,7 @@ export default {
   FabGetPocket,
   FabGgCircle,
   FabGg,
+  FabGitAlt,
   FabGitSquare,
   FabGit,
   FabGithubAlt,
@@ -1864,6 +1887,7 @@ export default {
   FabSquarespace,
   FabStackExchange,
   FabStackOverflow,
+  FabStackpath,
   FabStaylinked,
   FabSteamSquare,
   FabSteamSymbol,
@@ -2154,6 +2178,8 @@ export default {
   FasBackspace,
   FasBackward,
   FasBacon,
+  FasBalanceScaleLeft,
+  FasBalanceScaleRight,
   FasBalanceScale,
   FasBan,
   FasBandAid,
@@ -2174,6 +2200,7 @@ export default {
   FasBezierCurve,
   FasBible,
   FasBicycle,
+  FasBiking,
   FasBinoculars,
   FasBiohazard,
   FasBirthdayCake,
@@ -2192,6 +2219,9 @@ export default {
   FasBookReader,
   FasBook,
   FasBookmark,
+  FasBorderAll,
+  FasBorderNone,
+  FasBorderStyle,
   FasBowlingBall,
   FasBoxOpen,
   FasBox,
@@ -2398,6 +2428,7 @@ export default {
   FasEyeDropper,
   FasEyeSlash,
   FasEye,
+  FasFan,
   FasFastBackward,
   FasFastForward,
   FasFax,
@@ -2559,6 +2590,7 @@ export default {
   FasICursor,
   FasIceCream,
   FasIcicles,
+  FasIcons,
   FasIdBadge,
   FasIdCardAlt,
   FasIdCard,
@@ -2710,10 +2742,13 @@ export default {
   FasPercent,
   FasPercentage,
   FasPersonBooth,
+  FasPhoneAlt,
   FasPhoneSlash,
+  FasPhoneSquareAlt,
   FasPhoneSquare,
   FasPhoneVolume,
   FasPhone,
+  FasPhotoVideo,
   FasPiggyBank,
   FasPills,
   FasPizzaSlice,
@@ -2761,6 +2796,7 @@ export default {
   FasRedoAlt,
   FasRedo,
   FasRegistered,
+  FasRemoveFormat,
   FasReplyAll,
   FasReply,
   FasRepublican,
@@ -2841,17 +2877,24 @@ export default {
   FasSnowplow,
   FasSocks,
   FasSolarPanel,
+  FasSortAlphaDownAlt,
   FasSortAlphaDown,
+  FasSortAlphaUpAlt,
   FasSortAlphaUp,
+  FasSortAmountDownAlt,
   FasSortAmountDown,
+  FasSortAmountUpAlt,
   FasSortAmountUp,
   FasSortDown,
+  FasSortNumericDownAlt,
   FasSortNumericDown,
+  FasSortNumericUpAlt,
   FasSortNumericUp,
   FasSortUp,
   FasSort,
   FasSpa,
   FasSpaceShuttle,
+  FasSpellCheck,
   FasSpider,
   FasSpinner,
   FasSplotch,
@@ -3009,6 +3052,7 @@ export default {
   FasVideoSlash,
   FasVideo,
   FasVihara,
+  FasVoicemail,
   FasVolleyballBall,
   FasVolumeDown,
   FasVolumeMute,
@@ -3202,6 +3246,7 @@ export {
   FabGetPocket,
   FabGgCircle,
   FabGg,
+  FabGitAlt,
   FabGitSquare,
   FabGit,
   FabGithubAlt,
@@ -3384,6 +3429,7 @@ export {
   FabSquarespace,
   FabStackExchange,
   FabStackOverflow,
+  FabStackpath,
   FabStaylinked,
   FabSteamSquare,
   FabSteamSymbol,
@@ -3674,6 +3720,8 @@ export {
   FasBackspace,
   FasBackward,
   FasBacon,
+  FasBalanceScaleLeft,
+  FasBalanceScaleRight,
   FasBalanceScale,
   FasBan,
   FasBandAid,
@@ -3694,6 +3742,7 @@ export {
   FasBezierCurve,
   FasBible,
   FasBicycle,
+  FasBiking,
   FasBinoculars,
   FasBiohazard,
   FasBirthdayCake,
@@ -3712,6 +3761,9 @@ export {
   FasBookReader,
   FasBook,
   FasBookmark,
+  FasBorderAll,
+  FasBorderNone,
+  FasBorderStyle,
   FasBowlingBall,
   FasBoxOpen,
   FasBox,
@@ -3918,6 +3970,7 @@ export {
   FasEyeDropper,
   FasEyeSlash,
   FasEye,
+  FasFan,
   FasFastBackward,
   FasFastForward,
   FasFax,
@@ -4079,6 +4132,7 @@ export {
   FasICursor,
   FasIceCream,
   FasIcicles,
+  FasIcons,
   FasIdBadge,
   FasIdCardAlt,
   FasIdCard,
@@ -4230,10 +4284,13 @@ export {
   FasPercent,
   FasPercentage,
   FasPersonBooth,
+  FasPhoneAlt,
   FasPhoneSlash,
+  FasPhoneSquareAlt,
   FasPhoneSquare,
   FasPhoneVolume,
   FasPhone,
+  FasPhotoVideo,
   FasPiggyBank,
   FasPills,
   FasPizzaSlice,
@@ -4281,6 +4338,7 @@ export {
   FasRedoAlt,
   FasRedo,
   FasRegistered,
+  FasRemoveFormat,
   FasReplyAll,
   FasReply,
   FasRepublican,
@@ -4361,17 +4419,24 @@ export {
   FasSnowplow,
   FasSocks,
   FasSolarPanel,
+  FasSortAlphaDownAlt,
   FasSortAlphaDown,
+  FasSortAlphaUpAlt,
   FasSortAlphaUp,
+  FasSortAmountDownAlt,
   FasSortAmountDown,
+  FasSortAmountUpAlt,
   FasSortAmountUp,
   FasSortDown,
+  FasSortNumericDownAlt,
   FasSortNumericDown,
+  FasSortNumericUpAlt,
   FasSortNumericUp,
   FasSortUp,
   FasSort,
   FasSpa,
   FasSpaceShuttle,
+  FasSpellCheck,
   FasSpider,
   FasSpinner,
   FasSplotch,
@@ -4529,6 +4594,7 @@ export {
   FasVideoSlash,
   FasVideo,
   FasVihara,
+  FasVoicemail,
   FasVolleyballBall,
   FasVolumeDown,
   FasVolumeMute,
