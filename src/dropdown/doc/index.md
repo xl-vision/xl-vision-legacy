@@ -100,21 +100,21 @@ const [visible, setVisible] = React.useState(false)
 :::
 
 ::: demo 点击后关闭
-点击后关闭
+点击菜单项后关闭弹出框
 
 ```jsx
 export default () => {
  const submenus = (
      <>
        <Dropdown.Item>submenu1</Dropdown.Item>
-       <Dropdown.Item>submenu2</Dropdown.Item>
+       <Dropdown.Item disabled>submenu2</Dropdown.Item>
        <Dropdown.Item>submenu3</Dropdown.Item>
      </>
    )
    const menus = (
      <>
        <Dropdown.Item>menu1</Dropdown.Item>
-       <Dropdown.Item>menu2</Dropdown.Item>
+       <Dropdown.Item disabled>menu2</Dropdown.Item>
        <Dropdown.Item>menu3</Dropdown.Item>
        <Dropdown overlay={submenus} placement='rightTop'>
          <Dropdown.Item>
