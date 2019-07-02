@@ -1,6 +1,6 @@
 @import "../../style/commons/var";
 
-$toolbar: #{$--cls-prefix}-editor__toolbar;
+$toolbar: #{$--cls-prefix}-editor-toolbar;
 
 .#{$toolbar} {
   box-sizing: border-box;
@@ -12,6 +12,9 @@ $toolbar: #{$--cls-prefix}-editor__toolbar;
     box-sizing: border-box;
     margin: $--editor-toolbar-btn-margin;
     padding: $--editor-toolbar-btn-padding;
+    background-color: $--editor-bg-color;
+    border: none;
+    outline: none;
     cursor: pointer;
     transition: all $--editor-toolbar-animation-time;
 

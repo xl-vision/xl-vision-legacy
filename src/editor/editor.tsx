@@ -4,6 +4,11 @@ import { Operation, Value } from 'slate'
 import { Editor as SlateEditor, Plugin } from 'slate-react'
 import { namePrefix } from '../commons/config'
 import BoldPlugin from './plugins/bold'
+import Heading1Plugin from './plugins/heading1'
+import Heading2Plugin from './plugins/heading2'
+import Heading3Plugin from './plugins/heading3'
+import Heading4Plugin from './plugins/heading4'
+import Heading5Plugin from './plugins/heading5'
 import ItalicPlugin from './plugins/italic'
 import StrikethroughPlugin from './plugins/strikethrough'
 import UnderlinePlugin from './plugins/underline'
@@ -20,7 +25,12 @@ const PLUGINS: Plugin[] = [
   BoldPlugin,
   UnderlinePlugin,
   ItalicPlugin,
-  StrikethroughPlugin
+  StrikethroughPlugin,
+  Heading1Plugin,
+  Heading2Plugin,
+  Heading3Plugin,
+  Heading4Plugin,
+  Heading5Plugin
 ]
 
 const Editor: React.FunctionComponent<EditorProps> = props => {
