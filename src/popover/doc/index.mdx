@@ -1,17 +1,10 @@
----
-displayName: 'docs-popover'
-imports:
-  - import './index.scss'
-  - import Popover from '..'
-  - import Button from '../../button'
-  - import Row from '../../row'
----
 # Popover
 
 ::: demo 基本用法
 基本的使用方式
 
 ```jsx
+import {Popover} from '@xl-vision/xl-vision'
 export default () => {
   return (
     <Popover title='Title' content={<div>Content</div>}>
@@ -28,6 +21,7 @@ export default () => {
 可以设置12个方向的位置
 
 ```jsx
+import {Popover, Row, Button} from '@xl-vision/xl-vision'
 export default () => {
   return (
     <div>
@@ -140,6 +134,7 @@ export default () => {
 通过`trigger`指定触发方式
 
 ```jsx
+import {Popover, Button} from '@xl-vision/xl-vision'
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (

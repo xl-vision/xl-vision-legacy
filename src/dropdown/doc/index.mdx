@@ -1,17 +1,11 @@
----
-displayName: 'docs-dropdown'
-imports:
-  - import './index.scss'
-  - import Dropdown from '..'
-  - import { FasAngleRight, FasAngleDown } from '../../icon'
-  - import Button from '../../button'
----
+
 # Dropdown
 
 ::: demo 基本用法
 基本用法
 
 ```jsx
+import {Dropdown, Button} from '@xl-vision/xl-vision'
 export default () => {
   const menus = (
     <>
@@ -37,6 +31,7 @@ export default () => {
 禁止部分菜单项
 
 ```jsx
+import {Dropdown, Button} from '@xl-vision/xl-vision'
 export default () => {
   const menus = (
     <>
@@ -61,6 +56,7 @@ export default () => {
 嵌套使用
 
 ```jsx
+import {Dropdown, Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
 const [visible, setVisible] = React.useState(false)
   const submenus = (
@@ -80,7 +76,7 @@ const [visible, setVisible] = React.useState(false)
       <Dropdown overlay={submenus} placement='rightTop'>
         <Dropdown.Item>
           Dropdown
-          <FasAngleRight/>
+          <Icon.FasAngleRight/>
         </Dropdown.Item>
       </Dropdown>
     </>
@@ -89,7 +85,7 @@ const [visible, setVisible] = React.useState(false)
     <Dropdown overlay={menus} visible={visible} onVisibleChange={visible => setVisible(visible)}>
       <Button>
         Dropdown
-        <FasAngleDown/>
+        <Icon.FasAngleDown/>
       </Button>
     </Dropdown>
   )
@@ -103,6 +99,7 @@ const [visible, setVisible] = React.useState(false)
 点击菜单项后关闭弹出框
 
 ```jsx
+import {Dropdown, Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
  const submenus = (
      <>
@@ -119,7 +116,7 @@ export default () => {
        <Dropdown overlay={submenus} placement='rightTop'>
          <Dropdown.Item>
            Dropdown
-           <FasAngleRight/>
+           <Icon.FasAngleRight/>
          </Dropdown.Item>
        </Dropdown>
      </>

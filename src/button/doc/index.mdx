@@ -1,16 +1,11 @@
----
-displayName: 'docs-button'
-imports:
-    - import Button from '..'
-    - import Icon from '../../icon'
-    - import './style.scss'
----
+
 # 按钮
 
 :::demo 基础用法
 通过`type`、`plain`、`dashed`指定按钮的样式，按钮中也可以添加[Icon](#/icon)。
 
 ```jsx
+import {Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -46,6 +41,11 @@ export default () => {
                 <Button type='error'><Icon.FasPowerOff/>Error</Button>
                 <Button type='text'><Icon.FasPowerOff/>Text</Button>
             </div>
+            <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem;
+              }
+            `}</style>
         </div>
     )
 }
@@ -57,6 +57,7 @@ export default () => {
 给按钮指定`shape`属性即可改变按钮的形状，可以设置的值有`circle`、`round`两种，通常`circle`用于图标按钮。
 
 ```jsx
+import {Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -76,6 +77,11 @@ export default () => {
                 <Button shape='circle' type='error'><Icon.FasPowerOff/></Button>
                 <Button shape='circle' type='text'><Icon.FasPowerOff/></Button>
             </div>
+            <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem;
+              }
+            `}</style>
         </div>
     )
 }
@@ -87,6 +93,7 @@ export default () => {
 通过`size`调整按钮大小
 
 ```jsx
+import {Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -118,7 +125,12 @@ export default () => {
           <Button size={size} shape='circle'><Icon.FasPowerOff/></Button>
           <Button size={size} shape='circle' type='primary'><Icon.FasPowerOff/></Button>
       </div>
-      </div>
+      <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem;
+              }
+            `}</style>
+    </div>
   )
 }
 ```
@@ -129,6 +141,7 @@ export default () => {
 给按钮添加`loading`属性即可让按钮处于加载状态，此时icon属性会被loading组件覆盖
 
 ```jsx
+import {Button} from '@xl-vision/xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -140,6 +153,11 @@ export default () => {
                 <Button loading type='error'>Error</Button>
                 <Button loading type='text'>Text</Button>
             </div>
+            <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem;
+              }
+            `}</style>
         </div>
     )
 }
@@ -151,6 +169,7 @@ export default () => {
 给按钮添加`disabled`属性即可让按钮处于不可用
 
 ```jsx
+import {Button} from '@xl-vision/xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -162,6 +181,11 @@ export default () => {
                 <Button disabled type='error'>Error</Button>
                 <Button disabled type='text'>Text</Button>
             </div>
+            <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem;
+              }
+            `}</style>
         </div>
     )
 }
@@ -173,6 +197,7 @@ export default () => {
 给按钮添加`ghost`属性可以使button的背景变透明，适合在彩色背景中使用。
 
 ```jsx
+import {Button} from '@xl-vision/xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -184,6 +209,11 @@ export default () => {
                 <Button ghost type='error'>Error</Button>
                 <Button ghost type='text'>Text</Button>
             </div>
+            <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem;
+              }
+            `}</style>
         </div>
     )
 }
@@ -195,6 +225,7 @@ export default () => {
 给按钮添加`href`可以使按钮与a链接表现一致，获得跳转url的功能。
 
 ```jsx
+import {Button} from '@xl-vision/xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -206,6 +237,11 @@ export default () => {
                 <Button href='#' type='error'>Error</Button>
                 <Button href='#' type='text'>Text</Button>
             </div>
+            <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem;
+              }
+            `}</style>
         </div>
     )
 }
@@ -217,6 +253,7 @@ export default () => {
 给按钮添加`long`可以使按钮变成长按钮。
 
 ```jsx
+import {Button} from '@xl-vision/xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -228,6 +265,11 @@ export default () => {
                 <Button long type='error'>Error</Button>
                 <Button long type='text'>Text</Button>
             </div>
+            <style jsx>{`
+              .button-column :global(.xl-button) {
+                margin: 0.5rem 0;
+              }
+            `}</style>
         </div>
     )
 }
@@ -239,6 +281,7 @@ export default () => {
 通过ButtonGroup包裹按钮，可以组成按钮组
 
 ```jsx
+import {Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -272,6 +315,11 @@ export default () => {
           <Button>下一页<Icon.FasChevronRight/></Button>
         </Button.Group>
       </div>
+      <style jsx>{`
+        .button-wrapper :global(.xl-button-group) {
+          margin: 0.5rem 0;
+        }
+      `}</style>
     </div>
   )
 }
@@ -283,6 +331,7 @@ export default () => {
 通过指定`vertical`属性，可以组成垂直方向的按钮组
 
 ```jsx
+import {Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -310,6 +359,11 @@ export default () => {
         <Button><Icon.FasChevronUp/>上一页</Button>
         <Button><Icon.FasChevronDown/>下一页</Button>
       </Button.Group>
+      <style jsx>{`
+        .button-wrapper :global(.xl-button-group) {
+          margin: 0 0.5rem;
+        }
+      `}</style>
     </div>
   )
 }

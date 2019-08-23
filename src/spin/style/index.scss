@@ -5,6 +5,7 @@ $spin: #{$--cls-prefix}-spin;
 .#{$spin} {
   position: relative;
   display: inline-block;
+  line-height: 1;
 
   &::before {
     position: absolute;

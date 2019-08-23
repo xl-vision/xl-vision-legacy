@@ -1,11 +1,4 @@
----
-displayName: 'docs-spin'
-imports:
-    - import './index.scss'
-    - import Spin from '..'
-    - import { FasCircleNotch } from '../../icon'
-    - import Button from '../../button'
----
+
 # 加载中
 
 用于页面与区块的加载中状态
@@ -15,6 +8,7 @@ imports:
 一个简单的loading状态
 
 ```jsx
+import {Spin} from '@xl-vision/xl-vision'
 export default function () {
     return <Spin/>
 }
@@ -27,10 +21,21 @@ export default function () {
 将内容内嵌在`Spin`中。
 
 ```jsx
+import {Spin} from '@xl-vision/xl-vision'
 export default function () {
     return (
         <Spin>
             <div className='spin-inner'>Further details about the context of this alert.</div>
+            <style jsx>{`
+                .spin-inner{
+                    position: relative;
+                    width: 25rem;
+                    height: 10rem;
+                    background-color: #ccc;
+                    text-align: center;
+                    line-height: 10rem;
+                }
+            `}</style>
         </Spin>
     )
 }
@@ -43,9 +48,23 @@ export default function () {
 将内容内嵌在`Spin`中。
 
 ```jsx
+import {Spin} from '@xl-vision/xl-vision'
 export default function () {
     return (
-        <div className='spin-inner'>Further details about the context of this alert.<Spin cover/></div>
+        <div className='spin-inner'>
+            Further details about the context of this alert.
+            <Spin cover/>
+            <style jsx>{`
+                .spin-inner{
+                    position: relative;
+                    width: 25rem;
+                    height: 10rem;
+                    background-color: #ccc;
+                    text-align: center;
+                    line-height: 10rem;
+                }
+            `}</style>
+        </div>
     )
 }
 ```
@@ -57,12 +76,18 @@ export default function () {
 小的用于文本加载，默认用于卡片容器级加载，大的用于页面级加载。
 
 ```jsx
+import {Spin} from '@xl-vision/xl-vision'
 export default function () {
     return (
         <div className='spin-wrapper'>
             <Spin size='small'/>
             <Spin size='default'/>
             <Spin size='large'/>
+            <style jsx>{`
+                .spin-wrapper :gloabl(.xl-spin){
+                    margin-right: 1rem;
+                }
+            `}</style>
         </div>
     )
 }
@@ -75,6 +100,7 @@ export default function () {
 使用`tip`属性自定义描述文字
 
 ```jsx
+import {Spin} from '@xl-vision/xl-vision'
 export default function () {
     return (
         <Spin tip='Loading...'/>
@@ -89,9 +115,10 @@ export default function () {
 通过`indicator`自定义加载指示器。
 
 ```jsx
+import {Spin, Icon} from '@xl-vision/xl-vision'
 export default function () {
     return (
-        <Spin indicator={<FasCircleNotch spin/>} tip='Loading...'/>
+        <Spin indicator={<Icon.FasCircleNotch spin/>} tip='Loading...'/>
     )
 }
 ```
@@ -103,6 +130,7 @@ export default function () {
 通过`delay`延时显示加载器，当在延时时间段内，加载器
 
 ```jsx
+import {Spin, Button} from '@xl-vision/xl-vision'
 export default function () {
     const [display, setDisplay] = React.useState(false)
     return (
@@ -111,6 +139,20 @@ export default function () {
                 <div className='spin-inner'>Further details about the context of this alert.</div>
             </Spin>
             <Button onClick={() => setDisplay(!display)}>{display?'关闭':'打开'}</Button>
+            <style jsx>{`
+                .spin-inner{
+                    position: relative;
+                    width: 25rem;
+                    height: 10rem;
+                    background-color: #ccc;
+                    text-align: center;
+                    line-height: 10rem;
+                }
+                .spin-wrapper :gloabl(.xl-button){
+                   display: block;
+                   margin-top: 1rem;
+                }
+            `}</style>
         </div>
     )
 }

@@ -1,10 +1,5 @@
----
-displayName: 'docs-icon'
-imports:
-  - import Icon from '..'
-  - import IconSelect from 'site/components/icon-select'
-  - import './style.scss'
----
+import IconSelect from 'site/components/icon-select'
+import './style.scss'
 
 # 图标
 
@@ -16,7 +11,8 @@ imports:
 基本使用方法
 
 ```jsx
-export default function() {
+import {Icon} from '@xl-vision/xl-vision'
+export default () => {
   return (
     <div className='icon-example'>
       <Icon.Fab500px size='2rem'/>
@@ -24,6 +20,11 @@ export default function() {
       <Icon.FabAdobe size={32} color='red'/>
       <Icon.FabAdobe size={32} rotate={20}/>
       <Icon.FasSpinner size={32} spin/>
+      <style jsx>{`
+        .icon-example :global(.xl-icon) {
+          margin-right: 1rem;
+        }
+      `}</style>
     </div>
   );
 }

@@ -6,13 +6,14 @@ import './index.scss'
 
 export interface DemoBoxProps {
   children: React.ReactNode
+  code: string
   desc: React.ReactNode
+  preview: React.ReactNode
   title: React.ReactNode
-  view: React.ReactNode
 }
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
-  const { title, desc, view, children } = props
+  const { title, desc, code, preview, children } = props
   const [display, setDisplay] = React.useState(false)
   const showCode = React.useCallback(() => {
     setDisplay(!display)
@@ -24,7 +25,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
   })
   return (
     <div className='demobox'>
-      <div className='demobox-view'>{view}</div>
+      <div className='demobox-view'>{preview}</div>
       <div className='demobox-wrapper'>
         <div className='demobox-title'>{title}</div>
         <div className='demobox-desc'>{desc}</div>

@@ -1,3 +1,5 @@
+import { MDXProvider } from '@mdx-js/react'
+import classnames from 'classnames'
 import * as React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
 import Spin from '../../../src/spin'
@@ -46,12 +48,28 @@ const addRoute = (routeArray: Route[], level = '1') => {
 
 addRoute(routes)
 
+const components = {
+  a: (props: any) => <a {...props} className='md_a'/>,
+  blockquote: (props: any) => <blockquote {...props} className='md_blockquote'/>,
+  inlineCode: (props: any) => <code {...props} className='md_code_inline'/>,
+  li: (props: any) => <ol {...props} className='md_li'/>,
+  ol: (props: any) => <ol {...props} className='md_ol'/>,
+  table: (props: any) => (
+    <div className='md_table-wrapper'>
+      <table {...props} className='md_table'/>
+    </div>
+  ),
+  wrapper: (props: any) => <div className={classnames('md', props.location.path)} children={props.children}/>
+}
+
 const Content = () => {
   return (
     <div className='content'>
-      <React.Suspense fallback={<Spin cover={true}/>}>
-        {routeComponents}
-      </React.Suspense>
+      <MDXProvider components={components}>
+        <React.Suspense fallback={<Spin cover={true}/>}>
+          {routeComponents}
+        </React.Suspense>
+      </MDXProvider>
     </div>
   )
 }

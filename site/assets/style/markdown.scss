@@ -1,4 +1,5 @@
 @import "../../assets/style/var";
+@import "~highlight.js/styles/github.css";
 
 .md {
   display: block;
@@ -95,8 +96,8 @@
     }
   }
 
-  &_bullet_list,
-  &_ordered_list {
+  &_li,
+  &_ol {
     li {
       margin-bottom: 0.5rem;
     }

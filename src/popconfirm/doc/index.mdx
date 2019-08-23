@@ -1,18 +1,11 @@
----
-displayName: 'docs-popconfirm'
-imports:
-  - import './index.scss'
-  - import Popconfirm from '..'
-  - import Button from '../../button'
-  - import Row from '../../row'
-  - import {FasSkullCrossbones} from '../../icon'
----
+
 # Popconfirm
 
 ::: demo 基本用法
 基本的使用方式
 
 ```jsx
+import {Popconfirm, Button} from '@xl-vision/xl-vision'
 export default () => {
   return (
     <Popconfirm content='Are you sure?'>
@@ -29,6 +22,7 @@ export default () => {
 点击事件
 
 ```jsx
+import {Popconfirm, Button} from '@xl-vision/xl-vision'
 export default () => {
   return (
     <Popconfirm onConfirm={()=>alert('confirm')} onCancel={()=>alert('cancel')} content='Are you sure?'>
@@ -45,6 +39,7 @@ export default () => {
 可以设置12个方向的位置
 
 ```jsx
+import {Popconfirm, Button, Row} from '@xl-vision/xl-vision'
 export default () => {
   return (
     <div>
@@ -157,6 +152,7 @@ export default () => {
 通过`trigger`指定触发方式
 
 ```jsx
+import {Popconfirm, Button} from '@xl-vision/xl-vision'
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
@@ -188,6 +184,7 @@ export default () => {
 自定义按钮
 
 ```jsx
+import {Popconfirm, Button} from '@xl-vision/xl-vision'
 export default () => {
   return (
     <Popconfirm content='Are you sure?' confirmText='确定' cancelText='取消' confirmType='error' cancelType='warning'>
@@ -203,9 +200,10 @@ export default () => {
 自定义icon
 
 ```jsx
+import {Popconfirm, Button, Icon} from '@xl-vision/xl-vision'
 export default () => {
   return (
-    <Popconfirm content='Are you sure?' icon={<FasSkullCrossbones color='red'/>}>
+    <Popconfirm content='Are you sure?' icon={<Icon.FasSkullCrossbones color='red'/>}>
       <Button>click</Button>
     </Popconfirm>
   )

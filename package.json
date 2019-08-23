@@ -15,7 +15,8 @@
   "files": [
     "dist",
     "js",
-    "es"
+    "es",
+    "style"
   ],
   "repository": {
     "type": "git",
@@ -31,6 +32,8 @@
     }
   },
   "scripts": {
+    "dev": "xl-scripts site:dev",
+    "docs": "xl-scripts site:build",
     "lint:es": "eslint {script,site,src,typings}/**/*.js",
     "lint:ts": "xl-tools run lint:ts",
     "lint:scss": "xl-tools run lint:scss",
@@ -60,6 +63,7 @@
     "@types/slate-react": "^0.22.1",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
     "@xl-vision/xl-tools": "^0.0.2-beta.34",
+    "@xl-vision/xl-tools-scripts": "^0.0.1-beta.15",
     "chalk": "^2.4.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -71,6 +75,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
     "fs-extra": "^7.0.1",
+    "highlight.js": "^9.15.10",
     "husky": "^2.3.0",
     "inquirer": "^6.3.1",
     "jest": "^24.7.1",
