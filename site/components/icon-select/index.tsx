@@ -45,7 +45,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
     }
     const arr: string[] = []
     for (const name of iconNames) {
-      const iconInfo = iconInfos[name]
+      const iconInfo = (iconInfos as any)[name]
       if (!iconInfo) {
         // console.warn(`icon '${name}' is not in icon information file`)
         continue

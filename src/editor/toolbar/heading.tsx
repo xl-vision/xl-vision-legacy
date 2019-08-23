@@ -16,6 +16,7 @@ const Heading: React.FunctionComponent<HeadingProps> = props => {
     prefixCls = `${namePrefix}-editor-toolbar__btn`
   } = props
 
+  // @ts-ignore
   const [content, setContent] = React.useState('heading')
 
   const overlay = React.useMemo(() => {

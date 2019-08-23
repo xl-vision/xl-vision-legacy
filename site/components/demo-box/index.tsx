@@ -13,7 +13,7 @@ export interface DemoBoxProps {
 }
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
-  const { title, desc, code, preview, children } = props
+  const { title, desc, /*code,*/ preview, children } = props
   const [display, setDisplay] = React.useState(false)
   const showCode = React.useCallback(() => {
     setDisplay(!display)
