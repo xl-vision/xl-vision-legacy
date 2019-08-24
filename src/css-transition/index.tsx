@@ -20,8 +20,8 @@ export type CssTransitionClassNames = string | {
 export interface CssTransitionProps extends TransitionProps {
   classNames?: CssTransitionClassNames
   timeout?: number | {
-    appear?: number,
-    enter?: number,
+    appear?: number
+    enter?: number
     leave?: number
   }
 }

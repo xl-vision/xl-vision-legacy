@@ -105,6 +105,7 @@ Button.displayName = displayName
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  dashed: PropTypes.bool,
   disabled: PropTypes.bool,
   ghost: PropTypes.bool,
   href: PropTypes.string,

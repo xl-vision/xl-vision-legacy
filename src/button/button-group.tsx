@@ -41,11 +41,12 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
 ButtonGroup.displayName = displayName
 
 ButtonGroup.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
   prefixCls: PropTypes.string,
   round: PropTypes.bool,
   size: PropTypes.oneOf(['large', 'default', 'small']),
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
 }
 
 export default React.memo(ButtonGroup)

@@ -19,7 +19,7 @@ export interface CarouselProps {
   autoPlayDuration?: number
   children: React.ReactElement | React.ReactElement[]
   circleDot?: boolean
-  damping?: number,
+  damping?: number
   defaultIndex?: number
   direction?: 'horizontal' | 'vertical'
   dotRender?: (index: number, activeIndex: number) => React.ReactNode
@@ -49,7 +49,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     defaultIndex = 0,
     direction = 'horizontal',
     dotTrigger = 'click',
-    dotRender = ((index: number, current: number) => (
+    dotRender = (index: number, current: number) => (
       <button
         className={classnames(`${prefixCls}__dot-inner`, {
           [`${prefixCls}__dot-inner--circle`]: circleDot,
@@ -58,7 +58,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       >
         {index}
       </button>
-    )),
+    ),
     dots = true,
     loop = true,
     prefixCls = displayName,
