@@ -38,12 +38,12 @@ const routes: Route[] = [
       {
         name: '图标',
         path: '/icon',
-        component: import('../src/icon/doc/index.mdx')
+        component: import('../src/icon/__doc__/index.mdx')
       },
       {
         name: '按钮',
         path: '/button',
-        component: import('../src/button/doc/index.mdx')
+        component: import('../src/button/__doc__/index.mdx')
       },
     ]
   },
@@ -53,7 +53,7 @@ const routes: Route[] = [
       {
         name: '栅格布局',
         path: '/row',
-        component: import('../src/row/doc/index.mdx')
+        component: import('../src/row/__doc__/index.mdx')
       }
     ]
   },
@@ -63,7 +63,7 @@ const routes: Route[] = [
       {
         name: '下拉菜单',
         path: '/dropdown',
-        component: import('../src/dropdown/doc/index.mdx')
+        component: import('../src/dropdown/__doc__/index.mdx')
       },
     ]
   },
@@ -73,22 +73,22 @@ const routes: Route[] = [
       {
         name: '文字提示',
         path: '/tooltip',
-        component: import('../src/tooltip/doc/index.mdx')
+        component: import('../src/tooltip/__doc__/index.mdx')
       },
       {
         name: '气泡卡片',
         path: '/popover',
-        component: import('../src/popover/doc/index.mdx')
+        component: import('../src/popover/__doc__/index.mdx')
       },
       {
         name: '走马灯',
         path: '/carousel',
-        component: import('../src/carousel/doc/index.mdx')
+        component: import('../src/carousel/__doc__/index.mdx')
       },
       {
         name: '折叠面板',
         path: '/collapse',
-        component: import('../src/collapse/doc/index.mdx')
+        component: import('../src/collapse/__doc__/index.mdx')
       },
     ]
   },
@@ -98,12 +98,12 @@ const routes: Route[] = [
       {
         name: '气泡确认框',
         path: '/popconfirm',
-        component: import('../src/popconfirm/doc/index.mdx')
+        component: import('../src/popconfirm/__doc__/index.mdx')
       },
       {
         name: '加载中',
         path: '/spin',
-        component: import('../src/spin/doc/index.mdx')
+        component: import('../src/spin/__doc__/index.mdx')
       },
     ]
   },
@@ -113,7 +113,7 @@ const routes: Route[] = [
       {
         name: '编辑器',
         path: '/editor',
-        component: import('../src/editor/doc/index.mdx')
+        component: import('../src/editor/__doc__/index.mdx')
       }
     ]
   },
@@ -123,17 +123,17 @@ const routes: Route[] = [
       {
         name: 'Transition',
         path: '/transition',
-        component: import('../src/transition/doc/index.mdx')
+        component: import('../src/transition/__doc__/index.mdx')
       },
       {
         name: 'CssTransition',
         path: '/CssTransition',
-        component: import('../src/css-transition/doc/index.mdx')
+        component: import('../src/css-transition/__doc__/index.mdx')
       },
       {
         name: 'CollapseTransition',
         path: '/CollapseTransition',
-        component: import('../src/collapse-transition/doc/index.mdx')
+        component: import('../src/collapse-transition/__doc__/index.mdx')
       },
     ]
   }
