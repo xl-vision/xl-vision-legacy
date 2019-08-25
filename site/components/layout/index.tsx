@@ -8,23 +8,25 @@ import Header from '../header'
 
 import './index.scss'
 
-const Layout = () => {
+const Layout: React.FunctionComponent<void> = () => {
   return (
     <Router>
       <div className='layout'>
-        <Header/>
+        <Header />
         <Row className={'content-wrapper'} type={'flex'}>
           <Row.Col span={6}>
-            <Aside/>
+            <Aside />
           </Row.Col>
           <Row.Col span={18}>
-            <Content/>
+            <Content />
           </Row.Col>
         </Row>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   )
 }
+
+Layout.displayName = 'layout'
 
 export default Layout

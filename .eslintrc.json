@@ -1,35 +1,50 @@
 {
-    "env": {
-        "commonjs": true,
-        "es6": true,
-        "node": true,
-        "jest": true
-    },
-    "settings": {
-        "react": {
-            "version": "16.8"
-        }
-    },
-    "parser": "@typescript-eslint/parser",
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended"
-    ],
-    "plugins": [
-        "markdown",
-        "@typescript-eslint",
-        "react"
-    ],
-    "parserOptions": {
-        "ecmaVersion": 2018
-    },
-    "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-use-before-define": "off",
-        "quotes": ["error", "single"],
-        "semi": ["error", "never"],
-        "no-console": "off"
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "react": {
+      "version": "16.8"
     }
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": ["standard", "@typescript-eslint", "react"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.md", "*.mdx"]
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none"
+        },
+        "singleline": {
+          "delimiter": "comma"
+        }
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "react/display-name": ["error", {
+      "ignoreTranspilerName": true
+    }]
+  }
 }

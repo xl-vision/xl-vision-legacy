@@ -1,5 +1,5 @@
 @import '../style/commons/var';
-@import "../style/function/color";
+@import '../style/function/color';
 
 $button: #{$--cls-prefix}-button;
 
@@ -211,12 +211,10 @@ $button: #{$--cls-prefix}-button;
 
   @each $key, $value in $--button-theme-color {
     &--#{$key} {
-
       @include button-variant($value);
 
       &.#{$button}--ghost,
       &.#{$button}--plain {
-
         @include button-outline-variant($value);
       }
     }

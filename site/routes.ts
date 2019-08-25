@@ -9,7 +9,7 @@ export interface RedirectRoute {
 }
 
 export interface ComponentRoute {
-  component: Promise<any>
+  component: Promise<void>
   name: string
   path: string
 }
@@ -44,7 +44,7 @@ const routes: Route[] = [
         name: '按钮',
         path: '/button',
         component: import('../src/button/__doc__/index.mdx')
-      },
+      }
     ]
   },
   {
@@ -64,7 +64,7 @@ const routes: Route[] = [
         name: '下拉菜单',
         path: '/dropdown',
         component: import('../src/dropdown/__doc__/index.mdx')
-      },
+      }
     ]
   },
   {
@@ -89,7 +89,7 @@ const routes: Route[] = [
         name: '折叠面板',
         path: '/collapse',
         component: import('../src/collapse/__doc__/index.mdx')
-      },
+      }
     ]
   },
   {
@@ -104,7 +104,7 @@ const routes: Route[] = [
         name: '加载中',
         path: '/spin',
         component: import('../src/spin/__doc__/index.mdx')
-      },
+      }
     ]
   },
   {
@@ -134,7 +134,7 @@ const routes: Route[] = [
         name: 'CollapseTransition',
         path: '/CollapseTransition',
         component: import('../src/collapse-transition/__doc__/index.mdx')
-      },
+      }
     ]
   }
 ]

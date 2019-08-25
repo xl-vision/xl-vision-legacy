@@ -1,6 +1,6 @@
-@import "../style/commons/var";
-@import "../style/mixins/arrow";
-@import "../style/mixins/clearfix";
+@import '../style/commons/var';
+@import '../style/mixins/arrow';
+@import '../style/mixins/clearfix';
 
 $popconfirm: #{$--cls-prefix}-popconfirm;
 
@@ -11,7 +11,13 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
     &--topRight {
       margin-top: -$--popconfirm-border-width;
 
-      @include arrow(bottom, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+      @include arrow(
+        bottom,
+        $--popconfirm-arrow-size,
+        $--popconfirm-bg-color,
+        $--popconfirm-border-width,
+        $--border-color
+      );
     }
 
     &--bottomLeft,
@@ -19,7 +25,13 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
     &--bottomRight {
       margin-top: $--popconfirm-border-width;
 
-      @include arrow(top, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+      @include arrow(
+        top,
+        $--popconfirm-arrow-size,
+        $--popconfirm-bg-color,
+        $--popconfirm-border-width,
+        $--border-color
+      );
     }
 
     &--leftTop,
@@ -27,7 +39,13 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
     &--leftBottom {
       margin-left: -$--popconfirm-border-width;
 
-      @include arrow(right, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+      @include arrow(
+        right,
+        $--popconfirm-arrow-size,
+        $--popconfirm-bg-color,
+        $--popconfirm-border-width,
+        $--border-color
+      );
     }
 
     &--rightTop,
@@ -35,7 +53,13 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
     &--rightBottom {
       margin-left: $--popconfirm-border-width;
 
-      @include arrow(left, $--popconfirm-arrow-size, $--popconfirm-bg-color, $--popconfirm-border-width, $--border-color);
+      @include arrow(
+        left,
+        $--popconfirm-arrow-size,
+        $--popconfirm-bg-color,
+        $--popconfirm-border-width,
+        $--border-color
+      );
     }
   }
 
@@ -75,7 +99,8 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
   &--fade-leave-active {
     transform: scale(1);
     opacity: 1;
-    transition: opacity $--popconfirm-animation-duration ease-in-out, transform $--popconfirm-animation-duration ease-in-out;
+    transition: opacity $--popconfirm-animation-duration ease-in-out,
+      transform $--popconfirm-animation-duration ease-in-out;
   }
 
   &--fade-enter,

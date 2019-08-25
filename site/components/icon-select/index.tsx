@@ -1,3 +1,4 @@
+import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { Icon } from '../../../src'
 import iconInfos from './icons.json'
@@ -21,17 +22,20 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
   }, [hover])
 
   return (
-    <div
-      className='icon-wrapper'
-      onMouseEnter={mouseEnter}
-      onMouseLeave={mouseLeave}
-    >
+    <div className='icon-wrapper' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
       <div className='icon'>{children}</div>
       <div className='icon-name' style={style}>
         {name}
       </div>
     </div>
   )
+}
+
+IconWrapper.displayName = 'icon-wrapper'
+
+IconWrapper.propTypes = {
+  name: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 const iconNames = Object.keys(Icon).filter(it => it !== 'createIcon')
@@ -45,7 +49,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
     }
     const arr: string[] = []
     for (const name of iconNames) {
-      const iconInfo = (iconInfos as any)[name]
+      const iconInfo = (iconInfos as any)[name] // eslint-disable-line @typescript-eslint/no-explicit-any
       if (!iconInfo) {
         // console.warn(`icon '${name}' is not in icon information file`)
         continue
@@ -66,9 +70,11 @@ const IconSelect: React.FunctionComponent<{}> = () => {
   const iconNodes = React.useMemo(() => {
     const arr = []
     for (const name of icons) {
-      const Item = Icon[name as keyof typeof Icon] as any
+      const Item = Icon[name as keyof typeof Icon] as any // eslint-disable-line @typescript-eslint/no-explicit-any
       arr.push(
-        <IconWrapper name={name} children={<Item size={40} />} key={name} />
+        <IconWrapper name={name} key={name}>
+          <Item size={40} />
+        </IconWrapper>
       )
     }
     return arr
@@ -86,5 +92,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
     </div>
   )
 }
+
+IconSelect.displayName = 'icon-select'
 
 export default IconSelect

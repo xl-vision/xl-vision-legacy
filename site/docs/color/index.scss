@@ -1,16 +1,11 @@
-@import "../../assets/style/var";
-@import "../../../src/style/function/color";
+@import '../../assets/style/var';
+@import '../../../src/style/function/color';
 
 @function color-group-level($color-group, $level) {
   $map: ();
 
   @each $key in map-keys($color-group) {
-    $map: map-merge(
-      $map,
-      (
-        #{$key}: color-level(map-get($color-group, $key), $level)
-      )
-    );
+    $map: map-merge($map, (#{$key}: color-level(map-get($color-group, $key), $level)));
   }
   @return $map;
 }

@@ -3,16 +3,14 @@ import { Link } from 'react-router-dom'
 import routes, { ChildrenRoute, ComponentRoute, Route } from '../../routes'
 
 import './index.scss'
-
+/* eslint-disable react/display-name */
 const buildMenus = (routeArray: Route[]) => {
   const nodes: React.ReactNode[] = []
   routeArray.forEach((it, index) => {
     if ((it as ComponentRoute).component) {
       nodes.push(
         <li key={index} className='menu-item'>
-          <Link to={(it as ComponentRoute).path}>
-            {(it as ComponentRoute).name}
-          </Link>
+          <Link to={(it as ComponentRoute).path}>{(it as ComponentRoute).name}</Link>
         </li>
       )
     } else if ((it as ChildrenRoute).children) {

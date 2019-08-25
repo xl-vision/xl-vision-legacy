@@ -1,5 +1,5 @@
-@import "../../assets/style/var";
-@import "~highlight.js/styles/github.css";
+@import '../../assets/style/var';
+@import '~highlight.js/styles/github.css';
 
 .md {
   display: block;
@@ -52,7 +52,8 @@
   &_a {
     color: $--link-color;
     text-decoration: none;
-    transition: color $--animation-duration ease-in-out, text-decoration $--animation-duration ease-in-out;
+    transition: color $--animation-duration ease-in-out,
+      text-decoration $--animation-duration ease-in-out;
 
     &:hover {
       color: $--link-color-hover;

@@ -4,19 +4,27 @@ import { Button, Icon } from '../../../src'
 import logo from '../../assets/img/logo.png'
 import './index.scss'
 
-const Header = () => {
+const Header: React.FunctionComponent<void> = () => {
   return (
     <header className='header'>
       <Link to='/' className='logo'>
-        <img src={logo} alt=''/>
+        <img src={logo} alt='' />
       </Link>
       <div>
-        <Button size={'small'} ghost={true} href={'https://github.com/xl-vision/xl-vision'} target={'_black'}>
-          <Icon.FabGithub/>github
+        <Button
+          size={'small'}
+          ghost={true}
+          href={'https://github.com/xl-vision/xl-vision'}
+          target={'_black'}
+        >
+          <Icon.FabGithub />
+          github
         </Button>
       </div>
     </header>
   )
 }
+
+Header.displayName = 'header'
 
 export default Header

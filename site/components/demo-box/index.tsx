@@ -1,4 +1,5 @@
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 import * as React from 'react'
 import { Button, CollapseTransition, Icon } from '../../../src'
 
@@ -30,14 +31,30 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
         <div className='demobox-title'>{title}</div>
         <div className='demobox-desc'>{desc}</div>
         <span className='demobox-action'>
-          <Button type='text' onClick={showCode}><Icon.FasAngleRight className={showCodeClasses}/></Button>
+          <Button type='text' onClick={showCode}>
+            <Icon.FasAngleRight className={showCodeClasses} />
+          </Button>
         </span>
       </div>
-      <CollapseTransition show={display} transitionClassName={'demobox-collapse'} forceRender={true}>
+      <CollapseTransition
+        show={display}
+        transitionClassName={'demobox-collapse'}
+        forceRender={true}
+      >
         <div className='demobox-code'>{children}</div>
       </CollapseTransition>
     </div>
   )
+}
+
+DemoBox.displayName = 'demo-box'
+
+DemoBox.propTypes = {
+  title: PropTypes.node.isRequired,
+  desc: PropTypes.node.isRequired,
+  preview: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
+  code: PropTypes.string.isRequired
 }
 
 export default DemoBox

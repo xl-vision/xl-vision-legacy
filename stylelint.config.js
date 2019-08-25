@@ -1,21 +1,28 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-rational-order'],
-  plugins: ['stylelint-scss'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-rational-order',
+    'stylelint-prettier/recommended'
+  ],
+  plugins: ['stylelint-scss', 'stylelint-prettier'],
   rules: {
+    'prettier/prettier': true,
     'color-no-invalid-hex': true,
     'color-hex-case': 'lower',
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': true,
     'at-rule-empty-line-before': [
-      'always', {
-        'except': ['blockless-after-blockless'],
-        'ignore': ['after-comment'],
-        'ignoreAtRules': ['else', 'return']
+      'always',
+      {
+        except: ['blockless-after-blockless'],
+        ignore: ['after-comment'],
+        ignoreAtRules: ['if', 'else', 'include', 'return']
       }
     ],
     'block-closing-brace-newline-after': [
-      'always', {
-        'ignoreAtRules': ['if', 'else']
+      'always',
+      {
+        ignoreAtRules: ['if', 'else']
       }
     ],
     'scss/at-else-closing-brace-newline-after': 'always-last-in-chain',

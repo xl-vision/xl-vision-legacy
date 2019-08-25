@@ -1,5 +1,5 @@
-@import "../style/commons/var";
-@import "../style/mixins/arrow";
+@import '../style/commons/var';
+@import '../style/mixins/arrow';
 
 $tooltip: #{$--cls-prefix}-tooltip;
 
@@ -8,28 +8,24 @@ $tooltip: #{$--cls-prefix}-tooltip;
     &--topLeft,
     &--top,
     &--topRight {
-
       @include arrow(bottom, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
     &--bottomLeft,
     &--bottom,
     &--bottomRight {
-
       @include arrow(top, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
     &--leftTop,
     &--left,
     &--leftBottom {
-
       @include arrow(right, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
     &--rightTop,
     &--right,
     &--rightBottom {
-
       @include arrow(left, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
   }
@@ -45,7 +41,8 @@ $tooltip: #{$--cls-prefix}-tooltip;
   &--fade-leave-active {
     transform: scale(1);
     opacity: 1;
-    transition: opacity $--tooltip-animation-duration ease-in-out, transform $--tooltip-animation-duration ease-in-out;
+    transition: opacity $--tooltip-animation-duration ease-in-out,
+      transform $--tooltip-animation-duration ease-in-out;
   }
 
   &--fade-enter,

@@ -1,5 +1,5 @@
-@import "../style/commons/var";
-@import "../style/mixins/arrow";
+@import '../style/commons/var';
+@import '../style/mixins/arrow';
 
 $popover: #{$--cls-prefix}-popover;
 
@@ -10,7 +10,13 @@ $popover: #{$--cls-prefix}-popover;
     &--topRight {
       margin-top: -$--popover-border-width;
 
-      @include arrow(bottom, $--popover-arrow-size, $--popover-bg-color, $--popover-border-width, $--border-color);
+      @include arrow(
+        bottom,
+        $--popover-arrow-size,
+        $--popover-bg-color,
+        $--popover-border-width,
+        $--border-color
+      );
     }
 
     &--bottomLeft,
@@ -18,7 +24,13 @@ $popover: #{$--cls-prefix}-popover;
     &--bottomRight {
       margin-top: $--popover-border-width;
 
-      @include arrow(top, $--popover-arrow-size, $--popover-bg-color, $--popover-border-width, $--border-color);
+      @include arrow(
+        top,
+        $--popover-arrow-size,
+        $--popover-bg-color,
+        $--popover-border-width,
+        $--border-color
+      );
     }
 
     &--leftTop,
@@ -26,7 +38,13 @@ $popover: #{$--cls-prefix}-popover;
     &--leftBottom {
       margin-left: -$--popover-border-width;
 
-      @include arrow(right, $--popover-arrow-size, $--popover-bg-color, $--popover-border-width, $--border-color);
+      @include arrow(
+        right,
+        $--popover-arrow-size,
+        $--popover-bg-color,
+        $--popover-border-width,
+        $--border-color
+      );
     }
 
     &--rightTop,
@@ -34,7 +52,13 @@ $popover: #{$--cls-prefix}-popover;
     &--rightBottom {
       margin-left: $--popover-border-width;
 
-      @include arrow(left, $--popover-arrow-size, $--popover-bg-color, $--popover-border-width, $--border-color);
+      @include arrow(
+        left,
+        $--popover-arrow-size,
+        $--popover-bg-color,
+        $--popover-border-width,
+        $--border-color
+      );
     }
   }
 
@@ -61,7 +85,8 @@ $popover: #{$--cls-prefix}-popover;
   &--fade-leave-active {
     transform: scale(1);
     opacity: 1;
-    transition: opacity $--popover-animation-duration ease-in-out, transform $--popover-animation-duration ease-in-out;
+    transition: opacity $--popover-animation-duration ease-in-out,
+      transform $--popover-animation-duration ease-in-out;
   }
 
   &--fade-enter,
