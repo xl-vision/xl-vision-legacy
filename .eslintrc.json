@@ -5,6 +5,11 @@
         "node": true,
         "jest": true
     },
+    "settings": {
+        "react": {
+            "version": "16.8"
+        }
+    },
     "parser": "@typescript-eslint/parser",
     "extends": [
         "eslint:recommended",
@@ -13,6 +18,7 @@
         "plugin:react/recommended"
     ],
     "plugins": [
+        "markdown",
         "@typescript-eslint",
         "react"
     ],

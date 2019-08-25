@@ -1,7 +1,7 @@
 import { mount } from 'enzyme'
 import * as React from 'react'
 import CssTransition, { CssTransitionClassNames } from '..'
-import wait from '../../commons/test/wait'
+import wait from '../../commons/__test__/wait'
 import * as TransitionUtils from '../../commons/utils/transition'
 
 const classnameMap: CssTransitionClassNames = {
