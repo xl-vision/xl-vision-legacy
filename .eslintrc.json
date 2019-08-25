@@ -1,4 +1,13 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": ["@typescript-eslint", "standard", "react", "prettier"],
   "env": {
     "commonjs": true,
     "es6": true,
@@ -10,17 +19,6 @@
       "version": "16.8"
     }
   },
-  "parser": "@typescript-eslint/parser",
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "prettier/react",
-    "prettier/@typescript-eslint"
-  ],
-  "plugins": ["standard", "@typescript-eslint", "react"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.md", "*.mdx"]
@@ -43,8 +41,7 @@
     ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-use-before-define": "off",
-    "react/display-name": ["error", {
-      "ignoreTranspilerName": true
-    }]
+    "react/prop-types": 0,
+    "react/display-name": 0
   }
 }
