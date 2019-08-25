@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import { namePrefix } from '../../config'
 import useAlign, { Placement } from '../../hooks/useAlign'
@@ -14,7 +14,10 @@ export { Placement } from '../../hooks/useAlign'
 
 export interface PopperProps {
   allowPopupEnter?: boolean
-  arrow?: (placement: Placement, center: { x: number, y: number }) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
+  arrow?: (
+    placement: Placement,
+    center: { x: number; y: number }
+  ) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
   // autoAdjustOverflow?: boolean,
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   delayHide?: number
@@ -22,9 +25,9 @@ export interface PopperProps {
   getPopupContainer?: () => Element
   lazyRender?: boolean
   offset?: number
-  onVisibleChange?: (visible: boolean) => void,
-  overlayClassName?: string | ((placement: Placement) => string),
-  overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties),
+  onVisibleChange?: (visible: boolean) => void
+  overlayClassName?: string | ((placement: Placement) => string)
+  overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties)
   placement?: Placement
   popup: (placement: Placement) => React.ReactNode
   transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
@@ -65,7 +68,11 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
-  const { updatePosition, popupPosition, referencePosition, popupStyle } = useAlign(referenceRef, popupRef, placement)
+  const { updatePosition, popupPosition, referencePosition, popupStyle } = useAlign(
+    referenceRef,
+    popupRef,
+    placement
+  )
 
   // 延迟渲染弹出框，只在第一次需要弹出时才渲染
   const [needMount, setNeedMount] = React.useState(false)
@@ -76,27 +83,36 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   /**
    * 延迟设置visible，多次调用，只有最后一次生效
    */
-  const setActualWrapper = React.useCallback((isVisible: boolean) => {
-    if (isVisible) {
-      setNeedMount(true)
-    }
-
-    clearTimeout(delayTimerRef.current!)
-    delayTimerRef.current = setTimeout(() => {
-      if (!isUnmountRef.current) {
-        if (!isVisible) {
-          // 隐藏所有子popper
-          closeHandlerRef.current.forEach(it => it())
-        }
-        setActualVisible(isVisible)
+  const setActualWrapper = React.useCallback(
+    (isVisible: boolean) => {
+      if (isVisible) {
+        setNeedMount(true)
       }
-    }, isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY))
-  }, [delayTimerRef, isUnmountRef, delayShow, delayHide, closeHandlerRef])
+
+      clearTimeout(delayTimerRef.current!)
+      delayTimerRef.current = setTimeout(
+        () => {
+          if (!isUnmountRef.current) {
+            if (!isVisible) {
+              // 隐藏所有子popper
+              closeHandlerRef.current.forEach(it => it())
+            }
+            setActualVisible(isVisible)
+          }
+        },
+        isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY)
+      )
+    },
+    [delayTimerRef, isUnmountRef, delayShow, delayHide, closeHandlerRef]
+  )
 
   /**
    * 处理父popper
    */
-  const { addCloseHandler: addParentCloseHandler, removeCloseHandler: removeParentCloseHandler } = React.useContext(PopperContext)
+  const {
+    addCloseHandler: addParentCloseHandler,
+    removeCloseHandler: removeParentCloseHandler
+  } = React.useContext(PopperContext)
 
   React.useEffect(() => {
     const handler = () => setActualWrapper(false)
@@ -107,14 +123,20 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }, [addParentCloseHandler, removeParentCloseHandler])
 
   // 子popper函数
-  const addCloseHandler = React.useCallback((handler: () => void) => {
-    closeHandlerRef.current.push(handler)
-  }, [closeHandlerRef])
+  const addCloseHandler = React.useCallback(
+    (handler: () => void) => {
+      closeHandlerRef.current.push(handler)
+    },
+    [closeHandlerRef]
+  )
 
-  const removeCloseHandler = React.useCallback((handler: () => void) => {
-    const arr = closeHandlerRef.current
-    closeHandlerRef.current = arr.slice(arr.indexOf(handler), 1)
-  }, [closeHandlerRef])
+  const removeCloseHandler = React.useCallback(
+    (handler: () => void) => {
+      const arr = closeHandlerRef.current
+      closeHandlerRef.current = arr.slice(arr.indexOf(handler), 1)
+    },
+    [closeHandlerRef]
+  )
 
   // 判断是否当前组件被卸载
   useUnmount(() => {
@@ -190,7 +212,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       x: Math.floor(x),
       y: Math.floor(y)
     }
-
   }, [popupPosition, referencePosition, placement, offset])
 
   const allPopupStyle = React.useMemo(() => {
@@ -340,7 +361,15 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   )
 
   const childrenNode = React.useMemo(() => {
-    const { onBlur: _onBlur, onClick: _onClick, onContextMenu: _onContextMenu, onFocus: _onFocus, onMouseEnter: _onMouseEnter, onMouseLeave: _onMouseLeave, ...others } = children.props
+    const {
+      onBlur: _onBlur,
+      onClick: _onClick,
+      onContextMenu: _onContextMenu,
+      onFocus: _onFocus,
+      onMouseEnter: _onMouseEnter,
+      onMouseLeave: _onMouseLeave,
+      ...others
+    } = children.props
     return React.cloneElement(children, {
       onBlur: mergeEvents(onBlur, _onBlur),
       onClick: mergeEvents(onReferenceClick, _onClick),
@@ -351,7 +380,16 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       ref: referenceRef,
       ...others
     })
-  }, [children, onBlur, onReferenceClick, onContextMenu, onFocus, onMouseEnter, onMouseLeave, referenceRef])
+  }, [
+    children,
+    onBlur,
+    onReferenceClick,
+    onContextMenu,
+    onFocus,
+    onMouseEnter,
+    onMouseLeave,
+    referenceRef
+  ])
 
   return (
     <>
@@ -386,19 +424,24 @@ Popper.propTypes = {
     'leftTop',
     'leftBottom',
     'rightTop',
-    'rightBottom']),
+    'rightBottom'
+  ]),
   popup: PropTypes.func.isRequired,
-  transitionName: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
-    appear: PropTypes.string,
-    appearActive: PropTypes.string,
-    appearTo: PropTypes.string,
-    enter: PropTypes.string.isRequired,
-    enterActive: PropTypes.string.isRequired,
-    enterTo: PropTypes.string.isRequired,
-    leave: PropTypes.string.isRequired,
-    leaveActive: PropTypes.string.isRequired,
-    leaveTo: PropTypes.string.isRequired
-  }), PropTypes.func]),
+  transitionName: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      appear: PropTypes.string,
+      appearActive: PropTypes.string,
+      appearTo: PropTypes.string,
+      enter: PropTypes.string.isRequired,
+      enterActive: PropTypes.string.isRequired,
+      enterTo: PropTypes.string.isRequired,
+      leave: PropTypes.string.isRequired,
+      leaveActive: PropTypes.string.isRequired,
+      leaveTo: PropTypes.string.isRequired
+    }),
+    PropTypes.func
+  ]),
   trigger: PropTypes.oneOf(['hover', 'focus', 'click', 'contextMenu', 'custom']),
   visible: PropTypes.bool
 }

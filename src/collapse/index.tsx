@@ -5,14 +5,11 @@ export { CollapsePanelProps } from './collapse-panel'
 export { CollapseProps } from './collapse'
 export { CollapseExpandIconPosition } from './collapse-panel'
 
-export {
-  Collapse,
-  CollapsePanel
-}
+export { Collapse, CollapsePanel }
 
-const CollapseWithPanel: (typeof Collapse) & {
+const CollapseWithPanel = Collapse as (typeof Collapse) & {
   Panel: typeof CollapsePanel
-} = Collapse as any
+}
 
 CollapseWithPanel.Panel = CollapsePanel
 

@@ -10,7 +10,9 @@ const buildMenus = (routeArray: Route[]) => {
     if ((it as ComponentRoute).component) {
       nodes.push(
         <li key={index} className='menu-item'>
-          <Link to={(it as ComponentRoute).path}>{(it as ComponentRoute).name}</Link>
+          <Link to={(it as ComponentRoute).path}>
+            {(it as ComponentRoute).name}
+          </Link>
         </li>
       )
     } else if ((it as ChildrenRoute).children) {

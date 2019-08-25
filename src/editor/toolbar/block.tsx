@@ -1,5 +1,5 @@
 import classnames from 'classnames'
-import * as React from 'react'
+import React from 'react'
 import { Editor } from 'slate-react'
 import { namePrefix } from '../../commons/config'
 import Tooltip from '../../tooltip'
@@ -7,9 +7,9 @@ import { hasBlock } from './utils'
 
 export interface BlockProps {
   children: React.ReactNode
-  editor: Editor,
+  editor: Editor
   prefixCls?: string
-  tips: string,
+  tips: string
   tipsDelay?: number
   type: string
 }
@@ -26,10 +26,13 @@ const Block: React.FunctionComponent<BlockProps> = props => {
     children
   } = props
 
-  const onMouseDown = React.useCallback((e: React.MouseEvent) => {
-    e.preventDefault()
-    editor.setBlocks(hasBlock(editor, type) ? DEFAULT_NODE : type)
-  }, [editor])
+  const onMouseDown = React.useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault()
+      editor.setBlocks(hasBlock(editor, type) ? DEFAULT_NODE : type)
+    },
+    [editor]
+  )
 
   const isActive = hasBlock(editor, type)
 
@@ -39,10 +42,7 @@ const Block: React.FunctionComponent<BlockProps> = props => {
 
   return (
     <Tooltip content={tips} delayShow={tipsDelay}>
-      <button
-        className={classes}
-        onMouseDown={onMouseDown}
-      >
+      <button className={classes} onMouseDown={onMouseDown}>
         {children}
       </button>
     </Tooltip>

@@ -6,8 +6,6 @@ interface PopperContextProp {
 }
 
 export default createContext<PopperContextProp>({
-  // tslint:disable-next-line:no-empty
   addCloseHandler: () => {},
-  // tslint:disable-next-line:no-empty
   removeCloseHandler: () => {}
 })

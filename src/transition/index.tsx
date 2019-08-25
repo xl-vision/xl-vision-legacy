@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import useUnmount from '../commons/hooks/useUnmount'
 import { isClient } from '../commons/utils/env'

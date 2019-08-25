@@ -1,5 +1,5 @@
 import Immutable from 'immutable'
-import * as React from 'react'
+import React from 'react'
 import { Operation, Value } from 'slate'
 import { Editor as SlateEditor, Plugin } from 'slate-react'
 import { namePrefix } from '../commons/config'
@@ -34,34 +34,36 @@ const PLUGINS: Plugin[] = [
 ]
 
 const Editor: React.FunctionComponent<EditorProps> = props => {
-  const {
-    placeholder,
-    prefixCls = displayName
-  } = props
+  const { placeholder, prefixCls = displayName } = props
 
   const editorRef = React.useRef<SlateEditor>(null)
 
-  const [state, setState] = React.useState(Value.fromJSON({
-    document: {
-      nodes: [
-        {
-          nodes: [],
-          object: 'block',
-          type: 'paragraph'
-        }
-      ]
-    },
-    object: 'value'
-  }))
+  const [state, setState] = React.useState(
+    Value.fromJSON({
+      document: {
+        nodes: [
+          {
+            nodes: [],
+            object: 'block',
+            type: 'paragraph'
+          }
+        ]
+      },
+      object: 'value'
+    })
+  )
 
-  const onChange = React.useCallback((change: { operations: Immutable.List<Operation>, value: Value }) => {
-    const { value } = change
-    setState(value)
-  }, [])
+  const onChange = React.useCallback(
+    (change: { operations: Immutable.List<Operation>; value: Value }) => {
+      const { value } = change
+      setState(value)
+    },
+    []
+  )
 
   return (
     <div className={prefixCls}>
-      {editorRef.current && <Toolbar editor={editorRef.current}/>}
+      {editorRef.current && <Toolbar editor={editorRef.current} />}
       <SlateEditor
         ref={editorRef}
         className={`${prefixCls}__content`}

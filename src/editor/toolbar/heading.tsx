@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Editor } from 'slate-react'
 import Dropdown from '../../dropdown'
 import Block from './block'
@@ -11,12 +11,8 @@ export interface HeadingProps {
 }
 
 const Heading: React.FunctionComponent<HeadingProps> = props => {
-  const {
-    editor,
-    prefixCls = `${namePrefix}-editor-toolbar__btn`
-  } = props
+  const { editor, prefixCls = `${namePrefix}-editor-toolbar__btn` } = props
 
-  // @ts-ignore
   const [content, setContent] = React.useState('heading')
 
   const overlay = React.useMemo(() => {
@@ -35,9 +31,7 @@ const Heading: React.FunctionComponent<HeadingProps> = props => {
 
   return (
     <Dropdown overlay={overlay}>
-      <button className={prefixCls}>
-        {content}
-      </button>
+      <button className={prefixCls}>{content}</button>
     </Dropdown>
   )
 }

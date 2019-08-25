@@ -1,6 +1,6 @@
 import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
-import * as React from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import { childrenValidator } from '../commons/utils/prop-type'
 import { ColProps, displayName as colDisplayName } from './col'
@@ -60,10 +60,10 @@ const Row: React.FunctionComponent<RowProps> = props => {
   const rowStyle = React.useMemo(() => {
     return computedGutter > 0
       ? {
-        marginLeft: computedGutter / -2,
-        marginRight: computedGutter / -2,
-        ...style
-      }
+          marginLeft: computedGutter / -2,
+          marginRight: computedGutter / -2,
+          ...style
+        }
       : style
   }, [style, computedGutter])
 
@@ -79,11 +79,7 @@ const Row: React.FunctionComponent<RowProps> = props => {
 Row.displayName = displayName
 
 Row.propTypes = {
-  align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>([
-    'top',
-    'middle',
-    'bottom'
-  ]),
+  align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>(['top', 'middle', 'bottom']),
   children: childrenValidator<ColProps>(colDisplayName),
   className: PropTypes.string,
   gutter: PropTypes.oneOfType([
@@ -97,7 +93,13 @@ Row.propTypes = {
       xxl: PropTypes.number
     })
   ]),
-  justify: PropTypes.oneOf<'start' | 'end' | 'center' | 'space-around' | 'space-between'>(['start', 'end', 'center', 'space-around', 'space-between']),
+  justify: PropTypes.oneOf<'start' | 'end' | 'center' | 'space-around' | 'space-between'>([
+    'start',
+    'end',
+    'center',
+    'space-around',
+    'space-between'
+  ]),
   prefixCls: PropTypes.string,
   type: PropTypes.oneOf<'flex'>(['flex'])
 }

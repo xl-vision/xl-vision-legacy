@@ -11,46 +11,58 @@ export interface DragPosition {
  * @param handler
  * @param allowOutView 是否允许鼠标超出指定元素范围
  */
-const useOnMouseDrag = (ref: RefObject<HTMLElement>, handler: (start: DragPosition, end: DragPosition, isEnd: boolean) => void, allowOutView: boolean = false) => {
+const useOnMouseDrag = (
+  ref: RefObject<HTMLElement>,
+  handler: (start: DragPosition, end: DragPosition, isEnd: boolean) => void,
+  allowOutView = false
+) => {
   const startPosRef = useRef({ x: 0, y: 0 })
   const endPosRef = useRef({ x: 0, y: 0 })
   const isMoveRef = useRef(false)
   const isDragRef = useRef(false)
 
-  const mousedownHandler = useCallback((e: MouseEvent) => {
-    isDragRef.current = true
-    startPosRef.current = {
-      x: e.pageX,
-      y: e.pageY
-    }
-  }, [isDragRef, startPosRef])
-
-  const mousemoveHandler = useCallback((e: MouseEvent) => {
-    if (isDragRef.current) {
-      isMoveRef.current = true
-      endPosRef.current = {
+  const mousedownHandler = useCallback(
+    (e: MouseEvent) => {
+      isDragRef.current = true
+      startPosRef.current = {
         x: e.pageX,
         y: e.pageY
       }
-      handler(startPosRef.current, endPosRef.current, false)
-    }
-  }, [isDragRef, startPosRef, endPosRef, handler])
+    },
+    [isDragRef, startPosRef]
+  )
 
-  const mouseupHandler = useCallback((e: MouseEvent) => {
-    if (isDragRef.current) {
-      if (isMoveRef.current) {
+  const mousemoveHandler = useCallback(
+    (e: MouseEvent) => {
+      if (isDragRef.current) {
+        isMoveRef.current = true
         endPosRef.current = {
           x: e.pageX,
           y: e.pageY
         }
-        handler(startPosRef.current, endPosRef.current, true)
+        handler(startPosRef.current, endPosRef.current, false)
       }
+    },
+    [isDragRef, startPosRef, endPosRef, handler]
+  )
 
-      isDragRef.current = false
-      isMoveRef.current = false
+  const mouseupHandler = useCallback(
+    (e: MouseEvent) => {
+      if (isDragRef.current) {
+        if (isMoveRef.current) {
+          endPosRef.current = {
+            x: e.pageX,
+            y: e.pageY
+          }
+          handler(startPosRef.current, endPosRef.current, true)
+        }
 
-    }
-  }, [isDragRef, startPosRef, endPosRef, handler])
+        isDragRef.current = false
+        isMoveRef.current = false
+      }
+    },
+    [isDragRef, startPosRef, endPosRef, handler]
+  )
 
   useEffect(() => {
     const el = ref.current

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Plugin } from 'slate-react'
 
 export const type = 'image'
@@ -8,9 +8,7 @@ const ImagePlugin: Plugin = {
     const { node, children, attributes } = props
     // console.log(node.type)
     if (node.type === type) {
-      return (
-        <img {...attributes}>{children}</img>
-      )
+      return <img {...attributes}>{children}</img>
     }
     return next()
   }

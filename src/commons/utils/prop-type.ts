@@ -7,7 +7,11 @@ const getRealElement = (element: any) => {
   return element
 }
 
-export const childrenValidator = <T extends object> (displayName: string, allowArray = true, isRequired = true) => {
+export const childrenValidator = <T extends object>(
+  displayName: string,
+  allowArray = true,
+  isRequired = true
+) => {
   return (
     props: T,
     propName: keyof T,
@@ -23,9 +27,7 @@ export const childrenValidator = <T extends object> (displayName: string, allowA
 
     if (Array.isArray(propValue)) {
       if (!allowArray) {
-        return new Error(
-          `prop '${propName}' supplied to '${componentName}' could not be an Array`
-        )
+        return new Error(`prop '${propName}' supplied to '${componentName}' could not be an Array`)
       }
     } else {
       propValue = [propValue]

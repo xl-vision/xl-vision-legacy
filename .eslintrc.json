@@ -21,26 +21,16 @@
   },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.md", "*.mdx"]
+      "files": ["*.ts", "*.tsx"]
     }
   ],
   "parserOptions": {
     "ecmaVersion": 2018
   },
   "rules": {
-    "@typescript-eslint/member-delimiter-style": [
-      "error",
-      {
-        "multiline": {
-          "delimiter": "none"
-        },
-        "singleline": {
-          "delimiter": "comma"
-        }
-      }
-    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "react/prop-types": 0,
     "react/display-name": 0
   }

@@ -1,6 +1,6 @@
 import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
-import * as React from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import CollapseTransition from '../collapse-transition'
 import { namePrefix } from '../commons/config'
 import FasAngleRight from '../icon/icons/fas-angle-right'
@@ -48,19 +48,24 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
   const show = activeNames.indexOf(name) !== -1
 
   const classes = React.useMemo(() => {
-    return classnames(prefixCls, {
-      [`${prefixCls}--disabled`]: disabled
-    }, className)
+    return classnames(
+      prefixCls,
+      {
+        [`${prefixCls}--disabled`]: disabled
+      },
+      className
+    )
   }, [className, disabled, prefixCls])
 
-  const Arrow = React.useCallback((isActive: boolean) => {
-    if (expandArrow) {
-      return expandArrow(isActive)
-    }
-    return (
-      <FasAngleRight rotate={isActive ? 90 : 0}/>
-    )
-  }, [expandArrow])
+  const Arrow = React.useCallback(
+    (isActive: boolean) => {
+      if (expandArrow) {
+        return expandArrow(isActive)
+      }
+      return <FasAngleRight rotate={isActive ? 90 : 0} />
+    },
+    [expandArrow]
+  )
 
   const arrowClasses = React.useMemo(() => {
     const arrowClassName = `${prefixCls}__header__arrow`
@@ -69,20 +74,14 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
     })
   }, [expandArrowPosition, prefixCls])
 
-  const arrow = showArrow && (
-    <span className={arrowClasses}>
-          {Arrow(show)}
-      </span>
-  )
+  const arrow = showArrow && <span className={arrowClasses}>{Arrow(show)}</span>
 
   return (
     <div className={classes}>
       <div className={`${prefixCls}__header`} onClick={clickHandler}>
         {arrow}
         {header}
-        <span className={`${prefixCls}__header__extra`}>
-                {extra}
-              </span>
+        <span className={`${prefixCls}__header__extra`}>{extra}</span>
       </div>
       <CollapseTransition
         forceRender={forceRender}
@@ -102,7 +101,10 @@ CollapsePanel.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   expandArrow: PropTypes.func,
-  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left', 'right']),
+  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>([
+    'left',
+    'right'
+  ]),
   extra: PropTypes.node,
   forceRender: PropTypes.bool,
   header: PropTypes.node.isRequired,

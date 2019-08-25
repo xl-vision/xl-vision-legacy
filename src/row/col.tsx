@@ -1,6 +1,6 @@
 import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
-import * as React from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import { BreakPoint, breakPointArray } from './hooks/useMedia'
 import RowContext from './row-context'
@@ -64,10 +64,10 @@ const Col: React.FunctionComponent<ColProps> = props => {
   const colStyle = React.useMemo(() => {
     return gutter > 0
       ? {
-        paddingLeft: gutter / 2,
-        paddingRight: gutter / 2,
-        ...style
-      }
+          paddingLeft: gutter / 2,
+          paddingRight: gutter / 2,
+          ...style
+        }
       : style
   }, [gutter, style])
 

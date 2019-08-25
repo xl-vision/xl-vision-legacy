@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import { Omit } from '../commons/types'
 import FasCircleNotch from '../icon/icons/fas-circle-notch'
@@ -8,10 +8,9 @@ import ButtonContext from './button-context'
 
 export type ButtonSize = 'large' | 'default' | 'small'
 
-export type ButtonProps =
-  & BaseButtonProps
-  & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'>
-  & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>
+export type ButtonProps = BaseButtonProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'> &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>
 
 export interface BaseButtonProps {
   children: React.ReactNode
@@ -41,7 +40,10 @@ const formatChildren = (children: React.ReactNode) => {
   })
 }
 
-const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButtonElement & HTMLAnchorElement, ButtonProps>((props, ref) => {
+const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
+  HTMLButtonElement & HTMLAnchorElement,
+  ButtonProps
+>((props, ref) => {
   const {
     dashed,
     disabled,
@@ -66,21 +68,26 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButton
 
   delete others.size
 
-  const classes = classnames({
-    [prefixCls]: true,
-    [`${prefixCls}--${type}`]: true,
-    [`${prefixCls}--${shape}`]: shape,
-    [`${prefixCls}--size-${size}`]: size,
-    [`${prefixCls}--dashed`]: dashed,
-    [`${prefixCls}--plain`]: plain,
-    [`${prefixCls}--ghost`]: ghost,
-    [`${prefixCls}--long`]: long,
-    [`${prefixCls}--loading`]: loading
-  }, className)
+  const classes = classnames(
+    {
+      [prefixCls]: true,
+      [`${prefixCls}--${type}`]: true,
+      [`${prefixCls}--${shape}`]: shape,
+      [`${prefixCls}--size-${size}`]: size,
+      [`${prefixCls}--dashed`]: dashed,
+      [`${prefixCls}--plain`]: plain,
+      [`${prefixCls}--ghost`]: ghost,
+      [`${prefixCls}--long`]: long,
+      [`${prefixCls}--loading`]: loading
+    },
+    className
+  )
 
   const childrenWrapper = (
     <>
-      {loading && <FasCircleNotch className={`${prefixCls}__icon`} spin={true}/>}
+      {loading && (
+        <FasCircleNotch className={`${prefixCls}__icon`} spin={true} />
+      )}
       {formatChildren(children)}
     </>
   )
@@ -95,9 +102,9 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<HTMLButton
   }
 
   if (href) {
-    return <a ref={ref} {...allProps}/>
+    return <a ref={ref} {...allProps} />
   }
-  return <button ref={ref} {...allProps}/>
+  return <button ref={ref} {...allProps} />
 })
 
 Button.displayName = displayName
@@ -116,7 +123,14 @@ Button.propTypes = {
   prefixCls: PropTypes.string,
   shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
   size: PropTypes.oneOf(['large', 'default', 'small']),
-  type: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text'])
+  type: PropTypes.oneOf([
+    'default',
+    'primary',
+    'success',
+    'warning',
+    'error',
+    'text'
+  ])
 }
 
 export default Button

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
@@ -13,10 +13,12 @@ export interface CollapseTransitionProp {
 
 export const displayName = `${namePrefix}-collapse-transition`
 
-const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = props => {
+const CollapseTransition: React.FunctionComponent<
+  CollapseTransitionProp
+> = props => {
   const { children, transitionClassName, show, forceRender } = props
 
-  const wrapperRef = React.useRef<any>()
+  const wrapperRef = React.useRef<HTMLDivElement>(null)
 
   const styles: React.CSSProperties = React.useMemo(() => {
     return {
@@ -30,36 +32,36 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
 
   const transitionEvents = React.useMemo(() => {
     return {
-      beforeEnter (el: HTMLElement) {
+      beforeEnter(el: HTMLElement) {
         if (el.dataset.leaveCancelled === 'true') {
           el.style.height = el.offsetHeight + 'px'
         } else {
           el.style.height = '0'
         }
       },
-      enter (el: HTMLElement, done: () => void, isCancelled: () => boolean) {
+      enter(el: HTMLElement, done: () => void, isCancelled: () => boolean) {
         nextFrame(() => {
           if (!isCancelled()) {
             // 高度设置为内容高度
-            el.style.height = wrapperRef.current.offsetHeight + 'px'
+            el.style.height = wrapperRef.current!.offsetHeight + 'px'
             onTransitionEnd(el, done)
           }
         })
       },
-      afterEnter: (el: HTMLElement) => {
+      afterEnter(el: HTMLElement) {
         // 防止内容高度变更后高度不会自动改变
         el.style.height = null
       },
-      enterCancelled (el: HTMLElement) {
+      enterCancelled(el: HTMLElement) {
         el.dataset.enterCancelled = 'true'
       },
-      beforeLeave (el: HTMLElement) {
+      beforeLeave(el: HTMLElement) {
         if (el.dataset.enterCancelled === 'true') {
           el.dataset.enterCancelled = 'false'
         }
-        el.style.height = wrapperRef.current.offsetHeight + 'px'
+        el.style.height = wrapperRef.current!.offsetHeight + 'px'
       },
-      leave (el: HTMLElement, done: () => void, isCancelled: () => boolean) {
+      leave(el: HTMLElement, done: () => void, isCancelled: () => boolean) {
         nextFrame(() => {
           if (!isCancelled()) {
             el.style.height = '0'
@@ -67,7 +69,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
           }
         })
       },
-      leaveCancelled (el: HTMLElement) {
+      leaveCancelled(el: HTMLElement) {
         el.dataset.leaveCancelled = 'true'
       }
     }

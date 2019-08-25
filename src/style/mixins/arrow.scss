@@ -96,10 +96,22 @@
   }
 }
 
-@mixin arrow($direction, $size, $bgColor, $borderSize: 0, $borderColor: $bgColor) {
+@mixin arrow(
+  $direction,
+  $size,
+  $bgColor,
+  $borderSize: 0,
+  $borderColor: $bgColor
+) {
   @if ($borderSize==0) {
     @include arrowWithoutBorder($direction, $size, $bgColor);
   } @else {
-    @include arrowWithBorder($direction, $size, $bgColor, $borderSize, $borderColor);
+    @include arrowWithBorder(
+      $direction,
+      $size,
+      $bgColor,
+      $borderSize,
+      $borderColor
+    );
   }
 }

@@ -1,6 +1,6 @@
 import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
-import * as React from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { namePrefix } from '../../commons/config'
 
 export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
@@ -64,12 +64,9 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
     className
   )
   return (
-    <i
-      className={classes}
-      style={iconStyle}
-      children={cloneChildren}
-      {...others}
-    />
+    <i className={classes} style={iconStyle} {...others} >
+      {cloneChildren}
+    </i>
   )
 }
 
@@ -87,9 +84,7 @@ const childrenValidator = (
 ) => {
   const propValue = props[propName]
   if (propValue.type !== 'svg') {
-    return new Error(
-      `prop '${propName}' supplied to '${componentName}' should be 'svg' tag`
-    )
+    return new Error(`prop '${propName}' supplied to '${componentName}' should be 'svg' tag`)
   }
   return null
 }

@@ -1,5 +1,5 @@
 import classnames from 'classnames'
-import * as React from 'react'
+import React from 'react'
 import { Editor } from 'slate-react'
 import { namePrefix } from '../../commons/config'
 import Tooltip from '../../tooltip'
@@ -7,9 +7,9 @@ import { hasMark } from './utils'
 
 export interface MarkProps {
   children: React.ReactNode
-  editor: Editor,
+  editor: Editor
   prefixCls?: string
-  tips: string,
+  tips: string
   tipsDelay?: number
   type: string
 }
@@ -24,10 +24,13 @@ const Mark: React.FunctionComponent<MarkProps> = props => {
     children
   } = props
 
-  const onMouseDown = React.useCallback((e: React.MouseEvent) => {
-    e.preventDefault()
-    editor.toggleMark(type)
-  }, [editor])
+  const onMouseDown = React.useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault()
+      editor.toggleMark(type)
+    },
+    [editor]
+  )
 
   const isActive = hasMark(editor, type)
 
@@ -37,10 +40,7 @@ const Mark: React.FunctionComponent<MarkProps> = props => {
 
   return (
     <Tooltip content={tips} delayShow={tipsDelay}>
-      <button
-        className={classes}
-        onMouseDown={onMouseDown}
-      >
+      <button className={classes} onMouseDown={onMouseDown}>
         {children}
       </button>
     </Tooltip>

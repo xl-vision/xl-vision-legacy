@@ -4,13 +4,9 @@ import { isServer } from '../../commons/utils/env'
 const matchMedia = (query: string) => {
   if (isServer) {
     return {
-      // tslint:disable-next-line: no-empty
-      addListener: () => {
-      },
+      addListener: () => {},
       matches: false,
-      // tslint:disable-next-line: no-empty
-      removeListener: () => {
-      }
+      removeListener: () => {}
     }
   }
   return window.matchMedia(query)

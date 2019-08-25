@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import BaseIcon from './base-icon'
 
 export interface IconProps {
@@ -11,9 +11,7 @@ export interface IconProps {
   style?: React.CSSProperties
 }
 
-const createIcon = (
-  svgElement: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>
-) => {
+const createIcon = (svgElement: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>) => {
   const fn: React.FunctionComponent<IconProps> = props => {
     return <BaseIcon {...props}>{svgElement}</BaseIcon>
   }

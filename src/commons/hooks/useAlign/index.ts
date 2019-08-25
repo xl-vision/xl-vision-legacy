@@ -15,11 +15,25 @@ export type Placement =
   | 'rightTop'
   | 'rightBottom'
 
-const useAlign = (reference: RefObject<HTMLElement>, popup: RefObject<HTMLElement>, placement: Placement) => {
+const useAlign = (
+  reference: RefObject<HTMLElement>,
+  popup: RefObject<HTMLElement>,
+  placement: Placement
+) => {
   const [left, setLeft] = useState(0)
   const [top, setTop] = useState(0)
-  const [popupPosition, setPopupPosition] = useState<{ bottom: number, left: number, right: number, top: number }>()
-  const [referencePosition, setReferencePosition] = useState<{ bottom: number, left: number, right: number, top: number }>()
+  const [popupPosition, setPopupPosition] = useState<{
+    bottom: number
+    left: number
+    right: number
+    top: number
+  }>()
+  const [referencePosition, setReferencePosition] = useState<{
+    bottom: number
+    left: number
+    right: number
+    top: number
+  }>()
 
   // 更新元素位置
   const updatePosition = useCallback(() => {
@@ -30,12 +44,10 @@ const useAlign = (reference: RefObject<HTMLElement>, popup: RefObject<HTMLElemen
     const referencePos = getPosition(reference.current)
     if (!equalObject(popupPos, popupPosition)) {
       setPopupPosition(popupPos)
-
     }
     if (!equalObject(referencePos, referencePosition)) {
       setReferencePosition(referencePos)
     }
-
   }, [reference, popup])
 
   // 计算popup需要距离top和left的距离
@@ -64,9 +76,19 @@ const useAlign = (reference: RefObject<HTMLElement>, popup: RefObject<HTMLElemen
       topTo = referencePosition.bottom - popupPosition.bottom
     }
     if (placement === 'top' || placement === 'bottom') {
-      leftTo = (referencePosition.left + referencePosition.right - popupPosition.right - popupPosition.left) / 2
+      leftTo =
+        (referencePosition.left +
+          referencePosition.right -
+          popupPosition.right -
+          popupPosition.left) /
+        2
     } else if (placement === 'left' || placement === 'right') {
-      topTo = (referencePosition.top + referencePosition.bottom - popupPosition.top - popupPosition.bottom) / 2
+      topTo =
+        (referencePosition.top +
+          referencePosition.bottom -
+          popupPosition.top -
+          popupPosition.bottom) /
+        2
     }
 
     topTo += top

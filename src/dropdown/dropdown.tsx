@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
 import { Omit } from '../commons/types'
@@ -14,7 +14,6 @@ export interface DropdownProps extends Omit<PopperProps, 'popup'> {
 export const displayName = `${namePrefix}-dropdown`
 
 const Dropdown: React.FunctionComponent<DropdownProps> = props => {
-
   const {
     overlay,
     placement = 'bottomLeft',
@@ -27,12 +26,19 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   } = props
 
   const transitionName = others.transitionName || `${prefixCls}--slide`
-  const overlayClassName = others.overlayClassName || (_placement => `${prefixCls}--${_placement}`)
+  const overlayClassName =
+    others.overlayClassName || (_placement => `${prefixCls}--${_placement}`)
 
   // 考虑嵌套使用的情况
-  const { closeOnClick: closeOnClickContext, close: closeContext } = React.useContext(DropdownContext)
+  const {
+    closeOnClick: closeOnClickContext,
+    close: closeContext
+  } = React.useContext(DropdownContext)
 
-  const closeOnClick = typeof others.closeOnClick === 'undefined' ? closeOnClickContext : others.closeOnClick
+  const closeOnClick =
+    typeof others.closeOnClick === 'undefined'
+      ? closeOnClickContext
+      : others.closeOnClick
 
   delete others.transitionName
   delete others.overlayClassName
@@ -91,7 +97,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
 Dropdown.displayName = displayName
 
 Dropdown.propTypes = {
-  overlay: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
+  overlay: PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.arrayOf(PropTypes.element.isRequired)
+  ]).isRequired,
   prefixCls: PropTypes.string
 }
 

@@ -1,4 +1,5 @@
-import * as React from 'react'
+/* eslint-disable */
+import React from 'react'
 import { namePrefix } from '../../commons/config'
 import createIcon from '../base/createIcon'
 

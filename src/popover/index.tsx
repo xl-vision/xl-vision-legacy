@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import Tooltip, { TooltipProps } from '../tooltip'
 
@@ -11,13 +11,7 @@ export interface PopoverProps extends TooltipProps {
 export const displayName = `${namePrefix}-popover`
 
 const Popover: React.FunctionComponent<PopoverProps> = props => {
-  const {
-    content,
-    title,
-    prefixCls = displayName,
-    arrowSize = 14,
-    ...others
-  } = props
+  const { content, title, prefixCls = displayName, arrowSize = 14, ...others } = props
 
   const contentNode = React.useMemo(() => {
     return (
@@ -28,14 +22,7 @@ const Popover: React.FunctionComponent<PopoverProps> = props => {
     )
   }, [content, title, prefixCls])
 
-  return (
-    <Tooltip
-      content={contentNode}
-      prefixCls={prefixCls}
-      arrowSize={arrowSize}
-      {...others}
-    />
-  )
+  return <Tooltip content={contentNode} prefixCls={prefixCls} arrowSize={arrowSize} {...others} />
 }
 
 Popover.displayName = displayName

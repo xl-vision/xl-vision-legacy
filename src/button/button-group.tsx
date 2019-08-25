@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import { ButtonProps, ButtonSize } from './button'
 import ButtonContext from './button-context'
@@ -24,16 +24,19 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
     size = 'default',
     ...others
   } = props
-  const classes = classnames({
-    [prefixCls]: true,
-    [`${prefixCls}--horizontal`]: !vertical,
-    [`${prefixCls}--vertical`]: vertical,
-    [`${prefixCls}--round`]: round
-  }, className)
+  const classes = classnames(
+    {
+      [prefixCls]: true,
+      [`${prefixCls}--horizontal`]: !vertical,
+      [`${prefixCls}--vertical`]: vertical,
+      [`${prefixCls}--round`]: round
+    },
+    className
+  )
 
   return (
     <ButtonContext.Provider value={{ size }}>
-      <div className={classes} {...others}/>
+      <div className={classes} {...others} />
     </ButtonContext.Provider>
   )
 }
@@ -42,11 +45,14 @@ ButtonGroup.displayName = displayName
 
 ButtonGroup.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.arrayOf(PropTypes.element.isRequired)]).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.arrayOf(PropTypes.element.isRequired)
+  ]).isRequired,
   prefixCls: PropTypes.string,
   round: PropTypes.bool,
   size: PropTypes.oneOf(['large', 'default', 'small']),
-  vertical: PropTypes.bool,
+  vertical: PropTypes.bool
 }
 
 export default React.memo(ButtonGroup)

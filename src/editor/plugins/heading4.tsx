@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Plugin } from 'slate-react'
 
 export const type = 'heading4'

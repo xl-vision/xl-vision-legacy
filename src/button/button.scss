@@ -5,7 +5,11 @@ $button: #{$--cls-prefix}-button;
 
 // mixins
 @mixin button-variant($background) {
-  color: color-yiq($background, $--button-text-color, $--button-text-color-light);
+  color: color-yiq(
+    $background,
+    $--button-text-color,
+    $--button-text-color-light
+  );
   background-color: $background;
   border-color: $background;
 

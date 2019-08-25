@@ -3,7 +3,12 @@ import classnames from 'classnames'
 import * as React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
 import Spin from '../../../src/spin'
-import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
+import routes, {
+  ChildrenRoute,
+  ComponentRoute,
+  RedirectRoute,
+  Route
+} from '../../routes'
 
 import './index.scss'
 
@@ -16,13 +21,23 @@ const addRoute = (routeArray: Route[], level = '1') => {
       const componentRoute = it as ComponentRoute
       const loadable = React.lazy(() => componentRoute.component)
       routeComponents.push(
-        <ReactRoute exact={true} key={key} path={componentRoute.path} component={loadable} />
+        <ReactRoute
+          exact={true}
+          key={key}
+          path={componentRoute.path}
+          component={loadable}
+        />
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
       const component = () => <Redirect to={redirectRoute.redirect} /> // eslint-disable-line react/display-name
       routeComponents.push(
-        <ReactRoute exact={true} key={key} path={redirectRoute.path} component={component} />
+        <ReactRoute
+          exact={true}
+          key={key}
+          path={redirectRoute.path}
+          component={component}
+        />
       )
     } else {
       const childrenRoute = it as ChildrenRoute
@@ -34,28 +49,30 @@ const addRoute = (routeArray: Route[], level = '1') => {
 addRoute(routes)
 
 const components = {
-  a: (props: any) => <a {...props} className='md_a' />, // eslint-disable-line
-  blockquote: (props: any) => <blockquote {...props} className='md_blockquote' />, // eslint-disable-line
-  inlineCode: (props: any) => <code {...props} className='md_code_inline' />, // eslint-disable-line
-  li: (props: any) => <ol {...props} className='md_li' />, // eslint-disable-line
-  ol: (props: any) => <ol {...props} className='md_ol' />, // eslint-disable-line
-  /* eslint-disable*/
-  table: (props: any) => (
+  a: (props: {}) => <a {...props} className='md_a' />,
+  blockquote: (props: {}) => (
+    <blockquote {...props} className='md_blockquote' />
+  ),
+  inlineCode: (props: {}) => <code {...props} className='md_code_inline' />,
+  li: (props: {}) => <ol {...props} className='md_li' />,
+  ol: (props: {}) => <ol {...props} className='md_ol' />,
+  table: (props: {}) => (
     <div className='md_table-wrapper'>
       <table {...props} className='md_table' />
     </div>
   ),
-  wrapper: (props: any) => (
-    <div className={classnames('md', props.location.path)} children={props.children} />
+  wrapper: (props: { children: React.ReactNode }) => (
+    <div className={classnames('md')}>{props.children}</div>
   )
-  /* eslint-enable*/
 }
 
 const Content: React.FunctionComponent<void> = () => {
   return (
     <div className='content'>
       <MDXProvider components={components}>
-        <React.Suspense fallback={<Spin cover={true} />}>{routeComponents}</React.Suspense>
+        <React.Suspense fallback={<Spin cover={true} />}>
+          {routeComponents}
+        </React.Suspense>
       </MDXProvider>
     </div>
   )

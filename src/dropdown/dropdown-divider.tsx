@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 
 export interface DropdownDividerProps {
@@ -8,12 +8,12 @@ export interface DropdownDividerProps {
 
 export const displayName = `${namePrefix}-dropdown-divider`
 
-const DropdownDivider: React.FunctionComponent<DropdownDividerProps> = props => {
-  const {
-    prefixCls = displayName
-  } = props
+const DropdownDivider: React.FunctionComponent<
+  DropdownDividerProps
+> = props => {
+  const { prefixCls = displayName } = props
 
-  return (<li className={`${prefixCls}`}/>)
+  return <li className={`${prefixCls}`} />
 }
 
 DropdownDivider.displayName = displayName

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Editor } from 'slate-react'
 import { namePrefix } from '../../commons/config'
 import FasBold from '../../icon/icons/fas-bold'
@@ -23,25 +23,17 @@ export interface ToolbarProps {
 export const displayName = `${namePrefix}-editor-toolbar`
 
 const Toolbar: React.FunctionComponent<ToolbarProps> = props => {
-  const {
-    editor,
-    tipsDelay,
-    prefixCls = displayName
-  } = props
+  const { editor, tipsDelay, prefixCls = displayName } = props
 
   const renderClearFormat = () => {
     const onMouseDown = (e: React.MouseEvent) => {
       e.preventDefault()
-      editor.value.activeMarks
-        .forEach(it => editor.removeMark(it!))
+      editor.value.activeMarks.forEach(it => editor.removeMark(it!))
     }
     return (
       <Tooltip content={'清除格式'} delayShow={tipsDelay}>
-        <button
-          className={`${prefixCls}__btn`}
-          onMouseDown={onMouseDown}
-        >
-          <FasRemoveFormat/>
+        <button className={`${prefixCls}__btn`} onMouseDown={onMouseDown}>
+          <FasRemoveFormat />
         </button>
       </Tooltip>
     )
@@ -49,12 +41,20 @@ const Toolbar: React.FunctionComponent<ToolbarProps> = props => {
 
   return (
     <div className={prefixCls}>
-      <Mark editor={editor} tips={'粗体'} type={boldType}><FasBold/></Mark>
-      <Mark editor={editor} tips={'下划线'} type={underlineType}><FasUnderline/></Mark>
-      <Mark editor={editor} tips={'斜体'} type={italicType}><FasItalic/></Mark>
-      <Mark editor={editor} tips={'中划线'} type={strikethroughType}><FasStrikethrough/></Mark>
+      <Mark editor={editor} tips={'粗体'} type={boldType}>
+        <FasBold />
+      </Mark>
+      <Mark editor={editor} tips={'下划线'} type={underlineType}>
+        <FasUnderline />
+      </Mark>
+      <Mark editor={editor} tips={'斜体'} type={italicType}>
+        <FasItalic />
+      </Mark>
+      <Mark editor={editor} tips={'中划线'} type={strikethroughType}>
+        <FasStrikethrough />
+      </Mark>
       {renderClearFormat()}
-      <Heading editor={editor}/>
+      <Heading editor={editor} />
     </div>
   )
 }

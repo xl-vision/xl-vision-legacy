@@ -1,6 +1,6 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import * as React from 'react'
+import React from 'react'
 import { CssTransition } from '..'
 import { namePrefix } from '../commons/config'
 import FasSpinner from '../icon/icons/fas-spinner'
@@ -51,27 +51,31 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
     return () => clearTimeout(timer)
   }, [delay, spinning])
 
-  const classes = classnames({
-    [prefixCls]: true,
-    [`${prefixCls}--spinning`]: display,
-    [`${prefixCls}--cover`]: cover,
-    [`${prefixCls}--nested`]: !!children
-  }, className)
-
-  const wrapperClasses = classnames(`${prefixCls}__wrapper`, `${prefixCls}__wrapper--${size}`, wrapperClassName)
-
-  const childrenEle = children && (
-    <div className={`${prefixCls}__children`}>
-      {children}
-    </div>
+  const classes = classnames(
+    {
+      [prefixCls]: true,
+      [`${prefixCls}--spinning`]: display,
+      [`${prefixCls}--cover`]: cover,
+      [`${prefixCls}--nested`]: !!children
+    },
+    className
   )
+
+  const wrapperClasses = classnames(
+    `${prefixCls}__wrapper`,
+    `${prefixCls}__wrapper--${size}`,
+    wrapperClassName
+  )
+
+  const childrenEle = children && <div className={`${prefixCls}__children`}>{children}</div>
+
   return (
     <div className={classes} {...others}>
       <CssTransition show={display} classNames={`${prefixCls}__fade`}>
         <div className={`${prefixCls}__fade`}>
           <div className={wrapperClasses}>
             <span className={`${prefixCls}__indicator`}>{renderIndicator(indicator)}</span>
-            {tip && (<span className={`${prefixCls}__tip`}>{tip}</span>)}
+            {tip && <span className={`${prefixCls}__tip`}>{tip}</span>}
           </div>
         </div>
       </CssTransition>
@@ -97,5 +101,5 @@ Spin.propTypes = {
 export default Spin
 
 const renderIndicator = (indicator?: SpinIndicator) => {
-  return indicator || <FasSpinner spin={true}/>
+  return indicator || <FasSpinner spin={true} />
 }

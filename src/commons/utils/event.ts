@@ -1,6 +1,6 @@
 import { isServer } from './env'
 
-export const on = <K extends keyof WindowEventMap> (
+export const on = <K extends keyof WindowEventMap>(
   type: K,
   listener: (this: Window, ev: WindowEventMap[K]) => any,
   options?: boolean | AddEventListenerOptions
@@ -11,7 +11,7 @@ export const on = <K extends keyof WindowEventMap> (
   window.addEventListener(type, listener, options)
 }
 
-export const off = <K extends keyof WindowEventMap> (
+export const off = <K extends keyof WindowEventMap>(
   type: K,
   listener: (this: Window, ev: WindowEventMap[K]) => any,
   options?: boolean | EventListenerOptions
@@ -22,8 +22,10 @@ export const off = <K extends keyof WindowEventMap> (
   window.removeEventListener(type, listener, options)
 }
 
-export const mergeEvents = <K extends keyof WindowEventMap> (...listeners: ((this: Window, ev: WindowEventMap[K]) => any)[]) => {
-  return function (this: Window, ev: WindowEventMap[K]) {
+export const mergeEvents = <K extends keyof WindowEventMap>(
+  ...listeners: ((this: Window, ev: WindowEventMap[K]) => any)[]
+) => {
+  return function(this: Window, ev: WindowEventMap[K]) {
     for (const listener of listeners) {
       if (listener) {
         listener.apply(this, ev)

@@ -6,14 +6,16 @@ let animationProp = 'animation'
 let animationEndEvent = 'animationend'
 
 if (isClient) {
-  if (window.ontransitionend === undefined &&
+  if (
+    window.ontransitionend === undefined &&
     // @ts-ignore
     window.onwebkittransitionend !== undefined
   ) {
     transitionProp = 'WebkitTransition'
     transitionEndEvent = 'webkitTransitionEnd'
   }
-  if (window.onanimationend === undefined &&
+  if (
+    window.onanimationend === undefined &&
     // @ts-ignore
     window.onwebkitanimationend !== undefined
   ) {
@@ -78,18 +80,21 @@ const getTimeout = (delays: string[], durations: string[]) => {
     delays = delays.concat(delays)
   }
 
-  return Math.max.apply(null, durations.map((d, i) => {
-    return toMs(d) + toMs(delays[i])
-  }))
+  return Math.max.apply(
+    null,
+    durations.map((d, i) => {
+      return toMs(d) + toMs(delays[i])
+    })
+  )
 }
 
 const toMs = (s: string) => {
   return Number(s.slice(0, -1)) * 1000
 }
 
-export const raf = isClient ?
-  window.requestAnimationFrame ?
-    window.requestAnimationFrame.bind(window)
+export const raf = isClient
+  ? window.requestAnimationFrame
+    ? window.requestAnimationFrame.bind(window)
     : setTimeout
   : (fn: Function) => fn()
 

@@ -7,9 +7,9 @@ export { RowProps } from './row'
 
 export { Col, Row }
 
-const RowWithCol: (typeof Row) & {
+const RowWithCol = Row as (typeof Row) & {
   Col: typeof Col
-} = Row as any
+}
 
 RowWithCol.Col = Col
 

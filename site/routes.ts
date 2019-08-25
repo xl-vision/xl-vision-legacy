@@ -9,7 +9,7 @@ export interface RedirectRoute {
 }
 
 export interface ComponentRoute {
-  component: Promise<void>
+  component: Promise<any> // eslint-disable-line @typescript-eslint/no-explicit-any
   name: string
   path: string
 }

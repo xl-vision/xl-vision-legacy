@@ -1,6 +1,6 @@
 import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
-import * as React from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { namePrefix } from '../commons/config'
 import useUpdate from '../commons/hooks/useUpdate'
 import { childrenValidator } from '../commons/utils/prop-type'
@@ -14,7 +14,9 @@ import {
 export interface CollapseProps {
   accordion?: boolean
   bordered?: boolean
-  children: React.ReactElement<CollapsePanelProps> | React.ReactElement<CollapsePanelProps>[]
+  children:
+    | React.ReactElement<CollapsePanelProps>
+    | React.ReactElement<CollapsePanelProps>[]
   defaultActiveName?: string | string[]
   expandArrow?: (active: boolean) => React.ReactNode
   expandArrowPosition?: CollapseExpandIconPosition
@@ -27,7 +29,6 @@ export interface CollapseProps {
 export const displayName = `${namePrefix}-collapse`
 
 const Collapse: React.FunctionComponent<CollapseProps> = props => {
-
   const {
     accordion,
     defaultActiveName,
@@ -41,7 +42,13 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     prefixCls = displayName
   } = props
 
-  const [activeNames, setActiveNames] = React.useState(defaultActiveName ? Array.isArray(defaultActiveName) ? defaultActiveName : [defaultActiveName] : [])
+  const [activeNames, setActiveNames] = React.useState(
+    defaultActiveName
+      ? Array.isArray(defaultActiveName)
+        ? defaultActiveName
+        : [defaultActiveName]
+      : []
+  )
 
   const clickCallback = (name: string) => {
     const index = activeNames.indexOf(name)
@@ -56,7 +63,9 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
       if (index === -1) {
         setActiveNames(activeNames.concat([name]))
       } else {
-        setActiveNames(activeNames.slice(0, index).concat(activeNames.slice(index + 1)))
+        setActiveNames(
+          activeNames.slice(0, index).concat(activeNames.slice(index + 1))
+        )
       }
     }
   }
@@ -66,7 +75,10 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
   }, [activeNames])
 
   const childrenNode = React.useMemo(() => {
-    return React.Children.map<React.ReactElement<CollapsePanelProps>, React.ReactElement<CollapsePanelProps>>(children, (child, index) => {
+    return React.Children.map<
+      React.ReactElement<CollapsePanelProps>,
+      React.ReactElement<CollapsePanelProps>
+    >(children, (child, index) => {
       const name = child.props.name || index + ''
       const extraNode = extra && extra(name)
       return React.cloneElement(child, {
@@ -88,12 +100,9 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
 
   return (
     <CollapseContext.Provider value={{ activeNames, clickCallback }}>
-      <div className={classes}>
-        {childrenNode}
-      </div>
+      <div className={classes}>{childrenNode}</div>
     </CollapseContext.Provider>
   )
-
 }
 
 Collapse.displayName = displayName
@@ -102,9 +111,15 @@ Collapse.propTypes = {
   accordion: PropTypes.bool,
   bordered: PropTypes.bool,
   children: childrenValidator(collapsePanelDisplayName),
-  defaultActiveName: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.arrayOf(PropTypes.string.isRequired)]),
+  defaultActiveName: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.arrayOf(PropTypes.string.isRequired)
+  ]),
   expandArrow: PropTypes.func,
-  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left', 'right']),
+  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>([
+    'left',
+    'right'
+  ]),
   extra: PropTypes.func,
   onChange: PropTypes.func,
   prefixCls: PropTypes.string,
