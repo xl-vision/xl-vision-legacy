@@ -64,7 +64,6 @@ $spin: #{$--cls-prefix}-spin;
       height: 100%;
 
       &::before {
-        content: '';
         position: absolute;
         z-index: 1;
         display: block;
@@ -72,6 +71,7 @@ $spin: #{$--cls-prefix}-spin;
         height: 100%;
         background-color: $--spin-background-color;
         opacity: $--spin-opacity;
+        content: '';
       }
 
       &-enter-active,

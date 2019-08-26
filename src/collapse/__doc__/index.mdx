@@ -7,7 +7,7 @@
 基本用法
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse>
@@ -26,7 +26,7 @@ export default () => {
 使用`bordered={false}`可以设置无边框
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse bordered={false}>
@@ -45,7 +45,7 @@ export default () => {
 使用`accordion`指定为手风琴
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse accordion>
@@ -64,7 +64,7 @@ export default () => {
 通过指定`disabled`,可以禁止部分面板的使用
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse>
@@ -84,7 +84,7 @@ export default () => {
 如果panel没有指定自己的`name`,则默认每个panel的`name`从0(字符串)开始依次递增
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse defaultActiveName={['0']}>
@@ -103,7 +103,7 @@ export default () => {
 面板嵌套
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse>
@@ -128,7 +128,7 @@ export default () => {
 通过指定`onChange`,可以指定点击面板的回调，参数为当前激活的面板的`activeKey`的数组。
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     const onChange = (keys) => {
         alert(keys)
@@ -150,7 +150,7 @@ export default () => {
 通过指定`expandArrowPosition`,指定箭头位置。
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse expandArrowPosition={'right'}>
@@ -169,7 +169,7 @@ export default () => {
 通过指定`showArrow`,隐藏箭头。
 
 ```jsx
-import {Collapse} from '@xl-vision/xl-vision'
+import {Collapse} from 'xl-vision'
 export default () => {
     return (
         <Collapse showArrow={false}>
@@ -188,7 +188,7 @@ export default () => {
 通过指定`expandArrow`,自定义箭头。
 
 ```jsx
-import {Collapse, Icon} from '@xl-vision/xl-vision'
+import {Collapse, Icon} from 'xl-vision'
 export default () => {
     const expandArrow = isActive => {
         return <Icon.FasArrowCircleRight rotate={isActive ? 90 : 0}/>
@@ -210,7 +210,7 @@ export default () => {
 通过指定`extra`,添加额外内容。
 
 ```jsx
-import {Collapse, Icon} from '@xl-vision/xl-vision'
+import {Collapse, Icon} from 'xl-vision'
 export default () => {
     const extra = name => {
         const click = (e) => {

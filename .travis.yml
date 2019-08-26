@@ -19,7 +19,7 @@ jobs:
       name: test
     # 编译
     - stage: compile
-      script: npm run compile && npm run site:build
+      script: npm run compile && npm run docs
       name: compile
       deploy:
         - provider: npm

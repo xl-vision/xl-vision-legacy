@@ -69,14 +69,44 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   const [state, setState] = React.useState(State.STATE_INIT)
 
   // 标记当前组件是否被卸载
-  let isUnMounted = false
+  const isUnMountedRef = React.useRef(false)
 
   useUnmount(() => {
     // 卸载时设置标记isUnMounted = true
-    isUnMounted = true
+    isUnMountedRef.current = true
   })
 
   const childrenRel = React.useRef<HTMLElement>(null)
+
+  const onTransitionEnd = React.useMemo(() => {
+    let cb: () => void
+    return (
+      callback: (() => void) & { isFinished?: boolean },
+      action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void
+    ) => {
+      cb = callback
+      const ele = childrenRel.current!
+
+      const isCancelled = () => callback !== cb || !!callback.isFinished
+
+      // 判断回调是否执行了
+      const wrapCallback = () => {
+        if (!isCancelled() && !isUnMountedRef.current) {
+          callback()
+          // 防止重复触发
+          callback.isFinished = true
+        }
+      }
+      if (action) {
+        action(ele, wrapCallback, isCancelled)
+      } else {
+        wrapCallback()
+      }
+      // if (!isCallbacked) {
+      //   throw new Error(`Do you forget to call 'done' or 'isCancelled' in function 'appear', 'enter' or 'leave'`)
+      // }
+    }
+  }, [])
 
   const display = React.useMemo(() => {
     // 还未初始化完成
@@ -152,37 +182,19 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         setState(State.STATE_LEAVED)
       }, leave)
     }
-  }, [state, beforeAppear, afterAppear, beforeEnter, afterEnter, beforeLeave, afterLeave])
-
-  const onTransitionEnd = React.useMemo(() => {
-    let cb: () => void
-    return (
-      callback: (() => void) & { isFinished?: boolean },
-      action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void
-    ) => {
-      cb = callback
-      const ele = childrenRel.current!
-
-      const isCancelled = () => callback !== cb || !!callback.isFinished
-
-      // 判断回调是否执行了
-      const wrapCallback = () => {
-        if (!isCancelled() && !isUnMounted) {
-          callback()
-          // 防止重复触发
-          callback.isFinished = true
-        }
-      }
-      if (action) {
-        action(ele, wrapCallback, isCancelled)
-      } else {
-        wrapCallback()
-      }
-      // if (!isCallbacked) {
-      //   throw new Error(`Do you forget to call 'done' or 'isCancelled' in function 'appear', 'enter' or 'leave'`)
-      // }
-    }
-  }, [])
+  }, [
+    state,
+    beforeAppear,
+    appear,
+    afterAppear,
+    beforeEnter,
+    enter,
+    afterEnter,
+    beforeLeave,
+    leave,
+    afterLeave,
+    onTransitionEnd
+  ])
 
   return React.useMemo(() => {
     if (!display && !forceRender) {

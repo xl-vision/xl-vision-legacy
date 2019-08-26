@@ -16,9 +16,9 @@
     position: absolute;
     display: block;
     box-sizing: border-box;
-    content: '';
     width: 0;
     height: 0;
+    content: '';
   }
 
   @if ($direction == top) {
@@ -71,10 +71,10 @@
     left: 0;
     display: block;
     box-sizing: border-box;
-    content: '';
     width: 0;
     height: 0;
     border: $size solid transparent;
+    content: '';
   }
 
   @if ($direction == top) {

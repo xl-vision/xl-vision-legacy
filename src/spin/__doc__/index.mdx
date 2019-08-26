@@ -8,7 +8,7 @@
 一个简单的loading状态
 
 ```jsx
-import {Spin} from '@xl-vision/xl-vision'
+import {Spin} from 'xl-vision'
 export default function () {
     return <Spin/>
 }
@@ -21,7 +21,7 @@ export default function () {
 将内容内嵌在`Spin`中。
 
 ```jsx
-import {Spin} from '@xl-vision/xl-vision'
+import {Spin} from 'xl-vision'
 export default function () {
     return (
         <Spin>
@@ -48,7 +48,7 @@ export default function () {
 将内容内嵌在`Spin`中。
 
 ```jsx
-import {Spin} from '@xl-vision/xl-vision'
+import {Spin} from 'xl-vision'
 export default function () {
     return (
         <div className='spin-inner'>
@@ -76,7 +76,7 @@ export default function () {
 小的用于文本加载，默认用于卡片容器级加载，大的用于页面级加载。
 
 ```jsx
-import {Spin} from '@xl-vision/xl-vision'
+import {Spin} from 'xl-vision'
 export default function () {
     return (
         <div className='spin-wrapper'>
@@ -100,7 +100,7 @@ export default function () {
 使用`tip`属性自定义描述文字
 
 ```jsx
-import {Spin} from '@xl-vision/xl-vision'
+import {Spin} from 'xl-vision'
 export default function () {
     return (
         <Spin tip='Loading...'/>
@@ -115,7 +115,7 @@ export default function () {
 通过`indicator`自定义加载指示器。
 
 ```jsx
-import {Spin, Icon} from '@xl-vision/xl-vision'
+import {Spin, Icon} from 'xl-vision'
 export default function () {
     return (
         <Spin indicator={<Icon.FasCircleNotch spin/>} tip='Loading...'/>
@@ -130,7 +130,7 @@ export default function () {
 通过`delay`延时显示加载器，当在延时时间段内，加载器
 
 ```jsx
-import {Spin, Button} from '@xl-vision/xl-vision'
+import {Spin, Button} from 'xl-vision'
 export default function () {
     const [display, setDisplay] = React.useState(false)
     return (

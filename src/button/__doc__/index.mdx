@@ -5,7 +5,7 @@
 通过`type`、`plain`、`dashed`指定按钮的样式，按钮中也可以添加[Icon](#/icon)。
 
 ```jsx
-import {Button, Icon} from '@xl-vision/xl-vision'
+import {Button, Icon} from 'xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -57,7 +57,7 @@ export default () => {
 给按钮指定`shape`属性即可改变按钮的形状，可以设置的值有`circle`、`round`两种，通常`circle`用于图标按钮。
 
 ```jsx
-import {Button, Icon} from '@xl-vision/xl-vision'
+import {Button, Icon} from 'xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -93,7 +93,7 @@ export default () => {
 通过`size`调整按钮大小
 
 ```jsx
-import {Button, Icon} from '@xl-vision/xl-vision'
+import {Button, Icon} from 'xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -141,7 +141,7 @@ export default () => {
 给按钮添加`loading`属性即可让按钮处于加载状态，此时icon属性会被loading组件覆盖
 
 ```jsx
-import {Button} from '@xl-vision/xl-vision'
+import {Button} from 'xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -169,7 +169,7 @@ export default () => {
 给按钮添加`disabled`属性即可让按钮处于不可用
 
 ```jsx
-import {Button} from '@xl-vision/xl-vision'
+import {Button} from 'xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -197,7 +197,7 @@ export default () => {
 给按钮添加`ghost`属性可以使button的背景变透明，适合在彩色背景中使用。
 
 ```jsx
-import {Button} from '@xl-vision/xl-vision'
+import {Button} from 'xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -225,7 +225,7 @@ export default () => {
 给按钮添加`href`可以使按钮与a链接表现一致，获得跳转url的功能。
 
 ```jsx
-import {Button} from '@xl-vision/xl-vision'
+import {Button} from 'xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -253,7 +253,7 @@ export default () => {
 给按钮添加`long`可以使按钮变成长按钮。
 
 ```jsx
-import {Button} from '@xl-vision/xl-vision'
+import {Button} from 'xl-vision'
 export default () => {
     return (
         <div className='button-wrapper'>
@@ -281,7 +281,7 @@ export default () => {
 通过ButtonGroup包裹按钮，可以组成按钮组
 
 ```jsx
-import {Button, Icon} from '@xl-vision/xl-vision'
+import {Button, Icon} from 'xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -331,7 +331,7 @@ export default () => {
 通过指定`vertical`属性，可以组成垂直方向的按钮组
 
 ```jsx
-import {Button, Icon} from '@xl-vision/xl-vision'
+import {Button, Icon} from 'xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
