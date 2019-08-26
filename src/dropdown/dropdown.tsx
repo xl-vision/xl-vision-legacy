@@ -26,19 +26,15 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   } = props
 
   const transitionName = others.transitionName || `${prefixCls}--slide`
-  const overlayClassName =
-    others.overlayClassName || (_placement => `${prefixCls}--${_placement}`)
+  const overlayClassName = others.overlayClassName || (_placement => `${prefixCls}--${_placement}`)
 
   // 考虑嵌套使用的情况
-  const {
-    closeOnClick: closeOnClickContext,
-    close: closeContext
-  } = React.useContext(DropdownContext)
+  const { closeOnClick: closeOnClickContext, close: closeContext } = React.useContext(
+    DropdownContext
+  )
 
   const closeOnClick =
-    typeof others.closeOnClick === 'undefined'
-      ? closeOnClickContext
-      : others.closeOnClick
+    typeof others.closeOnClick === 'undefined' ? closeOnClickContext : others.closeOnClick
 
   delete others.transitionName
   delete others.overlayClassName
@@ -52,7 +48,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
 
   React.useEffect(() => {
     onVisibleChangeProp && onVisibleChangeProp(visible)
-  }, [visible])
+  }, [visible, onVisibleChangeProp])
 
   const close = React.useCallback(() => {
     setVisible(false)

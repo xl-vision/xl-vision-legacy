@@ -13,13 +13,15 @@ export interface HeadingProps {
 const Heading: React.FunctionComponent<HeadingProps> = props => {
   const { editor, prefixCls = `${namePrefix}-editor-toolbar__btn` } = props
 
-  const [content, setContent] = React.useState('heading')
+  const [content /*, setContent*/] = React.useState('heading')
 
   const overlay = React.useMemo(() => {
     return (
       <>
         <Dropdown.Item>
-          <Block editor={editor} tips={'Heading 1'} type={heading1Type}>Heading 1</Block>
+          <Block editor={editor} tips={'Heading 1'} type={heading1Type}>
+            Heading 1
+          </Block>
         </Dropdown.Item>
         <Dropdown.Item>Heading 2</Dropdown.Item>
         <Dropdown.Item>Heading 3</Dropdown.Item>

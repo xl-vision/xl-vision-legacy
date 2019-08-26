@@ -78,10 +78,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   // 转成数组
   const childrenArray = React.useMemo(() => {
-    return React.Children.map<React.ReactElement, React.ReactElement>(
-      children,
-      it => it
-    )
+    return React.Children.map<React.ReactElement, React.ReactElement>(children, it => it)
   }, [children])
 
   // 包装，处理特殊情况
@@ -157,8 +154,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         setActiveIndexWrap(prev => prev)
       }
       // 向左滑动实际是向右切换
-      const _distance =
-        direction === 'horizontal' ? start.x - _end.x : start.y - _end.y
+      const _distance = direction === 'horizontal' ? start.x - _end.x : start.y - _end.y
       // 滑动时保持和鼠标一致，不需要动画
       setDistance(_distance)
 
@@ -208,7 +204,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         setDrag(false)
       }
     },
-    [direction, size, childrenArray, damping, slide, startTimeRef, loop]
+    [direction, size, childrenArray, damping, slide, startTimeRef, loop, setActiveIndexWrap]
   )
 
   // 绑定滑动事件
@@ -292,7 +288,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     }
     list.push(wrap(childrenArray[0], -2))
     return list
-  }, [childrenArray, size, direction])
+  }, [childrenArray, size, direction, prefixCls])
 
   const dotsNode = dots && (
     <ul className={`${prefixCls}__dot-list`}>
@@ -311,12 +307,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
           }
         }
         return (
-          <li
-            key={index}
-            className={_classes}
-            onClick={onDotClick}
-            onMouseEnter={onDotMouseEnter}
-          >
+          <li key={index} className={_classes} onClick={onDotClick} onMouseEnter={onDotMouseEnter}>
             {dotRender(index, currentIndex)}
           </li>
         )
@@ -364,26 +355,19 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         }
         classNames={`${prefixCls}__arrow--fade`}
       >
-        <button
-          className={`${prefixCls}__arrow ${prefixCls}__arrow--first`}
-          onClick={toPrev}
-        >
+        <button className={`${prefixCls}__arrow ${prefixCls}__arrow--first`} onClick={toPrev}>
           {direction === 'vertical' ? <FasAngleUp /> : <FasAngleLeft />}
         </button>
       </CssTransition>
       <CssTransition
         forceRender={true}
         show={
-          ((loop && childrenArray.length > 1) ||
-            currentIndex < childrenArray.length - 1) &&
+          ((loop && childrenArray.length > 1) || currentIndex < childrenArray.length - 1) &&
           (arrow === 'always' || (arrow === 'hover' && hover))
         }
         classNames={`${prefixCls}__arrow--fade`}
       >
-        <button
-          className={`${prefixCls}__arrow ${prefixCls}__arrow--last`}
-          onClick={toNext}
-        >
+        <button className={`${prefixCls}__arrow ${prefixCls}__arrow--last`} onClick={toNext}>
           {direction === 'vertical' ? <FasAngleDown /> : <FasAngleRight />}
         </button>
       </CssTransition>

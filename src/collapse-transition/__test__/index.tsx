@@ -1,12 +1,12 @@
 import { mount } from 'enzyme'
-import * as React from 'react'
+import React from 'react'
 import CollapseTransition from '..'
 
 describe('collapse-transition', () => {
   it('基本使用', async () => {
     const wrapper = mount(
       <CollapseTransition show={false}>
-        <div/>
+        <div />
       </CollapseTransition>
     )
 
@@ -24,7 +24,7 @@ describe('collapse-transition', () => {
   it('测试forceRender', async () => {
     const wrapper = mount(
       <CollapseTransition show={false} forceRender={true}>
-        <div/>
+        <div />
       </CollapseTransition>
     )
 

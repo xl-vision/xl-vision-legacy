@@ -5,7 +5,7 @@ import { namePrefix } from '../../config'
 import useIsMounted from '../../hooks/useIsMounted'
 
 export interface PortalProp {
-  children: React.ReactNode,
+  children: React.ReactNode
   getContainer: () => Element
 }
 

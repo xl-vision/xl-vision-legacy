@@ -1,5 +1,5 @@
 import { mount } from 'enzyme'
-import * as React from 'react'
+import React from 'react'
 import { Collapse, CollapsePanel } from '..'
 import { namePrefix } from '../../commons/config'
 import FasArrowCircleRight from '../../icon/icons/fas-arrow-circle-right'
@@ -16,12 +16,19 @@ describe('collapse', () => {
 
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(0).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(0)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(1).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(1)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
-
   })
 
   it('测试无边框', () => {
@@ -33,12 +40,19 @@ describe('collapse', () => {
     )
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(0).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(0)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(1).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(1)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
-
   })
 
   it('测试手风琴', () => {
@@ -51,30 +65,46 @@ describe('collapse', () => {
 
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(0).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(0)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(1).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(1)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
-
   })
 
   it('测试禁用面板', () => {
     const wrapper = mount(
       <Collapse accordion={true}>
-        <CollapsePanel header={'header1'} disabled={true}>body1</CollapsePanel>
+        <CollapsePanel header={'header1'} disabled={true}>
+          body1
+        </CollapsePanel>
         <CollapsePanel header={'header2'}>body2</CollapsePanel>
       </Collapse>
     )
 
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(0).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(0)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(1).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(1)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
-
   })
 
   it('测试默认展开的面板', () => {
@@ -86,12 +116,19 @@ describe('collapse', () => {
     )
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(0).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(0)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
 
-    wrapper.find(CollapsePanel).at(1).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(1)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(wrapper).toMatchSnapshot()
-
   })
 
   it('测试指定箭头位置', () => {
@@ -118,7 +155,7 @@ describe('collapse', () => {
 
   it('测试自定义箭头', () => {
     const expandArrow = (isActive: boolean) => {
-      return <FasArrowCircleRight rotate={isActive ? 90 : 0}/>
+      return <FasArrowCircleRight rotate={isActive ? 90 : 0} />
     }
     const wrapper = mount(
       <Collapse expandArrow={expandArrow}>
@@ -134,7 +171,7 @@ describe('collapse', () => {
     const call = jest.fn()
     const extra = (name: string) => {
       call(name)
-      return <FasCog/>
+      return <FasCog />
     }
     const wrapper = mount(
       <Collapse extra={extra}>
@@ -157,17 +194,28 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    wrapper.find(CollapsePanel).at(0).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(0)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(onChange.mock.calls[0][0]).toEqual(['0'])
     onChange.mockClear()
 
-    wrapper.find(CollapsePanel).at(1).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(1)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(onChange.mock.calls[0][0]).toEqual(['0', '1'])
     onChange.mockClear()
 
-    wrapper.find(CollapsePanel).at(0).find(`.${namePrefix}-collapse-panel__header`).simulate('click')
+    wrapper
+      .find(CollapsePanel)
+      .at(0)
+      .find(`.${namePrefix}-collapse-panel__header`)
+      .simulate('click')
     expect(onChange.mock.calls[0][0]).toEqual(['1'])
     onChange.mockClear()
-
   })
 })

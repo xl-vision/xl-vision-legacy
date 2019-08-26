@@ -120,7 +120,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     return () => {
       removeParentCloseHandler(handler)
     }
-  }, [addParentCloseHandler, removeParentCloseHandler])
+  }, [addParentCloseHandler, removeParentCloseHandler, setActualWrapper])
 
   // 子popper函数
   const addCloseHandler = React.useCallback(
@@ -164,11 +164,11 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       setActualWrapper(visible)
       // 保证这个方法最后调用
     }, TIME_DELAY * 0.5)
-  }, [visible])
+  }, [visible, setActualWrapper])
 
   React.useEffect(() => {
     onVisibleChange && onVisibleChange(actualVisible)
-  }, [actualVisible])
+  }, [actualVisible, onVisibleChange])
 
   const arrowCenter = React.useMemo(() => {
     let x = 0
@@ -230,7 +230,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       style.paddingLeft = offset
     }
     return style
-  }, [placement, offset, actualVisible, popupStyle])
+  }, [placement, offset, popupStyle])
 
   const onMouseEnter = React.useCallback(() => {
     // 如果是从popup移动过来，需要先清除popup的定时关闭
@@ -244,25 +244,25 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
-  }, [delayTimerRef, setActualWrapper, trigger])
+  }, [setActualWrapper, trigger])
 
   const onFocus = React.useCallback(() => {
     if (trigger === 'focus') {
       setActualWrapper(true)
     }
-  }, [delayTimerRef, setActualWrapper, trigger])
+  }, [setActualWrapper, trigger])
 
   const onBlur = React.useCallback(() => {
     if (trigger === 'focus') {
       setActualWrapper(false)
     }
-  }, [delayTimerRef, setActualWrapper, trigger])
+  }, [setActualWrapper, trigger])
 
   const onContextMenu = React.useCallback(() => {
     if (trigger === 'contextMenu') {
       setActualWrapper(true)
     }
-  }, [delayTimerRef, setActualWrapper, trigger])
+  }, [setActualWrapper, trigger])
 
   const onPopupMouseEnter = React.useCallback(() => {
     clearTimeout(delayTimerRef.current!)

@@ -19,7 +19,7 @@ const Mark: React.FunctionComponent<MarkProps> = props => {
     editor,
     type,
     prefixCls = `${namePrefix}-editor-toolbar__btn`,
-    tipsDelay = 2000,
+    tipsDelay,
     tips,
     children
   } = props
@@ -29,7 +29,7 @@ const Mark: React.FunctionComponent<MarkProps> = props => {
       e.preventDefault()
       editor.toggleMark(type)
     },
-    [editor]
+    [editor, type]
   )
 
   const isActive = hasMark(editor, type)

@@ -8,9 +8,7 @@ export interface DropdownDividerProps {
 
 export const displayName = `${namePrefix}-dropdown-divider`
 
-const DropdownDivider: React.FunctionComponent<
-  DropdownDividerProps
-> = props => {
+const DropdownDivider: React.FunctionComponent<DropdownDividerProps> = props => {
   const { prefixCls = displayName } = props
 
   return <li className={`${prefixCls}`} />

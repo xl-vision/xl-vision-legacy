@@ -54,7 +54,10 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
   }
   const childrenStyle = { ...childrenProps.style, ...customChildrenStyle }
 
-  const cloneChildren = React.cloneElement(children, { ...childrenProps, style: childrenStyle })
+  const cloneChildren = React.cloneElement(children, {
+    ...childrenProps,
+    style: childrenStyle
+  })
 
   const classes = classnames(
     {
@@ -64,7 +67,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
     className
   )
   return (
-    <i className={classes} style={iconStyle} {...others} >
+    <i className={classes} style={iconStyle} {...others}>
       {cloneChildren}
     </i>
   )
@@ -75,12 +78,7 @@ BaseIcon.displayName = displayName
 const childrenValidator = (
   props: BaseIconProps,
   propName: keyof BaseIconProps,
-  // @ts-ignore
-  componentName: string,
-  // @ts-ignore
-  location: string,
-  // @ts-ignore
-  propFullName: string
+  componentName: string
 ) => {
   const propValue = props[propName]
   if (propValue.type !== 'svg') {

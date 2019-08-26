@@ -101,10 +101,7 @@ CollapsePanel.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   expandArrow: PropTypes.func,
-  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>([
-    'left',
-    'right'
-  ]),
+  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left', 'right']),
   extra: PropTypes.node,
   forceRender: PropTypes.bool,
   header: PropTypes.node.isRequired,

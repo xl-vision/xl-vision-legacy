@@ -1,5 +1,5 @@
 import { mount } from 'enzyme'
-import * as React from 'react'
+import React from 'react'
 import Spin from '..'
 import FasCircleNotch from '../../icon/icons/fas-circle-notch'
 
@@ -8,7 +8,7 @@ describe('spin', () => {
     jest.useRealTimers()
   })
   it('基本用法', () => {
-    const wrapper = mount(<Spin/>)
+    const wrapper = mount(<Spin />)
     expect(wrapper).toMatchSnapshot()
   })
 
@@ -25,7 +25,7 @@ describe('spin', () => {
     const wrapper = mount(
       <div className='inner'>
         Further details about the context of this alert.
-        <Spin cover={true}/>
+        <Spin cover={true} />
       </div>
     )
     expect(wrapper).toMatchSnapshot()
@@ -34,25 +34,21 @@ describe('spin', () => {
   it('不同大小', () => {
     const wrapper = mount(
       <div className='wrapper'>
-        <Spin size='small'/>
-        <Spin size='default'/>
-        <Spin size='large'/>
+        <Spin size='small' />
+        <Spin size='default' />
+        <Spin size='large' />
       </div>
     )
     expect(wrapper).toMatchSnapshot()
   })
 
   it('自定义描述', () => {
-    const wrapper = mount(
-      <Spin tip='Loading...'/>
-    )
+    const wrapper = mount(<Spin tip='Loading...' />)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('自定义指示器', () => {
-    const wrapper = mount(
-      <Spin indicator={<FasCircleNotch spin={true}/>} tip='Loading...'/>
-    )
+    const wrapper = mount(<Spin indicator={<FasCircleNotch spin={true} />} tip='Loading...' />)
     expect(wrapper).toMatchSnapshot()
   })
 

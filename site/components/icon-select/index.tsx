@@ -22,11 +22,7 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
   }, [hover])
 
   return (
-    <div
-      className='icon-wrapper'
-      onMouseEnter={mouseEnter}
-      onMouseLeave={mouseLeave}
-    >
+    <div className='icon-wrapper' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
       <div className='icon'>{children}</div>
       <div className='icon-name' style={style}>
         {name}
@@ -34,8 +30,6 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
     </div>
   )
 }
-
-IconWrapper.displayName = 'icon-wrapper'
 
 IconWrapper.propTypes = {
   name: PropTypes.string.isRequired,

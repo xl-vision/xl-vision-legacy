@@ -1,5 +1,5 @@
 import { mount } from 'enzyme'
-import * as React from 'react'
+import React from 'react'
 import Transition from '..'
 
 describe('Transition', () => {
@@ -38,7 +38,7 @@ describe('Transition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </Transition>
     )
     // tslint:enable
@@ -106,7 +106,7 @@ describe('Transition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </Transition>
     )
     // tslint:enable
@@ -179,7 +179,7 @@ describe('Transition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </Transition>
     )
     // tslint:enable
@@ -251,7 +251,7 @@ describe('Transition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </Transition>
     )
     // tslint:enable
@@ -314,7 +314,7 @@ describe('Transition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </Transition>
     )
     // tslint:enable
@@ -362,7 +362,7 @@ describe('Transition', () => {
   it('测试forceRender', () => {
     const wrapper = mount(
       <Transition show={false} forceRender={false}>
-        <div/>
+        <div />
       </Transition>
     )
 

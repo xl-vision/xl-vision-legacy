@@ -42,7 +42,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
 
       return <div className={classes} style={_style} />
     },
-    [prefixCls]
+    [prefixCls, arrowSize]
   )
 
   const popup = React.useCallback(
@@ -64,7 +64,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
         </div>
       )
     },
-    [content, prefixCls]
+    [content, prefixCls, arrowSize]
   )
 
   return (

@@ -85,9 +85,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
 
   const childrenWrapper = (
     <>
-      {loading && (
-        <FasCircleNotch className={`${prefixCls}__icon`} spin={true} />
-      )}
+      {loading && <FasCircleNotch className={`${prefixCls}__icon`} spin={true} />}
       {formatChildren(children)}
     </>
   )
@@ -123,14 +121,7 @@ Button.propTypes = {
   prefixCls: PropTypes.string,
   shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
   size: PropTypes.oneOf(['large', 'default', 'small']),
-  type: PropTypes.oneOf([
-    'default',
-    'primary',
-    'success',
-    'warning',
-    'error',
-    'text'
-  ])
+  type: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text'])
 }
 
 export default Button

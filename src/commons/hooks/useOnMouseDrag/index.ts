@@ -2,7 +2,7 @@ import { RefObject, useCallback, useEffect, useRef } from 'react'
 import { off, on } from '../../utils/event'
 
 export interface DragPosition {
-  x: number,
+  x: number
   y: number
 }
 

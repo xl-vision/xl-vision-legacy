@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getRealElement = (element: any) => {
   while (element.$$typeof) {
     element = element.type
@@ -12,13 +13,8 @@ export const childrenValidator = <T extends object>(
   allowArray = true,
   isRequired = true
 ) => {
-  return (
-    props: T,
-    propName: keyof T,
-    componentName: string,
-    _location: string,
-    _propFullName: string
-  ) => {
+  return (props: T, propName: keyof T, componentName: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let propValue: any = props[propName]
 
     if (!propValue && !isRequired) {

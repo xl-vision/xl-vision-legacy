@@ -1,6 +1,6 @@
-@import '../style/commons/var';
-@import '../style/mixins/arrow';
-@import '../style/mixins/clearfix';
+@import '../../style/commons/var';
+@import '../../style/mixins/arrow';
+@import '../../style/mixins/clearfix';
 
 $popconfirm: #{$--cls-prefix}-popconfirm;
 

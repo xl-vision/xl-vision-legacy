@@ -16,14 +16,7 @@ export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
 export const displayName = `${namePrefix}-button-group`
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
-  const {
-    round,
-    vertical,
-    className,
-    prefixCls = displayName,
-    size = 'default',
-    ...others
-  } = props
+  const { round, vertical, className, prefixCls = displayName, size = 'default', ...others } = props
   const classes = classnames(
     {
       [prefixCls]: true,

@@ -1,5 +1,5 @@
 import { mount } from 'enzyme'
-import * as React from 'react'
+import React from 'react'
 import useUnmount from '..'
 
 describe('useUnmount', () => {
@@ -7,10 +7,10 @@ describe('useUnmount', () => {
     const fn = jest.fn()
     const TestUseMount = () => {
       useUnmount(fn)
-      return <div/>
+      return <div />
     }
 
-    const wrapper = mount(<TestUseMount/>)
+    const wrapper = mount(<TestUseMount />)
 
     expect(fn.mock.calls.length).toBe(0)
     wrapper.update()

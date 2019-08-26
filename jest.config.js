@@ -6,13 +6,12 @@ module.exports = {
     './script/test/setup.js'
   ],
   testMatch: [
-    '**/src/**/test/index.ts?(x)'
+    '**/src/**/__test__/index.ts?(x)'
   ],
   // collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
-    '!src/**/doc/**',
-    '!src/**/test/**',
+    '!src/**/__*__/**',
     '!src/icon/icons/**'
   ],
   snapshotSerializers: [

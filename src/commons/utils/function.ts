@@ -1,4 +1,9 @@
-export const throttle = <Fn extends Function>(func: Fn, wait: number, options?: any): Fn => {
+export const throttle = <Fn extends Function>(
+  func: Fn,
+  wait: number,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options?: any
+): Fn => {
   /* options的默认值
    *  表示首次调用返回值方法时，会马上调用func；否则仅会记录当前时刻，当第二次调用的时间间隔超过wait时，才调用func。
    *  options.leading = true
@@ -6,6 +11,7 @@ export const throttle = <Fn extends Function>(func: Fn, wait: number, options?: 
    *  options.trailing = true
    * 注意：当options.trailing = false时，效果与上面的简单实现效果相同
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let context: any, args: any, result: any
   let timeout: NodeJS.Timeout | null = null
   let previous = 0
@@ -28,6 +34,7 @@ export const throttle = <Fn extends Function>(func: Fn, wait: number, options?: 
     // 计算剩余时间
     const remaining = wait - (now - previous)
     context = this
+    // eslint-disable-next-line prefer-rest-params
     args = arguments
     // 当到达wait指定的时间间隔，则调用func函数
     // 精彩之处：按理来说remaining <= 0已经足够证明已经到达wait的时间间隔，但这里还考虑到假如客户端修改了系统时间则马上执行func函数。

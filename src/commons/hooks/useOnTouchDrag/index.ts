@@ -69,7 +69,7 @@ const useOnTouchDrag = (
         handler(startPosRef.current, endPosRef.current, false)
       }
     },
-    [isDragRef, startPosRef, endPosRef, handler, touchendHandler]
+    [isDragRef, startPosRef, endPosRef, handler, touchendHandler, allowOutView]
   )
 
   useEffect(() => {

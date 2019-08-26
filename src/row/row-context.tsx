@@ -2,7 +2,7 @@ import React from 'react'
 import { BreakPoint } from './hooks/useMedia'
 
 export interface RowContextState {
-  gutter: number,
+  gutter: number
   media: Partial<Record<BreakPoint, boolean>>
 }
 

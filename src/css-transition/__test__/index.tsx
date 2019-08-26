@@ -1,5 +1,5 @@
 import { mount } from 'enzyme'
-import * as React from 'react'
+import React from 'react'
 import CssTransition, { CssTransitionClassNames } from '..'
 import wait from '../../commons/__test__/wait'
 import * as TransitionUtils from '../../commons/utils/transition'
@@ -17,7 +17,6 @@ const classnameMap: CssTransitionClassNames = {
 }
 
 describe('CssTransition', () => {
-
   let spy: jest.SpyInstance
   beforeEach(() => {
     jest.useRealTimers()
@@ -66,7 +65,7 @@ describe('CssTransition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </CssTransition>
     )
     // tslint:enable
@@ -137,7 +136,7 @@ describe('CssTransition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </CssTransition>
     )
     // tslint:enable
@@ -213,7 +212,7 @@ describe('CssTransition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </CssTransition>
     )
     // tslint:enable
@@ -289,7 +288,7 @@ describe('CssTransition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </CssTransition>
     )
     // tslint:enable
@@ -322,11 +321,8 @@ describe('CssTransition', () => {
 
   it('测试包含cancelled的生命周期', async () => {
     // 阻止onTransitionEnd完成
-    // tslint:disable-next-line:no-empty
-    spy.mockImplementation(() => {
-    })
+    spy.mockImplementation(() => {})
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <CssTransition
         show={true}
@@ -360,10 +356,9 @@ describe('CssTransition', () => {
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
       >
-        <div/>
+        <div />
       </CssTransition>
     )
-    // tslint:enable
     // 给动画执行时间
     await wait(100)
     expect(call.mock.calls.length).toBe(2)
@@ -407,11 +402,8 @@ describe('CssTransition', () => {
 
   it('测试包含className调用时机', () => {
     const wrapper = mount(
-      <CssTransition
-        show={false}
-        classNames={'transition'}
-      >
-        <div/>
+      <CssTransition show={false} classNames={'transition'}>
+        <div />
       </CssTransition>
     )
 

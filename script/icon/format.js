@@ -57,7 +57,14 @@ for (const name of Object.keys(icons)) {
   const icon = icons[name]
   const types = icon.styles
   types.forEach(it => {
-    let relName = it === 'brands' ? 'fab-' + name : it === 'solid' ? 'fas-' + name : it === 'regular' ? 'far-' + name : ''
+    let relName =
+      it === 'brands'
+        ? 'fab-' + name
+        : it === 'solid'
+        ? 'fas-' + name
+        : it === 'regular'
+        ? 'far-' + name
+        : ''
     relName = toCamel(relName)
     if (relName) {
       const o = { search: icon.search.terms }

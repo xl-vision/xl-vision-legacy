@@ -1,5 +1,5 @@
 {
-  "name": "@xl-vision/xl-vision",
+  "name": "xl-vision",
   "version": "0.0.2-beta.54",
   "description": "the high quality UI library for react",
   "author": "Rhys Xia",
@@ -15,8 +15,7 @@
   "files": [
     "dist",
     "lib",
-    "es",
-    "style"
+    "es"
   ],
   "repository": {
     "type": "git",
@@ -32,13 +31,12 @@
     }
   },
   "scripts": {
-    "lint:es": "xl-scripts lint:es",
+    "lint:es": "xl-scripts lint:es --dirs src,site,script",
     "lint:style": "xl-scripts lint:style",
-    "lint": "npm run lint:es && npm run style",
-    "compile:es": "xl-scripts compile:js --isEs --dest es",
-    "compile:lib": "xl-scripts compile:js",
-    "compile:style": "xl-scripts compile:style",
-    "compile": "npm run compile:es && npm run compile:lib && npm run compile:style",
+    "lint": "npm run lint:es && npm run lint:style",
+    "compile:es": "xl-scripts compile:js --isEs --dest es && xl-scripts compile:style --dest es",
+    "compile:lib": "xl-scripts compile:js && xl-scripts compile:style --dest lib",
+    "compile": "npm run compile:es && npm run compile:lib",
     "dist": "xl-scripts bundle",
     "dev": "xl-scripts site --dev",
     "docs": "xl-scripts site --publicPath /xl-vision/",
@@ -61,7 +59,7 @@
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
-    "@xl-vision/xl-tools-scripts": "^0.0.1-beta.22",
+    "@xl-vision/xl-tools-scripts": "^0.0.1-beta.23",
     "chalk": "^2.4.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
@@ -74,6 +72,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "fs-extra": "^7.0.1",
     "highlight.js": "^9.15.10",
@@ -103,6 +102,7 @@
   },
   "sideEffects": [
     "dist/*",
-    "style/*"
+    "es/**/style/*",
+    "lib/**/style/*"
   ]
 }

@@ -41,7 +41,7 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
   const [display, setDisplay] = React.useState(false)
 
   React.useEffect(() => {
-    let timer: any
+    let timer: NodeJS.Timeout
 
     if (delay && spinning) {
       timer = setTimeout(() => setDisplay(spinning), delay)

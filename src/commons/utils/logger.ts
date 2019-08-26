@@ -10,7 +10,7 @@ export const warning = __DEV__
 
 const printWarning = (format: string, args: string[]) => {
   let index = 0
-  const message = `Warning: ${format.replace(/%s/g, () => args[index ++])}`
+  const message = `Warning: ${format.replace(/%s/g, () => args[index++])}`
 
   if (typeof console !== 'undefined') {
     // tslint:disable-next-line:no-console

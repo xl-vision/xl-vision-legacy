@@ -48,7 +48,7 @@ const useAlign = (
     if (!equalObject(referencePos, referencePosition)) {
       setReferencePosition(referencePos)
     }
-  }, [reference, popup])
+  }, [reference, popup, referencePosition, popupPosition])
 
   // 计算popup需要距离top和left的距离
   useEffect(() => {
@@ -90,17 +90,10 @@ const useAlign = (
           popupPosition.bottom) /
         2
     }
-
-    topTo += top
-    leftTo += left
     topTo = Math.floor(topTo)
     leftTo = Math.floor(leftTo)
-    if (topTo !== top) {
-      setTop(topTo)
-    }
-    if (leftTo !== left) {
-      setLeft(leftTo)
-    }
+    setTop(prev => topTo + prev)
+    setLeft(prev => leftTo + prev)
   }, [placement, popupPosition, referencePosition])
 
   const popupStyle = useMemo<CSSProperties>(() => {
@@ -124,7 +117,7 @@ const useAlign = (
 
 export default useAlign
 
-const equalObject = (left: any, right: any) => {
+const equalObject = <T extends { [key: string]: number }>(left?: T, right?: T) => {
   if (!left || !right) {
     return false
   }

@@ -8,6 +8,7 @@ let animationEndEvent = 'animationend'
 if (isClient) {
   if (
     window.ontransitionend === undefined &&
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
     window.onwebkittransitionend !== undefined
   ) {
@@ -16,6 +17,7 @@ if (isClient) {
   }
   if (
     window.onanimationend === undefined &&
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
     window.onwebkitanimationend !== undefined
   ) {
@@ -25,14 +27,10 @@ if (isClient) {
 }
 
 export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
-  const styles = getComputedStyle(el)
-  // @ts-ignore
+  const styles = (getComputedStyle(el) as unknown) as { [key: string]: string }
   const transitionDelays: string[] = (styles[`${transitionProp}Delay`] || '').split(', ')
-  // @ts-ignore
   const transitionDurations: string[] = (styles[`${transitionProp}Duration`] || '').split(', ')
-  // @ts-ignore
   const animationDelays: string[] = (styles[`${animationProp}Delay`] || '').split(', ')
-  // @ts-ignore
   const animationDurations: string[] = (styles[`${animationProp}Duration`] || '').split(', ')
   const transitionTimeout: number = getTimeout(transitionDelays, transitionDurations)
   const animationTimeout: number = getTimeout(animationDelays, animationDurations)

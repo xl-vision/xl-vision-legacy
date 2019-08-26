@@ -14,9 +14,7 @@ import {
 export interface CollapseProps {
   accordion?: boolean
   bordered?: boolean
-  children:
-    | React.ReactElement<CollapsePanelProps>
-    | React.ReactElement<CollapsePanelProps>[]
+  children: React.ReactElement<CollapsePanelProps> | React.ReactElement<CollapsePanelProps>[]
   defaultActiveName?: string | string[]
   expandArrow?: (active: boolean) => React.ReactNode
   expandArrowPosition?: CollapseExpandIconPosition
@@ -63,9 +61,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
       if (index === -1) {
         setActiveNames(activeNames.concat([name]))
       } else {
-        setActiveNames(
-          activeNames.slice(0, index).concat(activeNames.slice(index + 1))
-        )
+        setActiveNames(activeNames.slice(0, index).concat(activeNames.slice(index + 1)))
       }
     }
   }
@@ -90,7 +86,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
         name
       })
     })
-  }, [children, expandArrowPosition, expandArrow, showArrow])
+  }, [children, expandArrowPosition, expandArrow, showArrow, extra])
 
   const classes = React.useMemo(() => {
     return classnames(prefixCls, {
@@ -116,10 +112,7 @@ Collapse.propTypes = {
     PropTypes.arrayOf(PropTypes.string.isRequired)
   ]),
   expandArrow: PropTypes.func,
-  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>([
-    'left',
-    'right'
-  ]),
+  expandArrowPosition: PropTypes.oneOf<CollapseExpandIconPosition>(['left', 'right']),
   extra: PropTypes.func,
   onChange: PropTypes.func,
   prefixCls: PropTypes.string,

@@ -23,7 +23,7 @@ export interface ToolbarProps {
 export const displayName = `${namePrefix}-editor-toolbar`
 
 const Toolbar: React.FunctionComponent<ToolbarProps> = props => {
-  const { editor, tipsDelay, prefixCls = displayName } = props
+  const { editor, tipsDelay = 2000, prefixCls = displayName } = props
 
   const renderClearFormat = () => {
     const onMouseDown = (e: React.MouseEvent) => {
@@ -41,16 +41,16 @@ const Toolbar: React.FunctionComponent<ToolbarProps> = props => {
 
   return (
     <div className={prefixCls}>
-      <Mark editor={editor} tips={'粗体'} type={boldType}>
+      <Mark tipsDelay={tipsDelay} editor={editor} tips={'粗体'} type={boldType}>
         <FasBold />
       </Mark>
-      <Mark editor={editor} tips={'下划线'} type={underlineType}>
+      <Mark tipsDelay={tipsDelay} editor={editor} tips={'下划线'} type={underlineType}>
         <FasUnderline />
       </Mark>
-      <Mark editor={editor} tips={'斜体'} type={italicType}>
+      <Mark tipsDelay={tipsDelay} editor={editor} tips={'斜体'} type={italicType}>
         <FasItalic />
       </Mark>
-      <Mark editor={editor} tips={'中划线'} type={strikethroughType}>
+      <Mark tipsDelay={tipsDelay} editor={editor} tips={'中划线'} type={strikethroughType}>
         <FasStrikethrough />
       </Mark>
       {renderClearFormat()}
@@ -58,5 +58,7 @@ const Toolbar: React.FunctionComponent<ToolbarProps> = props => {
     </div>
   )
 }
+
+Toolbar.displayName = displayName
 
 export default Toolbar

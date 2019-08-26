@@ -31,7 +31,7 @@ const Block: React.FunctionComponent<BlockProps> = props => {
       e.preventDefault()
       editor.setBlocks(hasBlock(editor, type) ? DEFAULT_NODE : type)
     },
-    [editor]
+    [editor, type]
   )
 
   const isActive = hasBlock(editor, type)

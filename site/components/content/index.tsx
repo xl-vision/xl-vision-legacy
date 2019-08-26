@@ -1,14 +1,9 @@
 import { MDXProvider } from '@mdx-js/react'
 import classnames from 'classnames'
-import * as React from 'react'
+import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
 import Spin from '../../../src/spin'
-import routes, {
-  ChildrenRoute,
-  ComponentRoute,
-  RedirectRoute,
-  Route
-} from '../../routes'
+import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
 
 import './index.scss'
 
@@ -21,23 +16,13 @@ const addRoute = (routeArray: Route[], level = '1') => {
       const componentRoute = it as ComponentRoute
       const loadable = React.lazy(() => componentRoute.component)
       routeComponents.push(
-        <ReactRoute
-          exact={true}
-          key={key}
-          path={componentRoute.path}
-          component={loadable}
-        />
+        <ReactRoute exact={true} key={key} path={componentRoute.path} component={loadable} />
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
       const component = () => <Redirect to={redirectRoute.redirect} /> // eslint-disable-line react/display-name
       routeComponents.push(
-        <ReactRoute
-          exact={true}
-          key={key}
-          path={redirectRoute.path}
-          component={component}
-        />
+        <ReactRoute exact={true} key={key} path={redirectRoute.path} component={component} />
       )
     } else {
       const childrenRoute = it as ChildrenRoute
@@ -50,9 +35,7 @@ addRoute(routes)
 
 const components = {
   a: (props: {}) => <a {...props} className='md_a' />,
-  blockquote: (props: {}) => (
-    <blockquote {...props} className='md_blockquote' />
-  ),
+  blockquote: (props: {}) => <blockquote {...props} className='md_blockquote' />,
   inlineCode: (props: {}) => <code {...props} className='md_code_inline' />,
   li: (props: {}) => <ol {...props} className='md_li' />,
   ol: (props: {}) => <ol {...props} className='md_ol' />,
@@ -66,18 +49,14 @@ const components = {
   )
 }
 
-const Content: React.FunctionComponent<void> = () => {
+const Content: React.FunctionComponent<{}> = () => {
   return (
     <div className='content'>
       <MDXProvider components={components}>
-        <React.Suspense fallback={<Spin cover={true} />}>
-          {routeComponents}
-        </React.Suspense>
+        <React.Suspense fallback={<Spin cover={true} />}>{routeComponents}</React.Suspense>
       </MDXProvider>
     </div>
   )
 }
-
-Content.displayName = 'content'
 
 export default Content

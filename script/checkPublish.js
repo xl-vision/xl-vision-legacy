@@ -4,7 +4,7 @@ const shell = require('shelljs')
 
 checkPublish()
 
-function checkPublish () {
+function checkPublish() {
   const travis = process.env.TRAVIS
 
   if (travis) {

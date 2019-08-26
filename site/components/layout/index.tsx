@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { HashRouter as Router } from 'react-router-dom'
 import { Row } from '../../../src'
 import Aside from '../aside'
@@ -8,7 +8,7 @@ import Header from '../header'
 
 import './index.scss'
 
-const Layout: React.FunctionComponent<void> = () => {
+const Layout: React.FunctionComponent<{}> = () => {
   return (
     <Router>
       <div className='layout'>
@@ -26,7 +26,5 @@ const Layout: React.FunctionComponent<void> = () => {
     </Router>
   )
 }
-
-Layout.displayName = 'layout'
 
 export default Layout

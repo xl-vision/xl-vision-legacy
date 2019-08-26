@@ -59,7 +59,7 @@ const Col: React.FunctionComponent<ColProps> = props => {
       }
     }
     return classnames(arr, className)
-  }, [media, span, order, offset, pull, push, prefixCls])
+  }, [media, span, order, offset, pull, push, prefixCls, className])
 
   const colStyle = React.useMemo(() => {
     return gutter > 0
@@ -80,13 +80,7 @@ const Col: React.FunctionComponent<ColProps> = props => {
 
 Col.displayName = displayName
 
-const spanValidator = (
-  props: ColProps,
-  propName: keyof ColProps,
-  componentName: string,
-  _location: string,
-  _propFullName: string
-) => {
+const spanValidator = (props: ColProps, propName: keyof ColProps, componentName: string) => {
   const propValue = props[propName]
   if (typeof propValue === 'undefined') {
     return null

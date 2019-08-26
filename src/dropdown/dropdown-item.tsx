@@ -12,9 +12,10 @@ export interface DropdownItemProps extends React.HTMLAttributes<HTMLLIElement> {
 
 export const displayName = `${namePrefix}-dropdown-item`
 
-const DropdownItem: React.FunctionComponent<
+const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRef<
+  HTMLLIElement,
   DropdownItemProps
-> = React.forwardRef<HTMLLIElement, DropdownItemProps>((props, ref) => {
+>((props, ref) => {
   const {
     children,
     disabled,
@@ -58,7 +59,7 @@ const DropdownItem: React.FunctionComponent<
         }
       }
     },
-    [disabled, onClick]
+    [disabled, onClick, closeOnClick, close]
   )
 
   const onContextMenuWrapper = React.useCallback(

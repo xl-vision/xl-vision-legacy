@@ -112,27 +112,17 @@ describe('grid', () => {
   it('响应式布局', () => {
     const wrapper = render(
       <div className='grid-row-box'>
-        <Row
-          gutter={{ xs: 8, sm: 10, md: 15, lg: 20, xl: 25, xxl: 30 }}
-        >
-          <Col
-            span={{ xs: 8, sm: 6, md: 4, lg: 6 }}
-          >
+        <Row gutter={{ xs: 8, sm: 10, md: 15, lg: 20, xl: 25, xxl: 30 }}>
+          <Col span={{ xs: 8, sm: 6, md: 4, lg: 6 }}>
             <div className='grid-col-box'>col1</div>
           </Col>
-          <Col
-            span={{ xs: 8, sm: 6, md: 5, lg: 10, xxl: 6 }}
-          >
+          <Col span={{ xs: 8, sm: 6, md: 5, lg: 10, xxl: 6 }}>
             <div className='grid-col-box'>col2</div>
           </Col>
-          <Col
-            span={{ xs: 8, sm: 6, md: 7, lg: 4, xl: 0, xxl: 6 }}
-          >
+          <Col span={{ xs: 8, sm: 6, md: 7, lg: 4, xl: 0, xxl: 6 }}>
             <div className='grid-col-box'>col3</div>
           </Col>
-          <Col
-            span={{ xs: 0, sm: 6, md: 8, lg: 4, xl: 8, xxl: 6 }}
-          >
+          <Col span={{ xs: 0, sm: 6, md: 8, lg: 4, xl: 8, xxl: 6 }}>
             <div className='grid-col-box'>col4</div>
           </Col>
         </Row>
@@ -149,10 +139,7 @@ describe('grid', () => {
             <Col span={6}>
               <div className='grid-col-box'>col1</div>
             </Col>
-            <Col
-              span={6}
-              offset={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }}
-            >
+            <Col span={6} offset={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }}>
               <div className='grid-col-box'>col2</div>
             </Col>
             <Col span={6}>
@@ -168,10 +155,7 @@ describe('grid', () => {
             <Col span={6}>
               <div className='grid-col-box'>col2</div>
             </Col>
-            <Col
-              span={6}
-              push={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }}
-            >
+            <Col span={6} push={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }}>
               <div className='grid-col-box'>col3</div>
             </Col>
           </Row>
@@ -184,11 +168,7 @@ describe('grid', () => {
             <Col span={6}>
               <div className='grid-col-box'>col2</div>
             </Col>
-            <Col
-              span={6}
-              pull={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }}
-              offset={6}
-            >
+            <Col span={6} pull={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }} offset={6}>
               <div className='grid-col-box'>col3</div>
             </Col>
           </Row>

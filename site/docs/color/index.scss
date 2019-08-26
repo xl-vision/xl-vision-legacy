@@ -5,10 +5,7 @@
   $map: ();
 
   @each $key in map-keys($color-group) {
-    $map: map-merge(
-      $map,
-      (#{$key}: color-level(map-get($color-group, $key), $level))
-    );
+    $map: map-merge($map, (#{$key}: color-level(map-get($color-group, $key), $level)));
   }
   @return $map;
 }

@@ -13,9 +13,7 @@ export interface CollapseTransitionProp {
 
 export const displayName = `${namePrefix}-collapse-transition`
 
-const CollapseTransition: React.FunctionComponent<
-  CollapseTransitionProp
-> = props => {
+const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = props => {
   const { children, transitionClassName, show, forceRender } = props
 
   const wrapperRef = React.useRef<HTMLDivElement>(null)
@@ -73,7 +71,7 @@ const CollapseTransition: React.FunctionComponent<
         el.dataset.leaveCancelled = 'true'
       }
     }
-  }, [children])
+  }, [])
 
   return (
     <CssTransition show={show} forceRender={forceRender} {...transitionEvents}>

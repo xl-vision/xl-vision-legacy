@@ -8,6 +8,4 @@ import * as ServiceWorker from './serviceWorker'
 ReactDom.render(<Layout />, document.querySelector('#app'))
 
 // 本地开发不开启pwa
-process.env.NODE_ENV === 'production'
-  ? ServiceWorker.register()
-  : ServiceWorker.unregister()
+process.env.NODE_ENV === 'production' ? ServiceWorker.register() : ServiceWorker.unregister()

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const useUpdate = (update: () => void, dependencies?: ReadonlyArray<any>) => {
   const updateRef = useRef(false)
 

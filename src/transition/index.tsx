@@ -95,37 +95,40 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
 
   React.useEffect(() => {
     if (show) {
-      // 此时说明leave动画还没有完成，需要触发leaveCancelled
-      if (state === State.STATE_LEAVING) {
-        leaveCancelled && leaveCancelled(childrenRel.current!)
-      }
-      // 还没有初始化
-      if (state === State.STATE_INIT) {
-        // 判断是否需要触发isAppear
-        if (isAppear) {
-          setState(State.STATE_APPEARING)
-        } else {
-          setState(State.STATE_ENTERED)
+      setState(prev => {
+        // 此时说明leave动画还没有完成，需要触发leaveCancelled
+        if (prev === State.STATE_LEAVING) {
+          leaveCancelled && leaveCancelled(childrenRel.current!)
+          return State.STATE_ENTERING
         }
-      } else {
-        setState(State.STATE_ENTERING)
-      }
+        // 还没有初始化
+        if (prev === State.STATE_INIT) {
+          return isAppear ? State.STATE_APPEARING : State.STATE_ENTERED
+        } else if (prev !== State.STATE_ENTERED && prev !== State.STATE_ENTERING) {
+          return State.STATE_ENTERING
+        }
+        return prev
+      })
     } else {
-      // 此时说明appear动画还没有完成，需要触发appearCancelled
-      if (state === State.STATE_APPEARING) {
-        appearCancelled && appearCancelled(childrenRel.current!)
-        // 此时说明enter动画还没有完成，需要触发enterCancelled
-      } else if (state === State.STATE_ENTERING) {
-        enterCancelled && enterCancelled(childrenRel.current!)
-      }
-      // STATE_INIT只有在初始化才存在，所以要排除
-      if (state === State.STATE_INIT) {
-        setState(State.STATE_MOUNTED)
-      } else {
-        setState(State.STATE_LEAVING)
-      }
+      setState(prev => {
+        if (prev === State.STATE_APPEARING) {
+          appearCancelled && appearCancelled(childrenRel.current!)
+          return State.STATE_LEAVING
+          // 此时说明enter动画还没有完成，需要触发enterCancelled
+        } else if (prev === State.STATE_ENTERING) {
+          enterCancelled && enterCancelled(childrenRel.current!)
+          return State.STATE_LEAVING
+        }
+        // STATE_INIT只有在初始化才存在，所以要排除
+        else if (prev === State.STATE_INIT) {
+          return State.STATE_MOUNTED
+        } else if (prev !== State.STATE_LEAVING && prev !== State.STATE_LEAVED) {
+          return State.STATE_LEAVING
+        }
+        return prev
+      })
     }
-  }, [show])
+  }, [show, appearCancelled, enterCancelled, isAppear, leaveCancelled])
 
   // 必须同步执行，否则可能由于浏览器性能问题，导致延后调用，会出现界面一直停留在还没有初始化之前
   useLayoutEffect(() => {
@@ -149,11 +152,14 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         setState(State.STATE_LEAVED)
       }, leave)
     }
-  }, [state])
+  }, [state, beforeAppear, afterAppear, beforeEnter, afterEnter, beforeLeave, afterLeave])
 
   const onTransitionEnd = React.useMemo(() => {
     let cb: () => void
-    return (callback: (() => void) & { isFinished?: boolean }, action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void) => {
+    return (
+      callback: (() => void) & { isFinished?: boolean },
+      action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void
+    ) => {
       cb = callback
       const ele = childrenRel.current!
 

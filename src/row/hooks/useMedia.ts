@@ -30,7 +30,9 @@ const useMedia = () => {
   const [media, setMedia] = useState<Partial<Record<BreakPoint, boolean>>>({})
 
   useEffect(() => {
-    const handlerMap: any = {}
+    const handlerMap: {
+      [breakPoin: string]: EventListener
+    } = {}
     breakPointArray.forEach(breakPoint => {
       const query = breakPointMap[breakPoint]
       const mql = matchMedia(query)
