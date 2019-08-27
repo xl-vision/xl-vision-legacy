@@ -64,7 +64,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     slide = true
   } = props
 
+  // 默认展示第一页
   const [activeIndex, setActiveIndex] = React.useState(defaultIndex + 1)
+  // 幻灯片页尺寸
   const [size, setSize] = React.useState(0)
   const [hover, setHover] = React.useState(false)
   const [drag, setDrag] = React.useState(false)

@@ -31,15 +31,6 @@ export interface BaseButtonProps {
 
 export const displayName = `${namePrefix}-button`
 
-const formatChildren = (children: React.ReactNode) => {
-  return React.Children.map(children, child => {
-    if (typeof child === 'string') {
-      return <span>{child}</span>
-    }
-    return child
-  })
-}
-
 const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   HTMLButtonElement & HTMLAnchorElement,
   ButtonProps
@@ -64,7 +55,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   let { size } = React.useContext(ButtonContext)
 
   // 如果设置了size，则强制使用这里的size
-  size = others.size || size || 'default'
+  size = others.size || size
 
   delete others.size
 
@@ -125,3 +116,12 @@ Button.propTypes = {
 }
 
 export default Button
+
+const formatChildren = (children: React.ReactNode) => {
+  return React.Children.map(children, child => {
+    if (typeof child === 'string') {
+      return <span>{child}</span>
+    }
+    return child
+  })
+}
