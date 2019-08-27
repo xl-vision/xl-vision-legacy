@@ -2,7 +2,6 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { namePrefix } from '../commons/config'
-import useUpdate from '../commons/hooks/useUpdate'
 import { childrenValidator } from '../commons/utils/prop-type'
 import CollapseContext from './collapse-context'
 import {
@@ -10,6 +9,7 @@ import {
   CollapsePanelProps,
   displayName as collapsePanelDisplayName
 } from './collapse-panel'
+import useUpdate from '../commons/hooks/useUpdate'
 
 export interface CollapseProps {
   accordion?: boolean
@@ -68,7 +68,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
 
   useUpdate(() => {
     onChange && onChange(activeNames)
-  }, [activeNames])
+  }, [activeNames, onChange])
 
   const childrenNode = React.useMemo(() => {
     return React.Children.map<

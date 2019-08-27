@@ -130,9 +130,9 @@ export default () => {
 ```jsx
 import {Collapse} from 'xl-vision'
 export default () => {
-    const onChange = (keys) => {
-        alert(keys)
-    }
+    const onChange = React.useCallback((keys) => {
+        console.log(keys)
+    }, [])
     return (
         <Collapse onChange={onChange}>
             <Collapse.Panel header={'header1'}>body</Collapse.Panel>

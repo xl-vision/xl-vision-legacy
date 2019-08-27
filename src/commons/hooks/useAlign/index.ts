@@ -15,6 +15,13 @@ export type Placement =
   | 'rightTop'
   | 'rightBottom'
 
+type Position = {
+  bottom: number
+  left: number
+  right: number
+  top: number
+}
+
 const useAlign = (
   reference: RefObject<HTMLElement>,
   popup: RefObject<HTMLElement>,
@@ -22,33 +29,29 @@ const useAlign = (
 ) => {
   const [left, setLeft] = useState(0)
   const [top, setTop] = useState(0)
-  const [popupPosition, setPopupPosition] = useState<{
-    bottom: number
-    left: number
-    right: number
-    top: number
-  }>()
-  const [referencePosition, setReferencePosition] = useState<{
-    bottom: number
-    left: number
-    right: number
-    top: number
-  }>()
+  const [popupPosition, setPopupPosition] = useState<Position>()
+  const [referencePosition, setReferencePosition] = useState<Position>()
 
   // 更新元素位置
   const updatePosition = useCallback(() => {
     if (!reference.current || !popup.current) {
       return
     }
-    const popupPos = getPosition(popup.current)
     const referencePos = getPosition(reference.current)
-    if (!equalObject(popupPos, popupPosition)) {
-      setPopupPosition(popupPos)
-    }
-    if (!equalObject(referencePos, referencePosition)) {
-      setReferencePosition(referencePos)
-    }
-  }, [reference, popup, referencePosition, popupPosition])
+    const popupPos = getPosition(popup.current)
+    setReferencePosition(prev => {
+      if (equalObject(prev, referencePos)) {
+        return prev
+      }
+      return referencePos
+    })
+    setPopupPosition(prev => {
+      if (equalObject(prev, popupPos)) {
+        return prev
+      }
+      return popupPos
+    })
+  }, [reference, popup])
 
   // 计算popup需要距离top和left的距离
   useEffect(() => {
@@ -92,8 +95,8 @@ const useAlign = (
     }
     topTo = Math.floor(topTo)
     leftTo = Math.floor(leftTo)
-    setTop(prev => topTo + prev)
-    setLeft(prev => leftTo + prev)
+    setTop(prev => prev + topTo)
+    setLeft(prev => prev + leftTo)
   }, [placement, popupPosition, referencePosition])
 
   const popupStyle = useMemo<CSSProperties>(() => {

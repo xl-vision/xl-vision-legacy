@@ -10,6 +10,7 @@ const useUpdate = (update: () => void, dependencies?: ReadonlyArray<any>) => {
     } else {
       updateRef.current = true
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies)
 }
 

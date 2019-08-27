@@ -40,7 +40,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     children,
     height = '100%',
     width = '100%',
-    // tslint:disable-next-line: no-empty
     onChange = () => {},
     arrow = 'hover',
     autoPlay = false,
@@ -168,7 +167,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
           return
         }
 
-        // 判断需要切换幻灯片数量
         let abs = Math.abs(_distance)
         // 滑动速度
         const speed = (abs * 1000) / (endTime - startTime)
@@ -232,9 +230,10 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     return activeIndex - 1
   }, [activeIndex, childrenArray])
 
+  // 回调
   useUpdate(() => {
     onChange(currentIndex)
-  }, [currentIndex, onChange, childrenArray])
+  }, [currentIndex, onChange])
 
   React.useEffect(() => {
     const handler = () => {
@@ -245,6 +244,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     return () => off('resize', handler)
   }, [calculateSize])
 
+  // 自动播放
   React.useEffect(() => {
     if (hover || drag || !autoPlay) {
       return

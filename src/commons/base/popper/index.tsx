@@ -68,6 +68,14 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
+  /**
+   * 处理父popper
+   */
+  const {
+    addCloseHandler: addParentCloseHandler,
+    removeCloseHandler: removeParentCloseHandler
+  } = React.useContext(PopperContext)
+
   const { updatePosition, popupPosition, referencePosition, popupStyle } = useAlign(
     referenceRef,
     popupRef,
@@ -92,6 +100,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       clearTimeout(delayTimerRef.current!)
       delayTimerRef.current = setTimeout(
         () => {
+          // 判断组件是否已经被卸载
+          // 由于setTimeout在组件卸载后可能才执行，必须进行必要的判断
           if (!isUnmountRef.current) {
             if (!isVisible) {
               // 隐藏所有子popper
@@ -106,14 +116,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     [delayTimerRef, isUnmountRef, delayShow, delayHide, closeHandlerRef]
   )
 
-  /**
-   * 处理父popper
-   */
-  const {
-    addCloseHandler: addParentCloseHandler,
-    removeCloseHandler: removeParentCloseHandler
-  } = React.useContext(PopperContext)
-
   React.useEffect(() => {
     const handler = () => setActualWrapper(false)
     addParentCloseHandler(handler)
@@ -122,7 +124,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [addParentCloseHandler, removeParentCloseHandler, setActualWrapper])
 
-  // 子popper函数
+  // 子popper函数，将子popper的关闭函数传递给当前组件，这样在当前popper关闭时，可以一同关闭子popper
   const addCloseHandler = React.useCallback(
     (handler: () => void) => {
       closeHandlerRef.current.push(handler)
@@ -130,6 +132,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     [closeHandlerRef]
   )
 
+  // 子组件销毁时移除
   const removeCloseHandler = React.useCallback(
     (handler: () => void) => {
       const arr = closeHandlerRef.current
@@ -139,9 +142,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   )
 
   // 判断是否当前组件被卸载
-  useUnmount(() => {
-    isUnmountRef.current = true
-  })
+  useUnmount(() => (isUnmountRef.current = true))
 
   /**
    * 窗口改变的时候，需要重置位置

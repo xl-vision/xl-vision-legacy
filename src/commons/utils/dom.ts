@@ -38,10 +38,10 @@ export const getPosition = (el: HTMLElement) => {
   const right = left + el.offsetWidth
   const bottom = top + el.offsetHeight
   return {
-    bottom,
+    top,
     left,
-    right,
-    top
+    bottom,
+    right
   }
 }
 
