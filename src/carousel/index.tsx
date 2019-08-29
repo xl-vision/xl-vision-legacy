@@ -239,9 +239,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   React.useEffect(() => {
     const handler = () => {
-      nextFrame(() => {
-        setSize(calculateSize())
-      })
+      setSize(calculateSize())
     }
     handler()
     on('resize', handler)
