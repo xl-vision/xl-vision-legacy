@@ -2,6 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { namePrefix } from '../commons/config'
+import { warning } from '../commons/utils/logger'
 import { childrenValidator } from '../commons/utils/prop-type'
 import CollapseContext from './collapse-context'
 import {
@@ -40,31 +41,53 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     prefixCls = displayName
   } = props
 
-  const [activeNames, setActiveNames] = React.useState(
-    defaultActiveName
-      ? Array.isArray(defaultActiveName)
-        ? defaultActiveName
-        : [defaultActiveName]
-      : []
-  )
-
-  const clickCallback = (name: string) => {
-    const index = activeNames.indexOf(name)
-
-    if (accordion) {
-      if (index === -1) {
-        setActiveNames([name])
-      } else {
-        setActiveNames([])
-      }
-    } else {
-      if (index === -1) {
-        setActiveNames(activeNames.concat([name]))
-      } else {
-        setActiveNames(activeNames.slice(0, index).concat(activeNames.slice(index + 1)))
-      }
+  const [activeNames, setActiveNames] = React.useState(() => {
+    if (!defaultActiveName) {
+      return []
     }
-  }
+    if (Array.isArray(defaultActiveName)) {
+      return defaultActiveName
+    }
+    return [defaultActiveName]
+  })
+
+  // 处理切换到手风琴模式下，activeNames可能包含多个值的情况
+  React.useEffect(() => {
+    if (accordion) {
+      setActiveNames(prev => {
+        if (prev.length > 1) {
+          warning(
+            true,
+            `Active name can not contain multipart values when it is in accordion mode.`
+          )
+          return [prev[0]]
+        }
+        return prev
+      })
+    }
+  }, [accordion])
+
+  const clickCallback = React.useCallback(
+    (name: string) => {
+      setActiveNames(prev => {
+        const index = prev.indexOf(name)
+        if (accordion) {
+          if (index === -1) {
+            return [name]
+          } else {
+            return []
+          }
+        } else {
+          if (index === -1) {
+            return prev.concat(name)
+          } else {
+            return prev.filter(it => it !== name)
+          }
+        }
+      })
+    },
+    [accordion]
+  )
 
   useUpdate(() => {
     onChange && onChange(activeNames)
@@ -82,6 +105,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
         expandArrowPosition,
         extra: extraNode,
         showArrow,
+        // child中的上述属性可以覆盖此处的属性
         ...child.props,
         name
       })

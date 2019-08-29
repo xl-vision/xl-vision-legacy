@@ -39,13 +39,11 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
     prefixCls = displayName
   } = props
   const { activeNames, clickCallback } = React.useContext(CollapseContext)
-  const clickHandler = () => {
+  const clickHandler = React.useCallback(() => {
     if (!disabled) {
       clickCallback(name)
     }
-  }
-
-  const show = activeNames.indexOf(name) !== -1
+  }, [disabled, clickCallback, name])
 
   const classes = React.useMemo(() => {
     return classnames(
@@ -73,6 +71,8 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
       [`${arrowClassName}--right`]: expandArrowPosition === 'right'
     })
   }, [expandArrowPosition, prefixCls])
+
+  const show = activeNames.indexOf(name) !== -1
 
   const arrow = showArrow && <span className={arrowClasses}>{Arrow(show)}</span>
 

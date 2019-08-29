@@ -7,7 +7,6 @@ export interface CollapseContextProps {
 
 const CollapseContext = React.createContext<CollapseContextProps>({
   activeNames: [],
-  // tslint:disable-next-line:no-empty
   clickCallback: () => {}
 })
 
