@@ -9,8 +9,8 @@ $button: #{$--cls-prefix}-button;
   background-color: $background;
   border-color: $background;
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  &:hover:not(.#{$button}--disabled),
+  &:focus:not(.#{$button}--disabled) {
     $background-hover: color-level($background, -$--button-color-level);
 
     color: color-yiq($background-hover, $--text-color, $--text-color-light);
@@ -18,7 +18,7 @@ $button: #{$--cls-prefix}-button;
     border-color: $background-hover;
   }
 
-  &:active:not(:disabled) {
+  &:active:not(.#{$button}--disabled) {
     $background-active: color-level($background, $--button-color-level);
 
     color: color-yiq($background-active, $--text-color, $--text-color-light);
@@ -33,8 +33,8 @@ $button: #{$--cls-prefix}-button;
   background-image: none;
   border-color: $color;
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  &:hover:not(.#{$button}--disabled),
+  &:focus:not(.#{$button}--disabled) {
     $color-hover: color-level($color, -$--button-color-level);
 
     color: $color-hover;
@@ -42,7 +42,7 @@ $button: #{$--cls-prefix}-button;
     border-color: $color-hover;
   }
 
-  &:active:not(:disabled) {
+  &:active:not(.#{$button}--disabled) {
     $color-active: color-level($color, $--button-color-level);
 
     color: $color-active;
@@ -145,7 +145,7 @@ $button: #{$--cls-prefix}-button;
     width: 100%;
   }
 
-  &:disabled {
+  &--disabled {
     cursor: not-allowed;
     opacity: $--button-opacity-disabled;
   }
@@ -162,8 +162,8 @@ $button: #{$--cls-prefix}-button;
 
     $color: map-get($--color-theme, primary);
 
-    &:hover:not(:disabled),
-    &:focus:not(:disabled) {
+    &:hover:not(.#{$button}--disabled),
+    &:focus:not(.#{$button}--disabled) {
       $color-hover: color-level($color, -$--button-color-level);
 
       color: $color-hover;
@@ -171,7 +171,7 @@ $button: #{$--cls-prefix}-button;
       border-color: color-level($color-hover, -$--button-color-level);
     }
 
-    &:active:not(:disabled) {
+    &:active:not(.#{$button}--disabled) {
       $color-active: color-level($color, $--button-color-level);
 
       color: $color-active;
@@ -183,9 +183,9 @@ $button: #{$--cls-prefix}-button;
     &.#{$button}--ghost {
       background-color: transparent;
 
-      &:hover:not(:disabled),
-      &:focus:not(:disabled),
-      &:active:not(:disabled) {
+      &:hover:not(.#{$button}--disabled),
+      &:focus:not(.#{$button}--disabled),
+      &:active:not(.#{$button}--disabled) {
         color: $--color-primary;
         background-color: transparent;
         border-color: $--color-primary;
@@ -199,12 +199,12 @@ $button: #{$--cls-prefix}-button;
     color: $color;
     background-color: transparent;
 
-    &:hover:not(:disabled),
-    &:focus:not(:disabled) {
+    &:hover:not(.#{$button}--disabled),
+    &:focus:not(.#{$button}--disabled) {
       color: color-level($color, -$--button-color-level);
     }
 
-    &:active:not(:disabled) {
+    &:active:not(.#{$button}--disabled) {
       color: color-level($color, $--button-color-level);
     }
   }
@@ -223,9 +223,9 @@ $button: #{$--cls-prefix}-button;
   &--plain {
     background-color: $--bg-color;
 
-    &:hover:not(:disabled),
-    &:focus:not(:disabled),
-    &:active:not(:disabled) {
+    &:hover:not(.#{$button}--disabled),
+    &:focus:not(.#{$button}--disabled),
+    &:active:not(.#{$button}--disabled) {
       background-color: $--bg-color;
     }
   }

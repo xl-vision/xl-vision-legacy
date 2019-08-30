@@ -49,13 +49,14 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     className,
     children,
     prefixCls = displayName,
+    onClick,
     ...others
   } = props
 
   let { size } = React.useContext(ButtonContext)
 
-  // 如果设置了size，则强制使用这里的size
-  size = others.size || size
+  // 强制使用ButtonGroup的size
+  size = size || others.size || 'default'
 
   delete others.size
 
@@ -69,9 +70,22 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
       [`${prefixCls}--plain`]: plain,
       [`${prefixCls}--ghost`]: ghost,
       [`${prefixCls}--long`]: long,
+      [`${prefixCls}--disabled`]: disabled,
       [`${prefixCls}--loading`]: loading
     },
     className
+  )
+
+  const onClickHandler = React.useCallback(
+    (e: React.MouseEvent<HTMLButtonElement & HTMLAnchorElement, MouseEvent>) => {
+      // 在disabled和loading状态下是不允许触发点击事件的
+      if (disabled || loading) {
+        e.preventDefault()
+        return
+      }
+      onClick && onClick(e)
+    },
+    [onClick, disabled, loading]
   )
 
   const childrenWrapper = (
@@ -87,6 +101,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     disabled,
     href,
     type: htmlType,
+    onClick: onClickHandler,
     ...others
   }
 

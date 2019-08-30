@@ -1,445 +1,217 @@
-import { mount, render } from 'enzyme'
+import { mount } from 'enzyme'
 import React from 'react'
-import { Button, ButtonGroup, ButtonSize } from '..'
+import { Button, ButtonGroup } from '..'
 import FasPowerOff from '../../icon/icons/fas-power-off'
 
-describe('button', () => {
-  it('基本用法', () => {
-    const wrapper = render(
+describe('Button', () => {
+  it('触发点击事件', () => {
+    const fn = jest.fn()
+    const wrapper = mount(<Button onClick={fn}>button</Button>)
+
+    wrapper.find('button').simulate('click')
+
+    expect(fn.mock.calls.length).toBe(1)
+  })
+  it('指定type', () => {
+    const wrapper = mount(
       <div>
-        <div className='button-column'>
-          <Button>Default</Button>
-          <Button type='primary'>Primary</Button>
-          <Button type='success'>Success</Button>
-          <Button type='warning'>Warning</Button>
-          <Button type='error'>Error</Button>
-          <Button type='text'>Text</Button>
-        </div>
-        <div className='button-column'>
-          <Button plain={true}>Default</Button>
-          <Button plain={true} type='primary'>
-            Primary
-          </Button>
-          <Button plain={true} type='success'>
-            Success
-          </Button>
-          <Button plain={true} type='warning'>
-            Warning
-          </Button>
-          <Button plain={true} type='error'>
-            Error
-          </Button>
-          <Button plain={true} type='text'>
-            Text
-          </Button>
-        </div>
-        <div className='button-column'>
-          <Button plain={true} dashed={true}>
-            Default
-          </Button>
-          <Button plain={true} dashed={true} type='primary'>
-            Primary
-          </Button>
-          <Button plain={true} dashed={true} type='success'>
-            Success
-          </Button>
-          <Button plain={true} dashed={true} type='warning'>
-            Warning
-          </Button>
-          <Button plain={true} dashed={true} type='error'>
-            Error
-          </Button>
-          <Button plain={true} dashed={true} type='text'>
-            Text
-          </Button>
-        </div>
-        <div className='button-column'>
-          <Button>
-            <FasPowerOff />
-            Default
-          </Button>
-          <Button type='primary'>
-            Primary
-            <FasPowerOff />
-          </Button>
-          <Button type='success'>
-            <FasPowerOff />
-            Success
-          </Button>
-          <Button type='warning'>
-            <FasPowerOff />
-            Warning
-          </Button>
-          <Button type='error'>
-            <FasPowerOff />
-            Error
-          </Button>
-          <Button type='text'>
-            <FasPowerOff />
-            Text
-          </Button>
-        </div>
+        <Button>button</Button>
+        <Button type='default'>button</Button>
+        <Button type='primary'>button</Button>
+        <Button type='success'>button</Button>
+        <Button type='error'>button</Button>
+        <Button type='warning'>button</Button>
+        <Button type='text'>button</Button>
       </div>
     )
     expect(wrapper).toMatchSnapshot()
   })
 
   it('指定按钮形状', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <div className='button-column'>
-          <Button shape='round'>Default</Button>
-          <Button shape='round' type='primary'>
-            Primary
-          </Button>
-          <Button shape='round' type='success'>
-            Success
-          </Button>
-          <Button shape='round' type='warning'>
-            Warning
-          </Button>
-          <Button shape='round' type='error'>
-            Error
-          </Button>
-          <Button shape='round' type='text'>
-            Text
-          </Button>
-        </div>
-        <div className='button-column'>
-          <Button shape='circle'>
-            <FasPowerOff />
-          </Button>
-          <Button shape='circle' type='primary'>
-            <FasPowerOff />
-          </Button>
-          <Button shape='circle' type='success'>
-            <FasPowerOff />
-          </Button>
-          <Button shape='circle' type='warning'>
-            <FasPowerOff />
-          </Button>
-          <Button shape='circle' type='error'>
-            <FasPowerOff />
-          </Button>
-          <Button shape='circle' type='text'>
-            <FasPowerOff />
-          </Button>
-        </div>
+    const wrapper = mount(
+      <div>
+        <Button shape='round'>button</Button>
+        <Button shape='circle'>button</Button>
       </div>
     )
     expect(wrapper).toMatchSnapshot()
   })
 
   it('加载中', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <div className='button-column'>
-          <Button loading={true}>Default</Button>
-          <Button loading={true} type='primary'>
-            Primary
-          </Button>
-          <Button loading={true} type='success'>
-            Success
-          </Button>
-          <Button loading={true} type='warning'>
-            Warning
-          </Button>
-          <Button loading={true} type='error'>
-            Error
-          </Button>
-          <Button loading={true} type='text'>
-            Text
-          </Button>
-        </div>
-      </div>
+    const fn = jest.fn()
+    const wrapper = mount(
+      <Button loading={true} onClick={fn}>
+        button
+      </Button>
     )
     expect(wrapper).toMatchSnapshot()
+    wrapper.find('button').simulate('click')
+    // 加载中应该是不允许点击的
+    expect(fn.mock.calls.length).toBe(0)
   })
 
   it('不可用状态', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <div className='button-column'>
-          <Button disabled={true}>Default</Button>
-          <Button disabled={true} type='primary'>
-            Primary
-          </Button>
-          <Button disabled={true} type='success'>
-            Success
-          </Button>
-          <Button disabled={true} type='warning'>
-            Warning
-          </Button>
-          <Button disabled={true} type='error'>
-            Error
-          </Button>
-          <Button disabled={true} type='text'>
-            Text
-          </Button>
-        </div>
-      </div>
+    const fn = jest.fn()
+    const wrapper = mount(
+      <Button disabled={true} onClick={fn}>
+        button
+      </Button>
     )
     expect(wrapper).toMatchSnapshot()
+    wrapper.find('button').simulate('click')
+    // 不可用状态中应该是不允许点击的
+    expect(fn.mock.calls.length).toBe(0)
   })
 
   it('幽灵状态', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <div className='button-column ghost'>
-          <Button ghost={true}>Default</Button>
-          <Button ghost={true} type='primary'>
-            Primary
-          </Button>
-          <Button ghost={true} type='success'>
-            Success
-          </Button>
-          <Button ghost={true} type='warning'>
-            Warning
-          </Button>
-          <Button ghost={true} type='error'>
-            Error
-          </Button>
-          <Button ghost={true} type='text'>
-            Text
-          </Button>
-        </div>
-      </div>
-    )
+    const wrapper = mount(<Button ghost={true}>Default</Button>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('指定href', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <div className='button-column'>
-          <Button href='#'>Default</Button>
-          <Button href='#' type='primary'>
-            Primary
-          </Button>
-          <Button href='#' type='success'>
-            Success
-          </Button>
-          <Button href='#' type='warning'>
-            Warning
-          </Button>
-          <Button href='#' type='error'>
-            Error
-          </Button>
-          <Button href='#' type='text'>
-            Text
-          </Button>
-        </div>
-      </div>
-    )
+    const wrapper = mount(<Button href='#'>Default</Button>)
     expect(wrapper).toMatchSnapshot()
   })
 
   it('长按钮', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <div className='button-column'>
-          <Button long={true}>Default</Button>
-          <Button long={true} type='primary'>
-            Primary
-          </Button>
-          <Button long={true} type='success'>
-            Success
-          </Button>
-          <Button long={true} type='warning'>
-            Warning
-          </Button>
-          <Button long={true} type='error'>
-            Error
-          </Button>
-          <Button long={true} type='text'>
-            Text
-          </Button>
-        </div>
+    const wrapper = mount(<Button long={true}>Default</Button>)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  it('不同尺寸的按钮', () => {
+    const wrapper = mount(
+      <div>
+        <Button size='small'>Default</Button>
+        <Button size='default'>Default</Button>
+        <Button size='large'>Default</Button>
       </div>
     )
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('测试按钮的点击事件', () => {
-    const click = jest.fn()
-    const wrapper = mount(<Button onClick={click}>Default</Button>)
-    wrapper.find('button').simulate('click')
-    expect(click.mock.calls.length).toBe(1)
+  it('按钮中使用icon', () => {
+    const wrapper = mount(
+      <div>
+        <Button>
+          <FasPowerOff />
+          Default
+        </Button>
+        <Button size='default'>
+          Default <FasPowerOff />
+        </Button>
+        <Button size='large'>
+          <FasPowerOff />
+        </Button>
+      </div>
+    )
+    expect(wrapper).toMatchSnapshot()
   })
 })
 
-describe('button-group', () => {
+describe('ButtonGroup', () => {
   it('水平按钮组', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <div>
-          <ButtonGroup>
-            <Button>Default</Button>
-            <Button type='primary'>Primary</Button>
-            <Button type='success'>Success</Button>
-            <Button type='warning'>Warning</Button>
-            <Button type='error'>Error</Button>
-          </ButtonGroup>
-        </div>
-        <div>
-          <ButtonGroup round={true}>
-            <Button>Default</Button>
-            <Button type='primary'>Primary</Button>
-            <Button type='success'>Success</Button>
-            <Button type='warning'>Warning</Button>
-            <Button type='error'>Error</Button>
-          </ButtonGroup>
-        </div>
+    const wrapper = mount(
+      <div>
+        <ButtonGroup>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
+        <ButtonGroup round>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
+        <ButtonGroup size='small'>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
+        <ButtonGroup size='default'>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
+        <ButtonGroup size='large'>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
       </div>
     )
     expect(wrapper).toMatchSnapshot()
   })
 
   it('垂直按钮组', () => {
-    const wrapper = render(
-      <div className='button-wrapper'>
-        <ButtonGroup vertical={true}>
+    const wrapper = mount(
+      <div>
+        <ButtonGroup vertical>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
         </ButtonGroup>
-        <ButtonGroup vertical={true} round={true}>
+        <ButtonGroup vertical round>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
+        <ButtonGroup vertical size='small'>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
+        <ButtonGroup vertical size='default'>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
+        </ButtonGroup>
+        <ButtonGroup vertical size='large'>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+          <Button type='text'>Error</Button>
         </ButtonGroup>
       </div>
     )
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('按钮size', () => {
-    const Demo = ({ size }: { size: ButtonSize }) => {
-      return (
-        <div className='button-wrapper'>
-          <div className='button-column'>
-            <Button size={size}>Default</Button>
-            <Button size={size} type='primary'>
-              Primary
-            </Button>
-            <Button size={size} type='success'>
-              Success
-            </Button>
-            <Button size={size} type='warning'>
-              Warning
-            </Button>
-            <Button size={size} type='error'>
-              Error
-            </Button>
-            <Button size={size} type='text'>
-              Text
-            </Button>
-          </div>
-          <div className='button-column'>
-            <Button size={size}>
-              <FasPowerOff />
-              Default
-            </Button>
-            <Button size={size} type='primary'>
-              Primary
-              <FasPowerOff />
-            </Button>
-            <Button size={size} type='success'>
-              <FasPowerOff />
-              Success
-            </Button>
-            <Button size={size} type='warning'>
-              <FasPowerOff />
-              Warning
-            </Button>
-            <Button size={size} type='error'>
-              <FasPowerOff />
-              Error
-            </Button>
-            <Button size={size} type='text'>
-              <FasPowerOff />
-              Text
-            </Button>
-          </div>
-          <div className='button-column'>
-            <Button size={size} shape='round'>
-              Default
-            </Button>
-            <Button size={size} shape='round' type='primary'>
-              Primary
-            </Button>
-            <Button size={size} shape='circle'>
-              <FasPowerOff />
-            </Button>
-            <Button size={size} shape='circle' type='primary'>
-              <FasPowerOff />
-            </Button>
-          </div>
-        </div>
-      )
-    }
-
-    expect.assertions(3)
-    const wrapper = mount(<Demo size={'default'} />)
-
-    expect(wrapper).toMatchSnapshot()
-
-    wrapper.setProps({
-      size: 'small'
-    })
-
-    expect(wrapper).toMatchSnapshot()
-
-    wrapper.setProps({
-      size: 'large'
-    })
-
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('按钮组size', () => {
-    const Demo = ({ size }: { size: ButtonSize }) => {
-      return (
-        <ButtonGroup size={size}>
-          <Button size={size}>Default</Button>
-          <Button size={size} type='primary'>
-            Primary
-          </Button>
-          <Button size={size} type='success'>
-            Success
-          </Button>
-          <Button size={size} type='warning'>
-            Warning
-          </Button>
-          <Button size={size} type='error'>
-            Error
-          </Button>
-          <Button size={size} type='text'>
-            Text
-          </Button>
-        </ButtonGroup>
-      )
-    }
-
-    expect.assertions(3)
-    const wrapper = mount(<Demo size={'default'} />)
-
-    expect(wrapper).toMatchSnapshot()
-
-    wrapper.setProps({
-      size: 'small'
-    })
-
-    expect(wrapper).toMatchSnapshot()
-
-    wrapper.setProps({
-      size: 'large'
-    })
-
+  it('设置size的优先级', () => {
+    const wrapper = mount(
+      <ButtonGroup size='large'>
+        <Button size='small'>Default</Button>
+        <Button type='text'>Error</Button>
+      </ButtonGroup>
+    )
     expect(wrapper).toMatchSnapshot()
   })
 })

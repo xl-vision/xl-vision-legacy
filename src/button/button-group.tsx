@@ -48,4 +48,4 @@ ButtonGroup.propTypes = {
   vertical: PropTypes.bool
 }
 
-export default React.memo(ButtonGroup)
+export default ButtonGroup
