@@ -19,14 +19,8 @@ jobs:
       name: test
     # 编译
     - stage: compile
-      script: npm run compile
+      script: npm run compile && npm run dist && npm run docs
       name: compile
-    - script: npm run dist
-      name: dist
-    # 编译发布文档
-    - stage: docs
-      script: npm run docs
-      name: docs
       deploy:
         - provider: npm
           skip_cleanup: true
