@@ -1,2197 +1,888 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`button 不可用状态 1`] = `
-<div
-  class="button-wrapper"
+exports[`Button 不可用状态 1`] = `
+<xl-button
+  disabled={true}
+  onClick={[MockFunction]}
 >
-  <div
-    class="button-column"
+  <button
+    className="xl-button xl-button--default xl-button--size-default xl-button--disabled"
+    disabled={true}
+    onClick={[Function]}
   >
-    <button
-      class="xl-button xl-button--default xl-button--size-default"
-      disabled=""
+    <span
+      key=".0"
     >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default"
-      disabled=""
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default"
-      disabled=""
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default"
-      disabled=""
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default"
-      disabled=""
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default"
-      disabled=""
-    >
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-</div>
+      button
+    </span>
+  </button>
+</xl-button>
 `;
 
-exports[`button 加载中 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default xl-button--loading"
-    >
-      <i
-        class="xl-icon xl-icon--spin xl-button__icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
-          />
-        </svg>
-      </i>
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default xl-button--loading"
-    >
-      <i
-        class="xl-icon xl-icon--spin xl-button__icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
-          />
-        </svg>
-      </i>
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default xl-button--loading"
-    >
-      <i
-        class="xl-icon xl-icon--spin xl-button__icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
-          />
-        </svg>
-      </i>
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default xl-button--loading"
-    >
-      <i
-        class="xl-icon xl-icon--spin xl-button__icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
-          />
-        </svg>
-      </i>
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default xl-button--loading"
-    >
-      <i
-        class="xl-icon xl-icon--spin xl-button__icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
-          />
-        </svg>
-      </i>
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default xl-button--loading"
-    >
-      <i
-        class="xl-icon xl-icon--spin xl-button__icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
-          />
-        </svg>
-      </i>
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`button 基本用法 1`] = `
+exports[`Button 不同尺寸的按钮 1`] = `
 <div>
-  <div
-    class="button-column"
+  <xl-button
+    size="small"
   >
     <button
-      class="xl-button xl-button--default xl-button--size-default"
+      className="xl-button xl-button--default xl-button--size-small"
+      onClick={[Function]}
     >
-      <span>
+      <span
+        key=".0"
+      >
         Default
       </span>
     </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default xl-button--plain"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default xl-button--plain"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default xl-button--plain"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default xl-button--plain"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default xl-button--plain"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default xl-button--plain"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default xl-button--dashed xl-button--plain"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default xl-button--dashed xl-button--plain"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default xl-button--dashed xl-button--plain"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default xl-button--dashed xl-button--plain"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default xl-button--dashed xl-button--plain"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default xl-button--dashed xl-button--plain"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default"
-    >
-      <span>
-        Primary
-      </span>
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`button 幽灵状态 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="button-column ghost"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default xl-button--ghost"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default xl-button--ghost"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default xl-button--ghost"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default xl-button--ghost"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default xl-button--ghost"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default xl-button--ghost"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`button 指定href 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="button-column"
-  >
-    <a
-      class="xl-button xl-button--default xl-button--size-default"
-      href="#"
-    >
-      <span>
-        Default
-      </span>
-    </a>
-    <a
-      class="xl-button xl-button--primary xl-button--size-default"
-      href="#"
-    >
-      <span>
-        Primary
-      </span>
-    </a>
-    <a
-      class="xl-button xl-button--success xl-button--size-default"
-      href="#"
-    >
-      <span>
-        Success
-      </span>
-    </a>
-    <a
-      class="xl-button xl-button--warning xl-button--size-default"
-      href="#"
-    >
-      <span>
-        Warning
-      </span>
-    </a>
-    <a
-      class="xl-button xl-button--error xl-button--size-default"
-      href="#"
-    >
-      <span>
-        Error
-      </span>
-    </a>
-    <a
-      class="xl-button xl-button--text xl-button--size-default"
-      href="#"
-    >
-      <span>
-        Text
-      </span>
-    </a>
-  </div>
-</div>
-`;
-
-exports[`button 指定按钮形状 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--round xl-button--size-default"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--round xl-button--size-default"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--round xl-button--size-default"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--round xl-button--size-default"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--round xl-button--size-default"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--round xl-button--size-default"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--circle xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--circle xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--circle xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--circle xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--circle xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--circle xl-button--size-default"
-    >
-      <i
-        class="xl-icon"
-      >
-        <svg
-          fill="currentColor"
-          style="height:1em;width:1em"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-          />
-        </svg>
-      </i>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`button 长按钮 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="button-column"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default xl-button--long"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default xl-button--long"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default xl-button--long"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default xl-button--long"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default xl-button--long"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--text xl-button--size-default xl-button--long"
-    >
-      <span>
-        Text
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`button-group 垂直按钮组 1`] = `
-<div
-  class="button-wrapper"
->
-  <div
-    class="xl-button-group xl-button-group--vertical"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
-  <div
-    class="xl-button-group xl-button-group--vertical xl-button-group--round"
-  >
-    <button
-      class="xl-button xl-button--default xl-button--size-default"
-    >
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--primary xl-button--size-default"
-    >
-      <span>
-        Primary
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--success xl-button--size-default"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--warning xl-button--size-default"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-    <button
-      class="xl-button xl-button--error xl-button--size-default"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`button-group 按钮size 1`] = `
-<Demo
-  size="default"
->
-  <div
-    className="button-wrapper"
-  >
-    <div
-      className="button-column"
-    >
-      <xl-button
-        size="default"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="success"
-      >
-        <button
-          className="xl-button xl-button--success xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Success
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="warning"
-      >
-        <button
-          className="xl-button xl-button--warning xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Warning
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="error"
-      >
-        <button
-          className="xl-button xl-button--error xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Error
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="text"
-      >
-        <button
-          className="xl-button xl-button--text xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Text
-          </span>
-        </button>
-      </xl-button>
-    </div>
-    <div
-      className="button-column"
-    >
-      <xl-button
-        size="default"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--size-default"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-          <xl-fas-power-off
-            key=".1"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="success"
-      >
-        <button
-          className="xl-button xl-button--success xl-button--size-default"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Success
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="warning"
-      >
-        <button
-          className="xl-button xl-button--warning xl-button--size-default"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Warning
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="error"
-      >
-        <button
-          className="xl-button xl-button--error xl-button--size-default"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Error
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="default"
-        type="text"
-      >
-        <button
-          className="xl-button xl-button--text xl-button--size-default"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Text
-          </span>
-        </button>
-      </xl-button>
-    </div>
-    <div
-      className="button-column"
-    >
-      <xl-button
-        shape="round"
-        size="default"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--round xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="round"
-        size="default"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--round xl-button--size-default"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="circle"
-        size="default"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--circle xl-button--size-default"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="circle"
-        size="default"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--circle xl-button--size-default"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-    </div>
-  </div>
-</Demo>
-`;
-
-exports[`button-group 按钮size 2`] = `
-<Demo
-  size="small"
->
-  <div
-    className="button-wrapper"
-  >
-    <div
-      className="button-column"
-    >
-      <xl-button
-        size="small"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="success"
-      >
-        <button
-          className="xl-button xl-button--success xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Success
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="warning"
-      >
-        <button
-          className="xl-button xl-button--warning xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Warning
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="error"
-      >
-        <button
-          className="xl-button xl-button--error xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Error
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="text"
-      >
-        <button
-          className="xl-button xl-button--text xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Text
-          </span>
-        </button>
-      </xl-button>
-    </div>
-    <div
-      className="button-column"
-    >
-      <xl-button
-        size="small"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--size-small"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-          <xl-fas-power-off
-            key=".1"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="success"
-      >
-        <button
-          className="xl-button xl-button--success xl-button--size-small"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Success
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="warning"
-      >
-        <button
-          className="xl-button xl-button--warning xl-button--size-small"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Warning
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="error"
-      >
-        <button
-          className="xl-button xl-button--error xl-button--size-small"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Error
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="small"
-        type="text"
-      >
-        <button
-          className="xl-button xl-button--text xl-button--size-small"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Text
-          </span>
-        </button>
-      </xl-button>
-    </div>
-    <div
-      className="button-column"
-    >
-      <xl-button
-        shape="round"
-        size="small"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--round xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="round"
-        size="small"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--round xl-button--size-small"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="circle"
-        size="small"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--circle xl-button--size-small"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="circle"
-        size="small"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--circle xl-button--size-small"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-    </div>
-  </div>
-</Demo>
-`;
-
-exports[`button-group 按钮size 3`] = `
-<Demo
-  size="large"
->
-  <div
-    className="button-wrapper"
-  >
-    <div
-      className="button-column"
-    >
-      <xl-button
-        size="large"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="success"
-      >
-        <button
-          className="xl-button xl-button--success xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Success
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="warning"
-      >
-        <button
-          className="xl-button xl-button--warning xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Warning
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="error"
-      >
-        <button
-          className="xl-button xl-button--error xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Error
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="text"
-      >
-        <button
-          className="xl-button xl-button--text xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Text
-          </span>
-        </button>
-      </xl-button>
-    </div>
-    <div
-      className="button-column"
-    >
-      <xl-button
-        size="large"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--size-large"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-          <xl-fas-power-off
-            key=".1"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="success"
-      >
-        <button
-          className="xl-button xl-button--success xl-button--size-large"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Success
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="warning"
-      >
-        <button
-          className="xl-button xl-button--warning xl-button--size-large"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Warning
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="error"
-      >
-        <button
-          className="xl-button xl-button--error xl-button--size-large"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Error
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        size="large"
-        type="text"
-      >
-        <button
-          className="xl-button xl-button--text xl-button--size-large"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-          <span
-            key=".1"
-          >
-            Text
-          </span>
-        </button>
-      </xl-button>
-    </div>
-    <div
-      className="button-column"
-    >
-      <xl-button
-        shape="round"
-        size="large"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--round xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Default
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="round"
-        size="large"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--round xl-button--size-large"
-        >
-          <span
-            key=".0"
-          >
-            Primary
-          </span>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="circle"
-        size="large"
-      >
-        <button
-          className="xl-button xl-button--default xl-button--circle xl-button--size-large"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-      <xl-button
-        shape="circle"
-        size="large"
-        type="primary"
-      >
-        <button
-          className="xl-button xl-button--primary xl-button--circle xl-button--size-large"
-        >
-          <xl-fas-power-off
-            key=".0"
-          >
-            <Memo(xl-icon)>
-              <i
-                className="xl-icon"
-                style={Object {}}
-              >
-                <svg
-                  fill="currentColor"
-                  style={
-                    Object {
-                      "height": "1em",
-                      "width": "1em",
-                    }
-                  }
-                  viewBox="0 0 512 512"
-                >
-                  <path
-                    d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
-                  />
-                </svg>
-              </i>
-            </Memo(xl-icon)>
-          </xl-fas-power-off>
-        </button>
-      </xl-button>
-    </div>
-  </div>
-</Demo>
-`;
-
-exports[`button-group 按钮组size 1`] = `
-<Demo
-  size="default"
->
-  <Memo(xl-button-group)
+  </xl-button>
+  <xl-button
     size="default"
   >
+    <button
+      className="xl-button xl-button--default xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        Default
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    size="large"
+  >
+    <button
+      className="xl-button xl-button--default xl-button--size-large"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        Default
+      </span>
+    </button>
+  </xl-button>
+</div>
+`;
+
+exports[`Button 加载中 1`] = `
+<xl-button
+  loading={true}
+  onClick={[MockFunction]}
+>
+  <button
+    className="xl-button xl-button--default xl-button--size-default xl-button--loading"
+    onClick={[Function]}
+  >
+    <xl-fas-circle-notch
+      className="xl-button__icon"
+      spin={true}
+    >
+      <Memo(xl-icon)
+        className="xl-button__icon"
+        spin={true}
+      >
+        <i
+          className="xl-icon xl-icon--spin xl-button__icon"
+          style={Object {}}
+        >
+          <svg
+            fill="currentColor"
+            style={
+              Object {
+                "height": "1em",
+                "width": "1em",
+              }
+            }
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M288 39.056v16.659c0 10.804 7.281 20.159 17.686 23.066C383.204 100.434 440 171.518 440 256c0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-84.47 56.786-155.564 134.312-177.219C216.719 75.874 224 66.517 224 55.712V39.064c0-15.709-14.834-27.153-30.046-23.234C86.603 43.482 7.394 141.206 8.003 257.332c.72 137.052 111.477 246.956 248.531 246.667C393.255 503.711 504 392.788 504 256c0-115.633-79.14-212.779-186.211-240.236C302.678 11.889 288 23.456 288 39.056z"
+            />
+          </svg>
+        </i>
+      </Memo(xl-icon)>
+    </xl-fas-circle-notch>
+    <span
+      key=".0"
+    >
+      button
+    </span>
+  </button>
+</xl-button>
+`;
+
+exports[`Button 幽灵状态 1`] = `
+<xl-button
+  ghost={true}
+>
+  <button
+    className="xl-button xl-button--default xl-button--size-default xl-button--ghost"
+    onClick={[Function]}
+  >
+    <span
+      key=".0"
+    >
+      Default
+    </span>
+  </button>
+</xl-button>
+`;
+
+exports[`Button 指定href 1`] = `
+<xl-button
+  href="#"
+>
+  <a
+    className="xl-button xl-button--default xl-button--size-default"
+    href="#"
+    onClick={[Function]}
+  >
+    <span
+      key=".0"
+    >
+      Default
+    </span>
+  </a>
+</xl-button>
+`;
+
+exports[`Button 指定type 1`] = `
+<div>
+  <xl-button>
+    <button
+      className="xl-button xl-button--default xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    type="default"
+  >
+    <button
+      className="xl-button xl-button--default xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    type="primary"
+  >
+    <button
+      className="xl-button xl-button--primary xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    type="success"
+  >
+    <button
+      className="xl-button xl-button--success xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    type="error"
+  >
+    <button
+      className="xl-button xl-button--error xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    type="warning"
+  >
+    <button
+      className="xl-button xl-button--warning xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    type="text"
+  >
+    <button
+      className="xl-button xl-button--text xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+</div>
+`;
+
+exports[`Button 指定按钮形状 1`] = `
+<div>
+  <xl-button
+    shape="round"
+  >
+    <button
+      className="xl-button xl-button--default xl-button--round xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    shape="circle"
+  >
+    <button
+      className="xl-button xl-button--default xl-button--circle xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        button
+      </span>
+    </button>
+  </xl-button>
+</div>
+`;
+
+exports[`Button 按钮中使用icon 1`] = `
+<div>
+  <xl-button>
+    <button
+      className="xl-button xl-button--default xl-button--size-default"
+      onClick={[Function]}
+    >
+      <xl-fas-power-off
+        key=".0"
+      >
+        <Memo(xl-icon)>
+          <i
+            className="xl-icon"
+            style={Object {}}
+          >
+            <svg
+              fill="currentColor"
+              style={
+                Object {
+                  "height": "1em",
+                  "width": "1em",
+                }
+              }
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+              />
+            </svg>
+          </i>
+        </Memo(xl-icon)>
+      </xl-fas-power-off>
+      <span
+        key=".1"
+      >
+        Default
+      </span>
+    </button>
+  </xl-button>
+  <xl-button
+    size="default"
+  >
+    <button
+      className="xl-button xl-button--default xl-button--size-default"
+      onClick={[Function]}
+    >
+      <span
+        key=".0"
+      >
+        Default 
+      </span>
+      <xl-fas-power-off
+        key=".1"
+      >
+        <Memo(xl-icon)>
+          <i
+            className="xl-icon"
+            style={Object {}}
+          >
+            <svg
+              fill="currentColor"
+              style={
+                Object {
+                  "height": "1em",
+                  "width": "1em",
+                }
+              }
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+              />
+            </svg>
+          </i>
+        </Memo(xl-icon)>
+      </xl-fas-power-off>
+    </button>
+  </xl-button>
+  <xl-button
+    size="large"
+  >
+    <button
+      className="xl-button xl-button--default xl-button--size-large"
+      onClick={[Function]}
+    >
+      <xl-fas-power-off
+        key=".0"
+      >
+        <Memo(xl-icon)>
+          <i
+            className="xl-icon"
+            style={Object {}}
+          >
+            <svg
+              fill="currentColor"
+              style={
+                Object {
+                  "height": "1em",
+                  "width": "1em",
+                }
+              }
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M400 54.1c63 45 104 118.6 104 201.9 0 136.8-110.8 247.7-247.5 248C120 504.3 8.2 393 8 256.4 7.9 173.1 48.9 99.3 111.8 54.2c11.7-8.3 28-4.8 35 7.7L162.6 90c5.9 10.5 3.1 23.8-6.6 31-41.5 30.8-68 79.6-68 134.9-.1 92.3 74.5 168.1 168 168.1 91.6 0 168.6-74.2 168-169.1-.3-51.8-24.7-101.8-68.1-134-9.7-7.2-12.4-20.5-6.5-30.9l15.8-28.1c7-12.4 23.2-16.1 34.8-7.8zM296 264V24c0-13.3-10.7-24-24-24h-32c-13.3 0-24 10.7-24 24v240c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24z"
+              />
+            </svg>
+          </i>
+        </Memo(xl-icon)>
+      </xl-fas-power-off>
+    </button>
+  </xl-button>
+</div>
+`;
+
+exports[`Button 长按钮 1`] = `
+<xl-button
+  long={true}
+>
+  <button
+    className="xl-button xl-button--default xl-button--size-default xl-button--long"
+    onClick={[Function]}
+  >
+    <span
+      key=".0"
+    >
+      Default
+    </span>
+  </button>
+</xl-button>
+`;
+
+exports[`ButtonGroup 垂直按钮组 1`] = `
+<div>
+  <xl-button-group
+    vertical={true}
+  >
+    <div
+      className="xl-button-group xl-button-group--vertical"
+    >
+      <xl-button>
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </xl-button-group>
+  <xl-button-group
+    round={true}
+    vertical={true}
+  >
+    <div
+      className="xl-button-group xl-button-group--vertical xl-button-group--round"
+    >
+      <xl-button>
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </xl-button-group>
+  <xl-button-group
+    size="small"
+    vertical={true}
+  >
+    <div
+      className="xl-button-group xl-button-group--vertical"
+    >
+      <xl-button>
+        <button
+          className="xl-button xl-button--default xl-button--size-small"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-small"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-small"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-small"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-small"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-small"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </xl-button-group>
+  <xl-button-group
+    size="default"
+    vertical={true}
+  >
+    <div
+      className="xl-button-group xl-button-group--vertical"
+    >
+      <xl-button>
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </xl-button-group>
+  <xl-button-group
+    size="large"
+    vertical={true}
+  >
+    <div
+      className="xl-button-group xl-button-group--vertical"
+    >
+      <xl-button>
+        <button
+          className="xl-button xl-button--default xl-button--size-large"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-large"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-large"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-large"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-large"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-large"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </xl-button-group>
+</div>
+`;
+
+exports[`ButtonGroup 水平按钮组 1`] = `
+<div>
+  <xl-button-group>
     <div
       className="xl-button-group xl-button-group--horizontal"
     >
-      <xl-button
-        size="default"
-      >
+      <xl-button>
         <button
           className="xl-button xl-button--default xl-button--size-default"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2201,11 +892,11 @@ exports[`button-group 按钮组size 1`] = `
         </button>
       </xl-button>
       <xl-button
-        size="default"
         type="primary"
       >
         <button
           className="xl-button xl-button--primary xl-button--size-default"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2215,11 +906,11 @@ exports[`button-group 按钮组size 1`] = `
         </button>
       </xl-button>
       <xl-button
-        size="default"
         type="success"
       >
         <button
           className="xl-button xl-button--success xl-button--size-default"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2229,11 +920,11 @@ exports[`button-group 按钮组size 1`] = `
         </button>
       </xl-button>
       <xl-button
-        size="default"
         type="warning"
       >
         <button
           className="xl-button xl-button--warning xl-button--size-default"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2243,11 +934,11 @@ exports[`button-group 按钮组size 1`] = `
         </button>
       </xl-button>
       <xl-button
-        size="default"
         type="error"
       >
         <button
           className="xl-button xl-button--error xl-button--size-default"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2257,39 +948,121 @@ exports[`button-group 按钮组size 1`] = `
         </button>
       </xl-button>
       <xl-button
-        size="default"
         type="text"
       >
         <button
           className="xl-button xl-button--text xl-button--size-default"
+          onClick={[Function]}
         >
           <span
             key=".0"
           >
-            Text
+            Error
           </span>
         </button>
       </xl-button>
     </div>
-  </Memo(xl-button-group)>
-</Demo>
-`;
-
-exports[`button-group 按钮组size 2`] = `
-<Demo
-  size="small"
->
-  <Memo(xl-button-group)
+  </xl-button-group>
+  <xl-button-group
+    round={true}
+  >
+    <div
+      className="xl-button-group xl-button-group--horizontal xl-button-group--round"
+    >
+      <xl-button>
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </xl-button-group>
+  <xl-button-group
     size="small"
   >
     <div
       className="xl-button-group xl-button-group--horizontal"
     >
-      <xl-button
-        size="small"
-      >
+      <xl-button>
         <button
           className="xl-button xl-button--default xl-button--size-small"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2299,11 +1072,11 @@ exports[`button-group 按钮组size 2`] = `
         </button>
       </xl-button>
       <xl-button
-        size="small"
         type="primary"
       >
         <button
           className="xl-button xl-button--primary xl-button--size-small"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2313,11 +1086,11 @@ exports[`button-group 按钮组size 2`] = `
         </button>
       </xl-button>
       <xl-button
-        size="small"
         type="success"
       >
         <button
           className="xl-button xl-button--success xl-button--size-small"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2327,11 +1100,11 @@ exports[`button-group 按钮组size 2`] = `
         </button>
       </xl-button>
       <xl-button
-        size="small"
         type="warning"
       >
         <button
           className="xl-button xl-button--warning xl-button--size-small"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2341,11 +1114,11 @@ exports[`button-group 按钮组size 2`] = `
         </button>
       </xl-button>
       <xl-button
-        size="small"
         type="error"
       >
         <button
           className="xl-button xl-button--error xl-button--size-small"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2355,39 +1128,121 @@ exports[`button-group 按钮组size 2`] = `
         </button>
       </xl-button>
       <xl-button
-        size="small"
         type="text"
       >
         <button
           className="xl-button xl-button--text xl-button--size-small"
+          onClick={[Function]}
         >
           <span
             key=".0"
           >
-            Text
+            Error
           </span>
         </button>
       </xl-button>
     </div>
-  </Memo(xl-button-group)>
-</Demo>
-`;
-
-exports[`button-group 按钮组size 3`] = `
-<Demo
-  size="large"
->
-  <Memo(xl-button-group)
+  </xl-button-group>
+  <xl-button-group
+    size="default"
+  >
+    <div
+      className="xl-button-group xl-button-group--horizontal"
+    >
+      <xl-button>
+        <button
+          className="xl-button xl-button--default xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Default
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="primary"
+      >
+        <button
+          className="xl-button xl-button--primary xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Primary
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="success"
+      >
+        <button
+          className="xl-button xl-button--success xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Success
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="warning"
+      >
+        <button
+          className="xl-button xl-button--warning xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Warning
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="error"
+      >
+        <button
+          className="xl-button xl-button--error xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+      <xl-button
+        type="text"
+      >
+        <button
+          className="xl-button xl-button--text xl-button--size-default"
+          onClick={[Function]}
+        >
+          <span
+            key=".0"
+          >
+            Error
+          </span>
+        </button>
+      </xl-button>
+    </div>
+  </xl-button-group>
+  <xl-button-group
     size="large"
   >
     <div
       className="xl-button-group xl-button-group--horizontal"
     >
-      <xl-button
-        size="large"
-      >
+      <xl-button>
         <button
           className="xl-button xl-button--default xl-button--size-large"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2397,11 +1252,11 @@ exports[`button-group 按钮组size 3`] = `
         </button>
       </xl-button>
       <xl-button
-        size="large"
         type="primary"
       >
         <button
           className="xl-button xl-button--primary xl-button--size-large"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2411,11 +1266,11 @@ exports[`button-group 按钮组size 3`] = `
         </button>
       </xl-button>
       <xl-button
-        size="large"
         type="success"
       >
         <button
           className="xl-button xl-button--success xl-button--size-large"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2425,11 +1280,11 @@ exports[`button-group 按钮组size 3`] = `
         </button>
       </xl-button>
       <xl-button
-        size="large"
         type="warning"
       >
         <button
           className="xl-button xl-button--warning xl-button--size-large"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2439,11 +1294,11 @@ exports[`button-group 按钮组size 3`] = `
         </button>
       </xl-button>
       <xl-button
-        size="large"
         type="error"
       >
         <button
           className="xl-button xl-button--error xl-button--size-large"
+          onClick={[Function]}
         >
           <span
             key=".0"
@@ -2453,109 +1308,59 @@ exports[`button-group 按钮组size 3`] = `
         </button>
       </xl-button>
       <xl-button
-        size="large"
         type="text"
       >
         <button
           className="xl-button xl-button--text xl-button--size-large"
+          onClick={[Function]}
         >
           <span
             key=".0"
           >
-            Text
+            Error
           </span>
         </button>
       </xl-button>
     </div>
-  </Memo(xl-button-group)>
-</Demo>
+  </xl-button-group>
+</div>
 `;
 
-exports[`button-group 水平按钮组 1`] = `
-<div
-  class="button-wrapper"
+exports[`ButtonGroup 设置size的优先级 1`] = `
+<xl-button-group
+  size="large"
 >
-  <div>
-    <div
-      class="xl-button-group xl-button-group--horizontal"
+  <div
+    className="xl-button-group xl-button-group--horizontal"
+  >
+    <xl-button
+      size="small"
     >
       <button
-        class="xl-button xl-button--default xl-button--size-default"
+        className="xl-button xl-button--default xl-button--size-large"
+        onClick={[Function]}
       >
-        <span>
+        <span
+          key=".0"
+        >
           Default
         </span>
       </button>
-      <button
-        class="xl-button xl-button--primary xl-button--size-default"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
-      <button
-        class="xl-button xl-button--success xl-button--size-default"
-      >
-        <span>
-          Success
-        </span>
-      </button>
-      <button
-        class="xl-button xl-button--warning xl-button--size-default"
-      >
-        <span>
-          Warning
-        </span>
-      </button>
-      <button
-        class="xl-button xl-button--error xl-button--size-default"
-      >
-        <span>
-          Error
-        </span>
-      </button>
-    </div>
-  </div>
-  <div>
-    <div
-      class="xl-button-group xl-button-group--horizontal xl-button-group--round"
+    </xl-button>
+    <xl-button
+      type="text"
     >
       <button
-        class="xl-button xl-button--default xl-button--size-default"
+        className="xl-button xl-button--text xl-button--size-large"
+        onClick={[Function]}
       >
-        <span>
-          Default
-        </span>
-      </button>
-      <button
-        class="xl-button xl-button--primary xl-button--size-default"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
-      <button
-        class="xl-button xl-button--success xl-button--size-default"
-      >
-        <span>
-          Success
-        </span>
-      </button>
-      <button
-        class="xl-button xl-button--warning xl-button--size-default"
-      >
-        <span>
-          Warning
-        </span>
-      </button>
-      <button
-        class="xl-button xl-button--error xl-button--size-default"
-      >
-        <span>
+        <span
+          key=".0"
+        >
           Error
         </span>
       </button>
-    </div>
+    </xl-button>
   </div>
-</div>
+</xl-button-group>
 `;
