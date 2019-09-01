@@ -4,8 +4,8 @@ import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
 import Spin from '../../../src/spin'
 import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
-
 import './index.scss'
+import DemoBox from '../demo-box'
 
 const routeComponents: React.ReactNode[] = []
 
@@ -34,6 +34,7 @@ const addRoute = (routeArray: Route[], level = '1') => {
 addRoute(routes)
 
 const components = {
+  DemoBox,
   a: (props: {}) => <a {...props} className='md_a' />,
   blockquote: (props: {}) => <blockquote {...props} className='md_blockquote' />,
   inlineCode: (props: {}) => <code {...props} className='md_code_inline' />,
