@@ -57,7 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "@xl-vision/icon-generator": "^0.0.1-beta.5",
-    "@xl-vision/xl-tools-scripts": "^0.0.1-beta.25",
+    "@xl-vision/xl-tools-scripts": "^0.0.1-beta.29",
     "chalk": "^2.4.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
