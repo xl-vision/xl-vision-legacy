@@ -15,8 +15,6 @@ $padding: 1rem;
   }
 
   .demobox-code {
-    padding: $padding;
-    background-color: #f8f8f8;
     border-top: 1px dashed $--border-color;
 
     > p {
@@ -24,7 +22,7 @@ $padding: 1rem;
     }
 
     code {
-      padding: 0;
+      padding: $padding;
       font-family: Menlo, Monaco, Consolas, Courier, monospace;
     }
 
