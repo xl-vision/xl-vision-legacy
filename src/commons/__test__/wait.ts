@@ -1,8 +1,12 @@
+import { act } from 'react-dom/test-utils'
+
 export default (time: number) => {
-  return new Promise(resolve => {
-    console.log(`wait time: ${time}`)
+  const wait = new Promise<void>(resolve => {
+    console.info(`wait time: ${time}`)
     setTimeout(() => {
       resolve()
     }, time)
   })
+
+  return act(() => wait)
 }

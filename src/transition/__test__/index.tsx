@@ -5,7 +5,6 @@ import Transition from '..'
 describe('Transition', () => {
   it('测试isAppear为true，且show为true时的生命周期', () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <Transition
         show={true}
@@ -41,8 +40,6 @@ describe('Transition', () => {
         <div />
       </Transition>
     )
-    // tslint:enable
-    wrapper.update()
 
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeAppear')
@@ -53,7 +50,6 @@ describe('Transition', () => {
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
     expect(call.mock.calls[1][0]).toBe('leave')
@@ -73,7 +69,6 @@ describe('Transition', () => {
 
   it('测试isAppear为true，且show为false时的生命周期', () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <Transition
         show={false}
@@ -109,15 +104,12 @@ describe('Transition', () => {
         <div />
       </Transition>
     )
-    // tslint:enable
-    wrapper.update()
 
     expect(call.mock.calls.length).toBe(0)
 
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -137,7 +129,6 @@ describe('Transition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -147,7 +138,6 @@ describe('Transition', () => {
 
   it('测试未设置isAppear且show为false时生命周期', () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <Transition
         show={false}
@@ -182,15 +172,12 @@ describe('Transition', () => {
         <div />
       </Transition>
     )
-    // tslint:enable
-    wrapper.update()
 
     expect(call.mock.calls.length).toBe(0)
 
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -210,7 +197,6 @@ describe('Transition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -219,7 +205,6 @@ describe('Transition', () => {
   })
   it('测试未设置isAppear且show为true时的生命周期', () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <Transition
         show={true}
@@ -254,15 +239,12 @@ describe('Transition', () => {
         <div />
       </Transition>
     )
-    // tslint:enable
-    wrapper.update()
 
     expect(call.mock.calls.length).toBe(0)
 
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
     expect(call.mock.calls[1][0]).toBe('leave')
@@ -272,7 +254,6 @@ describe('Transition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -281,7 +262,6 @@ describe('Transition', () => {
   })
   it('测试cancelled生命周期', () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <Transition
         isAppear={true}
@@ -317,7 +297,6 @@ describe('Transition', () => {
         <div />
       </Transition>
     )
-    // tslint:enable
 
     expect(call.mock.calls.length).toBe(2)
 
@@ -329,7 +308,6 @@ describe('Transition', () => {
       show: false
     })
 
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('appearCancelled')
     expect(call.mock.calls[1][0]).toBe('beforeLeave')
@@ -340,7 +318,6 @@ describe('Transition', () => {
       show: true
     })
 
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('leaveCancelled')
     expect(call.mock.calls[1][0]).toBe('beforeEnter')
@@ -351,7 +328,6 @@ describe('Transition', () => {
       show: false
     })
 
-    wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('enterCancelled')
     expect(call.mock.calls[1][0]).toBe('beforeLeave')
@@ -371,21 +347,21 @@ describe('Transition', () => {
     wrapper.setProps({
       show: true
     })
+
     wrapper.update()
+
     expect(wrapper.getDOMNode()).not.toBeNull()
 
     wrapper.setProps({
       forceRender: true,
       show: false
     })
-    wrapper.update()
     expect(wrapper.getDOMNode()).not.toBeNull()
 
     wrapper.setProps({
       forceRender: true,
       show: true
     })
-    wrapper.update()
     expect(wrapper.getDOMNode()).not.toBeNull()
   })
 })

@@ -31,7 +31,6 @@ describe('CssTransition', () => {
 
   it('测试设置isAppear为true且show为true生命周期', async () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <CssTransition
         show={true}
@@ -68,7 +67,6 @@ describe('CssTransition', () => {
         <div />
       </CssTransition>
     )
-    // tslint:enable
     // 给动画执行时间
     await wait(100)
     expect(call.mock.calls.length).toBe(3)
@@ -80,8 +78,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
     expect(call.mock.calls[1][0]).toBe('leave')
@@ -91,8 +89,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -102,7 +100,6 @@ describe('CssTransition', () => {
 
   it('测试设置isAppear为true且show为false生命周期', async () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <CssTransition
         show={false}
@@ -139,9 +136,10 @@ describe('CssTransition', () => {
         <div />
       </CssTransition>
     )
-    // tslint:enable
+
     // 给动画执行时间
     await wait(100)
+
     expect(call.mock.calls.length).toBe(0)
 
     wrapper.setProps({
@@ -157,8 +155,9 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
+
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
     expect(call.mock.calls[1][0]).toBe('leave')
@@ -168,8 +167,9 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
+
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -179,7 +179,6 @@ describe('CssTransition', () => {
 
   it('测试不设置isAppear且show为false时的生命周期', async () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <CssTransition
         show={false}
@@ -215,9 +214,10 @@ describe('CssTransition', () => {
         <div />
       </CssTransition>
     )
-    // tslint:enable
+
     // 给动画执行时间
     await wait(100)
+
     expect(call.mock.calls.length).toBe(0)
 
     wrapper.setProps({
@@ -233,8 +233,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
     expect(call.mock.calls[1][0]).toBe('leave')
@@ -244,8 +244,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -255,7 +255,6 @@ describe('CssTransition', () => {
 
   it('测试不设置isAppear且show为true生命周期', async () => {
     const call = jest.fn()
-    // tslint:disable
     const wrapper = mount(
       <CssTransition
         show={true}
@@ -291,16 +290,16 @@ describe('CssTransition', () => {
         <div />
       </CssTransition>
     )
-    // tslint:enable
     // 给动画执行时间
     await wait(100)
+
     expect(call.mock.calls.length).toBe(0)
 
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
     expect(call.mock.calls[1][0]).toBe('leave')
@@ -310,8 +309,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
     expect(call.mock.calls[1][0]).toBe('enter')
@@ -361,6 +360,7 @@ describe('CssTransition', () => {
     )
     // 给动画执行时间
     await wait(100)
+
     expect(call.mock.calls.length).toBe(2)
     expect(call.mock.calls[0][0]).toBe('beforeAppear')
     expect(call.mock.calls[1][0]).toBe('appear')
@@ -369,8 +369,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('appearCancelled')
     expect(call.mock.calls[1][0]).toBe('beforeLeave')
@@ -380,8 +380,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: true
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('leaveCancelled')
     expect(call.mock.calls[1][0]).toBe('beforeEnter')
@@ -391,8 +391,8 @@ describe('CssTransition', () => {
     wrapper.setProps({
       show: false
     })
-    wrapper.update()
     await wait(100)
+
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('enterCancelled')
     expect(call.mock.calls[1][0]).toBe('beforeLeave')
