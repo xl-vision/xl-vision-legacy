@@ -8,18 +8,14 @@ let animationEndEvent = 'animationend'
 if (isClient) {
   if (
     window.ontransitionend === undefined &&
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    window.onwebkittransitionend !== undefined
+    (window as { onwebkittransitionend?: Function }).onwebkittransitionend !== undefined
   ) {
     transitionProp = 'WebkitTransition'
     transitionEndEvent = 'webkitTransitionEnd'
   }
   if (
     window.onanimationend === undefined &&
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    window.onwebkitanimationend !== undefined
+    (window as { onwebkitanimationend?: Function }).onwebkitanimationend !== undefined
   ) {
     animationProp = 'WebkitAnimation'
     animationEndEvent = 'webkitAnimationEnd'

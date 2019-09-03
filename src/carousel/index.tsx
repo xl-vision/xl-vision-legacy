@@ -34,6 +34,7 @@ export interface CarouselProps {
 }
 
 export const displayName = `${namePrefix}-carousel`
+
 const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const {
     damping = 35,
@@ -76,6 +77,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   const wrapperRef = React.useRef<HTMLDivElement>(null)
   const carouselRef = React.useRef<HTMLDivElement>(null)
+
+  // 记录拖拽开始时间
+  const startTimeRef = React.useRef(0)
 
   // 转成数组
   const childrenArray = React.useMemo(() => {
@@ -132,9 +136,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       return prev + 1
     })
   }, [setActiveIndexWrap, loop, childrenArray])
-
-  // 记录拖拽开始时间
-  const startTimeRef = React.useRef(0)
 
   // 滑动处理函数
   const onDragHandler = React.useCallback(
