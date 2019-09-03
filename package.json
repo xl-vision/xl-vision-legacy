@@ -39,7 +39,7 @@
     "compile": "npm run compile:es && npm run compile:lib",
     "dist": "xl-scripts bundle --styleEntry src/style/index.scss",
     "dev": "xl-scripts site --dev",
-    "docs": "xl-scripts site",
+    "docs": "xl-scripts site --publicPath /xl-vision/",
     "test": "jest",
     "icon": "node script/icon/generate.js",
     "release": "node script/release.js",
