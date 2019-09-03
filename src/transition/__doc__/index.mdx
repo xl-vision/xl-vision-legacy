@@ -1,27 +1,31 @@
 # Transition
 
+> 基础的过渡动画组件，通过此组件可以灵活地控制React组件过渡状态。
+
+> 使用此组件时，务必注意要及时调用`appear`、`enter`、`leave`中的最后的回调函数，以表示动画的结束，否则动画会阻塞在中间状态。
+
 :::demo 基础用法
 
 基础用法
 
 ```jsx
-import {Transition, Button} from 'xl-vision'
+import { Transition, Button } from 'xl-vision'
 export default () => {
   const className = 'transition'
-  const [show, setShow] = React.useState(false)
-  
-  const beforeEnter = React.useCallback((el) => {
+  const [show, setShow] = React.useState(true)
+
+  const beforeEnter = React.useCallback(el => {
     el.style.height = el.style.height || 0
   }, [])
-  
+
   const enter = React.useCallback((el, done, isCancelled) => {
     let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 0)
-    const timer = setInterval(()=>{
-      if(isCancelled()) {
+    const timer = setInterval(() => {
+      if (isCancelled()) {
         clearInterval(timer)
         return
       }
-      if(height > 200){
+      if (height > 200) {
         clearInterval(timer)
         done()
         return
@@ -30,15 +34,15 @@ export default () => {
       el.style.height = `${height}px`
     }, 20)
   }, [])
-  
+
   const leave = React.useCallback((el, done, isCancelled) => {
     let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 200)
-    const timer = setInterval(()=>{
-      if(isCancelled()) {
+    const timer = setInterval(() => {
+      if (isCancelled()) {
         clearInterval(timer)
         return
       }
-      if(height < 0){
+      if (height < 0) {
         clearInterval(timer)
         done()
         return
@@ -47,17 +51,11 @@ export default () => {
       el.style.height = `${height}px`
     }, 20)
   }, [])
-  
+
   return (
     <div>
       <Button onClick={() => setShow(!show)}>Click</Button>
-      <Transition
-        isAppear
-        show={show}
-        beforeEnter={beforeEnter}
-        enter={enter}
-        leave={leave}
-      >
+      <Transition show={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
         <div className='transition-demo'>DEMO</div>
       </Transition>
       <style jsx>{`
@@ -74,7 +72,78 @@ export default () => {
     </div>
   )
 }
+```
 
+:::
+
+:::demo 自动调用动画
+
+设置`isAppear`，并默认开启动画时，会自动进行一个初始进入动画。
+
+```jsx
+import { Transition, Button } from 'xl-vision'
+export default () => {
+  const className = 'transition'
+  const [show, setShow] = React.useState(true)
+
+  const beforeEnter = React.useCallback(el => {
+    el.style.height = el.style.height || 0
+  }, [])
+
+  const enter = React.useCallback((el, done, isCancelled) => {
+    let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 0)
+    const timer = setInterval(() => {
+      if (isCancelled()) {
+        clearInterval(timer)
+        return
+      }
+      if (height > 200) {
+        clearInterval(timer)
+        done()
+        return
+      }
+      height += 2
+      el.style.height = `${height}px`
+    }, 20)
+  }, [])
+
+  const leave = React.useCallback((el, done, isCancelled) => {
+    let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 200)
+    const timer = setInterval(() => {
+      if (isCancelled()) {
+        clearInterval(timer)
+        return
+      }
+      if (height < 0) {
+        clearInterval(timer)
+        done()
+        return
+      }
+      height -= 2
+      el.style.height = `${height}px`
+    }, 20)
+  }, [])
+
+  return (
+    <div>
+      <Button onClick={() => setShow(!show)}>Click</Button>
+      <Transition isAppear show={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
+        <div className='transition-demo'>DEMO</div>
+      </Transition>
+      <style jsx>{`
+        .transition-demo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 200px;
+          color: #fff;
+          font-size: 3rem;
+          background-color: #007bff;
+        }
+      `}</style>
+    </div>
+  )
+}
 ```
 
 :::
@@ -84,23 +153,23 @@ export default () => {
 通过`forceRender`强制渲染
 
 ```jsx
-import {Transition, Button} from 'xl-vision'
+import { Transition, Button } from 'xl-vision'
 export default () => {
   const className = 'transition'
   const [show, setShow] = React.useState(false)
-  
-  const beforeEnter = React.useCallback((el) => {
+
+  const beforeEnter = React.useCallback(el => {
     el.style.height = el.style.height || 0
   }, [])
-  
+
   const enter = React.useCallback((el, done, isCancelled) => {
     let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 0)
-    const timer = setInterval(()=>{
-      if(isCancelled()) {
+    const timer = setInterval(() => {
+      if (isCancelled()) {
         clearInterval(timer)
         return
       }
-      if(height > 200){
+      if (height > 200) {
         clearInterval(timer)
         done()
         return
@@ -109,15 +178,15 @@ export default () => {
       el.style.height = `${height}px`
     }, 20)
   }, [])
-  
+
   const leave = React.useCallback((el, done, isCancelled) => {
     let height = Number(el.style.height.substring(0, el.style.height.indexOf('px')) || 200)
-    const timer = setInterval(()=>{
-      if(isCancelled()) {
+    const timer = setInterval(() => {
+      if (isCancelled()) {
         clearInterval(timer)
         return
       }
-      if(height < 0){
+      if (height < 0) {
         clearInterval(timer)
         done()
         return
@@ -126,7 +195,7 @@ export default () => {
       el.style.height = `${height}px`
     }, 20)
   }, [])
-  
+
   return (
     <div>
       <Button onClick={() => setShow(!show)}>Click</Button>
@@ -154,28 +223,27 @@ export default () => {
     </div>
   )
 }
-
 ```
 
 :::
 
 ## Transition API
 
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 |是否必填|
-| ------ | ------------------------------------------ | --------------- | ------ | ------ |--|
-| show   | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | -   | —      |true|
-| isAppear | 是否针对初次进场使用单独的钩子函数            | boolean  | -  | false      |false|
-| beforeAppear   | 初次进场前钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| appear   | 初次进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |false|
-| afterAppear   | 初次进场后钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| appearCancelled   | 取消初次进场钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| beforeEnter   | 进场前钩子            | (el: HTMLElement) => void  | -   | —      |
-| enter   | 进场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |false|
-| afterEnter   | 进场后钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| enterCancelled   | 取消进场钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| beforeLeave   | 出场前钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| leave   | 出场时钩子            | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void  | -   | —      |false|
-| afterLeave   | 出场后钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| leaveCancelled   | 取消出场钩子            | (el: HTMLElement) => void  | -   | —      |false|
-| children   | 子元素            | React.ReactElement | -   | —      |true|
-| forceRender   | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在dom中           | React.ReactElement | -   | —      |false|
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| show | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | - | — | true |
+| isAppear | 是否针对初次进场使用单独的钩子函数 | boolean | - | false | false |
+| beforeAppear | 初次进场前钩子，如果没有指定，会自动调用 beforeEnter 钩子函数 | (el: HTMLElement) => void | - | — | false |
+| appear | 初次进场时钩子，如果没有指定，会自动调用 enter 钩子函数 | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void | - | — | false |
+| afterAppear | 初次进场后钩子，如果没有指定，会自动调用 afterEnter 钩子函数 | (el: HTMLElement) => void | - | — | false |
+| appearCancelled | 取消初次进场钩子，如果没有指定，会自动调用 enterCancelled 钩子函数 | (el: HTMLElement) => void | - | — | false |
+| beforeEnter | 进场前钩子 | (el: HTMLElement) => void | - | — |
+| enter | 进场时钩子 | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void | - | — | false |
+| afterEnter | 进场后钩子 | (el: HTMLElement) => void | - | — | false |
+| enterCancelled | 取消进场钩子 | (el: HTMLElement) => void | - | — | false |
+| beforeLeave | 出场前钩子 | (el: HTMLElement) => void | - | — | false |
+| leave | 出场时钩子 | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void | - | — | false |
+| afterLeave | 出场后钩子 | (el: HTMLElement) => void | - | — | false |
+| leaveCancelled | 取消出场钩子 | (el: HTMLElement) => void | - | — | false |
+| children | 子元素 | React.ReactElement | - | — | true |
+| forceRender | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在 dom 中 | React.ReactElement | - | — | false |

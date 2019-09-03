@@ -6,7 +6,6 @@ import { isClient } from '../commons/utils/env'
 
 enum State {
   STATE_INIT,
-  STATE_MOUNTED,
   STATE_APPEARING,
   STATE_APPEARED,
   STATE_ENTERING,
@@ -53,18 +52,16 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     enterCancelled,
     leave,
     leaveCancelled,
-    forceRender,
-    beforeAppear,
-    appear,
-    appearCancelled,
-    afterAppear
+    forceRender
   } = props
 
+  let { beforeAppear, appear, appearCancelled, afterAppear } = props
+
   // 如果开启appear,默认使用enter的生命周期方法
-  // beforeAppear = beforeAppear || beforeEnter
-  // appear = appear || enter
-  // afterAppear = afterAppear || afterEnter
-  // appearCancelled = appearCancelled || enterCancelled
+  beforeAppear = beforeAppear || beforeEnter
+  appear = appear || enter
+  afterAppear = afterAppear || afterEnter
+  appearCancelled = appearCancelled || enterCancelled
 
   const [state, setState] = React.useState(State.STATE_INIT)
 
@@ -113,9 +110,6 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     if (state === State.STATE_INIT) {
       return false
     }
-    if (state === State.STATE_MOUNTED) {
-      return false
-    }
     if (state === State.STATE_LEAVED) {
       return false
     }
@@ -126,33 +120,36 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   React.useEffect(() => {
     if (show) {
       setState(prev => {
+        // 还没有初始化
+        if (prev === State.STATE_INIT) {
+          return isAppear ? State.STATE_APPEARING : State.STATE_ENTERED
+        }
         // 此时说明leave动画还没有完成，需要触发leaveCancelled
         if (prev === State.STATE_LEAVING) {
           leaveCancelled && leaveCancelled(childrenRel.current!)
           return State.STATE_ENTERING
         }
-        // 还没有初始化
-        if (prev === State.STATE_INIT) {
-          return isAppear ? State.STATE_APPEARING : State.STATE_ENTERED
-        } else if (prev !== State.STATE_ENTERED && prev !== State.STATE_ENTERING) {
+        if (prev !== State.STATE_ENTERED && prev !== State.STATE_ENTERING) {
           return State.STATE_ENTERING
         }
         return prev
       })
     } else {
       setState(prev => {
+        // 还没有初始化，设置为离开状态
+        if (prev === State.STATE_INIT) {
+          return State.STATE_LEAVED
+        }
         if (prev === State.STATE_APPEARING) {
           appearCancelled && appearCancelled(childrenRel.current!)
           return State.STATE_LEAVING
-          // 此时说明enter动画还没有完成，需要触发enterCancelled
-        } else if (prev === State.STATE_ENTERING) {
+        }
+        // 此时说明enter动画还没有完成，需要触发enterCancelled
+        if (prev === State.STATE_ENTERING) {
           enterCancelled && enterCancelled(childrenRel.current!)
           return State.STATE_LEAVING
         }
-        // STATE_INIT只有在初始化才存在，所以要排除
-        else if (prev === State.STATE_INIT) {
-          return State.STATE_MOUNTED
-        } else if (prev !== State.STATE_LEAVING && prev !== State.STATE_LEAVED) {
+        if (prev !== State.STATE_LEAVING && prev !== State.STATE_LEAVED) {
           return State.STATE_LEAVING
         }
         return prev

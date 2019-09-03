@@ -32,14 +32,18 @@
   }
 
   &_blockquote {
-    margin: 0;
+    margin: 1rem 0;
     padding: 0.25rem 0 0.25rem 2rem;
     line-height: 2;
+    background-color: lighten(#dfe2e5, 8%);
     border-left: 4px solid #dfe2e5;
-
     p {
       margin: 0;
     }
+  }
+
+  &_blockquote + &_blockquote {
+    margin-top: -1rem;
   }
 
   // &_fence{

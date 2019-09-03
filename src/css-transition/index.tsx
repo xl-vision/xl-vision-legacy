@@ -20,6 +20,7 @@ export type CssTransitionClassNames =
     }
 
 export interface CssTransitionProps extends TransitionProps {
+  css?: boolean
   classNames?: CssTransitionClassNames
   timeout?:
     | number
@@ -34,11 +35,8 @@ export const displayName = `${namePrefix}-css-transition`
 
 const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
   const {
+    css = true,
     classNames,
-    beforeAppear,
-    appear,
-    afterAppear,
-    appearCancelled,
     beforeEnter,
     enter,
     afterEnter,
@@ -50,6 +48,19 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     timeout,
     ...others
   } = props
+
+  let { beforeAppear, appear, appearCancelled, afterAppear } = others
+
+  delete others.beforeAppear
+  delete others.appear
+  delete others.appearCancelled
+  delete others.afterAppear
+
+  // 如果开启appear,默认使用enter的生命周期方法
+  beforeAppear = beforeAppear || beforeEnter
+  appear = appear || enter
+  afterAppear = afterAppear || afterEnter
+  appearCancelled = appearCancelled || enterCancelled
 
   const classNameMap = React.useMemo(() => {
     if (!classNames) {
@@ -106,14 +117,15 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
           }
           if (timeoutMap && timeoutMap.appear) {
             setTimeout(done, timeoutMap.appear)
-          } else {
+            // 如果启用css动画，会尝试在css动画结束后自动回调，如果想使用js动画，可以禁止css动画，就可以获得完全地js动画能力
+          } else if (css) {
             onTransitionEnd(el, done)
           }
           appear && appear(el, done, isCancelled)
         }
       })
     },
-    [classNameMap, appear, timeoutMap]
+    [classNameMap, appear, timeoutMap, css]
   )
 
   const afterAppearWrapper = React.useCallback(
@@ -160,14 +172,14 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
           }
           if (timeoutMap && timeoutMap.enter) {
             setTimeout(done, timeoutMap.enter)
-          } else {
+          } else if (css) {
             onTransitionEnd(el, done)
           }
           enter && enter(el, done, isCancelled)
         }
       })
     },
-    [classNameMap, enter, timeoutMap]
+    [classNameMap, enter, timeoutMap, css]
   )
 
   const afterEnterWrapper = React.useCallback(
@@ -214,14 +226,14 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
           }
           if (timeoutMap && timeoutMap.leave) {
             setTimeout(done, timeoutMap.leave)
-          } else {
+          } else if (css) {
             onTransitionEnd(el, done)
           }
           leave && leave(el, done, isCancelled)
         }
       })
     },
-    [classNameMap, leave, timeoutMap]
+    [classNameMap, leave, timeoutMap, css]
   )
 
   const afterLeaveWrapper = React.useCallback(
