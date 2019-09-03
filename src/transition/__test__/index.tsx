@@ -9,33 +9,33 @@ describe('Transition', () => {
       <Transition
         show={true}
         isAppear={true}
-        beforeAppear={() => call('beforeAppear')}
-        appear={(_el, done, isCancelled) => {
+        beforeAppear={el => call('beforeAppear', el)}
+        appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`appear`)
+            call(`appear`, el)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
-        enter={(_el, done, isCancelled) => {
+        afterAppear={el => call('afterAppear', el)}
+        appearCancelled={el => call('appearCancelled', el)}
+        beforeEnter={el => call('beforeEnter', el)}
+        enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`enter`)
+            call(`enter`, el)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
-        leave={(_el, done, isCancelled) => {
+        afterEnter={el => call('afterEnter', el)}
+        enterCancelled={el => call('enterCancelled', el)}
+        beforeLeave={el => call('beforeLeave', el)}
+        leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`leave`)
+            call(`leave`, el)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={el => call('afterLeave', el)}
+        leaveCancelled={el => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -43,8 +43,11 @@ describe('Transition', () => {
 
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeAppear')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('appear')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterAppear')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -52,8 +55,11 @@ describe('Transition', () => {
     })
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('leave')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterLeave')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -62,8 +68,11 @@ describe('Transition', () => {
     wrapper.update()
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterEnter')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
   })
 
@@ -73,33 +82,33 @@ describe('Transition', () => {
       <Transition
         show={false}
         isAppear={true}
-        beforeAppear={() => call('beforeAppear')}
-        appear={(_el, done, isCancelled) => {
+        beforeAppear={el => call('beforeAppear', el)}
+        appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`appear`)
+            call(`appear`, el)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
-        enter={(_el, done, isCancelled) => {
+        afterAppear={el => call('afterAppear', el)}
+        appearCancelled={el => call('appearCancelled', el)}
+        beforeEnter={el => call('beforeEnter', el)}
+        enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`enter`)
+            call(`enter`, el)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
-        leave={(_el, done, isCancelled) => {
+        afterEnter={el => call('afterEnter', el)}
+        enterCancelled={el => call('enterCancelled', el)}
+        beforeLeave={el => call('beforeLeave', el)}
+        leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`leave`)
+            call(`leave`, el)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={el => call('afterLeave', el)}
+        leaveCancelled={el => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -112,8 +121,11 @@ describe('Transition', () => {
     })
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterEnter')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -122,8 +134,11 @@ describe('Transition', () => {
 
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('leave')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterLeave')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -131,8 +146,11 @@ describe('Transition', () => {
     })
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterEnter')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
   })
 
@@ -141,33 +159,33 @@ describe('Transition', () => {
     const wrapper = mount(
       <Transition
         show={false}
-        beforeAppear={() => call('beforeAppear')}
-        appear={(_el, done, isCancelled) => {
+        beforeAppear={el => call('beforeAppear', el)}
+        appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`appear`)
+            call(`appear`, el)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
-        enter={(_el, done, isCancelled) => {
+        afterAppear={el => call('afterAppear', el)}
+        appearCancelled={el => call('appearCancelled', el)}
+        beforeEnter={el => call('beforeEnter', el)}
+        enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`enter`)
+            call(`enter`, el)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
-        leave={(_el, done, isCancelled) => {
+        afterEnter={el => call('afterEnter', el)}
+        enterCancelled={el => call('enterCancelled', el)}
+        beforeLeave={el => call('beforeLeave', el)}
+        leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`leave`)
+            call(`leave`, el)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={el => call('afterLeave', el)}
+        leaveCancelled={el => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -180,8 +198,11 @@ describe('Transition', () => {
     })
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterEnter')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -190,8 +211,11 @@ describe('Transition', () => {
 
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('leave')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterLeave')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -199,8 +223,11 @@ describe('Transition', () => {
     })
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterEnter')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
   })
   it('测试未设置isAppear且show为true时的生命周期', () => {
@@ -208,33 +235,33 @@ describe('Transition', () => {
     const wrapper = mount(
       <Transition
         show={true}
-        beforeAppear={() => call('beforeAppear')}
-        appear={(_el, done, isCancelled) => {
+        beforeAppear={el => call('beforeAppear', el)}
+        appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`appear`)
+            call(`appear`, el)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
-        enter={(_el, done, isCancelled) => {
+        afterAppear={el => call('afterAppear', el)}
+        appearCancelled={el => call('appearCancelled', el)}
+        beforeEnter={el => call('beforeEnter', el)}
+        enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`enter`)
+            call(`enter`, el)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
-        leave={(_el, done, isCancelled) => {
+        afterEnter={el => call('afterEnter', el)}
+        enterCancelled={el => call('enterCancelled', el)}
+        beforeLeave={el => call('beforeLeave', el)}
+        leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
-            call(`leave`)
+            call(`leave`, el)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={el => call('afterLeave', el)}
+        leaveCancelled={el => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -247,8 +274,11 @@ describe('Transition', () => {
     })
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeLeave')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('leave')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterLeave')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -256,8 +286,11 @@ describe('Transition', () => {
     })
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('beforeEnter')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('enter')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('afterEnter')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
   })
   it('测试cancelled生命周期', () => {
@@ -266,33 +299,33 @@ describe('Transition', () => {
       <Transition
         isAppear={true}
         show={true}
-        beforeAppear={() => call('beforeAppear')}
-        appear={(_el, _done, isCancelled) => {
+        beforeAppear={el => call('beforeAppear', el)}
+        appear={(el, _done, isCancelled) => {
           if (!isCancelled()) {
-            call(`appear`)
+            call(`appear`, el)
             // done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
-        enter={(_el, _done, isCancelled) => {
+        afterAppear={el => call('afterAppear', el)}
+        appearCancelled={el => call('appearCancelled', el)}
+        beforeEnter={el => call('beforeEnter', el)}
+        enter={(el, _done, isCancelled) => {
           if (!isCancelled()) {
-            call(`enter`)
+            call(`enter`, el)
             // done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
-        leave={(_el, _done, isCancelled) => {
+        afterEnter={el => call('afterEnter', el)}
+        enterCancelled={el => call('enterCancelled', el)}
+        beforeLeave={el => call('beforeLeave', el)}
+        leave={(el, _done, isCancelled) => {
           if (!isCancelled()) {
-            call(`leave`)
+            call(`leave`, el)
             // done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={el => call('afterLeave', el)}
+        leaveCancelled={el => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -301,7 +334,9 @@ describe('Transition', () => {
     expect(call.mock.calls.length).toBe(2)
 
     expect(call.mock.calls[0][0]).toBe('beforeAppear')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('appear')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -310,8 +345,11 @@ describe('Transition', () => {
 
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('appearCancelled')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('beforeLeave')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('leave')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -320,8 +358,11 @@ describe('Transition', () => {
 
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('leaveCancelled')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('beforeEnter')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('enter')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
 
     wrapper.setProps({
@@ -330,8 +371,11 @@ describe('Transition', () => {
 
     expect(call.mock.calls.length).toBe(3)
     expect(call.mock.calls[0][0]).toBe('enterCancelled')
+    expect(call.mock.calls[0][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[1][0]).toBe('beforeLeave')
+    expect(call.mock.calls[1][1]).toBeInstanceOf(HTMLDivElement)
     expect(call.mock.calls[2][0]).toBe('leave')
+    expect(call.mock.calls[2][1]).toBeInstanceOf(HTMLDivElement)
     call.mockClear()
   })
 
