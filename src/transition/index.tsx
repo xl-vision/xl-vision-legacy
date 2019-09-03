@@ -155,7 +155,8 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         return prev
       })
     }
-  }, [show, appearCancelled, enterCancelled, isAppear, leaveCancelled])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [show])
 
   // 必须同步执行，否则可能由于浏览器性能问题，导致延后调用，会出现界面一直停留在还没有初始化之前
   useLayoutEffect(() => {
@@ -179,19 +180,8 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         setState(State.STATE_LEAVED)
       }, leave)
     }
-  }, [
-    state,
-    beforeAppear,
-    appear,
-    afterAppear,
-    beforeEnter,
-    enter,
-    afterEnter,
-    beforeLeave,
-    leave,
-    afterLeave,
-    onTransitionEnd
-  ])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state])
 
   return React.useMemo(() => {
     if (!display && !forceRender) {
