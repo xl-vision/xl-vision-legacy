@@ -100,7 +100,7 @@ const useAlign = (
   }, [placement, popupPosition, referencePosition])
 
   const popupStyle = useMemo<CSSProperties>(() => {
-    const style: React.CSSProperties = {
+    const style: CSSProperties = {
       left,
       position: 'absolute',
       top,
@@ -124,6 +124,11 @@ const equalObject = <T extends { [key: string]: number }>(left?: T, right?: T) =
   if (!left || !right) {
     return false
   }
+
+  if (left === right) {
+    return true
+  }
+
   for (const key of Object.keys(left)) {
     if (left[key] !== right[key]) {
       return false
