@@ -480,6 +480,7 @@ describe('CssTransition', () => {
     expect(wrapper.getDOMNode().classList).toContain('test-appear-active')
 
     await act(() => wait(50))
+    wrapper.update()
 
     expect(wrapper.getDOMNode().classList).not.toContain('test-appear')
     expect(wrapper.getDOMNode().classList).toContain('test-appear-active')
@@ -555,7 +556,7 @@ describe('CssTransition', () => {
           if (!isCancelled()) {
             call(`enter`)
             // 尝试等待transitionEnd执行
-            wait(60).then(() => done())
+            wait(60).then(done)
           }
         }}
         afterEnter={() => call('afterEnter')}
@@ -589,6 +590,8 @@ describe('CssTransition', () => {
 
     // try to wait transitionEnd
     await act(() => wait(50))
+
+    wrapper.update()
 
     expect(call.mock.calls.length).toBe(0)
 

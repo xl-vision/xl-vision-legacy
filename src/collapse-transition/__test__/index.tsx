@@ -20,21 +20,4 @@ describe('collapse-transition', () => {
 
     expect(wrapper).toMatchSnapshot()
   })
-
-  it('测试forceRender', async () => {
-    const wrapper = mount(
-      <CollapseTransition show={false} forceRender={true}>
-        <div />
-      </CollapseTransition>
-    )
-
-    expect(wrapper).toMatchSnapshot()
-    wrapper.setProps({
-      show: true
-    })
-
-    wrapper.update()
-
-    expect(wrapper).toMatchSnapshot()
-  })
 })
