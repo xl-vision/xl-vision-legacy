@@ -306,7 +306,8 @@ CssTransition.propTypes = {
       enter: PropTypes.number,
       leave: PropTypes.number
     })
-  ])
+  ]),
+  css: PropTypes.bool
 }
 
 export default CssTransition
