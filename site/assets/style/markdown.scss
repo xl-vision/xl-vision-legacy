@@ -33,7 +33,7 @@
 
   &_blockquote {
     margin: 1rem 0;
-    padding: 0.25rem 0 0.25rem 2rem;
+    padding: 0.25rem 0 0.25rem 1rem;
     line-height: 2;
     background-color: lighten(#dfe2e5, 8%);
     border-left: 4px solid #dfe2e5;
@@ -43,7 +43,7 @@
   }
 
   &_blockquote + &_blockquote {
-    margin-top: -1rem;
+    margin-top: -1rem - 0.5rem;
   }
 
   // &_fence{

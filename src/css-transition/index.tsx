@@ -98,28 +98,28 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   const beforeAppearWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         classNameMap.appear && addClass(el, classNameMap.appear)
         classNameMap.appearActive && addClass(el, classNameMap.appearActive)
       }
       beforeAppear && beforeAppear(el)
     },
-    [classNameMap, beforeAppear]
+    [classNameMap, beforeAppear, css]
   )
 
   const appearWrapper = React.useCallback(
     (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
       nextFrame(() => {
         if (!isCancelled()) {
-          if (classNameMap) {
-            classNameMap.appear && removeClass(el, classNameMap.appear)
-            classNameMap.appearTo && addClass(el, classNameMap.appearTo)
+          if (css) {
+            if (classNameMap) {
+              classNameMap.appear && removeClass(el, classNameMap.appear)
+              classNameMap.appearTo && addClass(el, classNameMap.appearTo)
+            }
+            onTransitionEnd(el, done)
           }
           if (timeoutMap && timeoutMap.appear) {
             setTimeout(done, timeoutMap.appear)
-            // 如果启用css动画，会尝试在css动画结束后自动回调，如果想使用js动画，可以禁止css动画，就可以获得完全地js动画能力
-          } else if (css) {
-            onTransitionEnd(el, done)
           }
           appear && appear(el, done, isCancelled)
         }
@@ -130,50 +130,52 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   const afterAppearWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
         classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
       }
       afterAppear && afterAppear(el)
     },
-    [classNameMap, afterAppear]
+    [classNameMap, afterAppear, css]
   )
 
   const appearCancelledWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
         classNameMap.appear && removeClass(el, classNameMap.appear)
         classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
       }
       appearCancelled && appearCancelled(el)
     },
-    [classNameMap, appearCancelled]
+    [classNameMap, appearCancelled, css]
   )
 
   const beforeEnterWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         addClass(el, classNameMap.enter)
         addClass(el, classNameMap.enterActive)
       }
       beforeEnter && beforeEnter(el)
     },
-    [classNameMap, beforeEnter]
+    [classNameMap, beforeEnter, css]
   )
 
   const enterWrapper = React.useCallback(
     (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
       nextFrame(() => {
         if (!isCancelled()) {
-          if (classNameMap) {
-            removeClass(el, classNameMap.enter)
-            addClass(el, classNameMap.enterTo)
+          if (css) {
+            if (classNameMap) {
+              removeClass(el, classNameMap.enter)
+              addClass(el, classNameMap.enterTo)
+            }
+            onTransitionEnd(el, done)
           }
+
           if (timeoutMap && timeoutMap.enter) {
             setTimeout(done, timeoutMap.enter)
-          } else if (css) {
-            onTransitionEnd(el, done)
           }
           enter && enter(el, done, isCancelled)
         }
@@ -184,50 +186,52 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   const afterEnterWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         removeClass(el, classNameMap.enterActive)
         removeClass(el, classNameMap.enterTo)
       }
       afterEnter && afterEnter(el)
     },
-    [classNameMap, afterEnter]
+    [classNameMap, afterEnter, css]
   )
 
   const enterCancelledWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         removeClass(el, classNameMap.enterActive)
         removeClass(el, classNameMap.enter)
         removeClass(el, classNameMap.enterTo)
       }
       enterCancelled && enterCancelled(el)
     },
-    [classNameMap, enterCancelled]
+    [classNameMap, enterCancelled, css]
   )
 
   const beforeLeaveWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         addClass(el, classNameMap.leave)
         addClass(el, classNameMap.leaveActive)
       }
       beforeLeave && beforeLeave(el)
     },
-    [classNameMap, beforeLeave]
+    [classNameMap, beforeLeave, css]
   )
 
   const leaveWrapper = React.useCallback(
     (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
       nextFrame(() => {
         if (!isCancelled()) {
-          if (classNameMap) {
-            removeClass(el, classNameMap.leave)
-            addClass(el, classNameMap.leaveTo)
+          if (css) {
+            if (classNameMap) {
+              removeClass(el, classNameMap.leave)
+              addClass(el, classNameMap.leaveTo)
+            }
+            onTransitionEnd(el, done)
           }
+
           if (timeoutMap && timeoutMap.leave) {
             setTimeout(done, timeoutMap.leave)
-          } else if (css) {
-            onTransitionEnd(el, done)
           }
           leave && leave(el, done, isCancelled)
         }
@@ -238,25 +242,25 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   const afterLeaveWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         removeClass(el, classNameMap.leaveActive)
         removeClass(el, classNameMap.leaveTo)
       }
       afterLeave && afterLeave(el)
     },
-    [classNameMap, afterLeave]
+    [classNameMap, afterLeave, css]
   )
 
   const leaveCancelledWrapper = React.useCallback(
     (el: HTMLElement) => {
-      if (classNameMap) {
+      if (css && classNameMap) {
         removeClass(el, classNameMap.leaveActive)
         removeClass(el, classNameMap.leave)
         removeClass(el, classNameMap.leaveTo)
       }
       leaveCancelled && leaveCancelled(el)
     },
-    [classNameMap, leaveCancelled]
+    [classNameMap, leaveCancelled, css]
   )
 
   return (
