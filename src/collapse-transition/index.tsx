@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { namePrefix } from '../commons/config'
-import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
 
 export interface CollapseTransitionProp {
@@ -37,14 +36,11 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
           el.style.height = '0'
         }
       },
-      enter(el: HTMLElement, done: () => void, isCancelled: () => boolean) {
-        nextFrame(() => {
-          if (!isCancelled()) {
-            // 高度设置为内容高度
-            el.style.height = wrapperRef.current!.offsetHeight + 'px'
-            onTransitionEnd(el, done)
-          }
-        })
+      enter(el: HTMLElement, _done: () => void, isCancelled: () => boolean) {
+        if (!isCancelled()) {
+          // 高度设置为内容高度
+          el.style.height = wrapperRef.current!.offsetHeight + 'px'
+        }
       },
       afterEnter(el: HTMLElement) {
         // 防止内容高度变更后高度不会自动改变
@@ -59,13 +55,10 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
         }
         el.style.height = wrapperRef.current!.offsetHeight + 'px'
       },
-      leave(el: HTMLElement, done: () => void, isCancelled: () => boolean) {
-        nextFrame(() => {
-          if (!isCancelled()) {
-            el.style.height = '0'
-            onTransitionEnd(el, done)
-          }
-        })
+      leave(el: HTMLElement, _done: () => void, isCancelled: () => boolean) {
+        if (!isCancelled()) {
+          el.style.height = '0'
+        }
       },
       leaveCancelled(el: HTMLElement) {
         el.dataset.leaveCancelled = 'true'
