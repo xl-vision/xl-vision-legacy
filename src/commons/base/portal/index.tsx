@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { namePrefix } from '../../config'
-import useIsMounted from '../../hooks/useIsMounted'
+import useMountedState from '../../hooks/useMountedState'
 
 export interface PortalProp {
   children: React.ReactNode
@@ -19,9 +19,9 @@ export const displayName = `${namePrefix}-portal`
 const Portal: React.FunctionComponent<PortalProp> = props => {
   const { children, getContainer } = props
 
-  const isMounted = useIsMounted()
+  const isMounted = useMountedState()
 
-  return isMounted ? ReactDOM.createPortal(children, getContainer()) : null
+  return isMounted() ? ReactDOM.createPortal(children, getContainer()) : null
 }
 
 Portal.displayName = displayName

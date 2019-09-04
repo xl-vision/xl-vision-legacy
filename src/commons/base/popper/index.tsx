@@ -4,11 +4,11 @@ import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import { namePrefix } from '../../config'
 import useAlign, { Placement } from '../../hooks/useAlign'
 import useClickOutside from '../../hooks/useClickOutside'
-import useUnmount from '../../hooks/useUnmount'
 import { mergeEvents, off, on } from '../../utils/event'
 import { increaseZIndex } from '../../utils/zIndex-manager'
 import Portal from '../portal'
 import PopperContext from './popper-context'
+import useMountedState from '../../hooks/useMountedState'
 
 export { Placement } from '../../hooks/useAlign'
 
@@ -64,9 +64,10 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   const referenceRef = React.useRef<HTMLElement>(null)
 
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
-  const isUnmountRef = React.useRef(false)
 
   const [actualVisible, setActualVisible] = React.useState(visible)
+
+  const isMounted = useMountedState()
 
   /**
    * 处理父popper
@@ -102,7 +103,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         () => {
           // 判断组件是否已经被卸载
           // 由于setTimeout在组件卸载后可能才执行，必须进行必要的判断
-          if (!isUnmountRef.current) {
+          if (isMounted()) {
             if (!isVisible) {
               // 隐藏所有子popper
               closeHandlerRef.current.forEach(it => it())
@@ -113,7 +114,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY)
       )
     },
-    [delayTimerRef, isUnmountRef, delayShow, delayHide, closeHandlerRef]
+    [delayTimerRef, isMounted, delayShow, delayHide, closeHandlerRef]
   )
 
   React.useEffect(() => {
@@ -140,9 +141,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     },
     [closeHandlerRef]
   )
-
-  // 判断是否当前组件被卸载
-  useUnmount(() => (isUnmountRef.current = true))
 
   /**
    * 窗口改变的时候，需要重置位置

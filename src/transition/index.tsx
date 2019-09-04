@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { namePrefix } from '../commons/config'
-import useUnmount from '../commons/hooks/useUnmount'
 import { isClient } from '../commons/utils/env'
+import useMountedState from '../commons/hooks/useMountedState'
 
 enum State {
   STATE_INIT,
@@ -66,12 +66,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   const [state, setState] = React.useState(State.STATE_INIT)
 
   // 标记当前组件是否被卸载
-  const isUnMountedRef = React.useRef(false)
-
-  useUnmount(() => {
-    // 卸载时设置标记isUnMounted = true
-    isUnMountedRef.current = true
-  })
+  const isMounted = useMountedState()
 
   const childrenRel = React.useRef<HTMLElement>(null)
 
@@ -88,7 +83,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
 
       // 判断回调是否执行了
       const wrapCallback = () => {
-        if (!isCancelled() && !isUnMountedRef.current) {
+        if (!isCancelled() && isMounted()) {
           callback()
           // 防止重复触发
           callback.isFinished = true
@@ -103,7 +98,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       //   throw new Error(`Do you forget to call 'done' or 'isCancelled' in function 'appear', 'enter' or 'leave'`)
       // }
     }
-  }, [])
+  }, [isMounted])
 
   const display = React.useMemo(() => {
     // 还未初始化完成
