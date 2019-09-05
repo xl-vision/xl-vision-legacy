@@ -11,14 +11,9 @@ const Header: React.FunctionComponent<{}> = () => {
         <img src={logo} alt='' />
       </Link>
       <div>
-        <Button
-          size={'small'}
-          ghost={true}
-          href={'https://github.com/xl-vision/xl-vision'}
-          target={'_black'}
-        >
+        <Button type='text' ghost href='https://github.com/xl-vision/xl-vision' target='_black'>
           <Icon.FabGithub />
-          github
+          Github
         </Button>
       </div>
     </header>
