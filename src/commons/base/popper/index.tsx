@@ -39,12 +39,14 @@ const TIME_DELAY = 20
 
 export const displayName = `${namePrefix}-popper`
 
+const getContainerFn = () => document.body
+
 const Popper: React.FunctionComponent<PopperProps> = props => {
   const {
     // autoAdjustOverflow,
     lazyRender = true,
     children,
-    getPopupContainer = () => document.body,
+    getPopupContainer = getContainerFn,
     onVisibleChange,
     overlayClassName,
     overlayStyle,

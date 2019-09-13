@@ -6,7 +6,6 @@ export interface DropdownContextState {
 }
 
 const DropdownContext = React.createContext<DropdownContextState>({
-  // tslint:disable-next-line:no-empty
   close: () => {},
   closeOnClick: false
 })

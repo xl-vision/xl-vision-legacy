@@ -57,3 +57,5 @@ export const throttle = <Fn extends Function>(
   }
   return (retFn as unknown) as Fn
 }
+
+export const voidFn = () => {}

@@ -6,6 +6,7 @@ import useOnMouseDrag, { DragPosition } from '../commons/hooks/useOnMouseDrag'
 import useOnTouchDrag from '../commons/hooks/useOnTouchDrag'
 import useUpdate from '../commons/hooks/useUpdate'
 import { off, on } from '../commons/utils/event'
+import { voidFn } from '../commons/utils/function'
 import { nextFrame } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
 import FasAngleDown from '../icon/icons/fas-angle-down'
@@ -41,7 +42,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     children,
     height = '100%',
     width = '100%',
-    onChange = () => {},
+    // 防止每次调用都创建
+    onChange = voidFn,
     arrow = 'hover',
     autoPlay = false,
     autoPlayDuration = 3000,
@@ -49,7 +51,14 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     defaultIndex = 0,
     direction = 'horizontal',
     dotTrigger = 'click',
-    dotRender = (index: number, current: number) => (
+    dots = true,
+    loop = true,
+    prefixCls = displayName,
+    slide = true
+  } = props
+
+  const dotRenderFn = React.useCallback(
+    (index: number, current: number) => (
       <button
         className={classnames(`${prefixCls}__dot-inner`, {
           [`${prefixCls}__dot-inner--circle`]: circleDot,
@@ -59,11 +68,11 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         {index}
       </button>
     ),
-    dots = true,
-    loop = true,
-    prefixCls = displayName,
-    slide = true
-  } = props
+    [prefixCls, circleDot]
+  )
+
+  // 阻止每次调用都创建新的函数
+  const dotRender = props.dotRender || dotRenderFn
 
   // 默认展示第一页
   const [activeIndex, setActiveIndex] = React.useState(defaultIndex + 1)
