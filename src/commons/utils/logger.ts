@@ -13,7 +13,6 @@ const printWarning = (format: string, args: string[]) => {
   const message = `Warning: ${format.replace(/%s/g, () => args[index++])}`
 
   if (typeof console !== 'undefined') {
-    // tslint:disable-next-line:no-console
     console.error(message)
   }
 

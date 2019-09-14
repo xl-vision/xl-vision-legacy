@@ -1,4 +1,5 @@
 import React from 'react'
+import { voidFn } from '../commons/utils/function'
 
 export interface DropdownContextState {
   close: () => void
@@ -6,7 +7,7 @@ export interface DropdownContextState {
 }
 
 const DropdownContext = React.createContext<DropdownContextState>({
-  close: () => {},
+  close: voidFn,
   closeOnClick: false
 })
 

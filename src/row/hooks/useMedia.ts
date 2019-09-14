@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { isServer } from '../../commons/utils/env'
+import { voidFn } from '../../commons/utils/function'
 
 const matchMedia = (query: string) => {
   if (isServer) {
     return {
-      addListener: () => {},
+      addListener: voidFn,
       matches: false,
-      removeListener: () => {}
+      removeListener: voidFn
     }
   }
   return window.matchMedia(query)

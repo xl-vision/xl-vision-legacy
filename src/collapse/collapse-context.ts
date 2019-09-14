@@ -1,4 +1,5 @@
 import React from 'react'
+import { voidFn } from '../commons/utils/function'
 
 export interface CollapseContextProps {
   activeNames: string[]
@@ -7,7 +8,7 @@ export interface CollapseContextProps {
 
 const CollapseContext = React.createContext<CollapseContextProps>({
   activeNames: [],
-  clickCallback: () => {}
+  clickCallback: voidFn
 })
 
 export default CollapseContext

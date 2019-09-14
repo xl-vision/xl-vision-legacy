@@ -1,4 +1,5 @@
 import { createContext } from 'react'
+import { voidFn } from '../../utils/function'
 
 interface PopperContextProp {
   addCloseHandler: (closeHandler: () => void) => void
@@ -6,6 +7,6 @@ interface PopperContextProp {
 }
 
 export default createContext<PopperContextProp>({
-  addCloseHandler: () => {},
-  removeCloseHandler: () => {}
+  addCloseHandler: voidFn,
+  removeCloseHandler: voidFn
 })
