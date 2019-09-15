@@ -54,7 +54,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     dots = true,
     loop = true,
     prefixCls = displayName,
-    slide = true
+    slide = true,
+    ...others
   } = props
 
   const dotRenderFn = React.useCallback(
@@ -72,7 +73,9 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   )
 
   // 阻止每次调用都创建新的函数
-  const dotRender = props.dotRender || dotRenderFn
+  const dotRender = others.dotRender || dotRenderFn
+
+  delete others.dotRender
 
   // 默认展示第一页
   const [activeIndex, setActiveIndex] = React.useState(defaultIndex + 1)
