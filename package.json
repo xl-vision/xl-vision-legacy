@@ -44,7 +44,7 @@
     "icon": "node script/icon/generate.js",
     "release": "node script/release.js",
     "prepublishOnly": "node script/checkPublish.js",
-    "updateDependences": "npm-check -u"
+    "updateDependencies": "npm-check -u"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.9",
