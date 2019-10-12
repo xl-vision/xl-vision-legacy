@@ -1,6 +1,6 @@
 import { CSSProperties, RefObject, useEffect, useMemo, useState } from 'react'
 import { getPosition } from '../../utils/dom'
-import { raf } from '../../utils/transition'
+import { nextFrame } from '../../utils/transition'
 
 export type Placement =
   | 'top'
@@ -57,7 +57,7 @@ const useAlign = (
     //需要更新两次，才能准确确定位置，主要在调整浏览器显示比例的时候有显著影响,具体原因还不清楚
     return () => {
       onceUpdate()
-      raf(onceUpdate)
+      nextFrame(onceUpdate)
     }
   }, [reference, popup])
 
