@@ -591,7 +591,7 @@ describe('CssTransition', () => {
     // try to wait transitionEnd
     await act(() => wait(50))
 
-    wrapper.update()
+    // wrapper.update()
 
     expect(call.mock.calls.length).toBe(0)
 

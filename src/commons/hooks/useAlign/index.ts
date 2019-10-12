@@ -1,5 +1,6 @@
-import { CSSProperties, RefObject, useCallback, useEffect, useMemo, useState } from 'react'
+import { CSSProperties, RefObject, useEffect, useMemo, useState } from 'react'
 import { getPosition } from '../../utils/dom'
+import { raf } from '../../utils/transition'
 
 export type Placement =
   | 'top'
@@ -33,24 +34,32 @@ const useAlign = (
   const [referencePosition, setReferencePosition] = useState<Position>()
 
   // 更新元素位置
-  const updatePosition = useCallback(() => {
-    if (!reference.current || !popup.current) {
-      return
+  const updatePosition = useMemo(() => {
+    const onceUpdate = () => {
+      if (!reference.current || !popup.current) {
+        return
+      }
+      const referencePos = getPosition(reference.current)
+      const popupPos = getPosition(popup.current)
+      setReferencePosition(prev => {
+        if (equalObject(prev, referencePos)) {
+          return prev
+        }
+        return referencePos
+      })
+      setPopupPosition(prev => {
+        if (equalObject(prev, popupPos)) {
+          return prev
+        }
+        return popupPos
+      })
     }
-    const referencePos = getPosition(reference.current)
-    const popupPos = getPosition(popup.current)
-    setReferencePosition(prev => {
-      if (equalObject(prev, referencePos)) {
-        return prev
-      }
-      return referencePos
-    })
-    setPopupPosition(prev => {
-      if (equalObject(prev, popupPos)) {
-        return prev
-      }
-      return popupPos
-    })
+    //需要更新两次，才能准确确定位置，主要在调整浏览器显示比例的时候有显著影响,具体原因还不清楚
+    return () => {
+      onceUpdate()
+      raf(onceUpdate)
+    }
+    
   }, [reference, popup])
 
   // 计算popup需要距离top和left的距离
