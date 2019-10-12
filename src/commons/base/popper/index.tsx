@@ -158,18 +158,21 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         off('resize', updatePosition)
       }
     }
-  }, [updatePosition, actualVisible])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actualVisible])
 
   React.useEffect(() => {
     setTimeout(() => {
       setActualWrapper(visible)
       // 保证这个方法最后调用
     }, TIME_DELAY * 0.5)
-  }, [visible, setActualWrapper])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible])
 
   React.useEffect(() => {
     onVisibleChange && onVisibleChange(actualVisible)
-  }, [actualVisible, onVisibleChange])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actualVisible])
 
   const arrowCenter = React.useMemo(() => {
     let x = 0

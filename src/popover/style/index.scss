@@ -83,8 +83,6 @@ $popover: #{$--cls-prefix}-popover;
 
   &--fade-enter-active,
   &--fade-leave-active {
-    transform: scale(1);
-    opacity: 1;
     transition: opacity $--popover-animation-duration ease-in-out,
       transform $--popover-animation-duration ease-in-out;
   }
@@ -93,5 +91,11 @@ $popover: #{$--cls-prefix}-popover;
   &--fade-leave-to {
     transform: scale(0.8);
     opacity: 0;
+  }
+
+  &--fade-enter-to,
+  &--fade-leave {
+    transform: scale(1);
+    opacity: 1;
   }
 }
