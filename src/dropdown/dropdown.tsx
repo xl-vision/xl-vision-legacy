@@ -48,7 +48,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
 
   React.useEffect(() => {
     onVisibleChangeProp && onVisibleChangeProp(visible)
-  }, [visible, onVisibleChangeProp])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible])
 
   const close = React.useCallback(() => {
     setVisible(false)
