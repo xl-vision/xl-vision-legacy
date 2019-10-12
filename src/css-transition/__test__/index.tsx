@@ -589,14 +589,12 @@ describe('CssTransition', () => {
     call.mockClear()
 
     // try to wait transitionEnd
-    await act(() => wait(50))
-
-    // wrapper.update()
+    await act(() => wait(40))
 
     expect(call.mock.calls.length).toBe(0)
 
-    // enter afterAppear
-    await act(() => wait(10))
+    // enter afterAppear,给个时间盈余
+    await act(() => wait(20))
 
     expect(wrapper.getDOMNode().className).not.toContain('test')
     expect(call.mock.calls.length).toBe(1)
@@ -621,12 +619,12 @@ describe('CssTransition', () => {
     call.mockClear()
 
     // try to wait transitionEnd
-    await act(() => wait(50))
+    await act(() => wait(40))
 
     expect(call.mock.calls.length).toBe(0)
 
-    // enter afterLeave
-    await act(() => wait(10))
+    // enter afterLeave,给个时间盈余
+    await act(() => wait(20))
 
     expect(wrapper.getDOMNode().className).not.toContain('test')
     expect(call.mock.calls.length).toBe(1)
@@ -653,12 +651,12 @@ describe('CssTransition', () => {
     call.mockClear()
 
     // try to wait transitionEnd
-    await act(() => wait(50))
+    await act(() => wait(40))
 
     expect(call.mock.calls.length).toBe(0)
 
-    // enter afterLeave
-    await act(() => wait(10))
+    // enter afterLeave,给个时间盈余
+    await act(() => wait(20))
 
     expect(wrapper.getDOMNode().className).not.toContain('test')
     expect(call.mock.calls.length).toBe(1)

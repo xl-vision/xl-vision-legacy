@@ -59,7 +59,6 @@ const useAlign = (
       onceUpdate()
       raf(onceUpdate)
     }
-    
   }, [reference, popup])
 
   // 计算popup需要距离top和left的距离
