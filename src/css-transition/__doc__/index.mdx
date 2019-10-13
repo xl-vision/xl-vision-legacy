@@ -41,8 +41,6 @@ export default () => {
         .demo-fade-enter-active,
         .demo-fade-leave-active,
         .demo-fade-appear-active {
-          height: 10rem;
-          opacity: 1;
           transition: opacity 2s ease, height 2s ease;
         }
 
@@ -51,6 +49,12 @@ export default () => {
         .demo-fade-enter {
           height: 0;
           opacity: 0;
+        }
+
+        .demo-fade-leave,
+        .demo-fade-appear-to,
+        .demo-fade-enter-to {
+          opacity: 1;
         }
       `}</style>
     </div>
@@ -95,8 +99,6 @@ export default () => {
         .demo-fade-enter-active,
         .demo-fade-leave-active,
         .demo-fade-appear-active {
-          height: 10rem;
-          opacity: 1;
           transition: opacity 2s ease, height 2s ease;
         }
 
@@ -105,6 +107,12 @@ export default () => {
         .demo-fade-enter {
           height: 0;
           opacity: 0;
+        }
+
+        .demo-fade-leave,
+        .demo-fade-appear-to,
+        .demo-fade-enter-to {
+          opacity: 1;
         }
       `}</style>
     </div>
