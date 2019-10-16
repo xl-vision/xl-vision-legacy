@@ -9,8 +9,8 @@
     "component",
     "libaray"
   ],
-  "main": "js/index.js",
-  "types": "js/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "module": "es/index.js",
   "files": [
     "dist",
