@@ -99,7 +99,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       if (isVisible) {
         setNeedMount(true)
       }
-
       clearTimeout(delayTimerRef.current!)
       delayTimerRef.current = setTimeout(
         () => {
