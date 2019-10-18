@@ -26,23 +26,48 @@ export const removeClass = (element: HTMLElement, className: string) => {
   element.className = _className.replace(/\s+/, ' ').trim()
 }
 
-export const getPosition = (el: HTMLElement) => {
-  let top = 0
-  let left = 0
+export const getAbsolutePosition = (el: HTMLElement) => {
+  const width = el.offsetWidth
+  const height = el.offsetHeight
   let parent = el
+  let top = -parent.clientTop
+  let left = -parent.clientLeft
   while (parent) {
-    top += parent.offsetTop
-    left += parent.offsetLeft
+    const translate = getTranslate(parent)
+    top += parent.offsetTop + translate.y
+    left += parent.offsetLeft + translate.x
     parent = parent.offsetParent as HTMLElement
   }
-  const right = left + el.offsetWidth
-  const bottom = top + el.offsetHeight
+  const bottom = top + height
+  const right = left + width
   return {
     top,
     left,
     bottom,
-    right
+    right,
+    width,
+    height
   }
+}
+
+export const getTranslate = (element: HTMLElement) => {
+  const transformMatrix =
+    getComputedStyle(element, '').getPropertyValue('transform') ||
+    getComputedStyle(element, '').getPropertyValue('-webkit-transform') ||
+    getComputedStyle(element, '').getPropertyValue('-moz-transform') ||
+    getComputedStyle(element, '').getPropertyValue('-ms-transform')
+
+  const matrix = transformMatrix.match(/\-?[0-9]+\.?[0-9]*/g)
+
+  if (!matrix) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
+  const x = parseInt(matrix[4]) //translate x
+  const y = parseInt(matrix[5]) //translate y
+  return { x, y }
 }
 
 export const include = (parent: Element, child: Element) => {

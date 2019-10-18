@@ -1,6 +1,5 @@
-import { CSSProperties, RefObject, useEffect, useMemo, useState } from 'react'
-import { getPosition } from '../../utils/dom'
-import { nextFrame } from '../../utils/transition'
+import { CSSProperties, RefObject, useEffect, useMemo, useState, useCallback } from 'react'
+import { getAbsolutePosition, isStyleSupport } from '../../utils/dom'
 
 export type Placement =
   | 'top'
@@ -23,6 +22,8 @@ type Position = {
   top: number
 }
 
+const isTransformSupport = isStyleSupport('transform')
+
 const useAlign = (
   reference: RefObject<HTMLElement>,
   popup: RefObject<HTMLElement>,
@@ -34,31 +35,25 @@ const useAlign = (
   const [referencePosition, setReferencePosition] = useState<Position>()
 
   // 更新元素位置
-  const updatePosition = useMemo(() => {
-    const onceUpdate = () => {
-      if (!reference.current || !popup.current) {
-        return
+  const updatePosition = useCallback(() => {
+    if (!reference.current || !popup.current) {
+      return
+    }
+    const referencePos = getAbsolutePosition(reference.current)
+    const popupPos = getAbsolutePosition(popup.current)
+    setReferencePosition(prev => {
+      if (equalObject(prev, referencePos)) {
+        return prev
       }
-      const referencePos = getPosition(reference.current)
-      const popupPos = getPosition(popup.current)
-      setReferencePosition(prev => {
-        if (equalObject(prev, referencePos)) {
-          return prev
-        }
-        return referencePos
-      })
-      setPopupPosition(prev => {
-        if (equalObject(prev, popupPos)) {
-          return prev
-        }
-        return popupPos
-      })
-    }
+      return referencePos
+    })
+    setPopupPosition(prev => {
+      if (equalObject(prev, popupPos)) {
+        return prev
+      }
+      return popupPos
+    })
     //需要更新两次，才能准确确定位置，主要在调整浏览器显示比例的时候有显著影响,具体原因还不清楚
-    return () => {
-      onceUpdate()
-      nextFrame(onceUpdate)
-    }
   }, [reference, popup])
 
   // 计算popup需要距离top和left的距离
@@ -109,10 +104,17 @@ const useAlign = (
 
   const popupStyle = useMemo<CSSProperties>(() => {
     const style: CSSProperties = {
-      left,
-      position: 'absolute',
-      top,
-      willChange: 'left, top'
+      position: 'absolute'
+    }
+    if (isTransformSupport) {
+      style.left = 0
+      style.top = 0
+      style.transform = `translate3d(${left}px,${top}px, 0)`
+      style.willChange = 'transform'
+    } else {
+      style.left = left
+      style.top = top
+      style.willChange = 'left, top'
     }
 
     return style
