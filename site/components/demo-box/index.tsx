@@ -24,6 +24,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
     'demobox-showcode': true,
     'demobox-showcode-active': display
   })
+
   return (
     <div className='demobox'>
       <div className='demobox-view'>{preview}</div>

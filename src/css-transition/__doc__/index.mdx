@@ -24,7 +24,7 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition show={active} classNames={'demo-fade'} mountOnEnter unmountOnLeave>
+      <CssTransition show={active} classNames={'demo-fade'}>
         <div className='demo-box'>DEMO</div>
       </CssTransition>
       <style jsx>{`
@@ -82,7 +82,7 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition isAppear show={active} classNames={'demo-fade'} mountOnEnter unmountOnLeave>
+      <CssTransition isAppear show={active} classNames={'demo-fade'}>
         <div className='demo-box'>DEMO</div>
       </CssTransition>
       <style jsx>{`
