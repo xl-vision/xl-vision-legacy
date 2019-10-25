@@ -46,7 +46,13 @@ function run() {
         noVerify: true,
         infile: 'CHANGELOG.md',
         silent: true,
-        changelogHeader: '# Changelog'
+        changelogHeader: '# Changelog',
+        types: [
+          { type: 'feat', section: 'Features' },
+          { type: 'fix', section: 'Bug Fixes' },
+          { type: 'improvement', section: 'Improvement' },
+          { type: 'refactor', section: 'Refactor' }
+        ]
       }
 
       options[versionObject.isReleased ? 'releaseAs' : 'prerelease'] = versionObject.option
