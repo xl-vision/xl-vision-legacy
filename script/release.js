@@ -45,7 +45,8 @@ function run() {
       const options = {
         noVerify: true,
         infile: 'CHANGELOG.md',
-        silent: true
+        silent: true,
+        changelogHeader: '# Changelog'
       }
 
       options[versionObject.isReleased ? 'releaseAs' : 'prerelease'] = versionObject.option
