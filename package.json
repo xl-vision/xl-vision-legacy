@@ -1,6 +1,6 @@
 {
   "name": "xl-vision",
-  "version": "0.0.2",
+  "version": "0.0.2-beta.65",
   "description": "the high quality UI library for react",
   "author": "Rhys Xia",
   "license": "MIT",
@@ -27,6 +27,7 @@
   "homepage": "https://xl-vision.github.io/xl-vision/",
   "husky": {
     "hooks": {
+      "pre-commit": "npm run lint && npm run test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -43,7 +44,7 @@
     "docs": "xl-scripts site --publicPath /xl-vision/",
     "test": "jest",
     "icon": "node script/icon/generate.js",
-    "release": "standard-version",
+    "release": "node script/release.js",
     "prepublishOnly": "node script/checkPublish.js",
     "updateDependencies": "npm-check -u"
   },
@@ -91,7 +92,6 @@
     "react-router-dom": "^5.0.1",
     "semver": "^6.3.0",
     "shelljs": "^0.8.3",
-    "standard-version": "^7.0.0",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^19.0.0",

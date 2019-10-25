@@ -5,6 +5,7 @@ const chalk = require('chalk')
 const semver = require('semver')
 const fs = require('fs-extra')
 const path = require('path')
+const standardVersion = require('standard-version')
 
 run()
 
@@ -32,75 +33,58 @@ function run() {
         message: `选择要升级的版本(当前版本${oldVersion})`,
         type: 'list',
         default: 0,
-        choices: versionList
-      },
-      {
-        name: 'message',
-        message: '版本发布说明',
-        type: 'input',
-        default: function(answers) {
-          return `chore: update version to ${answers.version}`
-        }
+        choices: versionList.map(it => it.version)
       }
     ])
     .then(async function(answers) {
       const oldCommitId = getLastCommit()
 
-      // 修改版本
-      const version = `${answers.version}`
-      pkg.version = version
-      fs.writeFileSync(resolvePath('package.json'), JSON.stringify(pkg, null, '  '))
+      const version = answers.version
 
-      // 提交代码
-      const comment = answers.message
+      const versionObject = versionList.filter(it => it.version === version)[0]
 
-      console.log(chalk.green('======try to commit======'))
+      delete versionObject.version
 
-      let cmd = `git add package.json && git commit -m "${comment}" --no-verify`
+      try {
+        await standardVersion({
+          noVerify: true,
+          infile: 'CHANGELOG.md',
+          silent: true,
+          ...versionObject
+        })
 
-      if (shell.exec(cmd).code) {
-        console.log(chalk.red('======commit failed======'))
-        console.log(chalk.red('======try to rollback======'))
-        shell.exec(`git reset --hard ${oldCommitId}`)
-        return
-      }
-      console.log(chalk.green('======commit success======'))
-
-      console.log(chalk.green(`======create tag "${version}"======`))
-      const commitId = getLastCommit()
-      cmd = `git tag -a ${version} ${commitId} -m "${comment}"`
-
-      if (shell.exec(cmd).code) {
-        console.log(chalk.red(`======create tag "${version}" failed======`))
-        console.log(chalk.red('======try to rollback======'))
-        shell.exec(`git reset --hard ${oldCommitId}`)
-        return
-      }
-      console.log(chalk.green(`======create tag "${version}" success======`))
-
-      console.log(chalk.green('======upload files======'))
-      cmd = `git push origin master --no-verify && git push origin ${version} --no-verify`
-
-      if (shell.exec(cmd).code) {
-        console.log(chalk.red('======upload files failed======'))
-        console.log(chalk.red('======try to rollback======'))
-        shell.exec(`git tag -d ${version}`)
-        shell.exec(`git reset --hard ${oldCommitId}`)
-        return
+        console.log(chalk.green('======upload files======'))
+        cmd = `git push --follow-tags origin master`
+        if (shell.exec(cmd).code) {
+          console.log(chalk.red('======upload files failed======'))
+          console.log(chalk.red('======try to rollback======'))
+          shell.exec(`git tag -d ${version}`)
+          shell.exec(`git reset --hard ${oldCommitId}`)
+          return
+        }
+      } catch (err) {
+        console.error(chalk.red(`release failed with message: ${err.message}`))
       }
       console.log(chalk.green('======upload files success======'))
     })
 }
 
 function getVersionList(version) {
-  const levels = [['prerelease', 'beta'], ['patch', ''], ['minor', ''], ['major', '']]
+  const levels = [
+    ['prerelease', 'alpha'],
+    ['prerelease', 'beta'],
+    ['patch', ''],
+    ['minor', ''],
+    ['major', '']
+  ]
   const opts = []
 
   levels.forEach(function(item) {
     const val = semver.inc(version, item[0], item[1])
     opts.push({
-      name: val,
-      value: val
+      level: item[0],
+      option: item[1],
+      version: val
     })
   })
 
