@@ -54,17 +54,18 @@ function run() {
         await standardVersion(options)
 
         console.log(chalk.green('======upload files======'))
-        const cmd = `git push --follow-tags origin master`
+        const cmd = `git push --follow-tags origin master --no-verify`
         if (shell.exec(cmd).code) {
           throw new Error('upload files failed')
         }
+
+        console.log(chalk.green('======upload files success======'))
       } catch (err) {
         console.error(chalk.red(`release failed with message: ${err.message}`))
         console.log(chalk.red('======try to rollback======'))
-        shell.exec(`git tag -d ${version}`)
+        shell.exec(`git tag -d v${version}`)
         shell.exec(`git reset --hard ${oldCommitId}`)
       }
-      console.log(chalk.green('======upload files success======'))
     })
 }
 
