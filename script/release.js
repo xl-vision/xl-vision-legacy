@@ -54,10 +54,10 @@ function run() {
         await standardVersion(options)
 
         console.log(chalk.green('======upload files======'))
-        // cmd = `git push --follow-tags origin master`
-        // if (shell.exec(cmd).code) {
-        //   throw new Error('upload files failed')
-        // }
+        cmd = `git push --follow-tags origin master`
+        if (shell.exec(cmd).code) {
+          throw new Error('upload files failed')
+        }
       } catch (err) {
         console.error(chalk.red(`release failed with message: ${err.message}`))
         console.log(chalk.red('======try to rollback======'))
