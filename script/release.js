@@ -50,7 +50,7 @@ function run() {
           noVerify: true,
           infile: 'CHANGELOG.md',
           silent: true,
-          ...versionObject
+          [versionObject.level]: versionObject.params || true
         })
 
         console.log(chalk.green('======upload files======'))
