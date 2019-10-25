@@ -45,7 +45,8 @@ export default function () {
 
 :::demo 覆盖父元素
 
-将内容内嵌在`Spin`中。
+使用`cover`属性，可以使`Spin`覆盖父组件。
+需要注意的是父组件需要使用`position:relative`，否则无法生效。
 
 ```jsx
 import {Spin} from 'xl-vision'
@@ -103,7 +104,7 @@ export default function () {
 import {Spin} from 'xl-vision'
 export default function () {
     return (
-        <Spin tip='Loading...'/>
+        <Spin tip='自定义加载文字'/>
     )
 }
 ```
@@ -118,7 +119,7 @@ export default function () {
 import {Spin, Icon} from 'xl-vision'
 export default function () {
     return (
-        <Spin indicator={<Icon.FasCircleNotch spin/>} tip='Loading...'/>
+        <Spin indicator={<Icon.FasCircleNotch spin/>}/>
     )
 }
 ```
