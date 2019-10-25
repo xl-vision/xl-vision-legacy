@@ -54,7 +54,7 @@ function run() {
         await standardVersion(options)
 
         console.log(chalk.green('======upload files======'))
-        cmd = `git push --follow-tags origin master`
+        const cmd = `git push --follow-tags origin master`
         if (shell.exec(cmd).code) {
           throw new Error('upload files failed')
         }
