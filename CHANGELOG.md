@@ -1,4 +1,5 @@
 # Changelog
+### [0.0.2-beta.69](https://github.com/xl-vision/xl-vision/compare/v0.0.2-beta.68...v0.0.2-beta.69) (2019-10-25)
 
 ### 0.0.2-beta.68 (2019-10-25)
 
