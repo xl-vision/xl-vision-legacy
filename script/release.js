@@ -56,14 +56,13 @@ function run() {
         console.log(chalk.green('======upload files======'))
         cmd = `git push --follow-tags origin master`
         if (shell.exec(cmd).code) {
-          console.log(chalk.red('======upload files failed======'))
-          console.log(chalk.red('======try to rollback======'))
-          shell.exec(`git tag -d ${version}`)
-          shell.exec(`git reset --hard ${oldCommitId}`)
-          return
+          throw new Error('upload files failed')
         }
       } catch (err) {
         console.error(chalk.red(`release failed with message: ${err.message}`))
+        console.log(chalk.red('======try to rollback======'))
+        shell.exec(`git tag -d ${version}`)
+        shell.exec(`git reset --hard ${oldCommitId}`)
       }
       console.log(chalk.green('======upload files success======'))
     })
