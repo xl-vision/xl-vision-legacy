@@ -104,7 +104,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
 
   return (
     <div className='icon-select'>
-      <input onChange={searchClick} className='icon-input' />
+      <input onChange={searchClick} className='icon-input' placeholder='搜索图标' />
       <div className='icon-info'>点击下面图标可以直接复制组件代码</div>
       <div className='icon-list'>{iconNodes}</div>
     </div>
