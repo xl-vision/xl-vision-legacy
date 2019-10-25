@@ -3,7 +3,6 @@ const shell = require('shelljs')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
 const semver = require('semver')
-const fs = require('fs-extra')
 const path = require('path')
 const standardVersion = require('standard-version')
 
@@ -43,21 +42,22 @@ function run() {
 
       const versionObject = versionList.filter(it => it.version === version)[0]
 
-      delete versionObject.version
+      const options = {
+        noVerify: true,
+        infile: 'CHANGELOG.md',
+        silent: true
+      }
+
+      options[versionObject.isReleased ? 'releaseAs' : 'prerelease'] = versionObject.option
 
       try {
-        await standardVersion({
-          noVerify: true,
-          infile: 'CHANGELOG.md',
-          silent: true,
-          [versionObject.level]: versionObject.params || true
-        })
+        await standardVersion(options)
 
         console.log(chalk.green('======upload files======'))
-        cmd = `git push --follow-tags origin master`
-        if (shell.exec(cmd).code) {
-          throw new Error('upload files failed')
-        }
+        // cmd = `git push --follow-tags origin master`
+        // if (shell.exec(cmd).code) {
+        //   throw new Error('upload files failed')
+        // }
       } catch (err) {
         console.error(chalk.red(`release failed with message: ${err.message}`))
         console.log(chalk.red('======try to rollback======'))
@@ -80,9 +80,10 @@ function getVersionList(version) {
 
   levels.forEach(function(item) {
     const val = semver.inc(version, item[0], item[1])
+    const isReleased = item[0] !== 'prerelease'
     opts.push({
-      level: item[0],
-      option: item[1],
+      isReleased,
+      option: isReleased ? item[0] : item[1],
       version: val
     })
   })
