@@ -31,11 +31,11 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
       <div className='demobox-wrapper'>
         <div className='demobox-title'>{title}</div>
         <div className='demobox-desc'>{desc}</div>
-        <span className='demobox-action'>
+        <div className='demobox-action'>
           <Button type='text' onClick={showCode}>
             <Icon.FasAngleRight className={showCodeClasses} />
           </Button>
-        </span>
+        </div>
       </div>
       <CollapseTransition
         show={display}

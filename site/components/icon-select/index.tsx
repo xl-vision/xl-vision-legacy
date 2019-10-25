@@ -2,6 +2,7 @@ import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { Icon } from '../../../src'
 import iconInfos from './icons.json'
+import Clipboard from 'clipboard'
 
 import './index.scss'
 
@@ -13,6 +14,7 @@ export interface IconWrapperProps {
 const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
   const { children, name } = props
   const [hover, setHover] = React.useState(false)
+  const iconRef = React.useRef<HTMLDivElement>(null)
 
   const mouseEnter = () => setHover(true)
   const mouseLeave = () => setHover(false)
@@ -21,8 +23,25 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
     return { display: hover ? 'block' : 'none', opacity: hover ? 1 : 0 }
   }, [hover])
 
+  React.useEffect(() => {
+    const clipboard = new Clipboard(iconRef.current!)
+    clipboard.on('success', () => {
+      alert('复制成功')
+      clipboard.destroy()
+    })
+    return () => {
+      clipboard.destroy()
+    }
+  }, [])
+
   return (
-    <div className='icon-wrapper' onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+    <div
+      className='icon-wrapper'
+      onMouseEnter={mouseEnter}
+      onMouseLeave={mouseLeave}
+      ref={iconRef}
+      data-clipboard-text={`<Icon.${name} />`}
+    >
       <div className='icon'>{children}</div>
       <div className='icon-name' style={style}>
         {name}
@@ -86,7 +105,8 @@ const IconSelect: React.FunctionComponent<{}> = () => {
   return (
     <div className='icon-select'>
       <input onChange={searchClick} className='icon-input' />
-      {iconNodes}
+      <div className='icon-info'>点击下面图标可以直接复制组件代码</div>
+      <div className='icon-list'>{iconNodes}</div>
     </div>
   )
 }
