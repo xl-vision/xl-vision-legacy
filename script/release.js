@@ -39,7 +39,7 @@ function run() {
         message: '版本发布说明',
         type: 'input',
         default: function(answers) {
-          return `:bookmark:update version to ${answers.version}`
+          return `chore: update version to ${answers.version}`
         }
       }
     ])
