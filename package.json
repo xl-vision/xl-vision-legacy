@@ -27,11 +27,12 @@
   "homepage": "https://xl-vision.github.io/xl-vision/",
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && && node_modules/.bin/git-cz --hook || true",
-      "pre-commit": "npm run lint && npm run test"
+      "pre-commit": "npm run lint && npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "scripts": {
+    "commit": "git-cz",
     "lint:es": "xl-scripts lint:es --dirs src,site,script",
     "lint:style": "xl-scripts lint:style",
     "lint": "npm run lint:es && npm run lint:style",
@@ -48,6 +49,8 @@
     "updateDependencies": "npm-check -u"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@types/classnames": "^2.2.9",
     "@types/clipboard": "^2.0.1",
     "@types/enquire.js": "^2.1.2",
