@@ -5,27 +5,27 @@ $tooltip: #{$--cls-prefix}-tooltip;
 
 .#{$tooltip} {
   &__arrow {
-    &--topLeft,
+    &--top-start,
     &--top,
-    &--topRight {
+    &--top-end {
       @include arrow(bottom, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
-    &--bottomLeft,
+    &--bottom-start,
     &--bottom,
-    &--bottomRight {
+    &--bottom-end {
       @include arrow(top, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
-    &--leftTop,
+    &--left-start,
     &--left,
-    &--leftBottom {
+    &--left-end {
       @include arrow(right, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
-    &--rightTop,
+    &--right-start,
     &--right,
-    &--rightBottom {
+    &--right-end {
       @include arrow(left, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
   }

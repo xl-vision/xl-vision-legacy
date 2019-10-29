@@ -1,75 +1,78 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import { namePrefix } from '../../config'
-import useAlign, { Placement } from '../../hooks/useAlign'
-import useClickOutside from '../../hooks/useClickOutside'
-import { mergeEvents, off, on } from '../../utils/event'
-import { increaseZIndex } from '../../utils/zIndex-manager'
+import PopperJs, { Placement, Modifiers, Data } from 'popper.js'
 import Portal from '../portal'
-import PopperContext from './popper-context'
+import { nextFrame } from '../../utils/transition'
+import useUpdate from '../../hooks/useUpdate'
 import useMountedState from '../../hooks/useMountedState'
+import PopperContext from './popper-context'
+import { mergeEvents } from '../../utils/event'
+import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
+import useClickOutside from '../../hooks/useClickOutside'
 
-export { Placement } from '../../hooks/useAlign'
+export { Placement }
 
 export interface PopperProps {
-  allowPopupEnter?: boolean
-  arrow?: (
-    placement: Placement,
-    center: { x: number; y: number }
-  ) => React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  // autoAdjustOverflow?: boolean,
+  autoAdjustOverflow?: boolean
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  delayHide?: number
-  delayShow?: number
   getPopupContainer?: () => Element
-  lazyRender?: boolean
-  offset?: number
   onVisibleChange?: (visible: boolean) => void
+  placement?: Placement
+  popup: React.ReactNode | ((placement: Placement) => React.ReactNode)
+  transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
+  allowPopupEnter?: boolean
+  visible?: boolean
+  delayShow?: number
+  delayHide?: number
+  lazyRender?: boolean
+  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
   overlayClassName?: string | ((placement: Placement) => string)
   overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties)
-  placement?: Placement
-  popup: (placement: Placement) => React.ReactNode
-  transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
-  trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
-  visible?: boolean
+  arrow?: React.ReactNode | ((placement: Placement) => React.ReactNode)
+  offset?: number | string
 }
-
-const TIME_DELAY = 20
 
 export const displayName = `${namePrefix}-popper`
 
 const getContainerFn = () => document.body
 
+const TIME_DELAY = 16.67
+
 const Popper: React.FunctionComponent<PopperProps> = props => {
   const {
-    // autoAdjustOverflow,
-    lazyRender = true,
-    children,
+    placement = 'auto',
     getPopupContainer = getContainerFn,
-    onVisibleChange,
-    overlayClassName,
-    overlayStyle,
-    placement = 'bottom',
     popup,
-    transitionName,
-    trigger = 'hover',
-    allowPopupEnter = true,
-    arrow,
+    children,
+    autoAdjustOverflow = true,
     visible = false,
+    onVisibleChange,
     delayHide = 0,
     delayShow = 0,
+    trigger = 'hover',
+    allowPopupEnter = true,
+    transitionName,
+    lazyRender = true,
+    overlayClassName,
+    overlayStyle,
+    arrow,
     offset = 0
   } = props
-
+  const popperJsRef = React.useRef<PopperJs>()
+  const referenceRef = React.useRef<HTMLDivElement>(null)
   const popupRef = React.useRef<HTMLDivElement>(null)
-  const referenceRef = React.useRef<HTMLElement>(null)
-
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
-
   const [actualVisible, setActualVisible] = React.useState(visible)
+  const [actualPlacement, setActualPlacement] = React.useState(placement)
+
+  // 延迟渲染弹出框，只在第一次需要弹出时才渲染
+  const [needMount, setNeedMount] = React.useState(false)
 
   const isMounted = useMountedState()
+
+  // 处理子popper
+  const closeHandlerRef = React.useRef<(() => void)[]>([])
 
   /**
    * 处理父popper
@@ -78,18 +81,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     addCloseHandler: addParentCloseHandler,
     removeCloseHandler: removeParentCloseHandler
   } = React.useContext(PopperContext)
-
-  const { updatePosition, popupPosition, referencePosition, popupStyle } = useAlign(
-    referenceRef,
-    popupRef,
-    placement
-  )
-
-  // 延迟渲染弹出框，只在第一次需要弹出时才渲染
-  const [needMount, setNeedMount] = React.useState(false)
-
-  // 处理子popper
-  const closeHandlerRef = React.useRef<(() => void)[]>([])
 
   /**
    * 延迟设置visible，多次调用，只有最后一次生效
@@ -143,21 +134,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     [closeHandlerRef]
   )
 
-  /**
-   * 窗口改变的时候，需要重置位置
-   */
-  React.useEffect(() => {
-    if (actualVisible) {
-      on('resize', updatePosition)
-      on('scroll', updatePosition)
-    }
-    return () => {
-      if (actualVisible) {
-        off('scroll', updatePosition)
-        off('resize', updatePosition)
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  useUpdate(() => {
+    onVisibleChange && onVisibleChange(actualVisible)
   }, [actualVisible])
 
   React.useEffect(() => {
@@ -168,72 +146,189 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible])
 
+  const createPopperJs = React.useCallback(
+    (placement: Placement) => {
+      const popperJs = popperJsRef.current
+      if (popperJs) {
+        popperJs.destroy()
+        popperJsRef.current = undefined
+      }
+      // 保证popupRef被赋值
+      nextFrame(() => {
+        const popup = popupRef.current
+        const reference = referenceRef.current
+
+        if (!popup || !reference) {
+          return
+        }
+
+        const updateData = (data: Data) => {
+          setActualPlacement(data.placement)
+        }
+
+        const modifiers: Modifiers = {}
+
+        const options: PopperJs.PopperOptions = {
+          placement,
+          onCreate: updateData,
+          onUpdate: updateData,
+          modifiers
+        }
+        const popperJs = new PopperJs(reference, popup, options)
+
+        popperJsRef.current = popperJs
+      })
+    },
+    [popperJsRef, referenceRef, popupRef, autoAdjustOverflow, offset]
+  )
+
+  const updatePopperJs = React.useCallback(() => {
+    if (popperJsRef.current) {
+      popperJsRef.current.scheduleUpdate()
+    }
+  }, [popperJsRef])
+
+  // 弹出框显示时更新位置
   React.useEffect(() => {
-    onVisibleChange && onVisibleChange(actualVisible)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [actualVisible])
-
-  const arrowCenter = React.useMemo(() => {
-    let x = 0
-    let y = 0
-    if (!referencePosition || !popupPosition) {
-      return { x, y }
+    if (actualVisible) {
+      const popperJs = popperJsRef.current
+      if (!popperJs) {
+        createPopperJs(placement)
+      } else {
+        popperJs.options.placement = placement
+        updatePopperJs()
+      }
     }
+  }, [actualVisible, placement])
 
-    const popupHeight = popupPosition.bottom - popupPosition.top
-    const popupWidth = popupPosition.right - popupPosition.left
-    const referenceHeight = referencePosition.bottom - referencePosition.top
-    const referenceWidth = referencePosition.right - referencePosition.left
-
-    if (placement.startsWith('top')) {
-      y = popupHeight - offset
-    } else if (placement.startsWith('bottom')) {
-      y = 0
-    } else if (placement.startsWith('left')) {
-      x = popupWidth - offset
-    } else if (placement.startsWith('right')) {
-      x = 0
+  // 组件销毁时销毁popperJs
+  React.useEffect(() => {
+    return () => {
+      const popperJs = popperJsRef.current
+      if (popperJs) {
+        popperJs.destroy()
+      }
     }
+  }, [])
 
-    if (placement.endsWith('Left')) {
-      x = Math.min(popupWidth, referenceWidth) / 2
-    } else if (placement.endsWith('Right')) {
-      x = popupWidth - Math.min(popupWidth, referenceWidth) / 2
-    } else if (placement.endsWith('Top')) {
-      y = Math.min(popupHeight, referenceHeight) / 2
-    } else if (placement.endsWith('Bottom')) {
-      y = popupHeight - Math.min(popupHeight, referenceHeight) / 2
+  const onPopupMouseEnter = React.useCallback(() => {
+    clearTimeout(delayTimerRef.current!)
+    if (!allowPopupEnter) {
+      setActualWrapper(false)
     }
+  }, [delayTimerRef, setActualWrapper, allowPopupEnter])
 
-    if (placement === 'top' || placement === 'bottom') {
-      x = popupWidth / 2
-    } else if (placement === 'left' || placement === 'right') {
-      y = popupHeight / 2
+  const onPopupMouseLeave = React.useCallback(() => {
+    if (trigger === 'hover') {
+      setActualWrapper(false)
     }
+  }, [setActualWrapper, trigger])
 
+  const onPopupClick = React.useCallback(() => {
+    // 让clickoutside先触发，此方法会取消onClickoutside
+    // 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了
+    // 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
+    if (trigger === 'click' || trigger === 'contextMenu') {
+      setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
+    }
+  }, [setActualWrapper, trigger])
+
+  const transitionClass = React.useMemo(() => {
+    if (typeof transitionName === 'function') {
+      return transitionName(actualPlacement)
+    }
+    return transitionName
+  }, [transitionName, actualPlacement])
+
+  const overlayClass = React.useMemo(() => {
+    if (typeof overlayClassName === 'function') {
+      return overlayClassName(actualPlacement)
+    }
+    return overlayClassName
+  }, [overlayClassName, actualPlacement])
+
+  const overlayStyleObj: React.CSSProperties = React.useMemo(() => {
+    let style
+    if (typeof overlayStyle === 'function') {
+      style = overlayStyle(actualPlacement)
+    } else {
+      style = overlayStyle
+    }
     return {
-      x: Math.floor(x),
-      y: Math.floor(y)
+      position: 'relative',
+      ...style
     }
-  }, [popupPosition, referencePosition, placement, offset])
+  }, [overlayStyle, actualPlacement])
 
-  const allPopupStyle = React.useMemo(() => {
-    const style = {
-      ...popupStyle,
-      zIndex: increaseZIndex()
+  const popupNode = React.useMemo(() => {
+    if (typeof popup === 'function') {
+      return popup(actualPlacement)
+    } else {
+      return popup
     }
+  }, [popup, actualPlacement])
 
-    if (placement.startsWith('top')) {
+  const arrowNode = React.useMemo(() => {
+    if (typeof arrow === 'function') {
+      return arrow(actualPlacement)
+    } else {
+      return arrow
+    }
+  }, [arrow, actualPlacement])
+
+  const popupStyle = React.useMemo(() => {
+    const style: React.CSSProperties = {}
+    if (actualPlacement.startsWith('top')) {
       style.paddingBottom = offset
-    } else if (placement.startsWith('bottom')) {
+    } else if (actualPlacement.startsWith('bottom')) {
       style.paddingTop = offset
-    } else if (placement.startsWith('left')) {
+    } else if (actualPlacement.startsWith('left')) {
       style.paddingRight = offset
     } else {
       style.paddingLeft = offset
     }
     return style
-  }, [placement, offset, popupStyle])
+  }, [offset, actualPlacement])
+
+  const portal = (
+    <Portal getContainer={getPopupContainer}>
+      <PopperContext.Provider
+        value={{
+          addCloseHandler,
+          removeCloseHandler
+        }}
+      >
+        <div
+          ref={popupRef}
+          onMouseEnter={onPopupMouseEnter}
+          onMouseLeave={onPopupMouseLeave}
+          onClick={onPopupClick}
+          style={popupStyle}
+        >
+          <CssTransition
+            forceRender={true}
+            isAppear={true}
+            show={actualVisible}
+            classNames={transitionClass}
+          >
+            <div className={overlayClass} style={overlayStyleObj}>
+              {arrowNode && (
+                <div
+                  x-arrow=''
+                  style={{
+                    position: 'absolute'
+                  }}
+                >
+                  {arrowNode}
+                </div>
+              )}
+              {popupNode}
+            </div>
+          </CssTransition>
+        </div>
+      </PopperContext.Provider>
+    </Portal>
+  )
 
   const onMouseEnter = React.useCallback(() => {
     // 如果是从popup移动过来，需要先清除popup的定时关闭
@@ -267,19 +362,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [setActualWrapper, trigger])
 
-  const onPopupMouseEnter = React.useCallback(() => {
-    clearTimeout(delayTimerRef.current!)
-    if (!allowPopupEnter) {
-      setActualWrapper(false)
-    }
-  }, [delayTimerRef, setActualWrapper, allowPopupEnter])
-
-  const onPopupMouseLeave = React.useCallback(() => {
-    if (trigger === 'hover') {
-      setActualWrapper(false)
-    }
-  }, [setActualWrapper, trigger])
-
   const onReferenceClick = React.useCallback(() => {
     if (trigger === 'click') {
       setActualWrapper(true)
@@ -292,76 +374,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [setActualWrapper, trigger])
 
-  const onPopupClick = React.useCallback(() => {
-    // 让clickoutside先触发，此方法会取消onClickoutside
-    // 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了
-    // 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
-    if (trigger === 'click' || trigger === 'contextMenu') {
-      setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
-    }
-  }, [setActualWrapper, trigger])
-
-  const transitionClass = React.useMemo(() => {
-    if (typeof transitionName === 'function') {
-      return transitionName(placement)
-    }
-    return transitionName
-  }, [transitionName, placement])
-
-  const overlayClass = React.useMemo(() => {
-    if (typeof overlayClassName === 'function') {
-      return overlayClassName(placement)
-    }
-    return overlayClassName
-  }, [overlayClassName, placement])
-
-  const overlayStyleObj: React.CSSProperties = React.useMemo(() => {
-    let style
-    if (typeof overlayStyle === 'function') {
-      style = overlayStyle(placement)
-    } else {
-      style = overlayStyle
-    }
-    return {
-      position: 'relative',
-      ...style
-    }
-  }, [overlayStyle, placement])
-
   useClickOutside(referenceRef, onClickOutside)
-
-  const portal = (
-    <Portal getContainer={getPopupContainer}>
-      <PopperContext.Provider
-        value={{
-          addCloseHandler,
-          removeCloseHandler
-        }}
-      >
-        <div
-          ref={popupRef}
-          style={allPopupStyle}
-          onMouseEnter={onPopupMouseEnter}
-          onMouseLeave={onPopupMouseLeave}
-          onClick={onPopupClick}
-        >
-          <CssTransition
-            forceRender={true}
-            isAppear={true}
-            show={actualVisible}
-            classNames={transitionClass}
-            beforeEnter={updatePosition}
-            beforeAppear={updatePosition}
-          >
-            <div className={overlayClass} style={overlayStyleObj}>
-              {arrow && arrow(placement, arrowCenter)}
-              {popup(placement)}
-            </div>
-          </CssTransition>
-        </div>
-      </PopperContext.Provider>
-    </Portal>
-  )
 
   const childrenNode = React.useMemo(() => {
     const {
@@ -396,8 +409,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   return (
     <>
-      {childrenNode}
       {(!lazyRender || needMount) && portal}
+      {childrenNode}
     </>
   )
 }
@@ -405,46 +418,29 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 Popper.displayName = displayName
 
 Popper.propTypes = {
-  allowPopupEnter: PropTypes.bool,
-  arrow: PropTypes.func,
   children: PropTypes.element.isRequired,
   delayHide: PropTypes.number,
   delayShow: PropTypes.number,
   getPopupContainer: PropTypes.func,
-  lazyRender: PropTypes.bool,
   onVisibleChange: PropTypes.func,
-  overlayClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  overlayStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   placement: PropTypes.oneOf([
+    'auto',
     'top',
     'left',
     'right',
     'bottom',
-    'topLeft',
-    'topRight',
-    'bottomLeft',
-    'bottomRight',
-    'leftTop',
-    'leftBottom',
-    'rightTop',
-    'rightBottom'
+    'auto-start',
+    'auto-end',
+    'top-start',
+    'top-end',
+    'bottom-start',
+    'bottom-end',
+    'left-start',
+    'left-end',
+    'right-start',
+    'right-end'
   ]),
   popup: PropTypes.func.isRequired,
-  transitionName: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      appear: PropTypes.string,
-      appearActive: PropTypes.string,
-      appearTo: PropTypes.string,
-      enter: PropTypes.string.isRequired,
-      enterActive: PropTypes.string.isRequired,
-      enterTo: PropTypes.string.isRequired,
-      leave: PropTypes.string.isRequired,
-      leaveActive: PropTypes.string.isRequired,
-      leaveTo: PropTypes.string.isRequired
-    }),
-    PropTypes.func
-  ]),
   trigger: PropTypes.oneOf(['hover', 'focus', 'click', 'contextMenu', 'custom']),
   visible: PropTypes.bool
 }

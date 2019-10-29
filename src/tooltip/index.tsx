@@ -5,7 +5,7 @@ import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
 import { Omit } from '../commons/types'
 
-export interface TooltipProps extends Omit<Omit<PopperProps, 'popup'>, 'arrow'> {
+export interface TooltipProps extends Omit<PopperProps, 'popup'> {
   arrowSize?: number
   content: React.ReactNode
   prefixCls?: string
@@ -14,33 +14,20 @@ export interface TooltipProps extends Omit<Omit<PopperProps, 'popup'>, 'arrow'> 
 export const displayName = `${namePrefix}-tooltip`
 
 const Tooltip: React.FunctionComponent<TooltipProps> = props => {
-  const {
-    content,
-    offset = 5,
-    prefixCls = displayName,
-    arrowSize = 10,
-    overlayStyle = overlayStyleCb,
-    ...others
-  } = props
+  const { content, prefixCls = displayName, arrowSize = 10, offset = 15, ...others } = props
 
   const transitionName = others.transitionName || `${prefixCls}--fade`
 
   delete others.transitionName
 
   const arrow = React.useCallback(
-    (_placement: Placement, center: { x: number; y: number }) => {
+    (_placement: Placement) => {
       const classes = classnames(`${prefixCls}__arrow`, `${prefixCls}__arrow--${_placement}`)
-      let { x: left, y: top } = center
-      left -= arrowSize / 2
-      top -= arrowSize / 2
-
-      const _style: React.CSSProperties = {
-        left,
-        position: 'absolute',
-        top
+      const style: React.CSSProperties = {}
+      if(_placement.startsWith('top')){
+        
       }
-
-      return <div className={classes} style={_style} />
+      return <div className={classes} style={style}/>
     },
     [prefixCls, arrowSize]
   )
@@ -73,7 +60,6 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
       popup={popup}
       offset={offset}
       transitionName={transitionName}
-      overlayStyle={overlayStyle}
       {...others}
     />
   )

@@ -26,50 +26,6 @@ export const removeClass = (element: HTMLElement, className: string) => {
   element.className = _className.replace(/\s+/, ' ').trim()
 }
 
-export const getAbsolutePosition = (el: HTMLElement) => {
-  const width = el.offsetWidth
-  const height = el.offsetHeight
-  let parent = el
-  let top = -parent.clientTop
-  let left = -parent.clientLeft
-  while (parent) {
-    const translate = getTranslate(parent)
-    top += parent.offsetTop + translate.y
-    left += parent.offsetLeft + translate.x
-    parent = parent.offsetParent as HTMLElement
-  }
-  const bottom = top + height
-  const right = left + width
-  return {
-    top,
-    left,
-    bottom,
-    right,
-    width,
-    height
-  }
-}
-
-export const getTranslate = (element: HTMLElement) => {
-  const transformMatrix =
-    getComputedStyle(element, '').getPropertyValue('transform') ||
-    getComputedStyle(element, '').getPropertyValue('-webkit-transform') ||
-    getComputedStyle(element, '').getPropertyValue('-moz-transform') ||
-    getComputedStyle(element, '').getPropertyValue('-ms-transform')
-
-  const matrix = transformMatrix.match(/\-?[0-9]+\.?[0-9]*/g)
-
-  if (!matrix) {
-    return {
-      x: 0,
-      y: 0
-    }
-  }
-  const x = parseInt(matrix[4]) //translate x
-  const y = parseInt(matrix[5]) //translate y
-  return { x, y }
-}
-
 export const include = (parent: Element, child: Element) => {
   let temp: Element | null = child
   while (temp) {
@@ -85,13 +41,12 @@ export const isStyleSupport = (styleProperty: string) => {
   if (isServer) {
     return true
   }
-  const div = document.createElement('div')
-  const styles = div.style
+  const styles = document.body.style
   let result = false
   if (styleProperty in styles) {
     result = true
   } else {
-    const vendors = ['o', 'moz', 'webkit']
+    const vendors = ['ms', 'Webkit', 'Moz', 'O']
     for (const prefix of vendors) {
       const prop = prefix + styleProperty.replace(/^[a-z]/, val => val.toUpperCase())
       if (prop in styles) {

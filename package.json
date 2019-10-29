@@ -103,6 +103,7 @@
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "classnames": "^2.2.6",
+    "popper.js": "^1.16.0",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {

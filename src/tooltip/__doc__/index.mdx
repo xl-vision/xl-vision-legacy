@@ -29,8 +29,8 @@ export default () => {
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='topLeft' content={<div>Tooltip text</div>}>
-            <Button>topLeft</Button>
+          <Tooltip placement='top-start' content={<div>Tooltip text</div>}>
+            <Button>top-start</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}>
@@ -39,8 +39,8 @@ export default () => {
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='topRight' content={<div>Tooltip text</div>}>
-            <Button>topRight</Button>
+          <Tooltip placement='top-end' content={<div>Tooltip text</div>}>
+            <Button>top-end</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}></Row.Col>
@@ -50,16 +50,16 @@ export default () => {
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='leftTop' content={<div>Tooltip text</div>}>
-            <Button>leftTop</Button>
+          <Tooltip placement='left-start' content={<div>Tooltip text</div>}>
+            <Button>left-start</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='rightTop' content={<div>Tooltip text</div>}>
-            <Button>rightTop</Button>
+          <Tooltip placement='right-start' content={<div>Tooltip text</div>}>
+            <Button>right-start</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={2}></Row.Col>
@@ -86,16 +86,16 @@ export default () => {
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='leftBottom' content={<div>Tooltip text</div>}>
-            <Button>leftBottom</Button>
+          <Tooltip placement='left-end' content={<div>Tooltip text</div>}>
+            <Button>left-end</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='rightBottom' content={<div>Tooltip text</div>}>
-            <Button>rightBottom</Button>
+          <Tooltip placement='right-end' content={<div>Tooltip text</div>}>
+            <Button>right-end</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={2}></Row.Col>
@@ -105,8 +105,8 @@ export default () => {
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}></Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='bottomLeft' content={<div>Tooltip text</div>}>
-            <Button>bottomLeft</Button>
+          <Tooltip placement='bottom-start' content={<div>Tooltip text</div>}>
+            <Button>bottom-start</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}>
@@ -115,8 +115,8 @@ export default () => {
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}>
-          <Tooltip placement='bottomRight' content={<div>Tooltip text</div>}>
-            <Button>bottomRight</Button>
+          <Tooltip placement='bottom-end' content={<div>Tooltip text</div>}>
+            <Button>bottom-end</Button>
           </Tooltip>
         </Row.Col>
         <Row.Col span={4}></Row.Col>
@@ -176,7 +176,7 @@ export default () => {
 | lazyRender | 延时挂载弹出框           | boolean  | -  | - | true|
 | visible | 手动设置visible           | boolean  | -  | - | false|
 | trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
-| placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'topLeft' / 'topRight'/ 'bottomLeft' / 'bottomRight' / 'leftTop' / 'leftBottom' / 'rightTop' / 'rightBottom'  | -  | 'bottom' | false|
+| placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'top-start' / 'top-end'/ 'bottom-start' / 'bottom-end' / 'left-start' / 'left-end' / 'right-start' / 'right-end'  | -  | 'bottom' | false|
 | overlayStyle | 弹出框样式           | React.CSSProperties / ((placement: Placement) => React.CSSProperties)  | -  | - | false|
 | overlayClassName | 弹出框className            | string / ((placement: Placement) => string)  | -  | - | false|
 | onVisibleChange | 弹出框弹出或隐藏事件            | (visible: boolean) => void  | -  | - | false|
