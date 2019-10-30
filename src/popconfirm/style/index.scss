@@ -6,10 +6,15 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
 
 .#{$popconfirm} {
   &__arrow {
-    &--topLeft,
+    position: absolute;
+    width: $--popconfirm-arrow-size * 2;
+    height: $--popconfirm-arrow-size * 2;
+
+    &--top-start,
     &--top,
-    &--topRight {
-      margin-top: -$--popconfirm-border-width;
+    &--top-end {
+      bottom: 0;
+      margin-bottom: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
       @include arrow(
         bottom,
@@ -20,10 +25,10 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
       );
     }
 
-    &--bottomLeft,
+    &--bottom-start,
     &--bottom,
-    &--bottomRight {
-      margin-top: $--popconfirm-border-width;
+    &--bottom-end {
+      margin-top: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
       @include arrow(
         top,
@@ -34,10 +39,11 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
       );
     }
 
-    &--leftTop,
+    &--left-start,
     &--left,
-    &--leftBottom {
-      margin-left: -$--popconfirm-border-width;
+    &--left-end {
+      right: 0;
+      margin-right: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
       @include arrow(
         right,
@@ -48,10 +54,10 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
       );
     }
 
-    &--rightTop,
+    &--right-start,
     &--right,
-    &--rightBottom {
-      margin-left: $--popconfirm-border-width;
+    &--right-end {
+      margin-left: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
       @include arrow(
         left,

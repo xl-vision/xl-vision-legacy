@@ -28,7 +28,6 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
     onConfirm,
     onCancel,
     prefixCls = displayName,
-    arrowSize = 14,
     visible,
     trigger = 'click',
     onVisibleChange,
@@ -119,7 +118,6 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
       allowPopupEnter={true}
       content={contentNode}
       prefixCls={prefixCls}
-      arrowSize={arrowSize}
       {...others}
     />
   )

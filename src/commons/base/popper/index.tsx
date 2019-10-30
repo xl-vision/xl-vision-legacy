@@ -3,34 +3,32 @@ import React from 'react'
 import { namePrefix } from '../../config'
 import PopperJs, { Placement, Modifiers, Data } from 'popper.js'
 import Portal from '../portal'
-import { nextFrame } from '../../utils/transition'
 import useUpdate from '../../hooks/useUpdate'
 import useMountedState from '../../hooks/useMountedState'
 import PopperContext from './popper-context'
 import { mergeEvents } from '../../utils/event'
 import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
+import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 
 export { Placement }
 
 export interface PopperProps {
-  autoAdjustOverflow?: boolean
-  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  getPopupContainer?: () => Element
-  onVisibleChange?: (visible: boolean) => void
   placement?: Placement
-  popup: React.ReactNode | ((placement: Placement) => React.ReactNode)
-  transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
-  allowPopupEnter?: boolean
+  getPopupContainer?: () => Element
+  popup: React.ReactElement | ((placement: Placement) => React.ReactElement)
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   visible?: boolean
-  delayShow?: number
+  onVisibleChange?: (visible: boolean) => void
   delayHide?: number
-  lazyRender?: boolean
+  delayShow?: number
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
-  overlayClassName?: string | ((placement: Placement) => string)
-  overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties)
-  arrow?: React.ReactNode | ((placement: Placement) => React.ReactNode)
+  allowPopupEnter?: boolean
+  transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
+  lazyRender?: boolean
+  arrow?: React.ReactElement | ((placement: Placement) => React.ReactElement)
   offset?: number | string
+  overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties)
 }
 
 export const displayName = `${namePrefix}-popper`
@@ -45,7 +43,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     getPopupContainer = getContainerFn,
     popup,
     children,
-    autoAdjustOverflow = true,
     visible = false,
     onVisibleChange,
     delayHide = 0,
@@ -54,10 +51,9 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     allowPopupEnter = true,
     transitionName,
     lazyRender = true,
-    overlayClassName,
-    overlayStyle,
     arrow,
-    offset = 0
+    offset = 0,
+    overlayStyle
   } = props
   const popperJsRef = React.useRef<PopperJs>()
   const referenceRef = React.useRef<HTMLDivElement>(null)
@@ -65,6 +61,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
   const [actualVisible, setActualVisible] = React.useState(visible)
   const [actualPlacement, setActualPlacement] = React.useState(placement)
+  const [zIndex, setZIndex] = React.useState(getCurrentIndex)
 
   // 延迟渲染弹出框，只在第一次需要弹出时才渲染
   const [needMount, setNeedMount] = React.useState(false)
@@ -153,33 +150,31 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         popperJs.destroy()
         popperJsRef.current = undefined
       }
-      // 保证popupRef被赋值
-      nextFrame(() => {
-        const popup = popupRef.current
-        const reference = referenceRef.current
 
-        if (!popup || !reference) {
-          return
-        }
+      const popup = popupRef.current
+      const reference = referenceRef.current
 
-        const updateData = (data: Data) => {
-          setActualPlacement(data.placement)
-        }
+      if (!popup || !reference) {
+        return
+      }
 
-        const modifiers: Modifiers = {}
+      const updateData = (data: Data) => {
+        setActualPlacement(data.placement)
+      }
 
-        const options: PopperJs.PopperOptions = {
-          placement,
-          onCreate: updateData,
-          onUpdate: updateData,
-          modifiers
-        }
-        const popperJs = new PopperJs(reference, popup, options)
+      const modifiers: Modifiers = {}
 
-        popperJsRef.current = popperJs
-      })
+      const options: PopperJs.PopperOptions = {
+        placement,
+        onCreate: updateData,
+        onUpdate: updateData,
+        modifiers
+      }
+      popperJsRef.current = new PopperJs(reference, popup, options)
+      // 不更新一次会在placement=auto时定位错误
+      popperJsRef.current.scheduleUpdate()
     },
-    [popperJsRef, referenceRef, popupRef, autoAdjustOverflow, offset]
+    [popperJsRef, referenceRef, popupRef]
   )
 
   const updatePopperJs = React.useCallback(() => {
@@ -191,6 +186,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   // 弹出框显示时更新位置
   React.useEffect(() => {
     if (actualVisible) {
+      // 更新zIndex
+      setZIndex(increaseZIndex())
       const popperJs = popperJsRef.current
       if (!popperJs) {
         createPopperJs(placement)
@@ -199,6 +196,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         updatePopperJs()
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [actualVisible, placement])
 
   // 组件销毁时销毁popperJs
@@ -240,26 +238,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     return transitionName
   }, [transitionName, actualPlacement])
 
-  const overlayClass = React.useMemo(() => {
-    if (typeof overlayClassName === 'function') {
-      return overlayClassName(actualPlacement)
-    }
-    return overlayClassName
-  }, [overlayClassName, actualPlacement])
-
-  const overlayStyleObj: React.CSSProperties = React.useMemo(() => {
-    let style
-    if (typeof overlayStyle === 'function') {
-      style = overlayStyle(actualPlacement)
-    } else {
-      style = overlayStyle
-    }
-    return {
-      position: 'relative',
-      ...style
-    }
-  }, [overlayStyle, actualPlacement])
-
   const popupNode = React.useMemo(() => {
     if (typeof popup === 'function') {
       return popup(actualPlacement)
@@ -269,26 +247,47 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }, [popup, actualPlacement])
 
   const arrowNode = React.useMemo(() => {
+    let node: React.ReactElement
     if (typeof arrow === 'function') {
-      return arrow(actualPlacement)
+      node = arrow(actualPlacement)
     } else {
-      return arrow
+      node = arrow!
     }
+    if (!node) {
+      return node
+    }
+    return React.cloneElement(node, {
+      'x-arrow': ''
+    })
   }, [arrow, actualPlacement])
 
   const popupStyle = React.useMemo(() => {
-    const style: React.CSSProperties = {}
-    if (actualPlacement.startsWith('top')) {
+    const style: React.CSSProperties = {
+      zIndex
+    }
+    const direction = actualPlacement.split('-')[0]
+    if (direction === 'top') {
       style.paddingBottom = offset
-    } else if (actualPlacement.startsWith('bottom')) {
+    } else if (direction === 'bottom') {
       style.paddingTop = offset
-    } else if (actualPlacement.startsWith('left')) {
+    } else if (direction === 'left') {
       style.paddingRight = offset
     } else {
       style.paddingLeft = offset
     }
     return style
-  }, [offset, actualPlacement])
+  }, [offset, actualPlacement, zIndex])
+
+  const overlayStyleWrapper = React.useMemo(() => {
+    let ret: React.CSSProperties
+    if (typeof overlayStyle === 'function') {
+      ret = overlayStyle(actualPlacement)
+    } else {
+      ret = overlayStyle!
+    }
+    ret.position = 'relative'
+    return ret
+  }, [overlayStyle, actualPlacement])
 
   const portal = (
     <Portal getContainer={getPopupContainer}>
@@ -311,17 +310,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
             show={actualVisible}
             classNames={transitionClass}
           >
-            <div className={overlayClass} style={overlayStyleObj}>
-              {arrowNode && (
-                <div
-                  x-arrow=''
-                  style={{
-                    position: 'absolute'
-                  }}
-                >
-                  {arrowNode}
-                </div>
-              )}
+            <div style={overlayStyleWrapper}>
+              {arrowNode}
               {popupNode}
             </div>
           </CssTransition>
@@ -418,11 +408,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 Popper.displayName = displayName
 
 Popper.propTypes = {
-  children: PropTypes.element.isRequired,
-  delayHide: PropTypes.number,
-  delayShow: PropTypes.number,
-  getPopupContainer: PropTypes.func,
-  onVisibleChange: PropTypes.func,
   placement: PropTypes.oneOf([
     'auto',
     'top',
@@ -440,9 +425,19 @@ Popper.propTypes = {
     'right-start',
     'right-end'
   ]),
-  popup: PropTypes.func.isRequired,
+  getPopupContainer: PropTypes.func,
+  popup: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
+  children: PropTypes.element.isRequired,
+  visible: PropTypes.bool,
+  onVisibleChange: PropTypes.func,
+  delayHide: PropTypes.number,
+  delayShow: PropTypes.number,
   trigger: PropTypes.oneOf(['hover', 'focus', 'click', 'contextMenu', 'custom']),
-  visible: PropTypes.bool
+  allowPopupEnter: PropTypes.bool,
+  lazyRender: PropTypes.bool,
+  arrow: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
+  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  overlayStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 }
 
 export default Popper

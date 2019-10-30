@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { namePrefix } from '../../config'
+import { isServer } from '../../utils/env'
 
 export interface PortalProp {
   children: React.ReactNode
@@ -17,14 +18,11 @@ export const displayName = `${namePrefix}-portal`
  */
 const Portal: React.FunctionComponent<PortalProp> = props => {
   const { children, getContainer } = props
+  if (isServer) {
+    return null
+  }
 
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  return mounted ? ReactDOM.createPortal(children, getContainer()) : null
+  return ReactDOM.createPortal(children, getContainer())
 }
 
 Portal.displayName = displayName

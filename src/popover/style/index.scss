@@ -5,10 +5,15 @@ $popover: #{$--cls-prefix}-popover;
 
 .#{$popover} {
   &__arrow {
-    &--topLeft,
+    position: absolute;
+    width: $--popover-arrow-size * 2;
+    height: $--popover-arrow-size * 2;
+
+    &--top-start,
     &--top,
-    &--topRight {
-      margin-top: -$--popover-border-width;
+    &--top-end {
+      bottom: 0;
+      margin-bottom: -$--popover-arrow-size * 2 + $--popover-border-width;
 
       @include arrow(
         bottom,
@@ -19,10 +24,10 @@ $popover: #{$--cls-prefix}-popover;
       );
     }
 
-    &--bottomLeft,
+    &--bottom-start,
     &--bottom,
-    &--bottomRight {
-      margin-top: $--popover-border-width;
+    &--bottom-end {
+      margin-top: -$--popover-arrow-size * 2 + $--popover-border-width;
 
       @include arrow(
         top,
@@ -33,10 +38,11 @@ $popover: #{$--cls-prefix}-popover;
       );
     }
 
-    &--leftTop,
+    &--left-start,
     &--left,
-    &--leftBottom {
-      margin-left: -$--popover-border-width;
+    &--left-end {
+      right: 0;
+      margin-right: -$--popover-arrow-size * 2 + $--popover-border-width;
 
       @include arrow(
         right,
@@ -47,10 +53,10 @@ $popover: #{$--cls-prefix}-popover;
       );
     }
 
-    &--rightTop,
+    &--right-start,
     &--right,
-    &--rightBottom {
-      margin-left: $--popover-border-width;
+    &--right-end {
+      margin-left: -$--popover-arrow-size * 2 + $--popover-border-width;
 
       @include arrow(
         left,

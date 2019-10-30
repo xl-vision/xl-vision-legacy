@@ -16,7 +16,7 @@ export const displayName = `${namePrefix}-dropdown`
 const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   const {
     overlay,
-    placement = 'bottomLeft',
+    placement = 'bottom',
     trigger = 'hover',
     prefixCls = displayName,
     overlayStyle = overlayStyleCb,
@@ -102,29 +102,29 @@ export default Dropdown
 
 const overlayStyleCb = (placement: Placement) => {
   const style: React.CSSProperties = {}
-  if (placement === 'topLeft') {
+  if (placement === 'top-start') {
     style.transformOrigin = '0 100%'
   } else if (placement === 'top') {
     style.transformOrigin = '50% 100%'
-  } else if (placement === 'topRight') {
+  } else if (placement === 'top-end') {
     style.transformOrigin = '100% 100%'
-  } else if (placement === 'bottomLeft') {
+  } else if (placement === 'bottom-start') {
     style.transformOrigin = '0 0%'
   } else if (placement === 'bottom') {
     style.transformOrigin = '50% 0%'
-  } else if (placement === 'bottomRight') {
+  } else if (placement === 'bottom-end') {
     style.transformOrigin = '100% 0%'
-  } else if (placement === 'leftTop') {
+  } else if (placement === 'left-start') {
     style.transformOrigin = '100% 0%'
   } else if (placement === 'left') {
     style.transformOrigin = '100% 50%'
-  } else if (placement === 'leftBottom') {
+  } else if (placement === 'left-end') {
     style.transformOrigin = '100% 100%'
-  } else if (placement === 'rightTop') {
+  } else if (placement === 'right-start') {
     style.transformOrigin = '0% 0%'
   } else if (placement === 'right') {
     style.transformOrigin = '0% 50%'
-  } else if (placement === 'rightBottom') {
+  } else if (placement === 'right-end') {
     style.transformOrigin = '0% 100%'
   }
   return style
