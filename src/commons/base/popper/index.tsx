@@ -188,12 +188,17 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     if (actualVisible) {
       // 更新zIndex
       setZIndex(increaseZIndex())
-      const popperJs = popperJsRef.current
-      if (!popperJs) {
+      if (!popperJsRef.current) {
         createPopperJs(placement)
       } else {
-        popperJs.options.placement = placement
+        popperJsRef.current.options.placement = placement
         updatePopperJs()
+      }
+      // 只有显示时才监听时间
+      popperJsRef.current!.enableEventListeners()
+    } else {
+      if (popperJsRef.current) {
+        popperJsRef.current.disableEventListeners()
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
