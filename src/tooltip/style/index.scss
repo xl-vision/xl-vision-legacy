@@ -9,32 +9,24 @@ $tooltip: #{$--cls-prefix}-tooltip;
     width: $--tooltip-arrow-size * 2;
     height: $--tooltip-arrow-size * 2;
 
-    &--top-start,
-    &--top,
-    &--top-end {
+    &--top {
       bottom: 0;
       margin-bottom: -$--tooltip-arrow-size * 2;
       @include arrow(bottom, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
-    &--bottom-start,
-    &--bottom,
-    &--bottom-end {
+    &--bottom {
       margin-top: -$--tooltip-arrow-size * 2;
       @include arrow(top, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
-    &--left-start,
-    &--left,
-    &--left-end {
+    &--left {
       right: 0;
       margin-right: -$--tooltip-arrow-size * 2;
       @include arrow(right, $--tooltip-arrow-size, $--tooltip-bg-color);
     }
 
-    &--right-start,
-    &--right,
-    &--right-end {
+    &--right {
       margin-left: -$--tooltip-arrow-size * 2;
 
       @include arrow(left, $--tooltip-arrow-size, $--tooltip-bg-color);

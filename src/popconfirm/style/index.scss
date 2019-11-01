@@ -10,9 +10,7 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
     width: $--popconfirm-arrow-size * 2;
     height: $--popconfirm-arrow-size * 2;
 
-    &--top-start,
-    &--top,
-    &--top-end {
+    &--top {
       bottom: 0;
       margin-bottom: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
@@ -25,9 +23,7 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
       );
     }
 
-    &--bottom-start,
-    &--bottom,
-    &--bottom-end {
+    &--bottom {
       margin-top: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
       @include arrow(
@@ -39,9 +35,7 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
       );
     }
 
-    &--left-start,
-    &--left,
-    &--left-end {
+    &--left {
       right: 0;
       margin-right: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
@@ -54,9 +48,7 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
       );
     }
 
-    &--right-start,
-    &--right,
-    &--right-end {
+    &--right {
       margin-left: -$--popconfirm-arrow-size * 2 + $--popconfirm-border-width;
 
       @include arrow(

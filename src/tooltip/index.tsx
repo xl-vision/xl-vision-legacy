@@ -20,8 +20,9 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
   delete others.transitionName
 
   const arrow = React.useCallback(
-    (_placement: Placement) => {
-      const classes = classnames(`${prefixCls}__arrow`, `${prefixCls}__arrow--${_placement}`)
+    (placement: Placement) => {
+      const direction = placement.split('-')[0]
+      const classes = classnames(`${prefixCls}__arrow`, `${prefixCls}__arrow--${direction}`)
       return <div className={classes} />
     },
     [prefixCls]

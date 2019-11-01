@@ -47,9 +47,9 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
   }, [visible])
 
   const onVisibleChangeWrapper = React.useCallback(
-    (_visible: boolean) => {
-      setActualVisible(_visible)
-      onVisibleChange && onVisibleChange(_visible)
+    (visible: boolean) => {
+      setActualVisible(visible)
+      onVisibleChange && onVisibleChange(visible)
     },
     [onVisibleChange]
   )

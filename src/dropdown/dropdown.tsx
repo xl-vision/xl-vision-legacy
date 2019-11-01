@@ -17,11 +17,11 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   const {
     overlay,
     placement = 'bottom',
-    trigger = 'hover',
+    trigger = 'click',
     prefixCls = displayName,
     overlayStyle = overlayStyleCb,
-    visible: visibleProp = false,
-    onVisibleChange: onVisibleChangeProp,
+    visible = false,
+    onVisibleChange,
     ...others
   } = props
 
@@ -38,28 +38,27 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   delete others.transitionName
   delete others.closeOnClick
 
-  const [visible, setVisible] = React.useState(visibleProp)
+  const [actualVisible, setActualVisible] = React.useState(visible)
 
   React.useEffect(() => {
-    setVisible(visibleProp)
-  }, [visibleProp])
-
-  React.useEffect(() => {
-    onVisibleChangeProp && onVisibleChangeProp(visible)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setActualVisible(visible)
   }, [visible])
 
   const close = React.useCallback(() => {
-    setVisible(false)
+    setActualVisible(false)
     // 如果父组件也设置了，则关闭父组件
     if (closeOnClickContext) {
       closeContext()
     }
   }, [closeOnClickContext, closeContext])
 
-  const onVisibleChange = React.useCallback((_visible: boolean) => {
-    setVisible(_visible)
-  }, [])
+  const onVisibleChangeWrapper = React.useCallback(
+    (visible: boolean) => {
+      setActualVisible(visible)
+      onVisibleChange && onVisibleChange(visible)
+    },
+    [onVisibleChange]
+  )
 
   const popup = () => (
     <div className={`${prefixCls}__overlay-wrapper`}>
@@ -80,8 +79,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
         placement={placement}
         overlayStyle={overlayStyle}
         transitionName={transitionName}
-        onVisibleChange={onVisibleChange}
-        visible={visible}
+        onVisibleChange={onVisibleChangeWrapper}
+        visible={actualVisible}
         {...others}
       />
     </DropdownContext.Provider>

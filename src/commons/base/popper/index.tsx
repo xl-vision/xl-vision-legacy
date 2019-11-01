@@ -35,8 +35,16 @@ export const displayName = `${namePrefix}-popper`
 
 const getContainerFn = () => document.body
 
+// 1000/60，约等于1帧的时间
 const TIME_DELAY = 16.67
 
+/**
+ * 此组件是所有弹出框组件的基础组件
+ * 为组件添加了很多事件，并且将popup和reference进行分开处理而不是在最外层添加一个div，利用React的事件冒泡统一处理的原因是：
+ * 添加div固然减少了组件的复杂度，但是也影响了需要被添加popper的组件或者dom元素。
+ * 本组件的优点在于对children零干扰，不影响原来组件的样式和结构。
+ * @param props
+ */
 const Popper: React.FunctionComponent<PopperProps> = props => {
   const {
     placement = 'auto',
@@ -55,64 +63,26 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     offset = 0,
     overlayStyle
   } = props
+
   const popperJsRef = React.useRef<PopperJs>()
   const referenceRef = React.useRef<HTMLDivElement>(null)
   const popupRef = React.useRef<HTMLDivElement>(null)
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
   const [actualVisible, setActualVisible] = React.useState(visible)
+
+  // 实际的placement，可能和传入的placement不同
   const [actualPlacement, setActualPlacement] = React.useState(placement)
+
+  // 弹出框zIndex，保证后弹出的弹出框zIndex更大
   const [zIndex, setZIndex] = React.useState(getCurrentIndex)
 
-  // 延迟渲染弹出框，只在第一次需要弹出时才渲染
+  // popper是否需要挂载的状态
   const [needMount, setNeedMount] = React.useState(false)
 
   const isMounted = useMountedState()
 
-  // 处理子popper
+  // 子popper关闭函数集合
   const closeHandlerRef = React.useRef<(() => void)[]>([])
-
-  /**
-   * 处理父popper
-   */
-  const {
-    addCloseHandler: addParentCloseHandler,
-    removeCloseHandler: removeParentCloseHandler
-  } = React.useContext(PopperContext)
-
-  /**
-   * 延迟设置visible，多次调用，只有最后一次生效
-   */
-  const setActualWrapper = React.useCallback(
-    (isVisible: boolean) => {
-      if (isVisible) {
-        setNeedMount(true)
-      }
-      clearTimeout(delayTimerRef.current!)
-      delayTimerRef.current = setTimeout(
-        () => {
-          // 判断组件是否已经被卸载
-          // 由于setTimeout在组件卸载后可能才执行，必须进行必要的判断
-          if (isMounted()) {
-            if (!isVisible) {
-              // 隐藏所有子popper
-              closeHandlerRef.current.forEach(it => it())
-            }
-            setActualVisible(isVisible)
-          }
-        },
-        isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY)
-      )
-    },
-    [delayTimerRef, isMounted, delayShow, delayHide, closeHandlerRef]
-  )
-
-  React.useEffect(() => {
-    const handler = () => setActualWrapper(false)
-    addParentCloseHandler(handler)
-    return () => {
-      removeParentCloseHandler(handler)
-    }
-  }, [addParentCloseHandler, removeParentCloseHandler, setActualWrapper])
 
   // 子popper函数，将子popper的关闭函数传递给当前组件，这样在当前popper关闭时，可以一同关闭子popper
   const addCloseHandler = React.useCallback(
@@ -131,14 +101,64 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     [closeHandlerRef]
   )
 
+  /**
+   * 设置popper显示状态，处理特殊情况。
+   * 通常需要调用这个方法进行状态设置
+   */
+  const setActualWrapper = React.useCallback(
+    (isVisible: boolean) => {
+      // 第一次显示时需要设置popper为可挂载状态
+      if (isVisible) {
+        setNeedMount(true)
+      }
+      // 取消上次定时器的执行
+      clearTimeout(delayTimerRef.current!)
+      // 重设定时器，最少需要等待TIME_DELAY时间
+      delayTimerRef.current = setTimeout(
+        () => {
+          // 判断组件是否已经被卸载
+          // 由于setTimeout在组件卸载后可能才执行，必须进行必要的判断
+          if (isMounted()) {
+            // 关闭popper时需要关闭所有子popper
+            if (!isVisible) {
+              closeHandlerRef.current.forEach(it => it())
+            }
+            setActualVisible(isVisible)
+          }
+        },
+        isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY)
+      )
+    },
+    [delayTimerRef, isMounted, delayShow, delayHide, closeHandlerRef]
+  )
+
+  /**
+   * 处理父popper
+   */
+  const {
+    addCloseHandler: addParentCloseHandler,
+    removeCloseHandler: removeParentCloseHandler
+  } = React.useContext(PopperContext)
+
+  // 将本popper的关闭函数加入父popper中
+  React.useEffect(() => {
+    const handler = () => setActualWrapper(false)
+    addParentCloseHandler(handler)
+    return () => {
+      removeParentCloseHandler(handler)
+    }
+  }, [addParentCloseHandler, removeParentCloseHandler, setActualWrapper])
+
+  // 更新actualVisible时触发onVisibleChange函数
   useUpdate(() => {
     onVisibleChange && onVisibleChange(actualVisible)
   }, [actualVisible])
 
+  // visible修改时触发actualVisible更新
   React.useEffect(() => {
     setTimeout(() => {
       setActualWrapper(visible)
-      // 保证这个方法最后调用
+      // 增加延时保证这个方法最后调用,时间不能大于TIME_DELAY,否则上一个任务就执行完了
     }, TIME_DELAY * 0.5)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible])
@@ -171,17 +191,21 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         modifiers
       }
       popperJsRef.current = new PopperJs(reference, popup, options)
-      // 不更新一次会在placement=auto时定位错误
+      // 不更新一次会在placement=auto时定位错误，原因未知
       popperJsRef.current.scheduleUpdate()
     },
     [popperJsRef, referenceRef, popupRef]
   )
 
-  const updatePopperJs = React.useCallback(() => {
-    if (popperJsRef.current) {
-      popperJsRef.current.scheduleUpdate()
-    }
-  }, [popperJsRef])
+  const updatePopperJs = React.useCallback(
+    (placement: Placement) => {
+      if (popperJsRef.current) {
+        popperJsRef.current.options.placement = placement
+        popperJsRef.current.scheduleUpdate()
+      }
+    },
+    [popperJsRef]
+  )
 
   // 弹出框显示时更新位置
   React.useEffect(() => {
@@ -191,10 +215,9 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       if (!popperJsRef.current) {
         createPopperJs(placement)
       } else {
-        popperJsRef.current.options.placement = placement
-        updatePopperJs()
+        updatePopperJs(placement)
       }
-      // 只有显示时才监听时间
+      // 只有显示时才监听事件
       popperJsRef.current!.enableEventListeners()
     } else {
       if (popperJsRef.current) {
@@ -214,23 +237,36 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [])
 
+  /**
+   * 进入popup区域时触发。
+   * 鼠标有可能从reference区域出来，此时需要清除定时器，否则reference的鼠标移出事件会关闭popper
+   */
   const onPopupMouseEnter = React.useCallback(() => {
+    // 取消定时器
     clearTimeout(delayTimerRef.current!)
     if (!allowPopupEnter) {
       setActualWrapper(false)
     }
   }, [delayTimerRef, setActualWrapper, allowPopupEnter])
 
+  /**
+   * 如果触发器是hover，则移出popup需要关闭popup
+   */
   const onPopupMouseLeave = React.useCallback(() => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
   }, [setActualWrapper, trigger])
 
+  /**
+   * popup点击事件,
+   * 由于此方法可能会在onClickoutside之前执行，但是需要取消onClickoutside的执行。
+   *
+   * 让clickoutside先触发，此方法会取消onClickoutside
+   * 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了.也要小于TIME_DELAY * 0.5.
+   * 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
+   */
   const onPopupClick = React.useCallback(() => {
-    // 让clickoutside先触发，此方法会取消onClickoutside
-    // 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了
-    // 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
     if (trigger === 'click' || trigger === 'contextMenu') {
       setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
     }
@@ -283,6 +319,9 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     return style
   }, [offset, actualPlacement, zIndex])
 
+  /**
+   * 提供介入popup弹出框弹出动画的操作，比如根据位置进行动画定位。可以参见tooltip
+   */
   const overlayStyleWrapper = React.useMemo(() => {
     let ret: React.CSSProperties
     if (typeof overlayStyle === 'function') {
@@ -369,8 +408,13 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [setActualWrapper, trigger])
 
+  // 在reference外点击时触发
   useClickOutside(referenceRef, onClickOutside)
 
+  /**
+   * 添加事件到children中，但是不能妨碍children中原来的事件，
+   * 所以对于相同的事件需要合并
+   */
   const childrenNode = React.useMemo(() => {
     const {
       onBlur: _onBlur,
