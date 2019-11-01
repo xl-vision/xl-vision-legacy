@@ -12,6 +12,7 @@ import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 
 export { Placement }
+export { Modifiers }
 
 export interface PopperProps {
   placement?: Placement
@@ -29,11 +30,18 @@ export interface PopperProps {
   arrow?: React.ReactElement | ((placement: Placement) => React.ReactElement)
   offset?: number | string
   overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties)
+  popperModifiers?: Modifiers
 }
 
 export const displayName = `${namePrefix}-popper`
 
 const getContainerFn = () => document.body
+
+const defaultPopperModifiers: Modifiers = {
+  preventOverflow: {
+    boundariesElement: 'window'
+  }
+}
 
 // 1000/60，约等于1帧的时间
 const TIME_DELAY = 16.67
@@ -61,7 +69,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     lazyRender = true,
     arrow,
     offset = 0,
-    overlayStyle
+    overlayStyle,
+    popperModifiers = defaultPopperModifiers
   } = props
 
   const popperJsRef = React.useRef<PopperJs>()
@@ -182,19 +191,17 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         setActualPlacement(data.placement)
       }
 
-      const modifiers: Modifiers = {}
-
       const options: PopperJs.PopperOptions = {
         placement,
+        modifiers: popperModifiers,
         onCreate: updateData,
-        onUpdate: updateData,
-        modifiers
+        onUpdate: updateData
       }
       popperJsRef.current = new PopperJs(reference, popup, options)
       // 不更新一次会在placement=auto时定位错误，原因未知
       popperJsRef.current.scheduleUpdate()
     },
-    [popperJsRef, referenceRef, popupRef]
+    [popperJsRef, referenceRef, popupRef, popperModifiers]
   )
 
   const updatePopperJs = React.useCallback(

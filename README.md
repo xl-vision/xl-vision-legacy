@@ -1,6 +1,8 @@
 # xl-vision
 
-A feature-rich React component library.
+### A feature-rich React component library.
+
+> The compiled package of the project contains the svg icon code in awesome, so the gzip is large, it is recommended to import it on demand.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/391165543cfc4c0985d714660f86fa0f)](https://www.codacy.com/app/xl-vision/xl-vision?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xl-vision/xl-vision&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/xl-vision/xl-vision/branch/master/graph/badge.svg)](https://codecov.io/gh/xl-vision/xl-vision)
@@ -12,6 +14,8 @@ A feature-rich React component library.
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/xl-vision/xl-vision.svg)](http://isitmaintained.com/project/xl-vision/xl-vision "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/xl-vision/xl-vision.svg)](http://isitmaintained.com/project/xl-vision/xl-vision "Percentage of issues still open")
 [![License used](https://img.shields.io/github/license/xl-vision/xl-vision.svg)](https://mit-license.org/)
+[![js gzip](http://img.badgesize.io/https://unpkg.com/xl-vision/dist/index.min.js?compression=gzip&label=gzip%20size:%20JS)](https://unpkg.com/xl-vision/dist/index.min.js)
+[![css gzip](http://img.badgesize.io/https://unpkg.com/xl-vision/dist/index.min.css?compression=gzip&label=gzip%20size:%20css)](https://unpkg.com/xl-vision/dist/index.min.css)
 
 # :sparkles: Features
 

@@ -1,11 +1,9 @@
-
 # Tooltip
 
-::: demo 基本用法
-基本的使用方式
+::: demo 基本用法基本的使用方式
 
 ```jsx
-import {Tooltip} from 'xl-vision'
+import { Tooltip } from 'xl-vision'
 export default () => {
   return (
     <Tooltip content={'tooltip text'}>
@@ -17,11 +15,10 @@ export default () => {
 
 :::
 
-::: demo 位置
-可以设置12个方向的位置
+::: demo 位置可以设置 12 个方向的位置
 
 ```jsx
-import {Row, Tooltip, Button} from 'xl-vision'
+import { Row, Tooltip, Button } from 'xl-vision'
 export default () => {
   return (
     <div>
@@ -46,7 +43,7 @@ export default () => {
         <Row.Col span={4}></Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -64,7 +61,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -82,7 +79,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -100,7 +97,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}></Row.Col>
@@ -125,16 +122,14 @@ export default () => {
     </div>
   )
 }
-
 ```
 
 :::
 
-::: demo 支持不同的触发方式
-通过`trigger`指定触发方式
+::: demo 支持不同的触发方式通过`trigger`指定触发方式
 
 ```jsx
-import {Tooltip, Button} from 'xl-vision'
+import { Tooltip, Button } from 'xl-vision'
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
@@ -152,41 +147,41 @@ export default () => {
         <Button>contextMenu</Button>
       </Tooltip>
       <Tooltip trigger='custom' visible={visible} content={'custom text'}>
-        <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
+        <Button onClick={() => setVisible(!visible)}>custom(click twice)</Button>
       </Tooltip>
     </Button.Group>
   )
 }
-
 ```
 
 :::
 
 ## Tooltip API
 
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
-| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
-| prefixCls | 自定义类名前缀            | string  | -  | -| false|
-| content | 提示内容,覆盖popup属性            | React.ReactNode  | -  | -| true|
+| 参数      | 说明                     | 类型            | 可选值 | 默认值 | 是否必填 |
+| --------- | ------------------------ | --------------- | ------ | ------ | -------- |
+| prefixCls | 自定义类名前缀           | string          | -      | -      | false    |
+| content   | 提示内容,覆盖 popup 属性 | React.ReactNode | -      | -      | true     |
 
-## Popup公共API
+## Popup 公共 API
 
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
-| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
-| lazyRender | 延时挂载弹出框           | boolean  | -  | - | true|
-| visible | 手动设置visible           | boolean  | -  | - | false|
-| trigger | 触发方式           | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom'  | -  | 'hover' | false|
-| placement | 弹出框位置           |  'top' / 'left' / 'right' / 'bottom' / 'top-start' / 'top-end'/ 'bottom-start' / 'bottom-end' / 'left-start' / 'left-end' / 'right-start' / 'right-end'  | -  | 'bottom' | false|
-| overlayStyle | 弹出框样式           | React.CSSProperties / ((placement: Placement) => React.CSSProperties)  | -  | - | false|
-| overlayClassName | 弹出框className            | string / ((placement: Placement) => string)  | -  | - | false|
-| onVisibleChange | 弹出框弹出或隐藏事件            | (visible: boolean) => void  | -  | - | false|
-| getPopupContainer | 弹出框挂载的位置            | () => HTMLElement  | -  | ()=>document.body | false|
-| delayShow | 延迟显示            | number  | -  | 0 | false|
-| delayHide | 延迟隐藏            | number  | -  | 0 | false|
-| allowPopupEnter | 是否允许进入提示框            | boolean  | -  | true | false|
-| children | 参考元素            | React.ReactElement  | -  | - | true|
-| arrow | 箭头           | (placement: Placement, center: { x: number, y: number }) => React.ReactElement  | -  | - | false|
-| offset | 弹出框距离参考元素的距离            | number  | -  | - | false|
-| onVisibleChange | 显示状态改变时的回调            | (visible: boolean) => void  | -  | - | false|
-| popup | 弹出框            | (placement: Placement) => React.ReactNode  | -  | - | true|
-| transitionName | 显示隐藏时的动画className            | CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)  | -  | - | false|
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| lazyRender | 延时挂载弹出框 | boolean | - | - | true |
+| visible | 手动设置 visible | boolean | - | - | false |
+| trigger | 触发方式 | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom' | - | 'hover' | false |
+| placement | 弹出框位置 | 'top' / 'left' / 'right' / 'bottom' / 'top-start' / 'top-end'/ 'bottom-start' / 'bottom-end' / 'left-start' / 'left-end' / 'right-start' / 'right-end' | - | 'bottom' | false |
+| overlayStyle | 弹出框样式 | React.CSSProperties / ((placement: Placement) => React.CSSProperties) | - | - | false |
+| overlayClassName | 弹出框 className | string / ((placement: Placement) => string) | - | - | false |
+| onVisibleChange | 弹出框弹出或隐藏事件 | (visible: boolean) => void | - | - | false |
+| getPopupContainer | 弹出框挂载的位置 | () => HTMLElement | - | ()=>document.body | false |
+| delayShow | 延迟显示 | number | - | 0 | false |
+| delayHide | 延迟隐藏 | number | - | 0 | false |
+| allowPopupEnter | 是否允许进入提示框 | boolean | - | true | false |
+| children | 参考元素 | React.ReactElement | - | - | true |
+| arrow | 箭头 | (placement: Placement, center: { x: number, y: number }) => React.ReactElement | - | - | false |
+| offset | 弹出框距离参考元素的距离 | number | - | - | false |
+| onVisibleChange | 显示状态改变时的回调 | (visible: boolean) => void | - | - | false |
+| popup | 弹出框 | (placement: Placement) => React.ReactNode | - | - | true |
+| transitionName | 显示隐藏时的动画 className | CssTransitionClassNames / ((placement: Placement) => CssTransitionClassNames) | - | - | false |
+| popperModifiers | 自定义 popper.js 的 modifiers 配置项，具体参见[popper.js 文档](https://popper.js.org/popper-documentation.html#modifiers) | Modifiers | - | - | { preventOverflow: { boundariesElement: 'window' } } | false|

@@ -5,7 +5,8 @@ import { namePrefix } from '../commons/config'
 import { Omit } from '../commons/types'
 import DropdownContext from './dropdown-context'
 
-export interface DropdownProps extends Omit<PopperProps, 'popup'> {
+// dropdown不应该不允许进入
+export interface DropdownProps extends Omit<Omit<PopperProps, 'popup'>, 'allowPopupEnter'> {
   closeOnClick?: boolean
   overlay: React.ReactElement | React.ReactElement[]
   prefixCls?: string
@@ -17,7 +18,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   const {
     overlay,
     placement = 'bottom',
-    trigger = 'click',
+    trigger = 'hover',
     prefixCls = displayName,
     overlayStyle = overlayStyleCb,
     visible = false,
@@ -81,6 +82,8 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
         transitionName={transitionName}
         onVisibleChange={onVisibleChangeWrapper}
         visible={actualVisible}
+        // 必须允许进入
+        allowPopupEnter={true}
         {...others}
       />
     </DropdownContext.Provider>

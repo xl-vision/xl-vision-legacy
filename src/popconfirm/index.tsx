@@ -4,8 +4,10 @@ import Button from '../button'
 import { namePrefix } from '../commons/config'
 import FasExclamationCircle from '../icon/icons/fas-exclamation-circle'
 import Tooltip, { TooltipProps } from '../tooltip'
+import { Omit } from '../commons/types'
 
-export interface PopconfirmProps extends TooltipProps {
+// popconfirm不应该不允许进入
+export interface PopconfirmProps extends Omit<TooltipProps, 'allowPopupEnter'> {
   cancelText?: string
   cancelType?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
   confirmText?: string
@@ -39,8 +41,6 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
   const icon = others.icon || <FasExclamationCircle className={`${prefixCls}__icon`} />
 
   delete others.icon
-
-  delete others.allowPopupEnter
 
   React.useEffect(() => {
     setActualVisible(visible)
@@ -114,10 +114,10 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
       trigger={trigger}
       onVisibleChange={onVisibleChangeWrapper}
       visible={actualVisible}
-      // 必须允许进入
-      allowPopupEnter={true}
       content={contentNode}
       prefixCls={prefixCls}
+      // 必须允许进入
+      allowPopupEnter={true}
       {...others}
     />
   )
