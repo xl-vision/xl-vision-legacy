@@ -1,6 +1,6 @@
 export { version } from './commons/config'
-export { default as Row } from './row'
 export { default as Icon } from './icon'
+export { default as Row } from './row'
 export { default as Button } from './button'
 export { default as Transition } from './transition'
 export { default as CssTransition } from './css-transition'

@@ -6,8 +6,6 @@ export { DropdownProps } from './dropdown'
 export { DropdownItemProps } from './dropdown-item'
 export { DropdownDividerProps } from './dropdown-divider'
 
-export { Dropdown, DropdownItem, DropdownDivider }
-
 const DropdownWithItem = Dropdown as (typeof Dropdown) & {
   Divider: typeof DropdownDivider
   Item: typeof DropdownItem

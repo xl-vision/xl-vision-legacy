@@ -1,6 +1,6 @@
 import { mount } from 'enzyme'
 import React from 'react'
-import { Button, ButtonGroup } from '..'
+import Button from '..'
 import FasPowerOff from '../../icon/icons/fas-power-off'
 
 describe('Button', () => {
@@ -112,46 +112,46 @@ describe('ButtonGroup', () => {
   it('水平按钮组', () => {
     const wrapper = mount(
       <div>
-        <ButtonGroup>
+        <Button.Group>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup round>
+        </Button.Group>
+        <Button.Group round>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup size='small'>
+        </Button.Group>
+        <Button.Group size='small'>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup size='default'>
+        </Button.Group>
+        <Button.Group size='default'>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup size='large'>
+        </Button.Group>
+        <Button.Group size='large'>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
+        </Button.Group>
       </div>
     )
     expect(wrapper).toMatchSnapshot()
@@ -160,46 +160,46 @@ describe('ButtonGroup', () => {
   it('垂直按钮组', () => {
     const wrapper = mount(
       <div>
-        <ButtonGroup vertical>
+        <Button.Group vertical>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup vertical round>
+        </Button.Group>
+        <Button.Group vertical round>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup vertical size='small'>
+        </Button.Group>
+        <Button.Group vertical size='small'>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup vertical size='default'>
+        </Button.Group>
+        <Button.Group vertical size='default'>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
-        <ButtonGroup vertical size='large'>
+        </Button.Group>
+        <Button.Group vertical size='large'>
           <Button>Default</Button>
           <Button type='primary'>Primary</Button>
           <Button type='success'>Success</Button>
           <Button type='warning'>Warning</Button>
           <Button type='error'>Error</Button>
           <Button type='text'>Error</Button>
-        </ButtonGroup>
+        </Button.Group>
       </div>
     )
     expect(wrapper).toMatchSnapshot()
@@ -207,10 +207,10 @@ describe('ButtonGroup', () => {
 
   it('设置size的优先级', () => {
     const wrapper = mount(
-      <ButtonGroup size='large'>
+      <Button.Group size='large'>
         <Button size='small'>Default</Button>
         <Button type='text'>Error</Button>
-      </ButtonGroup>
+      </Button.Group>
     )
     expect(wrapper).toMatchSnapshot()
   })
