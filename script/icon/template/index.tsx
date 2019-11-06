@@ -5,8 +5,8 @@ import createIcon from '../base/createIcon'
 
 export const displayName = `${namePrefix}-{{filename}}`
 const svgElement = (
-    <svg{{each message.attrs}} {{$index}}='{{$value}}'{{/each}}>
-        {{each message.children}}<{{$value.type}}{{each $value.attrs}} {{$index}}='{{$value}}'{{/each}}/>{{/each}}
+    <svg{{#each node.attrs}} {{@key}}='{{this}}'{{/each}}>
+        {{#each node.children}}<{{type}}{{#each attrs}} {{@key}}='{{this}}'{{/each}}/>{{/each}}
     </svg>
 )
 
