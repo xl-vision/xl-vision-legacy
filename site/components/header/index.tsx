@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Icon } from '../../../src'
+import { Button } from '../../../src'
+import { FabGithub } from '../../../src/icon'
 import logo from '../../assets/img/logo.png'
 import './index.scss'
 
@@ -12,7 +13,7 @@ const Header: React.FunctionComponent<{}> = () => {
       </Link>
       <div>
         <Button type='text' ghost href='https://github.com/xl-vision/xl-vision' target='_black'>
-          <Icon.FabGithub />
+          <FabGithub />
           Github
         </Button>
       </div>

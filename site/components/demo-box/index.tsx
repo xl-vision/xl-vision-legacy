@@ -1,7 +1,8 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
-import { Button, CollapseTransition, Icon } from '../../../src'
+import { Button, CollapseTransition } from '../../../src'
+import { FasAngleRight } from '../../../src/icon'
 
 import './index.scss'
 
@@ -33,7 +34,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
         <div className='demobox-desc'>{desc}</div>
         <div className='demobox-action'>
           <Button type='text' onClick={showCode}>
-            <Icon.FasAngleRight className={showCodeClasses} />
+            <FasAngleRight className={showCodeClasses} />
           </Button>
         </div>
       </div>

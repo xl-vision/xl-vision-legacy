@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Button from '../button'
 import { namePrefix } from '../commons/config'
-import FasExclamationCircle from '../icon/icons/fas-exclamation-circle'
+import { FasExclamationCircle } from '../icon'
 import Tooltip, { TooltipProps } from '../tooltip'
 import { Omit } from '../commons/types'
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { CssTransition } from '..'
 import { namePrefix } from '../commons/config'
-import FasSpinner from '../icon/icons/fas-spinner'
+import { FasSpinner } from '../icon'
 
 export type SpinSize = 'small' | 'default' | 'large'
 

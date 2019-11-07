@@ -9,10 +9,7 @@ import { off, on } from '../commons/utils/event'
 import { voidFn } from '../commons/utils/function'
 import { nextFrame } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
-import FasAngleDown from '../icon/icons/fas-angle-down'
-import FasAngleLeft from '../icon/icons/fas-angle-left'
-import FasAngleRight from '../icon/icons/fas-angle-right'
-import FasAngleUp from '../icon/icons/fas-angle-up'
+import { FasAngleDown, FasAngleLeft, FasAngleRight, FasAngleUp } from '../icon'
 
 export interface CarouselProps {
   arrow?: 'hover' | 'always' | 'none'

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import CollapseTransition from '../collapse-transition'
 import { namePrefix } from '../commons/config'
-import FasAngleRight from '../icon/icons/fas-angle-right'
+import { FasAngleRight } from '../icon'
 import CollapseContext from './collapse-context'
 
 export type CollapseExpandIconPosition = 'left' | 'right'
