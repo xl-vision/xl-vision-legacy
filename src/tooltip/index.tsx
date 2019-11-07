@@ -13,7 +13,7 @@ export interface TooltipProps extends Omit<PopperProps, 'popup'> {
 export const displayName = `${namePrefix}-tooltip`
 
 const Tooltip: React.FunctionComponent<TooltipProps> = props => {
-  const { content, prefixCls = displayName, offset = 10, ...others } = props
+  const { content, prefixCls = displayName, offset = 10, placement = 'top', ...others } = props
 
   const transitionName = others.transitionName || `${prefixCls}--fade`
 
@@ -35,6 +35,7 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
       arrow={arrow}
       popup={popup}
       offset={offset}
+      placement={placement}
       transitionName={transitionName}
       overlayStyle={overlayStyleCb}
       {...others}

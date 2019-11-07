@@ -62,14 +62,15 @@ $padding: 1rem;
 
     .demobox-action {
       position: absolute;
-      top: 0.25rem;
+      top: 0.5rem;
       right: 0;
 
       .xl-button {
         height: auto;
-        padding: 0 0.5rem;
+        padding: 0;
         color: lighten($--text-color, 30%);
         font-size: 2rem;
+        line-height: 1;
 
         &:hover {
           color: $--color-primary;

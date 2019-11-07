@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
-import { Button, CollapseTransition } from '../../../src'
+import { Button, CollapseTransition, Tooltip } from '../../../src'
 import { FasAngleRight } from '../../../src/icon'
 
 import './index.scss'
@@ -18,8 +18,8 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
   const { title, desc, /*code,*/ preview, children } = props
   const [display, setDisplay] = React.useState(false)
   const showCode = React.useCallback(() => {
-    setDisplay(!display)
-  }, [display])
+    setDisplay(prev => !prev)
+  }, [])
 
   const showCodeClasses = classnames({
     'demobox-showcode': true,
@@ -33,9 +33,11 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
         <div className='demobox-title'>{title}</div>
         <div className='demobox-desc'>{desc}</div>
         <div className='demobox-action'>
-          <Button type='text' onClick={showCode}>
-            <FasAngleRight className={showCodeClasses} />
-          </Button>
+          <Tooltip content={`点击${display ? '折叠' : '展开'}`} delayShow={1500}>
+            <Button type='text' onClick={showCode}>
+              <FasAngleRight className={showCodeClasses} />
+            </Button>
+          </Tooltip>
         </div>
       </div>
       <CollapseTransition
