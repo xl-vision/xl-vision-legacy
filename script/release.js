@@ -77,7 +77,12 @@ function run() {
 }
 
 function getVersionList(version) {
-  const levels = [['prerelease', 'beta'], ['patch', ''], ['minor', ''], ['major', '']]
+  const levels = [
+    ['prerelease', 'beta'],
+    ['patch', ''],
+    ['minor', ''],
+    ['major', '']
+  ]
   const opts = []
 
   levels.forEach(function(item) {

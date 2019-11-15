@@ -51,7 +51,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
       },
       afterEnter(el: HTMLElement) {
         // 防止内容高度变更后高度不会自动改变
-        el.style[key] = null
+        el.style[key] = ''
       },
       enterCancelled() {
         isCancelled = true
