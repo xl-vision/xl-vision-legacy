@@ -58,4 +58,5 @@ export const throttle = <Fn extends Function>(
   return (retFn as unknown) as Fn
 }
 
+// eslint-disable-next-line  @typescript-eslint/no-empty-function
 export const voidFn = () => {}

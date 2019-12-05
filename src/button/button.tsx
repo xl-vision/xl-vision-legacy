@@ -29,7 +29,7 @@ export interface BaseButtonProps {
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
 
-export const displayName = `${namePrefix}-button`
+const displayName = `${namePrefix}-button`
 
 const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   HTMLButtonElement & HTMLAnchorElement,

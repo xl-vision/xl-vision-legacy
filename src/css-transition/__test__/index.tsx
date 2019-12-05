@@ -327,6 +327,7 @@ describe('CssTransition', () => {
 
   it('测试包含cancelled的生命周期', async () => {
     // 阻止onTransitionEnd完成
+    // eslint-disable-next-line  @typescript-eslint/no-empty-function
     onTransitionEndSpy.mockImplementation(() => {})
     const call = jest.fn()
     const wrapper = mount(

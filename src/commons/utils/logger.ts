@@ -6,7 +6,7 @@ export const warning = __DEV__
         printWarning(format, args)
       }
     }
-  : () => {}
+  : () => {} // eslint-disable-line  @typescript-eslint/no-empty-function
 
 const printWarning = (format: string, args: string[]) => {
   let index = 0
