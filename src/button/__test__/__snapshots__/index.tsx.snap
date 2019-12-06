@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button 不可用状态 1`] = `
-<xl-button
+<ForwardRef
   disabled={true}
   onClick={[MockFunction]}
 >
@@ -16,12 +16,12 @@ exports[`Button 不可用状态 1`] = `
       button
     </span>
   </button>
-</xl-button>
+</ForwardRef>
 `;
 
 exports[`Button 不同尺寸的按钮 1`] = `
 <div>
-  <xl-button
+  <ForwardRef
     size="small"
   >
     <button
@@ -34,8 +34,8 @@ exports[`Button 不同尺寸的按钮 1`] = `
         Default
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     size="default"
   >
     <button
@@ -48,8 +48,8 @@ exports[`Button 不同尺寸的按钮 1`] = `
         Default
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     size="large"
   >
     <button
@@ -62,12 +62,12 @@ exports[`Button 不同尺寸的按钮 1`] = `
         Default
       </span>
     </button>
-  </xl-button>
+  </ForwardRef>
 </div>
 `;
 
 exports[`Button 加载中 1`] = `
-<xl-button
+<ForwardRef
   loading={true}
   onClick={[MockFunction]}
 >
@@ -75,11 +75,11 @@ exports[`Button 加载中 1`] = `
     className="xl-button xl-button--default xl-button--size-default xl-button--loading"
     onClick={[Function]}
   >
-    <xl-fas-circle-notch
+    <FasCircleNotch
       className="xl-button__icon"
       spin={true}
     >
-      <Memo(xl-icon)
+      <Memo(BaseIcon)
         className="xl-button__icon"
         spin={true}
       >
@@ -102,19 +102,19 @@ exports[`Button 加载中 1`] = `
             />
           </svg>
         </i>
-      </Memo(xl-icon)>
-    </xl-fas-circle-notch>
+      </Memo(BaseIcon)>
+    </FasCircleNotch>
     <span
       key=".0"
     >
       button
     </span>
   </button>
-</xl-button>
+</ForwardRef>
 `;
 
 exports[`Button 幽灵状态 1`] = `
-<xl-button
+<ForwardRef
   ghost={true}
 >
   <button
@@ -127,11 +127,11 @@ exports[`Button 幽灵状态 1`] = `
       Default
     </span>
   </button>
-</xl-button>
+</ForwardRef>
 `;
 
 exports[`Button 指定href 1`] = `
-<xl-button
+<ForwardRef
   href="#"
 >
   <a
@@ -145,12 +145,12 @@ exports[`Button 指定href 1`] = `
       Default
     </span>
   </a>
-</xl-button>
+</ForwardRef>
 `;
 
 exports[`Button 指定type 1`] = `
 <div>
-  <xl-button>
+  <ForwardRef>
     <button
       className="xl-button xl-button--default xl-button--size-default"
       onClick={[Function]}
@@ -161,8 +161,8 @@ exports[`Button 指定type 1`] = `
         button
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     type="default"
   >
     <button
@@ -175,8 +175,8 @@ exports[`Button 指定type 1`] = `
         button
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     type="primary"
   >
     <button
@@ -189,8 +189,8 @@ exports[`Button 指定type 1`] = `
         button
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     type="success"
   >
     <button
@@ -203,8 +203,8 @@ exports[`Button 指定type 1`] = `
         button
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     type="error"
   >
     <button
@@ -217,8 +217,8 @@ exports[`Button 指定type 1`] = `
         button
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     type="warning"
   >
     <button
@@ -231,8 +231,8 @@ exports[`Button 指定type 1`] = `
         button
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     type="text"
   >
     <button
@@ -245,13 +245,13 @@ exports[`Button 指定type 1`] = `
         button
       </span>
     </button>
-  </xl-button>
+  </ForwardRef>
 </div>
 `;
 
 exports[`Button 指定按钮形状 1`] = `
 <div>
-  <xl-button
+  <ForwardRef
     shape="round"
   >
     <button
@@ -264,8 +264,8 @@ exports[`Button 指定按钮形状 1`] = `
         button
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     shape="circle"
   >
     <button
@@ -278,21 +278,21 @@ exports[`Button 指定按钮形状 1`] = `
         button
       </span>
     </button>
-  </xl-button>
+  </ForwardRef>
 </div>
 `;
 
 exports[`Button 按钮中使用icon 1`] = `
 <div>
-  <xl-button>
+  <ForwardRef>
     <button
       className="xl-button xl-button--default xl-button--size-default"
       onClick={[Function]}
     >
-      <xl-fas-power-off
+      <FasPowerOff
         key=".0"
       >
-        <Memo(xl-icon)>
+        <Memo(BaseIcon)>
           <i
             className="xl-icon"
             style={Object {}}
@@ -312,16 +312,16 @@ exports[`Button 按钮中使用icon 1`] = `
               />
             </svg>
           </i>
-        </Memo(xl-icon)>
-      </xl-fas-power-off>
+        </Memo(BaseIcon)>
+      </FasPowerOff>
       <span
         key=".1"
       >
         Default
       </span>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     size="default"
   >
     <button
@@ -333,10 +333,10 @@ exports[`Button 按钮中使用icon 1`] = `
       >
         Default 
       </span>
-      <xl-fas-power-off
+      <FasPowerOff
         key=".1"
       >
-        <Memo(xl-icon)>
+        <Memo(BaseIcon)>
           <i
             className="xl-icon"
             style={Object {}}
@@ -356,21 +356,21 @@ exports[`Button 按钮中使用icon 1`] = `
               />
             </svg>
           </i>
-        </Memo(xl-icon)>
-      </xl-fas-power-off>
+        </Memo(BaseIcon)>
+      </FasPowerOff>
     </button>
-  </xl-button>
-  <xl-button
+  </ForwardRef>
+  <ForwardRef
     size="large"
   >
     <button
       className="xl-button xl-button--default xl-button--size-large"
       onClick={[Function]}
     >
-      <xl-fas-power-off
+      <FasPowerOff
         key=".0"
       >
-        <Memo(xl-icon)>
+        <Memo(BaseIcon)>
           <i
             className="xl-icon"
             style={Object {}}
@@ -390,15 +390,15 @@ exports[`Button 按钮中使用icon 1`] = `
               />
             </svg>
           </i>
-        </Memo(xl-icon)>
-      </xl-fas-power-off>
+        </Memo(BaseIcon)>
+      </FasPowerOff>
     </button>
-  </xl-button>
+  </ForwardRef>
 </div>
 `;
 
 exports[`Button 长按钮 1`] = `
-<xl-button
+<ForwardRef
   long={true}
 >
   <button
@@ -411,18 +411,18 @@ exports[`Button 长按钮 1`] = `
       Default
     </span>
   </button>
-</xl-button>
+</ForwardRef>
 `;
 
 exports[`ButtonGroup 垂直按钮组 1`] = `
 <div>
-  <xl-button-group
+  <ButtonGroup
     vertical={true}
   >
     <div
       className="xl-button-group xl-button-group--vertical"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-default"
           onClick={[Function]}
@@ -433,8 +433,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -447,8 +447,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -461,8 +461,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -475,8 +475,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -489,8 +489,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -503,17 +503,17 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     round={true}
     vertical={true}
   >
     <div
       className="xl-button-group xl-button-group--vertical xl-button-group--round"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-default"
           onClick={[Function]}
@@ -524,8 +524,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -538,8 +538,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -552,8 +552,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -566,8 +566,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -580,8 +580,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -594,17 +594,17 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     size="small"
     vertical={true}
   >
     <div
       className="xl-button-group xl-button-group--vertical"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-small"
           onClick={[Function]}
@@ -615,8 +615,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -629,8 +629,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -643,8 +643,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -657,8 +657,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -671,8 +671,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -685,17 +685,17 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     size="default"
     vertical={true}
   >
     <div
       className="xl-button-group xl-button-group--vertical"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-default"
           onClick={[Function]}
@@ -706,8 +706,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -720,8 +720,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -734,8 +734,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -748,8 +748,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -762,8 +762,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -776,17 +776,17 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     size="large"
     vertical={true}
   >
     <div
       className="xl-button-group xl-button-group--vertical"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-large"
           onClick={[Function]}
@@ -797,8 +797,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -811,8 +811,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -825,8 +825,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -839,8 +839,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -853,8 +853,8 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -867,19 +867,19 @@ exports[`ButtonGroup 垂直按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
+  </ButtonGroup>
 </div>
 `;
 
 exports[`ButtonGroup 水平按钮组 1`] = `
 <div>
-  <xl-button-group>
+  <ButtonGroup>
     <div
       className="xl-button-group xl-button-group--horizontal"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-default"
           onClick={[Function]}
@@ -890,8 +890,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -904,8 +904,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -918,8 +918,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -932,8 +932,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -946,8 +946,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -960,16 +960,16 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     round={true}
   >
     <div
       className="xl-button-group xl-button-group--horizontal xl-button-group--round"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-default"
           onClick={[Function]}
@@ -980,8 +980,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -994,8 +994,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -1008,8 +1008,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -1022,8 +1022,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -1036,8 +1036,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -1050,16 +1050,16 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     size="small"
   >
     <div
       className="xl-button-group xl-button-group--horizontal"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-small"
           onClick={[Function]}
@@ -1070,8 +1070,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -1084,8 +1084,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -1098,8 +1098,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -1112,8 +1112,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -1126,8 +1126,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -1140,16 +1140,16 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     size="default"
   >
     <div
       className="xl-button-group xl-button-group--horizontal"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-default"
           onClick={[Function]}
@@ -1160,8 +1160,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -1174,8 +1174,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -1188,8 +1188,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -1202,8 +1202,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -1216,8 +1216,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -1230,16 +1230,16 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
-  <xl-button-group
+  </ButtonGroup>
+  <ButtonGroup
     size="large"
   >
     <div
       className="xl-button-group xl-button-group--horizontal"
     >
-      <xl-button>
+      <ForwardRef>
         <button
           className="xl-button xl-button--default xl-button--size-large"
           onClick={[Function]}
@@ -1250,8 +1250,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Default
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="primary"
       >
         <button
@@ -1264,8 +1264,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Primary
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="success"
       >
         <button
@@ -1278,8 +1278,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Success
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="warning"
       >
         <button
@@ -1292,8 +1292,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Warning
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="error"
       >
         <button
@@ -1306,8 +1306,8 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
-      <xl-button
+      </ForwardRef>
+      <ForwardRef
         type="text"
       >
         <button
@@ -1320,20 +1320,20 @@ exports[`ButtonGroup 水平按钮组 1`] = `
             Error
           </span>
         </button>
-      </xl-button>
+      </ForwardRef>
     </div>
-  </xl-button-group>
+  </ButtonGroup>
 </div>
 `;
 
 exports[`ButtonGroup 设置size的优先级 1`] = `
-<xl-button-group
+<ButtonGroup
   size="large"
 >
   <div
     className="xl-button-group xl-button-group--horizontal"
   >
-    <xl-button
+    <ForwardRef
       size="small"
     >
       <button
@@ -1346,8 +1346,8 @@ exports[`ButtonGroup 设置size的优先级 1`] = `
           Default
         </span>
       </button>
-    </xl-button>
-    <xl-button
+    </ForwardRef>
+    <ForwardRef
       type="text"
     >
       <button
@@ -1360,7 +1360,7 @@ exports[`ButtonGroup 设置size的优先级 1`] = `
           Error
         </span>
       </button>
-    </xl-button>
+    </ForwardRef>
   </div>
-</xl-button-group>
+</ButtonGroup>
 `;

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`collapse 测试展开收缩效果 1`] = `
-<xl-collapse>
+<Collapse>
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -20,10 +20,10 @@ exports[`collapse 测试展开收缩效果 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -49,20 +49,20 @@ exports[`collapse 测试展开收缩效果 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -73,7 +73,7 @@ exports[`collapse 测试展开收缩效果 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -116,12 +116,12 @@ exports[`collapse 测试展开收缩效果 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -136,10 +136,10 @@ exports[`collapse 测试展开收缩效果 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -165,20 +165,20 @@ exports[`collapse 测试展开收缩效果 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -189,7 +189,7 @@ exports[`collapse 测试展开收缩效果 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -232,21 +232,21 @@ exports[`collapse 测试展开收缩效果 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试展开收缩效果 2`] = `
-<xl-collapse>
+<Collapse>
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -261,10 +261,10 @@ exports[`collapse 测试展开收缩效果 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -290,20 +290,20 @@ exports[`collapse 测试展开收缩效果 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -314,7 +314,7 @@ exports[`collapse 测试展开收缩效果 2`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -356,12 +356,12 @@ exports[`collapse 测试展开收缩效果 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -376,10 +376,10 @@ exports[`collapse 测试展开收缩效果 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -405,20 +405,20 @@ exports[`collapse 测试展开收缩效果 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -429,7 +429,7 @@ exports[`collapse 测试展开收缩效果 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -472,21 +472,21 @@ exports[`collapse 测试展开收缩效果 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试展开收缩效果 3`] = `
-<xl-collapse>
+<Collapse>
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -501,10 +501,10 @@ exports[`collapse 测试展开收缩效果 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -530,20 +530,20 @@ exports[`collapse 测试展开收缩效果 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -554,7 +554,7 @@ exports[`collapse 测试展开收缩效果 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -596,12 +596,12 @@ exports[`collapse 测试展开收缩效果 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -616,10 +616,10 @@ exports[`collapse 测试展开收缩效果 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -645,20 +645,20 @@ exports[`collapse 测试展开收缩效果 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -669,7 +669,7 @@ exports[`collapse 测试展开收缩效果 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -711,23 +711,23 @@ exports[`collapse 测试展开收缩效果 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试手风琴 1`] = `
-<xl-collapse
+<Collapse
   accordion={true}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -742,10 +742,10 @@ exports[`collapse 测试手风琴 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -771,20 +771,20 @@ exports[`collapse 测试手风琴 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -795,7 +795,7 @@ exports[`collapse 测试手风琴 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -838,12 +838,12 @@ exports[`collapse 测试手风琴 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -858,10 +858,10 @@ exports[`collapse 测试手风琴 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -887,20 +887,20 @@ exports[`collapse 测试手风琴 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -911,7 +911,7 @@ exports[`collapse 测试手风琴 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -954,23 +954,23 @@ exports[`collapse 测试手风琴 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试手风琴 2`] = `
-<xl-collapse
+<Collapse
   accordion={true}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -985,10 +985,10 @@ exports[`collapse 测试手风琴 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -1014,20 +1014,20 @@ exports[`collapse 测试手风琴 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1038,7 +1038,7 @@ exports[`collapse 测试手风琴 2`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1080,12 +1080,12 @@ exports[`collapse 测试手风琴 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -1100,10 +1100,10 @@ exports[`collapse 测试手风琴 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -1129,20 +1129,20 @@ exports[`collapse 测试手风琴 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1153,7 +1153,7 @@ exports[`collapse 测试手风琴 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1196,23 +1196,23 @@ exports[`collapse 测试手风琴 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试手风琴 3`] = `
-<xl-collapse
+<Collapse
   accordion={true}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -1227,10 +1227,10 @@ exports[`collapse 测试手风琴 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -1256,20 +1256,20 @@ exports[`collapse 测试手风琴 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1280,7 +1280,7 @@ exports[`collapse 测试手风琴 3`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1322,12 +1322,12 @@ exports[`collapse 测试手风琴 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -1342,10 +1342,10 @@ exports[`collapse 测试手风琴 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -1371,20 +1371,20 @@ exports[`collapse 测试手风琴 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1395,7 +1395,7 @@ exports[`collapse 测试手风琴 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1437,23 +1437,23 @@ exports[`collapse 测试手风琴 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试指定箭头位置 1`] = `
-<xl-collapse
+<Collapse
   expandArrowPosition="right"
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       expandArrowPosition="right"
       header="header1"
       key=".0"
@@ -1469,10 +1469,10 @@ exports[`collapse 测试指定箭头位置 1`] = `
           <span
             className="xl-collapse-panel__header__arrow xl-collapse-panel__header__arrow--right"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -1498,20 +1498,20 @@ exports[`collapse 测试指定箭头位置 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1522,7 +1522,7 @@ exports[`collapse 测试指定箭头位置 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1565,12 +1565,12 @@ exports[`collapse 测试指定箭头位置 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       expandArrowPosition="right"
       header="header2"
       key=".1"
@@ -1586,10 +1586,10 @@ exports[`collapse 测试指定箭头位置 1`] = `
           <span
             className="xl-collapse-panel__header__arrow xl-collapse-panel__header__arrow--right"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -1615,20 +1615,20 @@ exports[`collapse 测试指定箭头位置 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1639,7 +1639,7 @@ exports[`collapse 测试指定箭头位置 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1682,23 +1682,23 @@ exports[`collapse 测试指定箭头位置 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试无边框 1`] = `
-<xl-collapse
+<Collapse
   bordered={false}
 >
   <div
     className="xl-collapse xl-collapse--borderless"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -1713,10 +1713,10 @@ exports[`collapse 测试无边框 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -1742,20 +1742,20 @@ exports[`collapse 测试无边框 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1766,7 +1766,7 @@ exports[`collapse 测试无边框 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1809,12 +1809,12 @@ exports[`collapse 测试无边框 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -1829,10 +1829,10 @@ exports[`collapse 测试无边框 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -1858,20 +1858,20 @@ exports[`collapse 测试无边框 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -1882,7 +1882,7 @@ exports[`collapse 测试无边框 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -1925,23 +1925,23 @@ exports[`collapse 测试无边框 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试无边框 2`] = `
-<xl-collapse
+<Collapse
   bordered={false}
 >
   <div
     className="xl-collapse xl-collapse--borderless"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -1956,10 +1956,10 @@ exports[`collapse 测试无边框 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -1985,20 +1985,20 @@ exports[`collapse 测试无边框 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2009,7 +2009,7 @@ exports[`collapse 测试无边框 2`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2051,12 +2051,12 @@ exports[`collapse 测试无边框 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -2071,10 +2071,10 @@ exports[`collapse 测试无边框 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -2100,20 +2100,20 @@ exports[`collapse 测试无边框 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2124,7 +2124,7 @@ exports[`collapse 测试无边框 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2167,23 +2167,23 @@ exports[`collapse 测试无边框 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试无边框 3`] = `
-<xl-collapse
+<Collapse
   bordered={false}
 >
   <div
     className="xl-collapse xl-collapse--borderless"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -2198,10 +2198,10 @@ exports[`collapse 测试无边框 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -2227,20 +2227,20 @@ exports[`collapse 测试无边框 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2251,7 +2251,7 @@ exports[`collapse 测试无边框 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2293,12 +2293,12 @@ exports[`collapse 测试无边框 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -2313,10 +2313,10 @@ exports[`collapse 测试无边框 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -2342,20 +2342,20 @@ exports[`collapse 测试无边框 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2366,7 +2366,7 @@ exports[`collapse 测试无边框 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2408,23 +2408,23 @@ exports[`collapse 测试无边框 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试禁用面板 1`] = `
-<xl-collapse
+<Collapse
   accordion={true}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       disabled={true}
       header="header1"
       key=".0"
@@ -2440,10 +2440,10 @@ exports[`collapse 测试禁用面板 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -2469,20 +2469,20 @@ exports[`collapse 测试禁用面板 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2493,7 +2493,7 @@ exports[`collapse 测试禁用面板 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2536,12 +2536,12 @@ exports[`collapse 测试禁用面板 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -2556,10 +2556,10 @@ exports[`collapse 测试禁用面板 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -2585,20 +2585,20 @@ exports[`collapse 测试禁用面板 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2609,7 +2609,7 @@ exports[`collapse 测试禁用面板 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2652,23 +2652,23 @@ exports[`collapse 测试禁用面板 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试禁用面板 2`] = `
-<xl-collapse
+<Collapse
   accordion={true}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       disabled={true}
       header="header1"
       key=".0"
@@ -2684,10 +2684,10 @@ exports[`collapse 测试禁用面板 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -2713,20 +2713,20 @@ exports[`collapse 测试禁用面板 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2737,7 +2737,7 @@ exports[`collapse 测试禁用面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2780,12 +2780,12 @@ exports[`collapse 测试禁用面板 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -2800,10 +2800,10 @@ exports[`collapse 测试禁用面板 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -2829,20 +2829,20 @@ exports[`collapse 测试禁用面板 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2853,7 +2853,7 @@ exports[`collapse 测试禁用面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -2896,23 +2896,23 @@ exports[`collapse 测试禁用面板 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试禁用面板 3`] = `
-<xl-collapse
+<Collapse
   accordion={true}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       disabled={true}
       header="header1"
       key=".0"
@@ -2928,10 +2928,10 @@ exports[`collapse 测试禁用面板 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -2957,20 +2957,20 @@ exports[`collapse 测试禁用面板 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -2981,7 +2981,7 @@ exports[`collapse 测试禁用面板 3`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3024,12 +3024,12 @@ exports[`collapse 测试禁用面板 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -3044,10 +3044,10 @@ exports[`collapse 测试禁用面板 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -3073,20 +3073,20 @@ exports[`collapse 测试禁用面板 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3097,7 +3097,7 @@ exports[`collapse 测试禁用面板 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3139,23 +3139,23 @@ exports[`collapse 测试禁用面板 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试自定义箭头 1`] = `
-<xl-collapse
+<Collapse
   expandArrow={[Function]}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       expandArrow={[Function]}
       header="header1"
       key=".0"
@@ -3171,10 +3171,10 @@ exports[`collapse 测试自定义箭头 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-arrow-circle-right
+            <FasArrowCircleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -3200,20 +3200,20 @@ exports[`collapse 测试自定义箭头 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-arrow-circle-right>
+              </Memo(BaseIcon)>
+            </FasArrowCircleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3224,7 +3224,7 @@ exports[`collapse 测试自定义箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3267,12 +3267,12 @@ exports[`collapse 测试自定义箭头 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       expandArrow={[Function]}
       header="header2"
       key=".1"
@@ -3288,10 +3288,10 @@ exports[`collapse 测试自定义箭头 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-arrow-circle-right
+            <FasArrowCircleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -3317,20 +3317,20 @@ exports[`collapse 测试自定义箭头 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-arrow-circle-right>
+              </Memo(BaseIcon)>
+            </FasArrowCircleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3341,7 +3341,7 @@ exports[`collapse 测试自定义箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3384,23 +3384,23 @@ exports[`collapse 测试自定义箭头 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试隐藏箭头 1`] = `
-<xl-collapse
+<Collapse
   showArrow={false}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -3418,12 +3418,12 @@ exports[`collapse 测试隐藏箭头 1`] = `
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3434,7 +3434,7 @@ exports[`collapse 测试隐藏箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3477,12 +3477,12 @@ exports[`collapse 测试隐藏箭头 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -3500,12 +3500,12 @@ exports[`collapse 测试隐藏箭头 1`] = `
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3516,7 +3516,7 @@ exports[`collapse 测试隐藏箭头 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3559,24 +3559,24 @@ exports[`collapse 测试隐藏箭头 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试额外内容 1`] = `
-<xl-collapse
+<Collapse
   extra={[Function]}
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
-      extra={<xl-fas-cog />}
+    <CollapsePanel
+      extra={<FasCog />}
       header="header1"
       key=".0"
       name="0"
@@ -3591,10 +3591,10 @@ exports[`collapse 测试额外内容 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -3620,15 +3620,15 @@ exports[`collapse 测试额外内容 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           >
-            <xl-fas-cog>
-              <Memo(xl-icon)>
+            <FasCog>
+              <Memo(BaseIcon)>
                 <i
                   className="xl-icon"
                   style={Object {}}
@@ -3648,16 +3648,16 @@ exports[`collapse 测试额外内容 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-cog>
+              </Memo(BaseIcon)>
+            </FasCog>
           </span>
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3668,7 +3668,7 @@ exports[`collapse 测试额外内容 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3711,13 +3711,13 @@ exports[`collapse 测试额外内容 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
-      extra={<xl-fas-cog />}
+    </CollapsePanel>
+    <CollapsePanel
+      extra={<FasCog />}
       header="header2"
       key=".1"
       name="1"
@@ -3732,10 +3732,10 @@ exports[`collapse 测试额外内容 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -3761,15 +3761,15 @@ exports[`collapse 测试额外内容 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           >
-            <xl-fas-cog>
-              <Memo(xl-icon)>
+            <FasCog>
+              <Memo(BaseIcon)>
                 <i
                   className="xl-icon"
                   style={Object {}}
@@ -3789,16 +3789,16 @@ exports[`collapse 测试额外内容 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-cog>
+              </Memo(BaseIcon)>
+            </FasCog>
           </span>
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3809,7 +3809,7 @@ exports[`collapse 测试额外内容 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3852,23 +3852,23 @@ exports[`collapse 测试额外内容 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试默认展开的面板 1`] = `
-<xl-collapse
+<Collapse
   defaultActiveName="0"
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -3883,10 +3883,10 @@ exports[`collapse 测试默认展开的面板 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -3912,20 +3912,20 @@ exports[`collapse 测试默认展开的面板 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -3936,7 +3936,7 @@ exports[`collapse 测试默认展开的面板 1`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -3978,12 +3978,12 @@ exports[`collapse 测试默认展开的面板 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -3998,10 +3998,10 @@ exports[`collapse 测试默认展开的面板 1`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -4027,20 +4027,20 @@ exports[`collapse 测试默认展开的面板 1`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -4051,7 +4051,7 @@ exports[`collapse 测试默认展开的面板 1`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4094,23 +4094,23 @@ exports[`collapse 测试默认展开的面板 1`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试默认展开的面板 2`] = `
-<xl-collapse
+<Collapse
   defaultActiveName="0"
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -4125,10 +4125,10 @@ exports[`collapse 测试默认展开的面板 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -4154,20 +4154,20 @@ exports[`collapse 测试默认展开的面板 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -4178,7 +4178,7 @@ exports[`collapse 测试默认展开的面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4220,12 +4220,12 @@ exports[`collapse 测试默认展开的面板 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -4240,10 +4240,10 @@ exports[`collapse 测试默认展开的面板 2`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -4269,20 +4269,20 @@ exports[`collapse 测试默认展开的面板 2`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -4293,7 +4293,7 @@ exports[`collapse 测试默认展开的面板 2`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4336,23 +4336,23 @@ exports[`collapse 测试默认展开的面板 2`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;
 
 exports[`collapse 测试默认展开的面板 3`] = `
-<xl-collapse
+<Collapse
   defaultActiveName="0"
 >
   <div
     className="xl-collapse"
   >
-    <xl-collapse-panel
+    <CollapsePanel
       header="header1"
       key=".0"
       name="0"
@@ -4367,10 +4367,10 @@ exports[`collapse 测试默认展开的面板 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={0}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={0}
               >
                 <i
@@ -4396,20 +4396,20 @@ exports[`collapse 测试默认展开的面板 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header1
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={false}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -4420,7 +4420,7 @@ exports[`collapse 测试默认展开的面板 3`] = `
             leaveCancelled={[Function]}
             show={false}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4462,12 +4462,12 @@ exports[`collapse 测试默认展开的面板 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
-    <xl-collapse-panel
+    </CollapsePanel>
+    <CollapsePanel
       header="header2"
       key=".1"
       name="1"
@@ -4482,10 +4482,10 @@ exports[`collapse 测试默认展开的面板 3`] = `
           <span
             className="xl-collapse-panel__header__arrow"
           >
-            <xl-fas-angle-right
+            <FasAngleRight
               rotate={90}
             >
-              <Memo(xl-icon)
+              <Memo(BaseIcon)
                 rotate={90}
               >
                 <i
@@ -4511,20 +4511,20 @@ exports[`collapse 测试默认展开的面板 3`] = `
                     />
                   </svg>
                 </i>
-              </Memo(xl-icon)>
-            </xl-fas-angle-right>
+              </Memo(BaseIcon)>
+            </FasAngleRight>
           </span>
           header2
           <span
             className="xl-collapse-panel__header__extra"
           />
         </div>
-        <xl-collapse-transition
+        <CollapseTransition
           forceRender={true}
           show={true}
           transitionClassName="xl-collapse-panel__body--slide"
         >
-          <xl-css-transition
+          <CssTransition
             afterEnter={[Function]}
             beforeEnter={[Function]}
             beforeLeave={[Function]}
@@ -4535,7 +4535,7 @@ exports[`collapse 测试默认展开的面板 3`] = `
             leaveCancelled={[Function]}
             show={true}
           >
-            <xl-transition
+            <Transition
               afterAppear={[Function]}
               afterEnter={[Function]}
               afterLeave={[Function]}
@@ -4577,11 +4577,11 @@ exports[`collapse 测试默认展开的面板 3`] = `
                   </div>
                 </div>
               </div>
-            </xl-transition>
-          </xl-css-transition>
-        </xl-collapse-transition>
+            </Transition>
+          </CssTransition>
+        </CollapseTransition>
       </div>
-    </xl-collapse-panel>
+    </CollapsePanel>
   </div>
-</xl-collapse>
+</Collapse>
 `;

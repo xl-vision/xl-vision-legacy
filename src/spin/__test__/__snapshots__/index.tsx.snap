@@ -4,17 +4,17 @@ exports[`spin 不同大小 1`] = `
 <div
   className="wrapper"
 >
-  <xl-spin
+  <Spin
     size="small"
   >
     <div
       className="xl-spin xl-spin--spinning"
     >
-      <xl-css-transition
+      <CssTransition
         classNames="xl-spin__fade"
         show={true}
       >
-        <xl-transition
+        <Transition
           afterAppear={[Function]}
           afterEnter={[Function]}
           afterLeave={[Function]}
@@ -39,10 +39,10 @@ exports[`spin 不同大小 1`] = `
               <span
                 className="xl-spin__indicator"
               >
-                <xl-fas-spinner
+                <FasSpinner
                   spin={true}
                 >
-                  <Memo(xl-icon)
+                  <Memo(BaseIcon)
                     spin={true}
                   >
                     <i
@@ -64,8 +64,8 @@ exports[`spin 不同大小 1`] = `
                         />
                       </svg>
                     </i>
-                  </Memo(xl-icon)>
-                </xl-fas-spinner>
+                  </Memo(BaseIcon)>
+                </FasSpinner>
               </span>
               <span
                 className="xl-spin__tip"
@@ -74,21 +74,21 @@ exports[`spin 不同大小 1`] = `
               </span>
             </div>
           </div>
-        </xl-transition>
-      </xl-css-transition>
+        </Transition>
+      </CssTransition>
     </div>
-  </xl-spin>
-  <xl-spin
+  </Spin>
+  <Spin
     size="default"
   >
     <div
       className="xl-spin xl-spin--spinning"
     >
-      <xl-css-transition
+      <CssTransition
         classNames="xl-spin__fade"
         show={true}
       >
-        <xl-transition
+        <Transition
           afterAppear={[Function]}
           afterEnter={[Function]}
           afterLeave={[Function]}
@@ -113,10 +113,10 @@ exports[`spin 不同大小 1`] = `
               <span
                 className="xl-spin__indicator"
               >
-                <xl-fas-spinner
+                <FasSpinner
                   spin={true}
                 >
-                  <Memo(xl-icon)
+                  <Memo(BaseIcon)
                     spin={true}
                   >
                     <i
@@ -138,8 +138,8 @@ exports[`spin 不同大小 1`] = `
                         />
                       </svg>
                     </i>
-                  </Memo(xl-icon)>
-                </xl-fas-spinner>
+                  </Memo(BaseIcon)>
+                </FasSpinner>
               </span>
               <span
                 className="xl-spin__tip"
@@ -148,21 +148,21 @@ exports[`spin 不同大小 1`] = `
               </span>
             </div>
           </div>
-        </xl-transition>
-      </xl-css-transition>
+        </Transition>
+      </CssTransition>
     </div>
-  </xl-spin>
-  <xl-spin
+  </Spin>
+  <Spin
     size="large"
   >
     <div
       className="xl-spin xl-spin--spinning"
     >
-      <xl-css-transition
+      <CssTransition
         classNames="xl-spin__fade"
         show={true}
       >
-        <xl-transition
+        <Transition
           afterAppear={[Function]}
           afterEnter={[Function]}
           afterLeave={[Function]}
@@ -187,10 +187,10 @@ exports[`spin 不同大小 1`] = `
               <span
                 className="xl-spin__indicator"
               >
-                <xl-fas-spinner
+                <FasSpinner
                   spin={true}
                 >
-                  <Memo(xl-icon)
+                  <Memo(BaseIcon)
                     spin={true}
                   >
                     <i
@@ -212,8 +212,8 @@ exports[`spin 不同大小 1`] = `
                         />
                       </svg>
                     </i>
-                  </Memo(xl-icon)>
-                </xl-fas-spinner>
+                  </Memo(BaseIcon)>
+                </FasSpinner>
               </span>
               <span
                 className="xl-spin__tip"
@@ -222,23 +222,23 @@ exports[`spin 不同大小 1`] = `
               </span>
             </div>
           </div>
-        </xl-transition>
-      </xl-css-transition>
+        </Transition>
+      </CssTransition>
     </div>
-  </xl-spin>
+  </Spin>
 </div>
 `;
 
 exports[`spin 内嵌内容 1`] = `
-<xl-spin>
+<Spin>
   <div
     className="xl-spin xl-spin--spinning xl-spin--nested"
   >
-    <xl-css-transition
+    <CssTransition
       classNames="xl-spin__fade"
       show={true}
     >
-      <xl-transition
+      <Transition
         afterAppear={[Function]}
         afterEnter={[Function]}
         afterLeave={[Function]}
@@ -263,10 +263,10 @@ exports[`spin 内嵌内容 1`] = `
             <span
               className="xl-spin__indicator"
             >
-              <xl-fas-spinner
+              <FasSpinner
                 spin={true}
               >
-                <Memo(xl-icon)
+                <Memo(BaseIcon)
                   spin={true}
                 >
                   <i
@@ -288,8 +288,8 @@ exports[`spin 内嵌内容 1`] = `
                       />
                     </svg>
                   </i>
-                </Memo(xl-icon)>
-              </xl-fas-spinner>
+                </Memo(BaseIcon)>
+              </FasSpinner>
             </span>
             <span
               className="xl-spin__tip"
@@ -298,8 +298,8 @@ exports[`spin 内嵌内容 1`] = `
             </span>
           </div>
         </div>
-      </xl-transition>
-    </xl-css-transition>
+      </Transition>
+    </CssTransition>
     <div
       className="xl-spin__children"
     >
@@ -310,19 +310,19 @@ exports[`spin 内嵌内容 1`] = `
       </div>
     </div>
   </div>
-</xl-spin>
+</Spin>
 `;
 
 exports[`spin 基本用法 1`] = `
-<xl-spin>
+<Spin>
   <div
     className="xl-spin xl-spin--spinning"
   >
-    <xl-css-transition
+    <CssTransition
       classNames="xl-spin__fade"
       show={true}
     >
-      <xl-transition
+      <Transition
         afterAppear={[Function]}
         afterEnter={[Function]}
         afterLeave={[Function]}
@@ -347,10 +347,10 @@ exports[`spin 基本用法 1`] = `
             <span
               className="xl-spin__indicator"
             >
-              <xl-fas-spinner
+              <FasSpinner
                 spin={true}
               >
-                <Memo(xl-icon)
+                <Memo(BaseIcon)
                   spin={true}
                 >
                   <i
@@ -372,8 +372,8 @@ exports[`spin 基本用法 1`] = `
                       />
                     </svg>
                   </i>
-                </Memo(xl-icon)>
-              </xl-fas-spinner>
+                </Memo(BaseIcon)>
+              </FasSpinner>
             </span>
             <span
               className="xl-spin__tip"
@@ -382,16 +382,16 @@ exports[`spin 基本用法 1`] = `
             </span>
           </div>
         </div>
-      </xl-transition>
-    </xl-css-transition>
+      </Transition>
+    </CssTransition>
   </div>
-</xl-spin>
+</Spin>
 `;
 
 exports[`spin 自定义指示器 1`] = `
-<xl-spin
+<Spin
   indicator={
-    <xl-fas-circle-notch
+    <FasCircleNotch
       spin={true}
     />
   }
@@ -400,11 +400,11 @@ exports[`spin 自定义指示器 1`] = `
   <div
     className="xl-spin xl-spin--spinning"
   >
-    <xl-css-transition
+    <CssTransition
       classNames="xl-spin__fade"
       show={true}
     >
-      <xl-transition
+      <Transition
         afterAppear={[Function]}
         afterEnter={[Function]}
         afterLeave={[Function]}
@@ -429,10 +429,10 @@ exports[`spin 自定义指示器 1`] = `
             <span
               className="xl-spin__indicator"
             >
-              <xl-fas-circle-notch
+              <FasCircleNotch
                 spin={true}
               >
-                <Memo(xl-icon)
+                <Memo(BaseIcon)
                   spin={true}
                 >
                   <i
@@ -454,8 +454,8 @@ exports[`spin 自定义指示器 1`] = `
                       />
                     </svg>
                   </i>
-                </Memo(xl-icon)>
-              </xl-fas-circle-notch>
+                </Memo(BaseIcon)>
+              </FasCircleNotch>
             </span>
             <span
               className="xl-spin__tip"
@@ -464,24 +464,24 @@ exports[`spin 自定义指示器 1`] = `
             </span>
           </div>
         </div>
-      </xl-transition>
-    </xl-css-transition>
+      </Transition>
+    </CssTransition>
   </div>
-</xl-spin>
+</Spin>
 `;
 
 exports[`spin 自定义描述 1`] = `
-<xl-spin
+<Spin
   tip="Loading..."
 >
   <div
     className="xl-spin xl-spin--spinning"
   >
-    <xl-css-transition
+    <CssTransition
       classNames="xl-spin__fade"
       show={true}
     >
-      <xl-transition
+      <Transition
         afterAppear={[Function]}
         afterEnter={[Function]}
         afterLeave={[Function]}
@@ -506,10 +506,10 @@ exports[`spin 自定义描述 1`] = `
             <span
               className="xl-spin__indicator"
             >
-              <xl-fas-spinner
+              <FasSpinner
                 spin={true}
               >
-                <Memo(xl-icon)
+                <Memo(BaseIcon)
                   spin={true}
                 >
                   <i
@@ -531,8 +531,8 @@ exports[`spin 自定义描述 1`] = `
                       />
                     </svg>
                   </i>
-                </Memo(xl-icon)>
-              </xl-fas-spinner>
+                </Memo(BaseIcon)>
+              </FasSpinner>
             </span>
             <span
               className="xl-spin__tip"
@@ -541,10 +541,10 @@ exports[`spin 自定义描述 1`] = `
             </span>
           </div>
         </div>
-      </xl-transition>
-    </xl-css-transition>
+      </Transition>
+    </CssTransition>
   </div>
-</xl-spin>
+</Spin>
 `;
 
 exports[`spin 覆盖父元素 1`] = `
@@ -552,17 +552,17 @@ exports[`spin 覆盖父元素 1`] = `
   className="inner"
 >
   Further details about the context of this alert.
-  <xl-spin
+  <Spin
     cover={true}
   >
     <div
       className="xl-spin xl-spin--spinning xl-spin--cover"
     >
-      <xl-css-transition
+      <CssTransition
         classNames="xl-spin__fade"
         show={true}
       >
-        <xl-transition
+        <Transition
           afterAppear={[Function]}
           afterEnter={[Function]}
           afterLeave={[Function]}
@@ -587,10 +587,10 @@ exports[`spin 覆盖父元素 1`] = `
               <span
                 className="xl-spin__indicator"
               >
-                <xl-fas-spinner
+                <FasSpinner
                   spin={true}
                 >
-                  <Memo(xl-icon)
+                  <Memo(BaseIcon)
                     spin={true}
                   >
                     <i
@@ -612,8 +612,8 @@ exports[`spin 覆盖父元素 1`] = `
                         />
                       </svg>
                     </i>
-                  </Memo(xl-icon)>
-                </xl-fas-spinner>
+                  </Memo(BaseIcon)>
+                </FasSpinner>
               </span>
               <span
                 className="xl-spin__tip"
@@ -622,9 +622,9 @@ exports[`spin 覆盖父元素 1`] = `
               </span>
             </div>
           </div>
-        </xl-transition>
-      </xl-css-transition>
+        </Transition>
+      </CssTransition>
     </div>
-  </xl-spin>
+  </Spin>
 </div>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Carousel 基本用法 1`] = `
-<xl-carousel>
+<Carousel>
   <div
     className="xl-carousel xl-carousel--horizontal"
     onMouseEnter={[Function]}
@@ -107,12 +107,12 @@ exports[`Carousel 基本用法 1`] = `
         </div>
       </div>
     </div>
-    <xl-css-transition
+    <CssTransition
       classNames="xl-carousel__arrow--fade"
       forceRender={true}
       show={false}
     >
-      <xl-transition
+      <Transition
         afterAppear={[Function]}
         afterEnter={[Function]}
         afterLeave={[Function]}
@@ -137,8 +137,8 @@ exports[`Carousel 基本用法 1`] = `
             }
           }
         >
-          <xl-fas-angle-left>
-            <Memo(xl-icon)>
+          <FasAngleLeft>
+            <Memo(BaseIcon)>
               <i
                 className="xl-icon"
                 style={Object {}}
@@ -158,17 +158,17 @@ exports[`Carousel 基本用法 1`] = `
                   />
                 </svg>
               </i>
-            </Memo(xl-icon)>
-          </xl-fas-angle-left>
+            </Memo(BaseIcon)>
+          </FasAngleLeft>
         </button>
-      </xl-transition>
-    </xl-css-transition>
-    <xl-css-transition
+      </Transition>
+    </CssTransition>
+    <CssTransition
       classNames="xl-carousel__arrow--fade"
       forceRender={true}
       show={false}
     >
-      <xl-transition
+      <Transition
         afterAppear={[Function]}
         afterEnter={[Function]}
         afterLeave={[Function]}
@@ -193,8 +193,8 @@ exports[`Carousel 基本用法 1`] = `
             }
           }
         >
-          <xl-fas-angle-right>
-            <Memo(xl-icon)>
+          <FasAngleRight>
+            <Memo(BaseIcon)>
               <i
                 className="xl-icon"
                 style={Object {}}
@@ -214,11 +214,11 @@ exports[`Carousel 基本用法 1`] = `
                   />
                 </svg>
               </i>
-            </Memo(xl-icon)>
-          </xl-fas-angle-right>
+            </Memo(BaseIcon)>
+          </FasAngleRight>
         </button>
-      </xl-transition>
-    </xl-css-transition>
+      </Transition>
+    </CssTransition>
     <ul
       className="xl-carousel__dot-list"
     >
@@ -260,5 +260,5 @@ exports[`Carousel 基本用法 1`] = `
       </li>
     </ul>
   </div>
-</xl-carousel>
+</Carousel>
 `;
