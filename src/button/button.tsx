@@ -29,8 +29,6 @@ export interface BaseButtonProps {
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
 
-const displayName = `${namePrefix}-button`
-
 const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   HTMLButtonElement & HTMLAnchorElement,
   ButtonProps
@@ -48,7 +46,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     type = 'default',
     className,
     children,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-button`,
     onClick,
     ...others
   } = props
@@ -110,8 +108,6 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   }
   return <button ref={ref} {...allProps} />
 })
-
-Button.displayName = displayName
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,

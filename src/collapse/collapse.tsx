@@ -3,13 +3,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { namePrefix } from '../commons/config'
 import { warning } from '../commons/utils/logger'
-import { childrenValidator } from '../commons/utils/prop-type'
 import CollapseContext from './collapse-context'
-import {
-  CollapseExpandIconPosition,
-  CollapsePanelProps,
-  displayName as collapsePanelDisplayName
-} from './collapse-panel'
+import { CollapseExpandIconPosition, CollapsePanelProps } from './collapse-panel'
 import useUpdate from '../commons/hooks/useUpdate'
 
 export interface CollapseProps {
@@ -25,8 +20,6 @@ export interface CollapseProps {
   showArrow?: boolean
 }
 
-export const displayName = `${namePrefix}-collapse`
-
 const Collapse: React.FunctionComponent<CollapseProps> = props => {
   const {
     accordion,
@@ -38,7 +31,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     expandArrowPosition,
     showArrow,
     extra,
-    prefixCls = displayName
+    prefixCls = `${namePrefix}-collapse`
   } = props
 
   const [activeNames, setActiveNames] = React.useState(() => {
@@ -125,12 +118,13 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
   )
 }
 
-Collapse.displayName = displayName
-
 Collapse.propTypes = {
   accordion: PropTypes.bool,
   bordered: PropTypes.bool,
-  children: childrenValidator(collapsePanelDisplayName),
+  children: PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.arrayOf(PropTypes.element.isRequired)
+  ]).isRequired,
   defaultActiveName: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.arrayOf(PropTypes.string.isRequired)

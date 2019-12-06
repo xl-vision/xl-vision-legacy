@@ -2,8 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { namePrefix } from '../commons/config'
-import { childrenValidator } from '../commons/utils/prop-type'
-import { ColProps, displayName as colDisplayName } from './col'
+import { ColProps } from './col'
 import useMedia, { BreakPoint, breakPointArray } from './hooks/useMedia'
 import RowContext from './row-context'
 
@@ -17,8 +16,6 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'flex'
 }
 
-export const displayName = `${namePrefix}-row`
-
 const Row: React.FunctionComponent<RowProps> = props => {
   const {
     type,
@@ -28,7 +25,7 @@ const Row: React.FunctionComponent<RowProps> = props => {
     style,
     children,
     gutter,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-row`,
     ...others
   } = props
 
@@ -76,11 +73,12 @@ const Row: React.FunctionComponent<RowProps> = props => {
   )
 }
 
-Row.displayName = displayName
-
 Row.propTypes = {
   align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>(['top', 'middle', 'bottom']),
-  children: childrenValidator<ColProps>(colDisplayName),
+  children: PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.arrayOf(PropTypes.element.isRequired)
+  ]).isRequired,
   className: PropTypes.string,
   gutter: PropTypes.oneOfType([
     PropTypes.number,

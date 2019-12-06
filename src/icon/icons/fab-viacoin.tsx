@@ -1,9 +1,7 @@
 /* eslint-disable */
 import React from 'react'
-import { namePrefix } from '../../commons/config'
 import createIcon from '../base/createIcon'
 
-export const displayName = `${namePrefix}-fab-viacoin`
 const svgElement = (
     <svg viewBox='0 0 384 512'>
         <path d='M384 32h-64l-80.7 192h-94.5L64 32H0l48 112H0v48h68.5l13.8 32H0v48h102.8L192 480l89.2-208H384v-48h-82.3l13.8-32H384v-48h-48l48-112zM192 336l-27-64h54l-27 64z'/>
@@ -12,7 +10,7 @@ const svgElement = (
 
 const FabViacoin = createIcon(svgElement)
 
-FabViacoin.displayName = displayName
+FabViacoin.displayName = 'FabViacoin'
 
 export { IconProps } from '../base/createIcon'
 

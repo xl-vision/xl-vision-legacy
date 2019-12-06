@@ -21,8 +21,6 @@ export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
   wrapperClassName?: string
 }
 
-export const displayName = `${namePrefix}-spin`
-
 const Spin: React.FunctionComponent<SpinProps> = props => {
   const {
     className,
@@ -34,7 +32,7 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
     spinning = true,
     tip = 'loading',
     wrapperClassName,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-spin`,
     ...others
   } = props
 
@@ -83,8 +81,6 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
     </div>
   )
 }
-
-Spin.displayName = displayName
 
 Spin.propTypes = {
   children: PropTypes.node,

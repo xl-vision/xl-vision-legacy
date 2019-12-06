@@ -12,14 +12,12 @@ export interface DropdownProps extends Omit<Omit<PopperProps, 'popup'>, 'allowPo
   prefixCls?: string
 }
 
-export const displayName = `${namePrefix}-dropdown`
-
 const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   const {
     overlay,
     placement = 'bottom',
     trigger = 'hover',
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-dropdown`,
     overlayStyle = overlayStyleCb,
     visible = false,
     onVisibleChange,
@@ -89,8 +87,6 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
     </DropdownContext.Provider>
   )
 }
-
-Dropdown.displayName = displayName
 
 Dropdown.propTypes = {
   overlay: PropTypes.oneOfType([

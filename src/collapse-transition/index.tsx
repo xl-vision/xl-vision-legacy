@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
 import CssTransition from '../css-transition'
 
 export interface CollapseTransitionProp {
@@ -10,8 +9,6 @@ export interface CollapseTransitionProp {
   transitionClassName?: string
   horizontal?: boolean
 }
-
-export const displayName = `${namePrefix}-collapse-transition`
 
 const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = props => {
   const { children, transitionClassName, show, forceRender, horizontal } = props
@@ -85,8 +82,6 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
     </CssTransition>
   )
 }
-
-CollapseTransition.displayName = displayName
 
 CollapseTransition.propTypes = {
   transitionClassName: PropTypes.string,

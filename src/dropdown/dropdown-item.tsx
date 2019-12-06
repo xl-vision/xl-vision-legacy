@@ -10,8 +10,6 @@ export interface DropdownItemProps extends React.HTMLAttributes<HTMLLIElement> {
   prefixCls?: string
 }
 
-export const displayName = `${namePrefix}-dropdown-item`
-
 const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRef<
   HTMLLIElement,
   DropdownItemProps
@@ -19,7 +17,7 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
   const {
     children,
     disabled,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-dropdown-item`,
     onMouseEnter,
     onClick,
     onContextMenu,
@@ -100,8 +98,6 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
     </li>
   )
 })
-
-DropdownItem.displayName = displayName
 
 DropdownItem.propTypes = {
   children: PropTypes.node.isRequired,

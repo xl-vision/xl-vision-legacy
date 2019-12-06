@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
 import { addClass, removeClass } from '../commons/utils/dom'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import Transition, { TransitionProps } from '../transition'
@@ -30,8 +29,6 @@ export interface CssTransitionProps extends TransitionProps {
         leave?: number
       }
 }
-
-export const displayName = `${namePrefix}-css-transition`
 
 const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
   const {
@@ -281,8 +278,6 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
     />
   )
 }
-
-CssTransition.displayName = displayName
 
 CssTransition.propTypes = {
   classNames: PropTypes.oneOfType([

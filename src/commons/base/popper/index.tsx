@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../../config'
 import PopperJs, { Placement, Modifiers, Data } from 'popper.js'
 import Portal from '../portal'
 import useUpdate from '../../hooks/useUpdate'
@@ -32,8 +31,6 @@ export interface PopperProps {
   overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties)
   popperModifiers?: Modifiers
 }
-
-export const displayName = `${namePrefix}-popper`
 
 const getContainerFn = () => document.body
 
@@ -460,8 +457,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     </>
   )
 }
-
-Popper.displayName = displayName
 
 Popper.propTypes = {
   placement: PropTypes.oneOf([

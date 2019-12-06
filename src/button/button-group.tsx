@@ -13,10 +13,15 @@ export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   vertical?: boolean
 }
 
-export const displayName = `${namePrefix}-button-group`
-
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
-  const { round, vertical, className, prefixCls = displayName, size = 'default', ...others } = props
+  const {
+    round,
+    vertical,
+    className,
+    prefixCls = `${namePrefix}-button-group`,
+    size = 'default',
+    ...others
+  } = props
   const classes = classnames(
     {
       [prefixCls]: true,
@@ -33,8 +38,6 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
     </ButtonContext.Provider>
   )
 }
-
-ButtonGroup.displayName = displayName
 
 ButtonGroup.propTypes = {
   className: PropTypes.string,

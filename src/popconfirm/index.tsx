@@ -18,8 +18,6 @@ export interface PopconfirmProps extends Omit<TooltipProps, 'allowPopupEnter'> {
   onConfirm?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
-export const displayName = `${namePrefix}-popconfirm`
-
 const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
   const {
     content,
@@ -29,7 +27,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
     cancelType = 'default',
     onConfirm,
     onCancel,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-popconfirm`,
     visible,
     trigger = 'click',
     onVisibleChange,
@@ -122,8 +120,6 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
     />
   )
 }
-
-Popconfirm.displayName = displayName
 
 Popconfirm.propTypes = {
   cancelText: PropTypes.string,

@@ -20,8 +20,6 @@ const getSize = (size: number | string) => {
   return size
 }
 
-const displayName = `${namePrefix}-icon`
-
 const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
   const {
     className,
@@ -31,7 +29,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
     color,
     rotate,
     children,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-icon`,
     ...others
   } = props
 
@@ -73,22 +71,8 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
   )
 }
 
-BaseIcon.displayName = displayName
-
-const childrenValidator = (
-  props: BaseIconProps,
-  propName: keyof BaseIconProps,
-  componentName: string
-) => {
-  const propValue = props[propName]
-  if (propValue.type !== 'svg') {
-    return new Error(`prop '${propName}' supplied to '${componentName}' should be 'svg' tag`)
-  }
-  return null
-}
-
 BaseIcon.propTypes = {
-  children: childrenValidator,
+  children: PropTypes.element.isRequired,
   className: PropTypes.string,
   color: PropTypes.string,
   prefixCls: PropTypes.string,

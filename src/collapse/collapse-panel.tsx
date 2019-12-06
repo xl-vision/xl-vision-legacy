@@ -22,8 +22,6 @@ export interface CollapsePanelProps {
   showArrow?: boolean
 }
 
-export const displayName = `${namePrefix}-collapse-panel`
-
 const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
   const {
     name = '',
@@ -36,7 +34,7 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
     expandArrowPosition,
     extra,
     showArrow = true,
-    prefixCls = displayName
+    prefixCls = `${namePrefix}-collapse-panel`
   } = props
   const { activeNames, clickCallback } = React.useContext(CollapseContext)
   const clickHandler = React.useCallback(() => {
@@ -93,8 +91,6 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
     </div>
   )
 }
-
-CollapsePanel.displayName = displayName
 
 CollapsePanel.propTypes = {
   children: PropTypes.node.isRequired,

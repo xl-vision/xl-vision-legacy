@@ -18,8 +18,6 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span: ColSpanType
 }
 
-export const displayName = `${namePrefix}-col`
-
 const Col: React.FunctionComponent<ColProps> = props => {
   const { media, gutter } = React.useContext(RowContext)
 
@@ -32,7 +30,7 @@ const Col: React.FunctionComponent<ColProps> = props => {
     offset,
     pull,
     push,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-col`,
     ...others
   } = props
 
@@ -77,8 +75,6 @@ const Col: React.FunctionComponent<ColProps> = props => {
     </div>
   )
 }
-
-Col.displayName = displayName
 
 const spanValidator = (props: ColProps, propName: keyof ColProps, componentName: string) => {
   const propValue = props[propName]

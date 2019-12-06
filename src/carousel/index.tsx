@@ -31,8 +31,6 @@ export interface CarouselProps {
   width?: number | string
 }
 
-export const displayName = `${namePrefix}-carousel`
-
 const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const {
     damping = 35,
@@ -50,7 +48,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     dotTrigger = 'click',
     dots = true,
     loop = true,
-    prefixCls = displayName,
+    prefixCls = `${namePrefix}-carousel`,
     slide = true,
     ...others
   } = props
@@ -409,8 +407,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     </div>
   )
 }
-
-Carousel.displayName = displayName
 
 const checkDamping: PropTypes.Validator<number> = (
   props: {
