@@ -11,7 +11,7 @@ exports[`spin 不同大小 1`] = `
       className="xl-spin xl-spin--spinning"
     >
       <CssTransition
-        classNames="xl-spin__fade"
+        classNames="xl-spin--fade"
         show={true}
       >
         <Transition
@@ -30,11 +30,11 @@ exports[`spin 不同大小 1`] = `
           show={true}
         >
           <div
-            className="xl-spin__fade"
+            className="xl-spin--fade"
             style={Object {}}
           >
             <div
-              className="xl-spin__wrapper xl-spin__wrapper--small"
+              className="xl-spin__wrap xl-spin__wrap--small"
             >
               <span
                 className="xl-spin__indicator"
@@ -85,7 +85,7 @@ exports[`spin 不同大小 1`] = `
       className="xl-spin xl-spin--spinning"
     >
       <CssTransition
-        classNames="xl-spin__fade"
+        classNames="xl-spin--fade"
         show={true}
       >
         <Transition
@@ -104,11 +104,11 @@ exports[`spin 不同大小 1`] = `
           show={true}
         >
           <div
-            className="xl-spin__fade"
+            className="xl-spin--fade"
             style={Object {}}
           >
             <div
-              className="xl-spin__wrapper xl-spin__wrapper--default"
+              className="xl-spin__wrap xl-spin__wrap--default"
             >
               <span
                 className="xl-spin__indicator"
@@ -159,7 +159,7 @@ exports[`spin 不同大小 1`] = `
       className="xl-spin xl-spin--spinning"
     >
       <CssTransition
-        classNames="xl-spin__fade"
+        classNames="xl-spin--fade"
         show={true}
       >
         <Transition
@@ -178,11 +178,11 @@ exports[`spin 不同大小 1`] = `
           show={true}
         >
           <div
-            className="xl-spin__fade"
+            className="xl-spin--fade"
             style={Object {}}
           >
             <div
-              className="xl-spin__wrapper xl-spin__wrapper--large"
+              className="xl-spin__wrap xl-spin__wrap--large"
             >
               <span
                 className="xl-spin__indicator"
@@ -235,7 +235,7 @@ exports[`spin 内嵌内容 1`] = `
     className="xl-spin xl-spin--spinning xl-spin--nested"
   >
     <CssTransition
-      classNames="xl-spin__fade"
+      classNames="xl-spin--fade"
       show={true}
     >
       <Transition
@@ -254,11 +254,11 @@ exports[`spin 内嵌内容 1`] = `
         show={true}
       >
         <div
-          className="xl-spin__fade"
+          className="xl-spin--fade"
           style={Object {}}
         >
           <div
-            className="xl-spin__wrapper xl-spin__wrapper--default"
+            className="xl-spin__wrap xl-spin__wrap--default"
           >
             <span
               className="xl-spin__indicator"
@@ -319,7 +319,7 @@ exports[`spin 基本用法 1`] = `
     className="xl-spin xl-spin--spinning"
   >
     <CssTransition
-      classNames="xl-spin__fade"
+      classNames="xl-spin--fade"
       show={true}
     >
       <Transition
@@ -338,11 +338,11 @@ exports[`spin 基本用法 1`] = `
         show={true}
       >
         <div
-          className="xl-spin__fade"
+          className="xl-spin--fade"
           style={Object {}}
         >
           <div
-            className="xl-spin__wrapper xl-spin__wrapper--default"
+            className="xl-spin__wrap xl-spin__wrap--default"
           >
             <span
               className="xl-spin__indicator"
@@ -401,7 +401,7 @@ exports[`spin 自定义指示器 1`] = `
     className="xl-spin xl-spin--spinning"
   >
     <CssTransition
-      classNames="xl-spin__fade"
+      classNames="xl-spin--fade"
       show={true}
     >
       <Transition
@@ -420,11 +420,11 @@ exports[`spin 自定义指示器 1`] = `
         show={true}
       >
         <div
-          className="xl-spin__fade"
+          className="xl-spin--fade"
           style={Object {}}
         >
           <div
-            className="xl-spin__wrapper xl-spin__wrapper--default"
+            className="xl-spin__wrap xl-spin__wrap--default"
           >
             <span
               className="xl-spin__indicator"
@@ -478,7 +478,7 @@ exports[`spin 自定义描述 1`] = `
     className="xl-spin xl-spin--spinning"
   >
     <CssTransition
-      classNames="xl-spin__fade"
+      classNames="xl-spin--fade"
       show={true}
     >
       <Transition
@@ -497,11 +497,11 @@ exports[`spin 自定义描述 1`] = `
         show={true}
       >
         <div
-          className="xl-spin__fade"
+          className="xl-spin--fade"
           style={Object {}}
         >
           <div
-            className="xl-spin__wrapper xl-spin__wrapper--default"
+            className="xl-spin__wrap xl-spin__wrap--default"
           >
             <span
               className="xl-spin__indicator"
@@ -559,7 +559,7 @@ exports[`spin 覆盖父元素 1`] = `
       className="xl-spin xl-spin--spinning xl-spin--cover"
     >
       <CssTransition
-        classNames="xl-spin__fade"
+        classNames="xl-spin--fade"
         show={true}
       >
         <Transition
@@ -578,11 +578,11 @@ exports[`spin 覆盖父元素 1`] = `
           show={true}
         >
           <div
-            className="xl-spin__fade"
+            className="xl-spin--fade"
             style={Object {}}
           >
             <div
-              className="xl-spin__wrapper xl-spin__wrapper--default"
+              className="xl-spin__wrap xl-spin__wrap--default"
             >
               <span
                 className="xl-spin__indicator"

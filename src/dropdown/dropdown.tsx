@@ -60,7 +60,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
   )
 
   const popup = () => (
-    <div className={`${prefixCls}__overlay-wrapper`}>
+    <div className={`${prefixCls}__overlay-wrap`}>
       <ul className={`${prefixCls}__overlay`}>{overlay}</ul>
     </div>
   )

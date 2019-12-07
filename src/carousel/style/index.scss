@@ -8,7 +8,7 @@ $carousel: #{$--cls-prefix}-carousel;
   position: relative;
   box-sizing: border-box;
 
-  &__item-list-wrapper {
+  &__wrap {
     position: relative;
     display: block;
     box-sizing: border-box;
@@ -19,7 +19,7 @@ $carousel: #{$--cls-prefix}-carousel;
     overflow: hidden;
   }
 
-  &__item-list {
+  &__items {
     position: relative;
     z-index: 2;
     width: 100%;
@@ -61,7 +61,7 @@ $carousel: #{$--cls-prefix}-carousel;
     }
   }
 
-  &__dot-list {
+  &__dots {
     position: absolute;
     z-index: 10;
     display: block;
@@ -134,7 +134,7 @@ $carousel: #{$--cls-prefix}-carousel;
       }
     }
 
-    .#{$carousel}__dot-list {
+    .#{$carousel}__dots {
       bottom: $--carousel-dot-list-between;
       width: 100%;
       text-align: center;
@@ -186,7 +186,7 @@ $carousel: #{$--cls-prefix}-carousel;
       }
     }
 
-    .#{$carousel}__dot-list {
+    .#{$carousel}__dots {
       top: 50%;
       right: $--carousel-dot-list-between;
       transform: translateY(-50%);

@@ -14,10 +14,10 @@ exports[`Carousel 基本用法 1`] = `
     }
   >
     <div
-      className="xl-carousel__item-list-wrapper"
+      className="xl-carousel__wrap"
     >
       <div
-        className="xl-carousel__item-list"
+        className="xl-carousel__items"
         style={
           Object {
             "transform": "translate3d(-0px, 0, 0)",
@@ -220,7 +220,7 @@ exports[`Carousel 基本用法 1`] = `
       </Transition>
     </CssTransition>
     <ul
-      className="xl-carousel__dot-list"
+      className="xl-carousel__dots"
     >
       <li
         className="xl-carousel__dot"

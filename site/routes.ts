@@ -103,6 +103,11 @@ const routes: Route[] = [
         name: '加载中',
         path: '/spin',
         component: import('../src/spin/__doc__/index.mdx')
+      },
+      {
+        name: '对话框',
+        path: '/modal',
+        component: import('../src/modal/__doc__/index.mdx')
       }
     ]
   },

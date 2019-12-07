@@ -21,7 +21,7 @@ $spin: #{$--cls-prefix}-spin;
     content: '';
   }
 
-  &__wrapper {
+  &__wrap {
     position: relative;
     z-index: 10;
     color: $--spin-color;
@@ -53,7 +53,7 @@ $spin: #{$--cls-prefix}-spin;
 
   &--cover,
   &--nested {
-    .#{$spin}__fade {
+    .#{$spin}--fade {
       position: absolute;
       top: 0;
       right: 0;
@@ -91,7 +91,7 @@ $spin: #{$--cls-prefix}-spin;
       }
     }
 
-    .#{$spin}__wrapper {
+    .#{$spin}__wrap {
       position: absolute;
       top: 50%;
       left: 50%;

@@ -304,7 +304,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   }, [childrenArray, size, direction, prefixCls])
 
   const dotsNode = dots && (
-    <ul className={`${prefixCls}__dot-list`}>
+    <ul className={`${prefixCls}__dots`}>
       {childrenArray.map((_item, index) => {
         const _classes = classnames(`${prefixCls}__dot`)
         const onDotClick = () => {
@@ -328,8 +328,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     </ul>
   )
 
-  const listClasses = classnames(`${prefixCls}__item-list`, {
-    [`${prefixCls}__item-list--animate`]: isAnimate
+  const listClasses = classnames(`${prefixCls}__items`, {
+    [`${prefixCls}__items--animate`]: isAnimate
   })
 
   const listStyle = (() => {
@@ -397,7 +397,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       onMouseLeave={onMouseLeave}
       style={{ height, width }}
     >
-      <div className={`${prefixCls}__item-list-wrapper`} ref={wrapperRef}>
+      <div className={`${prefixCls}__wrap`} ref={wrapperRef}>
         <div className={listClasses} style={listStyle}>
           {childrenContainer}
         </div>

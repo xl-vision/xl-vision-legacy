@@ -60,8 +60,8 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
   )
 
   const wrapperClasses = classnames(
-    `${prefixCls}__wrapper`,
-    `${prefixCls}__wrapper--${size}`,
+    `${prefixCls}__wrap`,
+    `${prefixCls}__wrap--${size}`,
     wrapperClassName
   )
 
@@ -69,8 +69,8 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
 
   return (
     <div className={classes} {...others}>
-      <CssTransition show={display} classNames={`${prefixCls}__fade`}>
-        <div className={`${prefixCls}__fade`}>
+      <CssTransition show={display} classNames={`${prefixCls}--fade`}>
+        <div className={`${prefixCls}--fade`}>
           <div className={wrapperClasses}>
             <span className={`${prefixCls}__indicator`}>{renderIndicator(indicator)}</span>
             {tip && <span className={`${prefixCls}__tip`}>{tip}</span>}

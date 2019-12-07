@@ -3,7 +3,7 @@
 $dropdown: #{$--cls-prefix}-dropdown;
 
 .#{$dropdown} {
-  &__overlay-wrapper {
+  &__overlay-wrap {
     box-sizing: border-box;
     padding: $--dropdown-wrapper-padding;
   }

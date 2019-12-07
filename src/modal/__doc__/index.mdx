@@ -1,0 +1,23 @@
+# 对话框
+
+::: demo 基础用法基础用法
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const click = React.useCallback(() => {
+    setVisible(prev => !prev)
+  }, [])
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
+      <Modal visible={visible} />
+    </div>
+  )
+}
+```
+
+:::
