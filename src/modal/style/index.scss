@@ -3,14 +3,45 @@
 $modal: #{$--cls-prefix}-modal;
 
 .#{$modal}__wrap {
-  .#{$modal}__mask {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: red;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  background-color: $--modal-mask-color;
+
+  .#{$modal} {
+    position: relative;
+    top: $--modal-top;
+    margin: 0 auto;
+    background-color: $--modal-bg-color;
+    pointer-events: none;
+  }
+}
+
+.#{$modal}--fade {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity $--modal-animation-duration $--modal-animation-function;
+    .#{$modal} {
+      transition: transform $--modal-animation-duration $--modal-animation-function;
+    }
   }
 
-  // .#{$modal} {}
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    .#{$modal} {
+      transform: scale(0);
+    }
+  }
+
+  &-enter-to,
+  &-leave {
+    opacity: 1;
+    .#{$modal} {
+      transform: scale(1);
+    }
+  }
 }

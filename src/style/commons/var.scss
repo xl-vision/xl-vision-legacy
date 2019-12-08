@@ -281,3 +281,10 @@ $--editor-toolbar-btn-margin: 3px;
 $--editor-bg-color: $--bg-color;
 $--editor-toolbar-bg-color-hover: color-level($--editor-bg-color, 1);
 $--editor-toolbar-animation-time: $--animation-duration;
+
+//modal
+$--modal-mask-color: rgba($--color-black, 0.4);
+$--modal-bg-color: $--bg-color;
+$--modal-top: 100px;
+$--modal-animation-duration: $--animation-duration;
+$--modal-animation-function: ease;

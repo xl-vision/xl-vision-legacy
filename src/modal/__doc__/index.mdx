@@ -11,10 +11,14 @@ export default () => {
     setVisible(prev => !prev)
   }, [])
 
+  const onVisibleChange = React.useCallback((visible) => {
+    setVisible(visible)
+  }, [])
+
   return (
     <div>
       <Button onClick={click}>Open</Button>
-      <Modal visible={visible} />
+      <Modal visible={visible} onVisibleChange={onVisibleChange}/>
     </div>
   )
 }

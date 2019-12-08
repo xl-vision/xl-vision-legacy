@@ -41,7 +41,7 @@ const defaultPopperModifiers: Modifiers = {
 }
 
 // 1000/60，约等于1帧的时间
-const TIME_DELAY = 16.67
+const TIME_DELAY = 1000 / 60
 
 /**
  * 此组件是所有弹出框组件的基础组件
@@ -355,7 +355,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
           <CssTransition
             forceRender={true}
             isAppear={true}
-            show={actualVisible}
+            // 保证节点加入dom后才触发变化
+            show={actualVisible && needMount}
             classNames={transitionClass}
           >
             <div style={overlayStyleWrapper}>
