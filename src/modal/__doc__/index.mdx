@@ -1,6 +1,8 @@
 # 对话框
 
-::: demo 基础用法基础用法
+::: demo 基础用法
+
+基础用法
 
 ```jsx
 import { Modal, Button } from 'xl-vision'
@@ -11,14 +13,90 @@ export default () => {
     setVisible(prev => !prev)
   }, [])
 
-  const onVisibleChange = React.useCallback((visible) => {
+  const onVisibleChange = React.useCallback(visible => {
     setVisible(visible)
   }, [])
 
   return (
     <div>
       <Button onClick={click}>Open</Button>
-      <Modal visible={visible} onVisibleChange={onVisibleChange}/>
+      <Modal visible={visible} onVisibleChange={onVisibleChange} title='基础用法'>
+        <input />
+      </Modal>
+    </div>
+  )
+}
+```
+
+:::
+
+::: demo 回调函数
+
+回调函数
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const click = React.useCallback(() => {
+    setVisible(prev => !prev)
+  }, [])
+
+  const onVisibleChange = React.useCallback(visible => {
+    setVisible(visible)
+  }, [])
+
+  const onOk = React.useCallback(() => {
+    alert('确认')
+  }, [])
+
+  const onCancel = React.useCallback(() => {
+    alert('取消')
+  }, [])
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
+      <Modal visible={visible} onVisibleChange={onVisibleChange} title='回调函数' onOk={onOk} onCancel={onCancel}>
+        <input />
+      </Modal>
+    </div>
+  )
+}
+```
+
+:::
+
+::: demo 回调函数支持promise
+
+回调函数支持promise
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const click = React.useCallback(() => {
+    setVisible(prev => !prev)
+  }, [])
+
+  const onVisibleChange = React.useCallback(visible => {
+    setVisible(visible)
+  }, [])
+
+  const onOk = React.useCallback(() => {
+    return new Promise(resolve => {
+      setTimeout(resolve, 2000)
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
+      <Modal visible={visible} onVisibleChange={onVisibleChange} title='回调函数' onOk={onOk}>
+        <p>点击确认两秒后关闭</p>
+      </Modal>
     </div>
   )
 }

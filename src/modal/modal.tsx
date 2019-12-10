@@ -6,6 +6,9 @@ import CssTransition from '../css-transition'
 import { voidFn } from '../commons/utils/function'
 import { on, off } from '../commons/utils/event'
 import { increaseZIndex } from '../commons/utils/zIndex-manager'
+import Button, { ButtonProps } from '../button/button'
+import { Omit } from '../commons/types'
+import FasTimes from '../icon/icons/fas-times'
 
 export interface ModalProps {
   visible: boolean
@@ -14,9 +17,26 @@ export interface ModalProps {
   maskClosable?: boolean
   onVisibleChange?: (visible: boolean) => void
   width?: number
+  title?: React.ReactNode
+  children: React.ReactNode
+  footer?: React.ReactNode
+  onOk?: (e: React.MouseEvent) => void | Promise<void>
+  onCancel?: (e: React.MouseEvent) => void | Promise<void>
+  okText?: string
+  cancelText?: string
+  okButtonProps?: Omit<ButtonProps, 'children'>
+  cancelButtonProps?: Omit<ButtonProps, 'children'>
+  closable?: boolean
+  closeIcon?: React.ReactNode
 }
 
 const getContainer = () => document.body
+
+const defaultOkButtonProps: Omit<ButtonProps, 'children'> = {
+  type: 'primary'
+}
+
+const defaultCancelButtonProps: Omit<ButtonProps, 'children'> = {}
 
 const Modal: React.FunctionComponent<ModalProps> = props => {
   const {
@@ -25,7 +45,18 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     maskClosable = true,
     forceRender,
     onVisibleChange = voidFn,
-    width = 520
+    width = 520,
+    title,
+    children,
+    footer,
+    onCancel,
+    onOk,
+    okText = '确定',
+    cancelText = '取消',
+    okButtonProps = defaultOkButtonProps,
+    cancelButtonProps = defaultCancelButtonProps,
+    closable = true,
+    closeIcon
   } = props
 
   const [needMount, setNeedMount] = React.useState(false)
@@ -69,57 +100,157 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       if (isServer) {
         return
       }
+    }
+    onVisibleChange(display)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [display])
+
+  const onMaskClick = React.useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!maskClosable) {
+        return
+      }
+      if (e.target === e.currentTarget) {
+        setDisplay(false)
+      }
+    },
+    [maskClosable]
+  )
+
+  const onOkHandler = React.useCallback(
+    (e: React.MouseEvent) => {
+      if (onOk) {
+        const ret = onOk(e)
+        if (ret && ret.then) {
+          ret.then(() => {
+            setDisplay(false)
+          })
+          return
+        }
+      }
+      setDisplay(false)
+    },
+    [onOk]
+  )
+
+  const onCancelHandler = React.useCallback(
+    (e: React.MouseEvent) => {
+      if (onCancel) {
+        const ret = onCancel(e)
+        if (ret && ret.then) {
+          ret.then(() => {
+            setDisplay(false)
+          })
+          return
+        }
+      }
+      setDisplay(false)
+    },
+    [onCancel]
+  )
+
+  const beforeEnter = React.useCallback(
+    (el: HTMLElement) => {
+      // 添加样式到body上
+      // 保存原来的样式
+      el.dataset.overflow = document.body.style.overflow
+      el.dataset.position = document.body.style.position || ''
+      el.dataset.paddingRight = document.body.style.paddingRight || ''
 
       const sidebarWidth =
-        window.innerWidth - document.body.clientWidth || document.documentElement.clientWidth
-      const overflow = document.body.style.overflow
-      const position = document.body.style.position
-      const paddingRight = document.body.style.paddingRight
+        window.innerWidth - (document.body.clientWidth || document.documentElement.clientWidth)
       document.body.style.overflow = 'hidden'
       document.body.style.position = 'relative'
       // 避免滚动条造成的抖动
       document.body.style.paddingRight = sidebarWidth + 'px'
 
-      return () => {
-        document.body.style.overflow = overflow
-        document.body.style.position = position
-        document.body.style.paddingRight = paddingRight
-      }
-    }
-    onVisibleChange(display)
-  }, [display])
-
-  const onMaskClick = React.useCallback(() => {
-    if (!maskClosable) {
-      return
-    }
-    setDisplay(false)
-  }, [maskClosable])
-
-  const beforeEnter = React.useCallback(
-    (el: HTMLElement) => {
+      // 设置动画原点
       const pos = posRef.current
-      const modal = el.childNodes[0] as HTMLElement
       if (pos) {
-        setTransformOrigin(modal, `${pos.x - modal.offsetLeft}px ${pos.y - modal.offsetTop}px`)
+        const modal = el.childNodes[0] as HTMLElement
+        const doc = modal.ownerDocument!
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const w = doc.defaultView || (doc as any).parentWindow // for ie
+        setTransformOrigin(
+          modal,
+          `${pos.x - getScroll(w) - modal.offsetLeft}px ${pos.y -
+            getScroll(w, true) -
+            modal.offsetTop}px`
+        )
       }
     },
     [posRef]
   )
 
   const afterLeave = React.useCallback((el: HTMLElement) => {
+    // 恢复body中原来的样式
+    document.body.style.overflow = el.dataset.overflow || ''
+    document.body.style.position = el.dataset.position || ''
+    document.body.style.paddingRight = el.dataset.paddingRight || ''
+
+    // 消除动画原点
     const modal = el.childNodes[0] as HTMLElement
     setTransformOrigin(modal, '')
   }, [])
+
+  const headerNode = React.useMemo(() => {
+    if (!title) {
+      return null
+    }
+    const titleNode = React.isValidElement(title) ? (
+      title
+    ) : (
+      <div className={`${prefixCls}__title`}>{title}</div>
+    )
+    return <div className={`${prefixCls}__header`}>{titleNode}</div>
+  }, [title, prefixCls])
+
+  const closeIconNode = React.useMemo(() => {
+    if (!closable) {
+      return null
+    }
+
+    return (
+      <button className={`${prefixCls}__icon`} onClick={onCancelHandler}>
+        <span className={`${prefixCls}__icon-x`}>{closeIcon || <FasTimes />}</span>
+      </button>
+    )
+  }, [closable, closeIcon, prefixCls, onCancelHandler])
+
+  const footerNode = React.useMemo(() => {
+    let node: React.ReactNode
+    if (footer || footer === null) {
+      node = footer
+    } else {
+      node = (
+        <div>
+          <Button {...cancelButtonProps} onClick={onCancelHandler}>
+            {cancelText}
+          </Button>
+          <Button {...okButtonProps} onClick={onOkHandler}>
+            {okText}
+          </Button>
+        </div>
+      )
+    }
+    return <div className={`${prefixCls}__footer`}>{node}</div>
+  }, [
+    footer,
+    prefixCls,
+    okText,
+    cancelText,
+    okButtonProps,
+    cancelButtonProps,
+    onOkHandler,
+    onCancelHandler
+  ])
 
   // 只有在第一次展示的时候才会挂载到dom中
   if (!display && !needMount && !forceRender) {
     return null
   }
 
-  const modalStyle: React.CSSProperties = {
-    width
-  }
+  const bodyNode = <div className={`${prefixCls}__body`}>{children}</div>
 
   const modal = (
     // 保证节点加入dom后才触发变化
@@ -129,6 +260,8 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       classNames={`${prefixCls}--fade`}
       beforeEnter={beforeEnter}
       afterLeave={afterLeave}
+      // 离开失败时策略和上面相同
+      leaveCancelled={afterLeave}
     >
       <div
         className={`${prefixCls}__wrap`}
@@ -137,10 +270,11 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
           zIndex
         }}
       >
-        <div className={prefixCls} style={modalStyle}>
-          <div className={`${prefixCls}__title`}>title</div>
-          <div className={`${prefixCls}__body`}>body</div>
-          <div className={`${prefixCls}__footer`}>footer</div>
+        <div className={prefixCls} style={{ width }}>
+          {closeIconNode}
+          {headerNode}
+          {bodyNode}
+          {footerNode}
         </div>
       </div>
     </CssTransition>
@@ -156,7 +290,22 @@ export default Modal
 const setTransformOrigin = (el: HTMLElement, value: string) => {
   const style = el.style
   ;['Webkit', 'Moz', 'Ms', 'ms'].forEach((prefix: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     style[`${prefix}TransformOrigin` as any] = value
   })
   style[`transformOrigin`] = value
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getScroll = (w: any, top?: boolean) => {
+  let ret = w[`page${top ? 'Y' : 'X'}Offset`]
+  const method = `scroll${top ? 'Top' : 'Left'}`
+  if (typeof ret !== 'number') {
+    const d = w.document
+    ret = d.documentElement[method]
+    if (typeof ret !== 'number') {
+      ret = d.body[method]
+    }
+  }
+  return ret
 }
