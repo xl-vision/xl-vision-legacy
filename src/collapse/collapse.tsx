@@ -84,7 +84,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
 
   useUpdate(() => {
     onChange && onChange(activeNames)
-  }, [activeNames, onChange])
+  }, [activeNames])
 
   const childrenNode = React.useMemo(() => {
     return React.Children.map<

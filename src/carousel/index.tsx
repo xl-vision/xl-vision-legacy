@@ -243,7 +243,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   // 回调
   useUpdate(() => {
     onChange(currentIndex)
-  }, [currentIndex, onChange])
+  }, [currentIndex])
 
   React.useEffect(() => {
     const handler = () => {

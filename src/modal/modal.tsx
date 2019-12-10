@@ -1,15 +1,14 @@
 import React from 'react'
 import { namePrefix } from '../commons/config'
 import Portal from '../commons/base/portal'
-import { isServer } from '../commons/utils/env'
 import CssTransition from '../css-transition'
-import { voidFn } from '../commons/utils/function'
 import { on, off } from '../commons/utils/event'
 import { increaseZIndex } from '../commons/utils/zIndex-manager'
 import Button, { ButtonProps } from '../button/button'
 import { Omit } from '../commons/types'
 import FasTimes from '../icon/icons/fas-times'
 import PropTypes from 'prop-types'
+import useUpdate from '../commons/hooks/useUpdate'
 
 export interface ModalProps {
   visible: boolean
@@ -46,7 +45,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     prefixCls = `${namePrefix}-modal`,
     maskClosable = true,
     forceRender,
-    onVisibleChange = voidFn,
+    onVisibleChange,
     width = 520,
     title,
     children,
@@ -69,9 +68,6 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   const posRef = React.useRef<{ x: number; y: number }>()
 
   React.useEffect(() => {
-    if (isServer) {
-      return
-    }
     // 计算滚动条宽度
     const cb = (e: MouseEvent) => {
       posRef.current = {
@@ -100,13 +96,12 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
 
       setNeedMount(true)
       setNeedDestory(false)
-
-      if (isServer) {
-        return
-      }
     }
-    onVisibleChange(display)
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [display])
+
+  useUpdate(() => {
+    onVisibleChange && onVisibleChange(display)
   }, [display])
 
   const onMaskClick = React.useCallback(
