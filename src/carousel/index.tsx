@@ -6,7 +6,6 @@ import useOnMouseDrag, { DragPosition } from '../commons/hooks/useOnMouseDrag'
 import useOnTouchDrag from '../commons/hooks/useOnTouchDrag'
 import useUpdate from '../commons/hooks/useUpdate'
 import { off, on } from '../commons/utils/event'
-import { voidFn } from '../commons/utils/function'
 import { nextFrame } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
 import { FasAngleDown, FasAngleLeft, FasAngleRight, FasAngleUp } from '../icon'
@@ -38,7 +37,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     height = '100%',
     width = '100%',
     // 防止每次调用都创建
-    onChange = voidFn,
+    onChange,
     arrow = 'hover',
     autoPlay = false,
     autoPlayDuration = 3000,
@@ -242,7 +241,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   // 回调
   useUpdate(() => {
-    onChange(currentIndex)
+    onChange && onChange(currentIndex)
   }, [currentIndex])
 
   React.useEffect(() => {
