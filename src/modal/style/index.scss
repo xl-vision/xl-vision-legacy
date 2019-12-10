@@ -17,6 +17,7 @@ $modal: #{$--cls-prefix}-modal;
     margin: 0 auto;
     background-color: $--modal-bg-color;
     border-radius: $--modal-border-radius;
+    box-shadow: $--modal-box-shadow;
 
     &__icon {
       position: absolute;

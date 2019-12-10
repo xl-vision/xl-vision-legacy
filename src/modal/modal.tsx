@@ -9,6 +9,7 @@ import { increaseZIndex } from '../commons/utils/zIndex-manager'
 import Button, { ButtonProps } from '../button/button'
 import { Omit } from '../commons/types'
 import FasTimes from '../icon/icons/fas-times'
+import PropTypes from 'prop-types'
 
 export interface ModalProps {
   visible: boolean
@@ -28,6 +29,7 @@ export interface ModalProps {
   cancelButtonProps?: Omit<ButtonProps, 'children'>
   closable?: boolean
   closeIcon?: React.ReactNode
+  destroyOnClose?: boolean
 }
 
 const getContainer = () => document.body
@@ -56,10 +58,12 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     okButtonProps = defaultOkButtonProps,
     cancelButtonProps = defaultCancelButtonProps,
     closable = true,
-    closeIcon
+    closeIcon,
+    destroyOnClose
   } = props
 
   const [needMount, setNeedMount] = React.useState(false)
+  const [needDestory, setNeedDestory] = React.useState(false)
   const [display, setDisplay] = React.useState(false)
   const [zIndex, setZindex] = React.useState(0)
   const posRef = React.useRef<{ x: number; y: number }>()
@@ -94,9 +98,9 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     if (display) {
       setZindex(increaseZIndex)
 
-      if (!needMount) {
-        setNeedMount(true)
-      }
+      setNeedMount(true)
+      setNeedDestory(false)
+
       if (isServer) {
         return
       }
@@ -182,16 +186,24 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     [posRef]
   )
 
-  const afterLeave = React.useCallback((el: HTMLElement) => {
-    // 恢复body中原来的样式
-    document.body.style.overflow = el.dataset.overflow || ''
-    document.body.style.position = el.dataset.position || ''
-    document.body.style.paddingRight = el.dataset.paddingRight || ''
+  const afterLeave = React.useCallback(
+    (el: HTMLElement) => {
+      // 恢复body中原来的样式
+      document.body.style.overflow = el.dataset.overflow || ''
+      document.body.style.position = el.dataset.position || ''
+      document.body.style.paddingRight = el.dataset.paddingRight || ''
 
-    // 消除动画原点
-    const modal = el.childNodes[0] as HTMLElement
-    setTransformOrigin(modal, '')
-  }, [])
+      // 消除动画原点
+      const modal = el.childNodes[0] as HTMLElement
+      setTransformOrigin(modal, '')
+
+      // 取消挂载
+      if (destroyOnClose) {
+        setNeedDestory(true)
+      }
+    },
+    [destroyOnClose]
+  )
 
   const headerNode = React.useMemo(() => {
     if (!title) {
@@ -245,6 +257,9 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     onCancelHandler
   ])
 
+  if (!display && needDestory) {
+    return null
+  }
   // 只有在第一次展示的时候才会挂载到dom中
   if (!display && !needMount && !forceRender) {
     return null
@@ -255,7 +270,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   const modal = (
     // 保证节点加入dom后才触发变化
     <CssTransition
-      show={display && needMount}
+      show={display && needMount && !needDestory}
       forceRender={true}
       classNames={`${prefixCls}--fade`}
       beforeEnter={beforeEnter}
@@ -283,7 +298,26 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   return <Portal getContainer={getContainer}>{modal}</Portal>
 }
 
-Modal.propTypes = {}
+Modal.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  prefixCls: PropTypes.string,
+  maskClosable: PropTypes.bool,
+  forceRender: PropTypes.bool,
+  onVisibleChange: PropTypes.func,
+  width: PropTypes.number,
+  title: PropTypes.node,
+  children: PropTypes.node.isRequired,
+  footer: PropTypes.node,
+  onCancel: PropTypes.func,
+  onOk: PropTypes.func,
+  okText: PropTypes.string,
+  cancelText: PropTypes.string,
+  okButtonProps: PropTypes.object,
+  cancelButtonProps: PropTypes.object,
+  closable: PropTypes.bool,
+  closeIcon: PropTypes.node,
+  destroyOnClose: PropTypes.bool
+}
 
 export default Modal
 
