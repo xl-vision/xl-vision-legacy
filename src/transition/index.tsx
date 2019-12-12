@@ -70,6 +70,9 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   const onTransitionEnd = React.useMemo(() => {
     let cb: () => void
     return (
+      // 回调完成后设置状态，此方法默认组件没有被卸载
+      applyState: () => void,
+      // 回调函数，此方法交给用户使用，无法保证期间不会存在导致状态变化的操作，比如卸载了组件
       callback: (() => void) & { isFinished?: boolean },
       action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void
     ) => {
@@ -82,6 +85,10 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       const wrapCallback = () => {
         if (!isCancelled() && isMounted()) {
           callback()
+          // 确保组件还在挂载中，防止callback中做了卸载操作
+          if (isMounted()) {
+            applyState()
+          }
           // 防止重复触发
           callback.isFinished = true
         }
@@ -154,23 +161,26 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   useLayoutEffect(() => {
     if (state === State.STATE_APPEARING) {
       beforeAppear && beforeAppear(childrenRel.current!)
-      onTransitionEnd(() => {
-        afterAppear && afterAppear(childrenRel.current!)
-        setState(State.STATE_APPEARED)
-      }, appear)
+      onTransitionEnd(
+        () => setState(State.STATE_APPEARED),
+        () => afterAppear && afterAppear(childrenRel.current!),
+        appear
+      )
       // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
     } else if (state === State.STATE_ENTERING) {
       beforeEnter && beforeEnter(childrenRel.current!)
-      onTransitionEnd(() => {
-        afterEnter && afterEnter(childrenRel.current!)
-        setState(State.STATE_ENTERED)
-      }, enter)
+      onTransitionEnd(
+        () => setState(State.STATE_ENTERED),
+        () => afterEnter && afterEnter(childrenRel.current!),
+        enter
+      )
     } else if (state === State.STATE_LEAVING) {
       beforeLeave && beforeLeave(childrenRel.current!)
-      onTransitionEnd(() => {
-        afterLeave && afterLeave(childrenRel.current!)
-        setState(State.STATE_LEAVED)
-      }, leave)
+      onTransitionEnd(
+        () => setState(State.STATE_LEAVED),
+        () => afterLeave && afterLeave(childrenRel.current!),
+        leave
+      )
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state])
