@@ -2,15 +2,10 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
 import { namePrefix } from '../commons/config'
-import { Omit } from '../commons/types'
 import { FasCircleNotch } from '../icon'
 import ButtonContext from './button-context'
 
 export type ButtonSize = 'large' | 'default' | 'small'
-
-export type ButtonProps = BaseButtonProps &
-  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'> &
-  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>
 
 export interface BaseButtonProps {
   children: React.ReactNode
@@ -28,6 +23,10 @@ export interface BaseButtonProps {
   size?: ButtonSize
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
 }
+
+export type ButtonProps = BaseButtonProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'> &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>
 
 const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   HTMLButtonElement & HTMLAnchorElement,

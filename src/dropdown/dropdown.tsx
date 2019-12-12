@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
-import { Omit } from '../commons/types'
 import DropdownContext from './dropdown-context'
 
 // dropdown不应该不允许进入

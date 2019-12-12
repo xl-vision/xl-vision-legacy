@@ -4,7 +4,6 @@ import Button from '../button'
 import { namePrefix } from '../commons/config'
 import { FasExclamationCircle } from '../icon'
 import Tooltip, { TooltipProps } from '../tooltip'
-import { Omit } from '../commons/types'
 
 // popconfirm不应该不允许进入
 export interface PopconfirmProps extends Omit<TooltipProps, 'allowPopupEnter'> {
