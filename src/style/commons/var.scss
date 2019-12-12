@@ -64,6 +64,7 @@ $--link-decoration-hover:       underline                                       
 //text color
 $--text-color:                  map-get($--color-grays, 800)                        !default;
 $--text-color-light:            map-get($--color-grays, 0)                          !default;
+$--text-color-secondary: rgba($--text-color, 0.8) !default;
 
 // border
 $--border-color:                map-get($--color-grays, 100)                        !default;
@@ -101,7 +102,7 @@ $--font-family:                 -apple-system,
                                 "Noto Color Emoji"                                  !default;
 
 $--font-size:                   1rem                                                !default;
-$--font-size-lg:                $--font-size * 1.2                                 !default;
+$--font-size-lg:                $--font-size * 1.1                                 !default;
 $--font-size-sm:                $--font-size * 0.8                                !default;
 $--font-weight-lighter:         lighter                                             !default;
 $--font-weight-light:           300                                                 !default;
@@ -292,6 +293,7 @@ $--modal-border-radius: $--border-radius-lg;
 $--modal-header-padding-x: 1.5rem;
 $--modal-header-padding-y: 1.1rem;
 $--modal-body-padding: 1.5rem;
+$--modal-body-font-color: $--text-color-secondary;
 $--modal-footer-padding: 0.8rem 1.5rem;
 $--modal-title-font-weight: $--font-weight-bold;
 $--modal-title-font-size: $--font-size-lg;

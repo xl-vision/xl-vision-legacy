@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Modal, { ModalProps } from './modal'
 import { isServer } from '../commons/utils/env'
-import { Omit } from '../commons/types'
 import { warning } from '../commons/utils/logger'
+import { voidFn } from '../commons/utils/function'
 
+// 去除children，用content代替
 export interface CreateModalProps extends Omit<ModalProps, 'children'> {
   content: React.ReactNode
 }
@@ -19,30 +20,34 @@ const _destroy = (div: HTMLDivElement) => {
   divs.splice(divs.indexOf(div), 1)
 }
 
-const destroyAll = () => {
+export const destroyAll = () => {
   divs.forEach(div => {
     _destroy(div)
   })
 }
 
-const create = (props: CreateModalProps) => {
+export const create: (
+  props: CreateModalProps
+) => {
+  destroy: () => void
+  update: (newProps?: Partial<CreateModalProps>) => void
+} = props => {
   if (isServer) {
-    return
+    return { destroy: voidFn, update: voidFn }
   }
   const div = document.createElement('div')
   document.body.appendChild(div)
   // 所有的挂载的div都需要被纳管
   divs.push(div)
 
-  const render = (props: CreateModalProps) => {
+  let allProps: CreateModalProps
+
+  // 只更新不一样的属性
+  const render = (newProps?: Partial<CreateModalProps>) => {
     warning(divs.indexOf(div) === -1, 'The instance is destoryed, it could not be render again')
-    const { content, visible = true, ...others } = props
-    ReactDOM.render(
-      <Modal visible={visible} {...others}>
-        {content}
-      </Modal>,
-      div
-    )
+    allProps = { ...allProps, ...newProps }
+    const { content, ...others } = allProps
+    ReactDOM.render(<Modal {...others}>{content}</Modal>, div)
   }
 
   const destroy = () => {
@@ -56,13 +61,3 @@ const create = (props: CreateModalProps) => {
     update: render
   }
 }
-
-const ModalWrap = Modal as typeof Modal & {
-  destroyAll: typeof destroyAll
-  create: typeof create
-}
-
-ModalWrap.destroyAll = destroyAll
-ModalWrap.create = create
-
-export default ModalWrap

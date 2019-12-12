@@ -5,7 +5,6 @@ import CssTransition from '../css-transition'
 import { on } from '../commons/utils/event'
 import { increaseZIndex } from '../commons/utils/zIndex-manager'
 import Button, { ButtonProps } from '../button/button'
-import { Omit } from '../commons/types'
 import FasTimes from '../icon/icons/fas-times'
 import PropTypes from 'prop-types'
 import useUpdate from '../commons/hooks/useUpdate'
@@ -228,22 +227,22 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     )
   }, [closable, closeIcon, prefixCls, onCancelHandler])
 
+  const bodyNode = <div className={`${prefixCls}__body`}>{children}</div>
+
   const footerNode = React.useMemo(() => {
-    let node: React.ReactNode
-    if (footer || footer === null) {
-      node = footer
-    } else {
-      node = (
-        <div>
-          <Button {...cancelButtonProps} onClick={onCancelHandler}>
-            {cancelText}
-          </Button>
-          <Button {...okButtonProps} onClick={onOkHandler}>
-            {okText}
-          </Button>
-        </div>
-      )
+    if (footer === null) {
+      return null
     }
+    const node = footer || (
+      <>
+        <Button {...cancelButtonProps} onClick={onCancelHandler}>
+          {cancelText}
+        </Button>
+        <Button {...okButtonProps} onClick={onOkHandler}>
+          {okText}
+        </Button>
+      </>
+    )
     return <div className={`${prefixCls}__footer`}>{node}</div>
   }, [
     footer,
@@ -263,8 +262,6 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   if (!display && !needMount && !forceRender) {
     return null
   }
-
-  const bodyNode = <div className={`${prefixCls}__body`}>{children}</div>
 
   const modal = (
     // 保证节点加入dom后才触发变化

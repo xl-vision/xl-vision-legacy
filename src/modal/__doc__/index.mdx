@@ -21,7 +21,9 @@ export default () => {
     <div>
       <Button onClick={click}>Open</Button>
       <Modal visible={visible} onVisibleChange={onVisibleChange} title='基础用法'>
-        <input />
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
       </Modal>
     </div>
   )
@@ -65,7 +67,9 @@ export default () => {
         onOk={onOk}
         onCancel={onCancel}
       >
-        <input />
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
       </Modal>
     </div>
   )
@@ -110,6 +114,32 @@ export default () => {
 
 :::
 
+::: demo 确认对话框
+
+使用`confirm`快速创建确认对话框
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const click = React.useCallback(() => {
+    Modal.confirm({
+      title: '确定进行操作吗？',
+      content: '使用confirm直接创建'
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
+    </div>
+  )
+}
+```
+
+:::
+
 ::: demo 使用 create 直接创建
 
 使用 create 直接创建
@@ -121,7 +151,7 @@ export default () => {
 
   const click = React.useCallback(() => {
     const modal = Modal.create({
-      content: '函数创建',
+      content: '使用 create 直接创建',
       afterClose: () => {
         modal.destroy()
       }
