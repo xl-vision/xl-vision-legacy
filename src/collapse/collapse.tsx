@@ -6,6 +6,7 @@ import { warning } from '../commons/utils/logger'
 import CollapseContext from './collapse-context'
 import { CollapseExpandIconPosition, CollapsePanelProps } from './collapse-panel'
 import useUpdate from '../commons/hooks/useUpdate'
+import useConstant from '../commons/hooks/useConstant'
 
 export interface CollapseProps {
   accordion?: boolean
@@ -43,6 +44,10 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     }
     return [defaultActiveName]
   })
+
+  //====================常量化=====================
+  const getOnChange = useConstant(onChange)
+  //============================================
 
   // 处理切换到手风琴模式下，activeNames可能包含多个值的情况
   React.useEffect(() => {
@@ -83,8 +88,13 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
   )
 
   useUpdate(() => {
+    const onChange = getOnChange()
     onChange && onChange(activeNames)
-  }, [activeNames])
+  }, [
+    activeNames,
+    // 常量
+    getOnChange
+  ])
 
   const childrenNode = React.useMemo(() => {
     return React.Children.map<

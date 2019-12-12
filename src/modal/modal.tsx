@@ -2,13 +2,14 @@ import React from 'react'
 import { namePrefix } from '../commons/config'
 import Portal from '../commons/base/portal'
 import CssTransition from '../css-transition'
-import { on, off } from '../commons/utils/event'
+import { on } from '../commons/utils/event'
 import { increaseZIndex } from '../commons/utils/zIndex-manager'
 import Button, { ButtonProps } from '../button/button'
 import { Omit } from '../commons/types'
 import FasTimes from '../icon/icons/fas-times'
 import PropTypes from 'prop-types'
 import useUpdate from '../commons/hooks/useUpdate'
+import useConstant from '../commons/hooks/useConstant'
 
 export interface ModalProps {
   visible: boolean
@@ -29,6 +30,7 @@ export interface ModalProps {
   closable?: boolean
   closeIcon?: React.ReactNode
   destroyOnClose?: boolean
+  afterClose: () => void
 }
 
 const getContainer = () => document.body
@@ -38,6 +40,21 @@ const defaultOkButtonProps: Omit<ButtonProps, 'children'> = {
 }
 
 const defaultCancelButtonProps: Omit<ButtonProps, 'children'> = {}
+
+let mousePosition: { x: number; y: number } | null
+// 计算滚动条宽度
+const cb = (e: MouseEvent) => {
+  mousePosition = {
+    x: e.pageX,
+    y: e.pageY
+  }
+  // 100ms 内发生过点击事件，则从点击位置动画展示
+  // 这样可以兼容非点击方式展开
+  setTimeout(() => {
+    mousePosition = null
+  }, 100)
+}
+on('click', cb)
 
 const Modal: React.FunctionComponent<ModalProps> = props => {
   const {
@@ -58,33 +75,14 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     cancelButtonProps = defaultCancelButtonProps,
     closable = true,
     closeIcon,
-    destroyOnClose
+    destroyOnClose,
+    afterClose
   } = props
 
   const [needMount, setNeedMount] = React.useState(false)
   const [needDestory, setNeedDestory] = React.useState(false)
   const [display, setDisplay] = React.useState(false)
   const [zIndex, setZindex] = React.useState(0)
-  const posRef = React.useRef<{ x: number; y: number }>()
-
-  React.useEffect(() => {
-    // 计算滚动条宽度
-    const cb = (e: MouseEvent) => {
-      posRef.current = {
-        x: e.pageX,
-        y: e.pageY
-      }
-      // 100ms 内发生过点击事件，则从点击位置动画展示
-      // 这样可以兼容非点击方式展开
-      setTimeout(() => {
-        posRef.current = undefined
-      }, 100)
-    }
-    on('click', cb)
-    return () => {
-      off('click', cb)
-    }
-  }, [])
 
   React.useEffect(() => {
     setDisplay(visible)
@@ -97,24 +95,20 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       setNeedMount(true)
       setNeedDestory(false)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [display])
+
+  //==================================常量====================================
+  const getOnVisibleChange = useConstant(onVisibleChange)
+  //=========================================================================
 
   useUpdate(() => {
+    const onVisibleChange = getOnVisibleChange()
     onVisibleChange && onVisibleChange(display)
-  }, [display])
-
-  const onMaskClick = React.useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (!maskClosable) {
-        return
-      }
-      if (e.target === e.currentTarget) {
-        setDisplay(false)
-      }
-    },
-    [maskClosable]
-  )
+  }, [
+    display,
+    //常量
+    getOnVisibleChange
+  ])
 
   const onOkHandler = React.useCallback(
     (e: React.MouseEvent) => {
@@ -148,38 +142,46 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     [onCancel]
   )
 
-  const beforeEnter = React.useCallback(
-    (el: HTMLElement) => {
-      // 添加样式到body上
-      // 保存原来的样式
-      el.dataset.overflow = document.body.style.overflow
-      el.dataset.position = document.body.style.position || ''
-      el.dataset.paddingRight = document.body.style.paddingRight || ''
-
-      const sidebarWidth =
-        window.innerWidth - (document.body.clientWidth || document.documentElement.clientWidth)
-      document.body.style.overflow = 'hidden'
-      document.body.style.position = 'relative'
-      // 避免滚动条造成的抖动
-      document.body.style.paddingRight = sidebarWidth + 'px'
-
-      // 设置动画原点
-      const pos = posRef.current
-      if (pos) {
-        const modal = el.childNodes[0] as HTMLElement
-        const doc = modal.ownerDocument!
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const w = doc.defaultView || (doc as any).parentWindow // for ie
-        setTransformOrigin(
-          modal,
-          `${pos.x - getScroll(w) - modal.offsetLeft}px ${pos.y -
-            getScroll(w, true) -
-            modal.offsetTop}px`
-        )
+  const onMaskClick = React.useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!maskClosable) {
+        return
+      }
+      if (e.target === e.currentTarget) {
+        onCancelHandler(e)
       }
     },
-    [posRef]
+    [maskClosable, onCancelHandler]
   )
+
+  const beforeEnter = React.useCallback((el: HTMLElement) => {
+    // 添加样式到body上
+    // 保存原来的样式
+    el.dataset.overflow = document.body.style.overflow
+    el.dataset.position = document.body.style.position || ''
+    el.dataset.paddingRight = document.body.style.paddingRight || ''
+
+    const sidebarWidth =
+      window.innerWidth - (document.body.clientWidth || document.documentElement.clientWidth)
+    document.body.style.overflow = 'hidden'
+    document.body.style.position = 'relative'
+    // 避免滚动条造成的抖动
+    document.body.style.paddingRight = sidebarWidth + 'px'
+
+    // 设置动画原点
+    if (mousePosition) {
+      const modal = el.childNodes[0] as HTMLElement
+      const doc = modal.ownerDocument!
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = doc.defaultView || (doc as any).parentWindow // for ie
+      setTransformOrigin(
+        modal,
+        `${mousePosition.x - getScroll(w) - modal.offsetLeft}px ${mousePosition.y -
+          getScroll(w, true) -
+          modal.offsetTop}px`
+      )
+    }
+  }, [])
 
   const afterLeave = React.useCallback(
     (el: HTMLElement) => {
@@ -196,8 +198,10 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       if (destroyOnClose) {
         setNeedDestory(true)
       }
+      // 动画完成后回调，cancel时也会调用
+      afterClose && afterClose()
     },
-    [destroyOnClose]
+    [destroyOnClose, afterClose]
   )
 
   const headerNode = React.useMemo(() => {
@@ -270,7 +274,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       classNames={`${prefixCls}--fade`}
       beforeEnter={beforeEnter}
       afterLeave={afterLeave}
-      // 离开失败时策略和上面相同
+      // 离开失败一般是正在进行下一次进入，必须清除所有添加的样式以防影响
       leaveCancelled={afterLeave}
     >
       <div

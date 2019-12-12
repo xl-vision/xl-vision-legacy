@@ -58,7 +58,13 @@ export default () => {
   return (
     <div>
       <Button onClick={click}>Open</Button>
-      <Modal visible={visible} onVisibleChange={onVisibleChange} title='回调函数' onOk={onOk} onCancel={onCancel}>
+      <Modal
+        visible={visible}
+        onVisibleChange={onVisibleChange}
+        title='回调函数'
+        onOk={onOk}
+        onCancel={onCancel}
+      >
         <input />
       </Modal>
     </div>
@@ -68,9 +74,9 @@ export default () => {
 
 :::
 
-::: demo 回调函数支持promise
+::: demo 回调函数支持 promise
 
-回调函数支持promise
+回调函数支持 promise
 
 ```jsx
 import { Modal, Button } from 'xl-vision'
@@ -97,6 +103,34 @@ export default () => {
       <Modal visible={visible} onVisibleChange={onVisibleChange} title='回调函数' onOk={onOk}>
         <p>点击确认两秒后关闭</p>
       </Modal>
+    </div>
+  )
+}
+```
+
+:::
+
+::: demo 使用 create 直接创建
+
+使用 create 直接创建
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const click = React.useCallback(() => {
+    const modal = Modal.create({
+      content: '函数创建',
+      afterClose: () => {
+        modal.destroy()
+      }
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
     </div>
   )
 }

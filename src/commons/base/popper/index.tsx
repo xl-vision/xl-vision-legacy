@@ -9,6 +9,7 @@ import { mergeEvents } from '../../utils/event'
 import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
+import useConstant from '../../hooks/useConstant'
 
 export { Placement }
 export { Modifiers }
@@ -155,20 +156,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [addParentCloseHandler, removeParentCloseHandler, setActualWrapper])
 
-  // 更新actualVisible时触发onVisibleChange函数
-  useUpdate(() => {
-    onVisibleChange && onVisibleChange(actualVisible)
-  }, [actualVisible])
-
-  // visible修改时触发actualVisible更新
-  React.useEffect(() => {
-    setTimeout(() => {
-      setActualWrapper(visible)
-      // 增加延时保证这个方法最后调用,时间不能大于TIME_DELAY,否则上一个任务就执行完了
-    }, TIME_DELAY * 0.5)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible])
-
   const createPopperJs = React.useCallback(
     (placement: Placement) => {
       const popperJs = popperJsRef.current
@@ -198,18 +185,44 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       // 不更新一次会在placement=auto时定位错误，原因未知
       popperJsRef.current.scheduleUpdate()
     },
-    [popperJsRef, referenceRef, popupRef, popperModifiers]
+    [popperModifiers]
   )
 
-  const updatePopperJs = React.useCallback(
-    (placement: Placement) => {
-      if (popperJsRef.current) {
-        popperJsRef.current.options.placement = placement
-        popperJsRef.current.scheduleUpdate()
-      }
-    },
-    [popperJsRef]
-  )
+  const updatePopperJs = React.useCallback((placement: Placement) => {
+    if (popperJsRef.current) {
+      popperJsRef.current.options.placement = placement
+      popperJsRef.current.scheduleUpdate()
+    }
+  }, [])
+
+  //====================常量=====================
+  const getOnVisibleChange = useConstant(onVisibleChange)
+  const getSetActualWrapper = useConstant(setActualWrapper)
+  const getCreatePopperJs = useConstant(createPopperJs)
+  const getUpdatePopperJs = useConstant(updatePopperJs)
+  //============================================
+
+  // 更新actualVisible时触发onVisibleChange函数
+  useUpdate(() => {
+    const onVisibleChange = getOnVisibleChange()
+    onVisibleChange && onVisibleChange(actualVisible)
+  }, [
+    actualVisible,
+    // 常量
+    getOnVisibleChange
+  ])
+
+  // visible修改时触发actualVisible更新
+  React.useEffect(() => {
+    setTimeout(() => {
+      getSetActualWrapper()(visible)
+      // 增加延时保证这个方法最后调用,时间不能大于TIME_DELAY,否则上一个任务就执行完了
+    }, TIME_DELAY * 0.5)
+  }, [
+    visible,
+    //常量
+    getSetActualWrapper
+  ])
 
   // 弹出框显示时更新位置
   React.useEffect(() => {
@@ -217,9 +230,9 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       // 更新zIndex
       setZIndex(increaseZIndex())
       if (!popperJsRef.current) {
-        createPopperJs(placement)
+        getCreatePopperJs()(placement)
       } else {
-        updatePopperJs(placement)
+        getUpdatePopperJs()(placement)
       }
       // 只有显示时才监听事件
       popperJsRef.current!.enableEventListeners()
@@ -228,8 +241,13 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         popperJsRef.current.disableEventListeners()
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [actualVisible, placement])
+  }, [
+    actualVisible,
+    placement,
+    // 常量
+    getCreatePopperJs,
+    getUpdatePopperJs
+  ])
 
   // 组件销毁时销毁popperJs
   React.useEffect(() => {

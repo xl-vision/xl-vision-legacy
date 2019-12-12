@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { isClient } from '../commons/utils/env'
 import useMountedState from '../commons/hooks/useMountedState'
+import useConstant from '../commons/hooks/useConstant'
 
 enum State {
   STATE_INIT,
@@ -102,7 +103,29 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       //   throw new Error(`Do you forget to call 'done' or 'isCancelled' in function 'appear', 'enter' or 'leave'`)
       // }
     }
-  }, [isMounted])
+  }, [
+    // 常量
+    isMounted
+  ])
+
+  //======================常量=========================
+  const getState = useConstant(state)
+  const getLeaveCancelled = useConstant(leaveCancelled)
+  const getAppearCancelled = useConstant(appearCancelled)
+  const getEnterCancelled = useConstant(enterCancelled)
+  const getIsAppear = useConstant(isAppear)
+  const getBeforeAppear = useConstant(beforeAppear)
+  const getBeforeEnter = useConstant(beforeEnter)
+  const getBeforeLeave = useConstant(beforeLeave)
+  const getAfterAppear = useConstant(afterAppear)
+  const getAfterEnter = useConstant(afterEnter)
+  const getAfterLeave = useConstant(afterLeave)
+  const getAppear = useConstant(appear)
+  const getEnter = useConstant(enter)
+  const getLeave = useConstant(leave)
+  const getIsMounted = useConstant(isMounted)
+  const getOnTransitionEnd = useConstant(onTransitionEnd)
+  //===================================================
 
   const display = React.useMemo(() => {
     // 还未初始化完成
@@ -117,73 +140,110 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   }, [state])
 
   React.useEffect(() => {
+    const state = getState()
+    const isMounted = getIsMounted()
     if (show) {
-      setState(prev => {
-        // 还没有初始化
-        if (prev === State.STATE_INIT) {
-          return isAppear ? State.STATE_APPEARING : State.STATE_ENTERED
-        }
+      // 还没有初始化
+      if (state === State.STATE_INIT) {
+        const isAppear = getIsAppear()
+        setState(isAppear ? State.STATE_APPEARING : State.STATE_ENTERED)
         // 此时说明leave动画还没有完成，需要触发leaveCancelled
-        if (prev === State.STATE_LEAVING) {
-          leaveCancelled && leaveCancelled(childrenRel.current!)
-          return State.STATE_ENTERING
+      } else if (state === State.STATE_LEAVING) {
+        const leaveCancelled = getLeaveCancelled()
+        leaveCancelled && leaveCancelled(childrenRel.current!)
+        // 确保组件还在挂载中，防止leaveCancelled中做了卸载操作
+        if (isMounted()) {
+          setState(State.STATE_ENTERING)
         }
-        if (prev !== State.STATE_ENTERED && prev !== State.STATE_ENTERING) {
-          return State.STATE_ENTERING
-        }
-        return prev
-      })
+      } else if (state !== State.STATE_ENTERED && state !== State.STATE_ENTERING) {
+        setState(State.STATE_ENTERING)
+      }
     } else {
-      setState(prev => {
-        // 还没有初始化，设置为离开状态
-        if (prev === State.STATE_INIT) {
-          return State.STATE_LEAVED
-        }
-        if (prev === State.STATE_APPEARING) {
-          appearCancelled && appearCancelled(childrenRel.current!)
-          return State.STATE_LEAVING
+      // 还没有初始化，设置为离开状态
+      if (state === State.STATE_INIT) {
+        setState(State.STATE_LEAVED)
+      } else if (state === State.STATE_APPEARING) {
+        const appearCancelled = getAppearCancelled()
+        appearCancelled && appearCancelled(childrenRel.current!)
+        // 确保组件还在挂载中，防止appearCancelled中做了卸载操作
+        if (isMounted()) {
+          setState(State.STATE_LEAVING)
         }
         // 此时说明enter动画还没有完成，需要触发enterCancelled
-        if (prev === State.STATE_ENTERING) {
-          enterCancelled && enterCancelled(childrenRel.current!)
-          return State.STATE_LEAVING
+      } else if (state === State.STATE_ENTERING) {
+        const enterCancelled = getEnterCancelled()
+        enterCancelled && enterCancelled(childrenRel.current!)
+        // 确保组件还在挂载中，防止enterCancelled中做了卸载操作
+        if (isMounted()) {
+          setState(State.STATE_LEAVING)
         }
-        if (prev !== State.STATE_LEAVING && prev !== State.STATE_LEAVED) {
-          return State.STATE_LEAVING
-        }
-        return prev
-      })
+      } else if (state !== State.STATE_LEAVING && state !== State.STATE_LEAVED) {
+        setState(State.STATE_LEAVING)
+      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [show])
+  }, [
+    show,
+    // 以下都是常量
+    getState,
+    getIsMounted,
+    getIsAppear,
+    getLeaveCancelled,
+    getAppearCancelled,
+    getEnterCancelled
+  ])
 
   // 必须同步执行，否则可能由于浏览器性能问题，导致延后调用，会出现界面一直停留在还没有初始化之前
   useLayoutEffect(() => {
+    const onTransitionEnd = getOnTransitionEnd()
     if (state === State.STATE_APPEARING) {
+      const beforeAppear = getBeforeAppear()
       beforeAppear && beforeAppear(childrenRel.current!)
       onTransitionEnd(
         () => setState(State.STATE_APPEARED),
-        () => afterAppear && afterAppear(childrenRel.current!),
-        appear
+        () => {
+          const afterAppear = getAfterAppear()
+          afterAppear && afterAppear(childrenRel.current!)
+        },
+        getAppear()
       )
       // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
     } else if (state === State.STATE_ENTERING) {
+      const beforeEnter = getBeforeEnter()
       beforeEnter && beforeEnter(childrenRel.current!)
       onTransitionEnd(
         () => setState(State.STATE_ENTERED),
-        () => afterEnter && afterEnter(childrenRel.current!),
-        enter
+        () => {
+          const afterEnter = getAfterEnter()
+          afterEnter && afterEnter(childrenRel.current!)
+        },
+        getEnter()
       )
     } else if (state === State.STATE_LEAVING) {
+      const beforeLeave = getBeforeLeave()
       beforeLeave && beforeLeave(childrenRel.current!)
       onTransitionEnd(
         () => setState(State.STATE_LEAVED),
-        () => afterLeave && afterLeave(childrenRel.current!),
-        leave
+        () => {
+          const afterLeave = getAfterLeave()
+          afterLeave && afterLeave(childrenRel.current!)
+        },
+        getLeave()
       )
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state])
+  }, [
+    state,
+    // 以下都是常量
+    getOnTransitionEnd,
+    getBeforeAppear,
+    getAfterAppear,
+    getAppear,
+    getBeforeEnter,
+    getAfterEnter,
+    getEnter,
+    getBeforeLeave,
+    getAfterLeave,
+    getLeave
+  ])
 
   return React.useMemo(() => {
     if (!display && !forceRender) {
