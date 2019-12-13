@@ -132,8 +132,82 @@ export default () => {
 
   return (
     <div>
-      <Button onClick={click}>Open</Button>
+      <Button onClick={click}>Confirm</Button>
     </div>
+  )
+}
+```
+
+:::
+
+::: demo 信息提示
+
+各种信息提示对话框
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const info = React.useCallback(() => {
+    Modal.info({
+      title: 'This is a notification message',
+      content: (
+        <>
+          <p>some message</p>
+          <p>some message</p>
+          <p>some message</p>
+        </>
+      )
+    })
+  }, [])
+
+const success = React.useCallback(() => {
+    Modal.success({
+      title: 'This is a success message',
+      content: (
+        <>
+          <p>some message</p>
+          <p>some message</p>
+          <p>some message</p>
+        </>
+      )
+    })
+  }, [])
+
+  const error = React.useCallback(() => {
+    Modal.error({
+      title: 'This is a error message',
+      content: (
+        <>
+          <p>some message</p>
+          <p>some message</p>
+          <p>some message</p>
+        </>
+      )
+    })
+  }, [])
+
+  const warning = React.useCallback(() => {
+    Modal.warning({
+      title: 'This is a warning message',
+      content: (
+        <>
+          <p>some message</p>
+          <p>some message</p>
+          <p>some message</p>
+        </>
+      )
+    })
+  }, [])
+
+  return (
+    <Button.Group>
+      <Button onClick={info}>info</Button>
+      <Button onClick={success}>success</Button>
+      <Button onClick={error}>error</Button>
+      <Button onClick={warning}>warning</Button>
+    </Button.Group>
   )
 }
 ```

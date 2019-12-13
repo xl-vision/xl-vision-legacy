@@ -9,6 +9,7 @@ import FasTimes from '../icon/icons/fas-times'
 import PropTypes from 'prop-types'
 import useUpdate from '../commons/hooks/useUpdate'
 import useConstant from '../commons/hooks/useConstant'
+import promisefy from '../commons/utils/promisefy'
 
 export interface ModalProps {
   visible: boolean
@@ -29,7 +30,7 @@ export interface ModalProps {
   closable?: boolean
   closeIcon?: React.ReactNode
   destroyOnClose?: boolean
-  afterClose: () => void
+  afterClose?: () => void
 }
 
 const getContainer = () => document.body
@@ -82,6 +83,8 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   const [needDestory, setNeedDestory] = React.useState(false)
   const [display, setDisplay] = React.useState(false)
   const [zIndex, setZindex] = React.useState(0)
+  const [okLoading, setOkLoading] = React.useState(false)
+  const [cancelLoading, setCancelLoading] = React.useState(false)
 
   React.useEffect(() => {
     setDisplay(visible)
@@ -111,32 +114,28 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
 
   const onOkHandler = React.useCallback(
     (e: React.MouseEvent) => {
-      if (onOk) {
-        const ret = onOk(e)
-        if (ret && ret.then) {
-          ret.then(() => {
-            setDisplay(false)
-          })
-          return
-        }
+      const fn = () => {
+        setOkLoading(true)
+        return onOk && onOk(e)
       }
-      setDisplay(false)
+      promisefy(fn).then(() => {
+        setDisplay(false)
+        setOkLoading(false)
+      })
     },
     [onOk]
   )
 
   const onCancelHandler = React.useCallback(
     (e: React.MouseEvent) => {
-      if (onCancel) {
-        const ret = onCancel(e)
-        if (ret && ret.then) {
-          ret.then(() => {
-            setDisplay(false)
-          })
-          return
-        }
+      const fn = () => {
+        setCancelLoading(true)
+        return onCancel && onCancel(e)
       }
-      setDisplay(false)
+      promisefy(fn).then(() => {
+        setDisplay(false)
+        setCancelLoading(false)
+      })
     },
     [onCancel]
   )
@@ -204,15 +203,15 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   )
 
   const headerNode = React.useMemo(() => {
-    if (!title) {
-      return null
+    if (typeof title === 'undefined') {
+      return React.isValidElement(title) ? (
+        title
+      ) : (
+        <div className={`${prefixCls}__title`}>{title}</div>
+      )
     }
-    const titleNode = React.isValidElement(title) ? (
-      title
-    ) : (
-      <div className={`${prefixCls}__title`}>{title}</div>
-    )
-    return <div className={`${prefixCls}__header`}>{titleNode}</div>
+
+    return title
   }, [title, prefixCls])
 
   const closeIconNode = React.useMemo(() => {
@@ -227,33 +226,21 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     )
   }, [closable, closeIcon, prefixCls, onCancelHandler])
 
-  const bodyNode = <div className={`${prefixCls}__body`}>{children}</div>
-
-  const footerNode = React.useMemo(() => {
-    if (footer === null) {
-      return null
+  const footerNode = (() => {
+    if (typeof footer === 'undefined') {
+      return (
+        <>
+          <Button loading={cancelLoading} {...cancelButtonProps} onClick={onCancelHandler}>
+            {cancelText}
+          </Button>
+          <Button loading={okLoading} {...okButtonProps} onClick={onOkHandler}>
+            {okText}
+          </Button>
+        </>
+      )
     }
-    const node = footer || (
-      <>
-        <Button {...cancelButtonProps} onClick={onCancelHandler}>
-          {cancelText}
-        </Button>
-        <Button {...okButtonProps} onClick={onOkHandler}>
-          {okText}
-        </Button>
-      </>
-    )
-    return <div className={`${prefixCls}__footer`}>{node}</div>
-  }, [
-    footer,
-    prefixCls,
-    okText,
-    cancelText,
-    okButtonProps,
-    cancelButtonProps,
-    onOkHandler,
-    onCancelHandler
-  ])
+    return footer
+  })()
 
   if (!display && needDestory) {
     return null
@@ -283,9 +270,9 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       >
         <div className={prefixCls} style={{ width }}>
           {closeIconNode}
-          {headerNode}
-          {bodyNode}
-          {footerNode}
+          {headerNode && <div className={`${prefixCls}__header`}>{headerNode}</div>}
+          <div className={`${prefixCls}__body`}>{children}</div>
+          {footerNode && <div className={`${prefixCls}__footer`}>{footerNode}</div>}
         </div>
       </div>
     </CssTransition>
@@ -312,7 +299,8 @@ Modal.propTypes = {
   cancelButtonProps: PropTypes.object,
   closable: PropTypes.bool,
   closeIcon: PropTypes.node,
-  destroyOnClose: PropTypes.bool
+  destroyOnClose: PropTypes.bool,
+  afterClose: PropTypes.func
 }
 
 export default Modal

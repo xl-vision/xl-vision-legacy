@@ -25,17 +25,17 @@ $modal: #{$--cls-prefix}-modal;
       right: 0;
       z-index: 10;
       padding: 0;
-      color: $--modal-icon-color;
+      color: $--modal-close-icon-color;
       text-decoration: none;
       background-color: transparent;
       border: 0;
       outline: none;
       cursor: pointer;
-      transition: color $--modal-icon-animation-duration;
+      transition: color $--modal-close-icon-animation-duration;
 
       &:hover,
       &:focus {
-        color: $--modal-icon-color-hover;
+        color: $--modal-close-icon-color-hover;
       }
     }
 
