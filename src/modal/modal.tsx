@@ -17,7 +17,7 @@ export interface ModalProps {
   forceRender?: boolean
   maskClosable?: boolean
   onVisibleChange?: (visible: boolean) => void
-  width?: number
+  width?: number | string
   title?: React.ReactNode
   children: React.ReactNode
   footer?: React.ReactNode
@@ -38,8 +38,6 @@ const getContainer = () => document.body
 const defaultOkButtonProps: Omit<ButtonProps, 'children'> = {
   type: 'primary'
 }
-
-const defaultCancelButtonProps: Omit<ButtonProps, 'children'> = {}
 
 let mousePosition: { x: number; y: number } | null
 // 计算滚动条宽度
@@ -72,7 +70,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     okText = '确定',
     cancelText = '取消',
     okButtonProps = defaultOkButtonProps,
-    cancelButtonProps = defaultCancelButtonProps,
+    cancelButtonProps,
     closable = true,
     closeIcon,
     destroyOnClose,
@@ -287,7 +285,7 @@ Modal.propTypes = {
   maskClosable: PropTypes.bool,
   forceRender: PropTypes.bool,
   onVisibleChange: PropTypes.func,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   title: PropTypes.node,
   children: PropTypes.node.isRequired,
   footer: PropTypes.node,

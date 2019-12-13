@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 // visible和onVisibleChange不需要用户关注
 export interface ConfirmModallProps {
   prefixCls?: string
-  width?: number
+  width?: number | string
   title?: React.ReactNode
   content: React.ReactNode
   onOk?: (e: React.MouseEvent) => void | Promise<void>
@@ -113,7 +113,7 @@ const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = props => {
 
 ConfirmModal.propTypes = {
   prefixCls: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   title: PropTypes.node,
   content: PropTypes.node.isRequired,
   onCancel: PropTypes.func,

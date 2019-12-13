@@ -13,7 +13,7 @@ import { namePrefix } from '../commons/config'
 
 export type FuncModalProps = Omit<
   Omit<Omit<ConfirmModallProps, 'afterClose'>, 'icon'>,
-  'hideCancelBtn'
+  'showCancelBtn'
 >
 
 const divs: HTMLDivElement[] = []
