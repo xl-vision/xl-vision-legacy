@@ -169,10 +169,10 @@ export default () => {
 | --- | --- | --- | --- | --- | --- |
 | lazyRender | 延时挂载弹出框 | boolean | - | - | true |
 | visible | 手动设置 visible | boolean | - | - | false |
-| trigger | 触发方式 | 'hover' / 'focus' / 'click' / 'contextMenu' / 'custom' | - | 'hover' | false |
-| placement | 弹出框位置 | 'top' / 'left' / 'right' / 'bottom' / 'top-start' / 'top-end'/ 'bottom-start' / 'bottom-end' / 'left-start' / 'left-end' / 'right-start' / 'right-end' | - | 'top' | false |
-| overlayStyle | 弹出框样式 | React.CSSProperties / ((placement: Placement) => React.CSSProperties) | - | - | false |
-| overlayClassName | 弹出框 className | string / ((placement: Placement) => string) | - | - | false |
+| trigger | 触发方式 | 'hover' &#x007c; 'focus' &#x007c; 'click' &#x007c; 'contextMenu' &#x007c; 'custom' | - | 'hover' | false |
+| placement | 弹出框位置 | 'top' &#x007c; 'left' &#x007c; 'right' &#x007c; 'bottom' &#x007c; 'top-start' &#x007c; 'top-end'&#x007c; 'bottom-start' &#x007c; 'bottom-end' &#x007c; 'left-start' &#x007c; 'left-end' &#x007c; 'right-start' &#x007c; 'right-end' | - | 'top' | false |
+| overlayStyle | 弹出框样式 | React.CSSProperties &#x007c; ((placement: Placement) => React.CSSProperties) | - | - | false |
+| overlayClassName | 弹出框 className | string &#x007c; ((placement: Placement) => string) | - | - | false |
 | onVisibleChange | 弹出框弹出或隐藏事件 | (visible: boolean) => void | - | - | false |
 | getPopupContainer | 弹出框挂载的位置 | () => HTMLElement | - | ()=>document.body | false |
 | delayShow | 延迟显示 | number | - | 0 | false |
@@ -183,5 +183,5 @@ export default () => {
 | offset | 弹出框距离参考元素的距离 | number | - | - | false |
 | onVisibleChange | 显示状态改变时的回调 | (visible: boolean) => void | - | - | false |
 | popup | 弹出框 | (placement: Placement) => React.ReactNode | - | - | true |
-| transitionName | 显示隐藏时的动画 className | CssTransitionClassNames / ((placement: Placement) => CssTransitionClassNames) | - | - | false |
-| popperModifiers | 自定义 popper.js 的 modifiers 配置项，具体参见[popper.js 文档](https://popper.js.org/popper-documentation.html#modifiers) | Modifiers | - | - | { preventOverflow: { boundariesElement: 'window' } } | false|
+| transitionName | 显示隐藏时的动画 className | CssTransitionClassNames &#x007c; ((placement: Placement) => CssTransitionClassNames) | - | - | false |
+| popperModifiers | 自定义 popper.js 的 modifiers 配置项，具体参见[popper.js 文档](https://popper.js.org/popper-documentation.html#modifiers) | Modifiers | - | - | { preventOverflow: { boundariesElement: 'window' } } | false |

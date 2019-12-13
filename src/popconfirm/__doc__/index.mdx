@@ -1,11 +1,9 @@
-
 # Popconfirm
 
-::: demo 基本用法
-基本的使用方式
+::: demo 基本用法基本的使用方式
 
 ```jsx
-import {Popconfirm, Button} from 'xl-vision'
+import { Popconfirm, Button } from 'xl-vision'
 export default () => {
   return (
     <Popconfirm content='Are you sure?'>
@@ -17,14 +15,17 @@ export default () => {
 
 :::
 
-::: demo 点击事件
-点击事件
+::: demo 点击事件点击事件
 
 ```jsx
-import {Popconfirm, Button} from 'xl-vision'
+import { Popconfirm, Button } from 'xl-vision'
 export default () => {
   return (
-    <Popconfirm onConfirm={()=>alert('confirm')} onCancel={()=>alert('cancel')} content='Are you sure?'>
+    <Popconfirm
+      onConfirm={() => alert('confirm')}
+      onCancel={() => alert('cancel')}
+      content='Are you sure?'
+    >
       <Button>button</Button>
     </Popconfirm>
   )
@@ -33,11 +34,10 @@ export default () => {
 
 :::
 
-::: demo 位置
-可以设置12个方向的位置
+::: demo 位置可以设置 12 个方向的位置
 
 ```jsx
-import {Popconfirm, Button, Row} from 'xl-vision'
+import { Popconfirm, Button, Row } from 'xl-vision'
 export default () => {
   return (
     <div>
@@ -62,7 +62,7 @@ export default () => {
         <Row.Col span={4}></Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -80,7 +80,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -98,7 +98,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -116,7 +116,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}></Row.Col>
@@ -141,16 +141,14 @@ export default () => {
     </div>
   )
 }
-
 ```
 
 :::
 
-::: demo 支持不同的触发方式
-通过`trigger`指定触发方式
+::: demo 支持不同的触发方式通过`trigger`指定触发方式
 
 ```jsx
-import {Popconfirm, Button} from 'xl-vision'
+import { Popconfirm, Button } from 'xl-vision'
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
@@ -167,25 +165,34 @@ export default () => {
       <Popconfirm trigger='contextMenu' content='Are you sure?'>
         <Button>contextMenu</Button>
       </Popconfirm>
-      <Popconfirm trigger='custom' visible={visible} onVisibleChange={_visible => setVisible(_visible)} content='Are you sure?'>
-        <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
+      <Popconfirm
+        trigger='custom'
+        visible={visible}
+        onVisibleChange={_visible => setVisible(_visible)}
+        content='Are you sure?'
+      >
+        <Button onClick={() => setVisible(!visible)}>custom(click twice)</Button>
       </Popconfirm>
     </Button.Group>
   )
 }
-
 ```
 
 :::
 
-::: demo 自定义按钮
-自定义按钮
+::: demo 自定义按钮自定义按钮
 
 ```jsx
-import {Popconfirm, Button} from 'xl-vision'
+import { Popconfirm, Button } from 'xl-vision'
 export default () => {
   return (
-    <Popconfirm content='Are you sure?' confirmText='确定' cancelText='取消' confirmType='error' cancelType='warning'>
+    <Popconfirm
+      content='Are you sure?'
+      confirmText='确定'
+      cancelText='取消'
+      confirmType='error'
+      cancelType='warning'
+    >
       <Button>click</Button>
     </Popconfirm>
   )
@@ -194,14 +201,13 @@ export default () => {
 
 :::
 
-::: demo 自定义icon
-自定义icon
+::: demo 自定义 icon 自定义 icon
 
 ```jsx
-import {Popconfirm, Button, Icon} from 'xl-vision'
+import { Popconfirm, Button, Icon } from 'xl-vision'
 export default () => {
   return (
-    <Popconfirm content='Are you sure?' icon={<Icon.FasSkullCrossbones color='red'/>}>
+    <Popconfirm content='Are you sure?' icon={<Icon.FasSkullCrossbones color='red' />}>
       <Button>click</Button>
     </Popconfirm>
   )
@@ -212,16 +218,16 @@ export default () => {
 
 ## Popconfirm API
 
->公共属性请参考[Tooltip](#/tooltip)
+> 公共属性请参考[Tooltip](#/tooltip)
 
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
-| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
-| prefixCls | 自定义类名前缀            | string  | -  | -| false|
-| cancelText | 取消按钮的内容           | string  | -  | -| false|
-| cancelType | 取消按钮的类型           | string  | default / primary / success / warning / error / text  | -| false|
-| onCancel | 点击取消按钮的回调           |  (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | -  | -| false|
-| confirmText | 确认按钮的内容           | string  | -  | -| false|
-| confirmType | 确认按钮的类型           | string  | default / primary / success / warning / error / text  | -| false|
-| onConfirm | 点击取消按钮的回调           |  (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | -  | -| false|
-| icon | 自定义图标            | React.ReactNode  | -  | -| false|
-| content | 提示内容            | React.ReactNode  | -  | -| true|
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| prefixCls | 自定义类名前缀 | string | - | - | false |
+| cancelText | 取消按钮的内容 | string | - | - | false |
+| cancelType | 取消按钮的类型 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; text | - | false |
+| onCancel | 点击取消按钮的回调 | (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | - | - | false |
+| confirmText | 确认按钮的内容 | string | - | - | false |
+| confirmType | 确认按钮的类型 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; text | - | false |
+| onConfirm | 点击取消按钮的回调 | (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void | - | - | false |
+| icon | 自定义图标 | React.ReactNode | - | - | false |
+| content | 提示内容 | React.ReactNode | - | - | true |

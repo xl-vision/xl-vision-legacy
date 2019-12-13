@@ -257,7 +257,9 @@ export default () => {
   return (
     <div className='button-wrapper'>
       <div className='button-column'>
-        <Button loading={loading} onClick={() => setLoading(true)}>click</Button>
+        <Button loading={loading} onClick={() => setLoading(true)}>
+          click
+        </Button>
         <Button loading type='primary'>
           Primary
         </Button>
@@ -581,13 +583,13 @@ export default () => {
 | disabled | 禁止按钮 | boolean | - | false | false |
 | ghost | 幽灵属性，使按钮背景透明 | boolean | - | false | false |
 | href | 点击跳转地址，此时 button 行为与 a 标签一致 | string | - | - | false |
-| htmlType | 设置 button 的原生`type`值 | string | submit/reset/button | - | false |
+| htmlType | 设置 button 的原生`type`值 | string | submit &#x007c; reset &#x007c; button | - | false |
 | loading | 设置按钮为加载中 | boolean | - | false | false |
 | long | 设置为长按钮 | boolean | - | false | false |
 | plain | 设置为朴素按钮 | boolean | - | false | false |
-| shape | 设置按钮的形状，通常`circle`与[Icon](#/icon)连用 | string | cirlce/round | - | false |
-| type | 设置按钮类型 | string | default/primary/success/warning/error/text | default | false |
-| size | 设置按钮大小 | string | default/large/small | default | false |
+| shape | 设置按钮的形状，通常`circle`与[Icon](#/icon)连用 | string | cirlce &#x007c; round | - | false |
+| type | 设置按钮类型 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; text | default | false |
+| size | 设置按钮大小 | string | default &#x007c; large &#x007c; small | default | false |
 
 ## Group API
 
@@ -596,4 +598,4 @@ export default () => {
 | prefixCls | 自定义类名前缀 | string | - | - | false |
 | round | 指定按钮组中按钮的圆角样式 | boolean | - | false | false |
 | vertical | 指定按钮组为垂直方向 | boolean | - | false | false |
-| size | 设置按钮大小,如果按钮自动设置了 size，则会覆盖这个值 | string | default/large/small | default | false |
+| size | 设置按钮大小,如果按钮自动设置了 size，则会覆盖这个值 | string | default &#x007c; large &#x007c; small | default | false |

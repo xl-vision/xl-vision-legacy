@@ -1,10 +1,9 @@
 # Popover
 
-::: demo 基本用法
-基本的使用方式
+::: demo 基本用法基本的使用方式
 
 ```jsx
-import {Popover} from 'xl-vision'
+import { Popover } from 'xl-vision'
 export default () => {
   return (
     <Popover title='Title' content={<div>Content</div>}>
@@ -16,11 +15,10 @@ export default () => {
 
 :::
 
-::: demo 位置
-可以设置12个方向的位置
+::: demo 位置可以设置 12 个方向的位置
 
 ```jsx
-import {Popover, Row, Button} from 'xl-vision'
+import { Popover, Row, Button } from 'xl-vision'
 export default () => {
   return (
     <div>
@@ -45,7 +43,7 @@ export default () => {
         <Row.Col span={4}></Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -63,7 +61,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -81,7 +79,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}>
@@ -99,7 +97,7 @@ export default () => {
         </Row.Col>
         <Row.Col span={2}></Row.Col>
       </Row>
-      <div style={{height: '2rem'}}/>
+      <div style={{ height: '2rem' }} />
       <Row>
         <Row.Col span={2}></Row.Col>
         <Row.Col span={4}></Row.Col>
@@ -124,16 +122,14 @@ export default () => {
     </div>
   )
 }
-
 ```
 
 :::
 
-::: demo 支持不同的触发方式
-通过`trigger`指定触发方式
+::: demo 支持不同的触发方式通过`trigger`指定触发方式
 
 ```jsx
-import {Popover, Button} from 'xl-vision'
+import { Popover, Button } from 'xl-vision'
 export default () => {
   const [visible, setVisible] = React.useState(false)
   return (
@@ -151,22 +147,21 @@ export default () => {
         <Button>contextMenu</Button>
       </Popover>
       <Popover trigger='custom' visible={visible} title='Title' content={<div>Content</div>}>
-        <Button onClick={()=>setVisible(!visible)}>custom(click twice)</Button>
+        <Button onClick={() => setVisible(!visible)}>custom(click twice)</Button>
       </Popover>
     </Button.Group>
   )
 }
-
 ```
 
 :::
 
 ## Popover API
 
->公共属性请参考[Tooltip](#/tooltip)
+> 公共属性请参考[Tooltip](#/tooltip)
 
-| 参数   | 说明                                       | 类型            | 可选值 | 默认值 | 是否必填
-| ------ | ------------------------------------------ | --------------- | ------ | ------ | --- |
-| prefixCls | 自定义类名前缀            | string  | -  | -| false|
-| content | 提示内容            | React.ReactNode  | -  | -| true|
-| title | 标题            | React.ReactNode  | -  | -| true|
+| 参数      | 说明           | 类型            | 可选值 | 默认值 | 是否必填 |
+| --------- | -------------- | --------------- | ------ | ------ | -------- |
+| prefixCls | 自定义类名前缀 | string          | -      | -      | false    |
+| content   | 提示内容       | React.ReactNode | -      | -      | true     |
+| title     | 标题           | React.ReactNode | -      | -      | true     |
