@@ -13,8 +13,8 @@ export interface ConfirmModallProps {
   width?: number | string
   title?: React.ReactNode
   content: React.ReactNode
-  onOk?: (e: React.MouseEvent) => void | Promise<void>
-  onCancel?: (e: React.MouseEvent) => void | Promise<void>
+  onOk?: () => void | Promise<void>
+  onCancel?: () => void | Promise<void>
   okText?: string
   cancelText?: string
   okButtonProps?: Omit<ButtonProps, 'children'>
@@ -22,6 +22,8 @@ export interface ConfirmModallProps {
   afterClose?: () => void
   icon?: React.ReactNode
   showCancelBtn?: boolean
+  visible?: boolean
+  onVisibleChange?: (visible: boolean) => void
 }
 const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = props => {
   const {
@@ -39,34 +41,38 @@ const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = props => {
     prefixCls = `${namePrefix}-modal`,
     showCancelBtn,
     width = 416,
+    visible: visibleProp = true,
+    onVisibleChange: onVisibleChangeProp,
     ...others
   } = props
 
-  const [visible, setVisible] = React.useState(true)
+  const [visible, setVisible] = React.useState(visibleProp)
 
-  const onVisibleChange = React.useCallback((visible: boolean) => {
-    setVisible(visible)
-  }, [])
+  React.useEffect(() => {
+    setVisible(visibleProp)
+  }, [visibleProp])
 
-  const onOkHandler = React.useCallback(
-    (e: React.MouseEvent) => {
-      const fn = () => {
-        return onOk && onOk(e)
-      }
-      promisefy(fn).then(() => setVisible(false))
+  const onVisibleChange = React.useCallback(
+    (visible: boolean) => {
+      setVisible(visible)
+      onVisibleChangeProp && onVisibleChangeProp(visible)
     },
-    [onOk]
+    [onVisibleChangeProp]
   )
 
-  const onCancelHandler = React.useCallback(
-    (e: React.MouseEvent) => {
-      const fn = () => {
-        return onCancel && onCancel(e)
-      }
-      promisefy(fn).then(() => setVisible(false))
-    },
-    [onCancel]
-  )
+  const onOkHandler = React.useCallback(() => {
+    const fn = () => {
+      return onOk && onOk()
+    }
+    promisefy(fn).then(() => setVisible(false))
+  }, [onOk])
+
+  const onCancelHandler = React.useCallback(() => {
+    const fn = () => {
+      return onCancel && onCancel()
+    }
+    promisefy(fn).then(() => setVisible(false))
+  }, [onCancel])
 
   const cls = `${prefixCls}-confirm`
 
@@ -124,7 +130,9 @@ ConfirmModal.propTypes = {
   cancelButtonProps: PropTypes.object,
   afterClose: PropTypes.func,
   icon: PropTypes.node,
-  showCancelBtn: PropTypes.bool
+  showCancelBtn: PropTypes.bool,
+  visible: PropTypes.bool,
+  onVisibleChange: PropTypes.func
 }
 
 export default ConfirmModal

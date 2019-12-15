@@ -114,6 +114,8 @@ export default () => {
 
 :::
 
+> 我们也提供了一些方法可以快速创建对话框，当对话框内容相对简单时建议使用这种方式。
+
 ::: demo 确认对话框
 
 使用`confirm`快速创建确认对话框
@@ -221,8 +223,6 @@ export default () => {
 ```jsx
 import { Modal, Button } from 'xl-vision'
 export default () => {
-  const [visible, setVisible] = React.useState(false)
-
   const click = React.useCallback(() => {
     const modal = Modal.create({
       content: '使用 create 直接创建',
@@ -242,21 +242,98 @@ export default () => {
 
 :::
 
+> 通过`create`、`info`、`success`、`error`、`warning`方法创建 modal 时都会返回一个对象，其中包含`destroy`和`update`方法。通过`update`方法可以更新 modal，`destroy`方法可以销毁 modal
+
+::: demo 使用`update`和`destroy`控制 modal
+
+使用`update`和`destroy`可以灵活地控制 modal。
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const countRef = React.useRef(0)
+
+  let modal
+  let getContent
+
+  const update = () => {
+    countRef.current++
+    modal.update({ content: getContent() })
+  }
+
+  getContent = () => (
+    <div>
+      <p>你点击了按钮{countRef.current}次</p>
+      <Button onClick={update}>click</Button>
+      <Button onClick={() => modal.destroy()}>destroy</Button>
+    </div>
+  )
+
+  const click = () => {
+    modal = Modal.create({
+      content: getContent()
+    })
+  }
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
+    </div>
+  )
+}
+```
+
+:::
+
+::: demo 使用`destroyAll`销毁所有对话框
+
+由于通过方法创建的 modal 并不是挂载在当前 React 节点中，所以有时候我们需要手动销毁所有通过方法创建的 modal，例如在路由切换时，这时候就需要使用`destroyAll`
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const destroyAll = () => Modal.destroyAll()
+
+  const click = () => {
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        Modal.create({
+          content: (
+            <div>
+              <p>这是第{i + 1}个对话框</p>
+              <Button onClick={destroyAll}>destroryAll</Button>
+            </div>
+          )
+        })
+      }, 100 * i)
+    }
+  }
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
+    </div>
+  )
+}
+```
+
+:::
+
 ## Modal API
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | prefixCls | 自定义类名前缀 | string | - | - | false |
 | visible | 是否展示 modal | boolean | - | - | true |
+| onVisibleChange | modal 展示或者隐藏时的回调 | (visible: boolean) => void | - | - | false |
 | forceRender | 是否强制渲染 | boolean | - | - | false |
 | maskClosable | 是否可以点击遮罩层关闭 | boolean | - | true | false |
-| onVisibleChange | modal 展示或者隐藏时的回调 | (visible: boolean) => void | - | - | false |
 | width | modal 宽度 | number/string | - | 520 | false |
 | title | 标题 | React.ReactNode | - | - | false |
 | children | 内容 | React.ReactNode | - | - | true |
 | footer | 页脚 | React.ReactNode | - | - | false |
-| onOk | 确认时的回调，支持异步 | (e: React.MouseEvent) => void &#x007c; Promise&#x003c;void&#x003e; | - | - | false |
-| onCancel | 取消时的回调，支持异步 | (e: React.MouseEvent) => void &#x007c; Promise&#x003c;void&#x003e; | - | - | false |
+| onOk | 确认时的回调，支持异步 | () => void &#x007c; Promise&#x003c;void&#x003e; | - | - | false |
+| onCancel | 取消时的回调，支持异步 | () => void &#x007c; Promise&#x003c;void&#x003e; | - | - | false |
 | okText | 确认按钮的文字 | string | - | 确认 | false |
 | cancelText | 取消按钮的文字 | string | - | 取消 | false |
 | okButtonProps | 确认按钮的属性 | Omit<ButtonProps, 'children'> | - | {type: 'primary'} | false |
@@ -271,6 +348,8 @@ export default () => {
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | prefixCls | 自定义类名前缀 | string | - | - | false |
+| visible | 是否展示 modal | boolean | - | - | true |
+| onVisibleChange | modal 展示或者隐藏时的回调 | (visible: boolean) => void | - | - | false |
 | width | modal 宽度 | number/string | - | 520 | false |
 | title | 标题 | React.ReactNode | - | - | false |
 | content | 内容 | React.ReactNode | - | - | true |
@@ -283,12 +362,15 @@ export default () => {
 | icon | 提示图标的样式 | React.ReactNode | - | - | true |
 | showCancelBtn | 是否展示取消按钮 | boolean | - | false | false |
 | afterClose | modal 关闭后的回调，此时过度动画已经完成 | () => void | - | - | false |
+| cancelOnDestroy | 销毁时是否触发 onCancel 方法 | - | - | false | false |
 
 ## `confirm`、`info`、`success`、`warning`、`error`方法参数
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | prefixCls | 自定义类名前缀 | string | - | - | false |
+| visible | 是否展示 modal | boolean | - | - | true |
+| onVisibleChange | modal 展示或者隐藏时的回调 | (visible: boolean) => void | - | - | false |
 | width | modal 宽度 | number/string | - | 520 | false |
 | title | 标题 | React.ReactNode | - | - | false |
 | content | 内容 | React.ReactNode | - | - | true |
@@ -298,3 +380,5 @@ export default () => {
 | cancelText | 取消按钮的文字 | string | - | 取消 | false |
 | okButtonProps | 确认按钮的属性 | Omit<ButtonProps, 'children'> | - | {type: 'primary'} | false |
 | cancelButtonProps | 取消按钮的属性 | Omit<ButtonProps, 'children'> | - | - | false |
+| afterClose | modal 关闭后的回调，此时过度动画已经完成 | () => void | - | - | false |
+| cancelOnDestroy | 销毁时是否触发 onCancel 方法 | - | - | false | false |

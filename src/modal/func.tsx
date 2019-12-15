@@ -11,32 +11,24 @@ import FasExclamationCircle from '../icon/icons/fas-exclamation-circle'
 import FasExclamationTriangle from '../icon/icons/fas-exclamation-triangle'
 import { namePrefix } from '../commons/config'
 
-export type FuncModalProps = Omit<
-  Omit<Omit<ConfirmModallProps, 'afterClose'>, 'icon'>,
-  'showCancelBtn'
->
-
-const divs: HTMLDivElement[] = []
-
-const _destroy = (div: HTMLDivElement) => {
-  const ret = ReactDOM.unmountComponentAtNode(div)
-  if (ret && div.parentNode) {
-    div.parentNode.removeChild(div)
-  }
-  divs.splice(divs.indexOf(div), 1)
+export interface BaseFuncModalProps extends ConfirmModallProps {
+  cancelOnDestroy?: boolean
 }
 
+export type FuncModalProps = Omit<Omit<BaseFuncModalProps, 'icon'>, 'showCancelBtn'>
+
+const destroyFns: Array<() => void> = []
+
 export const destroyAll = () => {
-  divs.forEach(div => {
-    _destroy(div)
-  })
+  const fus = [...destroyFns]
+  fus.forEach(it => it())
 }
 
 export type ModalCreate = (
-  props: ConfirmModallProps
+  props: BaseFuncModalProps
 ) => {
   destroy: () => void
-  update: (newProps?: Partial<ConfirmModallProps>) => void
+  update: (newProps?: Partial<BaseFuncModalProps>) => void
 }
 
 export const create: ModalCreate = props => {
@@ -45,21 +37,51 @@ export const create: ModalCreate = props => {
   }
   const div = document.createElement('div')
   document.body.appendChild(div)
-  // 所有的挂载的div都需要被纳管
-  divs.push(div)
 
-  let allProps: ConfirmModallProps
+  let allProps: BaseFuncModalProps
+
+  const afterClose = () => {
+    const afterCloseProp = allProps.afterClose
+    afterCloseProp && afterCloseProp()
+    // 关闭后就销毁
+    destroy()
+  }
 
   // 只更新不一样的属性
-  const render = (newProps?: Partial<ConfirmModallProps>) => {
-    warningLog(divs.indexOf(div) === -1, 'The instance is destoryed, it could not be render again')
+  const render = (newProps?: Partial<BaseFuncModalProps>) => {
+    warningLog(
+      destroyFns.indexOf(close) === -1,
+      'The instance is destoryed, it could not be render again'
+    )
     allProps = { ...allProps, ...newProps }
-    ReactDOM.render(<ConfirmModal {...allProps} />, div)
+    ReactDOM.render(<ConfirmModal {...allProps} afterClose={afterClose} />, div)
   }
 
   const destroy = () => {
-    _destroy(div)
+    warningLog(
+      destroyFns.indexOf(close) === -1,
+      'The instance is destoryed, it could not be render again'
+    )
+
+    const cancelOnDestroy = allProps.cancelOnDestroy
+    const onCancel = allProps.onCancel
+
+    if (cancelOnDestroy && onCancel) {
+      onCancel()
+    }
+
+    const ret = ReactDOM.unmountComponentAtNode(div)
+    if (ret && div.parentNode) {
+      div.parentNode.removeChild(div)
+    }
+    destroyFns.splice(destroyFns.indexOf(close), 1)
   }
+
+  const close = () => {
+    render({ visible: false })
+  }
+
+  destroyFns.push(close)
 
   render(props)
 

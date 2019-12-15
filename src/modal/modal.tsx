@@ -21,8 +21,8 @@ export interface ModalProps {
   title?: React.ReactNode
   children: React.ReactNode
   footer?: React.ReactNode
-  onOk?: (e: React.MouseEvent) => void | Promise<void>
-  onCancel?: (e: React.MouseEvent) => void | Promise<void>
+  onOk?: () => void | Promise<void>
+  onCancel?: () => void | Promise<void>
   okText?: string
   cancelText?: string
   okButtonProps?: Omit<ButtonProps, 'children'>
@@ -110,33 +110,27 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     getOnVisibleChange
   ])
 
-  const onOkHandler = React.useCallback(
-    (e: React.MouseEvent) => {
-      const fn = () => {
-        setOkLoading(true)
-        return onOk && onOk(e)
-      }
-      promisefy(fn).then(() => {
-        setDisplay(false)
-        setOkLoading(false)
-      })
-    },
-    [onOk]
-  )
+  const onOkHandler = React.useCallback(() => {
+    const fn = () => {
+      setOkLoading(true)
+      return onOk && onOk()
+    }
+    promisefy(fn).then(() => {
+      setDisplay(false)
+      setOkLoading(false)
+    })
+  }, [onOk])
 
-  const onCancelHandler = React.useCallback(
-    (e: React.MouseEvent) => {
-      const fn = () => {
-        setCancelLoading(true)
-        return onCancel && onCancel(e)
-      }
-      promisefy(fn).then(() => {
-        setDisplay(false)
-        setCancelLoading(false)
-      })
-    },
-    [onCancel]
-  )
+  const onCancelHandler = React.useCallback(() => {
+    const fn = () => {
+      setCancelLoading(true)
+      return onCancel && onCancel()
+    }
+    promisefy(fn).then(() => {
+      setDisplay(false)
+      setCancelLoading(false)
+    })
+  }, [onCancel])
 
   const onMaskClick = React.useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -144,7 +138,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
         return
       }
       if (e.target === e.currentTarget) {
-        onCancelHandler(e)
+        onCancelHandler()
       }
     },
     [maskClosable, onCancelHandler]
