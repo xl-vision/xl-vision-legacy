@@ -23,7 +23,7 @@ export type FuncModalProps = Omit<
 const destroyFns: Array<() => void> = []
 
 export const destroyAll = () => {
-  const fus = [...destroyFns]
+  const fus = destroyFns.concat()
   fus.forEach(it => it())
 }
 
@@ -43,17 +43,26 @@ export const create: ModalCreate = props => {
 
   let allProps: BaseFuncModalProps
 
+  const onVisibleChange = (visible: boolean) => {
+    const onVisibleChangeProp = allProps.onVisibleChange
+    onVisibleChangeProp && onVisibleChangeProp(visible)
+    allProps.visible = visible
+  }
+
   // 只更新不一样的属性
   const render = (newProps?: Partial<BaseFuncModalProps>) => {
     warningLog(
       destroyFns.indexOf(destroy) === -1,
       'The instance is destoryed, it could not be render again'
     )
-    allProps = { ...allProps, ...newProps }
-    ReactDOM.render(<ConfirmModal {...allProps} />, div)
+    // 默认visible为true
+    allProps = { visible: true, ...allProps, ...newProps }
+
+    // 保证visible与modal内部的一致，后面会用到
+    ReactDOM.render(<ConfirmModal {...allProps} onVisibleChange={onVisibleChange} />, div)
   }
 
-  const destroy = () => {
+  const unmount = () => {
     warningLog(
       destroyFns.indexOf(destroy) === -1,
       'The instance is destoryed, it could not be render again'
@@ -71,6 +80,17 @@ export const create: ModalCreate = props => {
       div.parentNode.removeChild(div)
     }
     destroyFns.splice(destroyFns.indexOf(destroy), 1)
+  }
+
+  const destroy = () => {
+    const visible = allProps.visible
+    // 说明没有关闭，需要触发关闭流程，保证恢复body上的样式
+    if (visible) {
+      render({ visible: false, afterClose: unmount })
+      // 已经关闭了，所以不用考虑body上的样式，直接销毁
+    } else {
+      unmount()
+    }
   }
 
   destroyFns.push(destroy)

@@ -54,6 +54,11 @@ const cb = (e: MouseEvent) => {
 }
 on('click', cb)
 
+// 记录打开的modal数量
+let modalCount = 0
+// 保存body中的样式
+let bodyStyle: any
+
 const Modal: React.FunctionComponent<ModalProps> = props => {
   const {
     visible,
@@ -145,18 +150,24 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   )
 
   const beforeEnter = React.useCallback((el: HTMLElement) => {
-    // 添加样式到body上
-    // 保存原来的样式
-    el.dataset.overflow = document.body.style.overflow
-    el.dataset.position = document.body.style.position || ''
-    el.dataset.paddingRight = document.body.style.paddingRight || ''
+    // 判断body样式是否已经保存
+    if (modalCount === 0) {
+      // 保存原来的样式
+      bodyStyle = {
+        overflow: document.body.style.overflow,
+        position: document.body.style.position,
+        paddingRight: document.body.style.paddingRight
+      }
 
-    const sidebarWidth =
-      window.innerWidth - (document.body.clientWidth || document.documentElement.clientWidth)
-    document.body.style.overflow = 'hidden'
-    document.body.style.position = 'relative'
-    // 避免滚动条造成的抖动
-    document.body.style.paddingRight = sidebarWidth + 'px'
+      // 添加样式到body上
+      const sidebarWidth =
+        window.innerWidth - (document.body.clientWidth || document.documentElement.clientWidth)
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'relative'
+      // 避免滚动条造成的抖动
+      document.body.style.paddingRight = sidebarWidth + 'px'
+    }
+    modalCount++
 
     // 设置动画原点
     if (mousePosition) {
@@ -175,10 +186,15 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
 
   const afterLeave = React.useCallback(
     (el: HTMLElement) => {
-      // 恢复body中原来的样式
-      document.body.style.overflow = el.dataset.overflow || ''
-      document.body.style.position = el.dataset.position || ''
-      document.body.style.paddingRight = el.dataset.paddingRight || ''
+      // 判断是不是最后一个modal，最后一个才需要恢复body样式
+      if (modalCount === 1) {
+        // 恢复body中原来的样式
+        Object.keys(bodyStyle).forEach(key => {
+          document.body.style[key as any] = bodyStyle[key]
+        })
+      }
+
+      modalCount--
 
       // 消除动画原点
       const modal = el.childNodes[0] as HTMLElement
