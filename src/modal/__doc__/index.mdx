@@ -270,7 +270,7 @@ export default () => {
   )
 
   const click = () => {
-    modal = Modal.create({
+    modal = Modal.confirm({
       content: getContent()
     })
   }
@@ -297,7 +297,7 @@ export default () => {
   const click = () => {
     for (let i = 0; i < 3; i++) {
       setTimeout(() => {
-        Modal.create({
+        Modal.confirm({
           content: (
             <div>
               <p>这是第{i + 1}个对话框</p>
@@ -318,6 +318,8 @@ export default () => {
 ```
 
 :::
+
+> 需要注意，`destroy`和`destroyAll`方法会直接销毁对话框，不会触发动画，如果需要在动画结束后销毁，请在`afterClose`中调用
 
 ## Modal API
 

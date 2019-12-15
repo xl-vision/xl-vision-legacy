@@ -43,6 +43,7 @@ const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = props => {
     width = 416,
     visible: visibleProp = true,
     onVisibleChange: onVisibleChangeProp,
+    afterClose,
     ...others
   } = props
 
@@ -111,6 +112,7 @@ const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = props => {
       footer={null}
       closable={false}
       maskClosable={false}
+      afterClose={afterClose}
     >
       {body}
     </Modal>

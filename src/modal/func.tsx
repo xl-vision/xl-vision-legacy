@@ -15,7 +15,10 @@ export interface BaseFuncModalProps extends ConfirmModallProps {
   cancelOnDestroy?: boolean
 }
 
-export type FuncModalProps = Omit<Omit<BaseFuncModalProps, 'icon'>, 'showCancelBtn'>
+export type FuncModalProps = Omit<
+  Omit<Omit<BaseFuncModalProps, 'icon'>, 'showCancelBtn'>,
+  'afterClose'
+>
 
 const destroyFns: Array<() => void> = []
 
@@ -40,26 +43,19 @@ export const create: ModalCreate = props => {
 
   let allProps: BaseFuncModalProps
 
-  const afterClose = () => {
-    const afterCloseProp = allProps.afterClose
-    afterCloseProp && afterCloseProp()
-    // 关闭后就销毁
-    destroy()
-  }
-
   // 只更新不一样的属性
   const render = (newProps?: Partial<BaseFuncModalProps>) => {
     warningLog(
-      destroyFns.indexOf(close) === -1,
+      destroyFns.indexOf(destroy) === -1,
       'The instance is destoryed, it could not be render again'
     )
     allProps = { ...allProps, ...newProps }
-    ReactDOM.render(<ConfirmModal {...allProps} afterClose={afterClose} />, div)
+    ReactDOM.render(<ConfirmModal {...allProps} />, div)
   }
 
   const destroy = () => {
     warningLog(
-      destroyFns.indexOf(close) === -1,
+      destroyFns.indexOf(destroy) === -1,
       'The instance is destoryed, it could not be render again'
     )
 
@@ -74,14 +70,10 @@ export const create: ModalCreate = props => {
     if (ret && div.parentNode) {
       div.parentNode.removeChild(div)
     }
-    destroyFns.splice(destroyFns.indexOf(close), 1)
+    destroyFns.splice(destroyFns.indexOf(destroy), 1)
   }
 
-  const close = () => {
-    render({ visible: false })
-  }
-
-  destroyFns.push(close)
+  destroyFns.push(destroy)
 
   render(props)
 
