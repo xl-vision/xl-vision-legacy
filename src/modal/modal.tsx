@@ -57,6 +57,7 @@ on('click', cb)
 // 记录打开的modal数量
 let modalCount = 0
 // 保存body中的样式
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let bodyStyle: any
 
 const Modal: React.FunctionComponent<ModalProps> = props => {
@@ -190,6 +191,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       if (modalCount === 1) {
         // 恢复body中原来的样式
         Object.keys(bodyStyle).forEach(key => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           document.body.style[key as any] = bodyStyle[key]
         })
       }
