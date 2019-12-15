@@ -1,7 +1,8 @@
 import { default as Modal } from './modal'
 import { create, destroyAll, confirm, info, success, error, warning } from './func'
 export { ModalProps } from './modal'
-export { FuncModalProps, ModalCreate } from './func'
+export { ConfirmModallProps } from './confirm-modal'
+export { BaseFuncModalProps, FuncModalProps, ModalCreate } from './func'
 
 const ModalWrap = Modal as typeof Modal & {
   create: typeof create
