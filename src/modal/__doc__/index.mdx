@@ -319,8 +319,6 @@ export default () => {
 
 :::
 
-> 需要注意，`destroy`和`destroyAll`方法会直接销毁对话框，不会触发动画，如果需要在动画结束后销毁，请在`afterClose`中调用
-
 ## Modal API
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
@@ -382,5 +380,4 @@ export default () => {
 | cancelText | 取消按钮的文字 | string | - | 取消 | false |
 | okButtonProps | 确认按钮的属性 | Omit<ButtonProps, 'children'> | - | {type: 'primary'} | false |
 | cancelButtonProps | 取消按钮的属性 | Omit<ButtonProps, 'children'> | - | - | false |
-| afterClose | modal 关闭后的回调，此时过度动画已经完成 | () => void | - | - | false |
 | cancelOnDestroy | 销毁时是否触发 onCancel 方法 | - | - | false | false |
