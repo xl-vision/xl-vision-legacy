@@ -5,7 +5,7 @@ import { namePrefix } from '../../commons/config'
 import FasArrowCircleRight from '../../icon/icons/fas-arrow-circle-right'
 import FasCog from '../../icon/icons/fas-cog'
 
-describe('collapse', () => {
+describe('Collapse', () => {
   it('测试展开收缩效果', () => {
     const wrapper = mount(
       <Collapse>
@@ -14,21 +14,21 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(0)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试无边框', () => {
@@ -38,21 +38,21 @@ describe('collapse', () => {
         <Collapse.Panel header={'header2'}>body2</Collapse.Panel>
       </Collapse>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(0)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试手风琴', () => {
@@ -63,21 +63,21 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(0)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试禁用面板', () => {
@@ -90,21 +90,21 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(0)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试默认展开的面板', () => {
@@ -114,21 +114,21 @@ describe('collapse', () => {
         <Collapse.Panel header={'header2'}>body2</Collapse.Panel>
       </Collapse>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(0)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
       .find(`.${namePrefix}-collapse-panel__header`)
       .simulate('click')
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试指定箭头位置', () => {
@@ -139,7 +139,7 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试隐藏箭头', () => {
@@ -150,7 +150,7 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试自定义箭头', () => {
@@ -164,7 +164,7 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('测试额外内容', () => {
@@ -180,7 +180,7 @@ describe('collapse', () => {
       </Collapse>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
     expect(call.mock.calls[0][0]).toEqual('0')
     expect(call.mock.calls[1][0]).toEqual('1')
   })

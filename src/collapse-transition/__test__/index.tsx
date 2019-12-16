@@ -2,7 +2,7 @@ import { mount } from 'enzyme'
 import React from 'react'
 import CollapseTransition from '..'
 
-describe('collapse-transition', () => {
+describe('CollapseTransition', () => {
   it('基本使用', async () => {
     const wrapper = mount(
       <CollapseTransition show={false}>
@@ -10,7 +10,7 @@ describe('collapse-transition', () => {
       </CollapseTransition>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
 
     wrapper.setProps({
       show: true
@@ -18,6 +18,6 @@ describe('collapse-transition', () => {
 
     wrapper.update()
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 })

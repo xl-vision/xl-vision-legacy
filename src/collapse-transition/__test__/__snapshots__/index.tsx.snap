@@ -1,89 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`collapse-transition 基本使用 1`] = `
-<CollapseTransition
-  show={false}
->
-  <CssTransition
-    afterEnter={[Function]}
-    beforeEnter={[Function]}
-    beforeLeave={[Function]}
-    enter={[Function]}
-    enterCancelled={[Function]}
-    leave={[Function]}
-    leaveCancelled={[Function]}
-    show={false}
-  >
-    <Transition
-      afterAppear={[Function]}
-      afterEnter={[Function]}
-      afterLeave={[Function]}
-      appear={[Function]}
-      appearCancelled={[Function]}
-      beforeAppear={[Function]}
-      beforeEnter={[Function]}
-      beforeLeave={[Function]}
-      enter={[Function]}
-      enterCancelled={[Function]}
-      leave={[Function]}
-      leaveCancelled={[Function]}
-      show={false}
-    />
-  </CssTransition>
-</CollapseTransition>
-`;
+exports[`CollapseTransition 基本使用 1`] = `null`;
 
-exports[`collapse-transition 基本使用 2`] = `
-<CollapseTransition
-  show={true}
+exports[`CollapseTransition 基本使用 2`] = `
+<div
+  style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; transition: height 1s ease; height: 0px;"
 >
-  <CssTransition
-    afterEnter={[Function]}
-    beforeEnter={[Function]}
-    beforeLeave={[Function]}
-    enter={[Function]}
-    enterCancelled={[Function]}
-    leave={[Function]}
-    leaveCancelled={[Function]}
-    show={true}
+  <div
+    style="position: relative;"
   >
-    <Transition
-      afterAppear={[Function]}
-      afterEnter={[Function]}
-      afterLeave={[Function]}
-      appear={[Function]}
-      appearCancelled={[Function]}
-      beforeAppear={[Function]}
-      beforeEnter={[Function]}
-      beforeLeave={[Function]}
-      enter={[Function]}
-      enterCancelled={[Function]}
-      leave={[Function]}
-      leaveCancelled={[Function]}
-      show={true}
-    >
-      <div
-        style={
-          Object {
-            "boxSizing": "border-box",
-            "overflow": "hidden",
-            "paddingBottom": "0",
-            "paddingTop": "0",
-            "transition": "height 1s ease",
-          }
-        }
-      >
-        <div
-          style={
-            Object {
-              "position": "relative",
-            }
-          }
-        >
-          <div />
-        </div>
-      </div>
-    </Transition>
-  </CssTransition>
-</CollapseTransition>
+    <div />
+  </div>
+</div>
 `;

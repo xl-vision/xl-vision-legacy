@@ -11,6 +11,6 @@ describe('Carousel', () => {
         <div className={'item3'}>2</div>
       </Carousel>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 })

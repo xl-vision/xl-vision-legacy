@@ -12,7 +12,7 @@ describe('Portal', () => {
       </div>
     )
 
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('直接挂载在当前位置', () => {
@@ -23,6 +23,6 @@ describe('Portal', () => {
         </Portal>
       </div>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 })

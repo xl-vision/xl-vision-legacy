@@ -3,13 +3,13 @@ import React from 'react'
 import Spin from '..'
 import FasCircleNotch from '../../icon/icons/fas-circle-notch'
 
-describe('spin', () => {
+describe('Spin', () => {
   beforeAll(() => {
     jest.useRealTimers()
   })
   it('基本用法', () => {
     const wrapper = mount(<Spin />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('内嵌内容', () => {
@@ -18,7 +18,7 @@ describe('spin', () => {
         <div className='inner'>Further details about the context of this alert.</div>
       </Spin>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('覆盖父元素', () => {
@@ -28,7 +28,7 @@ describe('spin', () => {
         <Spin cover={true} />
       </div>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('不同大小', () => {
@@ -39,17 +39,17 @@ describe('spin', () => {
         <Spin size='large' />
       </div>
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('自定义描述', () => {
     const wrapper = mount(<Spin tip='Loading...' />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   it('自定义指示器', () => {
     const wrapper = mount(<Spin indicator={<FasCircleNotch spin={true} />} tip='Loading...' />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 
   test.todo('启动加载和关闭加载')

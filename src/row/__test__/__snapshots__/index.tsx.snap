@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`grid flex布局 1`] = `
+exports[`Grid flex布局 1`] = `
 <div>
   <div
     class="grid-row-box grid-row-box--flex"
@@ -308,7 +308,7 @@ exports[`grid flex布局 1`] = `
 </div>
 `;
 
-exports[`grid 偏移布局 1`] = `
+exports[`Grid 偏移布局 1`] = `
 <div>
   <div
     class="grid-row-box"
@@ -440,7 +440,7 @@ exports[`grid 偏移布局 1`] = `
 </div>
 `;
 
-exports[`grid 响应式偏移 1`] = `
+exports[`Grid 响应式偏移 1`] = `
 <div>
   <div
     class="grid-row-box"
@@ -562,7 +562,7 @@ exports[`grid 响应式偏移 1`] = `
 </div>
 `;
 
-exports[`grid 响应式布局 1`] = `
+exports[`Grid 响应式布局 1`] = `
 <div
   class="grid-row-box"
 >
@@ -609,7 +609,7 @@ exports[`grid 响应式布局 1`] = `
 </div>
 `;
 
-exports[`grid 基本用法 1`] = `
+exports[`Grid 基本用法 1`] = `
 <div>
   <div
     class="grid-row-box"
