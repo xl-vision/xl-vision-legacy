@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portal 测试挂载到body中 1`] = `
+<div>
+  <Portal
+    getContainer={[Function]}
+  >
+    <Portal
+      containerInfo={
+        <body>
+          <div>
+            123
+          </div>
+        </body>
+      }
+    >
+      <div>
+        123
+      </div>
+    </Portal>
+  </Portal>
+</div>
+`;
+
+exports[`Portal 直接挂载在当前位置 1`] = `
+<div>
+  <Portal
+    getContainer={[Function]}
+  >
+    <div>
+      123
+    </div>
+  </Portal>
+</div>
+`;

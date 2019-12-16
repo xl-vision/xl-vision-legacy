@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 import { isServer } from '../../utils/env'
 
 export interface PortalProp {
-  children: React.ReactNode
-  getContainer: () => Element
+  children: React.ReactElement
+  getContainer: () => Element | null
 }
 
 /**
@@ -19,11 +19,17 @@ const Portal: React.FunctionComponent<PortalProp> = props => {
     return null
   }
 
-  return ReactDOM.createPortal(children, getContainer())
+  const container = getContainer()
+
+  if (container === null) {
+    return children
+  }
+
+  return ReactDOM.createPortal(children, container)
 }
 
 Portal.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   getContainer: PropTypes.func.isRequired
 }
 
