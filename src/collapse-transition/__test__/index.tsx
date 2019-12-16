@@ -20,4 +20,22 @@ describe('CollapseTransition', () => {
 
     expect(wrapper.render()).toMatchSnapshot()
   })
+
+  it('测试horizontal', async () => {
+    const wrapper = mount(
+      <CollapseTransition horizontal={true} show={false}>
+        <div />
+      </CollapseTransition>
+    )
+
+    expect(wrapper.render()).toMatchSnapshot()
+
+    wrapper.setProps({
+      show: true
+    })
+
+    wrapper.update()
+
+    expect(wrapper.render()).toMatchSnapshot()
+  })
 })

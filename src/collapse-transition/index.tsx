@@ -21,9 +21,9 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = prop
       overflow: 'hidden',
       paddingBottom: '0',
       paddingTop: '0',
-      transition: transitionClassName ? '' : 'height 1s ease'
+      transition: transitionClassName ? '' : `${horizontal ? 'width' : 'height'} 1s ease`
     }
-  }, [transitionClassName])
+  }, [transitionClassName, horizontal])
 
   const transitionEvents = React.useMemo(() => {
     const key = horizontal ? 'width' : 'height'

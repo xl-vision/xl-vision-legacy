@@ -13,3 +13,17 @@ exports[`CollapseTransition 基本使用 2`] = `
   </div>
 </div>
 `;
+
+exports[`CollapseTransition 测试horizontal 1`] = `null`;
+
+exports[`CollapseTransition 测试horizontal 2`] = `
+<div
+  style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; transition: width 1s ease; width: 0px;"
+>
+  <div
+    style="position: relative;"
+  >
+    <div />
+  </div>
+</div>
+`;
