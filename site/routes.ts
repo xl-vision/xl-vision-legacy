@@ -108,6 +108,11 @@ const routes: Route[] = [
         name: '对话框',
         path: '/modal',
         component: import('../src/modal/__doc__/index.mdx')
+      },
+      {
+        name: '消息提醒',
+        path: '/message',
+        component: import('../src/message/__doc__/index.mdx')
       }
     ]
   },

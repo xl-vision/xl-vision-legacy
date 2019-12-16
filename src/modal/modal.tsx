@@ -214,13 +214,12 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
 
   const headerNode = React.useMemo(() => {
     if (typeof title === 'undefined') {
-      return React.isValidElement(title) ? (
-        title
-      ) : (
-        <div className={`${prefixCls}__title`}>{title}</div>
-      )
+      return null
     }
 
+    if (typeof title === 'string') {
+      return <div className={`${prefixCls}__title`}>{title}</div>
+    }
     return title
   }, [title, prefixCls])
 

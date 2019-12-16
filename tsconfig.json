@@ -11,5 +11,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "site", "typings"]
+  "include": ["src", "site", "typings", "test/wait.ts"]
 }
