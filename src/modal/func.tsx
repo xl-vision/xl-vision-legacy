@@ -103,9 +103,26 @@ export const create: ModalCreate = props => {
   }
 }
 
-export const confirm = (props: FuncModalProps) => {
+// 快捷创建modal的通用实现
+const _create = (
+  props: FuncModalProps,
+  type: 'confirm' | 'info' | 'success' | 'error' | 'warning'
+) => {
   const { prefixCls = `${namePrefix}-modal`, ...others } = props
-  const icon = <FarQuestionCircle className={`${prefixCls}-icon--confirm`} />
+  const Icon =
+    type === 'confirm'
+      ? FarQuestionCircle
+      : type === 'info'
+      ? FasExclamationCircle
+      : type === 'success'
+      ? FarCheckCircle
+      : type === 'error'
+      ? FarTimesCircle
+      : FasExclamationTriangle
+  const icon = <Icon className={`${prefixCls}-icon--${type}`} />
+
+  const okText = type === 'confirm' ? '确定' : '知道了'
+
   // eslint-disable-next-line prefer-const
   let modal: ReturnType<ModalCreate>
 
@@ -113,67 +130,24 @@ export const confirm = (props: FuncModalProps) => {
     modal.destroy()
   }
 
-  modal = create({ ...others, prefixCls, afterClose, icon, showCancelBtn: true })
+  modal = create({
+    okText,
+    ...others,
+    prefixCls,
+    afterClose,
+    icon,
+    showCancelBtn: type === 'confirm'
+  })
 
   return modal
 }
 
-export const info = (props: FuncModalProps) => {
-  const { prefixCls = `${namePrefix}-modal`, okText = '知道了', ...others } = props
-  const icon = <FasExclamationCircle className={`${prefixCls}-icon--info`} />
-  // eslint-disable-next-line prefer-const
-  let modal: ReturnType<ModalCreate>
+export const confirm = (props: FuncModalProps) => _create(props, 'confirm')
 
-  const afterClose = () => {
-    modal.destroy()
-  }
+export const info = (props: FuncModalProps) => _create(props, 'info')
 
-  modal = create({ ...others, okText, prefixCls, afterClose, icon })
+export const success = (props: FuncModalProps) => _create(props, 'success')
 
-  return modal
-}
+export const error = (props: FuncModalProps) => _create(props, 'error')
 
-export const success = (props: FuncModalProps) => {
-  const { prefixCls = `${namePrefix}-modal`, okText = '知道了', ...others } = props
-  const icon = <FarCheckCircle className={`${prefixCls}-icon--success`} />
-  // eslint-disable-next-line prefer-const
-  let modal: ReturnType<ModalCreate>
-
-  const afterClose = () => {
-    modal.destroy()
-  }
-
-  modal = create({ ...others, okText, prefixCls, afterClose, icon })
-
-  return modal
-}
-
-export const error = (props: FuncModalProps) => {
-  const { prefixCls = `${namePrefix}-modal`, okText = '知道了', ...others } = props
-  const icon = <FarTimesCircle className={`${prefixCls}-icon--error`} />
-  // eslint-disable-next-line prefer-const
-  let modal: ReturnType<ModalCreate>
-
-  const afterClose = () => {
-    modal.destroy()
-  }
-
-  modal = create({ ...others, okText, prefixCls, afterClose, icon })
-
-  return modal
-}
-
-export const warning = (props: FuncModalProps) => {
-  const { prefixCls = `${namePrefix}-modal`, okText = '知道了', ...others } = props
-  const icon = <FasExclamationTriangle className={`${prefixCls}-icon--warning`} />
-  // eslint-disable-next-line prefer-const
-  let modal: ReturnType<ModalCreate>
-
-  const afterClose = () => {
-    modal.destroy()
-  }
-
-  modal = create({ ...others, okText, prefixCls, afterClose, icon })
-
-  return modal
-}
+export const warning = (props: FuncModalProps) => _create(props, 'warning')
