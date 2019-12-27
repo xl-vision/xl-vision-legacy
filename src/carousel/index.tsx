@@ -36,7 +36,6 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     children,
     height = '100%',
     width = '100%',
-    // 防止每次调用都创建
     onChange,
     arrow = 'hover',
     autoPlay = false,
