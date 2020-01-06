@@ -9,6 +9,7 @@ import { off, on } from '../commons/utils/event'
 import { nextFrame } from '../commons/utils/transition'
 import CssTransition from '../css-transition'
 import { FasAngleDown, FasAngleLeft, FasAngleRight, FasAngleUp } from '../icon'
+import useMountedState from '../commons/hooks/useMountedState'
 
 export interface CarouselProps {
   arrow?: 'hover' | 'always' | 'none'
@@ -82,6 +83,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   const wrapperRef = React.useRef<HTMLDivElement>(null)
   const carouselRef = React.useRef<HTMLDivElement>(null)
+  const isMountedState = useMountedState()
 
   // 记录拖拽开始时间
   const startTimeRef = React.useRef(0)
@@ -106,9 +108,11 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
           // 获取之前的动画
           setAnimate(() => {
             nextFrame(() => {
-              // 开启动画
-              setAnimate(true)
-              setActiveIndex(call(index))
+              if (isMountedState()) {
+                // 开启动画
+                setAnimate(true)
+                setActiveIndex(call(index))
+              }
             })
             // 先关闭动画
             return false
@@ -119,7 +123,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         return call(prev)
       })
     },
-    [childrenArray]
+    [childrenArray, isMountedState]
   )
 
   const toPrev = React.useCallback(() => {
@@ -367,7 +371,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         classNames={`${prefixCls}__arrow--fade`}
       >
         <button className={`${prefixCls}__arrow ${prefixCls}__arrow--first`} onClick={toPrev}>
-          {direction === 'vertical' ? <FasAngleUp /> : <FasAngleLeft />}
+          {direction === 'vertical' ? <FasAngleUp/> : <FasAngleLeft/>}
         </button>
       </CssTransition>
       <CssTransition
@@ -379,7 +383,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         classNames={`${prefixCls}__arrow--fade`}
       >
         <button className={`${prefixCls}__arrow ${prefixCls}__arrow--last`} onClick={toNext}>
-          {direction === 'vertical' ? <FasAngleDown /> : <FasAngleRight />}
+          {direction === 'vertical' ? <FasAngleDown/> : <FasAngleRight/>}
         </button>
       </CssTransition>
     </>
