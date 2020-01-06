@@ -371,7 +371,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         classNames={`${prefixCls}__arrow--fade`}
       >
         <button className={`${prefixCls}__arrow ${prefixCls}__arrow--first`} onClick={toPrev}>
-          {direction === 'vertical' ? <FasAngleUp/> : <FasAngleLeft/>}
+          {direction === 'vertical' ? <FasAngleUp /> : <FasAngleLeft />}
         </button>
       </CssTransition>
       <CssTransition
@@ -383,7 +383,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         classNames={`${prefixCls}__arrow--fade`}
       >
         <button className={`${prefixCls}__arrow ${prefixCls}__arrow--last`} onClick={toNext}>
-          {direction === 'vertical' ? <FasAngleDown/> : <FasAngleRight/>}
+          {direction === 'vertical' ? <FasAngleDown /> : <FasAngleRight />}
         </button>
       </CssTransition>
     </>
