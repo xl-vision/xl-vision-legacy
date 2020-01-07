@@ -6,7 +6,6 @@ import { warning } from '../commons/utils/logger'
 import ForceEnterTransition from '../commons/base/force-enter-transition'
 
 export interface TransitionGroupProps {
-  wrapper?: React.ElementType
   children: React.ReactElement[]
   childFactory?: (child: React.ReactElement) => React.ReactElement<TransitionProps>
 }
@@ -25,7 +24,7 @@ type ChildData = {
 const defaultChildFactory = (child: React.ReactElement) => child
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => {
-  const { wrapper: Wrapper = 'div', children, childFactory = defaultChildFactory } = props
+  const { children, childFactory = defaultChildFactory } = props
 
   const [elements, setElements] = React.useState<React.ReactElement<TransitionProps>[]>()
 
@@ -191,14 +190,10 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
     })
   }, [children, getGetChildData, getChildFactory])
 
-  return <Wrapper>{elements}</Wrapper>
+  return <>{elements}</>
 }
 
-// PropTypes.elementType类型有问题
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 TransitionGroup.propTypes = {
-  wrapper: PropTypes.elementType,
   children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
   childFactory: PropTypes.func
 }
