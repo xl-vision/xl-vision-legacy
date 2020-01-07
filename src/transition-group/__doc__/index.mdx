@@ -1,0 +1,95 @@
+# TransitionGroup
+
+:::demo 基础用法
+
+基础用法
+
+```jsx
+import { CssTransition, TransitionGroup, Button } from 'xl-vision'
+export default () => {
+  const [elements, setElements] = React.useState([])
+  const countRef = React.useRef(0)
+
+  const removeElement = React.useCallback((key) => {
+    setElements(prev => {
+      return prev.filter(it => it.key !== key)
+    })
+  },[])
+
+  const addElement = React.useCallback(() => {
+    setElements(prev => {
+      countRef.current ++
+      const key = parseInt(Math.random() * 1000) + ''
+      return prev.concat(
+        <CssTransition key={key} classNames={'tg_item'}>
+          <div className='tg_item' onClick={() => removeElement(key)}>第{countRef.current}个元素(点击删除)</div>
+        </CssTransition>
+      )
+    })
+  }, [removeElement])
+
+  return (
+    <div>
+      <Button
+        onClick={addElement}
+      >
+        ADD
+      </Button>
+      <TransitionGroup>{elements}</TransitionGroup>
+      <style jsx global>{`
+        .tg_item {
+          height: 3rem;
+          color: #fff;
+          line-height: 3rem;
+          text-align: center;
+          vertical-align: middle;
+          background-color: #007bff;
+          border-radius: 5px;
+          margin: 5px 0;
+          cursor: pointer;
+        }
+
+        .tg_item-enter-active,
+        .tg_item-leave-active {
+          transition: all 0.4s ease;
+        }
+
+        .tg_item-leave-to,
+        .tg_item-enter {
+          transform: translateX(30px);
+          opacity: 0;
+        }
+
+        .tg_item-leave,
+        .tg_item-enter-to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      `}</style>
+    </div>
+  )
+}
+```
+
+:::
+
+## Transition API
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| show | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | - | — | true |
+| isAppear | 是否针对初次进场使用单独的钩子函数 | boolean | - | false | false |
+| beforeAppear | 初次进场前钩子，如果没有指定，会自动调用 beforeEnter 钩子函数 | (el: HTMLElement) => void | - | — | false |
+| appear | 初次进场时钩子，如果没有指定，会自动调用 enter 钩子函数 | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void | - | — | false |
+| afterAppear | 初次进场后钩子，如果没有指定，会自动调用 afterEnter 钩子函数 | (el: HTMLElement) => void | - | — | false |
+| appearCancelled | 取消初次进场钩子，如果没有指定，会自动调用 enterCancelled 钩子函数 | (el: HTMLElement) => void | - | — | false |
+| beforeEnter | 进场前钩子 | (el: HTMLElement) => void | - | — |
+| enter | 进场时钩子 | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void | - | — | false |
+| afterEnter | 进场后钩子 | (el: HTMLElement) => void | - | — | false |
+| enterCancelled | 取消进场钩子 | (el: HTMLElement) => void | - | — | false |
+| beforeLeave | 出场前钩子 | (el: HTMLElement) => void | - | — | false |
+| leave | 出场时钩子 | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void | - | — | false |
+| afterLeave | 出场后钩子 | (el: HTMLElement) => void | - | — | false |
+| leaveCancelled | 取消出场钩子 | (el: HTMLElement) => void | - | — | false |
+| children | 子元素 | React.ReactElement | - | — | true |
+| forceRender | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在 dom 中 | React.ReactElement | - | — | false |

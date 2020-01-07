@@ -30,7 +30,7 @@ export interface TransitionProps {
   isAppear?: boolean
   leave?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
   leaveCancelled?: (el: HTMLElement) => void
-  show: boolean
+  show?: boolean
 }
 
 // 修复在ssr中的警告
@@ -278,7 +278,7 @@ Transition.propTypes = {
   isAppear: PropTypes.bool,
   leave: PropTypes.func,
   leaveCancelled: PropTypes.func,
-  show: PropTypes.bool.isRequired
+  show: PropTypes.bool
 }
 
 export default Transition

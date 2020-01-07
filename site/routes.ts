@@ -130,6 +130,11 @@ const routes: Route[] = [
         component: import('../src/css-transition/__doc__/index.mdx')
       },
       {
+        name: 'TransitionGroup',
+        path: '/TransitionGroup',
+        component: import('../src/transition-group/__doc__/index.mdx')
+      },
+      {
         name: 'CollapseTransition',
         path: '/CollapseTransition',
         component: import('../src/collapse-transition/__doc__/index.mdx')
