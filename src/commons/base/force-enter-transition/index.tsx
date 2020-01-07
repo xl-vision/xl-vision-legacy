@@ -2,6 +2,7 @@ import React from 'react'
 import { TransitionProps } from '../../../transition'
 
 export interface ForceEnterTransition extends TransitionProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 
