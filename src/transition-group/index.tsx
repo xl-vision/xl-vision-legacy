@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { TransitionProps } from '../transition'
 import useConstant from '../commons/hooks/useConstant'
 import { warning } from '../commons/utils/logger'
@@ -167,24 +168,39 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
 
   React.useEffect(() => {
     setElements(prev => {
-      const next = React.Children.map(children, it => {
+      const next: React.ReactElement<TransitionProps>[] = []
+      // 不能使用React.Children.map,map函数会给key添加前缀.$,导致key发生改变
+      React.Children.forEach(children, it => {
         const child = getChildFactory()(it)
         warning(!child.key, '<TransitionGroup>: every child should have a key.')
-        return child
+        next.push(child)
       })
       // 初始化时，不需要处理
       if (!prev) {
-        return React.Children.map(next, it =>
-          React.cloneElement(it, {
+        // 不能使用React.Children.map,map函数会给key添加前缀.$,导致key发生改变
+        const ret: React.ReactElement<TransitionProps>[] = []
+        React.Children.forEach(next, it => {
+          const clone = React.cloneElement(it, {
             show: true
           })
-        )
+          ret.push(clone)
+        })
+        return ret
       }
       return getGetChildData()(prev, next)
     })
   }, [children, getGetChildData, getChildFactory])
 
   return <Wrapper>{elements}</Wrapper>
+}
+
+// PropTypes.elementType类型有问题
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
+TransitionGroup.propTypes = {
+  wrapper: PropTypes.elementType,
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
+  childFactory: PropTypes.func
 }
 
 export default TransitionGroup
