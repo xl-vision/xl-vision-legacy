@@ -119,7 +119,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
         const nextOper = next.operation
         // next=no prev=no,直接添加next, i++,j++
         if (nextOper === Operation.NO && prevOper === Operation.NO) {
-          arr.push(prev.value)
+          arr.push(
+            React.cloneElement(next.value, {
+              show: true
+            })
+          )
           i++
           j++
           // next=no prev=delete, 添加prev,i++
