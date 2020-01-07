@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import useUpdate from '../commons/hooks/useUpdate'
 import useConstant from '../commons/hooks/useConstant'
 import promisefy from '../commons/utils/promisefy'
+import ForceEnterTransition from '../commons/base/force-enter-transition'
 
 export interface ModalProps {
   visible: boolean
@@ -251,40 +252,40 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     return footer
   })()
 
-  if (!display && needDestory) {
+  if (needDestory) {
     return null
   }
-  // 只有在第一次展示的时候才会挂载到dom中
-  if (!display && !needMount && !forceRender) {
+
+  if (!needMount && !forceRender) {
     return null
   }
 
   const modal = (
-    // 保证节点加入dom后才触发变化
-    <CssTransition
-      show={display && needMount && !needDestory}
-      forceRender={true}
-      classNames={`${prefixCls}--fade`}
-      beforeEnter={beforeEnter}
-      afterLeave={afterLeave}
-      // 离开失败一般是正在进行下一次进入，必须清除所有添加的样式以防影响
-      leaveCancelled={afterLeave}
-    >
-      <div
-        className={`${prefixCls}__wrap`}
-        onClick={onMaskClick}
-        style={{
-          zIndex
-        }}
+    <ForceEnterTransition show={display}>
+      <CssTransition
+        forceRender={true}
+        classNames={`${prefixCls}--fade`}
+        beforeEnter={beforeEnter}
+        afterLeave={afterLeave}
+        // 离开失败一般是正在进行下一次进入，必须清除所有添加的样式以防影响
+        leaveCancelled={afterLeave}
       >
-        <div className={prefixCls} style={{ width }}>
-          {closeIconNode}
-          {headerNode && <div className={`${prefixCls}__header`}>{headerNode}</div>}
-          <div className={`${prefixCls}__body`}>{children}</div>
-          {footerNode && <div className={`${prefixCls}__footer`}>{footerNode}</div>}
+        <div
+          className={`${prefixCls}__wrap`}
+          onClick={onMaskClick}
+          style={{
+            zIndex
+          }}
+        >
+          <div className={prefixCls} style={{ width }}>
+            {closeIconNode}
+            {headerNode && <div className={`${prefixCls}__header`}>{headerNode}</div>}
+            <div className={`${prefixCls}__body`}>{children}</div>
+            {footerNode && <div className={`${prefixCls}__footer`}>{footerNode}</div>}
+          </div>
         </div>
-      </div>
-    </CssTransition>
+      </CssTransition>
+    </ForceEnterTransition>
   )
 
   return <Portal getContainer={getContainer}>{modal}</Portal>
