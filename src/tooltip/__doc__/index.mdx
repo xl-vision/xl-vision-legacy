@@ -1,6 +1,8 @@
 # Tooltip
 
-::: demo 基本用法基本的使用方式
+::: demo 基本用法
+
+基本的使用方式
 
 ```jsx
 import { Tooltip } from 'xl-vision'
@@ -15,7 +17,9 @@ export default () => {
 
 :::
 
-::: demo 位置可以设置 12 个方向的位置
+::: demo 自定义位置
+
+可以设置 12 个方向的位置
 
 ```jsx
 import { Row, Tooltip, Button } from 'xl-vision'
@@ -126,7 +130,9 @@ export default () => {
 
 :::
 
-::: demo 支持不同的触发方式通过`trigger`指定触发方式
+::: demo 支持不同的触发方式
+
+通过`trigger`指定触发方式
 
 ```jsx
 import { Tooltip, Button } from 'xl-vision'
@@ -156,6 +162,23 @@ export default () => {
 
 :::
 
+::: demo 指定弹出框挂载的位置
+
+通过`getPopupContainer`可以指定弹出框挂载的位置
+
+```jsx
+import { Tooltip, Button } from 'xl-vision'
+export default () => {
+  return (
+      <Tooltip trigger='hover' content={'hover text'} getPopupContainer={null}>
+        <Button>hover</Button>
+      </Tooltip>
+  )
+}
+```
+
+:::
+
 ## Tooltip API
 
 | 参数      | 说明                     | 类型            | 可选值 | 默认值 | 是否必填 |
@@ -174,7 +197,7 @@ export default () => {
 | overlayStyle | 弹出框样式 | React.CSSProperties &#x007c; ((placement: Placement) => React.CSSProperties) | - | - | false |
 | overlayClassName | 弹出框 className | string &#x007c; ((placement: Placement) => string) | - | - | false |
 | onVisibleChange | 弹出框弹出或隐藏事件 | (visible: boolean) => void | - | - | false |
-| getPopupContainer | 弹出框挂载的位置 | () => HTMLElement | - | ()=>document.body | false |
+| getPopupContainer | 弹出框挂载的位置,`null`表示挂载在当前 dom | HTMLElement &#x007c; Selectors &#x007c; null &#x007c; (() => HTMLElement &#x007c; Selectors &#x007c; null) | - | () => document.body | false |
 | delayShow | 延迟显示 | number | - | 0 | false |
 | delayHide | 延迟隐藏 | number | - | 0 | false |
 | allowPopupEnter | 是否允许进入提示框 | boolean | - | true | false |

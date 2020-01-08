@@ -1,6 +1,6 @@
 import React from 'react'
 import { namePrefix } from '../commons/config'
-import Portal from '../commons/base/portal'
+import Portal, { ContainerType } from '../commons/base/portal'
 import CssTransition from '../css-transition'
 import { on } from '../commons/utils/event'
 import { increaseZIndex } from '../commons/utils/zIndex-manager'
@@ -33,9 +33,10 @@ export interface ModalProps {
   closeIcon?: React.ReactNode
   destroyOnClose?: boolean
   afterClose?: () => void
+  getContainer?: ContainerType
 }
 
-const getContainer = () => document.body
+const defaultGetContainer = () => document.body
 
 const defaultOkButtonProps: Omit<ButtonProps, 'children'> = {
   type: 'primary'
@@ -82,7 +83,8 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     closable = true,
     closeIcon,
     destroyOnClose,
-    afterClose
+    afterClose,
+    getContainer = defaultGetContainer
   } = props
 
   const [display, setDisplay] = React.useState(visible)
@@ -320,7 +322,8 @@ Modal.propTypes = {
   closable: PropTypes.bool,
   closeIcon: PropTypes.node,
   destroyOnClose: PropTypes.bool,
-  afterClose: PropTypes.func
+  afterClose: PropTypes.func,
+  getContainer: PropTypes.func
 }
 
 export default Modal

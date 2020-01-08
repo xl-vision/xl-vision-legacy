@@ -32,6 +32,38 @@ export default () => {
 
 :::
 
+::: demo 指定父容器
+
+使用`getContainer`指定父容器
+
+```jsx
+import { Modal, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const click = React.useCallback(() => {
+    setVisible(prev => !prev)
+  }, [])
+
+  const onVisibleChange = React.useCallback(visible => {
+    setVisible(visible)
+  }, [])
+
+  return (
+    <div>
+      <Button onClick={click}>Open</Button>
+      <Modal visible={visible} onVisibleChange={onVisibleChange} title='基础用法' getContainer={null}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
+    </div>
+  )
+}
+```
+
+:::
+
 ::: demo 回调函数
 
 回调函数
@@ -342,6 +374,7 @@ export default () => {
 | closeIcon | 关闭图标的样式 | React.ReactNode | - | - | false |
 | destroyOnClose | 是否在关闭时销毁 modal 框 | boolean | - | false | false |
 | afterClose | modal 关闭后的回调，此时过度动画已经完成 | () => void | - | - | false |
+| getContainer | 指定父容器,`null`表示挂载在当前dom | HTMLElement &#x007c; Selectors &#x007c; null &#x007c; (() => HTMLElement &#x007c; Selectors &#x007c; null) | - | () => document.body | false |
 
 ## `create`方法参数
 

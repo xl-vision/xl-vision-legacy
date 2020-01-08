@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import PopperJs, { Placement, Modifiers, Data } from 'popper.js'
-import Portal from '../portal'
+import Portal, { ContainerType } from '../portal'
 import useUpdate from '../../hooks/useUpdate'
 import useMountedState from '../../hooks/useMountedState'
 import PopperContext from './popper-context'
@@ -16,7 +16,7 @@ export { Modifiers }
 
 export interface PopperProps {
   placement?: Placement
-  getPopupContainer?: () => Element
+  getPopupContainer?: ContainerType
   popup: React.ReactElement | ((placement: Placement) => React.ReactElement)
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   visible?: boolean
@@ -33,7 +33,7 @@ export interface PopperProps {
   popperModifiers?: Modifiers
 }
 
-const getContainerFn = () => document.body
+const defaultGetContainer = () => document.body
 
 const defaultPopperModifiers: Modifiers = {
   preventOverflow: {
@@ -54,7 +54,7 @@ const TIME_DELAY = 1000 / 60
 const Popper: React.FunctionComponent<PopperProps> = props => {
   const {
     placement = 'auto',
-    getPopupContainer = getContainerFn,
+    getPopupContainer = defaultGetContainer,
     popup,
     children,
     visible = false,
@@ -327,7 +327,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
 
   const popupStyle = React.useMemo(() => {
     const style: React.CSSProperties = {
-      zIndex
+      zIndex,
+      position: 'absolute'
     }
     const direction = actualPlacement.split('-')[0]
     if (direction === 'top') {
