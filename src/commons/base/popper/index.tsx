@@ -491,7 +491,6 @@ Popper.propTypes = {
     'right-start',
     'right-end'
   ]),
-  getPopupContainer: PropTypes.func,
   popup: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
   children: PropTypes.element.isRequired,
   visible: PropTypes.bool,

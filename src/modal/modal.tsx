@@ -322,8 +322,7 @@ Modal.propTypes = {
   closable: PropTypes.bool,
   closeIcon: PropTypes.node,
   destroyOnClose: PropTypes.bool,
-  afterClose: PropTypes.func,
-  getContainer: PropTypes.func
+  afterClose: PropTypes.func
 }
 
 export default Modal

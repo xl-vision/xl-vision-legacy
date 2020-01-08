@@ -49,7 +49,7 @@ const Portal: React.FunctionComponent<PortalProp> = props => {
 
 Portal.propTypes = {
   children: PropTypes.element.isRequired,
-  getContainer: PropTypes.func.isRequired
+  getContainer: PropTypes.any
 }
 
 export default Portal
