@@ -29,17 +29,21 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   const [elements, setElements] = React.useState<React.ReactElement<TransitionProps>[]>()
 
   const getEnterChildWrap = React.useCallback((child: React.ReactElement<TransitionProps>) => {
+    const node = React.cloneElement(child, {
+      show: true
+    })
     // 强制触发enter动画
-    return (
-      <ForceEnterTransition key={child.key!} show={true}>
-        {child}
-      </ForceEnterTransition>
-    )
+    return <ForceEnterTransition key={node.key!}>{node}</ForceEnterTransition>
   }, [])
 
   const getLeaveChildWrap = React.useCallback((child: React.ReactElement<TransitionProps>) => {
+    // 判断是否是ForceEnterTransition
+    const isForce = child.type === ForceEnterTransition
+    // 获得实际操作的元素
+    const node = isForce ? (child.props.children as React.ReactElement<TransitionProps>) : child
+    // 封装afterLeave
     const afterLeave = (el: HTMLElement) => {
-      const afterLeaveProp = child.props.afterLeave
+      const afterLeaveProp = node.props.afterLeave
       afterLeaveProp && afterLeaveProp(el)
       // 动画完成，移除child
       setElements(prev => {
@@ -47,10 +51,16 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
         return prev!.filter(it => it.key !== child.key)
       })
     }
-    return React.cloneElement(child, {
+    // 设置必要属性
+    const inner = React.cloneElement(node, {
       show: false,
       afterLeave
     })
+    // 如果是ForceEnterTransition,需要封装回去
+    if (isForce) {
+      return React.cloneElement(child, {}, inner)
+    }
+    return inner
   }, [])
 
   const getChildData = React.useCallback(

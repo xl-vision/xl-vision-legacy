@@ -134,7 +134,7 @@ exports[`Modal 测试forceRender 2`] = `
 
 exports[`Modal 测试title 1`] = `
 <div
-  class="xl-modal__wrap xl-modal--fade-enter xl-modal--fade-enter-active"
+  class="xl-modal__wrap"
   style="z-index: 1004;"
 >
   <div
@@ -200,7 +200,7 @@ exports[`Modal 测试title 1`] = `
 
 exports[`Modal 测试title 2`] = `
 <div
-  class="xl-modal__wrap xl-modal--fade-enter xl-modal--fade-enter-active"
+  class="xl-modal__wrap"
   style="z-index: 1004;"
 >
   <div

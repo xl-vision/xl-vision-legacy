@@ -1,9 +1,8 @@
 import React from 'react'
 import { TransitionProps } from '../../../transition'
 
-export interface ForceEnterTransition extends TransitionProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any
+export interface ForceEnterTransition {
+  children: React.ReactElement<TransitionProps>
 }
 
 /**
@@ -12,7 +11,7 @@ export interface ForceEnterTransition extends TransitionProps {
  * 本组件的目的就是强制触发这一动作。
  */
 const ForceEnterTransition: React.FunctionComponent<ForceEnterTransition> = props => {
-  const { show: showProp, children, ...others } = props
+  const { children } = props
 
   const [showState, setShowState] = React.useState(false)
 
@@ -20,10 +19,11 @@ const ForceEnterTransition: React.FunctionComponent<ForceEnterTransition> = prop
     setShowState(true)
   }, [])
 
+  const showProp = children.props.show
+
   const show = showProp === true ? showState : showProp
   return React.cloneElement(children, {
-    show,
-    ...others
+    show
   })
 }
 

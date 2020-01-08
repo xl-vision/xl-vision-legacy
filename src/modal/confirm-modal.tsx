@@ -47,7 +47,8 @@ const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = props => {
     ...others
   } = props
 
-  const [visible, setVisible] = React.useState(visibleProp)
+  // 先设置为false，才能触发动画
+  const [visible, setVisible] = React.useState(false)
 
   React.useEffect(() => {
     setVisible(visibleProp)

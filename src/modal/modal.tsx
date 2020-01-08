@@ -10,7 +10,8 @@ import PropTypes from 'prop-types'
 import useUpdate from '../commons/hooks/useUpdate'
 import useConstant from '../commons/hooks/useConstant'
 import promisefy from '../commons/utils/promisefy'
-import ForceEnterTransition from '../commons/base/force-enter-transition'
+import { nextFrame } from '../commons/utils/transition'
+import useMountedState from '../commons/hooks/useMountedState'
 
 export interface ModalProps {
   visible: boolean
@@ -63,7 +64,7 @@ let bodyStyle: any
 
 const Modal: React.FunctionComponent<ModalProps> = props => {
   const {
-    visible,
+    visible = false,
     prefixCls = `${namePrefix}-modal`,
     maskClosable = true,
     forceRender,
@@ -84,25 +85,35 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     afterClose
   } = props
 
-  const [needMount, setNeedMount] = React.useState(false)
+  const [display, setDisplay] = React.useState(visible)
+  // visible为true时直接挂载
+  const [needMount, setNeedMount] = React.useState(visible)
   const [needDestory, setNeedDestory] = React.useState(false)
-  const [display, setDisplay] = React.useState(false)
   const [zIndex, setZindex] = React.useState(0)
   const [okLoading, setOkLoading] = React.useState(false)
   const [cancelLoading, setCancelLoading] = React.useState(false)
+  const isMountedState = useMountedState()
+
+  const setDisplayWrap = React.useCallback(
+    (display: boolean) => {
+      if (display) {
+        setNeedMount(true)
+        setNeedDestory(false)
+        setZindex(increaseZIndex)
+      }
+      // 延时设置display，触发动画
+      nextFrame(() => {
+        if (isMountedState()) {
+          setDisplay(display)
+        }
+      })
+    },
+    [isMountedState]
+  )
 
   React.useEffect(() => {
-    setDisplay(visible)
-  }, [visible])
-
-  React.useEffect(() => {
-    if (display) {
-      setZindex(increaseZIndex)
-
-      setNeedMount(true)
-      setNeedDestory(false)
-    }
-  }, [display])
+    setDisplayWrap(visible)
+  }, [visible, setDisplayWrap])
 
   //==================================常量====================================
   const getOnVisibleChange = useConstant(onVisibleChange)
@@ -123,10 +134,10 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       return onOk && onOk()
     }
     promisefy(fn).then(() => {
-      setDisplay(false)
+      setDisplayWrap(false)
       setOkLoading(false)
     })
-  }, [onOk])
+  }, [onOk, setDisplayWrap])
 
   const onCancelHandler = React.useCallback(() => {
     const fn = () => {
@@ -134,10 +145,10 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       return onCancel && onCancel()
     }
     promisefy(fn).then(() => {
-      setDisplay(false)
+      setDisplayWrap(false)
       setCancelLoading(false)
     })
-  }, [onCancel])
+  }, [onCancel, setDisplayWrap])
 
   const onMaskClick = React.useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -261,31 +272,30 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   }
 
   const modal = (
-    <ForceEnterTransition show={display}>
-      <CssTransition
-        forceRender={true}
-        classNames={`${prefixCls}--fade`}
-        beforeEnter={beforeEnter}
-        afterLeave={afterLeave}
-        // 离开失败一般是正在进行下一次进入，必须清除所有添加的样式以防影响
-        leaveCancelled={afterLeave}
+    <CssTransition
+      show={display}
+      forceRender={true}
+      classNames={`${prefixCls}--fade`}
+      beforeEnter={beforeEnter}
+      afterLeave={afterLeave}
+      // 离开失败一般是正在进行下一次进入，必须清除所有添加的样式以防影响
+      leaveCancelled={afterLeave}
+    >
+      <div
+        className={`${prefixCls}__wrap`}
+        onClick={onMaskClick}
+        style={{
+          zIndex
+        }}
       >
-        <div
-          className={`${prefixCls}__wrap`}
-          onClick={onMaskClick}
-          style={{
-            zIndex
-          }}
-        >
-          <div className={prefixCls} style={{ width }}>
-            {closeIconNode}
-            {headerNode && <div className={`${prefixCls}__header`}>{headerNode}</div>}
-            <div className={`${prefixCls}__body`}>{children}</div>
-            {footerNode && <div className={`${prefixCls}__footer`}>{footerNode}</div>}
-          </div>
+        <div className={prefixCls} style={{ width }}>
+          {closeIconNode}
+          {headerNode && <div className={`${prefixCls}__header`}>{headerNode}</div>}
+          <div className={`${prefixCls}__body`}>{children}</div>
+          {footerNode && <div className={`${prefixCls}__footer`}>{footerNode}</div>}
         </div>
-      </CssTransition>
-    </ForceEnterTransition>
+      </div>
+    </CssTransition>
   )
 
   return <Portal getContainer={getContainer}>{modal}</Portal>

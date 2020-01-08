@@ -10,7 +10,6 @@ import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 import useConstant from '../../hooks/useConstant'
-import ForceEnterTransition from '../force-enter-transition'
 
 export { Placement }
 export { Modifiers }
@@ -85,7 +84,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   const [zIndex, setZIndex] = React.useState(getCurrentIndex)
 
   // popper是否需要挂载的状态
-  const [needMount, setNeedMount] = React.useState(false)
+  // visible为true时就直接挂载
+  const [needMount, setNeedMount] = React.useState(visible)
 
   const isMounted = useMountedState()
 
@@ -371,14 +371,12 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
           onClick={onPopupClick}
           style={popupStyle}
         >
-          <ForceEnterTransition show={actualVisible}>
-            <CssTransition forceRender={true} classNames={transitionClass}>
-              <div style={overlayStyleWrapper}>
-                {arrowNode}
-                {popupNode}
-              </div>
-            </CssTransition>
-          </ForceEnterTransition>
+          <CssTransition show={actualVisible} forceRender={true} classNames={transitionClass}>
+            <div style={overlayStyleWrapper}>
+              {arrowNode}
+              {popupNode}
+            </div>
+          </CssTransition>
         </div>
       </PopperContext.Provider>
     </Portal>

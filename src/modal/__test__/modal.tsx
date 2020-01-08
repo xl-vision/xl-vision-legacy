@@ -3,6 +3,10 @@ import React from 'react'
 import Modal from '..'
 import wait from '../../../test/wait'
 import { act } from 'react-dom/test-utils'
+import * as TransitionUtils from '../../commons/utils/transition'
+
+const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
+nextFrameSpy.mockImplementation(fn => wait(10).then(() => fn()))
 
 describe('Modal', () => {
   it('测试visible和onVisibleChange', async () => {
@@ -16,15 +20,15 @@ describe('Modal', () => {
     expect(fn.mock.calls.length).toBe(0)
 
     wrapper.setProps({ visible: true })
-
     wrapper.update()
+    await act(() => wait(10))
     expect(fn.mock.calls[0][0]).toBe(true)
 
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper.setProps({ visible: false })
-
     wrapper.update()
+    await act(() => wait(10))
     expect(fn.mock.calls[1][0]).toBe(false)
   })
 
@@ -39,6 +43,7 @@ describe('Modal', () => {
     wrapper.setProps({ visible: true })
 
     wrapper.update()
+    await act(() => wait(10))
 
     expect(wrapper.render()).toMatchSnapshot()
   })

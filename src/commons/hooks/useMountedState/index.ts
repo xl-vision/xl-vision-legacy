@@ -8,7 +8,7 @@ const useMountedState = () => {
     return () => {
       ref.current = false
     }
-  })
+  }, [])
   return get
 }
 

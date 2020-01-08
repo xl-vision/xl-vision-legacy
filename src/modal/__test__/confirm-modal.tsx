@@ -4,10 +4,16 @@ import { act } from 'react-dom/test-utils'
 import { mount } from 'enzyme'
 import wait from '../../../test/wait'
 import ConfirmModal from '../confirm-modal'
+import * as TransitionUtils from '../../commons/utils/transition'
+
+const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
+nextFrameSpy.mockImplementation(fn => wait(10).then(() => fn()))
 
 describe('ConfirmModal', () => {
-  it('渲染ConfirmModal', () => {
+  it('渲染ConfirmModal', async () => {
     const wrapper = mount(<ConfirmModal title={'title'} content={'content'} />)
+
+    await act(() => wait(10))
 
     expect(wrapper.render()).toMatchSnapshot()
   })
