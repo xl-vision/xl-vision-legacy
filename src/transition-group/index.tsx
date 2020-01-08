@@ -176,8 +176,10 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
     [getEnterChildWrap, getLeaveChildWrap]
   )
 
+  //==================================常量====================================
   const getGetChildData = useConstant(getChildData)
   const getChildFactory = useConstant(childFactory)
+  //==========================================================================
 
   React.useEffect(() => {
     setElements(prev => {

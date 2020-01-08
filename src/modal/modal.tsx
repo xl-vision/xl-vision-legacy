@@ -86,7 +86,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   } = props
 
   const [display, setDisplay] = React.useState(visible)
-  // visible为true时直接挂载
+  // visible为true时直接挂载,此时不触发动画
   const [needMount, setNeedMount] = React.useState(visible)
   const [needDestory, setNeedDestory] = React.useState(false)
   const [zIndex, setZindex] = React.useState(0)
