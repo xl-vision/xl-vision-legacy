@@ -35,12 +35,12 @@ const routes: Route[] = [
     name: '基础组件',
     children: [
       {
-        name: '图标',
+        name: 'Icon 图标',
         path: '/icon',
         component: import('../src/icon/__doc__/index.mdx')
       },
       {
-        name: '按钮',
+        name: 'Button 按钮',
         path: '/button',
         component: import('../src/button/__doc__/index.mdx')
       }
@@ -50,7 +50,7 @@ const routes: Route[] = [
     name: '布局',
     children: [
       {
-        name: '栅格布局',
+        name: 'Grid 栅格布局',
         path: '/row',
         component: import('../src/row/__doc__/index.mdx')
       }
@@ -60,7 +60,7 @@ const routes: Route[] = [
     name: '导航组件',
     children: [
       {
-        name: '下拉菜单',
+        name: 'Dropdown 下拉菜单',
         path: '/dropdown',
         component: import('../src/dropdown/__doc__/index.mdx')
       }
@@ -70,22 +70,22 @@ const routes: Route[] = [
     name: '数据展示',
     children: [
       {
-        name: '文字提示',
+        name: 'Tooltip 文字提示',
         path: '/tooltip',
         component: import('../src/tooltip/__doc__/index.mdx')
       },
       {
-        name: '气泡卡片',
+        name: 'Popover 气泡卡片',
         path: '/popover',
         component: import('../src/popover/__doc__/index.mdx')
       },
       {
-        name: '走马灯',
+        name: 'Carousel 走马灯',
         path: '/carousel',
         component: import('../src/carousel/__doc__/index.mdx')
       },
       {
-        name: '折叠面板',
+        name: 'Collapse 折叠面板',
         path: '/collapse',
         component: import('../src/collapse/__doc__/index.mdx')
       }
@@ -95,22 +95,22 @@ const routes: Route[] = [
     name: '反馈组件',
     children: [
       {
-        name: '气泡确认框',
+        name: 'Popconfirm 气泡确认框',
         path: '/popconfirm',
         component: import('../src/popconfirm/__doc__/index.mdx')
       },
       {
-        name: '加载中',
+        name: 'Spin 加载中',
         path: '/spin',
         component: import('../src/spin/__doc__/index.mdx')
       },
       {
-        name: '对话框',
+        name: 'Modal 对话框',
         path: '/modal',
         component: import('../src/modal/__doc__/index.mdx')
       },
       {
-        name: '消息提醒',
+        name: 'Message 消息提醒',
         path: '/message',
         component: import('../src/message/__doc__/index.mdx')
       }
@@ -120,22 +120,22 @@ const routes: Route[] = [
     name: '动画',
     children: [
       {
-        name: 'Transition',
+        name: 'Transition 动画',
         path: '/transition',
         component: import('../src/transition/__doc__/index.mdx')
       },
       {
-        name: 'CssTransition',
+        name: 'CssTransition CSS动画',
         path: '/CssTransition',
         component: import('../src/css-transition/__doc__/index.mdx')
       },
       {
-        name: 'TransitionGroup',
+        name: 'TransitionGroup 列表动画',
         path: '/TransitionGroup',
         component: import('../src/transition-group/__doc__/index.mdx')
       },
       {
-        name: 'CollapseTransition',
+        name: 'CollapseTransition 展开动画',
         path: '/CollapseTransition',
         component: import('../src/collapse-transition/__doc__/index.mdx')
       }
