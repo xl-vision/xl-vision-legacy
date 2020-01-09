@@ -10,6 +10,7 @@ import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 import useConstant from '../../hooks/useConstant'
+import ref from '../../utils/ref'
 
 export { Placement }
 export { Modifiers }
@@ -444,16 +445,18 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       onMouseLeave: _onMouseLeave,
       ...others
     } = children.props
-    return React.cloneElement(children, {
+    const clone = React.cloneElement(children, {
       onBlur: mergeEvents(onBlur, _onBlur),
       onClick: mergeEvents(onReferenceClick, _onClick),
       onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
       onFocus: mergeEvents(onFocus, _onFocus),
       onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
       onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave),
-      ref: referenceRef,
       ...others
     })
+
+    // 保证children上原有的ref能够触发
+    return ref(clone, referenceRef)
   }, [
     children,
     onBlur,
