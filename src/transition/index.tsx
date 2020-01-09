@@ -66,7 +66,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   // 标记当前组件是否被卸载
   const isMounted = useMountedState()
 
-  const childrenRel = React.useRef<HTMLElement>(null)
+  const childrenRel = React.useRef<HTMLElement>()
 
   const onTransitionEnd = React.useMemo(() => {
     let cb: () => void
@@ -253,9 +253,22 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     style.display = 'none'
   }
 
+  // https://github.com/facebook/react/blob/2e5d1a8b9e2c29418a27b24306e4c8d5f8681f4f/packages/react-reconciler/src/ReactFiberCommitWork.js#L693
+  const ref = (node: HTMLElement) => {
+    childrenRel.current = node
+    // 如果children上有ref，还需要触发
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const ref = (children as any).ref
+    if (typeof ref === 'function') {
+      ref(node)
+    } else if (ref !== null) {
+      ref.current = node
+    }
+  }
+
   return React.cloneElement<React.HTMLAttributes<HTMLElement>>(children, {
     ...children.props,
-    ref: childrenRel,
+    ref,
     style
   })
 }
