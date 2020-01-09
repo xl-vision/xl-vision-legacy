@@ -15,11 +15,9 @@ export default () => {
     countRef.current++
     const key = countRef.current + ''
     return (
-      <CssTransition key={key} classNames={'tg_item'}>
-        <div className='tg_item' onClick={() => removeElement(key)}>
-          第{countRef.current}个元素(点击删除)
-        </div>
-      </CssTransition>
+      <div key={key} className='tg_item' onClick={() => removeElement(key)}>
+        第{countRef.current}个元素(点击删除)
+      </div>
     )
   }, [removeElement])
 
@@ -47,7 +45,7 @@ export default () => {
     <div>
       <Button onClick={addElement}>ADD</Button>
       <div>
-        <TransitionGroup>{elements}</TransitionGroup>
+        <TransitionGroup classNames='tg_item'>{elements}</TransitionGroup>
       </div>
       <style jsx global>{`
         .tg_item {

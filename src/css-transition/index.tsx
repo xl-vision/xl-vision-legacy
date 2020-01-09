@@ -4,23 +4,21 @@ import { addClass, removeClass } from '../commons/utils/dom'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import Transition, { TransitionProps } from '../transition'
 
-export type CssTransitionClassNames =
-  | string
-  | {
-      appear?: string
-      appearActive?: string
-      appearTo?: string
-      enter: string
-      enterActive: string
-      enterTo: string
-      leave: string
-      leaveActive: string
-      leaveTo: string
-    }
+export type CssTransitionClassNames = {
+  appear?: string
+  appearActive?: string
+  appearTo?: string
+  enter: string
+  enterActive: string
+  enterTo: string
+  leave: string
+  leaveActive: string
+  leaveTo: string
+}
 
 export interface CssTransitionProps extends TransitionProps {
   css?: boolean
-  classNames?: CssTransitionClassNames
+  classNames?: string | CssTransitionClassNames
   timeout?:
     | number
     | {
