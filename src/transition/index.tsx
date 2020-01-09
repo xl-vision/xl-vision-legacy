@@ -245,21 +245,19 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     getLeave
   ])
 
-  return React.useMemo(() => {
-    if (!display && !forceRender) {
-      return null
-    }
-    const style = { ...children.props.style }
-    if (!display) {
-      style.display = 'none'
-    }
+  if (!display && !forceRender) {
+    return null
+  }
+  const style = { ...children.props.style }
+  if (!display) {
+    style.display = 'none'
+  }
 
-    return React.cloneElement<React.HTMLAttributes<HTMLElement>>(children, {
-      ...children.props,
-      ref: childrenRel,
-      style
-    })
-  }, [children, display, forceRender, childrenRel])
+  return React.cloneElement<React.HTMLAttributes<HTMLElement>>(children, {
+    ...children.props,
+    ref: childrenRel,
+    style
+  })
 }
 
 Transition.propTypes = {
