@@ -6,7 +6,7 @@ import useUpdate from '../../hooks/useUpdate'
 import useMountedState from '../../hooks/useMountedState'
 import PopperContext from './popper-context'
 import { mergeEvents } from '../../utils/event'
-import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
+import CssTransition, { CssTransitionProps } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 import useConstant from '../../hooks/useConstant'
@@ -26,7 +26,9 @@ export interface PopperProps {
   delayShow?: number
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
   allowPopupEnter?: boolean
-  transitionName?: CssTransitionClassNames | ((placement: Placement) => CssTransitionClassNames)
+  transitionName?:
+    | CssTransitionProps['classNames']
+    | ((placement: Placement) => CssTransitionProps['classNames'])
   lazyRender?: boolean
   arrow?: React.ReactElement | ((placement: Placement) => React.ReactElement)
   offset?: number | string
@@ -446,13 +448,13 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
       ...others
     } = children.props
     const clone = React.cloneElement(children, {
+      ...others,
       onBlur: mergeEvents(onBlur, _onBlur),
       onClick: mergeEvents(onReferenceClick, _onClick),
       onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
       onFocus: mergeEvents(onFocus, _onFocus),
       onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
-      onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave),
-      ...others
+      onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave)
     })
 
     // 保证children上原有的ref能够触发

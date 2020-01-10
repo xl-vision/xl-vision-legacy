@@ -58,10 +58,13 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
     [onVisibleChange]
   )
 
-  const popup = () => (
-    <div className={`${prefixCls}__overlay-wrap`}>
-      <ul className={`${prefixCls}__overlay`}>{overlay}</ul>
-    </div>
+  const popup = React.useMemo(
+    () => (
+      <div className={`${prefixCls}__overlay-wrap`}>
+        <ul className={`${prefixCls}__overlay`}>{overlay}</ul>
+      </div>
+    ),
+    [overlay, prefixCls]
   )
 
   return (
@@ -72,6 +75,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
       }}
     >
       <Popper
+        {...others}
         popup={popup}
         trigger={trigger}
         placement={placement}
@@ -81,7 +85,6 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
         visible={actualVisible}
         // 必须允许进入
         allowPopupEnter={true}
-        {...others}
       />
     </DropdownContext.Provider>
   )

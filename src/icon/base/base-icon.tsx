@@ -65,7 +65,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
     className
   )
   return (
-    <i className={classes} style={iconStyle} {...others}>
+    <i {...others} className={classes} style={iconStyle}>
       {cloneChildren}
     </i>
   )

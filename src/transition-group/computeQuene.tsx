@@ -3,7 +3,7 @@ import { warning } from '../commons/utils/logger'
 export type Data = {
   prev: React.ReactElement[]
   next: React.ReactElement[]
-  isSame?: boolean
+  same?: boolean
 }
 
 /**
@@ -16,7 +16,7 @@ export type Data = {
  * 5、前后对比，相同位置上，原节点删除，新节点添加，需要标记为替换，位置不变
  */
 export default (prevChildren: React.ReactElement[], nextChildren: React.ReactElement[]) => {
-  const mixData: Array<Data> = []
+  const quene: Array<Data> = []
 
   //记录前后都存在的key
   const sameKeyObj = Object.create(null)
@@ -56,7 +56,7 @@ export default (prevChildren: React.ReactElement[], nextChildren: React.ReactEle
     if (isPrevExist && isNextExist) {
       // 1. 保存prevPendingArray和nextPendingArray并清空
       if (prevPendingArray.length > 0 || nextPendingArray.length > 0) {
-        mixData.push({
+        quene.push({
           prev: prevPendingArray,
           next: nextPendingArray
         })
@@ -66,10 +66,10 @@ export default (prevChildren: React.ReactElement[], nextChildren: React.ReactEle
       // 2. i++,j++，保存记录，
       // 找到和next相同key的prev
       const prevIndex = sameKeyObj[prev.key + ''].prevIndex
-      mixData.push({
+      quene.push({
         prev: [prevChildren[prevIndex]],
         next: [next],
-        isSame: true
+        same: true
       })
       i++
       j++
@@ -96,11 +96,11 @@ export default (prevChildren: React.ReactElement[], nextChildren: React.ReactEle
 
   // 保存prevPendingArray和nextPendingArray
   if (prevPendingArray.length > 0 || nextPendingArray.length > 0) {
-    mixData.push({
+    quene.push({
       prev: prevPendingArray,
       next: nextPendingArray
     })
   }
 
-  return mixData
+  return quene
 }

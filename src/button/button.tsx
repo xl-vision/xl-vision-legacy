@@ -93,13 +93,13 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   )
 
   const allProps = {
+    ...others,
     children: childrenWrapper,
     className: classes,
     disabled,
     href,
     type: htmlType,
-    onClick: onClickHandler,
-    ...others
+    onClick: onClickHandler
   }
 
   if (href) {

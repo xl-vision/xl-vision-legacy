@@ -34,7 +34,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
 
   return (
     <ButtonContext.Provider value={{ size }}>
-      <div className={classes} {...others} />
+      <div {...others} className={classes} />
     </ButtonContext.Provider>
   )
 }

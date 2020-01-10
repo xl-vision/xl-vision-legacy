@@ -20,7 +20,7 @@ const Popover: React.FunctionComponent<PopoverProps> = props => {
     )
   }, [content, title, prefixCls])
 
-  return <Tooltip content={contentNode} prefixCls={prefixCls} {...others} />
+  return <Tooltip {...others} content={contentNode} prefixCls={prefixCls} />
 }
 
 Popover.propTypes = {

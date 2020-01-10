@@ -35,13 +35,13 @@ const Tooltip: React.FunctionComponent<TooltipProps> = props => {
 
   return (
     <Popper
+      {...others}
       arrow={arrow}
       popup={popup}
       offset={offset}
       placement={placement}
       transitionName={transitionName}
       overlayStyle={overlayStyleCb}
-      {...others}
     />
   )
 }

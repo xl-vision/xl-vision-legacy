@@ -68,7 +68,7 @@ const Spin: React.FunctionComponent<SpinProps> = props => {
   const childrenEle = children && <div className={`${prefixCls}__children`}>{children}</div>
 
   return (
-    <div className={classes} {...others}>
+    <div {...others} className={classes}>
       <CssTransition show={display} classNames={`${prefixCls}--fade`}>
         <div className={`${prefixCls}--fade`}>
           <div className={wrapperClasses}>

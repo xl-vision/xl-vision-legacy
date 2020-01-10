@@ -27,10 +27,6 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
 
   const { closeOnClick, close } = React.useContext(DropdownContext)
 
-  const classes = classnames(prefixCls, {
-    [`${prefixCls}--disabled`]: disabled
-  })
-
   // disabled时阻止下面几个事件，防止嵌套dropdown时，子Dropdown在disabled的情况下还触发
   // 下面的事件对应trigger的几种情况: hover, click, contextMenu, focus
   const onMouseEnterWrapper = React.useCallback(
@@ -84,15 +80,19 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
     [disabled, onFocus]
   )
 
+  const classes = classnames(prefixCls, {
+    [`${prefixCls}--disabled`]: disabled
+  })
+
   return (
     <li
+      {...others}
       ref={ref}
       className={classes}
       onMouseEnter={onMouseEnterWrapper}
       onContextMenu={onContextMenuWrapper}
       onClick={onClickWrapper}
       onFocus={onFocusWrapper}
-      {...others}
     >
       {children}
     </li>

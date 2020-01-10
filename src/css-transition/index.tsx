@@ -260,6 +260,7 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
 
   return (
     <Transition
+      {...others}
       beforeAppear={beforeAppearWrapper}
       appear={appearWrapper}
       afterAppear={afterAppearWrapper}
@@ -272,7 +273,6 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
       leave={leaveWrapper}
       afterLeave={afterLeaveWrapper}
       leaveCancelled={leaveCancelledWrapper}
-      {...others}
     />
   )
 }

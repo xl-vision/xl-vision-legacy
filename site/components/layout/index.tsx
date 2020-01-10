@@ -10,20 +10,22 @@ import './index.scss'
 
 const Layout: React.FunctionComponent<{}> = () => {
   return (
-    <Router>
-      <div className='layout'>
-        <Header />
-        <Row className={'content-wrapper'} type={'flex'}>
-          <Row.Col span={6}>
-            <Aside />
-          </Row.Col>
-          <Row.Col span={18}>
-            <Content />
-          </Row.Col>
-        </Row>
-        <Footer />
-      </div>
-    </Router>
+    <React.StrictMode>
+      <Router>
+        <div className='layout'>
+          <Header />
+          <Row className={'content-wrapper'} type={'flex'}>
+            <Row.Col span={6}>
+              <Aside />
+            </Row.Col>
+            <Row.Col span={18}>
+              <Content />
+            </Row.Col>
+          </Row>
+          <Footer />
+        </div>
+      </Router>
+    </React.StrictMode>
   )
 }
 
