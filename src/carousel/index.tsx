@@ -233,14 +233,12 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   }, [wrapperRef, direction])
 
   // 理论当前显示的幻灯片索引
-  const currentIndex = React.useMemo(() => {
-    if (activeIndex === 0) {
-      return childrenArray.length - 1
-    } else if (activeIndex === childrenArray.length + 1) {
-      return 0
-    }
-    return activeIndex - 1
-  }, [activeIndex, childrenArray])
+  const currentIndex =
+    activeIndex === 0
+      ? childrenArray.length - 1
+      : activeIndex === childrenArray.length + 1
+      ? 0
+      : activeIndex - 1
 
   // 回调
   useUpdate(() => {
@@ -251,13 +249,15 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     const handler = () => {
       // 延迟计算,确保页面页面加载好后再计算，否则可能计算不准确
       nextFrame(() => {
-        setSize(calculateSize())
+        if (isMountedState()) {
+          setSize(calculateSize())
+        }
       })
     }
     handler()
     on('resize', handler)
     return () => off('resize', handler)
-  }, [calculateSize])
+  }, [calculateSize, isMountedState])
 
   // 自动播放
   React.useEffect(() => {
@@ -334,31 +334,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     [`${prefixCls}__items--animate`]: isAnimate
   })
 
-  const listStyle = (() => {
-    const totalSize = (childrenArray.length + 2) * size
-    const style: React.CSSProperties = {
-      [direction === 'vertical' ? 'height' : 'width']: totalSize
-    }
-
-    let _distance = distance
-    // 拖拽不允许超出最后一张幻灯片和第一张幻灯片
-    if (!loop) {
-      if (
-        (activeIndex >= childrenArray.length && _distance > 0) ||
-        (activeIndex <= 1 && _distance < 0)
-      ) {
-        _distance = 0
-      }
-    }
-    _distance += size * activeIndex
-
-    if (direction === 'vertical') {
-      style.transform = `translate3d(0, -${_distance}px, 0)`
-    } else {
-      style.transform = `translate3d(-${_distance}px, 0, 0)`
-    }
-    return style
-  })()
+  const listStyle = getListStyle(activeIndex, childrenArray.length, size, distance, direction, loop)
 
   const arrowNode = (
     <>
@@ -453,3 +429,33 @@ Carousel.propTypes = {
 }
 
 export default Carousel
+
+const getListStyle = (
+  activeIndex: number,
+  pages: number,
+  size: number,
+  distance: number,
+  direction: 'vertical' | 'horizontal',
+  loop: boolean
+) => {
+  const totalSize = (pages + 2) * size
+  const style: React.CSSProperties = {
+    [direction === 'vertical' ? 'height' : 'width']: totalSize
+  }
+
+  let _distance = distance
+  // 拖拽不允许超出最后一张幻灯片和第一张幻灯片
+  if (!loop) {
+    if ((activeIndex >= pages && _distance > 0) || (activeIndex <= 1 && _distance < 0)) {
+      _distance = 0
+    }
+  }
+  _distance += size * activeIndex
+
+  if (direction === 'vertical') {
+    style.transform = `translate3d(0, -${_distance}px, 0)`
+  } else {
+    style.transform = `translate3d(-${_distance}px, 0, 0)`
+  }
+  return style
+}
