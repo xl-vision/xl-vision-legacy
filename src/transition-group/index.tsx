@@ -1,10 +1,12 @@
-import React, { RefObject } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import useConstant from '../commons/hooks/useConstant'
 import { warning } from '../commons/utils/logger'
 import ForceEnterTransition from '../commons/base/force-enter-transition'
 import CssTransition, { CssTransitionProps, CssTransitionClassNames } from '../css-transition'
 import getMixArray from './getMixArray'
+import { nextFrame, onTransitionEnd, raf } from '../commons/utils/transition'
+import { addClass, removeClass } from '../commons/utils/dom'
 
 export interface TransitionGroupClassNames extends CssTransitionClassNames {
   move?: string
@@ -17,9 +19,13 @@ export interface TransitionGroupProps
   mode?: 'in-out' | 'out-in'
 }
 
+type Ref = {
+  [key: string]: HTMLElement
+}
+
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => {
   const { children, mode, classNames, ...others } = props
-  const refs = React.useRef<any>({})
+  const refs = React.useRef<Ref>({})
 
   const moveClassName = React.useMemo(() => {
     if (!classNames) {
@@ -39,7 +45,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   const createRefForChild = React.useCallback(
     (child: React.ReactElement<React.HTMLAttributes<HTMLElement>>) => {
       const ref = (dom: HTMLElement) => {
-        refs.current[child.key!] = dom
+        if (dom) {
+          refs.current[child.key!] = dom
+        } else {
+          delete refs.current[child.key!]
+        }
       }
       const cloneChild = React.cloneElement(child, {
         // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -58,16 +68,10 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   const callEnterAfterLeave = React.useCallback(
     (prev: React.ReactElement[], next: React.ReactElement<React.HTMLAttributes<HTMLElement>>[]) => {
       const nextClone = next.map(it => {
-        const clone = createRefForChild(it)
         return (
-          <ForceEnterTransition key={clone.key!}>
-            <CssTransition
-              key={clone.key!}
-              {...getOthers()}
-              classNames={getClassNames()}
-              show={true}
-            >
-              {clone}
+          <ForceEnterTransition key={it.key!}>
+            <CssTransition key={it.key!} {...getOthers()} classNames={getClassNames()} show={true}>
+              {it}
             </CssTransition>
           </ForceEnterTransition>
         )
@@ -115,7 +119,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
 
       return prevClone
     },
-    [getOthers, getClassNames, createRefForChild]
+    [getOthers, getClassNames]
   )
 
   // 先enter后leave
@@ -167,17 +171,16 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
             })
           }
         }
-        const clone = createRefForChild(it)
         return (
-          <ForceEnterTransition key={clone.key!}>
+          <ForceEnterTransition key={it.key!}>
             <CssTransition
-              key={clone.key!}
+              key={it.key!}
               {...getOthers()}
               classNames={getClassNames()}
               show={true}
               afterEnter={afterEnter}
             >
-              {clone}
+              {it}
             </CssTransition>
           </ForceEnterTransition>
         )
@@ -185,7 +188,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
 
       return [...prevClone, ...nextClone]
     },
-    [getOthers, getClassNames, createRefForChild, props]
+    [getOthers, getClassNames, props]
   )
 
   const callUpdateSame = React.useCallback(
@@ -193,11 +196,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
       const element = updateAndGetTransition(prev, {
         ...getOthers(),
         classNames: getClassNames(),
-        children: createRefForChild(next)
+        children: next
       })
       return element
     },
-    [getOthers, getClassNames, createRefForChild]
+    [getOthers, getClassNames]
   )
 
   const updateElement = React.useCallback(
@@ -230,24 +233,58 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
     [callEnterAfterLeave, callLeaveAfterEnter, callUpdateSame, mode]
   )
 
-  const getUpdateElement = useConstant(updateElement)
+  const POS = '__pos__'
 
   React.useEffect(() => {
+    Object.keys(refs.current).forEach(it => {
+      const dom = refs.current[it]
+      const rect = dom.getBoundingClientRect()
+      dom[POS] = { x: rect.x, y: rect.y }
+    })
+    const childrenWithRef = children.map(it => createRefForChild(it))
     setElements(prev => {
-      // 初始化
       if (!prev) {
-        return children.map(it => {
-          warning(!it.key, '<TransitioGroup> must has a key')
+        return childrenWithRef.map(it => {
           return (
-            <CssTransition key={it.key!} {...getOthers()} classNames={getClassNames()} show={true}>
-              {createRefForChild(it)}
+            <CssTransition key={it.key} {...others} classNames={classNames} show={true}>
+              {it}
             </CssTransition>
           )
         })
       }
-      return getUpdateElement()(prev, children)
+      return updateElement(prev, childrenWithRef)
     })
-  }, [children, getUpdateElement, createRefForChild, getOthers, getClassNames])
+  }, [children])
+
+  React.useEffect(() => {
+    if (!moveClassName) {
+      return
+    }
+    nextFrame(() => {
+      Object.keys(refs.current).forEach(it => {
+        const dom = refs.current[it]
+        if (!dom[POS]) {
+          return
+        }
+
+        const rect = dom.getBoundingClientRect()
+        const transform = dom.style.transform
+        const transition = dom.style.transition
+        dom.style.transition = ''
+        dom.style.transform = `translate(${dom[POS].x - rect.x}px, ${dom[POS].y - rect.y}px)`
+        nextFrame(() => {
+          addClass(dom, moveClassName)
+          dom.scrollTop
+          dom.style.transform = 'translate(0,0)'
+          onTransitionEnd(dom, () => {
+            removeClass(dom, moveClassName)
+            dom.style.transform = transform
+            dom.style.transition = transition
+          })
+        })
+      })
+    })
+  }, [elements])
 
   return <>{elements}</>
 }
