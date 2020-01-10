@@ -570,6 +570,291 @@ exports[`Collapse 测试手风琴 3`] = `
 </div>
 `;
 
+exports[`Collapse 测试指定展开的面板 1`] = `
+<div
+  class="xl-collapse"
+>
+  <div
+    class="xl-collapse-panel"
+  >
+    <div
+      class="xl-collapse-panel__header"
+    >
+      <span
+        class="xl-collapse-panel__header__arrow"
+      >
+        <i
+          class="xl-icon"
+          style="transform: rotate(90deg);"
+        >
+          <svg
+            fill="currentColor"
+            style="height: 1em; width: 1em;"
+            viewBox="0 0 256 512"
+          >
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+            />
+          </svg>
+        </i>
+      </span>
+      header1
+      <span
+        class="xl-collapse-panel__header__extra"
+      />
+    </div>
+    <div
+      class="xl-collapse-panel__body--slide"
+      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px;"
+    >
+      <div
+        style="position: relative;"
+      >
+        <div
+          class="xl-collapse-panel__body"
+        >
+          body1
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="xl-collapse-panel"
+  >
+    <div
+      class="xl-collapse-panel__header"
+    >
+      <span
+        class="xl-collapse-panel__header__arrow"
+      >
+        <i
+          class="xl-icon"
+          style="transform: rotate(0deg);"
+        >
+          <svg
+            fill="currentColor"
+            style="height: 1em; width: 1em;"
+            viewBox="0 0 256 512"
+          >
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+            />
+          </svg>
+        </i>
+      </span>
+      header2
+      <span
+        class="xl-collapse-panel__header__extra"
+      />
+    </div>
+    <div
+      class="xl-collapse-panel__body--slide"
+      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; display: none;"
+    >
+      <div
+        style="position: relative;"
+      >
+        <div
+          class="xl-collapse-panel__body"
+        >
+          body2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collapse 测试指定展开的面板 2`] = `
+<div
+  class="xl-collapse"
+>
+  <div
+    class="xl-collapse-panel"
+  >
+    <div
+      class="xl-collapse-panel__header"
+    >
+      <span
+        class="xl-collapse-panel__header__arrow"
+      >
+        <i
+          class="xl-icon"
+          style="transform: rotate(0deg);"
+        >
+          <svg
+            fill="currentColor"
+            style="height: 1em; width: 1em;"
+            viewBox="0 0 256 512"
+          >
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+            />
+          </svg>
+        </i>
+      </span>
+      header1
+      <span
+        class="xl-collapse-panel__header__extra"
+      />
+    </div>
+    <div
+      class="xl-collapse-panel__body--slide"
+      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; height: 0px;"
+    >
+      <div
+        style="position: relative;"
+      >
+        <div
+          class="xl-collapse-panel__body"
+        >
+          body1
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="xl-collapse-panel"
+  >
+    <div
+      class="xl-collapse-panel__header"
+    >
+      <span
+        class="xl-collapse-panel__header__arrow"
+      >
+        <i
+          class="xl-icon"
+          style="transform: rotate(0deg);"
+        >
+          <svg
+            fill="currentColor"
+            style="height: 1em; width: 1em;"
+            viewBox="0 0 256 512"
+          >
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+            />
+          </svg>
+        </i>
+      </span>
+      header2
+      <span
+        class="xl-collapse-panel__header__extra"
+      />
+    </div>
+    <div
+      class="xl-collapse-panel__body--slide"
+      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; display: none;"
+    >
+      <div
+        style="position: relative;"
+      >
+        <div
+          class="xl-collapse-panel__body"
+        >
+          body2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collapse 测试指定展开的面板 3`] = `
+<div
+  class="xl-collapse"
+>
+  <div
+    class="xl-collapse-panel"
+  >
+    <div
+      class="xl-collapse-panel__header"
+    >
+      <span
+        class="xl-collapse-panel__header__arrow"
+      >
+        <i
+          class="xl-icon"
+          style="transform: rotate(0deg);"
+        >
+          <svg
+            fill="currentColor"
+            style="height: 1em; width: 1em;"
+            viewBox="0 0 256 512"
+          >
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+            />
+          </svg>
+        </i>
+      </span>
+      header1
+      <span
+        class="xl-collapse-panel__header__extra"
+      />
+    </div>
+    <div
+      class="xl-collapse-panel__body--slide"
+      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; height: 0px;"
+    >
+      <div
+        style="position: relative;"
+      >
+        <div
+          class="xl-collapse-panel__body"
+        >
+          body1
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="xl-collapse-panel"
+  >
+    <div
+      class="xl-collapse-panel__header"
+    >
+      <span
+        class="xl-collapse-panel__header__arrow"
+      >
+        <i
+          class="xl-icon"
+          style="transform: rotate(90deg);"
+        >
+          <svg
+            fill="currentColor"
+            style="height: 1em; width: 1em;"
+            viewBox="0 0 256 512"
+          >
+            <path
+              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+            />
+          </svg>
+        </i>
+      </span>
+      header2
+      <span
+        class="xl-collapse-panel__header__extra"
+      />
+    </div>
+    <div
+      class="xl-collapse-panel__body--slide"
+      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; height: 0px;"
+    >
+      <div
+        style="position: relative;"
+      >
+        <div
+          class="xl-collapse-panel__body"
+        >
+          body2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Collapse 测试指定箭头位置 1`] = `
 <div
   class="xl-collapse"
@@ -1497,291 +1782,6 @@ exports[`Collapse 测试额外内容 1`] = `
     <div
       class="xl-collapse-panel__body--slide"
       style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; display: none;"
-    >
-      <div
-        style="position: relative;"
-      >
-        <div
-          class="xl-collapse-panel__body"
-        >
-          body2
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Collapse 测试默认展开的面板 1`] = `
-<div
-  class="xl-collapse"
->
-  <div
-    class="xl-collapse-panel"
-  >
-    <div
-      class="xl-collapse-panel__header"
-    >
-      <span
-        class="xl-collapse-panel__header__arrow"
-      >
-        <i
-          class="xl-icon"
-          style="transform: rotate(90deg);"
-        >
-          <svg
-            fill="currentColor"
-            style="height: 1em; width: 1em;"
-            viewBox="0 0 256 512"
-          >
-            <path
-              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-            />
-          </svg>
-        </i>
-      </span>
-      header1
-      <span
-        class="xl-collapse-panel__header__extra"
-      />
-    </div>
-    <div
-      class="xl-collapse-panel__body--slide"
-      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px;"
-    >
-      <div
-        style="position: relative;"
-      >
-        <div
-          class="xl-collapse-panel__body"
-        >
-          body1
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="xl-collapse-panel"
-  >
-    <div
-      class="xl-collapse-panel__header"
-    >
-      <span
-        class="xl-collapse-panel__header__arrow"
-      >
-        <i
-          class="xl-icon"
-          style="transform: rotate(0deg);"
-        >
-          <svg
-            fill="currentColor"
-            style="height: 1em; width: 1em;"
-            viewBox="0 0 256 512"
-          >
-            <path
-              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-            />
-          </svg>
-        </i>
-      </span>
-      header2
-      <span
-        class="xl-collapse-panel__header__extra"
-      />
-    </div>
-    <div
-      class="xl-collapse-panel__body--slide"
-      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; display: none;"
-    >
-      <div
-        style="position: relative;"
-      >
-        <div
-          class="xl-collapse-panel__body"
-        >
-          body2
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Collapse 测试默认展开的面板 2`] = `
-<div
-  class="xl-collapse"
->
-  <div
-    class="xl-collapse-panel"
-  >
-    <div
-      class="xl-collapse-panel__header"
-    >
-      <span
-        class="xl-collapse-panel__header__arrow"
-      >
-        <i
-          class="xl-icon"
-          style="transform: rotate(0deg);"
-        >
-          <svg
-            fill="currentColor"
-            style="height: 1em; width: 1em;"
-            viewBox="0 0 256 512"
-          >
-            <path
-              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-            />
-          </svg>
-        </i>
-      </span>
-      header1
-      <span
-        class="xl-collapse-panel__header__extra"
-      />
-    </div>
-    <div
-      class="xl-collapse-panel__body--slide"
-      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; height: 0px;"
-    >
-      <div
-        style="position: relative;"
-      >
-        <div
-          class="xl-collapse-panel__body"
-        >
-          body1
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="xl-collapse-panel"
-  >
-    <div
-      class="xl-collapse-panel__header"
-    >
-      <span
-        class="xl-collapse-panel__header__arrow"
-      >
-        <i
-          class="xl-icon"
-          style="transform: rotate(0deg);"
-        >
-          <svg
-            fill="currentColor"
-            style="height: 1em; width: 1em;"
-            viewBox="0 0 256 512"
-          >
-            <path
-              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-            />
-          </svg>
-        </i>
-      </span>
-      header2
-      <span
-        class="xl-collapse-panel__header__extra"
-      />
-    </div>
-    <div
-      class="xl-collapse-panel__body--slide"
-      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; display: none;"
-    >
-      <div
-        style="position: relative;"
-      >
-        <div
-          class="xl-collapse-panel__body"
-        >
-          body2
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Collapse 测试默认展开的面板 3`] = `
-<div
-  class="xl-collapse"
->
-  <div
-    class="xl-collapse-panel"
-  >
-    <div
-      class="xl-collapse-panel__header"
-    >
-      <span
-        class="xl-collapse-panel__header__arrow"
-      >
-        <i
-          class="xl-icon"
-          style="transform: rotate(0deg);"
-        >
-          <svg
-            fill="currentColor"
-            style="height: 1em; width: 1em;"
-            viewBox="0 0 256 512"
-          >
-            <path
-              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-            />
-          </svg>
-        </i>
-      </span>
-      header1
-      <span
-        class="xl-collapse-panel__header__extra"
-      />
-    </div>
-    <div
-      class="xl-collapse-panel__body--slide"
-      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; height: 0px;"
-    >
-      <div
-        style="position: relative;"
-      >
-        <div
-          class="xl-collapse-panel__body"
-        >
-          body1
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="xl-collapse-panel"
-  >
-    <div
-      class="xl-collapse-panel__header"
-    >
-      <span
-        class="xl-collapse-panel__header__arrow"
-      >
-        <i
-          class="xl-icon"
-          style="transform: rotate(90deg);"
-        >
-          <svg
-            fill="currentColor"
-            style="height: 1em; width: 1em;"
-            viewBox="0 0 256 512"
-          >
-            <path
-              d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
-            />
-          </svg>
-        </i>
-      </span>
-      header2
-      <span
-        class="xl-collapse-panel__header__extra"
-      />
-    </div>
-    <div
-      class="xl-collapse-panel__body--slide"
-      style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; height: 0px;"
     >
       <div
         style="position: relative;"

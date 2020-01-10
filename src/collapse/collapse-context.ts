@@ -2,13 +2,17 @@ import React from 'react'
 import { voidFn } from '../commons/utils/function'
 
 export interface CollapseContextProps {
-  activeNames: string[]
-  clickCallback: (key: string) => void
+  isShow: (name: string) => boolean
+  clickCallback: (name: string) => void
+  unregister: (name: string) => void
+  register: (name: string) => void
 }
 
 const CollapseContext = React.createContext<CollapseContextProps>({
-  activeNames: [],
-  clickCallback: voidFn
+  isShow: () => false,
+  clickCallback: voidFn,
+  unregister: voidFn,
+  register: voidFn
 })
 
 export default CollapseContext

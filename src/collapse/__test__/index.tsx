@@ -107,9 +107,9 @@ describe('Collapse', () => {
     expect(wrapper.render()).toMatchSnapshot()
   })
 
-  it('测试默认展开的面板', () => {
+  it('测试指定展开的面板', () => {
     const wrapper = mount(
-      <Collapse defaultActiveName={'0'}>
+      <Collapse activeNames={'0'}>
         <Collapse.Panel header={'header1'}>body1</Collapse.Panel>
         <Collapse.Panel header={'header2'}>body2</Collapse.Panel>
       </Collapse>

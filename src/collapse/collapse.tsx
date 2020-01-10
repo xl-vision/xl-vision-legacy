@@ -12,19 +12,20 @@ export interface CollapseProps {
   accordion?: boolean
   bordered?: boolean
   children: React.ReactElement<CollapsePanelProps> | React.ReactElement<CollapsePanelProps>[]
-  defaultActiveName?: string | string[]
+  activeNames?: string | string[]
   expandArrow?: (active: boolean) => React.ReactNode
   expandArrowPosition?: CollapseExpandIconPosition
   extra?: (name: string) => React.ReactNode
   onChange?: (activeNames: string[]) => void
   prefixCls?: string
+  forceRender?: boolean
   showArrow?: boolean
 }
 
 const Collapse: React.FunctionComponent<CollapseProps> = props => {
   const {
     accordion,
-    defaultActiveName,
+    activeNames: activeNamesProp,
     bordered = true,
     children,
     onChange,
@@ -32,22 +33,65 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     expandArrowPosition,
     showArrow,
     extra,
+    forceRender = true,
     prefixCls = `${namePrefix}-collapse`
   } = props
 
-  const [activeNames, setActiveNames] = React.useState(() => {
-    if (!defaultActiveName) {
+  const namesRef = React.useRef<Array<string>>([])
+  const [activeNames, setActiveNames] = React.useState<Array<string>>(() => {
+    if (typeof activeNamesProp === 'undefined') {
       return []
     }
-    if (Array.isArray(defaultActiveName)) {
-      return defaultActiveName
+    const namesProps = Array.isArray(activeNamesProp) ? activeNamesProp : [activeNamesProp]
+    if (accordion) {
+      warning(
+        length > 0,
+        'prop "activeNames" can not contain multipart values when it is in accordion mode.'
+      )
+      return [namesProps[0]]
+    } else {
+      return namesProps
     }
-    return [defaultActiveName]
   })
 
   //====================常量化=====================
   const getOnChange = useConstant(onChange)
+  const getAccordion = useConstant(accordion)
   //============================================
+
+  useUpdate(() => {
+    const onChange = getOnChange()
+    onChange && onChange(activeNames)
+  }, [
+    activeNames,
+    // 常量
+    getOnChange
+  ])
+
+  React.useEffect(() => {
+    if (typeof activeNamesProp === 'undefined') {
+      return
+    }
+    const namesProps = Array.isArray(activeNamesProp) ? activeNamesProp : [activeNamesProp]
+    const length = namesProps.length
+    if (length === 0) {
+      setActiveNames([])
+      return
+    }
+    const isIllegal = namesProps.some(it => namesRef.current.indexOf(it!) === -1)
+
+    warning(isIllegal, 'some value in prop "activeNames" is not legal panel\'s name.')
+
+    if (getAccordion()) {
+      warning(
+        length > 0,
+        'prop "activeNames" can not contain multipart values when it is in accordion mode.'
+      )
+      setActiveNames([namesProps[0]])
+    } else {
+      setActiveNames(namesProps)
+    }
+  }, [activeNamesProp, getAccordion])
 
   // 处理切换到手风琴模式下，activeNames可能包含多个值的情况
   React.useEffect(() => {
@@ -56,14 +100,36 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
         if (prev.length > 1) {
           warning(
             true,
-            `Active name can not contain multipart values when it is in accordion mode.`
+            `active name can not contain multipart values when it is in accordion mode.`
           )
           return [prev[0]]
         }
         return prev
       })
     }
-  }, [accordion])
+  }, [accordion, activeNamesProp])
+
+  // 处理panel被卸载时可能出现的activeName中还存在的问题
+  const unregister = React.useCallback((name: string) => {
+    const index = namesRef.current.indexOf(name)
+    warning(index === -1, 'name is not registered')
+    namesRef.current.splice(index, 1)
+    setActiveNames(prev => {
+      const index = prev.indexOf(name)
+      if (index > -1) {
+        prev.splice(index, 1)
+      }
+      return prev
+    })
+  }, [])
+
+  const register = React.useCallback((name: string) => {
+    const index = namesRef.current.indexOf(name)
+    warning(index !== -1, 'name is already registered')
+    namesRef.current.push(name)
+  }, [])
+
+  const isShow = (name: string) => activeNames.indexOf(name) !== -1
 
   const clickCallback = React.useCallback(
     (name: string) => {
@@ -87,15 +153,6 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     [accordion]
   )
 
-  useUpdate(() => {
-    const onChange = getOnChange()
-    onChange && onChange(activeNames)
-  }, [
-    activeNames,
-    // 常量
-    getOnChange
-  ])
-
   const childrenNode = React.useMemo(() => {
     return React.Children.map<
       React.ReactElement<CollapsePanelProps>,
@@ -108,12 +165,13 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
         expandArrowPosition,
         extra: extraNode,
         showArrow,
+        forceRender,
         // child中的上述属性可以覆盖此处的属性
         ...child.props,
         name
       })
     })
-  }, [children, expandArrowPosition, expandArrow, showArrow, extra])
+  }, [children, expandArrowPosition, expandArrow, showArrow, extra, forceRender])
 
   const classes = React.useMemo(() => {
     return classnames(prefixCls, {
@@ -122,7 +180,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
   }, [bordered, prefixCls])
 
   return (
-    <CollapseContext.Provider value={{ activeNames, clickCallback }}>
+    <CollapseContext.Provider value={{ register, unregister, isShow, clickCallback }}>
       <div className={classes}>{childrenNode}</div>
     </CollapseContext.Provider>
   )
@@ -135,7 +193,7 @@ Collapse.propTypes = {
     PropTypes.element.isRequired,
     PropTypes.arrayOf(PropTypes.element.isRequired)
   ]).isRequired,
-  defaultActiveName: PropTypes.oneOfType([
+  activeNames: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.arrayOf(PropTypes.string.isRequired)
   ]),

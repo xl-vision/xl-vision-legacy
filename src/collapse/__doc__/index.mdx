@@ -2,7 +2,9 @@
 
 可以折叠/展开的内容区域。
 
-:::demo 基本用法基本用法
+:::demo 基本用法
+
+基本用法
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -19,7 +21,9 @@ export default () => {
 
 :::
 
-:::demo 无边框使用`bordered={false}`可以设置无边框
+:::demo 无边框
+
+使用`bordered={false}`可以设置无边框
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -36,7 +40,9 @@ export default () => {
 
 :::
 
-:::demo 手风琴使用`accordion`指定为手风琴
+:::demo 手风琴
+
+使用`accordion`指定为手风琴
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -53,7 +59,9 @@ export default () => {
 
 :::
 
-:::demo 禁用部分面板通过指定`disabled`,可以禁止部分面板的使用
+:::demo 禁用部分面板
+
+通过指定`disabled`,可以禁止部分面板的使用
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -72,13 +80,15 @@ export default () => {
 
 :::
 
-:::demo 指定默认展开的面板通过指定`defaultActiveName`,可以指定默认展开的面板,可以为字符串或者字符串数组。如果 panel 没有指定自己的`name`,则默认每个 panel 的`name`从 0(字符串)开始依次递增
+:::demo 指定展开的面板
+
+通过指定`activeName`,可以指定默认展开的面板,可以为字符串或者字符串数组。如果 panel 没有指定自己的`name`,则默认每个 panel 的`name`从 0(字符串)开始依次递增
 
 ```jsx
 import { Collapse } from 'xl-vision'
 export default () => {
   return (
-    <Collapse defaultActiveName={['1']}>
+    <Collapse activeNames={['1']}>
       <Collapse.Panel header={'header1'}>body</Collapse.Panel>
       <Collapse.Panel header={'header1'}>body</Collapse.Panel>
       <Collapse.Panel header={'header1'}>body</Collapse.Panel>
@@ -89,7 +99,9 @@ export default () => {
 
 :::
 
-:::demo 面板嵌套面板嵌套
+:::demo 面板嵌套
+
+面板嵌套
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -112,7 +124,9 @@ export default () => {
 
 :::
 
-:::demo 指定点击面板的事件通过指定`onChange`,可以指定点击面板的回调，参数为当前激活的面板的`activeKey`的数组。
+:::demo 指定点击面板的事件
+
+通过指定`onChange`,可以指定点击面板的回调，参数为当前激活的面板的`name`的数组。
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -132,7 +146,9 @@ export default () => {
 
 :::
 
-:::demo 指定箭头位置通过指定`expandArrowPosition`,指定箭头位置。
+:::demo 指定箭头位置
+
+通过指定`expandArrowPosition`,指定箭头位置。
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -149,7 +165,9 @@ export default () => {
 
 :::
 
-:::demo 隐藏箭头通过指定`showArrow`,隐藏箭头。
+:::demo 隐藏箭头
+
+通过指定`showArrow`,隐藏箭头。
 
 ```jsx
 import { Collapse } from 'xl-vision'
@@ -166,7 +184,9 @@ export default () => {
 
 :::
 
-:::demo 自定义箭头通过指定`expandArrow`,自定义箭头。
+:::demo 自定义箭头
+
+通过指定`expandArrow`,自定义箭头。
 
 ```jsx
 import { Collapse, Icon } from 'xl-vision'
@@ -186,7 +206,9 @@ export default () => {
 
 :::
 
-:::demo 额外内容通过指定`extra`,添加额外内容。
+:::demo 额外内容
+
+通过指定`extra`,添加额外内容。
 
 ```jsx
 import { Collapse, Icon } from 'xl-vision'
@@ -218,12 +240,13 @@ export default () => {
 | accordion | 手风琴模式 | boolean | - | false | false |
 | bordered | 是否显示边框 | boolean | - | true | false |
 | children | 必须为 Collapse.Panel 或其数组 | ReactElement &#x007c; ReactElement[] | - | - | true |
-| defaultActiveName | 默认展开的 panel 的名称或其数组 | string &#x007c; string[] | - | - | false |
+| activeName | 指定展开的 panel 的名称或其数组 | string &#x007c; string[] | - | - | false |
 | expandArrow | 自定义箭头，函数参数为 panel 的展开状态 | (active: boolean) => ReactNode | - | - | false |
 | expandArrowPosition | 箭头展示的位置 | string | left &#x007c; right | - | false |
 | extra | 右上角额外的内容，函数参数为 panel 的名字 | (name: string) => ReactNode | - | - | false |
 | onChange | panel 改变事件，函数参数为激活的 panel 的名字数组 | (activeNames: string[]) => void | - | - | false |
 | showArrow | 是否展示箭头 | boolean | - | false | false |
+| forceRender | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在 dom 中 | React.ReactElement | - | — | false |
 
 ## Panel API
 
@@ -236,7 +259,7 @@ export default () => {
 | expandArrow | 自定义箭头，函数参数为 panel 的展开状态,可以覆盖 Collapse 中的设置 | (active: boolean) => ReactNode | - | - | false |
 | expandArrowPosition | 箭头展示的位置,可以覆盖 Collapse 中的设置 | string | left &#x007c; right | - | false |
 | extra | 右上角额外的内容,可以覆盖 Collapse 中的设置 | ReactNode | - | - | false |
+| forceRender | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在 dom 中,可以覆盖 Collapse 中的设置 | React.ReactElement | - | — | false |
 | showArrow | 是否展示箭头,可以覆盖 Collapse 中的设置 | boolean | - | false | false |
-| forceRender | 强制渲染子元素，子组件隐藏时使用`display:none`,仍然保留在 dom 中 | React.ReactElement | - | — | false |
 | header | header 的内容 | React.ReactElement | - | — | false |
 | name | 指定 panel 的名字,如果不指定会使用面板在父组件中的位置作为 name,从 0 开始(**注意是字符串**) | string | - | — | false |

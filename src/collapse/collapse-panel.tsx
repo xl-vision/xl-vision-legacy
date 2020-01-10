@@ -29,14 +29,22 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
     children,
     disabled,
     className,
-    forceRender = true,
+    forceRender,
     expandArrow,
     expandArrowPosition,
     extra,
     showArrow = true,
     prefixCls = `${namePrefix}-collapse-panel`
   } = props
-  const { activeNames, clickCallback } = React.useContext(CollapseContext)
+  const { isShow, clickCallback, unregister, register } = React.useContext(CollapseContext)
+
+  React.useEffect(() => {
+    register(name)
+    return () => {
+      unregister(name)
+    }
+  }, [register, unregister, name])
+
   const clickHandler = React.useCallback(() => {
     if (!disabled) {
       clickCallback(name)
@@ -70,7 +78,7 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
     })
   }, [expandArrowPosition, prefixCls])
 
-  const show = activeNames.indexOf(name) !== -1
+  const show = isShow(name)
 
   const arrow = showArrow && <span className={arrowClasses}>{Arrow(show)}</span>
 
