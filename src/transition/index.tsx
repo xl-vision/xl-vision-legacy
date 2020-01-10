@@ -3,7 +3,7 @@ import React from 'react'
 import { isClient } from '../commons/utils/env'
 import useMountedState from '../commons/hooks/useMountedState'
 import useConstant from '../commons/hooks/useConstant'
-import ref from '../commons/utils/ref'
+import setRef from '../commons/utils/setRef'
 
 enum State {
   STATE_INIT,
@@ -100,9 +100,6 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       } else {
         wrapCallback()
       }
-      // if (!isCallbacked) {
-      //   throw new Error(`Do you forget to call 'done' or 'isCancelled' in function 'appear', 'enter' or 'leave'`)
-      // }
     }
   }, [
     // 常量
@@ -127,18 +124,6 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   const getIsMounted = useConstant(isMounted)
   const getOnTransitionEnd = useConstant(onTransitionEnd)
   //===================================================
-
-  const display = React.useMemo(() => {
-    // 还未初始化完成
-    if (state === State.STATE_INIT) {
-      return false
-    }
-    if (state === State.STATE_LEAVED) {
-      return false
-    }
-    // 默认展示
-    return true
-  }, [state])
 
   React.useEffect(() => {
     const state = getState()
@@ -246,7 +231,9 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     getLeave
   ])
 
-  if (!display && !forceRender) {
+  const display = state !== State.STATE_INIT && state !== State.STATE_LEAVED
+
+  if (!forceRender && !display) {
     return null
   }
   const style = { ...children.props.style }
@@ -260,7 +247,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   })
 
   // 保证children上原有的ref能够触发
-  return ref(clone, childrenRel)
+  return setRef(clone, childrenRel)
 }
 
 Transition.propTypes = {

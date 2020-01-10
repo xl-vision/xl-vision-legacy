@@ -10,7 +10,7 @@ import CssTransition, { CssTransitionClassNames } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 import useConstant from '../../hooks/useConstant'
-import ref from '../../utils/ref'
+import setRef from '../../utils/setRef'
 
 export { Placement }
 export { Modifiers }
@@ -456,7 +456,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     })
 
     // 保证children上原有的ref能够触发
-    return ref(clone, referenceRef)
+    return setRef(clone, referenceRef)
   }, [
     children,
     onBlur,

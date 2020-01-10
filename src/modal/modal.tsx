@@ -269,14 +269,14 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     return null
   }
 
-  if (!needMount && !forceRender) {
+  if (!needMount) {
     return null
   }
 
   const modal = (
     <CssTransition
       show={display}
-      forceRender={true}
+      forceRender={forceRender}
       classNames={`${prefixCls}--fade`}
       beforeEnter={beforeEnter}
       afterLeave={afterLeave}

@@ -5,7 +5,7 @@ import { useRef, useCallback, useEffect } from 'react'
  * @param value
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const useConstant = (value: any) => {
+const useConstant = <T>(value: T) => {
   const valueRef = useRef(value)
   const getValue = useCallback(() => {
     return valueRef.current
