@@ -226,45 +226,6 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     [destroyOnClose, afterClose]
   )
 
-  const headerNode = React.useMemo(() => {
-    if (typeof title === 'undefined') {
-      return null
-    }
-
-    if (typeof title === 'string') {
-      return <div className={`${prefixCls}__title`}>{title}</div>
-    }
-    return title
-  }, [title, prefixCls])
-
-  const closeIconNode = React.useMemo(() => {
-    if (!closable) {
-      return null
-    }
-
-    return (
-      <button className={`${prefixCls}__icon`} onClick={onCancelHandler}>
-        <span className={`${prefixCls}__icon-x`}>{closeIcon || <FasTimes />}</span>
-      </button>
-    )
-  }, [closable, closeIcon, prefixCls, onCancelHandler])
-
-  const footerNode = (() => {
-    if (typeof footer === 'undefined') {
-      return (
-        <>
-          <Button loading={cancelLoading} {...cancelButtonProps} onClick={onCancelHandler}>
-            {cancelText}
-          </Button>
-          <Button loading={okLoading} {...okButtonProps} onClick={onOkHandler}>
-            {okText}
-          </Button>
-        </>
-      )
-    }
-    return footer
-  })()
-
   if (needDestory) {
     return null
   }
@@ -273,6 +234,33 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
   if (!needMount && !forceRender) {
     return null
   }
+
+  const headerNode =
+    typeof title === 'undefined' ? null : typeof title === 'string' ? (
+      <div className={`${prefixCls}__title`}>{title}</div>
+    ) : (
+      title
+    )
+
+  const closeIconNode = closable && (
+    <button className={`${prefixCls}__icon`} onClick={onCancelHandler}>
+      <span className={`${prefixCls}__icon-x`}>{closeIcon || <FasTimes />}</span>
+    </button>
+  )
+
+  const footerNode =
+    typeof footer === 'undefined' ? (
+      <>
+        <Button loading={cancelLoading} {...cancelButtonProps} onClick={onCancelHandler}>
+          {cancelText}
+        </Button>
+        <Button loading={okLoading} {...okButtonProps} onClick={onOkHandler}>
+          {okText}
+        </Button>
+      </>
+    ) : (
+      footer
+    )
 
   const modal = (
     <CssTransition
