@@ -153,31 +153,27 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     [accordion]
   )
 
-  const childrenNode = React.useMemo(() => {
-    return React.Children.map<
-      React.ReactElement<CollapsePanelProps>,
-      React.ReactElement<CollapsePanelProps>
-    >(children, (child, index) => {
-      const name = child.props.name || index + ''
-      const extraNode = extra && extra(name)
-      return React.cloneElement(child, {
-        expandArrow,
-        expandArrowPosition,
-        extra: extraNode,
-        showArrow,
-        forceRender,
-        // child中的上述属性可以覆盖此处的属性
-        ...child.props,
-        name
-      })
+  const childrenNode = React.Children.map<
+    React.ReactElement<CollapsePanelProps>,
+    React.ReactElement<CollapsePanelProps>
+  >(children, (child, index) => {
+    const name = child.props.name || index + ''
+    const extraNode = extra && extra(name)
+    return React.cloneElement(child, {
+      expandArrow,
+      expandArrowPosition,
+      extra: extraNode,
+      showArrow,
+      forceRender,
+      // child中的上述属性可以覆盖此处的属性
+      ...child.props,
+      name
     })
-  }, [children, expandArrowPosition, expandArrow, showArrow, extra, forceRender])
+  })
 
-  const classes = React.useMemo(() => {
-    return classnames(prefixCls, {
-      [`${prefixCls}--borderless`]: !bordered
-    })
-  }, [bordered, prefixCls])
+  const classes = classnames(prefixCls, {
+    [`${prefixCls}--borderless`]: !bordered
+  })
 
   return (
     <CollapseContext.Provider value={{ register, unregister, isShow, clickCallback }}>
