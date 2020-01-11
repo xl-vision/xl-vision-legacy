@@ -67,7 +67,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   // 标记当前组件是否被卸载
   const isMounted = useMountedState()
 
-  const childrenRel = React.useRef<HTMLElement>()
+  const childrenNodeRef = React.useRef<HTMLElement>()
 
   const onTransitionEnd = React.useMemo(() => {
     let cb: () => void
@@ -79,7 +79,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
       action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void
     ) => {
       cb = callback
-      const ele = childrenRel.current!
+      const ele = childrenNodeRef.current!
 
       const isCancelled = () => callback !== cb || !!callback.isFinished
 
@@ -136,7 +136,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         // 此时说明leave动画还没有完成，需要触发leaveCancelled
       } else if (state === State.STATE_LEAVING) {
         const leaveCancelled = getLeaveCancelled()
-        leaveCancelled && leaveCancelled(childrenRel.current!)
+        leaveCancelled && leaveCancelled(childrenNodeRef.current!)
         // 确保组件还在挂载中，防止leaveCancelled中做了卸载操作
         if (isMounted()) {
           setState(State.STATE_ENTERING)
@@ -150,7 +150,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         setState(State.STATE_LEAVED)
       } else if (state === State.STATE_APPEARING) {
         const appearCancelled = getAppearCancelled()
-        appearCancelled && appearCancelled(childrenRel.current!)
+        appearCancelled && appearCancelled(childrenNodeRef.current!)
         // 确保组件还在挂载中，防止appearCancelled中做了卸载操作
         if (isMounted()) {
           setState(State.STATE_LEAVING)
@@ -158,7 +158,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
         // 此时说明enter动画还没有完成，需要触发enterCancelled
       } else if (state === State.STATE_ENTERING) {
         const enterCancelled = getEnterCancelled()
-        enterCancelled && enterCancelled(childrenRel.current!)
+        enterCancelled && enterCancelled(childrenNodeRef.current!)
         // 确保组件还在挂载中，防止enterCancelled中做了卸载操作
         if (isMounted()) {
           setState(State.STATE_LEAVING)
@@ -183,35 +183,35 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     const onTransitionEnd = getOnTransitionEnd()
     if (state === State.STATE_APPEARING) {
       const beforeAppear = getBeforeAppear()
-      beforeAppear && beforeAppear(childrenRel.current!)
+      beforeAppear && beforeAppear(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_APPEARED),
         () => {
           const afterAppear = getAfterAppear()
-          afterAppear && afterAppear(childrenRel.current!)
+          afterAppear && afterAppear(childrenNodeRef.current!)
         },
         getAppear()
       )
       // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
     } else if (state === State.STATE_ENTERING) {
       const beforeEnter = getBeforeEnter()
-      beforeEnter && beforeEnter(childrenRel.current!)
+      beforeEnter && beforeEnter(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_ENTERED),
         () => {
           const afterEnter = getAfterEnter()
-          afterEnter && afterEnter(childrenRel.current!)
+          afterEnter && afterEnter(childrenNodeRef.current!)
         },
         getEnter()
       )
     } else if (state === State.STATE_LEAVING) {
       const beforeLeave = getBeforeLeave()
-      beforeLeave && beforeLeave(childrenRel.current!)
+      beforeLeave && beforeLeave(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_LEAVED),
         () => {
           const afterLeave = getAfterLeave()
-          afterLeave && afterLeave(childrenRel.current!)
+          afterLeave && afterLeave(childrenNodeRef.current!)
         },
         getLeave()
       )
@@ -247,7 +247,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   })
 
   // 保证children上原有的ref能够触发
-  return fillRef(clone, childrenRel)
+  return fillRef(clone, childrenNodeRef)
 }
 
 Transition.propTypes = {

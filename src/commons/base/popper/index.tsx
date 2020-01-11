@@ -75,8 +75,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   } = props
 
   const popperJsRef = React.useRef<PopperJs>()
-  const referenceRef = React.useRef<HTMLDivElement>(null)
-  const popupRef = React.useRef<HTMLDivElement>(null)
+  const referenceNodeRef = React.useRef<HTMLDivElement>(null)
+  const popupNodeRef = React.useRef<HTMLDivElement>(null)
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
   const [actualVisible, setActualVisible] = React.useState(visible)
 
@@ -168,8 +168,8 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         popperJsRef.current = undefined
       }
 
-      const popup = popupRef.current
-      const reference = referenceRef.current
+      const popup = popupNodeRef.current
+      const reference = referenceNodeRef.current
 
       if (!popup || !reference) {
         return
@@ -343,7 +343,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   }, [setActualWrapper, trigger])
 
   // 在reference外点击时触发
-  useClickOutside(referenceRef, onClickOutside)
+  useClickOutside(referenceNodeRef, onClickOutside)
 
   // popup
   const popupNode = typeof popup === 'function' ? popup(actualPlacement) : popup
@@ -392,7 +392,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
         }}
       >
         <div
-          ref={popupRef}
+          ref={popupNodeRef}
           onMouseEnter={onPopupMouseEnter}
           onMouseLeave={onPopupMouseLeave}
           onClick={onPopupClick}
@@ -435,7 +435,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     <>
       {(!lazyRender || needMount) && portal}
       {/* 保证children上原有的ref能够触发 */}
-      {fillRef(childrenNode, referenceRef)}
+      {fillRef(childrenNode, referenceNodeRef)}
     </>
   )
 }

@@ -81,8 +81,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   // 滑动的距离
   const [distance, setDistance] = React.useState(0)
 
-  const wrapperRef = React.useRef<HTMLDivElement>(null)
-  const carouselRef = React.useRef<HTMLDivElement>(null)
+  const wrapperNodeRef = React.useRef<HTMLDivElement>(null)
+  const carouselNodeRef = React.useRef<HTMLDivElement>(null)
   const isMountedState = useMountedState()
 
   // 记录拖拽开始时间
@@ -222,11 +222,11 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   )
 
   // 绑定滑动事件
-  useOnMouseDrag(carouselRef, onDragHandler, false)
-  useOnTouchDrag(carouselRef, onDragHandler, false)
+  useOnMouseDrag(carouselNodeRef, onDragHandler, false)
+  useOnTouchDrag(carouselNodeRef, onDragHandler, false)
 
   const calculateSize = React.useCallback(() => {
-    const el = wrapperRef.current
+    const el = wrapperNodeRef.current
     if (!el) {
       return 0
     }
@@ -234,7 +234,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       return el.offsetHeight
     }
     return el.offsetWidth
-  }, [wrapperRef, direction])
+  }, [wrapperNodeRef, direction])
 
   // 理论当前显示的幻灯片索引
   const currentIndex =
@@ -374,13 +374,13 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   return (
     <div
-      ref={carouselRef}
+      ref={carouselNodeRef}
       className={classes}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       style={{ height, width }}
     >
-      <div className={`${prefixCls}__wrap`} ref={wrapperRef}>
+      <div className={`${prefixCls}__wrap`} ref={wrapperNodeRef}>
         <div className={listClasses} style={listStyle}>
           {childrenContainer}
         </div>
