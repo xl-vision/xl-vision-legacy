@@ -5,7 +5,7 @@ import ForceEnterTransition from '../commons/base/force-enter-transition'
 import CssTransition, { CssTransitionProps, CssTransitionClassNames } from '../css-transition'
 import computeQuene from './computeQuene'
 import usePrevious from '../commons/hooks/usePrevious'
-import fillRef from '../commons/utils/fillRef'
+import { fillRef } from '../commons/utils/ref'
 
 export interface TransitionGroupClassNames extends CssTransitionClassNames {
   move?: string

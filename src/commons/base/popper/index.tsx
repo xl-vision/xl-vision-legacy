@@ -10,7 +10,7 @@ import CssTransition, { CssTransitionProps } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 import useConstant from '../../hooks/useConstant'
-import fillRef from '../../utils/fillRef'
+import { fillRef } from '../../utils/ref'
 
 export { Placement }
 export { Modifiers }

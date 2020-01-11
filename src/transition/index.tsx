@@ -3,7 +3,7 @@ import React from 'react'
 import { isClient } from '../commons/utils/env'
 import useMountedState from '../commons/hooks/useMountedState'
 import useConstant from '../commons/hooks/useConstant'
-import fillRef from '../commons/utils/fillRef'
+import { fillRef } from '../commons/utils/ref'
 
 enum State {
   STATE_INIT,
