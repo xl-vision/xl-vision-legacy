@@ -89,9 +89,13 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   const startTimeRef = React.useRef(0)
 
   // 转成数组
-  const childrenArray = React.useMemo(() => {
-    return React.Children.map<React.ReactElement, React.ReactElement>(children, it => it)
-  }, [children])
+  const childrenArray = React.Children.map<React.ReactElement, React.ReactElement>(
+    children,
+    it => it
+  )
+
+  // 即使children发生改变，length也可能不变
+  const childrenLength = childrenArray.length
 
   // 包装，处理特殊情况
   const setActiveIndexWrap = React.useCallback(
@@ -103,8 +107,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         call = () => cb
       }
       setActiveIndex(prev => {
-        if (prev === 0 || prev === childrenArray.length + 1) {
-          const index = prev === 0 ? childrenArray.length : 1
+        if (prev === 0 || prev === childrenLength + 1) {
+          const index = prev === 0 ? childrenLength : 1
           // 获取之前的动画
           setAnimate(() => {
             nextFrame(() => {
@@ -123,28 +127,28 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         return call(prev)
       })
     },
-    [childrenArray, isMountedState]
+    [childrenLength, isMountedState]
   )
 
   const toPrev = React.useCallback(() => {
     setAnimate(true)
     setActiveIndexWrap(prev => {
       if (!loop && prev === 1) {
-        return childrenArray.length
+        return childrenLength
       }
       return prev - 1
     })
-  }, [setActiveIndexWrap, loop, childrenArray])
+  }, [setActiveIndexWrap, loop, childrenLength])
 
   const toNext = React.useCallback(() => {
     setAnimate(true)
     setActiveIndexWrap(prev => {
-      if (!loop && prev === childrenArray.length) {
+      if (!loop && prev === childrenLength) {
         return 1
       }
       return prev + 1
     })
-  }, [setActiveIndexWrap, loop, childrenArray])
+  }, [setActiveIndexWrap, loop, childrenLength])
 
   // 滑动处理函数
   const onDragHandler = React.useCallback(
@@ -153,7 +157,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         return
       }
       // 单个幻灯片不允许移动
-      if (childrenArray.length <= 1) {
+      if (childrenLength <= 1) {
         return
       }
 
@@ -192,7 +196,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         if (abs >= size) {
           setActiveIndexWrap(prev => {
             if (_distance > 0) {
-              if (!loop && prev === childrenArray.length) {
+              if (!loop && prev === childrenLength) {
                 return prev
               } else {
                 return prev + 1
@@ -214,7 +218,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         setDrag(false)
       }
     },
-    [direction, size, childrenArray, damping, slide, startTimeRef, loop, setActiveIndexWrap]
+    [direction, size, childrenLength, damping, slide, startTimeRef, loop, setActiveIndexWrap]
   )
 
   // 绑定滑动事件
@@ -235,8 +239,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   // 理论当前显示的幻灯片索引
   const currentIndex =
     activeIndex === 0
-      ? childrenArray.length - 1
-      : activeIndex === childrenArray.length + 1
+      ? childrenLength - 1
+      : activeIndex === childrenLength + 1
       ? 0
       : activeIndex - 1
 
@@ -265,7 +269,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       return
     }
 
-    if (childrenArray.length <= 1) {
+    if (childrenLength <= 1) {
       return
     }
 
@@ -273,7 +277,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     return () => {
       clearInterval(id)
     }
-  }, [autoPlay, hover, autoPlayDuration, toNext, drag, childrenArray])
+  }, [autoPlay, hover, autoPlayDuration, toNext, drag, childrenLength])
 
   const onMouseEnter = React.useCallback(() => {
     setHover(true)
@@ -283,8 +287,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     setHover(false)
   }, [])
 
-  const childrenContainer = React.useMemo(() => {
-    const wrap = (node: React.ReactElement, index: number) => {
+  const wrapChild = React.useCallback(
+    (node: React.ReactElement, index: number) => {
       const childClasses = classnames(`${prefixCls}__item`)
       const childStyle: React.CSSProperties = {
         [direction === 'vertical' ? 'height' : 'width']: size
@@ -294,16 +298,17 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
           {node}
         </div>
       )
-    }
-    const list: React.ReactElement[] = []
+    },
+    [direction, size, prefixCls]
+  )
 
-    list.push(wrap(childrenArray[childrenArray.length - 1], -1))
-    for (let i = 0; i < childrenArray.length; i++) {
-      list.push(wrap(childrenArray[i], i))
-    }
-    list.push(wrap(childrenArray[0], -2))
-    return list
-  }, [childrenArray, size, direction, prefixCls])
+  // 复制children
+  const childrenContainer: React.ReactElement[] = []
+  childrenContainer.push(wrapChild(childrenArray[childrenArray.length - 1], -1))
+  for (let i = 0; i < childrenArray.length; i++) {
+    childrenContainer.push(wrapChild(childrenArray[i], i))
+  }
+  childrenContainer.push(wrapChild(childrenArray[0], -2))
 
   const dotsNode = dots && (
     <ul className={`${prefixCls}__dots`}>
@@ -334,7 +339,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
     [`${prefixCls}__items--animate`]: isAnimate
   })
 
-  const listStyle = getListStyle(activeIndex, childrenArray.length, size, distance, direction, loop)
+  const listStyle = getListStyle(activeIndex, childrenLength, size, distance, direction, loop)
 
   const arrowNode = (
     <>
