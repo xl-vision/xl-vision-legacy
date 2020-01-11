@@ -11,14 +11,12 @@ export interface PopoverProps extends TooltipProps {
 const Popover: React.FunctionComponent<PopoverProps> = props => {
   const { content, title, prefixCls = `${namePrefix}-popover`, ...others } = props
 
-  const contentNode = React.useMemo(() => {
-    return (
-      <>
-        <div className={`${prefixCls}__title`}>{title}</div>
-        <div className={`${prefixCls}__content`}>{content}</div>
-      </>
-    )
-  }, [content, title, prefixCls])
+  const contentNode = (
+    <>
+      <div className={`${prefixCls}__title`}>{title}</div>
+      <div className={`${prefixCls}__content`}>{content}</div>
+    </>
+  )
 
   return <Tooltip {...others} content={contentNode} prefixCls={prefixCls} />
 }
