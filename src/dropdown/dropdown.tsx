@@ -58,13 +58,10 @@ const Dropdown: React.FunctionComponent<DropdownProps> = props => {
     [onVisibleChange]
   )
 
-  const popup = React.useMemo(
-    () => (
-      <div className={`${prefixCls}__overlay-wrap`}>
-        <ul className={`${prefixCls}__overlay`}>{overlay}</ul>
-      </div>
-    ),
-    [overlay, prefixCls]
+  const popup = (
+    <div className={`${prefixCls}__overlay-wrap`}>
+      <ul className={`${prefixCls}__overlay`}>{overlay}</ul>
+    </div>
   )
 
   return (
