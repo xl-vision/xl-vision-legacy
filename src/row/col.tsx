@@ -59,15 +59,14 @@ const Col: React.FunctionComponent<ColProps> = props => {
     return classnames(arr, className)
   }, [media, span, order, offset, pull, push, prefixCls, className])
 
-  const colStyle = React.useMemo(() => {
-    return gutter > 0
+  const colStyle =
+    gutter > 0
       ? {
           paddingLeft: gutter / 2,
           paddingRight: gutter / 2,
           ...style
         }
       : style
-  }, [gutter, style])
 
   return (
     <div {...others} style={colStyle} className={classes}>

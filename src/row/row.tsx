@@ -54,15 +54,14 @@ const Row: React.FunctionComponent<RowProps> = props => {
     },
     className
   )
-  const rowStyle = React.useMemo(() => {
-    return computedGutter > 0
+  const rowStyle =
+    computedGutter > 0
       ? {
           marginLeft: computedGutter / -2,
           marginRight: computedGutter / -2,
           ...style
         }
       : style
-  }, [style, computedGutter])
 
   return (
     <RowContext.Provider value={{ gutter: computedGutter, media }}>
