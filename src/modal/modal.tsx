@@ -269,14 +269,15 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     return null
   }
 
-  if (!needMount) {
+  // 指定forceRender时，即使modal没有显示也要展示出来
+  if (!needMount && !forceRender) {
     return null
   }
 
   const modal = (
     <CssTransition
       show={display}
-      forceRender={forceRender}
+      forceRender={true}
       classNames={`${prefixCls}--fade`}
       beforeEnter={beforeEnter}
       afterLeave={afterLeave}

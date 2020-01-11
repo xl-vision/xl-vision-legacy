@@ -68,7 +68,7 @@ exports[`Modal 测试forceRender 1`] = `
 
 exports[`Modal 测试forceRender 2`] = `
 <div
-  class="xl-modal__wrap xl-modal--fade-enter xl-modal--fade-enter-active"
+  class="xl-modal__wrap"
   style="z-index: 1002;"
 >
   <div
@@ -266,7 +266,7 @@ exports[`Modal 测试visible和onVisibleChange 1`] = `null`;
 
 exports[`Modal 测试visible和onVisibleChange 2`] = `
 <div
-  class="xl-modal__wrap xl-modal--fade-enter xl-modal--fade-enter-active"
+  class="xl-modal__wrap"
   style="z-index: 1001;"
 >
   <div

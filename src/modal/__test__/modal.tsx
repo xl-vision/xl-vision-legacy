@@ -1,12 +1,12 @@
 import { mount } from 'enzyme'
 import React from 'react'
 import Modal from '..'
-import wait from '../../../test/wait'
 import { act } from 'react-dom/test-utils'
 import * as TransitionUtils from '../../commons/utils/transition'
+import wait from '../../../test/wait'
 
 const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-nextFrameSpy.mockImplementation(fn => wait(10).then(() => fn()))
+nextFrameSpy.mockImplementation(fn => fn())
 
 describe('Modal', () => {
   it('测试visible和onVisibleChange', async () => {
@@ -21,14 +21,13 @@ describe('Modal', () => {
 
     wrapper.setProps({ visible: true })
     wrapper.update()
-    await act(() => wait(10))
+
     expect(fn.mock.calls[0][0]).toBe(true)
 
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper.setProps({ visible: false })
     wrapper.update()
-    await act(() => wait(10))
     expect(fn.mock.calls[1][0]).toBe(false)
   })
 
@@ -43,7 +42,6 @@ describe('Modal', () => {
     wrapper.setProps({ visible: true })
 
     wrapper.update()
-    await act(() => wait(10))
 
     expect(wrapper.render()).toMatchSnapshot()
   })
@@ -62,7 +60,7 @@ describe('Modal', () => {
         .find('.xl-modal__wrap')
         .at(0)
         .simulate('click')
-      return wait(100)
+      return wait(10)
     })
 
     expect((wrapper.getDOMNode() as HTMLDivElement).style.display).toBe('')
@@ -79,7 +77,7 @@ describe('Modal', () => {
         .find('.xl-modal__wrap')
         .at(0)
         .simulate('click')
-      return wait(100)
+      return wait(10)
     })
 
     expect((wrapper.getDOMNode() as HTMLDivElement).style.display).toBe('none')
@@ -120,7 +118,7 @@ describe('Modal', () => {
         .find('.xl-modal__wrap')
         .at(0)
         .simulate('click')
-      return wait(100)
+      return wait(10)
     })
 
     expect(onCancel.mock.calls.length).toBe(1)
@@ -141,7 +139,7 @@ describe('Modal', () => {
         .find('.xl-modal__icon')
         .at(0)
         .simulate('click')
-      return wait(100)
+      return wait(10)
     })
 
     expect(onCancel.mock.calls.length).toBe(1)
@@ -162,7 +160,7 @@ describe('Modal', () => {
         .find('.xl-modal__footer button')
         .at(0)
         .simulate('click')
-      return wait(100)
+      return wait(10)
     })
 
     expect(onCancel.mock.calls.length).toBe(1)
@@ -183,7 +181,7 @@ describe('Modal', () => {
         .find('.xl-modal__footer button')
         .at(1)
         .simulate('click')
-      return wait(100)
+      return wait(10)
     })
 
     expect(onCancel.mock.calls.length).toBe(0)
@@ -217,11 +215,9 @@ describe('Modal', () => {
       visible: false
     })
 
-    await act(() => {
-      return wait(100)
-    })
     wrapper.update()
 
+    // destoryOnClose=false, 所以节点不会删除
     expect(wrapper.find('.xl-modal__wrap').length).toBe(1)
     expect(afterClose.mock.calls.length).toBe(1)
     afterClose.mockClear()
@@ -230,23 +226,17 @@ describe('Modal', () => {
       visible: true,
       destroyOnClose: true
     })
-    await act(() => {
-      return wait(100)
-    })
     wrapper.update()
+
     expect(wrapper.find('.xl-modal__wrap').length).toBe(1)
     expect(afterClose.mock.calls.length).toBe(0)
 
     wrapper.setProps({
       visible: false
     })
-    await act(() => {
-      return wait(100)
-    })
     wrapper.update()
 
     expect(wrapper.find('.xl-modal__wrap').length).toBe(0)
     expect(afterClose.mock.calls.length).toBe(1)
-    afterClose.mockClear()
   })
 })
