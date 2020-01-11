@@ -298,94 +298,6 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [setActualWrapper, trigger])
 
-  const transitionClass = React.useMemo(() => {
-    if (typeof transitionName === 'function') {
-      return transitionName(actualPlacement)
-    }
-    return transitionName
-  }, [transitionName, actualPlacement])
-
-  const popupNode = React.useMemo(() => {
-    if (typeof popup === 'function') {
-      return popup(actualPlacement)
-    } else {
-      return popup
-    }
-  }, [popup, actualPlacement])
-
-  const arrowNode = React.useMemo(() => {
-    let node: React.ReactElement
-    if (typeof arrow === 'function') {
-      node = arrow(actualPlacement)
-    } else {
-      node = arrow!
-    }
-    if (!node) {
-      return node
-    }
-    return React.cloneElement(node, {
-      'x-arrow': ''
-    })
-  }, [arrow, actualPlacement])
-
-  const popupStyle = React.useMemo(() => {
-    const style: React.CSSProperties = {
-      zIndex,
-      position: 'absolute'
-    }
-    const direction = actualPlacement.split('-')[0]
-    if (direction === 'top') {
-      style.paddingBottom = offset
-    } else if (direction === 'bottom') {
-      style.paddingTop = offset
-    } else if (direction === 'left') {
-      style.paddingRight = offset
-    } else {
-      style.paddingLeft = offset
-    }
-    return style
-  }, [offset, actualPlacement, zIndex])
-
-  /**
-   * 提供介入popup弹出框弹出动画的操作，比如根据位置进行动画定位。可以参见tooltip
-   */
-  const overlayStyleWrapper = React.useMemo(() => {
-    let ret: React.CSSProperties
-    if (typeof overlayStyle === 'function') {
-      ret = overlayStyle(actualPlacement)
-    } else {
-      ret = overlayStyle!
-    }
-    ret.position = 'relative'
-    return ret
-  }, [overlayStyle, actualPlacement])
-
-  const portal = (
-    <Portal getContainer={getPopupContainer}>
-      <PopperContext.Provider
-        value={{
-          addCloseHandler,
-          removeCloseHandler
-        }}
-      >
-        <div
-          ref={popupRef}
-          onMouseEnter={onPopupMouseEnter}
-          onMouseLeave={onPopupMouseLeave}
-          onClick={onPopupClick}
-          style={popupStyle}
-        >
-          <CssTransition show={actualVisible} forceRender={true} classNames={transitionClass}>
-            <div style={overlayStyleWrapper}>
-              {arrowNode}
-              {popupNode}
-            </div>
-          </CssTransition>
-        </div>
-      </PopperContext.Provider>
-    </Portal>
-  )
-
   const onMouseEnter = React.useCallback(() => {
     // 如果是从popup移动过来，需要先清除popup的定时关闭
     clearTimeout(delayTimerRef.current!)
@@ -433,47 +345,97 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   // 在reference外点击时触发
   useClickOutside(referenceRef, onClickOutside)
 
+  // popup
+  const popupNode = typeof popup === 'function' ? popup(actualPlacement) : popup
+
+  // arrow
+  let arrowNode = typeof arrow === 'function' ? arrow(actualPlacement) : arrow
+
+  if (arrowNode) {
+    arrowNode = React.cloneElement(arrowNode, {
+      'x-arrow': ''
+    })
+  }
+
+  const popupStyle: React.CSSProperties = {
+    zIndex,
+    position: 'absolute'
+  }
+  const direction = actualPlacement.split('-')[0]
+  if (direction === 'top') {
+    popupStyle.paddingBottom = offset
+  } else if (direction === 'bottom') {
+    popupStyle.paddingTop = offset
+  } else if (direction === 'left') {
+    popupStyle.paddingRight = offset
+  } else {
+    popupStyle.paddingLeft = offset
+  }
+
+  /**
+   * 提供介入popup弹出框弹出动画的操作，比如根据位置进行动画定位。可以参见tooltip
+   */
+  const overlayStyleWrapper =
+    typeof overlayStyle === 'function' ? overlayStyle(actualPlacement) : overlayStyle || {}
+
+  overlayStyleWrapper.position = 'relative'
+
+  const transitionClass =
+    typeof transitionName === 'function' ? transitionName(actualPlacement) : transitionName
+
+  const portal = (
+    <Portal getContainer={getPopupContainer}>
+      <PopperContext.Provider
+        value={{
+          addCloseHandler,
+          removeCloseHandler
+        }}
+      >
+        <div
+          ref={popupRef}
+          onMouseEnter={onPopupMouseEnter}
+          onMouseLeave={onPopupMouseLeave}
+          onClick={onPopupClick}
+          style={popupStyle}
+        >
+          <CssTransition show={actualVisible} forceRender={true} classNames={transitionClass}>
+            <div style={overlayStyleWrapper}>
+              {arrowNode}
+              {popupNode}
+            </div>
+          </CssTransition>
+        </div>
+      </PopperContext.Provider>
+    </Portal>
+  )
   /**
    * 添加事件到children中，但是不能妨碍children中原来的事件，
    * 所以对于相同的事件需要合并
    */
-  const childrenNode = React.useMemo(() => {
-    const {
-      onBlur: _onBlur,
-      onClick: _onClick,
-      onContextMenu: _onContextMenu,
-      onFocus: _onFocus,
-      onMouseEnter: _onMouseEnter,
-      onMouseLeave: _onMouseLeave,
-      ...others
-    } = children.props
-    const clone = React.cloneElement(children, {
-      ...others,
-      onBlur: mergeEvents(onBlur, _onBlur),
-      onClick: mergeEvents(onReferenceClick, _onClick),
-      onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
-      onFocus: mergeEvents(onFocus, _onFocus),
-      onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
-      onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave)
-    })
-
-    // 保证children上原有的ref能够触发
-    return setRef(clone, referenceRef)
-  }, [
-    children,
-    onBlur,
-    onReferenceClick,
-    onContextMenu,
-    onFocus,
-    onMouseEnter,
-    onMouseLeave,
-    referenceRef
-  ])
+  const {
+    onBlur: _onBlur,
+    onClick: _onClick,
+    onContextMenu: _onContextMenu,
+    onFocus: _onFocus,
+    onMouseEnter: _onMouseEnter,
+    onMouseLeave: _onMouseLeave,
+    ...others
+  } = children.props
+  const childrenNode = React.cloneElement(children, {
+    ...others,
+    onBlur: mergeEvents(onBlur, _onBlur),
+    onClick: mergeEvents(onReferenceClick, _onClick),
+    onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
+    onFocus: mergeEvents(onFocus, _onFocus),
+    onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
+    onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave)
+  })
 
   return (
     <>
       {(!lazyRender || needMount) && portal}
-      {childrenNode}
+      {/* 保证children上原有的ref能够触发 */}
+      {setRef(childrenNode, referenceRef)}
     </>
   )
 }
