@@ -16,12 +16,10 @@ const MessageItem: React.FunctionComponent<MessageItemProps> = props => {
   const iconNode = loading ? FasSpinner : icon
 
   return (
-    <CssTransition classNames={`${prefixCls}--fade`}>
-      <div className={prefixCls}>
-        {iconNode && <div className={`${prefixCls}__icon`}>{iconNode}</div>}
-        <div className={`${prefixCls}__content`}>{content}</div>
-      </div>
-    </CssTransition>
+    <div className={prefixCls}>
+      {iconNode && <div className={`${prefixCls}__icon`}>{iconNode}</div>}
+      <div className={`${prefixCls}__content`}>{content}</div>
+    </div>
   )
 }
 
