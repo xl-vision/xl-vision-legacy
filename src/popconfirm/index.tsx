@@ -67,44 +67,32 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
     [onCancel]
   )
 
-  const contentNode = React.useMemo(() => {
-    return (
-      <>
-        <div className={`${prefixCls}__message`}>
-          {icon}
-          <span className={`${prefixCls}__content`}>{content}</span>
-        </div>
-        <div className={`${prefixCls}__action`}>
-          <Button
-            size={'small'}
-            className={`${prefixCls}__btn`}
-            type={confirmType}
-            onClick={onConfirmWrapper}
-          >
-            {confirmText}
-          </Button>
-          <Button
-            size={'small'}
-            className={`${prefixCls}__btn`}
-            type={cancelType}
-            onClick={onCancelWrapper}
-          >
-            {cancelText}
-          </Button>
-        </div>
-      </>
-    )
-  }, [
-    content,
-    icon,
-    prefixCls,
-    onCancelWrapper,
-    onConfirmWrapper,
-    confirmText,
-    confirmType,
-    cancelText,
-    cancelType
-  ])
+  const contentNode = (
+    <>
+      <div className={`${prefixCls}__message`}>
+        {icon}
+        <span className={`${prefixCls}__content`}>{content}</span>
+      </div>
+      <div className={`${prefixCls}__action`}>
+        <Button
+          size={'small'}
+          className={`${prefixCls}__btn`}
+          type={confirmType}
+          onClick={onConfirmWrapper}
+        >
+          {confirmText}
+        </Button>
+        <Button
+          size={'small'}
+          className={`${prefixCls}__btn`}
+          type={cancelType}
+          onClick={onCancelWrapper}
+        >
+          {cancelText}
+        </Button>
+      </div>
+    </>
+  )
 
   return (
     <Tooltip
