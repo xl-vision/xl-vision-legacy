@@ -5,7 +5,7 @@ import ForceEnterTransition from '../commons/base/force-enter-transition'
 import CssTransition, { CssTransitionProps, CssTransitionClassNames } from '../css-transition'
 import computeQuene from './computeQuene'
 import usePrevious from '../commons/hooks/usePrevious'
-import setRef from '../commons/utils/setRef'
+import fillRef from '../commons/utils/fillRef'
 
 export interface TransitionGroupClassNames extends CssTransitionClassNames {
   move?: string
@@ -43,7 +43,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
       const refCb = (node: HTMLElement) => {
         nodeRef.current[child.key!] = node
       }
-      return setRef(child, refCb)
+      return fillRef(child, refCb)
     },
     []
   )

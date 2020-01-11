@@ -32,7 +32,10 @@ const useMedia = () => {
 
   useEffect(() => {
     const handlerMap: {
-      [breakPoin: string]: EventListener
+      [breakPoint: string]: {
+        listener: EventListener
+        meidaQuery: ReturnType<typeof matchMedia>
+      }
     } = {}
     breakPointArray.forEach(breakPoint => {
       const query = breakPointMap[breakPoint]
@@ -43,15 +46,17 @@ const useMedia = () => {
           [breakPoint]: mql.matches
         }))
       }
-      onChange()
-
-      handlerMap[breakPoint] = onChange
+      handlerMap[breakPoint] = {
+        listener: onChange,
+        meidaQuery: mql
+      }
       mql.addListener(onChange)
+      onChange()
     })
     return () => {
       breakPointArray.forEach(breakPoint => {
-        const query = breakPointMap[breakPoint]
-        matchMedia(query).removeListener(handlerMap[breakPoint])
+        const { meidaQuery, listener } = handlerMap[breakPoint]
+        meidaQuery.removeListener(listener)
       })
     }
   }, [])

@@ -3,7 +3,7 @@ import React from 'react'
 import { isClient } from '../commons/utils/env'
 import useMountedState from '../commons/hooks/useMountedState'
 import useConstant from '../commons/hooks/useConstant'
-import setRef from '../commons/utils/setRef'
+import fillRef from '../commons/utils/fillRef'
 
 enum State {
   STATE_INIT,
@@ -247,7 +247,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   })
 
   // 保证children上原有的ref能够触发
-  return setRef(clone, childrenRel)
+  return fillRef(clone, childrenRel)
 }
 
 Transition.propTypes = {

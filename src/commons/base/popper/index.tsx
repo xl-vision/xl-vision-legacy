@@ -10,7 +10,7 @@ import CssTransition, { CssTransitionProps } from '../../../css-transition'
 import useClickOutside from '../../hooks/useClickOutside'
 import { increaseZIndex, getCurrentIndex } from '../../utils/zIndex-manager'
 import useConstant from '../../hooks/useConstant'
-import setRef from '../../utils/setRef'
+import fillRef from '../../utils/fillRef'
 
 export { Placement }
 export { Modifiers }
@@ -435,7 +435,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     <>
       {(!lazyRender || needMount) && portal}
       {/* 保证children上原有的ref能够触发 */}
-      {setRef(childrenNode, referenceRef)}
+      {fillRef(childrenNode, referenceRef)}
     </>
   )
 }
