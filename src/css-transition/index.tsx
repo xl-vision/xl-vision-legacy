@@ -4,7 +4,7 @@ import { addClass, removeClass } from '../commons/utils/dom'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import Transition, { TransitionProps } from '../transition'
 
-export type CssTransitionClassNames = {
+export type CssTransitionClassNamesObject = {
   appear?: string
   appearActive?: string
   appearTo?: string
@@ -15,6 +15,8 @@ export type CssTransitionClassNames = {
   leaveActive: string
   leaveTo: string
 }
+
+export type CssTransitionClassNames = CssTransitionClassNamesObject | string
 
 export interface CssTransitionProps extends TransitionProps {
   css?: boolean

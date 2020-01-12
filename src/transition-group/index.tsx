@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ForceTransition from './force-transition'
+import CssTransition, { CssTransitionProps, CssTransitionClassNamesObject } from '../css-transition'
+import { fillRef } from '../commons/utils/ref'
+import { addClass, removeClass } from '../commons/utils/dom'
+import { onTransitionEnd } from '../commons/utils/transition'
 import useConstant from '../commons/hooks/useConstant'
-import ForceEnterTransition from '../commons/base/force-enter-transition'
-import CssTransition, { CssTransitionProps, CssTransitionClassNames } from '../css-transition'
 import computeQuene from './computeQuene'
 import usePrevious from '../commons/hooks/usePrevious'
-import { fillRef } from '../commons/utils/ref'
 
-export interface TransitionGroupClassNames extends CssTransitionClassNames {
+export interface TransitionGroupClassNames extends CssTransitionClassNamesObject {
   move?: string
 }
 
@@ -15,7 +17,6 @@ export interface TransitionGroupProps
   extends Omit<Omit<Omit<CssTransitionProps, 'children'>, 'show'>, 'classNames'> {
   children: Array<CssTransitionProps['children']>
   classNames?: string | TransitionGroupClassNames
-  mode?: 'in-out' | 'out-in'
 }
 
 type NodeMap = {
@@ -26,272 +27,205 @@ type PositionMap = {
   [key: string]: DOMRect
 }
 
+enum State {
+  INIT,
+  COMPUTE,
+  RENDER
+}
+
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => {
-  const { children, mode, classNames, ...others } = props
+  const { children, classNames, ...others } = props
 
-  const [nativeChildren, setNativeChildren] = React.useState<Array<React.ReactElement>>([])
-  const [decoChildren, setDecoChildren] = React.useState<Array<React.ReactElement>>([])
-  const prevChildren = usePrevious(decoChildren)
+  const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
+  const [state, setState] = React.useState(State.INIT)
 
-  const nodeRef = React.useRef<NodeMap>({})
-  const posRef = React.useRef<PositionMap>({})
-  const newPosRef = React.useRef<PositionMap>({})
-  const [isComputed, setComputed] = React.useState(false)
+  const prevChildren = usePrevious(children)
 
-  const createRefForChild = React.useCallback(
-    (child: React.ReactElement<React.HTMLAttributes<HTMLElement>>) => {
-      const refCb = (node: HTMLElement) => {
-        nodeRef.current[child.key!] = node
+  const nodesRef = React.useRef<NodeMap>({})
+  const oldPosRef = React.useRef<PositionMap>({})
+
+  const moveClass = React.useMemo(() => {
+    if (!classNames) {
+      return null
+    }
+    if (typeof classNames === 'string') {
+      return `${classNames}-move`
+    }
+    return classNames.move
+  }, [classNames])
+
+  const fillRefForElement = React.useCallback(
+    (element: React.ReactElement<React.HTMLAttributes<HTMLElement>>) => {
+      const cb = (node: HTMLElement) => {
+        nodesRef.current[element.key!] = node
       }
-      return fillRef(child, refCb)
+      return fillRef(element, cb)
     },
     []
   )
 
-  const getOthers = useConstant(others)
+  const getChildren = useConstant(children)
+  const getPrevChildren = useConstant(prevChildren)
   const getClassNames = useConstant(classNames)
+  const getOthers = useConstant(others)
 
-  // 先leave后enter
-  const callEnterAfterLeave = React.useCallback(
-    (prev: React.ReactElement[], next: React.ReactElement<React.HTMLAttributes<HTMLElement>>[]) => {
-      const nextClone = next.map(it => {
+  const updateElements = React.useCallback(() => {
+    const children = getChildren().map(fillRefForElement)
+    const prevChildren = getPrevChildren()
+    const classNames = getClassNames()
+    const others = getOthers()
+    if (!prevChildren) {
+      return children.map(it => {
         return (
-          <ForceEnterTransition key={it.key!}>
-            <CssTransition key={it.key!} {...getOthers()} classNames={getClassNames()} show={true}>
-              {it}
-            </CssTransition>
-          </ForceEnterTransition>
+          <CssTransition {...others} classNames={classNames} show={true} key={it.key!}>
+            {it}
+          </CssTransition>
         )
       })
-
-      if (prev.length === 0) {
-        return nextClone
-      }
-
-      // 统计已经完成离开动画的元素
-      let leavedCount = 0
-      const prevClone = prev.map(it => {
-        const props = (prevProps: CssTransitionProps) => {
-          const afterLeave = (el: HTMLElement) => {
-            prevProps.afterLeave && prevProps.afterLeave(el)
-            leavedCount++
-            // 全部都完成离开了，执行进入动画
-            if (leavedCount === prev.length) {
-              // 进入的节点全部插入到当前节点之后
-              setDecoChildren(prev => {
-                let i = getIndex(it, prev!)
-                // 插入到后面，需要+1
-                i++
-                return [...prev!.slice(0, i), ...nextClone, ...prev!.slice(i)]
-              })
-            }
-            // 删除当前节点
-            setDecoChildren(prev => {
-              // 获取位置
-              const i = getIndex(it, prev!)
-              const item = prev![i]
-              // 删除ref
-              delete nodeRef.current[item.key!]
-              delete posRef.current[item.key!]
-              delete newPosRef.current[item.key!]
-              return [...prev!.slice(0, i), ...prev!.slice(i + 1)]
-            })
-          }
-          return {
-            afterLeave,
-            show: false
-          }
-        }
-
-        return updateAndGetTransition(it, props)
-      })
-
-      return prevClone
-    },
-    [getOthers, getClassNames]
-  )
-
-  // 先enter后leave
-  const callLeaveAfterEnter = React.useCallback(
-    (prev: React.ReactElement[], next: React.ReactElement<React.HTMLAttributes<HTMLElement>>[]) => {
-      const prevClone = prev.map(it => {
-        const props = (prevProps: CssTransitionProps) => {
-          const afterLeave = (el: HTMLElement) => {
-            prevProps.afterLeave && prevProps.afterLeave(el)
-            // 删除当前节点
-            setDecoChildren(prev => {
-              // 获取位置
-              const i = getIndex(it, prev!)
-              const item = prev![i]
-              // 删除ref
-              delete nodeRef.current[item.key!]
-              delete posRef.current[item.key!]
-              delete newPosRef.current[item.key!]
-              return [...prev!.slice(0, i), ...prev!.slice(i + 1)]
-            })
-          }
-          return {
-            afterLeave,
-            show: false
-          }
-        }
-
-        return updateAndGetTransition(it, props)
-      })
-
-      if (next.length === 0) {
-        return prevClone
-      }
-
-      // 统计已经完成进入动画的元素
-      let enterCount = 0
-      const nextClone = next.map(it => {
-        const afterEnter = (el: HTMLElement) => {
-          props.afterEnter && props.afterEnter(el)
-          enterCount++
-          // 全部都完成进入动画了，执行离开动画
-          if (enterCount === next.length) {
-            setDecoChildren(prev => {
-              return prev!.map(it => {
-                const index = getIndex(it, prevClone)
-                if (index === -1) {
-                  return it
-                }
-                return prevClone[index]
-              })
-            })
-          }
-        }
-        return (
-          <ForceEnterTransition key={it.key!}>
-            <CssTransition
-              key={it.key!}
-              {...getOthers()}
-              classNames={getClassNames()}
-              show={true}
-              afterEnter={afterEnter}
-            >
-              {it}
-            </CssTransition>
-          </ForceEnterTransition>
-        )
-      })
-
-      return [...prevClone, ...nextClone]
-    },
-    [getOthers, getClassNames, props]
-  )
-
-  const callUpdateSame = React.useCallback(
-    (prev: React.ReactElement, next: React.ReactElement<React.HTMLAttributes<HTMLElement>>) => {
-      const element = updateAndGetTransition(prev, {
-        ...getOthers(),
-        classNames: getClassNames(),
-        children: next
-      })
-      return element
-    },
-    [getOthers, getClassNames]
-  )
-
-  const updateElement = React.useCallback(
-    (
-      prevChildren: React.ReactElement[],
-      nextChildren: React.ReactElement<React.HTMLAttributes<HTMLElement>>[]
-    ) => {
-      const dataArray = computeQuene(prevChildren, nextChildren)
-      const elements: React.ReactElement<React.HTMLAttributes<HTMLElement>>[] = []
-
-      for (const data of dataArray) {
-        const prev = data.prev
-        const next = data.next
-        if (data.same) {
-          elements.push(callUpdateSame(prev[0], next[0]))
-        } else {
-          if (mode === 'out-in') {
-            elements.push(...callEnterAfterLeave(prev, next))
-          } else if (mode === 'in-out') {
-            elements.push(...callLeaveAfterEnter(prev, next))
-          } else {
-            elements.push(...callEnterAfterLeave(prev, []))
-            elements.push(...callEnterAfterLeave([], next))
-          }
-        }
-      }
-
-      return elements
-    },
-    [callEnterAfterLeave, callLeaveAfterEnter, callUpdateSame, mode]
-  )
-
-  React.useEffect(() => {
-    const keys = Object.keys(nodeRef.current)
-    keys.forEach(it => {
-      const node = nodeRef.current[it]
-      posRef.current[it] = node.getBoundingClientRect()
-    })
-    const childrenWithRef = children.map(it => createRefForChild(it))
-    setNativeChildren(childrenWithRef)
-    setComputed(true)
-  }, [children, createRefForChild])
-
-  React.useEffect(() => {
-    if (isComputed) {
-      const keys = Object.keys(nodeRef.current)
-      keys.forEach(it => {
-        const node = nodeRef.current[it]
-        newPosRef.current[it] = node.getBoundingClientRect()
-      })
-      setDecoChildren(prevChildren || [])
-      setComputed(false)
-    } else {
-      setDecoChildren(prev => updateElement(prev, nativeChildren))
     }
-  }, [isComputed])
+    const quene = computeQuene(prevChildren, children)
+    const arr: Array<React.ReactElement> = []
+    for (const data of quene) {
+      if (data.same) {
+        arr.push(data.next[0])
+      } else {
+        const leaveElements = data.prev.map(it => {
+          delete nodesRef.current[it.key!]
 
-  if (isComputed) {
-    return <>{nativeChildren}</>
-  }
+          return (
+            <ForceTransition {...others} classNames={classNames} show={false} key={it.key!}>
+              {it}
+            </ForceTransition>
+          )
+        })
+        const enterElements = data.next.map(it => {
+          return (
+            <ForceTransition {...others} classNames={classNames} show={true} key={it.key!}>
+              {it}
+            </ForceTransition>
+          )
+        })
+        arr.push(...leaveElements)
+        arr.push(...enterElements)
+      }
+    }
+    return arr
+  }, [getClassNames, getPrevChildren, getOthers, getChildren, fillRefForElement])
 
-  return <>{decoChildren}</>
+  React.useEffect(() => {
+    // 清空
+    const posMap = oldPosRef.current
+    Object.keys(posMap).forEach(it => {
+      delete posMap[it]
+    })
+    // 计算原始位置
+    const nodeMap = nodesRef.current
+    Object.keys(nodeMap).forEach(it => {
+      const node = nodeMap[it]
+      if (!node) {
+        return
+      }
+      oldPosRef.current[it] = node.getBoundingClientRect()
+    })
+    setElements(children.map(fillRefForElement))
+    setState(State.COMPUTE)
+  }, [children, fillRefForElement])
+
+  const getMoveClass = useConstant(moveClass)
+
+  React.useEffect(() => {
+    const moveClass = getMoveClass()
+    if (state === State.COMPUTE) {
+      if (!moveClass) {
+        return
+      }
+      // 计算新的位置
+      const nodeMap = nodesRef.current
+
+      Object.keys(nodeMap).forEach(it => {
+        const node = nodeMap[it]
+        const oldPos = oldPosRef.current[it]
+        if (!node || !oldPos) {
+          return
+        }
+        setTranslate(node, oldPos, moveClass)
+      })
+      setState(State.RENDER)
+    } else if (state === State.RENDER) {
+      setElements(updateElements)
+    }
+  }, [state, updateElements, getMoveClass])
+
+  return <>{elements}</>
 }
 
 TransitionGroup.propTypes = {
-  mode: PropTypes.oneOf(['in-out', 'out-in'])
+  classNames: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      appear: PropTypes.string,
+      appearActive: PropTypes.string,
+      appearTo: PropTypes.string,
+      enter: PropTypes.string.isRequired,
+      enterActive: PropTypes.string.isRequired,
+      enterTo: PropTypes.string.isRequired,
+      leave: PropTypes.string.isRequired,
+      leaveActive: PropTypes.string.isRequired,
+      leaveTo: PropTypes.string.isRequired,
+      move: PropTypes.string.isRequired
+    })
+  ])
 }
 
 export default TransitionGroup
 
-const updateAndGetTransition = (
-  transition: React.ReactElement,
-  props: ((prev: CssTransitionProps) => Partial<CssTransitionProps>) | Partial<CssTransitionProps>
-) => {
-  const isForceEnterTransition = transition.type === ForceEnterTransition
+const CANCEL_KEY = '__cancel__'
+const RESET_KEY = '__reset__'
 
-  const prevProps = isForceEnterTransition ? transition.props.children.props : transition.props
-
-  const newProps = typeof props === 'function' ? props(prevProps) : props
-
-  const node = isForceEnterTransition ? transition.props.children : transition
-
-  const child = React.cloneElement(node, newProps)
-
-  if (isForceEnterTransition) {
-    return React.cloneElement(transition, {}, child)
+const setTranslate = (element: HTMLElement, oldPos: DOMRect, moveClass: string) => {
+  const node = element as HTMLElement & { [CANCEL_KEY]?: () => void; [RESET_KEY]: () => void }
+  const cancel = node[CANCEL_KEY]
+  if (cancel) {
+    cancel()
+    node[CANCEL_KEY] = undefined
+    node[RESET_KEY]()
   }
 
-  return child
-}
+  const transition = node.style.transition
+  const transitionDelay = node.style.transitionDelay
+  const transitionDuration = node.style.transitionDuration
+  const animation = node.style.animation
+  const animationDelay = node.style.animationDelay
+  const animationDuration = node.style.animationDuration
 
-// 获取元素位置，不存在，返回-1
-const getIndex = (node: React.ReactElement, nodes: React.ReactElement[]) => {
-  // 获取位置
-  let i = nodes.length - 1
-  while (i > -1) {
-    if (nodes[i].key === node.key) {
-      break
-    }
-    i--
+  node.style.transition = 'none'
+  node.style.transitionDelay = '0s'
+  node.style.transitionDuration = '0s'
+  node.style.animation = 'none'
+  node.style.animationDelay = '0s'
+  node.style.animationDuration = '0s'
+
+  const newPos = node.getBoundingClientRect()
+
+  node.style.transition = ''
+  node.style.animation = ''
+  node.style.transform = `translate(${oldPos.left - newPos.left}px, ${oldPos.top - newPos.top}px)`
+  node.scrollTop
+  addClass(node, moveClass)
+  node.style.transform = 'translate(0px, 0px)'
+
+  const reset = () => {
+    removeClass(node, moveClass)
+    node.style.transition = transition
+    node.style.transitionDelay = transitionDelay
+    node.style.transitionDuration = transitionDuration
+    node.style.animation = animation
+    node.style.animationDelay = animationDelay
+    node.style.animationDuration = animationDuration
   }
-  return i
+  node[RESET_KEY] = reset
+  node[CANCEL_KEY] = onTransitionEnd(node, () => {
+    // reset()
+    node[CANCEL_KEY] = undefined
+  })
 }

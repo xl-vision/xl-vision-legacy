@@ -1,4 +1,5 @@
 import { isClient } from './env'
+import { voidFn } from './function'
 
 let transitionProp = 'transition'
 let transitionEndEvent = 'transitionend'
@@ -41,7 +42,8 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   }
 
   if (timeout <= 0) {
-    return done()
+    done()
+    return voidFn
   }
 
   let count = 0
@@ -60,13 +62,17 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
     }
   }
 
-  setTimeout(() => {
+  const id = setTimeout(() => {
     if (count < eventCount) {
       end()
     }
   }, timeout + 1)
 
   el.addEventListener(event, onEnd)
+  return () => {
+    clearTimeout(id)
+    el.removeEventListener(event, onEnd)
+  }
 }
 
 const getTimeout = (delays: string[], durations: string[]) => {
