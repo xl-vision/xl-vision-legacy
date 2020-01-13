@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { isClient } from '../commons/utils/env'
 import useMountedState from '../commons/hooks/useMountedState'
 import useConstant from '../commons/hooks/useConstant'
 import { fillRef } from '../commons/utils/ref'
+import useLayoutEffect from '../commons/utils/useLayoutEffect'
 
 enum State {
   STATE_INIT,
@@ -33,9 +33,6 @@ export interface TransitionProps {
   leaveCancelled?: (el: HTMLElement) => void
   show: boolean
 }
-
-// 修复在ssr中的警告
-const useLayoutEffect = isClient ? React.useLayoutEffect : React.useEffect
 
 const Transition: React.FunctionComponent<TransitionProps> = props => {
   const {

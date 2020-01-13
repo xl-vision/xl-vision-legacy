@@ -8,6 +8,7 @@ import { onTransitionEnd } from '../commons/utils/transition'
 import useConstant from '../commons/hooks/useConstant'
 import computeQuene from './computeQuene'
 import usePrevious from '../commons/hooks/usePrevious'
+import useLayoutEffect from '../commons/utils/useLayoutEffect'
 
 export interface TransitionGroupClassNames extends CssTransitionClassNamesObject {
   move?: string
@@ -27,19 +28,13 @@ type PositionMap = {
   [key: string]: DOMRect
 }
 
-enum State {
-  INIT,
-  COMPUTE,
-  RENDER
-}
-
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => {
   const { children, classNames, ...others } = props
 
   const prevChildren = usePrevious(children)
 
   const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
-  const [state, setState] = React.useState(State.INIT)
+  const [state, setState] = React.useState(false)
 
   const nodesRef = React.useRef<NodeMap>({})
   const oldPosRef = React.useRef<PositionMap>({})
@@ -124,31 +119,30 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
       oldPosRef.current[key] = node.getBoundingClientRect()
     })
     setElements(children.map(fillRefForElement))
-    setState(State.COMPUTE)
+    setState(true)
   }, [children, fillRefForElement])
 
   const getMoveClass = useConstant(moveClass)
 
-  React.useEffect(() => {
-    if (state === State.COMPUTE) {
+  // 同步执行，避免闪烁
+  useLayoutEffect(() => {
+    if (state) {
       const moveClass = getMoveClass()
-      if (!moveClass) {
-        return
+      if (moveClass) {
+        const nodeMap = nodesRef.current
+        Object.keys(nodeMap).forEach(key => {
+          const node = nodeMap[key]
+          const oldPos = oldPosRef.current[key]
+          if (!node || !oldPos) {
+            return
+          }
+          const newPos = node.getBoundingClientRect()
+          setTranslate(node, moveClass, oldPos, newPos)
+        })
       }
-      const nodeMap = nodesRef.current
-      Object.keys(nodeMap).forEach(key => {
-        const node = nodeMap[key]
-        const oldPos = oldPosRef.current[key]
-        if (!node || !oldPos) {
-          return
-        }
-        const newPos = node.getBoundingClientRect()
-        setTranslate(node, moveClass, oldPos, newPos)
-      })
-      setState(State.RENDER)
-    } else if (state === State.RENDER) {
       setElements(updateElements)
-      setState(State.INIT)
+
+      setState(false)
     }
   }, [state, getMoveClass, fillRefForElement, getChildren, updateElements])
 

@@ -9,74 +9,55 @@
 ```jsx
 import { CssTransition, TransitionGroup, Button } from 'xl-vision'
 export default () => {
-  const countRef = React.useRef(0)
+  const nextNumRef = React.useRef(10)
 
-  const createElement = React.useCallback(() => {
-    countRef.current++
-    const key = countRef.current + ''
-    return (
-      <div key={key} className='tg_item' onClick={() => removeElement(key)}>
-        第{countRef.current}个元素(点击删除)
-      </div>
-    )
-  }, [removeElement])
+  const [items, setItems] = React.useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
-  const [elements, setElements] = React.useState(() => {
-    const arr = []
-    arr.push(createElement())
-    return arr
-  })
-
-  const removeElement = React.useCallback(key => {
-    setElements(prev => {
-      return prev.filter(it => it.key !== key)
+  const add = React.useCallback(() => {
+    setItems(prev => {
+      const index = parseInt(Math.random() * prev.length)
+      prev.splice(index, 0, nextNumRef.current++)
+      return [...prev]
     })
   }, [])
 
-  const addElement = React.useCallback(() => {
-    setElements(prev => {
-      const ele = createElement()
+  const remove = React.useCallback(() => {
+    setItems(prev => {
       const index = parseInt(Math.random() * prev.length)
-      return [...prev.slice(0, index), ele, ...prev.slice(index)]
+      prev.splice(index, 1)
+      return [...prev]
     })
-  }, [createElement])
+  }, [])
 
   return (
     <div>
-      <Button onClick={addElement}>ADD</Button>
+      <Button.Group>
+        <Button onClick={add}>add</Button>
+        <Button onClick={remove}>remove</Button>
+      </Button.Group>
       <div className='tg_list'>
-        <TransitionGroup classNames='tg_item'>{elements}</TransitionGroup>
+        <TransitionGroup classNames='tg_item'>
+          {items.map(it => (
+            <span key={it} className={'tg_item'}>
+              {it}
+            </span>
+          ))}
+        </TransitionGroup>
       </div>
       <style jsx global>{`
         .tg_list {
           position: relative;
+          margin-top: 10px;
         }
 
         .tg_item {
-          height: 3rem;
-          color: #fff;
-          line-height: 3rem;
-          text-align: center;
-          vertical-align: middle;
-          background-color: #007bff;
-          border-radius: 5px;
-          margin: 5px 0;
-          cursor: pointer;
-        }
-
-        .tg_item-move {
-          transition: transform 1s ease;
+          display: inline-block;
+          margin-right: 10px;
         }
 
         .tg_item-enter-active,
         .tg_item-leave-active {
-          transition: all 0.4s ease;
-        }
-
-        .tg_item-leave-active {
-          position: absolute;
-          left: 0;
-          right: 0;
+          transition: all 1s ease-in-out;
         }
 
         .tg_item-leave-to,
@@ -87,14 +68,222 @@ export default () => {
         .tg_item-leave,
         .tg_item-enter-to {
           opacity: 1;
-          transform: translateX(0);
+          transform: translateY(0px);
         }
 
         .tg_item-enter {
-          transform: translateX(-50px);
+          transform: translateY(-30px);
         }
         .tg_item-leave-to {
-          transform: translateX(50px);
+          transform: translateY(30px);
+        }
+      `}</style>
+    </div>
+  )
+}
+```
+
+:::
+
+:::demo 列表过渡
+
+`TransitionGroup`内部使用了一个叫[FLIP](https://aerotwist.com/blog/flip-your-animations/)简单的动画队列。使用`transforms`将元素从之前的位置平滑过渡新的位置。通过`classNames`设置过渡动画。
+
+```jsx
+import { CssTransition, TransitionGroup, Button } from 'xl-vision'
+export default () => {
+  const nextNumRef = React.useRef(10)
+
+  const [items, setItems] = React.useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+  const add = React.useCallback(() => {
+    setItems(prev => {
+      const index = Math.floor(Math.random() * prev.length)
+      prev.splice(index, 0, nextNumRef.current++)
+      return [...prev]
+    })
+  }, [])
+
+  const remove = React.useCallback(() => {
+    setItems(prev => {
+      const index = Math.floor(Math.random() * prev.length)
+      prev.splice(index, 1)
+      return [...prev]
+    })
+  }, [])
+
+  const shuffle = React.useCallback(() => {
+    setItems(prev => {
+      const arr = []
+      let i = prev.length
+      while (i > 0) {
+        const index = Math.floor(Math.random() * i)
+        const item = prev.splice(index, 1)
+        arr.push(item)
+        i--
+      }
+      return arr
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button.Group>
+        <Button onClick={shuffle}>shuffle</Button>
+        <Button onClick={add}>add</Button>
+        <Button onClick={remove}>remove</Button>
+      </Button.Group>
+      <div className='tg_list2'>
+        <TransitionGroup classNames='tg_item2'>
+          {items.map(it => (
+            <span key={it} className={'tg_item2'}>
+              {it}
+            </span>
+          ))}
+        </TransitionGroup>
+      </div>
+      <style jsx global>{`
+        .tg_list2 {
+          position: relative;
+          margin-top: 10px;
+        }
+
+        .tg_item2 {
+          display: inline-block;
+          margin-right: 10px;
+        }
+
+        .tg_item2-enter-active,
+        .tg_item2-leave-active {
+          transition: all 1s ease-in-out;
+        }
+
+        // 使离开动画更加平滑
+        .tg_item2-leave-active {
+          position: absolute;
+        }
+
+        .tg_item2-leave-to,
+        .tg_item2-enter {
+          opacity: 0;
+        }
+
+        .tg_item2-leave,
+        .tg_item2-enter-to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+
+        .tg_item2-enter {
+          transform: translateY(-30px);
+        }
+        .tg_item2-leave-to {
+          transform: translateY(30px);
+        }
+
+        // 这是重点
+        .tg_item2-move {
+          transition: transform 1s ease-in-out;
+        }
+      `}</style>
+    </div>
+  )
+}
+```
+
+:::
+
+:::demo 网格过渡
+
+也可以实现多维网格的过渡
+
+```jsx
+import { CssTransition, TransitionGroup, Button } from 'xl-vision'
+export default () => {
+  const [items, setItems] = React.useState(() => {
+    const arr = []
+    for (let i = 0; i < 100; i++) {
+      arr.push(i)
+    }
+    return arr
+  })
+
+  const shuffle = React.useCallback(() => {
+    setItems(prev => {
+      const arr = []
+      let i = prev.length
+      while (i > 0) {
+        const index = Math.floor(Math.random() * i)
+        const item = prev.splice(index, 1)
+        arr.push(item)
+        i--
+      }
+      return arr
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button.Group>
+        <Button onClick={shuffle}>shuffle</Button>
+      </Button.Group>
+      <div className='tg_box'>
+        <TransitionGroup classNames='tg_item3'>
+          {items.map(it => (
+            <div key={it} className={'tg_item3'}>
+              {it}
+            </div>
+          ))}
+        </TransitionGroup>
+      </div>
+      <style jsx global>{`
+        .tg_box {
+          margin-top: 10px;
+          position: flex;
+          flex-wrap: wrap;
+          width: (25+1)*10px;
+        }
+
+        .tg_item3 {
+          display: inline-flex;
+          justify-content: center;
+          width: 25px;
+          height: 25px;
+          margin: 0 -1px -1px 0;
+          border: 1px solid #aaa;
+        }
+
+        .tg_item3-enter-active,
+        .tg_item3-leave-active {
+          transition: all 1s ease-in-out;
+        }
+
+        // 使离开动画更加平滑
+        .tg_item3-leave-active {
+          position: absolute;
+        }
+
+        .tg_item3-leave-to,
+        .tg_item3-enter {
+          opacity: 0;
+        }
+
+        .tg_item3-leave,
+        .tg_item3-enter-to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+
+        .tg_item3-enter {
+          transform: translateY(-30px);
+        }
+        .tg_item3-leave-to {
+          transform: translateY(30px);
+        }
+
+        // 这是重点
+        .tg_item3-move {
+          transition: transform 1s ease-in-out;
         }
       `}</style>
     </div>
@@ -105,6 +294,8 @@ export default () => {
 :::
 
 ## Transition API
+
+> 其他参数参看[CssTransition](#/CssTransition)
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
