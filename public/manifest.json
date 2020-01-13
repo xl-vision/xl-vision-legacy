@@ -1,0 +1,22 @@
+{
+  "short_name": "xl-vision",
+  "name": "xl-vision",
+  "description": "A feature-rich React component library",
+  "author": "Rhys Xia",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "188x188",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "..",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
