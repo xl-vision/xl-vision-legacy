@@ -44,10 +44,14 @@ export default () => {
   return (
     <div>
       <Button onClick={addElement}>ADD</Button>
-      <div>
+      <div className='tg_list'>
         <TransitionGroup classNames='tg_item'>{elements}</TransitionGroup>
       </div>
       <style jsx global>{`
+        .tg_list {
+          position: relative;
+        }
+
         .tg_item {
           height: 3rem;
           color: #fff;
@@ -67,6 +71,12 @@ export default () => {
         .tg_item-enter-active,
         .tg_item-leave-active {
           transition: all 0.4s ease;
+        }
+
+        .tg_item-leave-active {
+          position: absolute;
+          left: 0;
+          right: 0;
         }
 
         .tg_item-leave-to,

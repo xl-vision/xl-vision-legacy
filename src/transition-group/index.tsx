@@ -36,10 +36,10 @@ enum State {
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => {
   const { children, classNames, ...others } = props
 
+  const prevChildren = usePrevious(children)
+
   const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
   const [state, setState] = React.useState(State.INIT)
-
-  const prevChildren = usePrevious(children)
 
   const nodesRef = React.useRef<NodeMap>({})
   const oldPosRef = React.useRef<PositionMap>({})
@@ -57,7 +57,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   const fillRefForElement = React.useCallback(
     (element: React.ReactElement<React.HTMLAttributes<HTMLElement>>) => {
       const cb = (node: HTMLElement) => {
-        nodesRef.current[element.key!] = node
+        if (!node) {
+          delete nodesRef.current[element.key!]
+        } else {
+          nodesRef.current[element.key!] = node
+        }
       }
       return fillRef(element, cb)
     },
@@ -113,19 +117,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   }, [getClassNames, getPrevChildren, getOthers, getChildren, fillRefForElement])
 
   React.useEffect(() => {
-    // 清空
-    const posMap = oldPosRef.current
-    Object.keys(posMap).forEach(it => {
-      delete posMap[it]
-    })
-    // 计算原始位置
+    oldPosRef.current = {}
     const nodeMap = nodesRef.current
-    Object.keys(nodeMap).forEach(it => {
-      const node = nodeMap[it]
-      if (!node) {
-        return
-      }
-      oldPosRef.current[it] = node.getBoundingClientRect()
+    Object.keys(nodeMap).forEach(key => {
+      const node = nodeMap[key]
+      oldPosRef.current[key] = node.getBoundingClientRect()
     })
     setElements(children.map(fillRefForElement))
     setState(State.COMPUTE)
@@ -134,27 +130,27 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   const getMoveClass = useConstant(moveClass)
 
   React.useEffect(() => {
-    const moveClass = getMoveClass()
     if (state === State.COMPUTE) {
+      const moveClass = getMoveClass()
       if (!moveClass) {
         return
       }
-      // 计算新的位置
       const nodeMap = nodesRef.current
-
-      Object.keys(nodeMap).forEach(it => {
-        const node = nodeMap[it]
-        const oldPos = oldPosRef.current[it]
+      Object.keys(nodeMap).forEach(key => {
+        const node = nodeMap[key]
+        const oldPos = oldPosRef.current[key]
         if (!node || !oldPos) {
           return
         }
-        setTranslate(node, oldPos, moveClass)
+        const newPos = node.getBoundingClientRect()
+        setTranslate(node, moveClass, oldPos, newPos)
       })
       setState(State.RENDER)
     } else if (state === State.RENDER) {
       setElements(updateElements)
+      setState(State.INIT)
     }
-  }, [state, updateElements, getMoveClass])
+  }, [state, getMoveClass, fillRefForElement, getChildren, updateElements])
 
   return <>{elements}</>
 }
@@ -174,16 +170,27 @@ TransitionGroup.propTypes = {
       leaveTo: PropTypes.string.isRequired,
       move: PropTypes.string.isRequired
     })
-  ])
+  ]),
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
 }
 
 export default TransitionGroup
 
 const CANCEL_KEY = '__cancel__'
 const RESET_KEY = '__reset__'
+const STYLE_KEY = '__style__'
 
-const setTranslate = (element: HTMLElement, oldPos: DOMRect, moveClass: string) => {
-  const node = element as HTMLElement & { [CANCEL_KEY]?: () => void; [RESET_KEY]: () => void }
+const setTranslate = (
+  element: HTMLElement,
+  moveClass: string,
+  oldPos: DOMRect,
+  newPos: DOMRect
+) => {
+  const node = element as HTMLElement & {
+    [CANCEL_KEY]?: () => void
+    [RESET_KEY]: () => void
+    [STYLE_KEY]?: Partial<CSSStyleDeclaration>
+  }
   const cancel = node[CANCEL_KEY]
   if (cancel) {
     cancel()
@@ -191,41 +198,57 @@ const setTranslate = (element: HTMLElement, oldPos: DOMRect, moveClass: string) 
     node[RESET_KEY]()
   }
 
-  const transition = node.style.transition
-  const transitionDelay = node.style.transitionDelay
-  const transitionDuration = node.style.transitionDuration
-  const animation = node.style.animation
-  const animationDelay = node.style.animationDelay
-  const animationDuration = node.style.animationDuration
+  const style = node[STYLE_KEY]
 
-  node.style.transition = 'none'
-  node.style.transitionDelay = '0s'
-  node.style.transitionDuration = '0s'
-  node.style.animation = 'none'
-  node.style.animationDelay = '0s'
-  node.style.animationDuration = '0s'
+  if (!style) {
+    const transition = node.style.transition
+    const transitionDelay = node.style.transitionDelay
+    const transitionDuration = node.style.transitionDuration
+    const animation = node.style.animation
+    const animationDelay = node.style.animationDelay
+    const animationDuration = node.style.animationDuration
+    const transform = node.style.transform
 
-  const newPos = node.getBoundingClientRect()
+    node[STYLE_KEY] = {
+      transition,
+      transitionDelay,
+      transitionDuration,
+      animation,
+      animationDelay,
+      animationDuration,
+      transform
+    }
+    node.style.transition = 'none'
+    node.style.transitionDelay = '0s'
+    node.style.transitionDuration = '0s'
+    node.style.animation = 'none'
+    node.style.animationDelay = '0s'
+    node.style.animationDuration = '0s'
 
-  node.style.transition = ''
-  node.style.animation = ''
+    node.style.transition = ''
+    node.style.animation = ''
+  }
+
   node.style.transform = `translate(${oldPos.left - newPos.left}px, ${oldPos.top - newPos.top}px)`
-  node.scrollTop
+  document.body.offsetHeight
+
   addClass(node, moveClass)
   node.style.transform = 'translate(0px, 0px)'
-
   const reset = () => {
     removeClass(node, moveClass)
-    node.style.transition = transition
-    node.style.transitionDelay = transitionDelay
-    node.style.transitionDuration = transitionDuration
-    node.style.animation = animation
-    node.style.animationDelay = animationDelay
-    node.style.animationDuration = animationDuration
+    const style = node[STYLE_KEY]!
+
+    node.style.transition = style.transition!
+    node.style.transitionDelay = style.transitionDelay!
+    node.style.transitionDuration = style.transitionDuration!
+    node.style.animation = style.animation!
+    node.style.animationDelay = style.animationDelay!
+    node.style.animationDuration = style.animationDuration!
+    node.style.transform = style.transform!
   }
   node[RESET_KEY] = reset
   node[CANCEL_KEY] = onTransitionEnd(node, () => {
-    // reset()
+    reset()
     node[CANCEL_KEY] = undefined
   })
 }
