@@ -1,6 +1,6 @@
 # TransitionGroup
 
-> `TransitionGroup`可以很方便地进行列表过度动画
+> `TransitionGroup`可以很方便地进行列表g过渡动画
 
 :::demo 基础用法
 
@@ -87,7 +87,9 @@ export default () => {
 
 :::demo 列表过渡
 
-`TransitionGroup`内部使用了一个叫[FLIP](https://aerotwist.com/blog/flip-your-animations/)简单的动画队列。使用`transforms`将元素从之前的位置平滑过渡新的位置。通过`classNames`设置过渡动画。
+`TransitionGroup`内部使用了一个叫[FLIP](https://aerotwist.com/blog/flip-your-animations/)简单的动画队列。
+使用`transforms`将元素从之前的位置平滑过渡新的位置。
+通过`classNames`设置过渡动画。
 
 ```jsx
 import { CssTransition, TransitionGroup, Button } from 'xl-vision'
@@ -247,6 +249,7 @@ export default () => {
         .tg_item3 {
           display: inline-flex;
           justify-content: center;
+          align-items: center;
           width: 25px;
           height: 25px;
           margin: 0 -1px -1px 0;
