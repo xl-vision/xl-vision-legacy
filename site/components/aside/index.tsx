@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import routes, { ChildrenRoute, ComponentRoute, Route } from '../../routes'
 
 import './index.scss'
-const buildMenus = (routeArray: Route[]) => {
-  const nodes: React.ReactNode[] = []
+const buildMenus = (routeArray: Array<Route>) => {
+  const nodes: Array<React.ReactNode> = []
   routeArray.forEach((it, index) => {
-    if ((it as ComponentRoute).component) {
+    if (typeof (it as ComponentRoute).component !== 'undefined') {
       nodes.push(
         <li key={index} className='menu-item'>
           <Link to={(it as ComponentRoute).path}>{(it as ComponentRoute).name}</Link>

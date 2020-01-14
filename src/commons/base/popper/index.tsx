@@ -93,7 +93,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
   const isMounted = useMountedState()
 
   // 子popper关闭函数集合
-  const closeHandlerRef = React.useRef<(() => void)[]>([])
+  const closeHandlerRef = React.useRef<Array<() => void>>([])
 
   // 子popper函数，将子popper的关闭函数传递给当前组件，这样在当前popper关闭时，可以一同关闭子popper
   const addCloseHandler = React.useCallback(

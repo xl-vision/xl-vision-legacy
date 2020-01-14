@@ -64,17 +64,18 @@ const IconSelect: React.FunctionComponent<{}> = () => {
     if (!search || search.trim() === '') {
       return iconNames
     }
-    const arr: string[] = []
+    const arr: Array<string> = []
     for (const name of iconNames) {
       const iconInfo = (iconInfos as any)[name] // eslint-disable-line @typescript-eslint/no-explicit-any
       if (!iconInfo) {
         // console.warn(`icon '${name}' is not in icon information file`)
         continue
       }
-      const searchArr: string[] = iconInfo.search || []
+      const searchArr: Array<string> = iconInfo.search || []
       searchArr.push(name)
       const upSearch = search.toUpperCase()
       for (const item of searchArr) {
+        // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
         if (item.toUpperCase().match(upSearch)) {
           arr.push(name)
           break

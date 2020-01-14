@@ -9,7 +9,7 @@ const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
 nextFrameSpy.mockImplementation(fn => fn())
 
 describe('Modal', () => {
-  it('测试visible和onVisibleChange', async () => {
+  it('测试visible和onVisibleChange', () => {
     const fn = jest.fn()
     const wrapper = mount(
       <Modal visible={false} title={'title'} onVisibleChange={fn}>
@@ -31,7 +31,7 @@ describe('Modal', () => {
     expect(fn.mock.calls[1][0]).toBe(false)
   })
 
-  it('测试forceRender', async () => {
+  it('测试forceRender', () => {
     const wrapper = mount(
       <Modal visible={false} title={'title'} forceRender={true}>
         content
@@ -53,7 +53,7 @@ describe('Modal', () => {
       </Modal>
     )
 
-    expect((wrapper.getDOMNode() as HTMLDivElement).style.display).toBe('')
+    expect(wrapper.getDOMNode<HTMLDivElement>().style.display).toBe('')
 
     await act(() => {
       wrapper
@@ -63,14 +63,14 @@ describe('Modal', () => {
       return wait(10)
     })
 
-    expect((wrapper.getDOMNode() as HTMLDivElement).style.display).toBe('')
+    expect(wrapper.getDOMNode<HTMLDivElement>().style.display).toBe('')
 
     wrapper.setProps({
       maskClosable: true
     })
     wrapper.update()
 
-    expect((wrapper.getDOMNode() as HTMLDivElement).style.display).toBe('')
+    expect(wrapper.getDOMNode<HTMLDivElement>().style.display).toBe('')
 
     await act(() => {
       wrapper
@@ -80,7 +80,7 @@ describe('Modal', () => {
       return wait(10)
     })
 
-    expect((wrapper.getDOMNode() as HTMLDivElement).style.display).toBe('none')
+    expect(wrapper.getDOMNode<HTMLDivElement>().style.display).toBe('none')
   })
 
   it('测试title', () => {
@@ -200,7 +200,7 @@ describe('Modal', () => {
     expect(wrapper.find('.xl-modal__icon').length).toBe(0)
   })
 
-  it('测试destroyOnClose和afterClose', async () => {
+  it('测试destroyOnClose和afterClose', () => {
     const afterClose = jest.fn()
     const wrapper = mount(
       <Modal visible={true} destroyOnClose={false} afterClose={afterClose}>

@@ -6,7 +6,7 @@ import { ButtonProps, ButtonSize } from './button'
 import ButtonContext from './button-context'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactElement<ButtonProps> | React.ReactElement<ButtonProps>[]
+  children: React.ReactElement<ButtonProps> | Array<React.ReactElement<ButtonProps>>
   prefixCls?: string
   round?: boolean
   size?: ButtonSize

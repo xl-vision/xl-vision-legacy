@@ -10,7 +10,7 @@ nextFrameSpy.mockImplementation(fn => fn())
 const prefixCls = 'xl-carousel'
 
 describe('Carousel', () => {
-  it('测试指示箭头是否能正确显示', async () => {
+  it('测试指示箭头是否能正确显示', () => {
     const wrapper = mount(
       <Carousel>
         <div className={'item1'}>0</div>

@@ -1,8 +1,8 @@
 import { warning } from '../commons/utils/logger'
 
 export type Data = {
-  prev: React.ReactElement[]
-  next: React.ReactElement[]
+  prev: Array<React.ReactElement>
+  next: Array<React.ReactElement>
   same?: boolean
 }
 
@@ -15,7 +15,10 @@ export type Data = {
  * 4、前后对比，节点是添加的，需要做添加标记，位置不变
  * 5、前后对比，相同位置上，原节点删除，新节点添加，需要标记为替换，位置不变
  */
-export default (prevChildren: React.ReactElement[], nextChildren: React.ReactElement[]) => {
+export default (
+  prevChildren: Array<React.ReactElement>,
+  nextChildren: Array<React.ReactElement>
+) => {
   const quene: Array<Data> = []
 
   //记录前后都存在的key
@@ -38,8 +41,8 @@ export default (prevChildren: React.ReactElement[], nextChildren: React.ReactEle
     }
   }
 
-  let prevPendingArray: React.ReactElement[] = []
-  let nextPendingArray: React.ReactElement[] = []
+  let prevPendingArray: Array<React.ReactElement> = []
+  let nextPendingArray: Array<React.ReactElement> = []
 
   const sameKeys = Object.keys(sameKeyObj)
 
@@ -49,8 +52,8 @@ export default (prevChildren: React.ReactElement[], nextChildren: React.ReactEle
   while (i < prevChildren.length && j < nextChildren.length) {
     const prev = prevChildren[i]
     const next = nextChildren[j]
-    const isPrevExist = sameKeys.indexOf(prev.key + '') > -1
-    const isNextExist = sameKeys.indexOf(next.key + '') > -1
+    const isPrevExist = sameKeys.includes(prev.key + '')
+    const isNextExist = sameKeys.includes(next.key + '')
 
     // prev存在，next也存在，
     if (isPrevExist && isNextExist) {

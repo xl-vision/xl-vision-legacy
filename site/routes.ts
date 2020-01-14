@@ -1,5 +1,5 @@
 export interface ChildrenRoute {
-  children: Route[]
+  children: Array<Route>
   name: string
 }
 
@@ -16,7 +16,7 @@ export interface ComponentRoute {
 
 export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
 
-const routes: Route[] = [
+const routes: Array<Route> = [
   {
     path: '/',
     redirect: '/quickstart'

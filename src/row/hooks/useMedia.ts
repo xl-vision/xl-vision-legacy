@@ -25,7 +25,7 @@ export const breakPointMap: Record<BreakPoint, string> = {
   sm: '(min-width: 576px)',
   xs: '(min-width: 0)'
 }
-export const breakPointArray: BreakPoint[] = Object.keys(breakPointMap) as BreakPoint[]
+export const breakPointArray: Array<BreakPoint> = Object.keys(breakPointMap) as Array<BreakPoint>
 
 const useMedia = () => {
   const [media, setMedia] = useState<Partial<Record<BreakPoint, boolean>>>({})

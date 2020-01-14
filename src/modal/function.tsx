@@ -52,7 +52,7 @@ export const create: ModalCreate = props => {
   // 只更新不一样的属性
   const render = (newProps?: Partial<BaseFuncModalProps>) => {
     warningLog(
-      destroyFns.indexOf(destroy) === -1,
+      !destroyFns.includes(destroy),
       'The instance is destoryed, it could not be render again'
     )
     // 默认visible为true
@@ -64,7 +64,7 @@ export const create: ModalCreate = props => {
 
   const unmount = () => {
     warningLog(
-      destroyFns.indexOf(destroy) === -1,
+      !destroyFns.includes(destroy),
       'The instance is destoryed, it could not be render again'
     )
 

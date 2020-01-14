@@ -4,11 +4,11 @@ import TransitionGroup from '..'
 import * as TransitionUtils from '../../commons/utils/transition'
 
 describe('TransitionGroup', () => {
-  it('测试顺序是否正确', async () => {
+  it('测试顺序是否正确', () => {
     const prevArr = [1, 2, 3, 4, 5]
     const nextArr = [2, 1, 4, 6, 5]
     const expectArr = [2, 1, 3, 4, 6, 5]
-    const Comp = (props: { arr: number[] }) => {
+    const Comp = (props: { arr: Array<number> }) => {
       const { arr } = props
       const children = arr.map(it => <div key={it}>{it}</div>)
       return <TransitionGroup classNames='demo'>{children}</TransitionGroup>
@@ -28,7 +28,7 @@ describe('TransitionGroup', () => {
     const nextArr = [2]
     const nextArr2 = [3]
     const fn = jest.fn()
-    const Comp = (props: { arr: number[] }) => {
+    const Comp = (props: { arr: Array<number> }) => {
       const { arr } = props
       const children = arr.map(it => (
         // 阻止执行leave动作

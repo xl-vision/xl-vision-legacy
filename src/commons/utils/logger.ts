@@ -1,14 +1,14 @@
 const __DEV__ = process.env.NODE_ENV !== 'production'
 
 export const warning = __DEV__
-  ? (condition: boolean, format: string, ...args: string[]) => {
+  ? (condition: boolean, format: string, ...args: Array<string>) => {
       if (condition) {
         printWarning(format, args)
       }
     }
   : () => {} // eslint-disable-line  @typescript-eslint/no-empty-function
 
-const printWarning = (format: string, args: string[]) => {
+const printWarning = (format: string, args: Array<string>) => {
   let index = 0
   const message = `Warning: ${format.replace(/%s/g, () => args[index++])}`
 

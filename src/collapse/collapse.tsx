@@ -11,12 +11,12 @@ import useConstant from '../commons/hooks/useConstant'
 export interface CollapseProps {
   accordion?: boolean
   bordered?: boolean
-  children: React.ReactElement<CollapsePanelProps> | React.ReactElement<CollapsePanelProps>[]
-  activeNames?: string | string[]
+  children: React.ReactElement<CollapsePanelProps> | Array<React.ReactElement<CollapsePanelProps>>
+  activeNames?: string | Array<string>
   expandArrow?: (active: boolean) => React.ReactNode
   expandArrowPosition?: CollapseExpandIconPosition
   extra?: (name: string) => React.ReactNode
-  onChange?: (activeNames: string[]) => void
+  onChange?: (activeNames: Array<string>) => void
   prefixCls?: string
   forceRender?: boolean
   showArrow?: boolean
@@ -78,7 +78,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
       setActiveNames([])
       return
     }
-    const isIllegal = namesProps.some(it => namesRef.current.indexOf(it!) === -1)
+    const isIllegal = namesProps.some(it => !namesRef.current.includes(it))
 
     warning(isIllegal, 'some value in prop "activeNames" is not legal panel\'s name.')
 
@@ -129,7 +129,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     namesRef.current.push(name)
   }, [])
 
-  const isShow = (name: string) => activeNames.indexOf(name) !== -1
+  const isShow = (name: string) => activeNames.includes(name)
 
   const clickCallback = React.useCallback(
     (name: string) => {

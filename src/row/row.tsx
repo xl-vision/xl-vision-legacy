@@ -8,7 +8,7 @@ import RowContext from './row-context'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'top' | 'middle' | 'bottom'
-  children: React.ReactElement<ColProps> | React.ReactElement<ColProps>[]
+  children: React.ReactElement<ColProps> | Array<React.ReactElement<ColProps>>
   className?: string
   gutter?: number | Partial<Record<BreakPoint, number>>
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'

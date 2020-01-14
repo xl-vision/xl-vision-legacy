@@ -5,7 +5,7 @@ import { TransitionProps } from '../transition'
 
 export interface MessageProps {
   prefixCls?: string
-  children: React.ReactElement<TransitionProps>[]
+  children: Array<React.ReactElement<TransitionProps>>
 }
 
 const Message: React.FunctionComponent<MessageProps> = props => {

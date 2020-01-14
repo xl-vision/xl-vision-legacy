@@ -3,7 +3,7 @@ import React from 'react'
 import CollapseTransition from '..'
 
 describe('CollapseTransition', () => {
-  it('基本使用', async () => {
+  it('基本使用', () => {
     const wrapper = mount(
       <CollapseTransition show={false}>
         <div />
@@ -21,7 +21,7 @@ describe('CollapseTransition', () => {
     expect(wrapper.render()).toMatchSnapshot()
   })
 
-  it('测试horizontal', async () => {
+  it('测试horizontal', () => {
     const wrapper = mount(
       <CollapseTransition horizontal={true} show={false}>
         <div />

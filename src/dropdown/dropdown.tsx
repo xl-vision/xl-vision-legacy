@@ -7,7 +7,7 @@ import DropdownContext from './dropdown-context'
 // dropdown不应该不允许进入
 export interface DropdownProps extends Omit<Omit<PopperProps, 'popup'>, 'allowPopupEnter'> {
   closeOnClick?: boolean
-  overlay: React.ReactElement | React.ReactElement[]
+  overlay: React.ReactElement | Array<React.ReactElement>
   prefixCls?: string
 }
 

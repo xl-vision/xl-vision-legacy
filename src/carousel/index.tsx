@@ -15,7 +15,7 @@ export interface CarouselProps {
   arrow?: 'hover' | 'always' | 'none'
   autoPlay?: boolean
   autoPlayDuration?: number
-  children: React.ReactElement | React.ReactElement[]
+  children: React.ReactElement | Array<React.ReactElement>
   circleDot?: boolean
   damping?: number
   defaultIndex?: number
@@ -303,7 +303,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   )
 
   // 复制children
-  const childrenContainer: React.ReactElement[] = []
+  const childrenContainer: Array<React.ReactElement> = []
   childrenContainer.push(wrapChild(childrenArray[childrenArray.length - 1], -1))
   for (let i = 0; i < childrenArray.length; i++) {
     childrenContainer.push(wrapChild(childrenArray[i], i))

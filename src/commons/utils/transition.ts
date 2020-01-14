@@ -25,10 +25,10 @@ if (isClient) {
 
 export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   const styles = (getComputedStyle(el) as unknown) as { [key: string]: string }
-  const transitionDelays: string[] = (styles[`${transitionProp}Delay`] || '').split(', ')
-  const transitionDurations: string[] = (styles[`${transitionProp}Duration`] || '').split(', ')
-  const animationDelays: string[] = (styles[`${animationProp}Delay`] || '').split(', ')
-  const animationDurations: string[] = (styles[`${animationProp}Duration`] || '').split(', ')
+  const transitionDelays: Array<string> = (styles[`${transitionProp}Delay`] || '').split(', ')
+  const transitionDurations: Array<string> = (styles[`${transitionProp}Duration`] || '').split(', ')
+  const animationDelays: Array<string> = (styles[`${animationProp}Delay`] || '').split(', ')
+  const animationDurations: Array<string> = (styles[`${animationProp}Duration`] || '').split(', ')
   const transitionTimeout: number = getTimeout(transitionDelays, transitionDurations)
   const animationTimeout: number = getTimeout(animationDelays, animationDurations)
   let event = transitionEndEvent
@@ -75,7 +75,7 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   }
 }
 
-const getTimeout = (delays: string[], durations: string[]) => {
+const getTimeout = (delays: Array<string>, durations: Array<string>) => {
   while (delays.length < durations.length) {
     delays = delays.concat(delays)
   }

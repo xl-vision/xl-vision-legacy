@@ -7,12 +7,12 @@ import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../
 import './index.scss'
 import DemoBox from '../demo-box'
 
-const routeComponents: React.ReactNode[] = []
+const routeComponents: Array<React.ReactNode> = []
 
-const addRoute = (routeArray: Route[], level = '1') => {
+const addRoute = (routeArray: Array<Route>, level = '1') => {
   routeArray.forEach((it, index) => {
     const key = `${level}_${index}`
-    if ((it as ComponentRoute).component) {
+    if (typeof (it as ComponentRoute).component !== 'undefined') {
       const componentRoute = it as ComponentRoute
       const loadable = React.lazy(() => componentRoute.component)
       routeComponents.push(
