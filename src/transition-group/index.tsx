@@ -9,6 +9,7 @@ import useConstant from '../commons/hooks/useConstant'
 import computeQuene from './computeQuene'
 import usePrevious from '../commons/hooks/usePrevious'
 import useLayoutEffect from '../commons/utils/useLayoutEffect'
+import useLayoutConstant from '../commons/hooks/useLayoutConstant'
 
 export interface TransitionGroupClassNames extends CssTransitionClassNamesObject {
   move?: string
@@ -122,7 +123,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
     setState(true)
   }, [children, fillRefForElement])
 
-  const getMoveClass = useConstant(moveClass)
+  const getMoveClass = useLayoutConstant(moveClass)
 
   // 同步执行，避免闪烁
   useLayoutEffect(() => {

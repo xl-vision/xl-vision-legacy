@@ -2,7 +2,6 @@ import { mount } from 'enzyme'
 import React from 'react'
 import TransitionGroup from '..'
 import * as TransitionUtils from '../../commons/utils/transition'
-import { voidFn } from '../../commons/utils/function'
 
 describe('TransitionGroup', () => {
   it('测试顺序是否正确', async () => {
@@ -12,11 +11,7 @@ describe('TransitionGroup', () => {
     const Comp = (props: { arr: number[] }) => {
       const { arr } = props
       const children = arr.map(it => <div key={it}>{it}</div>)
-      return (
-        <TransitionGroup leave={voidFn} classNames='demo'>
-          {children}
-        </TransitionGroup>
-      )
+      return <TransitionGroup classNames='demo'>{children}</TransitionGroup>
     }
     const wrapper = mount(<Comp arr={prevArr} />)
     expect(wrapper.text()).toBe(prevArr.map(it => it + '').reduce((a, b) => a + b))

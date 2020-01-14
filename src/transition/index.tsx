@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import useMountedState from '../commons/hooks/useMountedState'
-import useConstant from '../commons/hooks/useConstant'
+import useLayoutConstant from '../commons/hooks/useLayoutConstant'
 import { fillRef } from '../commons/utils/ref'
 import useLayoutEffect from '../commons/utils/useLayoutEffect'
 
@@ -104,25 +104,26 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   ])
 
   //======================常量=========================
-  const getState = useConstant(state)
-  const getLeaveCancelled = useConstant(leaveCancelled)
-  const getAppearCancelled = useConstant(appearCancelled)
-  const getEnterCancelled = useConstant(enterCancelled)
-  const getIsAppear = useConstant(isAppear)
-  const getBeforeAppear = useConstant(beforeAppear)
-  const getBeforeEnter = useConstant(beforeEnter)
-  const getBeforeLeave = useConstant(beforeLeave)
-  const getAfterAppear = useConstant(afterAppear)
-  const getAfterEnter = useConstant(afterEnter)
-  const getAfterLeave = useConstant(afterLeave)
-  const getAppear = useConstant(appear)
-  const getEnter = useConstant(enter)
-  const getLeave = useConstant(leave)
-  const getIsMounted = useConstant(isMounted)
-  const getOnTransitionEnd = useConstant(onTransitionEnd)
+  const getState = useLayoutConstant(state)
+  const getLeaveCancelled = useLayoutConstant(leaveCancelled)
+  const getAppearCancelled = useLayoutConstant(appearCancelled)
+  const getEnterCancelled = useLayoutConstant(enterCancelled)
+  const getIsAppear = useLayoutConstant(isAppear)
+  const getBeforeAppear = useLayoutConstant(beforeAppear)
+  const getBeforeEnter = useLayoutConstant(beforeEnter)
+  const getBeforeLeave = useLayoutConstant(beforeLeave)
+  const getAfterAppear = useLayoutConstant(afterAppear)
+  const getAfterEnter = useLayoutConstant(afterEnter)
+  const getAfterLeave = useLayoutConstant(afterLeave)
+  const getAppear = useLayoutConstant(appear)
+  const getEnter = useLayoutConstant(enter)
+  const getLeave = useLayoutConstant(leave)
+  const getIsMounted = useLayoutConstant(isMounted)
+  const getOnTransitionEnd = useLayoutConstant(onTransitionEnd)
   //===================================================
 
-  React.useEffect(() => {
+  // 保证动画立即开始
+  useLayoutEffect(() => {
     const state = getState()
     const isMounted = getIsMounted()
     if (show) {
