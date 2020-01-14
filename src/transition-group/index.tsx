@@ -236,16 +236,7 @@ const setTranslate = (element: HTMLElement, moveClass: string, oldPos: DOMRect) 
     node.style.animation = ''
   }
 
-  const newPos = node.getBoundingClientRect()
-
-  node.style.transform = `translate(${oldPos.left - newPos.left}px, ${oldPos.top - newPos.top}px)`
-  document.body.offsetHeight
-  node.style.transition = ''
-  node.style.animation = ''
-  addClass(node, moveClass)
-  node.style.transform = 'translate(0px, 0px)'
-
-  node[CANCEL_KEY] = onTransitionEnd(node, () => {
+  const reset = () => {
     removeClass(node, moveClass)
     const style = node[STYLE_KEY]!
 
@@ -258,5 +249,24 @@ const setTranslate = (element: HTMLElement, moveClass: string, oldPos: DOMRect) 
     node.style.transform = style.transform!
     node[CANCEL_KEY] = undefined
     node[STYLE_KEY] = undefined
-  })
+  }
+
+  const newPos = node.getBoundingClientRect()
+
+  const dx = oldPos.left - newPos.left
+  const dy = oldPos.top - newPos.top
+
+  if (!dx && !dy) {
+    reset()
+    return
+  }
+
+  node.style.transform = `translate(${dx}px, ${dy}px)`
+  document.body.offsetHeight
+  node.style.transition = ''
+  node.style.animation = ''
+  addClass(node, moveClass)
+  node.style.transform = 'translate(0px, 0px)'
+
+  node[CANCEL_KEY] = onTransitionEnd(node, reset)
 }
