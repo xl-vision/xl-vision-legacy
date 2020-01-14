@@ -7,9 +7,7 @@ import { addClass, removeClass } from '../commons/utils/dom'
 import { onTransitionEnd } from '../commons/utils/transition'
 import useConstant from '../commons/hooks/useConstant'
 import computeQuene from './computeQuene'
-import usePrevious from '../commons/hooks/usePrevious'
 import useLayoutEffect from '../commons/utils/useLayoutEffect'
-import useLayoutConstant from '../commons/hooks/useLayoutConstant'
 
 export interface TransitionGroupClassNames extends CssTransitionClassNamesObject {
   move?: string
@@ -32,13 +30,12 @@ type PositionMap = {
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => {
   const { children, classNames, ...others } = props
 
-  const prevChildren = usePrevious(children)
-
   const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
   const [state, setState] = React.useState(false)
 
   const nodesRef = React.useRef<NodeMap>({})
   const oldPosRef = React.useRef<PositionMap>({})
+  const prevChildrenRef = React.useRef<Array<React.ReactElement>>()
 
   const moveClass = React.useMemo(() => {
     if (!classNames) {
@@ -65,52 +62,74 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   )
 
   const getChildren = useConstant(children)
-  const getPrevChildren = useConstant(prevChildren)
   const getClassNames = useConstant(classNames)
   const getOthers = useConstant(others)
 
   const updateElements = React.useCallback(() => {
     const children = getChildren().map(fillRefForElement)
-    const prevChildren = getPrevChildren()
+    const prevChildren = prevChildrenRef.current
     const classNames = getClassNames()
     const others = getOthers()
+    const arr: Array<React.ReactElement> = []
+
     if (!prevChildren) {
-      return children.map(it => {
+      const temp = children.map(it => {
         return (
           <CssTransition {...others} classNames={classNames} show={true} key={it.key!}>
             {it}
           </CssTransition>
         )
       })
-    }
-    const quene = computeQuene(prevChildren, children)
-    const arr: Array<React.ReactElement> = []
-    for (const data of quene) {
-      if (data.same) {
-        arr.push(data.next[0])
-      } else {
-        const leaveElements = data.prev.map(it => {
-          delete nodesRef.current[it.key!]
+      arr.push(...temp)
+    } else {
+      const quene = computeQuene(prevChildren, children)
+      for (const data of quene) {
+        if (data.same) {
+          arr.push(data.next[0])
+        } else {
+          // 当连续多次移除时，离开动画不太连贯，暂时无法解决
+          const leaveElements = data.prev.map(it => {
+            const { beforeLeave, ...others2 } = others
 
-          return (
-            <ForceTransition {...others} classNames={classNames} show={false} key={it.key!}>
-              {it}
-            </ForceTransition>
-          )
-        })
-        const enterElements = data.next.map(it => {
-          return (
-            <ForceTransition {...others} classNames={classNames} show={true} key={it.key!}>
-              {it}
-            </ForceTransition>
-          )
-        })
-        arr.push(...leaveElements)
-        arr.push(...enterElements)
+            const beforeLeaveWrap = (el: HTMLElement) => {
+              beforeLeave && beforeLeave(el)
+              prevChildrenRef.current = prevChildrenRef.current!.filter(prev => prev.key !== it.key)
+            }
+
+            let child = it
+            if (it.type === CssTransition || it.type === ForceTransition) {
+              child = it.props.children
+            }
+
+            return (
+              <ForceTransition
+                {...others2}
+                beforeLeave={beforeLeaveWrap}
+                classNames={classNames}
+                show={false}
+                key={it.key!}
+              >
+                {child}
+              </ForceTransition>
+            )
+          })
+          const enterElements = data.next.map(it => {
+            return (
+              <ForceTransition {...others} classNames={classNames} show={true} key={it.key!}>
+                {it}
+              </ForceTransition>
+            )
+          })
+          arr.push(...leaveElements)
+          arr.push(...enterElements)
+        }
       }
     }
+
+    prevChildrenRef.current = arr
+
     return arr
-  }, [getClassNames, getPrevChildren, getOthers, getChildren, fillRefForElement])
+  }, [getClassNames, getOthers, getChildren, fillRefForElement])
 
   React.useEffect(() => {
     oldPosRef.current = {}
@@ -123,7 +142,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
     setState(true)
   }, [children, fillRefForElement])
 
-  const getMoveClass = useLayoutConstant(moveClass)
+  const getMoveClass = useConstant(moveClass)
 
   // 同步执行，避免闪烁
   useLayoutEffect(() => {
@@ -137,11 +156,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
           if (!node || !oldPos) {
             return
           }
-          const newPos = node.getBoundingClientRect()
-          setTranslate(node, moveClass, oldPos, newPos)
+          setTranslate(node, moveClass, oldPos)
         })
       }
-      setElements(updateElements)
+      const elements = updateElements()
+      setElements(elements)
 
       setState(false)
     }
@@ -172,25 +191,18 @@ TransitionGroup.propTypes = {
 export default TransitionGroup
 
 const CANCEL_KEY = '__cancel__'
-const RESET_KEY = '__reset__'
 const STYLE_KEY = '__style__'
 
-const setTranslate = (
-  element: HTMLElement,
-  moveClass: string,
-  oldPos: DOMRect,
-  newPos: DOMRect
-) => {
+const setTranslate = (element: HTMLElement, moveClass: string, oldPos: DOMRect) => {
   const node = element as HTMLElement & {
     [CANCEL_KEY]?: () => void
-    [RESET_KEY]: () => void
     [STYLE_KEY]?: Partial<CSSStyleDeclaration>
   }
   const cancel = node[CANCEL_KEY]
   if (cancel) {
     cancel()
+    removeClass(node, moveClass)
     node[CANCEL_KEY] = undefined
-    node[RESET_KEY]()
   }
 
   const style = node[STYLE_KEY]
@@ -224,12 +236,16 @@ const setTranslate = (
     node.style.animation = ''
   }
 
+  const newPos = node.getBoundingClientRect()
+
   node.style.transform = `translate(${oldPos.left - newPos.left}px, ${oldPos.top - newPos.top}px)`
   document.body.offsetHeight
-
+  node.style.transition = ''
+  node.style.animation = ''
   addClass(node, moveClass)
   node.style.transform = 'translate(0px, 0px)'
-  const reset = () => {
+
+  node[CANCEL_KEY] = onTransitionEnd(node, () => {
     removeClass(node, moveClass)
     const style = node[STYLE_KEY]!
 
@@ -240,10 +256,7 @@ const setTranslate = (
     node.style.animationDelay = style.animationDelay!
     node.style.animationDuration = style.animationDuration!
     node.style.transform = style.transform!
-  }
-  node[RESET_KEY] = reset
-  node[CANCEL_KEY] = onTransitionEnd(node, () => {
-    reset()
     node[CANCEL_KEY] = undefined
+    node[STYLE_KEY] = undefined
   })
 }
