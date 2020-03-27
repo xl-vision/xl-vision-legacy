@@ -17,7 +17,7 @@ export interface PopconfirmProps extends Omit<TooltipProps, 'allowPopupEnter'> {
   onConfirm?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 }
 
-const Popconfirm: React.FunctionComponent<PopconfirmProps> = props => {
+const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
   const {
     content,
     confirmText = 'Yes',

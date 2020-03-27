@@ -21,7 +21,7 @@ export default (
 ) => {
   const quene: Array<Data> = []
 
-  //记录前后都存在的key
+  // 记录前后都存在的key
   const sameKeyObj = Object.create(null)
 
   for (let i = 0; i < prevChildren.length; i++) {
@@ -46,8 +46,8 @@ export default (
 
   const sameKeys = Object.keys(sameKeyObj)
 
-  let i = 0,
-    j = 0
+  let i = 0
+  let j = 0
   // 由于prevObj和nextObj中no的数量相同，
   while (i < prevChildren.length && j < nextChildren.length) {
     const prev = prevChildren[i]

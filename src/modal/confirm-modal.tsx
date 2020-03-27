@@ -25,7 +25,7 @@ export interface ConfirmModallProps {
   visible?: boolean
   onVisibleChange?: (visible: boolean) => void
 }
-const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = props => {
+const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = (props) => {
   const {
     title,
     content,

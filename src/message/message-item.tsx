@@ -9,7 +9,7 @@ export interface MessageItemProps {
   content: React.ReactNode
 }
 
-const MessageItem: React.FunctionComponent<MessageItemProps> = props => {
+const MessageItem: React.FunctionComponent<MessageItemProps> = (props) => {
   const { prefixCls = `${namePrefix}-message-item`, icon, loading, content } = props
 
   const iconNode = loading ? FasSpinner : icon

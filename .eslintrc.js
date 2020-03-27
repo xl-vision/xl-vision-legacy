@@ -3,7 +3,8 @@ module.exports = {
     commonjs: true,
     es6: true,
     node: true,
-    jest: true
+    jest: true,
+    browser: true
   },
   settings: {
     react: {
@@ -17,7 +18,7 @@ module.exports = {
         ecmaVersion: 2018
       },
       plugins: ['standard', 'prettier'],
-      extends: ['plugin:prettier/recommended']
+      extends: ['standard', 'plugin:prettier/recommended']
     },
     {
       files: ['*.ts', '*.tsx'],
@@ -27,14 +28,16 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: './tsconfig.json'
       },
-      plugins: ['@typescript-eslint', 'standard', 'react', 'react-hooks', 'prettier'],
+      plugins: ['@typescript-eslint', 'standard', 'react', 'react-hooks'],
       extends: [
+        'standard',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:react/recommended',
         'plugin:prettier/recommended',
-        'prettier/react',
-        'prettier/@typescript-eslint'
+        'prettier/standard',
+        'prettier/@typescript-eslint',
+        'prettier/react'
       ],
       rules: {
         'react-hooks/rules-of-hooks': 'error',

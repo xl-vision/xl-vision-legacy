@@ -27,7 +27,7 @@ type PositionMap = {
   [key: string]: DOMRect
 }
 
-const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => {
+const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
   const { children, classNames, ...others } = props
 
   const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
@@ -73,7 +73,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
     const arr: Array<React.ReactElement> = []
 
     if (!prevChildren) {
-      const temp = children.map(it => {
+      const temp = children.map((it) => {
         return (
           <CssTransition {...others} classNames={classNames} show={true} key={it.key!}>
             {it}
@@ -88,12 +88,14 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
           arr.push(data.next[0])
         } else {
           // 当连续多次移除时，离开动画不太连贯，暂时无法解决
-          const leaveElements = data.prev.map(it => {
+          const leaveElements = data.prev.map((it) => {
             const { beforeLeave, ...others2 } = others
 
             const beforeLeaveWrap = (el: HTMLElement) => {
               beforeLeave && beforeLeave(el)
-              prevChildrenRef.current = prevChildrenRef.current!.filter(prev => prev.key !== it.key)
+              prevChildrenRef.current = prevChildrenRef.current!.filter(
+                (prev) => prev.key !== it.key
+              )
             }
 
             let child = it
@@ -113,7 +115,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
               </ForceTransition>
             )
           })
-          const enterElements = data.next.map(it => {
+          const enterElements = data.next.map((it) => {
             return (
               <ForceTransition {...others} classNames={classNames} show={true} key={it.key!}>
                 {it}
@@ -134,7 +136,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
   React.useEffect(() => {
     oldPosRef.current = {}
     const nodeMap = nodesRef.current
-    Object.keys(nodeMap).forEach(key => {
+    Object.keys(nodeMap).forEach((key) => {
       const node = nodeMap[key]
       oldPosRef.current[key] = node.getBoundingClientRect()
     })
@@ -150,7 +152,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = props => 
       const moveClass = getMoveClass()
       if (moveClass) {
         const nodeMap = nodesRef.current
-        Object.keys(nodeMap).forEach(key => {
+        Object.keys(nodeMap).forEach((key) => {
           const node = nodeMap[key]
           const oldPos = oldPosRef.current[key]
           if (!node || !oldPos) {
@@ -262,6 +264,7 @@ const setTranslate = (element: HTMLElement, moveClass: string, oldPos: DOMRect) 
   }
 
   node.style.transform = `translate(${dx}px, ${dy}px)`
+  // eslint-disable-next-line no-unused-expressions
   document.body.offsetHeight
   node.style.transition = ''
   node.style.animation = ''

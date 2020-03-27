@@ -1,4 +1,4 @@
-import { default as Modal } from './modal'
+import Modal from './modal'
 import { create, destroyAll, confirm, info, success, error, warning } from './function'
 export { ModalProps } from './modal'
 export { ConfirmModallProps } from './confirm-modal'

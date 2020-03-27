@@ -20,7 +20,7 @@ export interface PortalProp {
  * @param props
  * @constructor
  */
-const Portal: React.FunctionComponent<PortalProp> = props => {
+const Portal: React.FunctionComponent<PortalProp> = (props) => {
   const { children, getContainer } = props
   if (isServer) {
     return null

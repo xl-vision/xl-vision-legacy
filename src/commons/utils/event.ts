@@ -28,7 +28,7 @@ export const mergeEvents = <K extends keyof WindowEventMap>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...listeners: Array<(this: Window, ev: WindowEventMap[K]) => any>
 ) => {
-  return function(this: Window, ev: WindowEventMap[K]) {
+  return function (this: Window, ev: WindowEventMap[K]) {
     for (const listener of listeners) {
       if (listener) {
         listener.apply(this, ev)

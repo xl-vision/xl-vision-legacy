@@ -31,7 +31,7 @@ export interface CarouselProps {
   width?: number | string
 }
 
-const Carousel: React.FunctionComponent<CarouselProps> = props => {
+const Carousel: React.FunctionComponent<CarouselProps> = (props) => {
   const {
     damping = 35,
     children,
@@ -91,7 +91,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
   // 转成数组
   const childrenArray = React.Children.map<React.ReactElement, React.ReactElement>(
     children,
-    it => it
+    (it) => it
   )
 
   // 即使children发生改变，length也可能不变
@@ -106,7 +106,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
       } else {
         call = () => cb
       }
-      setActiveIndex(prev => {
+      setActiveIndex((prev) => {
         if (prev === 0 || prev === childrenLength + 1) {
           const index = prev === 0 ? childrenLength : 1
           // 获取之前的动画
@@ -132,7 +132,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   const toPrev = React.useCallback(() => {
     setAnimate(true)
-    setActiveIndexWrap(prev => {
+    setActiveIndexWrap((prev) => {
       if (!loop && prev === 1) {
         return childrenLength
       }
@@ -142,7 +142,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
   const toNext = React.useCallback(() => {
     setAnimate(true)
-    setActiveIndexWrap(prev => {
+    setActiveIndexWrap((prev) => {
       if (!loop && prev === childrenLength) {
         return 1
       }
@@ -166,7 +166,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
         startTimeRef.current = Date.now()
         setAnimate(false)
         // 处理边界
-        setActiveIndexWrap(prev => prev)
+        setActiveIndexWrap((prev) => prev)
       }
       // 向左滑动实际是向右切换
       const _distance = direction === 'horizontal' ? start.x - _end.x : start.y - _end.y
@@ -194,7 +194,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = props => {
 
         // 判断是否滑动到下一页
         if (abs >= size) {
-          setActiveIndexWrap(prev => {
+          setActiveIndexWrap((prev) => {
             if (_distance > 0) {
               if (!loop && prev === childrenLength) {
                 return prev

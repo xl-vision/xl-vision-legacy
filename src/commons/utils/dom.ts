@@ -48,7 +48,7 @@ export const isStyleSupport = (styleProperty: string) => {
   } else {
     const vendors = ['ms', 'Webkit', 'Moz', 'O']
     for (const prefix of vendors) {
-      const prop = prefix + styleProperty.replace(/^[a-z]/, val => val.toUpperCase())
+      const prop = prefix + styleProperty.replace(/^[a-z]/, (val) => val.toUpperCase())
       if (prop in styles) {
         result = true
         break

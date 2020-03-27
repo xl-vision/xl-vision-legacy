@@ -37,11 +37,11 @@ const useMedia = () => {
         meidaQuery: ReturnType<typeof matchMedia>
       }
     } = {}
-    breakPointArray.forEach(breakPoint => {
+    breakPointArray.forEach((breakPoint) => {
       const query = breakPointMap[breakPoint]
       const mql = matchMedia(query)
       const onChange = () => {
-        setMedia(prev => ({
+        setMedia((prev) => ({
           ...prev,
           [breakPoint]: mql.matches
         }))
@@ -54,7 +54,7 @@ const useMedia = () => {
       onChange()
     })
     return () => {
-      breakPointArray.forEach(breakPoint => {
+      breakPointArray.forEach((breakPoint) => {
         const { meidaQuery, listener } = handlerMap[breakPoint]
         meidaQuery.removeListener(listener)
       })

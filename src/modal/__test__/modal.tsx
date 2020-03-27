@@ -6,7 +6,7 @@ import * as TransitionUtils from '../../commons/utils/transition'
 import wait from '../../../test/wait'
 
 const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-nextFrameSpy.mockImplementation(fn => fn())
+nextFrameSpy.mockImplementation((fn) => fn())
 
 describe('Modal', () => {
   it('测试visible和onVisibleChange', () => {
@@ -56,10 +56,7 @@ describe('Modal', () => {
     expect(wrapper.getDOMNode<HTMLDivElement>().style.display).toBe('')
 
     await act(() => {
-      wrapper
-        .find('.xl-modal__wrap')
-        .at(0)
-        .simulate('click')
+      wrapper.find('.xl-modal__wrap').at(0).simulate('click')
       return wait(10)
     })
 
@@ -73,10 +70,7 @@ describe('Modal', () => {
     expect(wrapper.getDOMNode<HTMLDivElement>().style.display).toBe('')
 
     await act(() => {
-      wrapper
-        .find('.xl-modal__wrap')
-        .at(0)
-        .simulate('click')
+      wrapper.find('.xl-modal__wrap').at(0).simulate('click')
       return wait(10)
     })
 
@@ -114,10 +108,7 @@ describe('Modal', () => {
 
     // 点击mask触发onCancel
     await act(() => {
-      wrapper
-        .find('.xl-modal__wrap')
-        .at(0)
-        .simulate('click')
+      wrapper.find('.xl-modal__wrap').at(0).simulate('click')
       return wait(10)
     })
 
@@ -135,10 +126,7 @@ describe('Modal', () => {
     expect(onOk.mock.calls.length).toBe(0)
 
     await act(() => {
-      wrapper
-        .find('.xl-modal__icon')
-        .at(0)
-        .simulate('click')
+      wrapper.find('.xl-modal__icon').at(0).simulate('click')
       return wait(10)
     })
 
@@ -156,10 +144,7 @@ describe('Modal', () => {
     expect(onOk.mock.calls.length).toBe(0)
 
     await act(() => {
-      wrapper
-        .find('.xl-modal__footer button')
-        .at(0)
-        .simulate('click')
+      wrapper.find('.xl-modal__footer button').at(0).simulate('click')
       return wait(10)
     })
 
@@ -177,10 +162,7 @@ describe('Modal', () => {
     expect(onOk.mock.calls.length).toBe(0)
 
     await act(() => {
-      wrapper
-        .find('.xl-modal__footer button')
-        .at(1)
-        .simulate('click')
+      wrapper.find('.xl-modal__footer button').at(1).simulate('click')
       return wait(10)
     })
 

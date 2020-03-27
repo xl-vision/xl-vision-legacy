@@ -63,7 +63,7 @@ let modalCount = 0
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let bodyStyle: any
 
-const Modal: React.FunctionComponent<ModalProps> = props => {
+const Modal: React.FunctionComponent<ModalProps> = (props) => {
   const {
     visible = false,
     prefixCls = `${namePrefix}-modal`,
@@ -117,16 +117,16 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
     setDisplayWrap(visible)
   }, [visible, setDisplayWrap])
 
-  //==================================常量====================================
+  // ==================================常量====================================
   const getOnVisibleChange = useConstant(onVisibleChange)
-  //=========================================================================
+  // =========================================================================
 
   useUpdate(() => {
     const onVisibleChange = getOnVisibleChange()
     onVisibleChange && onVisibleChange(display)
   }, [
     display,
-    //常量
+    // 常量
     getOnVisibleChange
   ])
 
@@ -192,9 +192,9 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       const w = doc.defaultView || (doc as any).parentWindow // for ie
       setTransformOrigin(
         modal,
-        `${mousePosition.x - getScroll(w) - modal.offsetLeft}px ${mousePosition.y -
-          getScroll(w, true) -
-          modal.offsetTop}px`
+        `${mousePosition.x - getScroll(w) - modal.offsetLeft}px ${
+          mousePosition.y - getScroll(w, true) - modal.offsetTop
+        }px`
       )
     }
   }, [])
@@ -204,7 +204,7 @@ const Modal: React.FunctionComponent<ModalProps> = props => {
       // 判断是不是最后一个modal，最后一个才需要恢复body样式
       if (modalCount === 1) {
         // 恢复body中原来的样式
-        Object.keys(bodyStyle).forEach(key => {
+        Object.keys(bodyStyle).forEach((key) => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           document.body.style[key as any] = bodyStyle[key]
         })
@@ -322,7 +322,7 @@ const setTransformOrigin = (el: HTMLElement, value: string) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     style[`${prefix}TransformOrigin` as any] = value
   })
-  style[`transformOrigin`] = value
+  style.transformOrigin = value
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

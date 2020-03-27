@@ -54,7 +54,7 @@ const TIME_DELAY = 1000 / 60
  * 本组件的优点在于对children零干扰，不影响原来组件的样式和结构。
  * @param props
  */
-const Popper: React.FunctionComponent<PopperProps> = props => {
+const Popper: React.FunctionComponent<PopperProps> = (props) => {
   const {
     placement = 'auto',
     getPopupContainer = defaultGetContainer,
@@ -132,7 +132,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
           if (isMounted()) {
             // 关闭popper时需要关闭所有子popper
             if (!isVisible) {
-              closeHandlerRef.current.forEach(it => it())
+              closeHandlerRef.current.forEach((it) => it())
             }
             setActualVisible(isVisible)
           }
@@ -199,12 +199,12 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }
   }, [])
 
-  //====================常量=====================
+  // ====================常量=====================
   const getOnVisibleChange = useConstant(onVisibleChange)
   const getSetActualWrapper = useConstant(setActualWrapper)
   const getCreatePopperJs = useConstant(createPopperJs)
   const getUpdatePopperJs = useConstant(updatePopperJs)
-  //============================================
+  // ============================================
 
   // 更新actualVisible时触发onVisibleChange函数
   useUpdate(() => {
@@ -224,7 +224,7 @@ const Popper: React.FunctionComponent<PopperProps> = props => {
     }, TIME_DELAY * 0.5)
   }, [
     visible,
-    //常量
+    // 常量
     getSetActualWrapper
   ])
 

@@ -32,15 +32,15 @@ function run() {
         message: `选择要升级的版本(当前版本${oldVersion})`,
         type: 'list',
         default: 0,
-        choices: versionList.map(it => it.version)
+        choices: versionList.map((it) => it.version)
       }
     ])
-    .then(async function(answers) {
+    .then(async function (answers) {
       const oldCommitId = getLastCommit()
 
       const version = answers.version
 
-      const versionObject = versionList.filter(it => it.version === version)[0]
+      const versionObject = versionList.filter((it) => it.version === version)[0]
 
       const options = {
         noVerify: true,
@@ -85,7 +85,7 @@ function getVersionList(version) {
   ]
   const opts = []
 
-  levels.forEach(function(item) {
+  levels.forEach(function (item) {
     const val = semver.inc(version, item[0], item[1])
     const isReleased = item[0] !== 'prerelease'
     opts.push({

@@ -21,7 +21,7 @@ export interface SpinProps extends React.HTMLAttributes<HTMLDivElement> {
   wrapperClassName?: string
 }
 
-const Spin: React.FunctionComponent<SpinProps> = props => {
+const Spin: React.FunctionComponent<SpinProps> = (props) => {
   const {
     className,
     children,

@@ -128,7 +128,7 @@ Button.propTypes = {
 export default Button
 
 const formatChildren = (children: React.ReactNode) => {
-  return React.Children.map(children, child => {
+  return React.Children.map(children, (child) => {
     if (typeof child === 'string') {
       return <span>{child}</span>
     }

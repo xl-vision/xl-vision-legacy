@@ -10,7 +10,7 @@ export interface CollapseTransitionProp {
   horizontal?: boolean
 }
 
-const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = props => {
+const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (props) => {
   const { children, transitionClassName, show, forceRender, horizontal } = props
 
   const wrapperRef = React.useRef<HTMLDivElement>(null)

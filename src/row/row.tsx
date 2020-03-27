@@ -16,7 +16,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'flex'
 }
 
-const Row: React.FunctionComponent<RowProps> = props => {
+const Row: React.FunctionComponent<RowProps> = (props) => {
   const {
     type,
     justify,

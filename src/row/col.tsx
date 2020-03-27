@@ -18,7 +18,7 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   span: ColSpanType
 }
 
-const Col: React.FunctionComponent<ColProps> = props => {
+const Col: React.FunctionComponent<ColProps> = (props) => {
   const { media, gutter } = React.useContext(RowContext)
 
   const {

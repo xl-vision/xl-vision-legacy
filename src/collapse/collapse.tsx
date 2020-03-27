@@ -22,7 +22,7 @@ export interface CollapseProps {
   showArrow?: boolean
 }
 
-const Collapse: React.FunctionComponent<CollapseProps> = props => {
+const Collapse: React.FunctionComponent<CollapseProps> = (props) => {
   const {
     accordion,
     activeNames: activeNamesProp,
@@ -54,10 +54,10 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     }
   })
 
-  //====================常量化=====================
+  // ====================常量化=====================
   const getOnChange = useConstant(onChange)
   const getAccordion = useConstant(accordion)
-  //============================================
+  // ============================================
 
   useUpdate(() => {
     const onChange = getOnChange()
@@ -78,7 +78,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
       setActiveNames([])
       return
     }
-    const isIllegal = namesProps.some(it => !namesRef.current.includes(it))
+    const isIllegal = namesProps.some((it) => !namesRef.current.includes(it))
 
     warning(isIllegal, 'some value in prop "activeNames" is not legal panel\'s name.')
 
@@ -96,7 +96,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
   // 处理切换到手风琴模式下，activeNames可能包含多个值的情况
   React.useEffect(() => {
     if (accordion) {
-      setActiveNames(prev => {
+      setActiveNames((prev) => {
         if (prev.length > 1) {
           warning(
             true,
@@ -114,7 +114,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
     const index = namesRef.current.indexOf(name)
     warning(index === -1, 'name is not registered')
     namesRef.current.splice(index, 1)
-    setActiveNames(prev => {
+    setActiveNames((prev) => {
       const index = prev.indexOf(name)
       if (index > -1) {
         prev.splice(index, 1)
@@ -133,7 +133,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
 
   const clickCallback = React.useCallback(
     (name: string) => {
-      setActiveNames(prev => {
+      setActiveNames((prev) => {
         const index = prev.indexOf(name)
         if (accordion) {
           if (index === -1) {
@@ -145,7 +145,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = props => {
           if (index === -1) {
             return prev.concat(name)
           } else {
-            return prev.filter(it => it !== name)
+            return prev.filter((it) => it !== name)
           }
         }
       })

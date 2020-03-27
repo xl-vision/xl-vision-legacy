@@ -6,17 +6,17 @@ const config = {
   icons: [
     {
       src: path.join(__dirname, 'icons/font-awesome/brands/*.svg'),
-      nameFormatter: name => `fab-${name}`,
+      nameFormatter: (name) => `fab-${name}`,
       dest: 'src/icon/icons'
     },
     {
       src: path.join(__dirname, 'icons/font-awesome/regular/*.svg'),
-      nameFormatter: name => `far-${name}`,
+      nameFormatter: (name) => `far-${name}`,
       dest: 'src/icon/icons'
     },
     {
       src: path.join(__dirname, 'icons/font-awesome/solid/*.svg'),
-      nameFormatter: name => `fas-${name}`,
+      nameFormatter: (name) => `fas-${name}`,
       dest: 'src/icon/icons'
     }
   ],
@@ -25,7 +25,7 @@ const config = {
 const iconDestPath = path.join(__dirname, '../../src/icon/icons')
 const iconIndexPath = path.join(iconDestPath, '../index.ts')
 
-const toCamel = str => {
+const toCamel = (str) => {
   let tempStr = ''
   let flag = true
   for (let i = 0; i < str.length; i++) {
@@ -53,7 +53,7 @@ const run = async () => {
   // 获取icons目录下所有的icon，生成index.ts文件
   const files = await fs.readdir(iconDestPath)
 
-  files.forEach(it => {
+  files.forEach((it) => {
     const name = it.substring(0, it.length - path.extname(it).length)
     importContent += `import ${toCamel(name)} from './icons/${name}'\n`
     exportContent += `,\n  ${toCamel(name)}`

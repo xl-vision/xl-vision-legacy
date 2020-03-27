@@ -8,7 +8,7 @@ export interface MessageProps {
   children: Array<React.ReactElement<TransitionProps>>
 }
 
-const Message: React.FunctionComponent<MessageProps> = props => {
+const Message: React.FunctionComponent<MessageProps> = (props) => {
   const { prefixCls = `${namePrefix}-message`, children } = props
   return (
     <div className={prefixCls}>

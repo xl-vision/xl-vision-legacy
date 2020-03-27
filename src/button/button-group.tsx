@@ -13,7 +13,7 @@ export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   vertical?: boolean
 }
 
-const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = props => {
+const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
   const {
     round,
     vertical,

@@ -22,7 +22,7 @@ export interface CollapsePanelProps {
   showArrow?: boolean
 }
 
-const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = props => {
+const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = (props) => {
   const {
     name = '',
     header,

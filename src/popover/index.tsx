@@ -8,7 +8,7 @@ export interface PopoverProps extends TooltipProps {
   title: React.ReactNode
 }
 
-const Popover: React.FunctionComponent<PopoverProps> = props => {
+const Popover: React.FunctionComponent<PopoverProps> = (props) => {
   const { content, title, prefixCls = `${namePrefix}-popover`, ...others } = props
 
   const contentNode = (

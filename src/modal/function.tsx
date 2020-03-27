@@ -24,7 +24,7 @@ const destroyFns: Array<() => void> = []
 
 export const destroyAll = () => {
   const fus = destroyFns.concat()
-  fus.forEach(it => it())
+  fus.forEach((it) => it())
 }
 
 export type ModalCreate = (
@@ -34,7 +34,7 @@ export type ModalCreate = (
   update: (newProps?: Partial<BaseFuncModalProps>) => void
 }
 
-export const create: ModalCreate = props => {
+export const create: ModalCreate = (props) => {
   if (isServer) {
     return { destroy: voidFn, update: voidFn }
   }

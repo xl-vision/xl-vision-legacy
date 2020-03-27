@@ -11,7 +11,7 @@ export interface IconWrapperProps {
   name: string
 }
 
-const IconWrapper: React.FunctionComponent<IconWrapperProps> = props => {
+const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
   const { children, name } = props
   const [hover, setHover] = React.useState(false)
   const iconRef = React.useRef<HTMLDivElement>(null)
@@ -55,7 +55,7 @@ IconWrapper.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-const iconNames = Object.keys(Icon).filter(it => it !== 'createIcon')
+const iconNames = Object.keys(Icon).filter((it) => it !== 'createIcon')
 
 const IconSelect: React.FunctionComponent<{}> = () => {
   const [search, setSearch] = React.useState('')
@@ -88,7 +88,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
   const iconNodes = React.useMemo(() => {
     const arr = []
     for (const name of icons) {
-      const Item = Icon[name as keyof typeof Icon] as any // eslint-disable-line @typescript-eslint/no-explicit-any
+      const Item = Icon[name as keyof typeof Icon] // eslint-disable-line @typescript-eslint/no-explicit-any
       arr.push(
         <IconWrapper name={name} key={name}>
           <Item size={40} />
@@ -98,7 +98,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
     return arr
   }, [icons])
 
-  const searchClick: React.ChangeEventHandler<HTMLInputElement> = e => {
+  const searchClick: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const content = e.target.value
     setSearch(() => content)
   }

@@ -1,12 +1,11 @@
 module.exports = {
   extends: [
     'stylelint-config-standard',
+    'stylelint-prettier/recommended',
     'stylelint-config-rational-order',
-    'stylelint-prettier/recommended'
   ],
-  plugins: ['stylelint-scss', 'stylelint-prettier'],
+  plugins: ['stylelint-scss'],
   rules: {
-    'prettier/prettier': true,
     'color-no-invalid-hex': true,
     'color-hex-case': 'lower',
     'at-rule-no-unknown': null,

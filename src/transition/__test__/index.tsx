@@ -9,33 +9,33 @@ describe('Transition', () => {
       <Transition
         show={true}
         isAppear={true}
-        beforeAppear={el => call('beforeAppear', el)}
+        beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`, el)
             done()
           }
         }}
-        afterAppear={el => call('afterAppear', el)}
-        appearCancelled={el => call('appearCancelled', el)}
-        beforeEnter={el => call('beforeEnter', el)}
+        afterAppear={(el) => call('afterAppear', el)}
+        appearCancelled={(el) => call('appearCancelled', el)}
+        beforeEnter={(el) => call('beforeEnter', el)}
         enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`, el)
             done()
           }
         }}
-        afterEnter={el => call('afterEnter', el)}
-        enterCancelled={el => call('enterCancelled', el)}
-        beforeLeave={el => call('beforeLeave', el)}
+        afterEnter={(el) => call('afterEnter', el)}
+        enterCancelled={(el) => call('enterCancelled', el)}
+        beforeLeave={(el) => call('beforeLeave', el)}
         leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`, el)
             done()
           }
         }}
-        afterLeave={el => call('afterLeave', el)}
-        leaveCancelled={el => call('leaveCancelled', el)}
+        afterLeave={(el) => call('afterLeave', el)}
+        leaveCancelled={(el) => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -82,33 +82,33 @@ describe('Transition', () => {
       <Transition
         show={false}
         isAppear={true}
-        beforeAppear={el => call('beforeAppear', el)}
+        beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`, el)
             done()
           }
         }}
-        afterAppear={el => call('afterAppear', el)}
-        appearCancelled={el => call('appearCancelled', el)}
-        beforeEnter={el => call('beforeEnter', el)}
+        afterAppear={(el) => call('afterAppear', el)}
+        appearCancelled={(el) => call('appearCancelled', el)}
+        beforeEnter={(el) => call('beforeEnter', el)}
         enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`, el)
             done()
           }
         }}
-        afterEnter={el => call('afterEnter', el)}
-        enterCancelled={el => call('enterCancelled', el)}
-        beforeLeave={el => call('beforeLeave', el)}
+        afterEnter={(el) => call('afterEnter', el)}
+        enterCancelled={(el) => call('enterCancelled', el)}
+        beforeLeave={(el) => call('beforeLeave', el)}
         leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`, el)
             done()
           }
         }}
-        afterLeave={el => call('afterLeave', el)}
-        leaveCancelled={el => call('leaveCancelled', el)}
+        afterLeave={(el) => call('afterLeave', el)}
+        leaveCancelled={(el) => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -159,33 +159,33 @@ describe('Transition', () => {
     const wrapper = mount(
       <Transition
         show={false}
-        beforeAppear={el => call('beforeAppear', el)}
+        beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`, el)
             done()
           }
         }}
-        afterAppear={el => call('afterAppear', el)}
-        appearCancelled={el => call('appearCancelled', el)}
-        beforeEnter={el => call('beforeEnter', el)}
+        afterAppear={(el) => call('afterAppear', el)}
+        appearCancelled={(el) => call('appearCancelled', el)}
+        beforeEnter={(el) => call('beforeEnter', el)}
         enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`, el)
             done()
           }
         }}
-        afterEnter={el => call('afterEnter', el)}
-        enterCancelled={el => call('enterCancelled', el)}
-        beforeLeave={el => call('beforeLeave', el)}
+        afterEnter={(el) => call('afterEnter', el)}
+        enterCancelled={(el) => call('enterCancelled', el)}
+        beforeLeave={(el) => call('beforeLeave', el)}
         leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`, el)
             done()
           }
         }}
-        afterLeave={el => call('afterLeave', el)}
-        leaveCancelled={el => call('leaveCancelled', el)}
+        afterLeave={(el) => call('afterLeave', el)}
+        leaveCancelled={(el) => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -235,33 +235,33 @@ describe('Transition', () => {
     const wrapper = mount(
       <Transition
         show={true}
-        beforeAppear={el => call('beforeAppear', el)}
+        beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`, el)
             done()
           }
         }}
-        afterAppear={el => call('afterAppear', el)}
-        appearCancelled={el => call('appearCancelled', el)}
-        beforeEnter={el => call('beforeEnter', el)}
+        afterAppear={(el) => call('afterAppear', el)}
+        appearCancelled={(el) => call('appearCancelled', el)}
+        beforeEnter={(el) => call('beforeEnter', el)}
         enter={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`, el)
             done()
           }
         }}
-        afterEnter={el => call('afterEnter', el)}
-        enterCancelled={el => call('enterCancelled', el)}
-        beforeLeave={el => call('beforeLeave', el)}
+        afterEnter={(el) => call('afterEnter', el)}
+        enterCancelled={(el) => call('enterCancelled', el)}
+        beforeLeave={(el) => call('beforeLeave', el)}
         leave={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`, el)
             done()
           }
         }}
-        afterLeave={el => call('afterLeave', el)}
-        leaveCancelled={el => call('leaveCancelled', el)}
+        afterLeave={(el) => call('afterLeave', el)}
+        leaveCancelled={(el) => call('leaveCancelled', el)}
       >
         <div />
       </Transition>
@@ -299,33 +299,33 @@ describe('Transition', () => {
       <Transition
         isAppear={true}
         show={true}
-        beforeAppear={el => call('beforeAppear', el)}
+        beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`, el)
             // done()
           }
         }}
-        afterAppear={el => call('afterAppear', el)}
-        appearCancelled={el => call('appearCancelled', el)}
-        beforeEnter={el => call('beforeEnter', el)}
+        afterAppear={(el) => call('afterAppear', el)}
+        appearCancelled={(el) => call('appearCancelled', el)}
+        beforeEnter={(el) => call('beforeEnter', el)}
         enter={(el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`, el)
             // done()
           }
         }}
-        afterEnter={el => call('afterEnter', el)}
-        enterCancelled={el => call('enterCancelled', el)}
-        beforeLeave={el => call('beforeLeave', el)}
+        afterEnter={(el) => call('afterEnter', el)}
+        enterCancelled={(el) => call('enterCancelled', el)}
+        beforeLeave={(el) => call('beforeLeave', el)}
         leave={(el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`, el)
             // done()
           }
         }}
-        afterLeave={el => call('afterLeave', el)}
-        leaveCancelled={el => call('leaveCancelled', el)}
+        afterLeave={(el) => call('afterLeave', el)}
+        leaveCancelled={(el) => call('leaveCancelled', el)}
       >
         <div />
       </Transition>

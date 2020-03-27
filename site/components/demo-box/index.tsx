@@ -14,11 +14,11 @@ export interface DemoBoxProps {
   title: React.ReactNode
 }
 
-const DemoBox: React.FunctionComponent<DemoBoxProps> = props => {
-  const { title, desc, /*code,*/ preview, children } = props
+const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
+  const { title, desc, /* code, */ preview, children } = props
   const [display, setDisplay] = React.useState(false)
   const showCode = React.useCallback(() => {
-    setDisplay(prev => !prev)
+    setDisplay((prev) => !prev)
   }, [])
 
   const showCodeClasses = classnames({

@@ -34,7 +34,7 @@ export interface TransitionProps {
   show: boolean
 }
 
-const Transition: React.FunctionComponent<TransitionProps> = props => {
+const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   const {
     show,
     // 初次挂载时，如果是进入状态，是否触发appear动画
@@ -103,7 +103,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
     isMounted
   ])
 
-  //======================常量=========================
+  // ======================常量=========================
   const getState = useLayoutConstant(state)
   const getLeaveCancelled = useLayoutConstant(leaveCancelled)
   const getAppearCancelled = useLayoutConstant(appearCancelled)
@@ -120,7 +120,7 @@ const Transition: React.FunctionComponent<TransitionProps> = props => {
   const getLeave = useLayoutConstant(leave)
   const getIsMounted = useLayoutConstant(isMounted)
   const getOnTransitionEnd = useLayoutConstant(onTransitionEnd)
-  //===================================================
+  // ===================================================
 
   // 保证动画立即开始
   useLayoutEffect(() => {

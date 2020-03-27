@@ -11,7 +11,7 @@ export interface DropdownProps extends Omit<Omit<PopperProps, 'popup'>, 'allowPo
   prefixCls?: string
 }
 
-const Dropdown: React.FunctionComponent<DropdownProps> = props => {
+const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
   const {
     overlay,
     placement = 'bottom',

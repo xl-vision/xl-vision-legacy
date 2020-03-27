@@ -18,7 +18,7 @@ export const open = (props: FuncMessageProps) => {
     return
   }
 
-  const {} = props
+  // const {} = props
 
   if (!root) {
     root = document.createElement('div')

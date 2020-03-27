@@ -5,5 +5,5 @@ export default (fn: () => any): Promise<any> => {
   if (ret && ret.then) {
     return ret
   }
-  return new Promise(resolve => resolve(ret))
+  return new Promise((resolve) => resolve(ret))
 }

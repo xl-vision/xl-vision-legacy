@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils'
 import * as TransitionUtils from '../../commons/utils/transition'
 
 const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-nextFrameSpy.mockImplementation(fn => fn())
+nextFrameSpy.mockImplementation((fn) => fn())
 
 const prefixCls = 'xl-carousel'
 

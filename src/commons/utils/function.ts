@@ -26,7 +26,7 @@ export const throttle = <Fn extends Function>(
       context = args = null
     }
   }
-  const retFn = function() {
+  const retFn = function () {
     const now = Date.now()
     if (!previous && options.leading === false) {
       previous = now

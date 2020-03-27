@@ -7,7 +7,7 @@ import ConfirmModal from '../confirm-modal'
 import * as TransitionUtils from '../../commons/utils/transition'
 
 const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-nextFrameSpy.mockImplementation(fn => {
+nextFrameSpy.mockImplementation((fn) => {
   wait(10).then(() => fn())
 })
 

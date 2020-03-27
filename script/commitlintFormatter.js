@@ -1,6 +1,6 @@
 const formatter = require('@commitlint/format')
 
-module.exports = function(report, options) {
+module.exports = function (report, options) {
   const isError = report.errorCount > 0
   let result = formatter.default(report, options)
   if (isError) {

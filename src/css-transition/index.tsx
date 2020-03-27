@@ -30,7 +30,7 @@ export interface CssTransitionProps extends TransitionProps {
       }
 }
 
-const CssTransition: React.FunctionComponent<CssTransitionProps> = props => {
+const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
   const {
     css = true,
     classNames,

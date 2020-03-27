@@ -31,7 +31,7 @@ describe('CssTransition', () => {
     })
 
     nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-    nextFrameSpy.mockImplementation(done => {
+    nextFrameSpy.mockImplementation((done) => {
       setTimeout(done, 50)
     })
   })

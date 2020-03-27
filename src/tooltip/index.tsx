@@ -9,7 +9,7 @@ export interface TooltipProps extends Omit<PopperProps, 'popup'> {
   prefixCls?: string
 }
 
-const Tooltip: React.FunctionComponent<TooltipProps> = props => {
+const Tooltip: React.FunctionComponent<TooltipProps> = (props) => {
   const {
     content,
     prefixCls = `${namePrefix}-tooltip`,

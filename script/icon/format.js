@@ -35,7 +35,7 @@ const fs = require('fs-extra')
 //   ]
 //   },
 
-const toCamel = str => {
+const toCamel = (str) => {
   let tempStr = ''
   let flag = true
   for (let i = 0; i < str.length; i++) {
@@ -56,7 +56,7 @@ const ret = {}
 for (const name of Object.keys(icons)) {
   const icon = icons[name]
   const types = icon.styles
-  types.forEach(it => {
+  types.forEach((it) => {
     let relName =
       it === 'brands'
         ? 'fab-' + name

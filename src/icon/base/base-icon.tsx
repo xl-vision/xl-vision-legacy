@@ -20,7 +20,7 @@ const getSize = (size: number | string) => {
   return size
 }
 
-const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
+const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
   const {
     className,
     spin,
@@ -42,7 +42,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = props => {
   }
 
   const childrenProps = {
-    fill: color ? color : 'currentColor',
+    fill: color || 'currentColor',
     ...children.props
   }
 
