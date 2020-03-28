@@ -5,6 +5,7 @@ import iconInfos from './icons.json'
 import Clipboard from 'clipboard'
 
 import './index.scss'
+import { IconProps } from '../../../src/icon'
 
 export interface IconWrapperProps {
   children: React.ReactNode
@@ -88,7 +89,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
   const iconNodes = React.useMemo(() => {
     const arr = []
     for (const name of icons) {
-      const Item = Icon[name as keyof typeof Icon] // eslint-disable-line @typescript-eslint/no-explicit-any
+      const Item = Icon[name as keyof typeof Icon] as React.FunctionComponent<IconProps>
       arr.push(
         <IconWrapper name={name} key={name}>
           <Item size={40} />
