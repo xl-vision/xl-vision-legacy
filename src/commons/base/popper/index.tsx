@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import PopperJs, { Placement, Modifiers, Data } from 'popper.js'
+import { createPopper, Placement, Modifier, Options, Instance } from '@popperjs/core'
 import Portal, { ContainerType } from '../portal'
 import useUpdate from '../../hooks/useUpdate'
 import useMountedState from '../../hooks/useMountedState'
@@ -13,7 +13,7 @@ import useConstant from '../../hooks/useConstant'
 import { fillRef } from '../../utils/ref'
 
 export { Placement }
-export { Modifiers }
+export { Modifier }
 
 export interface PopperProps {
   placement?: Placement
@@ -33,16 +33,18 @@ export interface PopperProps {
   arrow?: React.ReactElement | ((placement: Placement) => React.ReactElement)
   offset?: number | string
   overlayStyle?: React.CSSProperties | ((placement: Placement) => React.CSSProperties)
-  popperModifiers?: Modifiers
 }
 
 const defaultGetContainer = () => document.body
 
-const defaultPopperModifiers: Modifiers = {
-  preventOverflow: {
-    boundariesElement: 'window'
+const defaultPopperModifiers: Array<Partial<Modifier<Options>>> = [
+  {
+    name: 'preventOverflow',
+    options: {
+      boundariesElement: 'window'
+    }
   }
-}
+]
 
 // 1000/60，约等于1帧的时间
 const TIME_DELAY = 1000 / 60
@@ -70,11 +72,10 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     lazyRender = true,
     arrow,
     offset = 0,
-    overlayStyle,
-    popperModifiers = defaultPopperModifiers
+    overlayStyle
   } = props
 
-  const popperJsRef = React.useRef<PopperJs>()
+  const popperJsRef = React.useRef<Instance>()
   const referenceNodeRef = React.useRef<HTMLDivElement>(null)
   const popupNodeRef = React.useRef<HTMLDivElement>(null)
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
@@ -160,6 +161,10 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     }
   }, [addParentCloseHandler, removeParentCloseHandler, setActualWrapper])
 
+  const modifiers = React.useMemo(() => {
+    return defaultPopperModifiers.concat([])
+  }, [])
+
   const createPopperJs = React.useCallback(
     (placement: Placement) => {
       const popperJs = popperJsRef.current
@@ -175,27 +180,29 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         return
       }
 
-      const updateData = (data: Data) => {
-        setActualPlacement(data.placement)
-      }
-
-      const options: PopperJs.PopperOptions = {
+      const options: Partial<Options> = {
         placement,
-        modifiers: popperModifiers,
-        onCreate: updateData,
-        onUpdate: updateData
+        modifiers,
+        onFirstUpdate: (state) => {
+          console.log(state)
+          setActualPlacement(state.placement!)
+        }
       }
-      popperJsRef.current = new PopperJs(reference, popup, options)
-      // 不更新一次会在placement=auto时定位错误，原因未知
-      popperJsRef.current.scheduleUpdate()
+      popperJsRef.current = createPopper(reference, popup, options)
     },
-    [popperModifiers]
+    [modifiers]
   )
 
   const updatePopperJs = React.useCallback((placement: Placement) => {
     if (popperJsRef.current) {
-      popperJsRef.current.options.placement = placement
-      popperJsRef.current.scheduleUpdate()
+      popperJsRef.current
+        .setOptions({
+          placement
+        })
+        .then((state) => {
+          console.log(state)
+          setActualPlacement(state.placement!)
+        })
     }
   }, [])
 
@@ -238,17 +245,35 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       } else {
         getUpdatePopperJs()(placement)
       }
+
       // 只有显示时才监听事件
-      popperJsRef.current!.enableEventListeners()
+      popperJsRef.current!.setOptions({
+        modifiers: [
+          ...modifiers,
+          {
+            name: 'eventListeners',
+            enabled: true
+          }
+        ]
+      })
     } else {
       if (popperJsRef.current) {
-        popperJsRef.current.disableEventListeners()
+        popperJsRef.current.setOptions({
+          modifiers: [
+            ...modifiers,
+            {
+              name: 'eventListeners',
+              enabled: false
+            }
+          ]
+        })
       }
     }
   }, [
     actualVisible,
     placement,
     // 常量
+    modifiers,
     getCreatePopperJs,
     getUpdatePopperJs
   ])
@@ -353,7 +378,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
   if (arrowNode) {
     arrowNode = React.cloneElement(arrowNode, {
-      'x-arrow': ''
+      'data-popper-arrow': ''
     })
   }
 
@@ -398,7 +423,14 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           onClick={onPopupClick}
           style={popupStyle}
         >
-          <CssTransition show={actualVisible} forceRender={true} classNames={transitionClass}>
+          <CssTransition
+            show={actualVisible}
+            forceRender={true}
+            classNames={transitionClass}
+            afterEnter={() => console.log('after enter')}
+            beforeEnter={() => console.log('before enter')}
+            enter={() => console.log('enter')}
+          >
             <div style={overlayStyleWrapper}>
               {arrowNode}
               {popupNode}
