@@ -3,6 +3,7 @@ import React from 'react'
 import Popper, { Placement, PopperProps } from '../commons/base/popper'
 import { namePrefix } from '../commons/config'
 import DropdownContext from './dropdown-context'
+import { setTransformOriginStyle } from '../tooltip'
 
 // dropdown不应该不允许进入
 export interface DropdownProps extends Omit<Omit<PopperProps, 'popup'>, 'allowPopupEnter'> {
@@ -100,29 +101,29 @@ export default Dropdown
 const overlayStyleCb = (placement: Placement) => {
   const style: React.CSSProperties = {}
   if (placement === 'top-start') {
-    style.transformOrigin = '0 100%'
+    setTransformOriginStyle(style, '0 100%')
   } else if (placement === 'top') {
-    style.transformOrigin = '50% 100%'
+    setTransformOriginStyle(style, '50% 100%')
   } else if (placement === 'top-end') {
-    style.transformOrigin = '100% 100%'
+    setTransformOriginStyle(style, '100% 100%')
   } else if (placement === 'bottom-start') {
-    style.transformOrigin = '0 0%'
+    setTransformOriginStyle(style, '0 0%')
   } else if (placement === 'bottom') {
-    style.transformOrigin = '50% 0%'
+    setTransformOriginStyle(style, '50% 0%')
   } else if (placement === 'bottom-end') {
-    style.transformOrigin = '100% 0%'
+    setTransformOriginStyle(style, '100% 0%')
   } else if (placement === 'left-start') {
-    style.transformOrigin = '100% 0%'
+    setTransformOriginStyle(style, '100% 0%')
   } else if (placement === 'left') {
-    style.transformOrigin = '100% 50%'
+    setTransformOriginStyle(style, '100% 50%')
   } else if (placement === 'left-end') {
-    style.transformOrigin = '100% 100%'
+    setTransformOriginStyle(style, '100% 100%')
   } else if (placement === 'right-start') {
-    style.transformOrigin = '0% 0%'
+    setTransformOriginStyle(style, '0% 0%')
   } else if (placement === 'right') {
-    style.transformOrigin = '0% 50%'
+    setTransformOriginStyle(style, '0% 50%')
   } else if (placement === 'right-end') {
-    style.transformOrigin = '0% 100%'
+    setTransformOriginStyle(style, '0% 100%')
   }
   return style
 }

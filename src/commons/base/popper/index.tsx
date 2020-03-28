@@ -183,10 +183,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       const options: Partial<Options> = {
         placement,
         modifiers,
-        onFirstUpdate: (state) => {
-          console.log(state)
-          setActualPlacement(state.placement!)
-        }
+        onFirstUpdate: (state) => setActualPlacement(state.placement!)
       }
       popperJsRef.current = createPopper(reference, popup, options)
     },
@@ -200,7 +197,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           placement
         })
         .then((state) => {
-          console.log(state)
           setActualPlacement(state.placement!)
         })
     }
@@ -423,14 +419,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           onClick={onPopupClick}
           style={popupStyle}
         >
-          <CssTransition
-            show={actualVisible}
-            forceRender={true}
-            classNames={transitionClass}
-            afterEnter={() => console.log('after enter')}
-            beforeEnter={() => console.log('before enter')}
-            enter={() => console.log('enter')}
-          >
+          <CssTransition show={actualVisible} forceRender={true} classNames={transitionClass}>
             <div style={overlayStyleWrapper}>
               {arrowNode}
               {popupNode}

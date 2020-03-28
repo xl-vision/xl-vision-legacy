@@ -60,13 +60,20 @@ export default Tooltip
 const overlayStyleCb = (placement: Placement) => {
   const style: React.CSSProperties = {}
   if (placement.startsWith('top')) {
-    style.transformOrigin = '50% 100%'
+    setTransformOriginStyle(style, '50% 100%')
   } else if (placement.startsWith('bottom')) {
-    style.transformOrigin = '50% 0%'
+    setTransformOriginStyle(style, '50% 0%')
   } else if (placement.startsWith('left')) {
-    style.transformOrigin = '100% 50%'
+    setTransformOriginStyle(style, '100% 50%')
   } else {
-    style.transformOrigin = '0% 50%'
+    setTransformOriginStyle(style, '0% 50%')
   }
   return style
+}
+
+export const setTransformOriginStyle = (style: React.CSSProperties, transformOrigin: string) => {
+  style.transformOrigin = transformOrigin
+  style.WebkitTransformOrigin = transformOrigin
+  style.msTransformOrigin = transformOrigin
+  style.MozTransformOrigin = transformOrigin
 }

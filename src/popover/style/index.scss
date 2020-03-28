@@ -79,8 +79,9 @@ $popover: #{$--cls-prefix}-popover;
     padding: $--popover-body-padding-y $--popover-body-padding-x;
   }
 
-  &--fade-enter-active,
-  &--fade-leave-active {
+  // 不能使用enter-active,会导致overlayStyle中设置的transform-origin失效
+  &--fade-enter-to,
+  &--fade-leave-to {
     transition: opacity $--popover-animation-duration ease-in-out,
       transform $--popover-animation-duration ease-in-out;
   }

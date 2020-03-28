@@ -40,8 +40,9 @@ $tooltip: #{$--cls-prefix}-tooltip;
     border-radius: $--tooltip-border-radius;
   }
 
-  &--fade-enter-active,
-  &--fade-leave-active {
+  // 不能使用enter-active,会导致overlayStyle中设置的transform-origin失效
+  &--fade-enter-to,
+  &--fade-leave-to {
     transition: opacity $--tooltip-animation-duration ease-in-out,
       transform $--tooltip-animation-duration ease-in-out;
   }

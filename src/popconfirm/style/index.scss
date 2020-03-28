@@ -94,8 +94,9 @@ $popconfirm: #{$--cls-prefix}-popconfirm;
     margin-left: $--popconfirm-btn-margin;
   }
 
-  &--fade-enter-active,
-  &--fade-leave-active {
+  // 不能使用enter-active,会导致overlayStyle中设置的transform-origin失效
+  &--fade-enter-to,
+  &--fade-leave-to {
     transition: opacity $--popconfirm-animation-duration ease-in-out,
       transform $--popconfirm-animation-duration ease-in-out;
   }

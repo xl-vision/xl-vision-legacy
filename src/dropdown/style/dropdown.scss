@@ -18,8 +18,9 @@ $dropdown: #{$--cls-prefix}-dropdown;
     box-shadow: $--dropdown-box-shadow;
   }
 
-  &--slide-enter-active,
-  &--slide-leave-active {
+  // 不能使用enter-active,会导致overlayStyle中设置的transform-origin失效
+  &--slide-enter-to,
+  &--slide-leave-to {
     transition: $--dropdown-animation;
   }
 
