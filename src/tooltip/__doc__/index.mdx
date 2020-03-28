@@ -195,7 +195,7 @@ export default () => {
 | trigger | 触发方式 | 'hover' &#x007c; 'focus' &#x007c; 'click' &#x007c; 'contextMenu' &#x007c; 'custom' | - | 'hover' | false |
 | placement | 弹出框位置 | 'top' &#x007c; 'left' &#x007c; 'right' &#x007c; 'bottom' &#x007c; 'top-start' &#x007c; 'top-end'&#x007c; 'bottom-start' &#x007c; 'bottom-end' &#x007c; 'left-start' &#x007c; 'left-end' &#x007c; 'right-start' &#x007c; 'right-end' | - | 'top' | false |
 | overlayStyle | 弹出框样式 | React.CSSProperties &#x007c; ((placement: Placement) => React.CSSProperties) | - | - | false |
-| overlayClassName | 弹出框 className | string &#x007c; ((placement: Placement) => string) | - | - | false |
+| overlayClassName | 弹出框 className | string &#x007c; CssTransitionClassNames | - | - | false |
 | onVisibleChange | 弹出框弹出或隐藏事件 | (visible: boolean) => void | - | - | false |
 | getPopupContainer | 弹出框挂载的位置,`null`表示挂载在当前 dom | HTMLElement &#x007c; Selectors &#x007c; null &#x007c; (() => HTMLElement &#x007c; Selectors &#x007c; null) | - | () => document.body | false |
 | delayShow | 延迟显示 | number | - | 0 | false |

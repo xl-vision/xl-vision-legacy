@@ -26,9 +26,7 @@ export interface PopperProps {
   delayShow?: number
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
   allowPopupEnter?: boolean
-  transitionName?:
-    | CssTransitionProps['classNames']
-    | ((placement: Placement) => CssTransitionProps['classNames'])
+  transitionName?: CssTransitionProps['classNames']
   lazyRender?: boolean
   arrow?: React.ReactElement | ((placement: Placement) => React.ReactElement)
   offset?: number | string
@@ -401,9 +399,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
   overlayStyleWrapper.position = 'relative'
 
-  const transitionClass =
-    typeof transitionName === 'function' ? transitionName(actualPlacement) : transitionName
-
   const portal = (
     <Portal getContainer={getPopupContainer}>
       <PopperContext.Provider
@@ -419,7 +414,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           onClick={onPopupClick}
           style={popupStyle}
         >
-          <CssTransition show={actualVisible} forceRender={true} classNames={transitionClass}>
+          <CssTransition show={actualVisible} forceRender={true} classNames={transitionName}>
             <div style={overlayStyleWrapper}>
               {arrowNode}
               {popupNode}
