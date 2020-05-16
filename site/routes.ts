@@ -108,11 +108,6 @@ const routes: Array<Route> = [
         name: 'Modal 对话框',
         path: '/modal',
         component: import('../src/modal/__doc__/index.mdx')
-      },
-      {
-        name: 'Message 消息提醒',
-        path: '/message',
-        component: import('../src/message/__doc__/index.mdx')
       }
     ]
   },

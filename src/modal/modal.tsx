@@ -187,6 +187,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props) => {
     // 设置动画原点
     if (mousePosition) {
       const modal = el.childNodes[0] as HTMLElement
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
       const doc = modal.ownerDocument!
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const w = doc.defaultView || (doc as any).parentWindow // for ie

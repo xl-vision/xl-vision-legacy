@@ -36,7 +36,7 @@ export interface PopperProps {
 const defaultGetContainer = () => document.body
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const defaultPopperModifiers: Array<Partial<Modifier<any>>> = [
+const defaultPopperModifiers: Array<Partial<Modifier<string, any>>> = [
   {
     name: 'preventOverflow',
     options: {
