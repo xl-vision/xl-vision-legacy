@@ -34,11 +34,11 @@ const routes: Array<Route> = [
   {
     name: '基础组件',
     children: [
-      {
-        name: 'Icon 图标',
-        path: '/icon',
-        component: import('./icon/index.mdx')
-      },
+      // {
+      //   name: 'Icon 图标',
+      //   path: '/icon',
+      //   component: import('./icon/index.mdx')
+      // },
       {
         name: 'Button 按钮',
         path: '/button',

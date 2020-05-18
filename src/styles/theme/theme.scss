@@ -1,0 +1,45 @@
+@use "map";
+
+@function contrast($palette, $hue) {
+  @return map.get(map.get($palette, contrast), $hue);
+}
+
+@function extract($palette) {
+  $result: ();
+  $contrast: ();
+
+  @each $key, $color in $palette {
+    $hue: null;
+    @if $key == 300 {
+      $hue: light;
+    } @else if $key == 500 {
+      $hue: main;
+    } @else if $key == 700 {
+      $hue: dark;
+    }
+
+    @if (hue != null) {
+      $result: map.merge(
+        $result,
+        (
+          '#{$hue}': $color
+        )
+      );
+
+      $contrast: map.merge(
+        $contrast,
+        (
+          '#{$hue}': contrast($palette, $key)
+        )
+      );
+    }
+  }
+
+  $result: map.merge(
+      $result,
+      (
+        contrast: $contrast
+      )
+    )
+    @return $result;
+}

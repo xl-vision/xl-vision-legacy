@@ -1,54 +1,27 @@
-@use '../../color';
+@use 'map';
 
 // class prefix
 $cls-prefix: 'xl';
 
-// base color
-$white-color: #fff;
-$black-color: #000;
+$gray: palette.$gray;
 
-// gray
-$gray-0: color.level($white-color, 0);
-$gray-1: color.level($white-color, 1);
-$gray-2: color.level($white-color, 2);
-$gray-3: color.level($white-color, 3);
-$gray-4: color.level($white-color, 4);
-$gray-5: color.level($white-color, 5);
-$gray-6: color.level($white-color, 6);
-$gray-7: color.level($white-color, 7);
-$gray-8: color.level($white-color, 8);
-$gray-9: color.level($white-color, 9);
-$gray-10: color.level($white-color, 10);
-
-// theme
-$primary-color: #1890ff;
-$success-color: #52c41a;
-$info-color: $primary-color;
-$warning-color: #faad14;
-$error-color: #ff4d4f;
+$primary: theme.extract(palette.$indigo);
+$error: theme.extract(palette.$red);
+$warning: theme.extract(palette.$orange);
+$info: theme.extract(palette.$blue);
+$success: theme.extract(palette.$green);
 
 $themes: (
-  primary: $primary-color,
-  success: $success-color,
-  info: $info-color,
-  warning: $warning-color,
-  error: $error-color
+  primary: $primary,
+  error: $error,
+  warning: $warning,
+  info: $info
 );
 
-// link
-$link-color: $primary-color;
-$link-color-hover: color.palette($link-color, -1);
-$link-color-active: color.palette($link-color, 1);
-$link-decoration: none;
+// border
+$border-color: map.get($gray, 100);
 
-// text
-$title-color: $gray-9;
-$text-color: $gray-8;
+// button
+$button-line-height: 1.5;
+$button-transition: all 0.4s ease-in-out;
 
-
-$border-color: #eee;
-$border-radius: 3px;
-
-
-// icon
-$icon-spin-duration: 1.5s;

@@ -1,69 +1,67 @@
-@import '../../style/commons/var';
-@import '../../style/function/color';
-@import '../../icon/style/index';
+@use '../../theme' as *;
 
-$button: #{$--cls-prefix}-button;
+$button: #{$cls-prefix}-button;
 
 // mixins
-@mixin button-variant($background) {
-  color: color-yiq($background, $--button-text-color, $--button-text-color-light);
-  background-color: $background;
-  border-color: $background;
+// @mixin button-variant($background) {
+//   color: color-yiq($background, $--button-text-color, $--button-text-color-light);
+//   background-color: $background;
+//   border-color: $background;
 
-  &:hover:not(.#{$button}--disabled),
-  &:focus:not(.#{$button}--disabled) {
-    $background-hover: color-level($background, -$--button-color-level);
+//   &:hover:not(.#{$button}--disabled),
+//   &:focus:not(.#{$button}--disabled) {
+//     $background-hover: color-level($background, -$--button-color-level);
 
-    color: color-yiq($background-hover, $--text-color, $--text-color-light);
-    background-color: $background-hover;
-    border-color: $background-hover;
-  }
+//     color: color-yiq($background-hover, $--text-color, $--text-color-light);
+//     background-color: $background-hover;
+//     border-color: $background-hover;
+//   }
 
-  &:active:not(.#{$button}--disabled) {
-    $background-active: color-level($background, $--button-color-level);
+//   &:active:not(.#{$button}--disabled) {
+//     $background-active: color-level($background, $--button-color-level);
 
-    color: color-yiq($background-active, $--text-color, $--text-color-light);
-    background-color: $background-active;
-    border-color: $background-active;
-  }
-}
+//     color: color-yiq($background-active, $--text-color, $--text-color-light);
+//     background-color: $background-active;
+//     border-color: $background-active;
+//   }
+// }
 
-@mixin button-outline-variant($color) {
-  color: $color;
-  background-color: transparent;
-  background-image: none;
-  border-color: $color;
+// @mixin button-outline-variant($color) {
+//   color: $color;
+//   background-color: transparent;
+//   background-image: none;
+//   border-color: $color;
 
-  &:hover:not(.#{$button}--disabled),
-  &:focus:not(.#{$button}--disabled) {
-    $color-hover: color-level($color, -$--button-color-level);
+//   &:hover:not(.#{$button}--disabled),
+//   &:focus:not(.#{$button}--disabled) {
+//     $color-hover: color-level($color, -$--button-color-level);
 
-    color: $color-hover;
-    background-color: transparent;
-    border-color: $color-hover;
-  }
+//     color: $color-hover;
+//     background-color: transparent;
+//     border-color: $color-hover;
+//   }
 
-  &:active:not(.#{$button}--disabled) {
-    $color-active: color-level($color, $--button-color-level);
+//   &:active:not(.#{$button}--disabled) {
+//     $color-active: color-level($color, $--button-color-level);
 
-    color: $color-active;
-    background-color: transparent;
-    border-color: $color-active;
-  }
-}
+//     color: $color-active;
+//     background-color: transparent;
+//     border-color: $color-active;
+//   }
+// }
 
 .#{$button} {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  line-height: $--button-line-height;
+  line-height: $button-line-height;
   white-space: nowrap;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
   outline: none;
   cursor: pointer;
-  transition: all $--button-animation-time ease-in-out;
+  transition: $button-transition;
   -webkit-appearance: none;
   user-select: none;
   touch-action: manipulation;
@@ -76,178 +74,178 @@ $button: #{$--cls-prefix}-button;
     pointer-events: none;
   }
 
-  &--size-default {
-    height: $--button-default-height;
-    padding: 0 $--button-default-padding-x;
-    font-weight: $--button-default-font-weight;
-    font-size: $--button-default-font-size;
-    border: $--button-default-border-width solid transparent;
-    border-radius: $--button-default-border-radius;
+//   &--size-default {
+//     height: $--button-default-height;
+//     padding: 0 $--button-default-padding-x;
+//     font-weight: $--button-default-font-weight;
+//     font-size: $--button-default-font-size;
+//     border: $--button-default-border-width solid transparent;
+//     border-radius: $--button-default-border-radius;
 
-    &.#{$button}--round {
-      border-radius: $--button-default-height;
-    }
+//     &.#{$button}--round {
+//       border-radius: $--button-default-height;
+//     }
 
-    &.#{$button}--circle {
-      width: $--button-default-height;
-      height: $--button-default-height;
-    }
-  }
+//     &.#{$button}--circle {
+//       width: $--button-default-height;
+//       height: $--button-default-height;
+//     }
+//   }
 
-  &--size-large {
-    height: $--button-large-height;
-    padding: 0 $--button-large-padding-x;
-    font-weight: $--button-large-font-weight;
-    font-size: $--button-large-font-size;
-    border: $--button-large-border-width solid transparent;
-    border-radius: $--button-large-border-radius;
+//   &--size-large {
+//     height: $--button-large-height;
+//     padding: 0 $--button-large-padding-x;
+//     font-weight: $--button-large-font-weight;
+//     font-size: $--button-large-font-size;
+//     border: $--button-large-border-width solid transparent;
+//     border-radius: $--button-large-border-radius;
 
-    &.#{$button}--round {
-      border-radius: $--button-large-height;
-    }
+//     &.#{$button}--round {
+//       border-radius: $--button-large-height;
+//     }
 
-    &.#{$button}--circle {
-      width: $--button-large-height;
-      height: $--button-large-height;
-    }
-  }
+//     &.#{$button}--circle {
+//       width: $--button-large-height;
+//       height: $--button-large-height;
+//     }
+//   }
 
-  &--size-small {
-    height: $--button-small-height;
-    padding: 0 $--button-small-padding-x;
-    font-weight: $--button-small-font-weight;
-    font-size: $--button-small-font-size;
-    border: $--button-small-border-width solid transparent;
-    border-radius: $--button-small-border-radius;
+//   &--size-small {
+//     height: $--button-small-height;
+//     padding: 0 $--button-small-padding-x;
+//     font-weight: $--button-small-font-weight;
+//     font-size: $--button-small-font-size;
+//     border: $--button-small-border-width solid transparent;
+//     border-radius: $--button-small-border-radius;
 
-    &.#{$button}--round {
-      border-radius: $--button-small-height;
-    }
+//     &.#{$button}--round {
+//       border-radius: $--button-small-height;
+//     }
 
-    &.#{$button}--circle {
-      width: $--button-small-height;
-      height: $--button-small-height;
-    }
-  }
+//     &.#{$button}--circle {
+//       width: $--button-small-height;
+//       height: $--button-small-height;
+//     }
+//   }
 
-  &--circle {
-    padding: 0;
-    border-radius: 50%;
-  }
+//   &--circle {
+//     padding: 0;
+//     border-radius: 50%;
+//   }
 
-  &--loading {
-    opacity: $--button-opacity-disabled;
-    pointer-events: none;
-  }
+//   &--loading {
+//     opacity: $--button-opacity-disabled;
+//     pointer-events: none;
+//   }
 
-  &--dashed {
-    border-style: dashed;
-  }
+//   &--dashed {
+//     border-style: dashed;
+//   }
 
-  &--long {
-    display: block;
-    width: 100%;
-  }
+//   &--long {
+//     display: block;
+//     width: 100%;
+//   }
 
-  &--disabled {
-    cursor: not-allowed;
-    opacity: $--button-opacity-disabled;
-    > * {
-      pointer-events: none;
-    }
-  }
+//   &--disabled {
+//     cursor: not-allowed;
+//     opacity: $--button-opacity-disabled;
+//     > * {
+//       pointer-events: none;
+//     }
+//   }
 
-  .#{$--cls-prefix}-icon + span,
-  span + .#{$--cls-prefix}-icon {
-    padding-left: $--button-icon-padding;
-  }
+//   .#{$--cls-prefix}-icon + span,
+//   span + .#{$--cls-prefix}-icon {
+//     padding-left: $--button-icon-padding;
+//   }
 
-  &--default {
-    color: $--button-text-color;
-    background-color: $--button-bg-color;
-    border-color: $--button-border-color;
+//   &--default {
+//     color: $--button-text-color;
+//     background-color: $--button-bg-color;
+//     border-color: $--button-border-color;
 
-    $color: map-get($--color-theme, primary);
+//     $color: map-get($--color-theme, primary);
 
-    &:hover:not(.#{$button}--disabled),
-    &:focus:not(.#{$button}--disabled) {
-      $color-hover: color-level($color, -$--button-color-level);
+//     &:hover:not(.#{$button}--disabled),
+//     &:focus:not(.#{$button}--disabled) {
+//       $color-hover: color-level($color, -$--button-color-level);
 
-      color: $color-hover;
-      background-color: color-level($color-hover, -$--button-color-level * 4);
-      border-color: color-level($color-hover, -$--button-color-level);
-    }
+//       color: $color-hover;
+//       background-color: color-level($color-hover, -$--button-color-level * 4);
+//       border-color: color-level($color-hover, -$--button-color-level);
+//     }
 
-    &:active:not(.#{$button}--disabled) {
-      $color-active: color-level($color, $--button-color-level);
+//     &:active:not(.#{$button}--disabled) {
+//       $color-active: color-level($color, $--button-color-level);
 
-      color: $color-active;
-      background-color: color-level($color-active, -$--button-color-level * 4);
-      border-color: color-level($color-active, -$--button-color-level);
-    }
+//       color: $color-active;
+//       background-color: color-level($color-active, -$--button-color-level * 4);
+//       border-color: color-level($color-active, -$--button-color-level);
+//     }
 
-    &.#{$button}--plain,
-    &.#{$button}--ghost {
-      background-color: transparent;
+//     &.#{$button}--plain,
+//     &.#{$button}--ghost {
+//       background-color: transparent;
 
-      &:hover:not(.#{$button}--disabled),
-      &:focus:not(.#{$button}--disabled),
-      &:active:not(.#{$button}--disabled) {
-        color: $--color-primary;
-        background-color: transparent;
-        border-color: $--color-primary;
-      }
-    }
-  }
+//       &:hover:not(.#{$button}--disabled),
+//       &:focus:not(.#{$button}--disabled),
+//       &:active:not(.#{$button}--disabled) {
+//         color: $--color-primary;
+//         background-color: transparent;
+//         border-color: $--color-primary;
+//       }
+//     }
+//   }
 
-  &--text {
-    $color: $--link-color;
+//   &--text {
+//     $color: $--link-color;
 
-    color: $--button-text-color;
-    background-color: transparent;
+//     color: $--button-text-color;
+//     background-color: transparent;
 
-    &:hover:not(.#{$button}--disabled),
-    &:focus:not(.#{$button}--disabled) {
-      color: color-level($color, -$--button-color-level);
-    }
+//     &:hover:not(.#{$button}--disabled),
+//     &:focus:not(.#{$button}--disabled) {
+//       color: color-level($color, -$--button-color-level);
+//     }
 
-    &:active:not(.#{$button}--disabled) {
-      color: color-level($color, $--button-color-level);
-    }
-  }
+//     &:active:not(.#{$button}--disabled) {
+//       color: color-level($color, $--button-color-level);
+//     }
+//   }
 
-  @each $key, $value in $--button-theme-color {
-    &--#{$key} {
-      @include button-variant($value);
+//   @each $key, $value in $--button-theme-color {
+//     &--#{$key} {
+//       @include button-variant($value);
 
-      &.#{$button}--ghost,
-      &.#{$button}--plain {
-        @include button-outline-variant($value);
-      }
-    }
-  }
+//       &.#{$button}--ghost,
+//       &.#{$button}--plain {
+//         @include button-outline-variant($value);
+//       }
+//     }
+//   }
 
-  &--plain {
-    background-color: $--bg-color;
+//   &--plain {
+//     background-color: $--bg-color;
 
-    &:hover:not(.#{$button}--disabled),
-    &:focus:not(.#{$button}--disabled),
-    &:active:not(.#{$button}--disabled) {
-      background-color: $--bg-color;
-    }
-  }
-}
+//     &:hover:not(.#{$button}--disabled),
+//     &:focus:not(.#{$button}--disabled),
+//     &:active:not(.#{$button}--disabled) {
+//       background-color: $--bg-color;
+//     }
+//   }
+// }
 
-a {
-  &.#{$button}--size-large {
-    line-height: $--button-large-height;
-  }
+// a {
+//   &.#{$button}--size-large {
+//     line-height: $--button-large-height;
+//   }
 
-  &.#{$button}--size-default {
-    line-height: $--button-default-height;
-  }
+//   &.#{$button}--size-default {
+//     line-height: $--button-default-height;
+//   }
 
-  &.#{$button}--size-small {
-    line-height: $--button-small-height;
-  }
+//   &.#{$button}--size-small {
+//     line-height: $--button-small-height;
+//   }
 }

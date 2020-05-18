@@ -1,8 +1,8 @@
-@import '../../style/commons/var';
+@use '../../theme' as *;
 
-$button-group: #{$--cls-prefix}-button-group;
+$button-group: #{$cls-prefix}-button-group;
 
-$button: #{$--cls-prefix}-button;
+$button: #{$cls-prefix}-button;
 
 .#{$button-group} {
   position: relative;
