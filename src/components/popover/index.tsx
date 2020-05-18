@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import Tooltip, { TooltipProps } from '../tooltip'
 
 export interface PopoverProps extends TooltipProps {
@@ -9,7 +9,7 @@ export interface PopoverProps extends TooltipProps {
 }
 
 const Popover: React.FunctionComponent<PopoverProps> = (props) => {
-  const { content, title, prefixCls = `${namePrefix}-popover`, ...others } = props
+  const { content, title, prefixCls = `${clsPrefix}-popover`, ...others } = props
 
   const contentNode = (
     <>

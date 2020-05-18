@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { ButtonProps, ButtonSize } from './button'
 import ButtonContext from './button-context'
 
@@ -18,7 +18,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
     round,
     vertical,
     className,
-    prefixCls = `${namePrefix}-button-group`,
+    prefixCls = `${clsPrefix}-button-group`,
     size = 'default',
     ...others
   } = props

@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import CollapseTransition from '../collapse-transition'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { FasAngleRight } from '../icon'
 import CollapseContext from './collapse-context'
 
@@ -34,7 +34,7 @@ const CollapsePanel: React.FunctionComponent<CollapsePanelProps> = (props) => {
     expandArrowPosition,
     extra,
     showArrow = true,
-    prefixCls = `${namePrefix}-collapse-panel`
+    prefixCls = `${clsPrefix}-collapse-panel`
   } = props
   const { isShow, clickCallback, unregister, register } = React.useContext(CollapseContext)
 

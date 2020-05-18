@@ -1,8 +1,8 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import * as React from 'react'
-import { Button, CollapseTransition, Tooltip } from '../../../src'
-import { FasAngleRight } from '../../../src/icon'
+import { Button, CollapseTransition, Tooltip } from 'xl-vision'
+import { FasAngleRight } from 'xl-vision/icon'
 
 import './index.scss'
 

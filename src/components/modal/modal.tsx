@@ -1,5 +1,5 @@
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import Portal, { ContainerType } from '../commons/base/portal'
 import CssTransition from '../css-transition'
 import { on } from '../commons/utils/event'
@@ -66,7 +66,7 @@ let bodyStyle: any
 const Modal: React.FunctionComponent<ModalProps> = (props) => {
   const {
     visible = false,
-    prefixCls = `${namePrefix}-modal`,
+    prefixCls = `${clsPrefix}-modal`,
     maskClosable = true,
     forceRender,
     onVisibleChange,

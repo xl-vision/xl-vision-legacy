@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Button from '../button'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { FasExclamationCircle } from '../icon'
 import Tooltip, { TooltipProps } from '../tooltip'
 
@@ -26,7 +26,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
     cancelType = 'default',
     onConfirm,
     onCancel,
-    prefixCls = `${namePrefix}-popconfirm`,
+    prefixCls = `${clsPrefix}-popconfirm`,
     visible,
     trigger = 'click',
     onVisibleChange,

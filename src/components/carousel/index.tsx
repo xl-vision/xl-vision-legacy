@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import useOnMouseDrag, { DragPosition } from '../commons/hooks/useOnMouseDrag'
 import useOnTouchDrag from '../commons/hooks/useOnTouchDrag'
 import useUpdate from '../commons/hooks/useUpdate'
@@ -47,7 +47,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props) => {
     dotTrigger = 'click',
     dots = true,
     loop = true,
-    prefixCls = `${namePrefix}-carousel`,
+    prefixCls = `${clsPrefix}-carousel`,
     slide = true,
     ...others
   } = props

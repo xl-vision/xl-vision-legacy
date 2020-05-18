@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Popper, { Placement, PopperProps } from '../commons/base/popper'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 
 export interface TooltipProps extends Omit<PopperProps, 'popup'> {
   content: React.ReactNode
@@ -12,7 +12,7 @@ export interface TooltipProps extends Omit<PopperProps, 'popup'> {
 const Tooltip: React.FunctionComponent<TooltipProps> = (props) => {
   const {
     content,
-    prefixCls = `${namePrefix}-tooltip`,
+    prefixCls = `${clsPrefix}-tooltip`,
     offset = 10,
     placement = 'top',
     ...others

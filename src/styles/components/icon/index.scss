@@ -1,4 +1,4 @@
-@import '../../style/commons/var';
+@use '../../theme' as *;
 
 @keyframes spin {
   0% {
@@ -10,7 +10,7 @@
   }
 }
 
-.#{$--cls-prefix}-icon {
+.#{$cls-prefix}-icon {
   display: inline-block;
   line-height: 0;
   text-align: center;
@@ -20,7 +20,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   &--spin {
-    animation: spin $--icon-spin-time linear infinite;
+    animation: spin $icon-spin-duration linear infinite;
   }
 
   > * {

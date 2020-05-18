@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { BreakPoint, breakPointArray } from './hooks/useMedia'
 import RowContext from './row-context'
 
@@ -30,7 +30,7 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
     offset,
     pull,
     push,
-    prefixCls = `${namePrefix}-col`,
+    prefixCls = `${clsPrefix}-col`,
     ...others
   } = props
 

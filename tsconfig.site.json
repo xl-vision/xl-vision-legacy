@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "xl-vision/*": ["src/components/*"],
+      "xl-vision": ["src/components/index"]
+    }
+  }
+}

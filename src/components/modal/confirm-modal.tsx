@@ -1,6 +1,6 @@
 import React from 'react'
 import Button, { ButtonProps } from '../button/button'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import Modal from './modal'
 import promisefy from '../commons/utils/promisefy'
 import PropTypes from 'prop-types'
@@ -38,7 +38,7 @@ const ConfirmModal: React.FunctionComponent<ConfirmModallProps> = (props) => {
     } as Omit<ButtonProps, 'children'>,
     okText = '确认',
     onOk,
-    prefixCls = `${namePrefix}-modal`,
+    prefixCls = `${clsPrefix}-modal`,
     showCancelBtn,
     width = 416,
     visible: visibleProp = true,

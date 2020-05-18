@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import DropdownContext from './dropdown-context'
 
 export interface DropdownItemProps extends React.HTMLAttributes<HTMLLIElement> {
@@ -17,7 +17,7 @@ const DropdownItem: React.FunctionComponent<DropdownItemProps> = React.forwardRe
   const {
     children,
     disabled,
-    prefixCls = `${namePrefix}-dropdown-item`,
+    prefixCls = `${clsPrefix}-dropdown-item`,
     onMouseEnter,
     onClick,
     onContextMenu,

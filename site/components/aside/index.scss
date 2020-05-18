@@ -1,7 +1,7 @@
-@import '../../assets/style/var';
+@use '../../assets/style/var' as *;
 
 .aside {
-  background-color: $--bg-color;
+  background-color: #fff;
 
   .menus {
     margin: 0;
@@ -17,7 +17,7 @@
       padding: 0.5rem 0.3rem;
 
       a {
-        color: $--text-color;
+        color: $text-color;
         text-decoration: none;
       }
     }

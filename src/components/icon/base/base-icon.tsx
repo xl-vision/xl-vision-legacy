@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../../commons/config'
+import { clsPrefix } from '../../commons/config'
 
 export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>
@@ -29,7 +29,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
     color,
     rotate,
     children,
-    prefixCls = `${namePrefix}-icon`,
+    prefixCls = `${clsPrefix}-icon`,
     ...others
   } = props
 

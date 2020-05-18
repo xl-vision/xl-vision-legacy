@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { FasCircleNotch } from '../icon'
 import ButtonContext from './button-context'
 
@@ -45,7 +45,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     type = 'default',
     className,
     children,
-    prefixCls = `${namePrefix}-button`,
+    prefixCls = `${clsPrefix}-button`,
     onClick,
     ...others
   } = props

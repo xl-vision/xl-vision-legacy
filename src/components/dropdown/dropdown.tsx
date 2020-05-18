@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Popper, { Placement, PopperProps } from '../commons/base/popper'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import DropdownContext from './dropdown-context'
 import { setTransformOriginStyle } from '../tooltip'
 
@@ -17,7 +17,7 @@ const Dropdown: React.FunctionComponent<DropdownProps> = (props) => {
     overlay,
     placement = 'bottom',
     trigger = 'hover',
-    prefixCls = `${namePrefix}-dropdown`,
+    prefixCls = `${clsPrefix}-dropdown`,
     overlayStyle = overlayStyleCb,
     visible = false,
     onVisibleChange,

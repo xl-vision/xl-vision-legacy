@@ -1,11 +1,11 @@
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
-import { Icon } from '../../../src'
+import { Icon } from 'xl-vision'
 import iconInfos from './icons.json'
 import Clipboard from 'clipboard'
 
 import './index.scss'
-import { IconProps } from '../../../src/icon'
+import { IconProps } from 'xl-vision/icon'
 
 export interface IconWrapperProps {
   children: React.ReactNode

@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { CssTransition } from '..'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { FasSpinner } from '../icon'
 
 export type SpinSize = 'small' | 'default' | 'large'
@@ -32,7 +32,7 @@ const Spin: React.FunctionComponent<SpinProps> = (props) => {
     spinning = true,
     tip = 'loading',
     wrapperClassName,
-    prefixCls = `${namePrefix}-spin`,
+    prefixCls = `${clsPrefix}-spin`,
     ...others
   } = props
 

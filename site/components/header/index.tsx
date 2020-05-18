@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from '../../../src'
-import { FabGithub } from '../../../src/icon'
+import { Button } from 'xl-vision'
+import { FabGithub } from 'xl-vision/icon'
 import logo from '../../assets/img/logo.png'
 import './index.scss'
 

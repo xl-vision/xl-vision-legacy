@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { ColProps } from './col'
 import useMedia, { BreakPoint, breakPointArray } from './hooks/useMedia'
 import RowContext from './row-context'
@@ -25,7 +25,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
     style,
     children,
     gutter,
-    prefixCls = `${namePrefix}-row`,
+    prefixCls = `${clsPrefix}-row`,
     ...others
   } = props
 

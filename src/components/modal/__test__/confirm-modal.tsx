@@ -2,7 +2,7 @@ import React from 'react'
 import Modal from '..'
 import { act } from 'react-dom/test-utils'
 import { mount } from 'enzyme'
-import wait from '../../../test/wait'
+import wait from '../../../../test/wait'
 import ConfirmModal from '../confirm-modal'
 import * as TransitionUtils from '../../commons/utils/transition'
 

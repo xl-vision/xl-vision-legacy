@@ -3,7 +3,7 @@ import React from 'react'
 import Modal from '..'
 import { act } from 'react-dom/test-utils'
 import * as TransitionUtils from '../../commons/utils/transition'
-import wait from '../../../test/wait'
+import wait from '../../../../test/wait'
 
 const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
 nextFrameSpy.mockImplementation((fn) => fn())

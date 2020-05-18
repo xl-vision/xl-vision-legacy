@@ -9,7 +9,7 @@ import FarCheckCircle from '../icon/icons/far-check-circle'
 import FarTimesCircle from '../icon/icons/far-times-circle'
 import FasExclamationCircle from '../icon/icons/fas-exclamation-circle'
 import FasExclamationTriangle from '../icon/icons/fas-exclamation-triangle'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 
 export interface BaseFuncModalProps extends ConfirmModallProps {
   cancelOnDestroy?: boolean
@@ -108,7 +108,7 @@ const _create = (
   props: FuncModalProps,
   type: 'confirm' | 'info' | 'success' | 'error' | 'warning'
 ) => {
-  const { prefixCls = `${namePrefix}-modal`, ...others } = props
+  const { prefixCls = `${clsPrefix}-modal`, ...others } = props
   const Icon =
     type === 'confirm'
       ? FarQuestionCircle

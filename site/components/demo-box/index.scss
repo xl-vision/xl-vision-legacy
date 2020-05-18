@@ -1,21 +1,21 @@
-@import '../../assets/style/var';
+@use '../../assets/style/var' as *;
 
 $padding: 1rem;
 
 .demobox {
   overflow: hidden;
   font-size: 1rem;
-  background-color: $--bg-color;
-  border: 1px solid $--border-color;
-  border-radius: $--border-radius;
+  background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
 
   .demobox-view {
     padding: $padding;
-    border-bottom: 1px solid $--border-color;
+    border-bottom: 1px solid $border-color;
   }
 
   .demobox-code {
-    border-top: 1px dashed $--border-color;
+    border-top: 1px dashed $border-color;
 
     > p {
       display: none;
@@ -40,7 +40,7 @@ $padding: 1rem;
       display: inline-block;
       padding: 0 $padding / 3;
       font-weight: bold;
-      background-color: $--bg-color;
+      background-color: #fff;
 
       p {
         margin: 0;
@@ -68,17 +68,17 @@ $padding: 1rem;
       .xl-button {
         height: auto;
         padding: 0;
-        color: lighten($--text-color, 30%);
+        color: lighten($text-color, 30%);
         font-size: 2rem;
         line-height: 1;
 
         &:hover {
-          color: $--color-primary;
+          color: $primary-color;
         }
       }
 
       .demobox-showcode {
-        transition: transform $--animation-duration ease;
+        transition: transform 0.4s ease;
       }
 
       .demobox-showcode-active {
@@ -88,6 +88,6 @@ $padding: 1rem;
   }
 
   .demobox-collapse {
-    transition: all $--animation-duration ease;
+    transition: all 0.4 ease;
   }
 }

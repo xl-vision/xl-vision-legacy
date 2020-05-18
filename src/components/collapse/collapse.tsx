@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { namePrefix } from '../commons/config'
+import { clsPrefix } from '../commons/config'
 import { warning } from '../commons/utils/logger'
 import CollapseContext from './collapse-context'
 import { CollapseExpandIconPosition, CollapsePanelProps } from './collapse-panel'
@@ -34,7 +34,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = (props) => {
     showArrow,
     extra,
     forceRender = true,
-    prefixCls = `${namePrefix}-collapse`
+    prefixCls = `${clsPrefix}-collapse`
   } = props
 
   const namesRef = React.useRef<Array<string>>([])

@@ -1,7 +1,7 @@
 import { mount } from 'enzyme'
 import React from 'react'
 import Collapse from '..'
-import { namePrefix } from '../../commons/config'
+import { clsPrefix } from '../../commons/config'
 import FasArrowCircleRight from '../../icon/icons/fas-arrow-circle-right'
 import FasCog from '../../icon/icons/fas-cog'
 
@@ -19,14 +19,14 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(0)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
   })
@@ -43,14 +43,14 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(0)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
   })
@@ -68,14 +68,14 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(0)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
   })
@@ -95,14 +95,14 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(0)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
   })
@@ -119,14 +119,14 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(0)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper
       .find(Collapse.Panel)
       .at(1)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(wrapper.render()).toMatchSnapshot()
   })
@@ -197,7 +197,7 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(0)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(onChange.mock.calls[0][0]).toEqual(['0'])
     onChange.mockClear()
@@ -205,7 +205,7 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(1)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(onChange.mock.calls[0][0]).toEqual(['0', '1'])
     onChange.mockClear()
@@ -213,7 +213,7 @@ describe('Collapse', () => {
     wrapper
       .find(Collapse.Panel)
       .at(0)
-      .find(`.${namePrefix}-collapse-panel__header`)
+      .find(`.${clsPrefix}-collapse-panel__header`)
       .simulate('click')
     expect(onChange.mock.calls[0][0]).toEqual(['1'])
     onChange.mockClear()
