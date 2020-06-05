@@ -4,15 +4,15 @@ branches:
 sudo: required
 language: node_js
 node_js:
-  - '10'
+  - "10"
 install: npm install
-cache:
+cache: 
   npm: false
 jobs:
   include:
     # 代码检查
     - stage: lint
-      script: ./script/ci/lint.sh
+      script: npm run lint
       name: lint
     # 执行测试
     - stage: test
@@ -20,7 +20,7 @@ jobs:
       name: test
     # 编译
     - stage: compile
-      script: ./script/ci/compile.sh
+      script: npm run compile && npm run dist && npm run docs
       name: compile
       deploy:
         - provider: npm
