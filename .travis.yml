@@ -12,7 +12,8 @@ jobs:
   include:
     # 代码检查
     - stage: lint
-      script: npm run lint
+      script: - bash
+              - npm run lint
       name: lint
     # 执行测试
     - stage: test
@@ -20,7 +21,8 @@ jobs:
       name: test
     # 编译
     - stage: compile
-      script: npm run compile && npm run dist && npm run docs
+      script: - bash
+              - npm run compile && npm run dist && npm run docs
       name: compile
       deploy:
         - provider: npm
