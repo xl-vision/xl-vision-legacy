@@ -12,15 +12,15 @@ jobs:
   include:
     # 代码检查
     - stage: lint
-      script: bash && npm run lint
+      script: npm run lint
       name: lint
     # 执行测试
     - stage: test
-      script: bash && ./script/ci/test.sh
+      script: ./script/ci/test.sh
       name: test
     # 编译
     - stage: compile
-      script: bash && npm run compile && npm run dist && npm run docs
+      script: npm run compile && npm run dist && npm run docs
       name: compile
       deploy:
         - provider: npm
