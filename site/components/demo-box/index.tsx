@@ -5,12 +5,18 @@ import { DemoBoxProps } from '@xl-vision/scripts'
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
   const { title, desc, blocks, children } = props
+
+  const [expand, setExpand] = React.useState(false)
+
   return (
     <div className={classes.demoBox}>
       <div className={classes.preview}>{children}</div>
       <div className={classes.info}>
         <div className={classes.title}>{title}</div>
         <div className={classes.desc}>{desc}</div>
+        <div className={classes.actions}>
+          <button>{expand}</button>
+        </div>
       </div>
       <div className={classes.codes}>
         {blocks.map((it, index) => {
