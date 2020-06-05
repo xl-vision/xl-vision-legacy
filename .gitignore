@@ -1,13 +1,11 @@
 .DS_Store
 node_modules/
-dist/
 coverage/
 
 /dist/
 /es/
 /lib/
 /docs/
-/style/
 
 package-lock.json
 yarn.lock
