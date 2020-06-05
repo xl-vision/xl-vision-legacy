@@ -1,11 +1,12 @@
-import { MDXProvider } from '@mdx-js/react'
+import { MDXProvider } from '@xl-vision/scripts'
 import classnames from 'classnames'
 import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
-import { Spin } from 'xl-vision'
+// import { Spin } from 'xl-vision'
 import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
-import './index.scss'
 import DemoBox from '../demo-box'
+
+import classes from './index.module.scss'
 
 const routeComponents: Array<React.ReactNode> = []
 
@@ -52,9 +53,10 @@ const components = {
 
 const Content: React.FunctionComponent<{}> = () => {
   return (
-    <div className='content'>
+    <div className={classes.content}>
       <MDXProvider components={components}>
-        <React.Suspense fallback={<Spin cover={true} />}>{routeComponents}</React.Suspense>
+        {/* <React.Suspense fallback={<Spin cover={true} />}>{routeComponents}</React.Suspense> */}
+        <React.Suspense fallback={<div />}>{routeComponents}</React.Suspense>
       </MDXProvider>
     </div>
   )

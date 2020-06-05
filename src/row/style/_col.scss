@@ -1,0 +1,39 @@
+@use 'var' as *;
+@use '../../style/mixins/clearfix';
+
+$col: #{$cls-prefix}-col;
+
+.#{$col} {
+  float: left;
+  box-sizing: border-box;
+
+  &-span-0 {
+    display: none;
+  }
+
+  @for $i from 1 to $span + 1 {
+    &-span-#{$i} {
+      display: block;
+      width: $i / $span * 100%;
+      min-height: 1px;
+    }
+
+    &-offset-#{$i} {
+      margin-left: $i / $span * 100%;
+    }
+
+    &-push-#{$i} {
+      position: relative;
+      left: $i / $span * 100%;
+    }
+
+    &-pull-#{$i} {
+      position: relative;
+      right: $i / $span * 100%;
+    }
+
+    &-order-#{$i} {
+      order: $i;
+    }
+  }
+}

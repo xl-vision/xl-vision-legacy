@@ -1,11 +1,11 @@
 import React from 'react'
 
-import './index.scss'
+import classes from './index.module.scss'
 
 const Footer: React.FunctionComponent<{}> = () => {
   return (
-    <footer className='footer'>
-      <span className='copyright'>Copyright By Rhys Xia</span>
+    <footer className={classes.footer}>
+      <span>Copyright By Rhys Xia</span>
     </footer>
   )
 }
