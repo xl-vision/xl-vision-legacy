@@ -4,7 +4,7 @@ module.exports = [
     tasks: {
       name: 'lint:es',
       options: {
-        from: 'src/**/*.ts?(x),site/**/*.ts?(x),script/**/*.js'
+        from: ['src/**/*.ts?(x)', 'site/**/*.ts?(x)', 'script/**/*.js']
       }
     }
   },
@@ -31,7 +31,7 @@ module.exports = [
       {
         name: 'compile:ts',
         options: {
-          from: 'src/**/*.ts?(x),!**/__*__/**'
+          from: ['src/**/*.ts?(x)', '!**/__*__/**']
         }
       },
       {
@@ -40,7 +40,7 @@ module.exports = [
       {
         name: 'copy',
         options: {
-          from: 'src/**/*.scss,!**/__*__/**',
+          from: ['src/**/*.scss', '!**/__*__/**'],
           to: 'lib'
         }
       }
@@ -52,7 +52,7 @@ module.exports = [
       {
         name: 'compile:ts',
         options: {
-          from: 'src/**/*.ts?(x),!**/__*__/**',
+          from: ['src/**/*.ts?(x)', '!**/__*__/**'],
           es: true,
           to: 'es'
         }
@@ -66,7 +66,7 @@ module.exports = [
       {
         name: 'copy',
         options: {
-          from: 'src/**/*.scss,!**/__*__/**',
+          from: ['src/**/*.scss', '!**/__*__/**'],
           to: 'es'
         }
       }
@@ -111,7 +111,7 @@ module.exports = [
       {
         name: 'copy',
         options: {
-          from: 'src/**/*.scss,!**/__*__/**',
+          from: ['src/**/*.scss', '!**/__*__/**'],
           to: 'es'
         }
       }
