@@ -65,7 +65,7 @@
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "@xl-vision/icon-generator": "^0.0.1-beta.11",
-    "@xl-vision/scripts": "^0.0.1-beta.77",
+    "@xl-vision/scripts": "^0.0.1-beta.78",
     "chalk": "^4.0.0",
     "clipboard": "^2.0.6",
     "commitizen": "^4.0.3",

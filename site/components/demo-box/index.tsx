@@ -39,6 +39,4 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
   )
 }
 
-DemoBox.displayName = 'demo-box'
-
 export default DemoBox

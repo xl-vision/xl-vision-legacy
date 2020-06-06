@@ -1,5 +1,75 @@
 @use '../../assets/style/var' as *;
 
+$padding: 16px;
+
 .demo-box {
+  overflow: hidden;
   border: 1px solid #eeeeee;
+  border-radius: 5px;
+  & + & {
+    margin-top: 16px;
+  }
+}
+
+.preview {
+  padding: $padding;
+}
+
+.info {
+  position: relative;
+  padding: 0 $padding;
+  border-top: 1px solid #eeeeee;
+}
+
+.title {
+  position: absolute;
+  top: -8px;
+  // 对齐desc
+  left: $padding - 5px;
+  padding: 0 5px;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #ffffff;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.desc {
+  p {
+    margin: 0;
+    padding: 16px 0;
+  }
+}
+
+.actions {
+  position: absolute;
+  top: 16px;
+  right: $padding;
+}
+
+// .codes {
+// }
+
+.code-wrapper {
+  position: relative;
+  border-top: 1px solid #eeeeee;
+}
+
+.lang {
+  position: absolute;
+  top: $padding / 2;
+  right: $padding / 2;
+  padding: 6px 12px;
+  color: #ffffff;
+  background-color: rgba(#000000, 0.75);
+  border-radius: 3px;
+}
+
+.code {
+  pre {
+    margin: 0 !important;
+    padding: $padding/2 $padding !important;
+  }
 }
