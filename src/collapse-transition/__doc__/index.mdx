@@ -4,15 +4,18 @@
 
 :::demo 基础用法
 
-基础用法
+通过`CollaseTrannsition`包裹对应的元素来触发折叠和展开的动画效果。
+通过`transitionClassName`自定义动画方式。
+如果不指定，将使用默认动画`width/height 1s ease`
 
 ```jsx
+import React from 'react'
 import { CollapseTransition, Button } from 'xl-vision'
 export default () => {
   const [active, setActive] = React.useState(false)
 
   return (
-    <div className='demo'>
+    <div className='wrapper'>
       <Button
         onClick={() => {
           setActive(!active)
@@ -21,25 +24,26 @@ export default () => {
         Click
       </Button>
       <CollapseTransition show={active} transitionClassName={'demo-fade'}>
-        <div className='demo-box'>DEMO</div>
+        <div className='demo'>DEMO</div>
       </CollapseTransition>
-      <style jsx>{`
-        .demo-box {
-          height: 10rem;
-          color: #fff;
-          font-size: 3rem;
-          line-height: 10rem;
-          text-align: center;
-          vertical-align: middle;
-          background-color: #007bff;
-        }
-
-        .demo :global(.demo-fade) {
-          transition: height 2s ease;
-        }
-      `}</style>
     </div>
   )
+}
+```
+
+```scss
+.demo {
+  height: 10rem;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 10rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #007bff;
+}
+
+.wrapper::deep .demo-fade {
+  transition: height 2s ease;
 }
 ```
 
@@ -47,15 +51,16 @@ export default () => {
 
 ::: demo 水平模式
 
-水平模式
+通过属性`horizontal`在水平方向进行展开和折叠动画
 
 ```jsx
+import React from 'react'
 import { CollapseTransition, Button } from 'xl-vision'
 export default () => {
   const [active, setActive] = React.useState(false)
 
   return (
-    <div className='demo'>
+    <div className='wrapper'>
       <Button
         onClick={() => {
           setActive(!active)
@@ -64,26 +69,27 @@ export default () => {
         Click
       </Button>
       <CollapseTransition show={active} transitionClassName={'demo-fade'} horizontal>
-        <div className='demo-box'>DEMO</div>
+        <div className='demo'>DEMO</div>
       </CollapseTransition>
-      <style jsx>{`
-        .demo-box {
-          height: 10rem;
-          width: 100%;
-          color: #fff;
-          font-size: 3rem;
-          line-height: 10rem;
-          text-align: center;
-          vertical-align: middle;
-          background-color: #007bff;
-        }
-
-        .demo :global(.demo-fade) {
-          transition: width 2s ease;
-        }
-      `}</style>
     </div>
   )
+}
+```
+
+```scss
+.demo {
+  height: 10rem;
+  width: 100%;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 10rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #007bff;
+}
+
+.wrapper::deep .demo-fade {
+  transition: width 2s ease;
 }
 ```
 

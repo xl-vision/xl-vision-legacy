@@ -1,5 +1,4 @@
 @use './var' as *;
-@import '~prismjs/themes/prism.css';
 
 .md {
   display: block;
@@ -14,10 +13,6 @@
       font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
       line-height: 2;
     }
-  }
-
-  .demobox {
-    margin-bottom: 1rem;
   }
 
   &_code_inline {
@@ -82,7 +77,7 @@
     td,
     th {
       padding: 1rem;
-      // border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid #eeeeee;
     }
 
     th {

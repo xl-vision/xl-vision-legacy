@@ -15,7 +15,12 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
     const key = `${level}_${index}`
     if (typeof (it as ComponentRoute).component !== 'undefined') {
       const componentRoute = it as ComponentRoute
-      const loadable = React.lazy(() => componentRoute.component)
+      const loadable = React.lazy(() => {
+        if (document) {
+          document.title = componentRoute.name
+        }
+        return componentRoute.component
+      })
       routeComponents.push(
         <ReactRoute exact={true} key={key} path={componentRoute.path} component={loadable} />
       )

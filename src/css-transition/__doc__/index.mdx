@@ -8,9 +8,10 @@
 
 :::demo 基础用法
 
-基础用法
+通过属性`classNames`设置进出场动画，支持`字符串`和`对象`两种设置方式。
 
 ```jsx
+import React from 'react'
 import { CssTransition, Button } from 'xl-vision'
 export default () => {
   const [active, setActive] = React.useState(true)
@@ -24,51 +25,53 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition show={active} classNames={'demo-fade'}>
-        <div className='demo-box'>DEMO</div>
+      <CssTransition show={active} classNames={'fade'}>
+        <div className='demo'>DEMO</div>
       </CssTransition>
-      <style jsx>{`
-        .demo-box {
-          height: 10rem;
-          color: #fff;
-          font-size: 3rem;
-          line-height: 10rem;
-          text-align: center;
-          vertical-align: middle;
-          background-color: #007bff;
-        }
-
-        .demo-fade-enter-active,
-        .demo-fade-leave-active,
-        .demo-fade-appear-active {
-          transition: opacity 2s ease, height 2s ease;
-        }
-
-        .demo-fade-leave-to,
-        .demo-fade-appear,
-        .demo-fade-enter {
-          height: 0;
-          opacity: 0;
-        }
-
-        .demo-fade-leave,
-        .demo-fade-appear-to,
-        .demo-fade-enter-to {
-          opacity: 1;
-        }
-      `}</style>
     </div>
   )
 }
 ```
 
+```scss
+.demo {
+  height: 10rem;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 10rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #007bff;
+}
+
+.fade-enter-active,
+.fade-leave-active,
+.fade-appear-active {
+  transition: opacity 2s ease, height 2s ease;
+}
+
+.fade-leave-to,
+.fade-appear,
+.fade-enter {
+  height: 0;
+  opacity: 0;
+}
+
+.fade-leave,
+.fade-appear-to,
+.fade-enter-to {
+  opacity: 1;
+}
+```
+
 :::
 
-:::demo 自动调用动画
+:::demo 自动触发进场动画
 
-设置`isAppear`，并默认开启动画时，会自动进行一个初始进入动画。
+设置`isAppear`，并默认开启动画时，会自动触发进场动画。可以通过`classnames`修改动画效果。
 
 ```jsx
+import React from 'react'
 import { CssTransition, Button } from 'xl-vision'
 export default () => {
   const [active, setActive] = React.useState(true)
@@ -82,41 +85,42 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition isAppear show={active} classNames={'demo-fade'}>
-        <div className='demo-box'>DEMO</div>
+      <CssTransition isAppear show={active} classNames={'fade'}>
+        <div className='demo'>DEMO</div>
       </CssTransition>
-      <style jsx>{`
-        .demo-box {
-          height: 10rem;
-          color: #fff;
-          font-size: 3rem;
-          line-height: 10rem;
-          text-align: center;
-          vertical-align: middle;
-          background-color: #007bff;
-        }
-
-        .demo-fade-enter-active,
-        .demo-fade-leave-active,
-        .demo-fade-appear-active {
-          transition: opacity 2s ease, height 2s ease;
-        }
-
-        .demo-fade-leave-to,
-        .demo-fade-appear,
-        .demo-fade-enter {
-          height: 0;
-          opacity: 0;
-        }
-
-        .demo-fade-leave,
-        .demo-fade-appear-to,
-        .demo-fade-enter-to {
-          opacity: 1;
-        }
-      `}</style>
     </div>
   )
+}
+```
+
+```scss
+.demo {
+  height: 10rem;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 10rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #007bff;
+}
+
+.fade-enter-active,
+.fade-leave-active,
+.fade-appear-active {
+  transition: opacity 2s ease, height 2s ease;
+}
+
+.fade-leave-to,
+.fade-appear,
+.fade-enter {
+  height: 0;
+  opacity: 0;
+}
+
+.fade-leave,
+.fade-appear-to,
+.fade-enter-to {
+  opacity: 1;
 }
 ```
 

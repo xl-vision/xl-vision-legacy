@@ -9,7 +9,7 @@
 ```jsx
 import React from 'react'
 import { Row } from 'xl-vision'
-export default function () {
+export default () => {
   return (
     <div>
       <div className='row-box'>
@@ -94,7 +94,7 @@ export default function () {
 ```jsx
 import React from 'react'
 import { Row } from 'xl-vision'
-export default function () {
+export default () => {
   return (
     <div>
       <div className='row-box'>
@@ -168,12 +168,13 @@ export default function () {
 
 ::: demo 响应式布局
 
-`span`可以传入对象的形式实现不同尺寸下的布局可以设置的参数有:`xs`,`sm`,`md`,`lg`,`xl`,`xxl`
+`span`可以传入对象的形式实现不同尺寸下的布局可以设置的参数有:`xs`,`sm`,`md`,`lg`,`xl`,`xxl`。
+请尝试改变浏览器窗口大小。
 
 ```jsx
 import React from 'react'
 import { Row } from 'xl-vision'
-export default function () {
+export default () => {
   return (
     <div className='row-box'>
       <Row
@@ -488,7 +489,7 @@ export default function () {
   }
   &::deep {
     .xl-row-flex {
-      height: 5rem;
+      height: 50px;
     }
   }
 }

@@ -12,6 +12,7 @@ $padding: 16px;
 }
 
 .preview {
+  position: relative;
   padding: $padding;
 }
 
@@ -37,16 +38,17 @@ $padding: 16px;
 }
 
 .desc {
+  padding-top: 8px;
   p {
     margin: 0;
-    padding: 16px 0;
+    padding: 8px 0;
   }
 }
 
 .actions {
-  position: absolute;
-  top: 16px;
-  right: $padding;
+  padding: $padding/ 2 $padding;
+  text-align: center;
+  border-top: 1px solid #eeeeee;
 }
 
 // .codes {
@@ -70,6 +72,25 @@ $padding: 16px;
 .code {
   pre {
     margin: 0 !important;
-    padding: $padding/2 $padding !important;
+    padding: $padding/2 $padding + 30 !important;
+    code {
+      line-height: 2 !important;
+    }
   }
+}
+
+.lines {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  padding: $padding/2 0;
+  line-height: 2;
+  list-style: none;
+  border-right: 1px solid #cccccc;
+}
+
+.line {
+  width: 30px;
+  color: #444444;
+  text-align: center;
 }
