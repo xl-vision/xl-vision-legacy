@@ -10,19 +10,35 @@ import classes from './index.module.scss'
 
 const routeComponents: Array<React.ReactNode> = []
 
+type MarkdownProps = {
+  route: ComponentRoute
+}
+
+const Markdown: React.FunctionComponent<MarkdownProps> = (props) => {
+  const { route } = props
+  const Loadable = React.lazy(() => route.component)
+
+  React.useEffect(() => {
+    if (document) {
+      document.title = route.name
+    }
+  }, [route])
+
+  return <Loadable />
+}
+
 const addRoute = (routeArray: Array<Route>, level = '1') => {
   routeArray.forEach((it, index) => {
     const key = `${level}_${index}`
     if (typeof (it as ComponentRoute).component !== 'undefined') {
       const componentRoute = it as ComponentRoute
-      const loadable = React.lazy(() => {
-        if (document) {
-          document.title = componentRoute.name
-        }
-        return componentRoute.component
-      })
       routeComponents.push(
-        <ReactRoute exact={true} key={key} path={componentRoute.path} component={loadable} />
+        <ReactRoute
+          exact={true}
+          key={key}
+          path={componentRoute.path}
+          render={() => <Markdown route={componentRoute} />}
+        />
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
