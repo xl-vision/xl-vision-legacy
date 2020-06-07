@@ -1,0 +1,51 @@
+import IconSelect from '@/site/components/icon-select'
+
+# 图标
+
+语义化的矢量图形。图标来自[Font Awesome](https://fontawesome.com/)
+
+> 引入 Icon 时会导致包的体积变大，如果需要 tree-shaking，减小体积。
+
+> 请以这种方式引入:`import { Fab500px } from 'xl-vision/lib/icon`
+
+::: demo 基础用法
+
+基本使用方法
+
+```jsx
+import React from 'react'
+import { Icon } from 'xl-vision'
+export default () => {
+  return (
+    <div className='demo'>
+      <Icon.Fab500px size='2rem' />
+      <Icon.FabAlipay size={32} />
+      <Icon.FabAdobe size={32} color='red' />
+      <Icon.FabAdobe size={32} rotate={20} />
+      <Icon.FasSpinner size={32} spin />
+    </div>
+  )
+}
+```
+
+```scss
+.demo::deep .xl-icon {
+  margin-right: 1rem;
+}
+```
+
+:::
+
+# Icon API
+
+| 参数      | 说明           | 类型                   | 可选值 | 默认值 | 是否必填 |
+| --------- | -------------- | ---------------------- | ------ | ------ | -------- |
+| clsPrefix | 自定义类名前缀 | string                 | -      | -      | false    |
+| size      | 图标大小       | number &#x007c; string | -      | -      | false    |
+| color     | 图标颜色       | string                 | -      | -      | false    |
+| spin      | 图标是否旋转   | boolean                | false  | -      | false    |
+| rotate    | 图标旋转角度   | number                 | -      | -      | false    |
+
+# 图标列表
+
+<IconSelect />

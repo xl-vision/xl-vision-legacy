@@ -22,6 +22,16 @@ const routes: Array<Route> = [
     redirect: '/row'
   },
   {
+    name: '基础组件',
+    children: [
+      {
+        name: '图标',
+        path: '/icon',
+        component: import('../src/icon/__doc__/index.mdx')
+      }
+    ]
+  },
+  {
     name: '布局',
     children: [
       {
