@@ -2,4627 +2,3694 @@
 /* eslint-disable */
 
 import createIcon from './base/createIcon'
-import Fab500px from './icons/fab-500px'
-import FabAccessibleIcon from './icons/fab-accessible-icon'
-import FabAccusoft from './icons/fab-accusoft'
-import FabAcquisitionsIncorporated from './icons/fab-acquisitions-incorporated'
-import FabAdn from './icons/fab-adn'
-import FabAdobe from './icons/fab-adobe'
-import FabAdversal from './icons/fab-adversal'
-import FabAffiliatetheme from './icons/fab-affiliatetheme'
-import FabAirbnb from './icons/fab-airbnb'
-import FabAlgolia from './icons/fab-algolia'
-import FabAlipay from './icons/fab-alipay'
-import FabAmazonPay from './icons/fab-amazon-pay'
-import FabAmazon from './icons/fab-amazon'
-import FabAmilia from './icons/fab-amilia'
-import FabAndroid from './icons/fab-android'
-import FabAngellist from './icons/fab-angellist'
-import FabAngrycreative from './icons/fab-angrycreative'
-import FabAngular from './icons/fab-angular'
-import FabAppStoreIos from './icons/fab-app-store-ios'
-import FabAppStore from './icons/fab-app-store'
-import FabApper from './icons/fab-apper'
-import FabApplePay from './icons/fab-apple-pay'
-import FabApple from './icons/fab-apple'
-import FabArtstation from './icons/fab-artstation'
-import FabAsymmetrik from './icons/fab-asymmetrik'
-import FabAtlassian from './icons/fab-atlassian'
-import FabAudible from './icons/fab-audible'
-import FabAutoprefixer from './icons/fab-autoprefixer'
-import FabAvianex from './icons/fab-avianex'
-import FabAviato from './icons/fab-aviato'
-import FabAws from './icons/fab-aws'
-import FabBandcamp from './icons/fab-bandcamp'
-import FabBattleNet from './icons/fab-battle-net'
-import FabBehanceSquare from './icons/fab-behance-square'
-import FabBehance from './icons/fab-behance'
-import FabBimobject from './icons/fab-bimobject'
-import FabBitbucket from './icons/fab-bitbucket'
-import FabBitcoin from './icons/fab-bitcoin'
-import FabBity from './icons/fab-bity'
-import FabBlackTie from './icons/fab-black-tie'
-import FabBlackberry from './icons/fab-blackberry'
-import FabBloggerB from './icons/fab-blogger-b'
-import FabBlogger from './icons/fab-blogger'
-import FabBluetoothB from './icons/fab-bluetooth-b'
-import FabBluetooth from './icons/fab-bluetooth'
-import FabBootstrap from './icons/fab-bootstrap'
-import FabBtc from './icons/fab-btc'
-import FabBuffer from './icons/fab-buffer'
-import FabBuromobelexperte from './icons/fab-buromobelexperte'
-import FabBuysellads from './icons/fab-buysellads'
-import FabCanadianMapleLeaf from './icons/fab-canadian-maple-leaf'
-import FabCcAmazonPay from './icons/fab-cc-amazon-pay'
-import FabCcAmex from './icons/fab-cc-amex'
-import FabCcApplePay from './icons/fab-cc-apple-pay'
-import FabCcDinersClub from './icons/fab-cc-diners-club'
-import FabCcDiscover from './icons/fab-cc-discover'
-import FabCcJcb from './icons/fab-cc-jcb'
-import FabCcMastercard from './icons/fab-cc-mastercard'
-import FabCcPaypal from './icons/fab-cc-paypal'
-import FabCcStripe from './icons/fab-cc-stripe'
-import FabCcVisa from './icons/fab-cc-visa'
-import FabCentercode from './icons/fab-centercode'
-import FabCentos from './icons/fab-centos'
-import FabChrome from './icons/fab-chrome'
-import FabChromecast from './icons/fab-chromecast'
-import FabCloudscale from './icons/fab-cloudscale'
-import FabCloudsmith from './icons/fab-cloudsmith'
-import FabCloudversify from './icons/fab-cloudversify'
-import FabCodepen from './icons/fab-codepen'
-import FabCodiepie from './icons/fab-codiepie'
-import FabConfluence from './icons/fab-confluence'
-import FabConnectdevelop from './icons/fab-connectdevelop'
-import FabContao from './icons/fab-contao'
-import FabCpanel from './icons/fab-cpanel'
-import FabCreativeCommonsBy from './icons/fab-creative-commons-by'
-import FabCreativeCommonsNcEu from './icons/fab-creative-commons-nc-eu'
-import FabCreativeCommonsNcJp from './icons/fab-creative-commons-nc-jp'
-import FabCreativeCommonsNc from './icons/fab-creative-commons-nc'
-import FabCreativeCommonsNd from './icons/fab-creative-commons-nd'
-import FabCreativeCommonsPdAlt from './icons/fab-creative-commons-pd-alt'
-import FabCreativeCommonsPd from './icons/fab-creative-commons-pd'
-import FabCreativeCommonsRemix from './icons/fab-creative-commons-remix'
-import FabCreativeCommonsSa from './icons/fab-creative-commons-sa'
-import FabCreativeCommonsSamplingPlus from './icons/fab-creative-commons-sampling-plus'
-import FabCreativeCommonsSampling from './icons/fab-creative-commons-sampling'
-import FabCreativeCommonsShare from './icons/fab-creative-commons-share'
-import FabCreativeCommonsZero from './icons/fab-creative-commons-zero'
-import FabCreativeCommons from './icons/fab-creative-commons'
-import FabCriticalRole from './icons/fab-critical-role'
-import FabCss3Alt from './icons/fab-css3-alt'
-import FabCss3 from './icons/fab-css3'
-import FabCuttlefish from './icons/fab-cuttlefish'
-import FabDAndDBeyond from './icons/fab-d-and-d-beyond'
-import FabDAndD from './icons/fab-d-and-d'
-import FabDashcube from './icons/fab-dashcube'
-import FabDelicious from './icons/fab-delicious'
-import FabDeploydog from './icons/fab-deploydog'
-import FabDeskpro from './icons/fab-deskpro'
-import FabDev from './icons/fab-dev'
-import FabDeviantart from './icons/fab-deviantart'
-import FabDhl from './icons/fab-dhl'
-import FabDiaspora from './icons/fab-diaspora'
-import FabDigg from './icons/fab-digg'
-import FabDigitalOcean from './icons/fab-digital-ocean'
-import FabDiscord from './icons/fab-discord'
-import FabDiscourse from './icons/fab-discourse'
-import FabDochub from './icons/fab-dochub'
-import FabDocker from './icons/fab-docker'
-import FabDraft2digital from './icons/fab-draft2digital'
-import FabDribbbleSquare from './icons/fab-dribbble-square'
-import FabDribbble from './icons/fab-dribbble'
-import FabDropbox from './icons/fab-dropbox'
-import FabDrupal from './icons/fab-drupal'
-import FabDyalog from './icons/fab-dyalog'
-import FabEarlybirds from './icons/fab-earlybirds'
-import FabEbay from './icons/fab-ebay'
-import FabEdge from './icons/fab-edge'
-import FabElementor from './icons/fab-elementor'
-import FabEllo from './icons/fab-ello'
-import FabEmber from './icons/fab-ember'
-import FabEmpire from './icons/fab-empire'
-import FabEnvira from './icons/fab-envira'
-import FabErlang from './icons/fab-erlang'
-import FabEthereum from './icons/fab-ethereum'
-import FabEtsy from './icons/fab-etsy'
-import FabEvernote from './icons/fab-evernote'
-import FabExpeditedssl from './icons/fab-expeditedssl'
-import FabFacebookF from './icons/fab-facebook-f'
-import FabFacebookMessenger from './icons/fab-facebook-messenger'
-import FabFacebookSquare from './icons/fab-facebook-square'
-import FabFacebook from './icons/fab-facebook'
-import FabFantasyFlightGames from './icons/fab-fantasy-flight-games'
-import FabFedex from './icons/fab-fedex'
-import FabFedora from './icons/fab-fedora'
-import FabFigma from './icons/fab-figma'
-import FabFirefox from './icons/fab-firefox'
-import FabFirstOrderAlt from './icons/fab-first-order-alt'
-import FabFirstOrder from './icons/fab-first-order'
-import FabFirstdraft from './icons/fab-firstdraft'
-import FabFlickr from './icons/fab-flickr'
-import FabFlipboard from './icons/fab-flipboard'
-import FabFly from './icons/fab-fly'
-import FabFontAwesomeAlt from './icons/fab-font-awesome-alt'
-import FabFontAwesomeFlag from './icons/fab-font-awesome-flag'
-import FabFontAwesomeLogoFull from './icons/fab-font-awesome-logo-full'
-import FabFontAwesome from './icons/fab-font-awesome'
-import FabFonticonsFi from './icons/fab-fonticons-fi'
-import FabFonticons from './icons/fab-fonticons'
-import FabFortAwesomeAlt from './icons/fab-fort-awesome-alt'
-import FabFortAwesome from './icons/fab-fort-awesome'
-import FabForumbee from './icons/fab-forumbee'
-import FabFoursquare from './icons/fab-foursquare'
-import FabFreeCodeCamp from './icons/fab-free-code-camp'
-import FabFreebsd from './icons/fab-freebsd'
-import FabFulcrum from './icons/fab-fulcrum'
-import FabGalacticRepublic from './icons/fab-galactic-republic'
-import FabGalacticSenate from './icons/fab-galactic-senate'
-import FabGetPocket from './icons/fab-get-pocket'
-import FabGgCircle from './icons/fab-gg-circle'
-import FabGg from './icons/fab-gg'
-import FabGitAlt from './icons/fab-git-alt'
-import FabGitSquare from './icons/fab-git-square'
-import FabGit from './icons/fab-git'
-import FabGithubAlt from './icons/fab-github-alt'
-import FabGithubSquare from './icons/fab-github-square'
-import FabGithub from './icons/fab-github'
-import FabGitkraken from './icons/fab-gitkraken'
-import FabGitlab from './icons/fab-gitlab'
-import FabGitter from './icons/fab-gitter'
-import FabGlideG from './icons/fab-glide-g'
-import FabGlide from './icons/fab-glide'
-import FabGofore from './icons/fab-gofore'
-import FabGoodreadsG from './icons/fab-goodreads-g'
-import FabGoodreads from './icons/fab-goodreads'
-import FabGoogleDrive from './icons/fab-google-drive'
-import FabGooglePlay from './icons/fab-google-play'
-import FabGooglePlusG from './icons/fab-google-plus-g'
-import FabGooglePlusSquare from './icons/fab-google-plus-square'
-import FabGooglePlus from './icons/fab-google-plus'
-import FabGoogleWallet from './icons/fab-google-wallet'
-import FabGoogle from './icons/fab-google'
-import FabGratipay from './icons/fab-gratipay'
-import FabGrav from './icons/fab-grav'
-import FabGripfire from './icons/fab-gripfire'
-import FabGrunt from './icons/fab-grunt'
-import FabGulp from './icons/fab-gulp'
-import FabHackerNewsSquare from './icons/fab-hacker-news-square'
-import FabHackerNews from './icons/fab-hacker-news'
-import FabHackerrank from './icons/fab-hackerrank'
-import FabHips from './icons/fab-hips'
-import FabHireAHelper from './icons/fab-hire-a-helper'
-import FabHooli from './icons/fab-hooli'
-import FabHornbill from './icons/fab-hornbill'
-import FabHotjar from './icons/fab-hotjar'
-import FabHouzz from './icons/fab-houzz'
-import FabHtml5 from './icons/fab-html5'
-import FabHubspot from './icons/fab-hubspot'
-import FabImdb from './icons/fab-imdb'
-import FabInstagram from './icons/fab-instagram'
-import FabIntercom from './icons/fab-intercom'
-import FabInternetExplorer from './icons/fab-internet-explorer'
-import FabInvision from './icons/fab-invision'
-import FabIoxhost from './icons/fab-ioxhost'
-import FabItchIo from './icons/fab-itch-io'
-import FabItunesNote from './icons/fab-itunes-note'
-import FabItunes from './icons/fab-itunes'
-import FabJava from './icons/fab-java'
-import FabJediOrder from './icons/fab-jedi-order'
-import FabJenkins from './icons/fab-jenkins'
-import FabJira from './icons/fab-jira'
-import FabJoget from './icons/fab-joget'
-import FabJoomla from './icons/fab-joomla'
-import FabJsSquare from './icons/fab-js-square'
-import FabJs from './icons/fab-js'
-import FabJsfiddle from './icons/fab-jsfiddle'
-import FabKaggle from './icons/fab-kaggle'
-import FabKeybase from './icons/fab-keybase'
-import FabKeycdn from './icons/fab-keycdn'
-import FabKickstarterK from './icons/fab-kickstarter-k'
-import FabKickstarter from './icons/fab-kickstarter'
-import FabKorvue from './icons/fab-korvue'
-import FabLaravel from './icons/fab-laravel'
-import FabLastfmSquare from './icons/fab-lastfm-square'
-import FabLastfm from './icons/fab-lastfm'
-import FabLeanpub from './icons/fab-leanpub'
-import FabLess from './icons/fab-less'
-import FabLine from './icons/fab-line'
-import FabLinkedinIn from './icons/fab-linkedin-in'
-import FabLinkedin from './icons/fab-linkedin'
-import FabLinode from './icons/fab-linode'
-import FabLinux from './icons/fab-linux'
-import FabLyft from './icons/fab-lyft'
-import FabMagento from './icons/fab-magento'
-import FabMailchimp from './icons/fab-mailchimp'
-import FabMandalorian from './icons/fab-mandalorian'
-import FabMarkdown from './icons/fab-markdown'
-import FabMastodon from './icons/fab-mastodon'
-import FabMaxcdn from './icons/fab-maxcdn'
-import FabMedapps from './icons/fab-medapps'
-import FabMediumM from './icons/fab-medium-m'
-import FabMedium from './icons/fab-medium'
-import FabMedrt from './icons/fab-medrt'
-import FabMeetup from './icons/fab-meetup'
-import FabMegaport from './icons/fab-megaport'
-import FabMendeley from './icons/fab-mendeley'
-import FabMicrosoft from './icons/fab-microsoft'
-import FabMix from './icons/fab-mix'
-import FabMixcloud from './icons/fab-mixcloud'
-import FabMizuni from './icons/fab-mizuni'
-import FabModx from './icons/fab-modx'
-import FabMonero from './icons/fab-monero'
-import FabNapster from './icons/fab-napster'
-import FabNeos from './icons/fab-neos'
-import FabNimblr from './icons/fab-nimblr'
-import FabNintendoSwitch from './icons/fab-nintendo-switch'
-import FabNodeJs from './icons/fab-node-js'
-import FabNode from './icons/fab-node'
-import FabNpm from './icons/fab-npm'
-import FabNs8 from './icons/fab-ns8'
-import FabNutritionix from './icons/fab-nutritionix'
-import FabOdnoklassnikiSquare from './icons/fab-odnoklassniki-square'
-import FabOdnoklassniki from './icons/fab-odnoklassniki'
-import FabOldRepublic from './icons/fab-old-republic'
-import FabOpencart from './icons/fab-opencart'
-import FabOpenid from './icons/fab-openid'
-import FabOpera from './icons/fab-opera'
-import FabOptinMonster from './icons/fab-optin-monster'
-import FabOsi from './icons/fab-osi'
-import FabPage4 from './icons/fab-page4'
-import FabPagelines from './icons/fab-pagelines'
-import FabPalfed from './icons/fab-palfed'
-import FabPatreon from './icons/fab-patreon'
-import FabPaypal from './icons/fab-paypal'
-import FabPennyArcade from './icons/fab-penny-arcade'
-import FabPeriscope from './icons/fab-periscope'
-import FabPhabricator from './icons/fab-phabricator'
-import FabPhoenixFramework from './icons/fab-phoenix-framework'
-import FabPhoenixSquadron from './icons/fab-phoenix-squadron'
-import FabPhp from './icons/fab-php'
-import FabPiedPiperAlt from './icons/fab-pied-piper-alt'
-import FabPiedPiperHat from './icons/fab-pied-piper-hat'
-import FabPiedPiperPp from './icons/fab-pied-piper-pp'
-import FabPiedPiper from './icons/fab-pied-piper'
-import FabPinterestP from './icons/fab-pinterest-p'
-import FabPinterestSquare from './icons/fab-pinterest-square'
-import FabPinterest from './icons/fab-pinterest'
-import FabPlaystation from './icons/fab-playstation'
-import FabProductHunt from './icons/fab-product-hunt'
-import FabPushed from './icons/fab-pushed'
-import FabPython from './icons/fab-python'
-import FabQq from './icons/fab-qq'
-import FabQuinscape from './icons/fab-quinscape'
-import FabQuora from './icons/fab-quora'
-import FabRProject from './icons/fab-r-project'
-import FabRaspberryPi from './icons/fab-raspberry-pi'
-import FabRavelry from './icons/fab-ravelry'
-import FabReact from './icons/fab-react'
-import FabReacteurope from './icons/fab-reacteurope'
-import FabReadme from './icons/fab-readme'
-import FabRebel from './icons/fab-rebel'
-import FabRedRiver from './icons/fab-red-river'
-import FabRedditAlien from './icons/fab-reddit-alien'
-import FabRedditSquare from './icons/fab-reddit-square'
-import FabReddit from './icons/fab-reddit'
-import FabRedhat from './icons/fab-redhat'
-import FabRenren from './icons/fab-renren'
-import FabReplyd from './icons/fab-replyd'
-import FabResearchgate from './icons/fab-researchgate'
-import FabResolving from './icons/fab-resolving'
-import FabRev from './icons/fab-rev'
-import FabRocketchat from './icons/fab-rocketchat'
-import FabRockrms from './icons/fab-rockrms'
-import FabSafari from './icons/fab-safari'
-import FabSalesforce from './icons/fab-salesforce'
-import FabSass from './icons/fab-sass'
-import FabSchlix from './icons/fab-schlix'
-import FabScribd from './icons/fab-scribd'
-import FabSearchengin from './icons/fab-searchengin'
-import FabSellcast from './icons/fab-sellcast'
-import FabSellsy from './icons/fab-sellsy'
-import FabServicestack from './icons/fab-servicestack'
-import FabShirtsinbulk from './icons/fab-shirtsinbulk'
-import FabShopware from './icons/fab-shopware'
-import FabSimplybuilt from './icons/fab-simplybuilt'
-import FabSistrix from './icons/fab-sistrix'
-import FabSith from './icons/fab-sith'
-import FabSketch from './icons/fab-sketch'
-import FabSkyatlas from './icons/fab-skyatlas'
-import FabSkype from './icons/fab-skype'
-import FabSlackHash from './icons/fab-slack-hash'
-import FabSlack from './icons/fab-slack'
-import FabSlideshare from './icons/fab-slideshare'
-import FabSnapchatGhost from './icons/fab-snapchat-ghost'
-import FabSnapchatSquare from './icons/fab-snapchat-square'
-import FabSnapchat from './icons/fab-snapchat'
-import FabSoundcloud from './icons/fab-soundcloud'
-import FabSourcetree from './icons/fab-sourcetree'
-import FabSpeakap from './icons/fab-speakap'
-import FabSpeakerDeck from './icons/fab-speaker-deck'
-import FabSpotify from './icons/fab-spotify'
-import FabSquarespace from './icons/fab-squarespace'
-import FabStackExchange from './icons/fab-stack-exchange'
-import FabStackOverflow from './icons/fab-stack-overflow'
-import FabStackpath from './icons/fab-stackpath'
-import FabStaylinked from './icons/fab-staylinked'
-import FabSteamSquare from './icons/fab-steam-square'
-import FabSteamSymbol from './icons/fab-steam-symbol'
-import FabSteam from './icons/fab-steam'
-import FabStickerMule from './icons/fab-sticker-mule'
-import FabStrava from './icons/fab-strava'
-import FabStripeS from './icons/fab-stripe-s'
-import FabStripe from './icons/fab-stripe'
-import FabStudiovinari from './icons/fab-studiovinari'
-import FabStumbleuponCircle from './icons/fab-stumbleupon-circle'
-import FabStumbleupon from './icons/fab-stumbleupon'
-import FabSuperpowers from './icons/fab-superpowers'
-import FabSupple from './icons/fab-supple'
-import FabSuse from './icons/fab-suse'
-import FabSymfony from './icons/fab-symfony'
-import FabTeamspeak from './icons/fab-teamspeak'
-import FabTelegramPlane from './icons/fab-telegram-plane'
-import FabTelegram from './icons/fab-telegram'
-import FabTencentWeibo from './icons/fab-tencent-weibo'
-import FabTheRedYeti from './icons/fab-the-red-yeti'
-import FabThemeco from './icons/fab-themeco'
-import FabThemeisle from './icons/fab-themeisle'
-import FabThinkPeaks from './icons/fab-think-peaks'
-import FabTradeFederation from './icons/fab-trade-federation'
-import FabTrello from './icons/fab-trello'
-import FabTripadvisor from './icons/fab-tripadvisor'
-import FabTumblrSquare from './icons/fab-tumblr-square'
-import FabTumblr from './icons/fab-tumblr'
-import FabTwitch from './icons/fab-twitch'
-import FabTwitterSquare from './icons/fab-twitter-square'
-import FabTwitter from './icons/fab-twitter'
-import FabTypo3 from './icons/fab-typo3'
-import FabUber from './icons/fab-uber'
-import FabUbuntu from './icons/fab-ubuntu'
-import FabUikit from './icons/fab-uikit'
-import FabUniregistry from './icons/fab-uniregistry'
-import FabUntappd from './icons/fab-untappd'
-import FabUps from './icons/fab-ups'
-import FabUsb from './icons/fab-usb'
-import FabUsps from './icons/fab-usps'
-import FabUssunnah from './icons/fab-ussunnah'
-import FabVaadin from './icons/fab-vaadin'
-import FabViacoin from './icons/fab-viacoin'
-import FabViadeoSquare from './icons/fab-viadeo-square'
-import FabViadeo from './icons/fab-viadeo'
-import FabViber from './icons/fab-viber'
-import FabVimeoSquare from './icons/fab-vimeo-square'
-import FabVimeoV from './icons/fab-vimeo-v'
-import FabVimeo from './icons/fab-vimeo'
-import FabVine from './icons/fab-vine'
-import FabVk from './icons/fab-vk'
-import FabVnv from './icons/fab-vnv'
-import FabVuejs from './icons/fab-vuejs'
-import FabWaze from './icons/fab-waze'
-import FabWeebly from './icons/fab-weebly'
-import FabWeibo from './icons/fab-weibo'
-import FabWeixin from './icons/fab-weixin'
-import FabWhatsappSquare from './icons/fab-whatsapp-square'
-import FabWhatsapp from './icons/fab-whatsapp'
-import FabWhmcs from './icons/fab-whmcs'
-import FabWikipediaW from './icons/fab-wikipedia-w'
-import FabWindows from './icons/fab-windows'
-import FabWix from './icons/fab-wix'
-import FabWizardsOfTheCoast from './icons/fab-wizards-of-the-coast'
-import FabWolfPackBattalion from './icons/fab-wolf-pack-battalion'
-import FabWordpressSimple from './icons/fab-wordpress-simple'
-import FabWordpress from './icons/fab-wordpress'
-import FabWpbeginner from './icons/fab-wpbeginner'
-import FabWpexplorer from './icons/fab-wpexplorer'
-import FabWpforms from './icons/fab-wpforms'
-import FabWpressr from './icons/fab-wpressr'
-import FabXbox from './icons/fab-xbox'
-import FabXingSquare from './icons/fab-xing-square'
-import FabXing from './icons/fab-xing'
-import FabYCombinator from './icons/fab-y-combinator'
-import FabYahoo from './icons/fab-yahoo'
-import FabYammer from './icons/fab-yammer'
-import FabYandexInternational from './icons/fab-yandex-international'
-import FabYandex from './icons/fab-yandex'
-import FabYarn from './icons/fab-yarn'
-import FabYelp from './icons/fab-yelp'
-import FabYoast from './icons/fab-yoast'
-import FabYoutubeSquare from './icons/fab-youtube-square'
-import FabYoutube from './icons/fab-youtube'
-import FabZhihu from './icons/fab-zhihu'
-import FarAddressBook from './icons/far-address-book'
-import FarAddressCard from './icons/far-address-card'
-import FarAngry from './icons/far-angry'
-import FarArrowAltCircleDown from './icons/far-arrow-alt-circle-down'
-import FarArrowAltCircleLeft from './icons/far-arrow-alt-circle-left'
-import FarArrowAltCircleRight from './icons/far-arrow-alt-circle-right'
-import FarArrowAltCircleUp from './icons/far-arrow-alt-circle-up'
-import FarBellSlash from './icons/far-bell-slash'
-import FarBell from './icons/far-bell'
-import FarBookmark from './icons/far-bookmark'
-import FarBuilding from './icons/far-building'
-import FarCalendarAlt from './icons/far-calendar-alt'
-import FarCalendarCheck from './icons/far-calendar-check'
-import FarCalendarMinus from './icons/far-calendar-minus'
-import FarCalendarPlus from './icons/far-calendar-plus'
-import FarCalendarTimes from './icons/far-calendar-times'
-import FarCalendar from './icons/far-calendar'
-import FarCaretSquareDown from './icons/far-caret-square-down'
-import FarCaretSquareLeft from './icons/far-caret-square-left'
-import FarCaretSquareRight from './icons/far-caret-square-right'
-import FarCaretSquareUp from './icons/far-caret-square-up'
-import FarChartBar from './icons/far-chart-bar'
-import FarCheckCircle from './icons/far-check-circle'
-import FarCheckSquare from './icons/far-check-square'
-import FarCircle from './icons/far-circle'
-import FarClipboard from './icons/far-clipboard'
-import FarClock from './icons/far-clock'
-import FarClone from './icons/far-clone'
-import FarClosedCaptioning from './icons/far-closed-captioning'
-import FarCommentAlt from './icons/far-comment-alt'
-import FarCommentDots from './icons/far-comment-dots'
-import FarComment from './icons/far-comment'
-import FarComments from './icons/far-comments'
-import FarCompass from './icons/far-compass'
-import FarCopy from './icons/far-copy'
-import FarCopyright from './icons/far-copyright'
-import FarCreditCard from './icons/far-credit-card'
-import FarDizzy from './icons/far-dizzy'
-import FarDotCircle from './icons/far-dot-circle'
-import FarEdit from './icons/far-edit'
-import FarEnvelopeOpen from './icons/far-envelope-open'
-import FarEnvelope from './icons/far-envelope'
-import FarEyeSlash from './icons/far-eye-slash'
-import FarEye from './icons/far-eye'
-import FarFileAlt from './icons/far-file-alt'
-import FarFileArchive from './icons/far-file-archive'
-import FarFileAudio from './icons/far-file-audio'
-import FarFileCode from './icons/far-file-code'
-import FarFileExcel from './icons/far-file-excel'
-import FarFileImage from './icons/far-file-image'
-import FarFilePdf from './icons/far-file-pdf'
-import FarFilePowerpoint from './icons/far-file-powerpoint'
-import FarFileVideo from './icons/far-file-video'
-import FarFileWord from './icons/far-file-word'
-import FarFile from './icons/far-file'
-import FarFlag from './icons/far-flag'
-import FarFlushed from './icons/far-flushed'
-import FarFolderOpen from './icons/far-folder-open'
-import FarFolder from './icons/far-folder'
-import FarFontAwesomeLogoFull from './icons/far-font-awesome-logo-full'
-import FarFrownOpen from './icons/far-frown-open'
-import FarFrown from './icons/far-frown'
-import FarFutbol from './icons/far-futbol'
-import FarGem from './icons/far-gem'
-import FarGrimace from './icons/far-grimace'
-import FarGrinAlt from './icons/far-grin-alt'
-import FarGrinBeamSweat from './icons/far-grin-beam-sweat'
-import FarGrinBeam from './icons/far-grin-beam'
-import FarGrinHearts from './icons/far-grin-hearts'
-import FarGrinSquintTears from './icons/far-grin-squint-tears'
-import FarGrinSquint from './icons/far-grin-squint'
-import FarGrinStars from './icons/far-grin-stars'
-import FarGrinTears from './icons/far-grin-tears'
-import FarGrinTongueSquint from './icons/far-grin-tongue-squint'
-import FarGrinTongueWink from './icons/far-grin-tongue-wink'
-import FarGrinTongue from './icons/far-grin-tongue'
-import FarGrinWink from './icons/far-grin-wink'
-import FarGrin from './icons/far-grin'
-import FarHandLizard from './icons/far-hand-lizard'
-import FarHandPaper from './icons/far-hand-paper'
-import FarHandPeace from './icons/far-hand-peace'
-import FarHandPointDown from './icons/far-hand-point-down'
-import FarHandPointLeft from './icons/far-hand-point-left'
-import FarHandPointRight from './icons/far-hand-point-right'
-import FarHandPointUp from './icons/far-hand-point-up'
-import FarHandPointer from './icons/far-hand-pointer'
-import FarHandRock from './icons/far-hand-rock'
-import FarHandScissors from './icons/far-hand-scissors'
-import FarHandSpock from './icons/far-hand-spock'
-import FarHandshake from './icons/far-handshake'
-import FarHdd from './icons/far-hdd'
-import FarHeart from './icons/far-heart'
-import FarHospital from './icons/far-hospital'
-import FarHourglass from './icons/far-hourglass'
-import FarIdBadge from './icons/far-id-badge'
-import FarIdCard from './icons/far-id-card'
-import FarImage from './icons/far-image'
-import FarImages from './icons/far-images'
-import FarKeyboard from './icons/far-keyboard'
-import FarKissBeam from './icons/far-kiss-beam'
-import FarKissWinkHeart from './icons/far-kiss-wink-heart'
-import FarKiss from './icons/far-kiss'
-import FarLaughBeam from './icons/far-laugh-beam'
-import FarLaughSquint from './icons/far-laugh-squint'
-import FarLaughWink from './icons/far-laugh-wink'
-import FarLaugh from './icons/far-laugh'
-import FarLemon from './icons/far-lemon'
-import FarLifeRing from './icons/far-life-ring'
-import FarLightbulb from './icons/far-lightbulb'
-import FarListAlt from './icons/far-list-alt'
-import FarMap from './icons/far-map'
-import FarMehBlank from './icons/far-meh-blank'
-import FarMehRollingEyes from './icons/far-meh-rolling-eyes'
-import FarMeh from './icons/far-meh'
-import FarMinusSquare from './icons/far-minus-square'
-import FarMoneyBillAlt from './icons/far-money-bill-alt'
-import FarMoon from './icons/far-moon'
-import FarNewspaper from './icons/far-newspaper'
-import FarObjectGroup from './icons/far-object-group'
-import FarObjectUngroup from './icons/far-object-ungroup'
-import FarPaperPlane from './icons/far-paper-plane'
-import FarPauseCircle from './icons/far-pause-circle'
-import FarPlayCircle from './icons/far-play-circle'
-import FarPlusSquare from './icons/far-plus-square'
-import FarQuestionCircle from './icons/far-question-circle'
-import FarRegistered from './icons/far-registered'
-import FarSadCry from './icons/far-sad-cry'
-import FarSadTear from './icons/far-sad-tear'
-import FarSave from './icons/far-save'
-import FarShareSquare from './icons/far-share-square'
-import FarSmileBeam from './icons/far-smile-beam'
-import FarSmileWink from './icons/far-smile-wink'
-import FarSmile from './icons/far-smile'
-import FarSnowflake from './icons/far-snowflake'
-import FarSquare from './icons/far-square'
-import FarStarHalf from './icons/far-star-half'
-import FarStar from './icons/far-star'
-import FarStickyNote from './icons/far-sticky-note'
-import FarStopCircle from './icons/far-stop-circle'
-import FarSun from './icons/far-sun'
-import FarSurprise from './icons/far-surprise'
-import FarThumbsDown from './icons/far-thumbs-down'
-import FarThumbsUp from './icons/far-thumbs-up'
-import FarTimesCircle from './icons/far-times-circle'
-import FarTired from './icons/far-tired'
-import FarTrashAlt from './icons/far-trash-alt'
-import FarUserCircle from './icons/far-user-circle'
-import FarUser from './icons/far-user'
-import FarWindowClose from './icons/far-window-close'
-import FarWindowMaximize from './icons/far-window-maximize'
-import FarWindowMinimize from './icons/far-window-minimize'
-import FarWindowRestore from './icons/far-window-restore'
-import FasAd from './icons/fas-ad'
-import FasAddressBook from './icons/fas-address-book'
-import FasAddressCard from './icons/fas-address-card'
-import FasAdjust from './icons/fas-adjust'
-import FasAirFreshener from './icons/fas-air-freshener'
-import FasAlignCenter from './icons/fas-align-center'
-import FasAlignJustify from './icons/fas-align-justify'
-import FasAlignLeft from './icons/fas-align-left'
-import FasAlignRight from './icons/fas-align-right'
-import FasAllergies from './icons/fas-allergies'
-import FasAmbulance from './icons/fas-ambulance'
-import FasAmericanSignLanguageInterpreting from './icons/fas-american-sign-language-interpreting'
-import FasAnchor from './icons/fas-anchor'
-import FasAngleDoubleDown from './icons/fas-angle-double-down'
-import FasAngleDoubleLeft from './icons/fas-angle-double-left'
-import FasAngleDoubleRight from './icons/fas-angle-double-right'
-import FasAngleDoubleUp from './icons/fas-angle-double-up'
-import FasAngleDown from './icons/fas-angle-down'
-import FasAngleLeft from './icons/fas-angle-left'
-import FasAngleRight from './icons/fas-angle-right'
-import FasAngleUp from './icons/fas-angle-up'
-import FasAngry from './icons/fas-angry'
-import FasAnkh from './icons/fas-ankh'
-import FasAppleAlt from './icons/fas-apple-alt'
-import FasArchive from './icons/fas-archive'
-import FasArchway from './icons/fas-archway'
-import FasArrowAltCircleDown from './icons/fas-arrow-alt-circle-down'
-import FasArrowAltCircleLeft from './icons/fas-arrow-alt-circle-left'
-import FasArrowAltCircleRight from './icons/fas-arrow-alt-circle-right'
-import FasArrowAltCircleUp from './icons/fas-arrow-alt-circle-up'
-import FasArrowCircleDown from './icons/fas-arrow-circle-down'
-import FasArrowCircleLeft from './icons/fas-arrow-circle-left'
-import FasArrowCircleRight from './icons/fas-arrow-circle-right'
-import FasArrowCircleUp from './icons/fas-arrow-circle-up'
-import FasArrowDown from './icons/fas-arrow-down'
-import FasArrowLeft from './icons/fas-arrow-left'
-import FasArrowRight from './icons/fas-arrow-right'
-import FasArrowUp from './icons/fas-arrow-up'
-import FasArrowsAltH from './icons/fas-arrows-alt-h'
-import FasArrowsAltV from './icons/fas-arrows-alt-v'
-import FasArrowsAlt from './icons/fas-arrows-alt'
-import FasAssistiveListeningSystems from './icons/fas-assistive-listening-systems'
-import FasAsterisk from './icons/fas-asterisk'
-import FasAt from './icons/fas-at'
-import FasAtlas from './icons/fas-atlas'
-import FasAtom from './icons/fas-atom'
-import FasAudioDescription from './icons/fas-audio-description'
-import FasAward from './icons/fas-award'
-import FasBabyCarriage from './icons/fas-baby-carriage'
-import FasBaby from './icons/fas-baby'
-import FasBackspace from './icons/fas-backspace'
-import FasBackward from './icons/fas-backward'
-import FasBacon from './icons/fas-bacon'
-import FasBalanceScaleLeft from './icons/fas-balance-scale-left'
-import FasBalanceScaleRight from './icons/fas-balance-scale-right'
-import FasBalanceScale from './icons/fas-balance-scale'
-import FasBan from './icons/fas-ban'
-import FasBandAid from './icons/fas-band-aid'
-import FasBarcode from './icons/fas-barcode'
-import FasBars from './icons/fas-bars'
-import FasBaseballBall from './icons/fas-baseball-ball'
-import FasBasketballBall from './icons/fas-basketball-ball'
-import FasBath from './icons/fas-bath'
-import FasBatteryEmpty from './icons/fas-battery-empty'
-import FasBatteryFull from './icons/fas-battery-full'
-import FasBatteryHalf from './icons/fas-battery-half'
-import FasBatteryQuarter from './icons/fas-battery-quarter'
-import FasBatteryThreeQuarters from './icons/fas-battery-three-quarters'
-import FasBed from './icons/fas-bed'
-import FasBeer from './icons/fas-beer'
-import FasBellSlash from './icons/fas-bell-slash'
-import FasBell from './icons/fas-bell'
-import FasBezierCurve from './icons/fas-bezier-curve'
-import FasBible from './icons/fas-bible'
-import FasBicycle from './icons/fas-bicycle'
-import FasBiking from './icons/fas-biking'
-import FasBinoculars from './icons/fas-binoculars'
-import FasBiohazard from './icons/fas-biohazard'
-import FasBirthdayCake from './icons/fas-birthday-cake'
-import FasBlenderPhone from './icons/fas-blender-phone'
-import FasBlender from './icons/fas-blender'
-import FasBlind from './icons/fas-blind'
-import FasBlog from './icons/fas-blog'
-import FasBold from './icons/fas-bold'
-import FasBolt from './icons/fas-bolt'
-import FasBomb from './icons/fas-bomb'
-import FasBone from './icons/fas-bone'
-import FasBong from './icons/fas-bong'
-import FasBookDead from './icons/fas-book-dead'
-import FasBookMedical from './icons/fas-book-medical'
-import FasBookOpen from './icons/fas-book-open'
-import FasBookReader from './icons/fas-book-reader'
-import FasBook from './icons/fas-book'
-import FasBookmark from './icons/fas-bookmark'
-import FasBorderAll from './icons/fas-border-all'
-import FasBorderNone from './icons/fas-border-none'
-import FasBorderStyle from './icons/fas-border-style'
-import FasBowlingBall from './icons/fas-bowling-ball'
-import FasBoxOpen from './icons/fas-box-open'
-import FasBox from './icons/fas-box'
-import FasBoxes from './icons/fas-boxes'
-import FasBraille from './icons/fas-braille'
-import FasBrain from './icons/fas-brain'
-import FasBreadSlice from './icons/fas-bread-slice'
-import FasBriefcaseMedical from './icons/fas-briefcase-medical'
-import FasBriefcase from './icons/fas-briefcase'
-import FasBroadcastTower from './icons/fas-broadcast-tower'
-import FasBroom from './icons/fas-broom'
-import FasBrush from './icons/fas-brush'
-import FasBug from './icons/fas-bug'
-import FasBuilding from './icons/fas-building'
-import FasBullhorn from './icons/fas-bullhorn'
-import FasBullseye from './icons/fas-bullseye'
-import FasBurn from './icons/fas-burn'
-import FasBusAlt from './icons/fas-bus-alt'
-import FasBus from './icons/fas-bus'
-import FasBusinessTime from './icons/fas-business-time'
-import FasCalculator from './icons/fas-calculator'
-import FasCalendarAlt from './icons/fas-calendar-alt'
-import FasCalendarCheck from './icons/fas-calendar-check'
-import FasCalendarDay from './icons/fas-calendar-day'
-import FasCalendarMinus from './icons/fas-calendar-minus'
-import FasCalendarPlus from './icons/fas-calendar-plus'
-import FasCalendarTimes from './icons/fas-calendar-times'
-import FasCalendarWeek from './icons/fas-calendar-week'
-import FasCalendar from './icons/fas-calendar'
-import FasCameraRetro from './icons/fas-camera-retro'
-import FasCamera from './icons/fas-camera'
-import FasCampground from './icons/fas-campground'
-import FasCandyCane from './icons/fas-candy-cane'
-import FasCannabis from './icons/fas-cannabis'
-import FasCapsules from './icons/fas-capsules'
-import FasCarAlt from './icons/fas-car-alt'
-import FasCarBattery from './icons/fas-car-battery'
-import FasCarCrash from './icons/fas-car-crash'
-import FasCarSide from './icons/fas-car-side'
-import FasCar from './icons/fas-car'
-import FasCaretDown from './icons/fas-caret-down'
-import FasCaretLeft from './icons/fas-caret-left'
-import FasCaretRight from './icons/fas-caret-right'
-import FasCaretSquareDown from './icons/fas-caret-square-down'
-import FasCaretSquareLeft from './icons/fas-caret-square-left'
-import FasCaretSquareRight from './icons/fas-caret-square-right'
-import FasCaretSquareUp from './icons/fas-caret-square-up'
-import FasCaretUp from './icons/fas-caret-up'
-import FasCarrot from './icons/fas-carrot'
-import FasCartArrowDown from './icons/fas-cart-arrow-down'
-import FasCartPlus from './icons/fas-cart-plus'
-import FasCashRegister from './icons/fas-cash-register'
-import FasCat from './icons/fas-cat'
-import FasCertificate from './icons/fas-certificate'
-import FasChair from './icons/fas-chair'
-import FasChalkboardTeacher from './icons/fas-chalkboard-teacher'
-import FasChalkboard from './icons/fas-chalkboard'
-import FasChargingStation from './icons/fas-charging-station'
-import FasChartArea from './icons/fas-chart-area'
-import FasChartBar from './icons/fas-chart-bar'
-import FasChartLine from './icons/fas-chart-line'
-import FasChartPie from './icons/fas-chart-pie'
-import FasCheckCircle from './icons/fas-check-circle'
-import FasCheckDouble from './icons/fas-check-double'
-import FasCheckSquare from './icons/fas-check-square'
-import FasCheck from './icons/fas-check'
-import FasCheese from './icons/fas-cheese'
-import FasChessBishop from './icons/fas-chess-bishop'
-import FasChessBoard from './icons/fas-chess-board'
-import FasChessKing from './icons/fas-chess-king'
-import FasChessKnight from './icons/fas-chess-knight'
-import FasChessPawn from './icons/fas-chess-pawn'
-import FasChessQueen from './icons/fas-chess-queen'
-import FasChessRook from './icons/fas-chess-rook'
-import FasChess from './icons/fas-chess'
-import FasChevronCircleDown from './icons/fas-chevron-circle-down'
-import FasChevronCircleLeft from './icons/fas-chevron-circle-left'
-import FasChevronCircleRight from './icons/fas-chevron-circle-right'
-import FasChevronCircleUp from './icons/fas-chevron-circle-up'
-import FasChevronDown from './icons/fas-chevron-down'
-import FasChevronLeft from './icons/fas-chevron-left'
-import FasChevronRight from './icons/fas-chevron-right'
-import FasChevronUp from './icons/fas-chevron-up'
-import FasChild from './icons/fas-child'
-import FasChurch from './icons/fas-church'
-import FasCircleNotch from './icons/fas-circle-notch'
-import FasCircle from './icons/fas-circle'
-import FasCity from './icons/fas-city'
-import FasClinicMedical from './icons/fas-clinic-medical'
-import FasClipboardCheck from './icons/fas-clipboard-check'
-import FasClipboardList from './icons/fas-clipboard-list'
-import FasClipboard from './icons/fas-clipboard'
-import FasClock from './icons/fas-clock'
-import FasClone from './icons/fas-clone'
-import FasClosedCaptioning from './icons/fas-closed-captioning'
-import FasCloudDownloadAlt from './icons/fas-cloud-download-alt'
-import FasCloudMeatball from './icons/fas-cloud-meatball'
-import FasCloudMoonRain from './icons/fas-cloud-moon-rain'
-import FasCloudMoon from './icons/fas-cloud-moon'
-import FasCloudRain from './icons/fas-cloud-rain'
-import FasCloudShowersHeavy from './icons/fas-cloud-showers-heavy'
-import FasCloudSunRain from './icons/fas-cloud-sun-rain'
-import FasCloudSun from './icons/fas-cloud-sun'
-import FasCloudUploadAlt from './icons/fas-cloud-upload-alt'
-import FasCloud from './icons/fas-cloud'
-import FasCocktail from './icons/fas-cocktail'
-import FasCodeBranch from './icons/fas-code-branch'
-import FasCode from './icons/fas-code'
-import FasCoffee from './icons/fas-coffee'
-import FasCog from './icons/fas-cog'
-import FasCogs from './icons/fas-cogs'
-import FasCoins from './icons/fas-coins'
-import FasColumns from './icons/fas-columns'
-import FasCommentAlt from './icons/fas-comment-alt'
-import FasCommentDollar from './icons/fas-comment-dollar'
-import FasCommentDots from './icons/fas-comment-dots'
-import FasCommentMedical from './icons/fas-comment-medical'
-import FasCommentSlash from './icons/fas-comment-slash'
-import FasComment from './icons/fas-comment'
-import FasCommentsDollar from './icons/fas-comments-dollar'
-import FasComments from './icons/fas-comments'
-import FasCompactDisc from './icons/fas-compact-disc'
-import FasCompass from './icons/fas-compass'
-import FasCompressArrowsAlt from './icons/fas-compress-arrows-alt'
-import FasCompress from './icons/fas-compress'
-import FasConciergeBell from './icons/fas-concierge-bell'
-import FasCookieBite from './icons/fas-cookie-bite'
-import FasCookie from './icons/fas-cookie'
-import FasCopy from './icons/fas-copy'
-import FasCopyright from './icons/fas-copyright'
-import FasCouch from './icons/fas-couch'
-import FasCreditCard from './icons/fas-credit-card'
-import FasCropAlt from './icons/fas-crop-alt'
-import FasCrop from './icons/fas-crop'
-import FasCross from './icons/fas-cross'
-import FasCrosshairs from './icons/fas-crosshairs'
-import FasCrow from './icons/fas-crow'
-import FasCrown from './icons/fas-crown'
-import FasCrutch from './icons/fas-crutch'
-import FasCube from './icons/fas-cube'
-import FasCubes from './icons/fas-cubes'
-import FasCut from './icons/fas-cut'
-import FasDatabase from './icons/fas-database'
-import FasDeaf from './icons/fas-deaf'
-import FasDemocrat from './icons/fas-democrat'
-import FasDesktop from './icons/fas-desktop'
-import FasDharmachakra from './icons/fas-dharmachakra'
-import FasDiagnoses from './icons/fas-diagnoses'
-import FasDiceD20 from './icons/fas-dice-d20'
-import FasDiceD6 from './icons/fas-dice-d6'
-import FasDiceFive from './icons/fas-dice-five'
-import FasDiceFour from './icons/fas-dice-four'
-import FasDiceOne from './icons/fas-dice-one'
-import FasDiceSix from './icons/fas-dice-six'
-import FasDiceThree from './icons/fas-dice-three'
-import FasDiceTwo from './icons/fas-dice-two'
-import FasDice from './icons/fas-dice'
-import FasDigitalTachograph from './icons/fas-digital-tachograph'
-import FasDirections from './icons/fas-directions'
-import FasDivide from './icons/fas-divide'
-import FasDizzy from './icons/fas-dizzy'
-import FasDna from './icons/fas-dna'
-import FasDog from './icons/fas-dog'
-import FasDollarSign from './icons/fas-dollar-sign'
-import FasDollyFlatbed from './icons/fas-dolly-flatbed'
-import FasDolly from './icons/fas-dolly'
-import FasDonate from './icons/fas-donate'
-import FasDoorClosed from './icons/fas-door-closed'
-import FasDoorOpen from './icons/fas-door-open'
-import FasDotCircle from './icons/fas-dot-circle'
-import FasDove from './icons/fas-dove'
-import FasDownload from './icons/fas-download'
-import FasDraftingCompass from './icons/fas-drafting-compass'
-import FasDragon from './icons/fas-dragon'
-import FasDrawPolygon from './icons/fas-draw-polygon'
-import FasDrumSteelpan from './icons/fas-drum-steelpan'
-import FasDrum from './icons/fas-drum'
-import FasDrumstickBite from './icons/fas-drumstick-bite'
-import FasDumbbell from './icons/fas-dumbbell'
-import FasDumpsterFire from './icons/fas-dumpster-fire'
-import FasDumpster from './icons/fas-dumpster'
-import FasDungeon from './icons/fas-dungeon'
-import FasEdit from './icons/fas-edit'
-import FasEgg from './icons/fas-egg'
-import FasEject from './icons/fas-eject'
-import FasEllipsisH from './icons/fas-ellipsis-h'
-import FasEllipsisV from './icons/fas-ellipsis-v'
-import FasEnvelopeOpenText from './icons/fas-envelope-open-text'
-import FasEnvelopeOpen from './icons/fas-envelope-open'
-import FasEnvelopeSquare from './icons/fas-envelope-square'
-import FasEnvelope from './icons/fas-envelope'
-import FasEquals from './icons/fas-equals'
-import FasEraser from './icons/fas-eraser'
-import FasEthernet from './icons/fas-ethernet'
-import FasEuroSign from './icons/fas-euro-sign'
-import FasExchangeAlt from './icons/fas-exchange-alt'
-import FasExclamationCircle from './icons/fas-exclamation-circle'
-import FasExclamationTriangle from './icons/fas-exclamation-triangle'
-import FasExclamation from './icons/fas-exclamation'
-import FasExpandArrowsAlt from './icons/fas-expand-arrows-alt'
-import FasExpand from './icons/fas-expand'
-import FasExternalLinkAlt from './icons/fas-external-link-alt'
-import FasExternalLinkSquareAlt from './icons/fas-external-link-square-alt'
-import FasEyeDropper from './icons/fas-eye-dropper'
-import FasEyeSlash from './icons/fas-eye-slash'
-import FasEye from './icons/fas-eye'
-import FasFan from './icons/fas-fan'
-import FasFastBackward from './icons/fas-fast-backward'
-import FasFastForward from './icons/fas-fast-forward'
-import FasFax from './icons/fas-fax'
-import FasFeatherAlt from './icons/fas-feather-alt'
-import FasFeather from './icons/fas-feather'
-import FasFemale from './icons/fas-female'
-import FasFighterJet from './icons/fas-fighter-jet'
-import FasFileAlt from './icons/fas-file-alt'
-import FasFileArchive from './icons/fas-file-archive'
-import FasFileAudio from './icons/fas-file-audio'
-import FasFileCode from './icons/fas-file-code'
-import FasFileContract from './icons/fas-file-contract'
-import FasFileCsv from './icons/fas-file-csv'
-import FasFileDownload from './icons/fas-file-download'
-import FasFileExcel from './icons/fas-file-excel'
-import FasFileExport from './icons/fas-file-export'
-import FasFileImage from './icons/fas-file-image'
-import FasFileImport from './icons/fas-file-import'
-import FasFileInvoiceDollar from './icons/fas-file-invoice-dollar'
-import FasFileInvoice from './icons/fas-file-invoice'
-import FasFileMedicalAlt from './icons/fas-file-medical-alt'
-import FasFileMedical from './icons/fas-file-medical'
-import FasFilePdf from './icons/fas-file-pdf'
-import FasFilePowerpoint from './icons/fas-file-powerpoint'
-import FasFilePrescription from './icons/fas-file-prescription'
-import FasFileSignature from './icons/fas-file-signature'
-import FasFileUpload from './icons/fas-file-upload'
-import FasFileVideo from './icons/fas-file-video'
-import FasFileWord from './icons/fas-file-word'
-import FasFile from './icons/fas-file'
-import FasFillDrip from './icons/fas-fill-drip'
-import FasFill from './icons/fas-fill'
-import FasFilm from './icons/fas-film'
-import FasFilter from './icons/fas-filter'
-import FasFingerprint from './icons/fas-fingerprint'
-import FasFireAlt from './icons/fas-fire-alt'
-import FasFireExtinguisher from './icons/fas-fire-extinguisher'
-import FasFire from './icons/fas-fire'
-import FasFirstAid from './icons/fas-first-aid'
-import FasFish from './icons/fas-fish'
-import FasFistRaised from './icons/fas-fist-raised'
-import FasFlagCheckered from './icons/fas-flag-checkered'
-import FasFlagUsa from './icons/fas-flag-usa'
-import FasFlag from './icons/fas-flag'
-import FasFlask from './icons/fas-flask'
-import FasFlushed from './icons/fas-flushed'
-import FasFolderMinus from './icons/fas-folder-minus'
-import FasFolderOpen from './icons/fas-folder-open'
-import FasFolderPlus from './icons/fas-folder-plus'
-import FasFolder from './icons/fas-folder'
-import FasFontAwesomeLogoFull from './icons/fas-font-awesome-logo-full'
-import FasFont from './icons/fas-font'
-import FasFootballBall from './icons/fas-football-ball'
-import FasForward from './icons/fas-forward'
-import FasFrog from './icons/fas-frog'
-import FasFrownOpen from './icons/fas-frown-open'
-import FasFrown from './icons/fas-frown'
-import FasFunnelDollar from './icons/fas-funnel-dollar'
-import FasFutbol from './icons/fas-futbol'
-import FasGamepad from './icons/fas-gamepad'
-import FasGasPump from './icons/fas-gas-pump'
-import FasGavel from './icons/fas-gavel'
-import FasGem from './icons/fas-gem'
-import FasGenderless from './icons/fas-genderless'
-import FasGhost from './icons/fas-ghost'
-import FasGift from './icons/fas-gift'
-import FasGifts from './icons/fas-gifts'
-import FasGlassCheers from './icons/fas-glass-cheers'
-import FasGlassMartiniAlt from './icons/fas-glass-martini-alt'
-import FasGlassMartini from './icons/fas-glass-martini'
-import FasGlassWhiskey from './icons/fas-glass-whiskey'
-import FasGlasses from './icons/fas-glasses'
-import FasGlobeAfrica from './icons/fas-globe-africa'
-import FasGlobeAmericas from './icons/fas-globe-americas'
-import FasGlobeAsia from './icons/fas-globe-asia'
-import FasGlobeEurope from './icons/fas-globe-europe'
-import FasGlobe from './icons/fas-globe'
-import FasGolfBall from './icons/fas-golf-ball'
-import FasGopuram from './icons/fas-gopuram'
-import FasGraduationCap from './icons/fas-graduation-cap'
-import FasGreaterThanEqual from './icons/fas-greater-than-equal'
-import FasGreaterThan from './icons/fas-greater-than'
-import FasGrimace from './icons/fas-grimace'
-import FasGrinAlt from './icons/fas-grin-alt'
-import FasGrinBeamSweat from './icons/fas-grin-beam-sweat'
-import FasGrinBeam from './icons/fas-grin-beam'
-import FasGrinHearts from './icons/fas-grin-hearts'
-import FasGrinSquintTears from './icons/fas-grin-squint-tears'
-import FasGrinSquint from './icons/fas-grin-squint'
-import FasGrinStars from './icons/fas-grin-stars'
-import FasGrinTears from './icons/fas-grin-tears'
-import FasGrinTongueSquint from './icons/fas-grin-tongue-squint'
-import FasGrinTongueWink from './icons/fas-grin-tongue-wink'
-import FasGrinTongue from './icons/fas-grin-tongue'
-import FasGrinWink from './icons/fas-grin-wink'
-import FasGrin from './icons/fas-grin'
-import FasGripHorizontal from './icons/fas-grip-horizontal'
-import FasGripLinesVertical from './icons/fas-grip-lines-vertical'
-import FasGripLines from './icons/fas-grip-lines'
-import FasGripVertical from './icons/fas-grip-vertical'
-import FasGuitar from './icons/fas-guitar'
-import FasHSquare from './icons/fas-h-square'
-import FasHamburger from './icons/fas-hamburger'
-import FasHammer from './icons/fas-hammer'
-import FasHamsa from './icons/fas-hamsa'
-import FasHandHoldingHeart from './icons/fas-hand-holding-heart'
-import FasHandHoldingUsd from './icons/fas-hand-holding-usd'
-import FasHandHolding from './icons/fas-hand-holding'
-import FasHandLizard from './icons/fas-hand-lizard'
-import FasHandMiddleFinger from './icons/fas-hand-middle-finger'
-import FasHandPaper from './icons/fas-hand-paper'
-import FasHandPeace from './icons/fas-hand-peace'
-import FasHandPointDown from './icons/fas-hand-point-down'
-import FasHandPointLeft from './icons/fas-hand-point-left'
-import FasHandPointRight from './icons/fas-hand-point-right'
-import FasHandPointUp from './icons/fas-hand-point-up'
-import FasHandPointer from './icons/fas-hand-pointer'
-import FasHandRock from './icons/fas-hand-rock'
-import FasHandScissors from './icons/fas-hand-scissors'
-import FasHandSpock from './icons/fas-hand-spock'
-import FasHandsHelping from './icons/fas-hands-helping'
-import FasHands from './icons/fas-hands'
-import FasHandshake from './icons/fas-handshake'
-import FasHanukiah from './icons/fas-hanukiah'
-import FasHardHat from './icons/fas-hard-hat'
-import FasHashtag from './icons/fas-hashtag'
-import FasHatWizard from './icons/fas-hat-wizard'
-import FasHaykal from './icons/fas-haykal'
-import FasHdd from './icons/fas-hdd'
-import FasHeading from './icons/fas-heading'
-import FasHeadphonesAlt from './icons/fas-headphones-alt'
-import FasHeadphones from './icons/fas-headphones'
-import FasHeadset from './icons/fas-headset'
-import FasHeartBroken from './icons/fas-heart-broken'
-import FasHeart from './icons/fas-heart'
-import FasHeartbeat from './icons/fas-heartbeat'
-import FasHelicopter from './icons/fas-helicopter'
-import FasHighlighter from './icons/fas-highlighter'
-import FasHiking from './icons/fas-hiking'
-import FasHippo from './icons/fas-hippo'
-import FasHistory from './icons/fas-history'
-import FasHockeyPuck from './icons/fas-hockey-puck'
-import FasHollyBerry from './icons/fas-holly-berry'
-import FasHome from './icons/fas-home'
-import FasHorseHead from './icons/fas-horse-head'
-import FasHorse from './icons/fas-horse'
-import FasHospitalAlt from './icons/fas-hospital-alt'
-import FasHospitalSymbol from './icons/fas-hospital-symbol'
-import FasHospital from './icons/fas-hospital'
-import FasHotTub from './icons/fas-hot-tub'
-import FasHotdog from './icons/fas-hotdog'
-import FasHotel from './icons/fas-hotel'
-import FasHourglassEnd from './icons/fas-hourglass-end'
-import FasHourglassHalf from './icons/fas-hourglass-half'
-import FasHourglassStart from './icons/fas-hourglass-start'
-import FasHourglass from './icons/fas-hourglass'
-import FasHouseDamage from './icons/fas-house-damage'
-import FasHryvnia from './icons/fas-hryvnia'
-import FasICursor from './icons/fas-i-cursor'
-import FasIceCream from './icons/fas-ice-cream'
-import FasIcicles from './icons/fas-icicles'
-import FasIcons from './icons/fas-icons'
-import FasIdBadge from './icons/fas-id-badge'
-import FasIdCardAlt from './icons/fas-id-card-alt'
-import FasIdCard from './icons/fas-id-card'
-import FasIgloo from './icons/fas-igloo'
-import FasImage from './icons/fas-image'
-import FasImages from './icons/fas-images'
-import FasInbox from './icons/fas-inbox'
-import FasIndent from './icons/fas-indent'
-import FasIndustry from './icons/fas-industry'
-import FasInfinity from './icons/fas-infinity'
-import FasInfoCircle from './icons/fas-info-circle'
-import FasInfo from './icons/fas-info'
-import FasItalic from './icons/fas-italic'
-import FasJedi from './icons/fas-jedi'
-import FasJoint from './icons/fas-joint'
-import FasJournalWhills from './icons/fas-journal-whills'
-import FasKaaba from './icons/fas-kaaba'
-import FasKey from './icons/fas-key'
-import FasKeyboard from './icons/fas-keyboard'
-import FasKhanda from './icons/fas-khanda'
-import FasKissBeam from './icons/fas-kiss-beam'
-import FasKissWinkHeart from './icons/fas-kiss-wink-heart'
-import FasKiss from './icons/fas-kiss'
-import FasKiwiBird from './icons/fas-kiwi-bird'
-import FasLandmark from './icons/fas-landmark'
-import FasLanguage from './icons/fas-language'
-import FasLaptopCode from './icons/fas-laptop-code'
-import FasLaptopMedical from './icons/fas-laptop-medical'
-import FasLaptop from './icons/fas-laptop'
-import FasLaughBeam from './icons/fas-laugh-beam'
-import FasLaughSquint from './icons/fas-laugh-squint'
-import FasLaughWink from './icons/fas-laugh-wink'
-import FasLaugh from './icons/fas-laugh'
-import FasLayerGroup from './icons/fas-layer-group'
-import FasLeaf from './icons/fas-leaf'
-import FasLemon from './icons/fas-lemon'
-import FasLessThanEqual from './icons/fas-less-than-equal'
-import FasLessThan from './icons/fas-less-than'
-import FasLevelDownAlt from './icons/fas-level-down-alt'
-import FasLevelUpAlt from './icons/fas-level-up-alt'
-import FasLifeRing from './icons/fas-life-ring'
-import FasLightbulb from './icons/fas-lightbulb'
-import FasLink from './icons/fas-link'
-import FasLiraSign from './icons/fas-lira-sign'
-import FasListAlt from './icons/fas-list-alt'
-import FasListOl from './icons/fas-list-ol'
-import FasListUl from './icons/fas-list-ul'
-import FasList from './icons/fas-list'
-import FasLocationArrow from './icons/fas-location-arrow'
-import FasLockOpen from './icons/fas-lock-open'
-import FasLock from './icons/fas-lock'
-import FasLongArrowAltDown from './icons/fas-long-arrow-alt-down'
-import FasLongArrowAltLeft from './icons/fas-long-arrow-alt-left'
-import FasLongArrowAltRight from './icons/fas-long-arrow-alt-right'
-import FasLongArrowAltUp from './icons/fas-long-arrow-alt-up'
-import FasLowVision from './icons/fas-low-vision'
-import FasLuggageCart from './icons/fas-luggage-cart'
-import FasMagic from './icons/fas-magic'
-import FasMagnet from './icons/fas-magnet'
-import FasMailBulk from './icons/fas-mail-bulk'
-import FasMale from './icons/fas-male'
-import FasMapMarkedAlt from './icons/fas-map-marked-alt'
-import FasMapMarked from './icons/fas-map-marked'
-import FasMapMarkerAlt from './icons/fas-map-marker-alt'
-import FasMapMarker from './icons/fas-map-marker'
-import FasMapPin from './icons/fas-map-pin'
-import FasMapSigns from './icons/fas-map-signs'
-import FasMap from './icons/fas-map'
-import FasMarker from './icons/fas-marker'
-import FasMarsDouble from './icons/fas-mars-double'
-import FasMarsStrokeH from './icons/fas-mars-stroke-h'
-import FasMarsStrokeV from './icons/fas-mars-stroke-v'
-import FasMarsStroke from './icons/fas-mars-stroke'
-import FasMars from './icons/fas-mars'
-import FasMask from './icons/fas-mask'
-import FasMedal from './icons/fas-medal'
-import FasMedkit from './icons/fas-medkit'
-import FasMehBlank from './icons/fas-meh-blank'
-import FasMehRollingEyes from './icons/fas-meh-rolling-eyes'
-import FasMeh from './icons/fas-meh'
-import FasMemory from './icons/fas-memory'
-import FasMenorah from './icons/fas-menorah'
-import FasMercury from './icons/fas-mercury'
-import FasMeteor from './icons/fas-meteor'
-import FasMicrochip from './icons/fas-microchip'
-import FasMicrophoneAltSlash from './icons/fas-microphone-alt-slash'
-import FasMicrophoneAlt from './icons/fas-microphone-alt'
-import FasMicrophoneSlash from './icons/fas-microphone-slash'
-import FasMicrophone from './icons/fas-microphone'
-import FasMicroscope from './icons/fas-microscope'
-import FasMinusCircle from './icons/fas-minus-circle'
-import FasMinusSquare from './icons/fas-minus-square'
-import FasMinus from './icons/fas-minus'
-import FasMitten from './icons/fas-mitten'
-import FasMobileAlt from './icons/fas-mobile-alt'
-import FasMobile from './icons/fas-mobile'
-import FasMoneyBillAlt from './icons/fas-money-bill-alt'
-import FasMoneyBillWaveAlt from './icons/fas-money-bill-wave-alt'
-import FasMoneyBillWave from './icons/fas-money-bill-wave'
-import FasMoneyBill from './icons/fas-money-bill'
-import FasMoneyCheckAlt from './icons/fas-money-check-alt'
-import FasMoneyCheck from './icons/fas-money-check'
-import FasMonument from './icons/fas-monument'
-import FasMoon from './icons/fas-moon'
-import FasMortarPestle from './icons/fas-mortar-pestle'
-import FasMosque from './icons/fas-mosque'
-import FasMotorcycle from './icons/fas-motorcycle'
-import FasMountain from './icons/fas-mountain'
-import FasMousePointer from './icons/fas-mouse-pointer'
-import FasMugHot from './icons/fas-mug-hot'
-import FasMusic from './icons/fas-music'
-import FasNetworkWired from './icons/fas-network-wired'
-import FasNeuter from './icons/fas-neuter'
-import FasNewspaper from './icons/fas-newspaper'
-import FasNotEqual from './icons/fas-not-equal'
-import FasNotesMedical from './icons/fas-notes-medical'
-import FasObjectGroup from './icons/fas-object-group'
-import FasObjectUngroup from './icons/fas-object-ungroup'
-import FasOilCan from './icons/fas-oil-can'
-import FasOm from './icons/fas-om'
-import FasOtter from './icons/fas-otter'
-import FasOutdent from './icons/fas-outdent'
-import FasPager from './icons/fas-pager'
-import FasPaintBrush from './icons/fas-paint-brush'
-import FasPaintRoller from './icons/fas-paint-roller'
-import FasPalette from './icons/fas-palette'
-import FasPallet from './icons/fas-pallet'
-import FasPaperPlane from './icons/fas-paper-plane'
-import FasPaperclip from './icons/fas-paperclip'
-import FasParachuteBox from './icons/fas-parachute-box'
-import FasParagraph from './icons/fas-paragraph'
-import FasParking from './icons/fas-parking'
-import FasPassport from './icons/fas-passport'
-import FasPastafarianism from './icons/fas-pastafarianism'
-import FasPaste from './icons/fas-paste'
-import FasPauseCircle from './icons/fas-pause-circle'
-import FasPause from './icons/fas-pause'
-import FasPaw from './icons/fas-paw'
-import FasPeace from './icons/fas-peace'
-import FasPenAlt from './icons/fas-pen-alt'
-import FasPenFancy from './icons/fas-pen-fancy'
-import FasPenNib from './icons/fas-pen-nib'
-import FasPenSquare from './icons/fas-pen-square'
-import FasPen from './icons/fas-pen'
-import FasPencilAlt from './icons/fas-pencil-alt'
-import FasPencilRuler from './icons/fas-pencil-ruler'
-import FasPeopleCarry from './icons/fas-people-carry'
-import FasPepperHot from './icons/fas-pepper-hot'
-import FasPercent from './icons/fas-percent'
-import FasPercentage from './icons/fas-percentage'
-import FasPersonBooth from './icons/fas-person-booth'
-import FasPhoneAlt from './icons/fas-phone-alt'
-import FasPhoneSlash from './icons/fas-phone-slash'
-import FasPhoneSquareAlt from './icons/fas-phone-square-alt'
-import FasPhoneSquare from './icons/fas-phone-square'
-import FasPhoneVolume from './icons/fas-phone-volume'
-import FasPhone from './icons/fas-phone'
-import FasPhotoVideo from './icons/fas-photo-video'
-import FasPiggyBank from './icons/fas-piggy-bank'
-import FasPills from './icons/fas-pills'
-import FasPizzaSlice from './icons/fas-pizza-slice'
-import FasPlaceOfWorship from './icons/fas-place-of-worship'
-import FasPlaneArrival from './icons/fas-plane-arrival'
-import FasPlaneDeparture from './icons/fas-plane-departure'
-import FasPlane from './icons/fas-plane'
-import FasPlayCircle from './icons/fas-play-circle'
-import FasPlay from './icons/fas-play'
-import FasPlug from './icons/fas-plug'
-import FasPlusCircle from './icons/fas-plus-circle'
-import FasPlusSquare from './icons/fas-plus-square'
-import FasPlus from './icons/fas-plus'
-import FasPodcast from './icons/fas-podcast'
-import FasPollH from './icons/fas-poll-h'
-import FasPoll from './icons/fas-poll'
-import FasPooStorm from './icons/fas-poo-storm'
-import FasPoo from './icons/fas-poo'
-import FasPoop from './icons/fas-poop'
-import FasPortrait from './icons/fas-portrait'
-import FasPoundSign from './icons/fas-pound-sign'
-import FasPowerOff from './icons/fas-power-off'
-import FasPray from './icons/fas-pray'
-import FasPrayingHands from './icons/fas-praying-hands'
-import FasPrescriptionBottleAlt from './icons/fas-prescription-bottle-alt'
-import FasPrescriptionBottle from './icons/fas-prescription-bottle'
-import FasPrescription from './icons/fas-prescription'
-import FasPrint from './icons/fas-print'
-import FasProcedures from './icons/fas-procedures'
-import FasProjectDiagram from './icons/fas-project-diagram'
-import FasPuzzlePiece from './icons/fas-puzzle-piece'
-import FasQrcode from './icons/fas-qrcode'
-import FasQuestionCircle from './icons/fas-question-circle'
-import FasQuestion from './icons/fas-question'
-import FasQuidditch from './icons/fas-quidditch'
-import FasQuoteLeft from './icons/fas-quote-left'
-import FasQuoteRight from './icons/fas-quote-right'
-import FasQuran from './icons/fas-quran'
-import FasRadiationAlt from './icons/fas-radiation-alt'
-import FasRadiation from './icons/fas-radiation'
-import FasRainbow from './icons/fas-rainbow'
-import FasRandom from './icons/fas-random'
-import FasReceipt from './icons/fas-receipt'
-import FasRecycle from './icons/fas-recycle'
-import FasRedoAlt from './icons/fas-redo-alt'
-import FasRedo from './icons/fas-redo'
-import FasRegistered from './icons/fas-registered'
-import FasRemoveFormat from './icons/fas-remove-format'
-import FasReplyAll from './icons/fas-reply-all'
-import FasReply from './icons/fas-reply'
-import FasRepublican from './icons/fas-republican'
-import FasRestroom from './icons/fas-restroom'
-import FasRetweet from './icons/fas-retweet'
-import FasRibbon from './icons/fas-ribbon'
-import FasRing from './icons/fas-ring'
-import FasRoad from './icons/fas-road'
-import FasRobot from './icons/fas-robot'
-import FasRocket from './icons/fas-rocket'
-import FasRoute from './icons/fas-route'
-import FasRssSquare from './icons/fas-rss-square'
-import FasRss from './icons/fas-rss'
-import FasRubleSign from './icons/fas-ruble-sign'
-import FasRulerCombined from './icons/fas-ruler-combined'
-import FasRulerHorizontal from './icons/fas-ruler-horizontal'
-import FasRulerVertical from './icons/fas-ruler-vertical'
-import FasRuler from './icons/fas-ruler'
-import FasRunning from './icons/fas-running'
-import FasRupeeSign from './icons/fas-rupee-sign'
-import FasSadCry from './icons/fas-sad-cry'
-import FasSadTear from './icons/fas-sad-tear'
-import FasSatelliteDish from './icons/fas-satellite-dish'
-import FasSatellite from './icons/fas-satellite'
-import FasSave from './icons/fas-save'
-import FasSchool from './icons/fas-school'
-import FasScrewdriver from './icons/fas-screwdriver'
-import FasScroll from './icons/fas-scroll'
-import FasSdCard from './icons/fas-sd-card'
-import FasSearchDollar from './icons/fas-search-dollar'
-import FasSearchLocation from './icons/fas-search-location'
-import FasSearchMinus from './icons/fas-search-minus'
-import FasSearchPlus from './icons/fas-search-plus'
-import FasSearch from './icons/fas-search'
-import FasSeedling from './icons/fas-seedling'
-import FasServer from './icons/fas-server'
-import FasShapes from './icons/fas-shapes'
-import FasShareAltSquare from './icons/fas-share-alt-square'
-import FasShareAlt from './icons/fas-share-alt'
-import FasShareSquare from './icons/fas-share-square'
-import FasShare from './icons/fas-share'
-import FasShekelSign from './icons/fas-shekel-sign'
-import FasShieldAlt from './icons/fas-shield-alt'
-import FasShip from './icons/fas-ship'
-import FasShippingFast from './icons/fas-shipping-fast'
-import FasShoePrints from './icons/fas-shoe-prints'
-import FasShoppingBag from './icons/fas-shopping-bag'
-import FasShoppingBasket from './icons/fas-shopping-basket'
-import FasShoppingCart from './icons/fas-shopping-cart'
-import FasShower from './icons/fas-shower'
-import FasShuttleVan from './icons/fas-shuttle-van'
-import FasSignInAlt from './icons/fas-sign-in-alt'
-import FasSignLanguage from './icons/fas-sign-language'
-import FasSignOutAlt from './icons/fas-sign-out-alt'
-import FasSign from './icons/fas-sign'
-import FasSignal from './icons/fas-signal'
-import FasSignature from './icons/fas-signature'
-import FasSimCard from './icons/fas-sim-card'
-import FasSitemap from './icons/fas-sitemap'
-import FasSkating from './icons/fas-skating'
-import FasSkiingNordic from './icons/fas-skiing-nordic'
-import FasSkiing from './icons/fas-skiing'
-import FasSkullCrossbones from './icons/fas-skull-crossbones'
-import FasSkull from './icons/fas-skull'
-import FasSlash from './icons/fas-slash'
-import FasSleigh from './icons/fas-sleigh'
-import FasSlidersH from './icons/fas-sliders-h'
-import FasSmileBeam from './icons/fas-smile-beam'
-import FasSmileWink from './icons/fas-smile-wink'
-import FasSmile from './icons/fas-smile'
-import FasSmog from './icons/fas-smog'
-import FasSmokingBan from './icons/fas-smoking-ban'
-import FasSmoking from './icons/fas-smoking'
-import FasSms from './icons/fas-sms'
-import FasSnowboarding from './icons/fas-snowboarding'
-import FasSnowflake from './icons/fas-snowflake'
-import FasSnowman from './icons/fas-snowman'
-import FasSnowplow from './icons/fas-snowplow'
-import FasSocks from './icons/fas-socks'
-import FasSolarPanel from './icons/fas-solar-panel'
-import FasSortAlphaDownAlt from './icons/fas-sort-alpha-down-alt'
-import FasSortAlphaDown from './icons/fas-sort-alpha-down'
-import FasSortAlphaUpAlt from './icons/fas-sort-alpha-up-alt'
-import FasSortAlphaUp from './icons/fas-sort-alpha-up'
-import FasSortAmountDownAlt from './icons/fas-sort-amount-down-alt'
-import FasSortAmountDown from './icons/fas-sort-amount-down'
-import FasSortAmountUpAlt from './icons/fas-sort-amount-up-alt'
-import FasSortAmountUp from './icons/fas-sort-amount-up'
-import FasSortDown from './icons/fas-sort-down'
-import FasSortNumericDownAlt from './icons/fas-sort-numeric-down-alt'
-import FasSortNumericDown from './icons/fas-sort-numeric-down'
-import FasSortNumericUpAlt from './icons/fas-sort-numeric-up-alt'
-import FasSortNumericUp from './icons/fas-sort-numeric-up'
-import FasSortUp from './icons/fas-sort-up'
-import FasSort from './icons/fas-sort'
-import FasSpa from './icons/fas-spa'
-import FasSpaceShuttle from './icons/fas-space-shuttle'
-import FasSpellCheck from './icons/fas-spell-check'
-import FasSpider from './icons/fas-spider'
-import FasSpinner from './icons/fas-spinner'
-import FasSplotch from './icons/fas-splotch'
-import FasSprayCan from './icons/fas-spray-can'
-import FasSquareFull from './icons/fas-square-full'
-import FasSquareRootAlt from './icons/fas-square-root-alt'
-import FasSquare from './icons/fas-square'
-import FasStamp from './icons/fas-stamp'
-import FasStarAndCrescent from './icons/fas-star-and-crescent'
-import FasStarHalfAlt from './icons/fas-star-half-alt'
-import FasStarHalf from './icons/fas-star-half'
-import FasStarOfDavid from './icons/fas-star-of-david'
-import FasStarOfLife from './icons/fas-star-of-life'
-import FasStar from './icons/fas-star'
-import FasStepBackward from './icons/fas-step-backward'
-import FasStepForward from './icons/fas-step-forward'
-import FasStethoscope from './icons/fas-stethoscope'
-import FasStickyNote from './icons/fas-sticky-note'
-import FasStopCircle from './icons/fas-stop-circle'
-import FasStop from './icons/fas-stop'
-import FasStopwatch from './icons/fas-stopwatch'
-import FasStoreAlt from './icons/fas-store-alt'
-import FasStore from './icons/fas-store'
-import FasStream from './icons/fas-stream'
-import FasStreetView from './icons/fas-street-view'
-import FasStrikethrough from './icons/fas-strikethrough'
-import FasStroopwafel from './icons/fas-stroopwafel'
-import FasSubscript from './icons/fas-subscript'
-import FasSubway from './icons/fas-subway'
-import FasSuitcaseRolling from './icons/fas-suitcase-rolling'
-import FasSuitcase from './icons/fas-suitcase'
-import FasSun from './icons/fas-sun'
-import FasSuperscript from './icons/fas-superscript'
-import FasSurprise from './icons/fas-surprise'
-import FasSwatchbook from './icons/fas-swatchbook'
-import FasSwimmer from './icons/fas-swimmer'
-import FasSwimmingPool from './icons/fas-swimming-pool'
-import FasSynagogue from './icons/fas-synagogue'
-import FasSyncAlt from './icons/fas-sync-alt'
-import FasSync from './icons/fas-sync'
-import FasSyringe from './icons/fas-syringe'
-import FasTableTennis from './icons/fas-table-tennis'
-import FasTable from './icons/fas-table'
-import FasTabletAlt from './icons/fas-tablet-alt'
-import FasTablet from './icons/fas-tablet'
-import FasTablets from './icons/fas-tablets'
-import FasTachometerAlt from './icons/fas-tachometer-alt'
-import FasTag from './icons/fas-tag'
-import FasTags from './icons/fas-tags'
-import FasTape from './icons/fas-tape'
-import FasTasks from './icons/fas-tasks'
-import FasTaxi from './icons/fas-taxi'
-import FasTeethOpen from './icons/fas-teeth-open'
-import FasTeeth from './icons/fas-teeth'
-import FasTemperatureHigh from './icons/fas-temperature-high'
-import FasTemperatureLow from './icons/fas-temperature-low'
-import FasTenge from './icons/fas-tenge'
-import FasTerminal from './icons/fas-terminal'
-import FasTextHeight from './icons/fas-text-height'
-import FasTextWidth from './icons/fas-text-width'
-import FasThLarge from './icons/fas-th-large'
-import FasThList from './icons/fas-th-list'
-import FasTh from './icons/fas-th'
-import FasTheaterMasks from './icons/fas-theater-masks'
-import FasThermometerEmpty from './icons/fas-thermometer-empty'
-import FasThermometerFull from './icons/fas-thermometer-full'
-import FasThermometerHalf from './icons/fas-thermometer-half'
-import FasThermometerQuarter from './icons/fas-thermometer-quarter'
-import FasThermometerThreeQuarters from './icons/fas-thermometer-three-quarters'
-import FasThermometer from './icons/fas-thermometer'
-import FasThumbsDown from './icons/fas-thumbs-down'
-import FasThumbsUp from './icons/fas-thumbs-up'
-import FasThumbtack from './icons/fas-thumbtack'
-import FasTicketAlt from './icons/fas-ticket-alt'
-import FasTimesCircle from './icons/fas-times-circle'
-import FasTimes from './icons/fas-times'
-import FasTintSlash from './icons/fas-tint-slash'
-import FasTint from './icons/fas-tint'
-import FasTired from './icons/fas-tired'
-import FasToggleOff from './icons/fas-toggle-off'
-import FasToggleOn from './icons/fas-toggle-on'
-import FasToiletPaper from './icons/fas-toilet-paper'
-import FasToilet from './icons/fas-toilet'
-import FasToolbox from './icons/fas-toolbox'
-import FasTools from './icons/fas-tools'
-import FasTooth from './icons/fas-tooth'
-import FasTorah from './icons/fas-torah'
-import FasToriiGate from './icons/fas-torii-gate'
-import FasTractor from './icons/fas-tractor'
-import FasTrademark from './icons/fas-trademark'
-import FasTrafficLight from './icons/fas-traffic-light'
-import FasTrain from './icons/fas-train'
-import FasTram from './icons/fas-tram'
-import FasTransgenderAlt from './icons/fas-transgender-alt'
-import FasTransgender from './icons/fas-transgender'
-import FasTrashAlt from './icons/fas-trash-alt'
-import FasTrashRestoreAlt from './icons/fas-trash-restore-alt'
-import FasTrashRestore from './icons/fas-trash-restore'
-import FasTrash from './icons/fas-trash'
-import FasTree from './icons/fas-tree'
-import FasTrophy from './icons/fas-trophy'
-import FasTruckLoading from './icons/fas-truck-loading'
-import FasTruckMonster from './icons/fas-truck-monster'
-import FasTruckMoving from './icons/fas-truck-moving'
-import FasTruckPickup from './icons/fas-truck-pickup'
-import FasTruck from './icons/fas-truck'
-import FasTshirt from './icons/fas-tshirt'
-import FasTty from './icons/fas-tty'
-import FasTv from './icons/fas-tv'
-import FasUmbrellaBeach from './icons/fas-umbrella-beach'
-import FasUmbrella from './icons/fas-umbrella'
-import FasUnderline from './icons/fas-underline'
-import FasUndoAlt from './icons/fas-undo-alt'
-import FasUndo from './icons/fas-undo'
-import FasUniversalAccess from './icons/fas-universal-access'
-import FasUniversity from './icons/fas-university'
-import FasUnlink from './icons/fas-unlink'
-import FasUnlockAlt from './icons/fas-unlock-alt'
-import FasUnlock from './icons/fas-unlock'
-import FasUpload from './icons/fas-upload'
-import FasUserAltSlash from './icons/fas-user-alt-slash'
-import FasUserAlt from './icons/fas-user-alt'
-import FasUserAstronaut from './icons/fas-user-astronaut'
-import FasUserCheck from './icons/fas-user-check'
-import FasUserCircle from './icons/fas-user-circle'
-import FasUserClock from './icons/fas-user-clock'
-import FasUserCog from './icons/fas-user-cog'
-import FasUserEdit from './icons/fas-user-edit'
-import FasUserFriends from './icons/fas-user-friends'
-import FasUserGraduate from './icons/fas-user-graduate'
-import FasUserInjured from './icons/fas-user-injured'
-import FasUserLock from './icons/fas-user-lock'
-import FasUserMd from './icons/fas-user-md'
-import FasUserMinus from './icons/fas-user-minus'
-import FasUserNinja from './icons/fas-user-ninja'
-import FasUserNurse from './icons/fas-user-nurse'
-import FasUserPlus from './icons/fas-user-plus'
-import FasUserSecret from './icons/fas-user-secret'
-import FasUserShield from './icons/fas-user-shield'
-import FasUserSlash from './icons/fas-user-slash'
-import FasUserTag from './icons/fas-user-tag'
-import FasUserTie from './icons/fas-user-tie'
-import FasUserTimes from './icons/fas-user-times'
-import FasUser from './icons/fas-user'
-import FasUsersCog from './icons/fas-users-cog'
-import FasUsers from './icons/fas-users'
-import FasUtensilSpoon from './icons/fas-utensil-spoon'
-import FasUtensils from './icons/fas-utensils'
-import FasVectorSquare from './icons/fas-vector-square'
-import FasVenusDouble from './icons/fas-venus-double'
-import FasVenusMars from './icons/fas-venus-mars'
-import FasVenus from './icons/fas-venus'
-import FasVial from './icons/fas-vial'
-import FasVials from './icons/fas-vials'
-import FasVideoSlash from './icons/fas-video-slash'
-import FasVideo from './icons/fas-video'
-import FasVihara from './icons/fas-vihara'
-import FasVoicemail from './icons/fas-voicemail'
-import FasVolleyballBall from './icons/fas-volleyball-ball'
-import FasVolumeDown from './icons/fas-volume-down'
-import FasVolumeMute from './icons/fas-volume-mute'
-import FasVolumeOff from './icons/fas-volume-off'
-import FasVolumeUp from './icons/fas-volume-up'
-import FasVoteYea from './icons/fas-vote-yea'
-import FasVrCardboard from './icons/fas-vr-cardboard'
-import FasWalking from './icons/fas-walking'
-import FasWallet from './icons/fas-wallet'
-import FasWarehouse from './icons/fas-warehouse'
-import FasWater from './icons/fas-water'
-import FasWaveSquare from './icons/fas-wave-square'
-import FasWeightHanging from './icons/fas-weight-hanging'
-import FasWeight from './icons/fas-weight'
-import FasWheelchair from './icons/fas-wheelchair'
-import FasWifi from './icons/fas-wifi'
-import FasWind from './icons/fas-wind'
-import FasWindowClose from './icons/fas-window-close'
-import FasWindowMaximize from './icons/fas-window-maximize'
-import FasWindowMinimize from './icons/fas-window-minimize'
-import FasWindowRestore from './icons/fas-window-restore'
-import FasWineBottle from './icons/fas-wine-bottle'
-import FasWineGlassAlt from './icons/fas-wine-glass-alt'
-import FasWineGlass from './icons/fas-wine-glass'
-import FasWonSign from './icons/fas-won-sign'
-import FasWrench from './icons/fas-wrench'
-import FasXRay from './icons/fas-x-ray'
-import FasYenSign from './icons/fas-yen-sign'
-import FasYinYang from './icons/fas-yin-yang'
+import AddCircleOutline from './icons/add-circle-outline'
+import AddCircleSharp from './icons/add-circle-sharp'
+import AddCircle from './icons/add-circle'
+import AddOutline from './icons/add-outline'
+import AddSharp from './icons/add-sharp'
+import Add from './icons/add'
+import AirplaneOutline from './icons/airplane-outline'
+import AirplaneSharp from './icons/airplane-sharp'
+import Airplane from './icons/airplane'
+import AlarmOutline from './icons/alarm-outline'
+import AlarmSharp from './icons/alarm-sharp'
+import Alarm from './icons/alarm'
+import AlbumsOutline from './icons/albums-outline'
+import AlbumsSharp from './icons/albums-sharp'
+import Albums from './icons/albums'
+import AlertCircleOutline from './icons/alert-circle-outline'
+import AlertCircleSharp from './icons/alert-circle-sharp'
+import AlertCircle from './icons/alert-circle'
+import AlertOutline from './icons/alert-outline'
+import AlertSharp from './icons/alert-sharp'
+import Alert from './icons/alert'
+import AmericanFootballOutline from './icons/american-football-outline'
+import AmericanFootballSharp from './icons/american-football-sharp'
+import AmericanFootball from './icons/american-football'
+import AnalyticsOutline from './icons/analytics-outline'
+import AnalyticsSharp from './icons/analytics-sharp'
+import Analytics from './icons/analytics'
+import ApertureOutline from './icons/aperture-outline'
+import ApertureSharp from './icons/aperture-sharp'
+import Aperture from './icons/aperture'
+import AppsOutline from './icons/apps-outline'
+import AppsSharp from './icons/apps-sharp'
+import Apps from './icons/apps'
+import ArchiveOutline from './icons/archive-outline'
+import ArchiveSharp from './icons/archive-sharp'
+import Archive from './icons/archive'
+import ArrowBackCircleOutline from './icons/arrow-back-circle-outline'
+import ArrowBackCircleSharp from './icons/arrow-back-circle-sharp'
+import ArrowBackCircle from './icons/arrow-back-circle'
+import ArrowBackOutline from './icons/arrow-back-outline'
+import ArrowBackSharp from './icons/arrow-back-sharp'
+import ArrowBack from './icons/arrow-back'
+import ArrowDownCircleOutline from './icons/arrow-down-circle-outline'
+import ArrowDownCircleSharp from './icons/arrow-down-circle-sharp'
+import ArrowDownCircle from './icons/arrow-down-circle'
+import ArrowDownOutline from './icons/arrow-down-outline'
+import ArrowDownSharp from './icons/arrow-down-sharp'
+import ArrowDown from './icons/arrow-down'
+import ArrowForwardCircleOutline from './icons/arrow-forward-circle-outline'
+import ArrowForwardCircleSharp from './icons/arrow-forward-circle-sharp'
+import ArrowForwardCircle from './icons/arrow-forward-circle'
+import ArrowForwardOutline from './icons/arrow-forward-outline'
+import ArrowForwardSharp from './icons/arrow-forward-sharp'
+import ArrowForward from './icons/arrow-forward'
+import ArrowRedoCircleOutline from './icons/arrow-redo-circle-outline'
+import ArrowRedoCircleSharp from './icons/arrow-redo-circle-sharp'
+import ArrowRedoCircle from './icons/arrow-redo-circle'
+import ArrowRedoOutline from './icons/arrow-redo-outline'
+import ArrowRedoSharp from './icons/arrow-redo-sharp'
+import ArrowRedo from './icons/arrow-redo'
+import ArrowUndoCircleOutline from './icons/arrow-undo-circle-outline'
+import ArrowUndoCircleSharp from './icons/arrow-undo-circle-sharp'
+import ArrowUndoCircle from './icons/arrow-undo-circle'
+import ArrowUndoOutline from './icons/arrow-undo-outline'
+import ArrowUndoSharp from './icons/arrow-undo-sharp'
+import ArrowUndo from './icons/arrow-undo'
+import ArrowUpCircleOutline from './icons/arrow-up-circle-outline'
+import ArrowUpCircleSharp from './icons/arrow-up-circle-sharp'
+import ArrowUpCircle from './icons/arrow-up-circle'
+import ArrowUpOutline from './icons/arrow-up-outline'
+import ArrowUpSharp from './icons/arrow-up-sharp'
+import ArrowUp from './icons/arrow-up'
+import AtCircleOutline from './icons/at-circle-outline'
+import AtCircleSharp from './icons/at-circle-sharp'
+import AtCircle from './icons/at-circle'
+import AtOutline from './icons/at-outline'
+import AtSharp from './icons/at-sharp'
+import At from './icons/at'
+import AttachOutline from './icons/attach-outline'
+import AttachSharp from './icons/attach-sharp'
+import Attach from './icons/attach'
+import BackspaceOutline from './icons/backspace-outline'
+import BackspaceSharp from './icons/backspace-sharp'
+import Backspace from './icons/backspace'
+import BandageOutline from './icons/bandage-outline'
+import BandageSharp from './icons/bandage-sharp'
+import Bandage from './icons/bandage'
+import BarChartOutline from './icons/bar-chart-outline'
+import BarChartSharp from './icons/bar-chart-sharp'
+import BarChart from './icons/bar-chart'
+import BarbellOutline from './icons/barbell-outline'
+import BarbellSharp from './icons/barbell-sharp'
+import Barbell from './icons/barbell'
+import BarcodeOutline from './icons/barcode-outline'
+import BarcodeSharp from './icons/barcode-sharp'
+import Barcode from './icons/barcode'
+import BaseballOutline from './icons/baseball-outline'
+import BaseballSharp from './icons/baseball-sharp'
+import Baseball from './icons/baseball'
+import BasketOutline from './icons/basket-outline'
+import BasketSharp from './icons/basket-sharp'
+import Basket from './icons/basket'
+import BasketballOutline from './icons/basketball-outline'
+import BasketballSharp from './icons/basketball-sharp'
+import Basketball from './icons/basketball'
+import BatteryChargingOutline from './icons/battery-charging-outline'
+import BatteryChargingSharp from './icons/battery-charging-sharp'
+import BatteryCharging from './icons/battery-charging'
+import BatteryDeadOutline from './icons/battery-dead-outline'
+import BatteryDeadSharp from './icons/battery-dead-sharp'
+import BatteryDead from './icons/battery-dead'
+import BatteryFullOutline from './icons/battery-full-outline'
+import BatteryFullSharp from './icons/battery-full-sharp'
+import BatteryFull from './icons/battery-full'
+import BatteryHalfOutline from './icons/battery-half-outline'
+import BatteryHalfSharp from './icons/battery-half-sharp'
+import BatteryHalf from './icons/battery-half'
+import BeakerOutline from './icons/beaker-outline'
+import BeakerSharp from './icons/beaker-sharp'
+import Beaker from './icons/beaker'
+import BedOutline from './icons/bed-outline'
+import BedSharp from './icons/bed-sharp'
+import Bed from './icons/bed'
+import BeerOutline from './icons/beer-outline'
+import BeerSharp from './icons/beer-sharp'
+import Beer from './icons/beer'
+import BicycleOutline from './icons/bicycle-outline'
+import BicycleSharp from './icons/bicycle-sharp'
+import Bicycle from './icons/bicycle'
+import BluetoothOutline from './icons/bluetooth-outline'
+import BluetoothSharp from './icons/bluetooth-sharp'
+import Bluetooth from './icons/bluetooth'
+import BoatOutline from './icons/boat-outline'
+import BoatSharp from './icons/boat-sharp'
+import Boat from './icons/boat'
+import BodyOutline from './icons/body-outline'
+import BodySharp from './icons/body-sharp'
+import Body from './icons/body'
+import BonfireOutline from './icons/bonfire-outline'
+import BonfireSharp from './icons/bonfire-sharp'
+import Bonfire from './icons/bonfire'
+import BookOutline from './icons/book-outline'
+import BookSharp from './icons/book-sharp'
+import Book from './icons/book'
+import BookmarkOutline from './icons/bookmark-outline'
+import BookmarkSharp from './icons/bookmark-sharp'
+import Bookmark from './icons/bookmark'
+import BookmarksOutline from './icons/bookmarks-outline'
+import BookmarksSharp from './icons/bookmarks-sharp'
+import Bookmarks from './icons/bookmarks'
+import BriefcaseOutline from './icons/briefcase-outline'
+import BriefcaseSharp from './icons/briefcase-sharp'
+import Briefcase from './icons/briefcase'
+import BrowsersOutline from './icons/browsers-outline'
+import BrowsersSharp from './icons/browsers-sharp'
+import Browsers from './icons/browsers'
+import BrushOutline from './icons/brush-outline'
+import BrushSharp from './icons/brush-sharp'
+import Brush from './icons/brush'
+import BugOutline from './icons/bug-outline'
+import BugSharp from './icons/bug-sharp'
+import Bug from './icons/bug'
+import BuildOutline from './icons/build-outline'
+import BuildSharp from './icons/build-sharp'
+import Build from './icons/build'
+import BulbOutline from './icons/bulb-outline'
+import BulbSharp from './icons/bulb-sharp'
+import Bulb from './icons/bulb'
+import BusOutline from './icons/bus-outline'
+import BusSharp from './icons/bus-sharp'
+import Bus from './icons/bus'
+import BusinessOutline from './icons/business-outline'
+import BusinessSharp from './icons/business-sharp'
+import Business from './icons/business'
+import CafeOutline from './icons/cafe-outline'
+import CafeSharp from './icons/cafe-sharp'
+import Cafe from './icons/cafe'
+import CalculatorOutline from './icons/calculator-outline'
+import CalculatorSharp from './icons/calculator-sharp'
+import Calculator from './icons/calculator'
+import CalendarOutline from './icons/calendar-outline'
+import CalendarSharp from './icons/calendar-sharp'
+import Calendar from './icons/calendar'
+import CallOutline from './icons/call-outline'
+import CallSharp from './icons/call-sharp'
+import Call from './icons/call'
+import CameraOutline from './icons/camera-outline'
+import CameraReverseOutline from './icons/camera-reverse-outline'
+import CameraReverseSharp from './icons/camera-reverse-sharp'
+import CameraReverse from './icons/camera-reverse'
+import CameraSharp from './icons/camera-sharp'
+import Camera from './icons/camera'
+import CarOutline from './icons/car-outline'
+import CarSharp from './icons/car-sharp'
+import CarSportOutline from './icons/car-sport-outline'
+import CarSportSharp from './icons/car-sport-sharp'
+import CarSport from './icons/car-sport'
+import Car from './icons/car'
+import CardOutline from './icons/card-outline'
+import CardSharp from './icons/card-sharp'
+import Card from './icons/card'
+import CaretBackCircleOutline from './icons/caret-back-circle-outline'
+import CaretBackCircleSharp from './icons/caret-back-circle-sharp'
+import CaretBackCircle from './icons/caret-back-circle'
+import CaretBackOutline from './icons/caret-back-outline'
+import CaretBackSharp from './icons/caret-back-sharp'
+import CaretBack from './icons/caret-back'
+import CaretDownCircleOutline from './icons/caret-down-circle-outline'
+import CaretDownCircleSharp from './icons/caret-down-circle-sharp'
+import CaretDownCircle from './icons/caret-down-circle'
+import CaretDownOutline from './icons/caret-down-outline'
+import CaretDownSharp from './icons/caret-down-sharp'
+import CaretDown from './icons/caret-down'
+import CaretForwardCircleOutline from './icons/caret-forward-circle-outline'
+import CaretForwardCircleSharp from './icons/caret-forward-circle-sharp'
+import CaretForwardCircle from './icons/caret-forward-circle'
+import CaretForwardOutline from './icons/caret-forward-outline'
+import CaretForwardSharp from './icons/caret-forward-sharp'
+import CaretForward from './icons/caret-forward'
+import CaretUpCircleOutline from './icons/caret-up-circle-outline'
+import CaretUpCircleSharp from './icons/caret-up-circle-sharp'
+import CaretUpCircle from './icons/caret-up-circle'
+import CaretUpOutline from './icons/caret-up-outline'
+import CaretUpSharp from './icons/caret-up-sharp'
+import CaretUp from './icons/caret-up'
+import CartOutline from './icons/cart-outline'
+import CartSharp from './icons/cart-sharp'
+import Cart from './icons/cart'
+import CashOutline from './icons/cash-outline'
+import CashSharp from './icons/cash-sharp'
+import Cash from './icons/cash'
+import CellularOutline from './icons/cellular-outline'
+import CellularSharp from './icons/cellular-sharp'
+import Cellular from './icons/cellular'
+import ChatboxEllipsesOutline from './icons/chatbox-ellipses-outline'
+import ChatboxEllipsesSharp from './icons/chatbox-ellipses-sharp'
+import ChatboxEllipses from './icons/chatbox-ellipses'
+import ChatboxOutline from './icons/chatbox-outline'
+import ChatboxSharp from './icons/chatbox-sharp'
+import Chatbox from './icons/chatbox'
+import ChatbubbleEllipsesOutline from './icons/chatbubble-ellipses-outline'
+import ChatbubbleEllipsesSharp from './icons/chatbubble-ellipses-sharp'
+import ChatbubbleEllipses from './icons/chatbubble-ellipses'
+import ChatbubbleOutline from './icons/chatbubble-outline'
+import ChatbubbleSharp from './icons/chatbubble-sharp'
+import Chatbubble from './icons/chatbubble'
+import ChatbubblesOutline from './icons/chatbubbles-outline'
+import ChatbubblesSharp from './icons/chatbubbles-sharp'
+import Chatbubbles from './icons/chatbubbles'
+import CheckboxOutline from './icons/checkbox-outline'
+import CheckboxSharp from './icons/checkbox-sharp'
+import Checkbox from './icons/checkbox'
+import CheckmarkCircleOutline from './icons/checkmark-circle-outline'
+import CheckmarkCircleSharp from './icons/checkmark-circle-sharp'
+import CheckmarkCircle from './icons/checkmark-circle'
+import CheckmarkDoneCircleOutline from './icons/checkmark-done-circle-outline'
+import CheckmarkDoneCircleSharp from './icons/checkmark-done-circle-sharp'
+import CheckmarkDoneCircle from './icons/checkmark-done-circle'
+import CheckmarkDoneOutline from './icons/checkmark-done-outline'
+import CheckmarkDoneSharp from './icons/checkmark-done-sharp'
+import CheckmarkDone from './icons/checkmark-done'
+import CheckmarkOutline from './icons/checkmark-outline'
+import CheckmarkSharp from './icons/checkmark-sharp'
+import Checkmark from './icons/checkmark'
+import ChevronBackCircleOutline from './icons/chevron-back-circle-outline'
+import ChevronBackCircleSharp from './icons/chevron-back-circle-sharp'
+import ChevronBackCircle from './icons/chevron-back-circle'
+import ChevronBackOutline from './icons/chevron-back-outline'
+import ChevronBackSharp from './icons/chevron-back-sharp'
+import ChevronBack from './icons/chevron-back'
+import ChevronDownCircleOutline from './icons/chevron-down-circle-outline'
+import ChevronDownCircleSharp from './icons/chevron-down-circle-sharp'
+import ChevronDownCircle from './icons/chevron-down-circle'
+import ChevronDownOutline from './icons/chevron-down-outline'
+import ChevronDownSharp from './icons/chevron-down-sharp'
+import ChevronDown from './icons/chevron-down'
+import ChevronForwardCircleOutline from './icons/chevron-forward-circle-outline'
+import ChevronForwardCircleSharp from './icons/chevron-forward-circle-sharp'
+import ChevronForwardCircle from './icons/chevron-forward-circle'
+import ChevronForwardOutline from './icons/chevron-forward-outline'
+import ChevronForwardSharp from './icons/chevron-forward-sharp'
+import ChevronForward from './icons/chevron-forward'
+import ChevronUpCircleOutline from './icons/chevron-up-circle-outline'
+import ChevronUpCircleSharp from './icons/chevron-up-circle-sharp'
+import ChevronUpCircle from './icons/chevron-up-circle'
+import ChevronUpOutline from './icons/chevron-up-outline'
+import ChevronUpSharp from './icons/chevron-up-sharp'
+import ChevronUp from './icons/chevron-up'
+import ClipboardOutline from './icons/clipboard-outline'
+import ClipboardSharp from './icons/clipboard-sharp'
+import Clipboard from './icons/clipboard'
+import CloseCircleOutline from './icons/close-circle-outline'
+import CloseCircleSharp from './icons/close-circle-sharp'
+import CloseCircle from './icons/close-circle'
+import CloseOutline from './icons/close-outline'
+import CloseSharp from './icons/close-sharp'
+import Close from './icons/close'
+import CloudCircleOutline from './icons/cloud-circle-outline'
+import CloudCircleSharp from './icons/cloud-circle-sharp'
+import CloudCircle from './icons/cloud-circle'
+import CloudDoneOutline from './icons/cloud-done-outline'
+import CloudDoneSharp from './icons/cloud-done-sharp'
+import CloudDone from './icons/cloud-done'
+import CloudDownloadOutline from './icons/cloud-download-outline'
+import CloudDownloadSharp from './icons/cloud-download-sharp'
+import CloudDownload from './icons/cloud-download'
+import CloudOfflineOutline from './icons/cloud-offline-outline'
+import CloudOfflineSharp from './icons/cloud-offline-sharp'
+import CloudOffline from './icons/cloud-offline'
+import CloudOutline from './icons/cloud-outline'
+import CloudSharp from './icons/cloud-sharp'
+import CloudUploadOutline from './icons/cloud-upload-outline'
+import CloudUploadSharp from './icons/cloud-upload-sharp'
+import CloudUpload from './icons/cloud-upload'
+import Cloud from './icons/cloud'
+import CloudyNightOutline from './icons/cloudy-night-outline'
+import CloudyNightSharp from './icons/cloudy-night-sharp'
+import CloudyNight from './icons/cloudy-night'
+import CloudyOutline from './icons/cloudy-outline'
+import CloudySharp from './icons/cloudy-sharp'
+import Cloudy from './icons/cloudy'
+import CodeDownloadOutline from './icons/code-download-outline'
+import CodeDownloadSharp from './icons/code-download-sharp'
+import CodeDownload from './icons/code-download'
+import CodeOutline from './icons/code-outline'
+import CodeSharp from './icons/code-sharp'
+import CodeSlashOutline from './icons/code-slash-outline'
+import CodeSlashSharp from './icons/code-slash-sharp'
+import CodeSlash from './icons/code-slash'
+import CodeWorkingOutline from './icons/code-working-outline'
+import CodeWorkingSharp from './icons/code-working-sharp'
+import CodeWorking from './icons/code-working'
+import Code from './icons/code'
+import CogOutline from './icons/cog-outline'
+import CogSharp from './icons/cog-sharp'
+import Cog from './icons/cog'
+import ColorFillOutline from './icons/color-fill-outline'
+import ColorFillSharp from './icons/color-fill-sharp'
+import ColorFill from './icons/color-fill'
+import ColorFilterOutline from './icons/color-filter-outline'
+import ColorFilterSharp from './icons/color-filter-sharp'
+import ColorFilter from './icons/color-filter'
+import ColorPaletteOutline from './icons/color-palette-outline'
+import ColorPaletteSharp from './icons/color-palette-sharp'
+import ColorPalette from './icons/color-palette'
+import ColorWandOutline from './icons/color-wand-outline'
+import ColorWandSharp from './icons/color-wand-sharp'
+import ColorWand from './icons/color-wand'
+import CompassOutline from './icons/compass-outline'
+import CompassSharp from './icons/compass-sharp'
+import Compass from './icons/compass'
+import ConstructOutline from './icons/construct-outline'
+import ConstructSharp from './icons/construct-sharp'
+import Construct from './icons/construct'
+import ContractOutline from './icons/contract-outline'
+import ContractSharp from './icons/contract-sharp'
+import Contract from './icons/contract'
+import ContrastOutline from './icons/contrast-outline'
+import ContrastSharp from './icons/contrast-sharp'
+import Contrast from './icons/contrast'
+import CopyOutline from './icons/copy-outline'
+import CopySharp from './icons/copy-sharp'
+import Copy from './icons/copy'
+import CreateOutline from './icons/create-outline'
+import CreateSharp from './icons/create-sharp'
+import Create from './icons/create'
+import CropOutline from './icons/crop-outline'
+import CropSharp from './icons/crop-sharp'
+import Crop from './icons/crop'
+import CubeOutline from './icons/cube-outline'
+import CubeSharp from './icons/cube-sharp'
+import Cube from './icons/cube'
+import CutOutline from './icons/cut-outline'
+import CutSharp from './icons/cut-sharp'
+import Cut from './icons/cut'
+import DesktopOutline from './icons/desktop-outline'
+import DesktopSharp from './icons/desktop-sharp'
+import Desktop from './icons/desktop'
+import DiscOutline from './icons/disc-outline'
+import DiscSharp from './icons/disc-sharp'
+import Disc from './icons/disc'
+import DocumentAttachOutline from './icons/document-attach-outline'
+import DocumentAttachSharp from './icons/document-attach-sharp'
+import DocumentAttach from './icons/document-attach'
+import DocumentOutline from './icons/document-outline'
+import DocumentSharp from './icons/document-sharp'
+import DocumentTextOutline from './icons/document-text-outline'
+import DocumentTextSharp from './icons/document-text-sharp'
+import DocumentText from './icons/document-text'
+import Document from './icons/document'
+import DocumentsOutline from './icons/documents-outline'
+import DocumentsSharp from './icons/documents-sharp'
+import Documents from './icons/documents'
+import DownloadOutline from './icons/download-outline'
+import DownloadSharp from './icons/download-sharp'
+import Download from './icons/download'
+import DuplicateOutline from './icons/duplicate-outline'
+import DuplicateSharp from './icons/duplicate-sharp'
+import Duplicate from './icons/duplicate'
+import EarOutline from './icons/ear-outline'
+import EarSharp from './icons/ear-sharp'
+import Ear from './icons/ear'
+import EarthOutline from './icons/earth-outline'
+import EarthSharp from './icons/earth-sharp'
+import Earth from './icons/earth'
+import EaselOutline from './icons/easel-outline'
+import EaselSharp from './icons/easel-sharp'
+import Easel from './icons/easel'
+import EggOutline from './icons/egg-outline'
+import EggSharp from './icons/egg-sharp'
+import Egg from './icons/egg'
+import EllipseOutline from './icons/ellipse-outline'
+import EllipseSharp from './icons/ellipse-sharp'
+import Ellipse from './icons/ellipse'
+import EllipsisHorizontalCircleOutline from './icons/ellipsis-horizontal-circle-outline'
+import EllipsisHorizontalCircleSharp from './icons/ellipsis-horizontal-circle-sharp'
+import EllipsisHorizontalCircle from './icons/ellipsis-horizontal-circle'
+import EllipsisHorizontalOutline from './icons/ellipsis-horizontal-outline'
+import EllipsisHorizontalSharp from './icons/ellipsis-horizontal-sharp'
+import EllipsisHorizontal from './icons/ellipsis-horizontal'
+import EllipsisVerticalCircleOutline from './icons/ellipsis-vertical-circle-outline'
+import EllipsisVerticalCircleSharp from './icons/ellipsis-vertical-circle-sharp'
+import EllipsisVerticalCircle from './icons/ellipsis-vertical-circle'
+import EllipsisVerticalOutline from './icons/ellipsis-vertical-outline'
+import EllipsisVerticalSharp from './icons/ellipsis-vertical-sharp'
+import EllipsisVertical from './icons/ellipsis-vertical'
+import EnterOutline from './icons/enter-outline'
+import EnterSharp from './icons/enter-sharp'
+import Enter from './icons/enter'
+import ExitOutline from './icons/exit-outline'
+import ExitSharp from './icons/exit-sharp'
+import Exit from './icons/exit'
+import ExpandOutline from './icons/expand-outline'
+import ExpandSharp from './icons/expand-sharp'
+import Expand from './icons/expand'
+import EyeOffOutline from './icons/eye-off-outline'
+import EyeOffSharp from './icons/eye-off-sharp'
+import EyeOff from './icons/eye-off'
+import EyeOutline from './icons/eye-outline'
+import EyeSharp from './icons/eye-sharp'
+import Eye from './icons/eye'
+import EyedropOutline from './icons/eyedrop-outline'
+import EyedropSharp from './icons/eyedrop-sharp'
+import Eyedrop from './icons/eyedrop'
+import FastFoodOutline from './icons/fast-food-outline'
+import FastFoodSharp from './icons/fast-food-sharp'
+import FastFood from './icons/fast-food'
+import FemaleOutline from './icons/female-outline'
+import FemaleSharp from './icons/female-sharp'
+import Female from './icons/female'
+import FileTrayFullOutline from './icons/file-tray-full-outline'
+import FileTrayFullSharp from './icons/file-tray-full-sharp'
+import FileTrayFull from './icons/file-tray-full'
+import FileTrayOutline from './icons/file-tray-outline'
+import FileTraySharp from './icons/file-tray-sharp'
+import FileTrayStackedOutline from './icons/file-tray-stacked-outline'
+import FileTrayStackedSharp from './icons/file-tray-stacked-sharp'
+import FileTrayStacked from './icons/file-tray-stacked'
+import FileTray from './icons/file-tray'
+import FilmOutline from './icons/film-outline'
+import FilmSharp from './icons/film-sharp'
+import Film from './icons/film'
+import FilterOutline from './icons/filter-outline'
+import FilterSharp from './icons/filter-sharp'
+import Filter from './icons/filter'
+import FingerPrintOutline from './icons/finger-print-outline'
+import FingerPrintSharp from './icons/finger-print-sharp'
+import FingerPrint from './icons/finger-print'
+import FitnessOutline from './icons/fitness-outline'
+import FitnessSharp from './icons/fitness-sharp'
+import Fitness from './icons/fitness'
+import FlagOutline from './icons/flag-outline'
+import FlagSharp from './icons/flag-sharp'
+import Flag from './icons/flag'
+import FlameOutline from './icons/flame-outline'
+import FlameSharp from './icons/flame-sharp'
+import Flame from './icons/flame'
+import FlashOffOutline from './icons/flash-off-outline'
+import FlashOffSharp from './icons/flash-off-sharp'
+import FlashOff from './icons/flash-off'
+import FlashOutline from './icons/flash-outline'
+import FlashSharp from './icons/flash-sharp'
+import Flash from './icons/flash'
+import FlashlightOutline from './icons/flashlight-outline'
+import FlashlightSharp from './icons/flashlight-sharp'
+import Flashlight from './icons/flashlight'
+import FlaskOutline from './icons/flask-outline'
+import FlaskSharp from './icons/flask-sharp'
+import Flask from './icons/flask'
+import FlowerOutline from './icons/flower-outline'
+import FlowerSharp from './icons/flower-sharp'
+import Flower from './icons/flower'
+import FolderOpenOutline from './icons/folder-open-outline'
+import FolderOpenSharp from './icons/folder-open-sharp'
+import FolderOpen from './icons/folder-open'
+import FolderOutline from './icons/folder-outline'
+import FolderSharp from './icons/folder-sharp'
+import Folder from './icons/folder'
+import FootballOutline from './icons/football-outline'
+import FootballSharp from './icons/football-sharp'
+import Football from './icons/football'
+import FunnelOutline from './icons/funnel-outline'
+import FunnelSharp from './icons/funnel-sharp'
+import Funnel from './icons/funnel'
+import GameControllerOutline from './icons/game-controller-outline'
+import GameControllerSharp from './icons/game-controller-sharp'
+import GameController from './icons/game-controller'
+import GiftOutline from './icons/gift-outline'
+import GiftSharp from './icons/gift-sharp'
+import Gift from './icons/gift'
+import GitBranchOutline from './icons/git-branch-outline'
+import GitBranchSharp from './icons/git-branch-sharp'
+import GitBranch from './icons/git-branch'
+import GitCommitOutline from './icons/git-commit-outline'
+import GitCommitSharp from './icons/git-commit-sharp'
+import GitCommit from './icons/git-commit'
+import GitCompareOutline from './icons/git-compare-outline'
+import GitCompareSharp from './icons/git-compare-sharp'
+import GitCompare from './icons/git-compare'
+import GitMergeOutline from './icons/git-merge-outline'
+import GitMergeSharp from './icons/git-merge-sharp'
+import GitMerge from './icons/git-merge'
+import GitNetworkOutline from './icons/git-network-outline'
+import GitNetworkSharp from './icons/git-network-sharp'
+import GitNetwork from './icons/git-network'
+import GitPullRequestOutline from './icons/git-pull-request-outline'
+import GitPullRequestSharp from './icons/git-pull-request-sharp'
+import GitPullRequest from './icons/git-pull-request'
+import GlassesOutline from './icons/glasses-outline'
+import GlassesSharp from './icons/glasses-sharp'
+import Glasses from './icons/glasses'
+import GlobeOutline from './icons/globe-outline'
+import GlobeSharp from './icons/globe-sharp'
+import Globe from './icons/globe'
+import GolfOutline from './icons/golf-outline'
+import GolfSharp from './icons/golf-sharp'
+import Golf from './icons/golf'
+import GridOutline from './icons/grid-outline'
+import GridSharp from './icons/grid-sharp'
+import Grid from './icons/grid'
+import HammerOutline from './icons/hammer-outline'
+import HammerSharp from './icons/hammer-sharp'
+import Hammer from './icons/hammer'
+import HandLeftOutline from './icons/hand-left-outline'
+import HandLeftSharp from './icons/hand-left-sharp'
+import HandLeft from './icons/hand-left'
+import HandRightOutline from './icons/hand-right-outline'
+import HandRightSharp from './icons/hand-right-sharp'
+import HandRight from './icons/hand-right'
+import HappyOutline from './icons/happy-outline'
+import HappySharp from './icons/happy-sharp'
+import Happy from './icons/happy'
+import HardwareChipOutline from './icons/hardware-chip-outline'
+import HardwareChipSharp from './icons/hardware-chip-sharp'
+import HardwareChip from './icons/hardware-chip'
+import HeadsetOutline from './icons/headset-outline'
+import HeadsetSharp from './icons/headset-sharp'
+import Headset from './icons/headset'
+import HeartCircleOutline from './icons/heart-circle-outline'
+import HeartCircleSharp from './icons/heart-circle-sharp'
+import HeartCircle from './icons/heart-circle'
+import HeartDislikeCircleOutline from './icons/heart-dislike-circle-outline'
+import HeartDislikeCircleSharp from './icons/heart-dislike-circle-sharp'
+import HeartDislikeCircle from './icons/heart-dislike-circle'
+import HeartDislikeOutline from './icons/heart-dislike-outline'
+import HeartDislikeSharp from './icons/heart-dislike-sharp'
+import HeartDislike from './icons/heart-dislike'
+import HeartHalfOutline from './icons/heart-half-outline'
+import HeartHalfSharp from './icons/heart-half-sharp'
+import HeartHalf from './icons/heart-half'
+import HeartOutline from './icons/heart-outline'
+import HeartSharp from './icons/heart-sharp'
+import Heart from './icons/heart'
+import HelpBuoyOutline from './icons/help-buoy-outline'
+import HelpBuoySharp from './icons/help-buoy-sharp'
+import HelpBuoy from './icons/help-buoy'
+import HelpCircleOutline from './icons/help-circle-outline'
+import HelpCircleSharp from './icons/help-circle-sharp'
+import HelpCircle from './icons/help-circle'
+import HelpOutline from './icons/help-outline'
+import HelpSharp from './icons/help-sharp'
+import Help from './icons/help'
+import HomeOutline from './icons/home-outline'
+import HomeSharp from './icons/home-sharp'
+import Home from './icons/home'
+import HourglassOutline from './icons/hourglass-outline'
+import HourglassSharp from './icons/hourglass-sharp'
+import Hourglass from './icons/hourglass'
+import IceCreamOutline from './icons/ice-cream-outline'
+import IceCreamSharp from './icons/ice-cream-sharp'
+import IceCream from './icons/ice-cream'
+import ImageOutline from './icons/image-outline'
+import ImageSharp from './icons/image-sharp'
+import Image from './icons/image'
+import ImagesOutline from './icons/images-outline'
+import ImagesSharp from './icons/images-sharp'
+import Images from './icons/images'
+import InfiniteOutline from './icons/infinite-outline'
+import InfiniteSharp from './icons/infinite-sharp'
+import Infinite from './icons/infinite'
+import InformationCircleOutline from './icons/information-circle-outline'
+import InformationCircleSharp from './icons/information-circle-sharp'
+import InformationCircle from './icons/information-circle'
+import InformationOutline from './icons/information-outline'
+import InformationSharp from './icons/information-sharp'
+import Information from './icons/information'
+import JournalOutline from './icons/journal-outline'
+import JournalSharp from './icons/journal-sharp'
+import Journal from './icons/journal'
+import KeyOutline from './icons/key-outline'
+import KeySharp from './icons/key-sharp'
+import Key from './icons/key'
+import KeypadOutline from './icons/keypad-outline'
+import KeypadSharp from './icons/keypad-sharp'
+import Keypad from './icons/keypad'
+import LanguageOutline from './icons/language-outline'
+import LanguageSharp from './icons/language-sharp'
+import Language from './icons/language'
+import LaptopOutline from './icons/laptop-outline'
+import LaptopSharp from './icons/laptop-sharp'
+import Laptop from './icons/laptop'
+import LayersOutline from './icons/layers-outline'
+import LayersSharp from './icons/layers-sharp'
+import Layers from './icons/layers'
+import LeafOutline from './icons/leaf-outline'
+import LeafSharp from './icons/leaf-sharp'
+import Leaf from './icons/leaf'
+import LibraryOutline from './icons/library-outline'
+import LibrarySharp from './icons/library-sharp'
+import Library from './icons/library'
+import LinkOutline from './icons/link-outline'
+import LinkSharp from './icons/link-sharp'
+import Link from './icons/link'
+import ListCircleOutline from './icons/list-circle-outline'
+import ListCircleSharp from './icons/list-circle-sharp'
+import ListCircle from './icons/list-circle'
+import ListOutline from './icons/list-outline'
+import ListSharp from './icons/list-sharp'
+import List from './icons/list'
+import LocateOutline from './icons/locate-outline'
+import LocateSharp from './icons/locate-sharp'
+import Locate from './icons/locate'
+import LocationOutline from './icons/location-outline'
+import LocationSharp from './icons/location-sharp'
+import Location from './icons/location'
+import LockClosedOutline from './icons/lock-closed-outline'
+import LockClosedSharp from './icons/lock-closed-sharp'
+import LockClosed from './icons/lock-closed'
+import LockOpenOutline from './icons/lock-open-outline'
+import LockOpenSharp from './icons/lock-open-sharp'
+import LockOpen from './icons/lock-open'
+import LogInOutline from './icons/log-in-outline'
+import LogInSharp from './icons/log-in-sharp'
+import LogIn from './icons/log-in'
+import LogOutOutline from './icons/log-out-outline'
+import LogOutSharp from './icons/log-out-sharp'
+import LogOut from './icons/log-out'
+import LogoAmazon from './icons/logo-amazon'
+import LogoAmplify from './icons/logo-amplify'
+import LogoAndroid from './icons/logo-android'
+import LogoAngular from './icons/logo-angular'
+import LogoAppleAppstore from './icons/logo-apple-appstore'
+import LogoApple from './icons/logo-apple'
+import LogoBitbucket from './icons/logo-bitbucket'
+import LogoBitcoin from './icons/logo-bitcoin'
+import LogoBuffer from './icons/logo-buffer'
+import LogoCapacitor from './icons/logo-capacitor'
+import LogoChrome from './icons/logo-chrome'
+import LogoClosedCaptioning from './icons/logo-closed-captioning'
+import LogoCodepen from './icons/logo-codepen'
+import LogoCss3 from './icons/logo-css3'
+import LogoDesignernews from './icons/logo-designernews'
+import LogoDribbble from './icons/logo-dribbble'
+import LogoDropbox from './icons/logo-dropbox'
+import LogoEdge from './icons/logo-edge'
+import LogoElectron from './icons/logo-electron'
+import LogoEuro from './icons/logo-euro'
+import LogoFacebook from './icons/logo-facebook'
+import LogoFirebase from './icons/logo-firebase'
+import LogoFirefox from './icons/logo-firefox'
+import LogoFlickr from './icons/logo-flickr'
+import LogoFoursquare from './icons/logo-foursquare'
+import LogoGithub from './icons/logo-github'
+import LogoGooglePlaystore from './icons/logo-google-playstore'
+import LogoGoogle from './icons/logo-google'
+import LogoHackernews from './icons/logo-hackernews'
+import LogoHtml5 from './icons/logo-html5'
+import LogoInstagram from './icons/logo-instagram'
+import LogoIonic from './icons/logo-ionic'
+import LogoIonitron from './icons/logo-ionitron'
+import LogoJavascript from './icons/logo-javascript'
+import LogoLaravel from './icons/logo-laravel'
+import LogoLinkedin from './icons/logo-linkedin'
+import LogoMarkdown from './icons/logo-markdown'
+import LogoNoSmoking from './icons/logo-no-smoking'
+import LogoNodejs from './icons/logo-nodejs'
+import LogoNpm from './icons/logo-npm'
+import LogoOctocat from './icons/logo-octocat'
+import LogoPinterest from './icons/logo-pinterest'
+import LogoPlaystation from './icons/logo-playstation'
+import LogoPwa from './icons/logo-pwa'
+import LogoPython from './icons/logo-python'
+import LogoReact from './icons/logo-react'
+import LogoReddit from './icons/logo-reddit'
+import LogoRss from './icons/logo-rss'
+import LogoSass from './icons/logo-sass'
+import LogoSkype from './icons/logo-skype'
+import LogoSlack from './icons/logo-slack'
+import LogoSnapchat from './icons/logo-snapchat'
+import LogoStackoverflow from './icons/logo-stackoverflow'
+import LogoSteam from './icons/logo-steam'
+import LogoStencil from './icons/logo-stencil'
+import LogoTumblr from './icons/logo-tumblr'
+import LogoTux from './icons/logo-tux'
+import LogoTwitch from './icons/logo-twitch'
+import LogoTwitter from './icons/logo-twitter'
+import LogoUsd from './icons/logo-usd'
+import LogoVimeo from './icons/logo-vimeo'
+import LogoVk from './icons/logo-vk'
+import LogoVue from './icons/logo-vue'
+import LogoWebComponent from './icons/logo-web-component'
+import LogoWhatsapp from './icons/logo-whatsapp'
+import LogoWindows from './icons/logo-windows'
+import LogoWordpress from './icons/logo-wordpress'
+import LogoXbox from './icons/logo-xbox'
+import LogoXing from './icons/logo-xing'
+import LogoYahoo from './icons/logo-yahoo'
+import LogoYen from './icons/logo-yen'
+import LogoYoutube from './icons/logo-youtube'
+import MagnetOutline from './icons/magnet-outline'
+import MagnetSharp from './icons/magnet-sharp'
+import Magnet from './icons/magnet'
+import MailOpenOutline from './icons/mail-open-outline'
+import MailOpenSharp from './icons/mail-open-sharp'
+import MailOpen from './icons/mail-open'
+import MailOutline from './icons/mail-outline'
+import MailSharp from './icons/mail-sharp'
+import MailUnreadOutline from './icons/mail-unread-outline'
+import MailUnreadSharp from './icons/mail-unread-sharp'
+import MailUnread from './icons/mail-unread'
+import Mail from './icons/mail'
+import MaleFemaleOutline from './icons/male-female-outline'
+import MaleFemaleSharp from './icons/male-female-sharp'
+import MaleFemale from './icons/male-female'
+import MaleOutline from './icons/male-outline'
+import MaleSharp from './icons/male-sharp'
+import Male from './icons/male'
+import ManOutline from './icons/man-outline'
+import ManSharp from './icons/man-sharp'
+import Man from './icons/man'
+import MapOutline from './icons/map-outline'
+import MapSharp from './icons/map-sharp'
+import Map from './icons/map'
+import MedalOutline from './icons/medal-outline'
+import MedalSharp from './icons/medal-sharp'
+import Medal from './icons/medal'
+import MedicalOutline from './icons/medical-outline'
+import MedicalSharp from './icons/medical-sharp'
+import Medical from './icons/medical'
+import MedkitOutline from './icons/medkit-outline'
+import MedkitSharp from './icons/medkit-sharp'
+import Medkit from './icons/medkit'
+import MegaphoneOutline from './icons/megaphone-outline'
+import MegaphoneSharp from './icons/megaphone-sharp'
+import Megaphone from './icons/megaphone'
+import MenuOutline from './icons/menu-outline'
+import MenuSharp from './icons/menu-sharp'
+import Menu from './icons/menu'
+import MicCircleOutline from './icons/mic-circle-outline'
+import MicCircleSharp from './icons/mic-circle-sharp'
+import MicCircle from './icons/mic-circle'
+import MicOffCircleOutline from './icons/mic-off-circle-outline'
+import MicOffCircleSharp from './icons/mic-off-circle-sharp'
+import MicOffCircle from './icons/mic-off-circle'
+import MicOffOutline from './icons/mic-off-outline'
+import MicOffSharp from './icons/mic-off-sharp'
+import MicOff from './icons/mic-off'
+import MicOutline from './icons/mic-outline'
+import MicSharp from './icons/mic-sharp'
+import Mic from './icons/mic'
+import MoonOutline from './icons/moon-outline'
+import MoonSharp from './icons/moon-sharp'
+import Moon from './icons/moon'
+import MoveOutline from './icons/move-outline'
+import MoveSharp from './icons/move-sharp'
+import Move from './icons/move'
+import MusicalNoteOutline from './icons/musical-note-outline'
+import MusicalNoteSharp from './icons/musical-note-sharp'
+import MusicalNote from './icons/musical-note'
+import MusicalNotesOutline from './icons/musical-notes-outline'
+import MusicalNotesSharp from './icons/musical-notes-sharp'
+import MusicalNotes from './icons/musical-notes'
+import NavigateCircleOutline from './icons/navigate-circle-outline'
+import NavigateCircleSharp from './icons/navigate-circle-sharp'
+import NavigateCircle from './icons/navigate-circle'
+import NavigateOutline from './icons/navigate-outline'
+import NavigateSharp from './icons/navigate-sharp'
+import Navigate from './icons/navigate'
+import NewspaperOutline from './icons/newspaper-outline'
+import NewspaperSharp from './icons/newspaper-sharp'
+import Newspaper from './icons/newspaper'
+import NotificationsCircleOutline from './icons/notifications-circle-outline'
+import NotificationsCircleSharp from './icons/notifications-circle-sharp'
+import NotificationsCircle from './icons/notifications-circle'
+import NotificationsOffCircleOutline from './icons/notifications-off-circle-outline'
+import NotificationsOffCircleSharp from './icons/notifications-off-circle-sharp'
+import NotificationsOffCircle from './icons/notifications-off-circle'
+import NotificationsOffOutline from './icons/notifications-off-outline'
+import NotificationsOffSharp from './icons/notifications-off-sharp'
+import NotificationsOff from './icons/notifications-off'
+import NotificationsOutline from './icons/notifications-outline'
+import NotificationsSharp from './icons/notifications-sharp'
+import Notifications from './icons/notifications'
+import NuclearOutline from './icons/nuclear-outline'
+import NuclearSharp from './icons/nuclear-sharp'
+import Nuclear from './icons/nuclear'
+import NutritionOutline from './icons/nutrition-outline'
+import NutritionSharp from './icons/nutrition-sharp'
+import Nutrition from './icons/nutrition'
+import OpenOutline from './icons/open-outline'
+import OpenSharp from './icons/open-sharp'
+import Open from './icons/open'
+import OptionsOutline from './icons/options-outline'
+import OptionsSharp from './icons/options-sharp'
+import Options from './icons/options'
+import PaperPlaneOutline from './icons/paper-plane-outline'
+import PaperPlaneSharp from './icons/paper-plane-sharp'
+import PaperPlane from './icons/paper-plane'
+import PartlySunnyOutline from './icons/partly-sunny-outline'
+import PartlySunnySharp from './icons/partly-sunny-sharp'
+import PartlySunny from './icons/partly-sunny'
+import PauseCircleOutline from './icons/pause-circle-outline'
+import PauseCircleSharp from './icons/pause-circle-sharp'
+import PauseCircle from './icons/pause-circle'
+import PauseOutline from './icons/pause-outline'
+import PauseSharp from './icons/pause-sharp'
+import Pause from './icons/pause'
+import PawOutline from './icons/paw-outline'
+import PawSharp from './icons/paw-sharp'
+import Paw from './icons/paw'
+import PencilOutline from './icons/pencil-outline'
+import PencilSharp from './icons/pencil-sharp'
+import Pencil from './icons/pencil'
+import PeopleCircleOutline from './icons/people-circle-outline'
+import PeopleCircleSharp from './icons/people-circle-sharp'
+import PeopleCircle from './icons/people-circle'
+import PeopleOutline from './icons/people-outline'
+import PeopleSharp from './icons/people-sharp'
+import People from './icons/people'
+import PersonAddOutline from './icons/person-add-outline'
+import PersonAddSharp from './icons/person-add-sharp'
+import PersonAdd from './icons/person-add'
+import PersonCircleOutline from './icons/person-circle-outline'
+import PersonCircleSharp from './icons/person-circle-sharp'
+import PersonCircle from './icons/person-circle'
+import PersonOutline from './icons/person-outline'
+import PersonRemoveOutline from './icons/person-remove-outline'
+import PersonRemoveSharp from './icons/person-remove-sharp'
+import PersonRemove from './icons/person-remove'
+import PersonSharp from './icons/person-sharp'
+import Person from './icons/person'
+import PhoneLandscapeOutline from './icons/phone-landscape-outline'
+import PhoneLandscapeSharp from './icons/phone-landscape-sharp'
+import PhoneLandscape from './icons/phone-landscape'
+import PhonePortraitOutline from './icons/phone-portrait-outline'
+import PhonePortraitSharp from './icons/phone-portrait-sharp'
+import PhonePortrait from './icons/phone-portrait'
+import PieChartOutline from './icons/pie-chart-outline'
+import PieChartSharp from './icons/pie-chart-sharp'
+import PieChart from './icons/pie-chart'
+import PinOutline from './icons/pin-outline'
+import PinSharp from './icons/pin-sharp'
+import Pin from './icons/pin'
+import PintOutline from './icons/pint-outline'
+import PintSharp from './icons/pint-sharp'
+import Pint from './icons/pint'
+import PizzaOutline from './icons/pizza-outline'
+import PizzaSharp from './icons/pizza-sharp'
+import Pizza from './icons/pizza'
+import PlanetOutline from './icons/planet-outline'
+import PlanetSharp from './icons/planet-sharp'
+import Planet from './icons/planet'
+import PlayBackCircleOutline from './icons/play-back-circle-outline'
+import PlayBackCircleSharp from './icons/play-back-circle-sharp'
+import PlayBackCircle from './icons/play-back-circle'
+import PlayBackOutline from './icons/play-back-outline'
+import PlayBackSharp from './icons/play-back-sharp'
+import PlayBack from './icons/play-back'
+import PlayCircleOutline from './icons/play-circle-outline'
+import PlayCircleSharp from './icons/play-circle-sharp'
+import PlayCircle from './icons/play-circle'
+import PlayForwardCircleOutline from './icons/play-forward-circle-outline'
+import PlayForwardCircleSharp from './icons/play-forward-circle-sharp'
+import PlayForwardCircle from './icons/play-forward-circle'
+import PlayForwardOutline from './icons/play-forward-outline'
+import PlayForwardSharp from './icons/play-forward-sharp'
+import PlayForward from './icons/play-forward'
+import PlayOutline from './icons/play-outline'
+import PlaySharp from './icons/play-sharp'
+import PlaySkipBackCircleOutline from './icons/play-skip-back-circle-outline'
+import PlaySkipBackCircleSharp from './icons/play-skip-back-circle-sharp'
+import PlaySkipBackCircle from './icons/play-skip-back-circle'
+import PlaySkipBackOutline from './icons/play-skip-back-outline'
+import PlaySkipBackSharp from './icons/play-skip-back-sharp'
+import PlaySkipBack from './icons/play-skip-back'
+import PlaySkipForwardCircleOutline from './icons/play-skip-forward-circle-outline'
+import PlaySkipForwardCircleSharp from './icons/play-skip-forward-circle-sharp'
+import PlaySkipForwardCircle from './icons/play-skip-forward-circle'
+import PlaySkipForwardOutline from './icons/play-skip-forward-outline'
+import PlaySkipForwardSharp from './icons/play-skip-forward-sharp'
+import PlaySkipForward from './icons/play-skip-forward'
+import Play from './icons/play'
+import PodiumOutline from './icons/podium-outline'
+import PodiumSharp from './icons/podium-sharp'
+import Podium from './icons/podium'
+import PowerOutline from './icons/power-outline'
+import PowerSharp from './icons/power-sharp'
+import Power from './icons/power'
+import PricetagOutline from './icons/pricetag-outline'
+import PricetagSharp from './icons/pricetag-sharp'
+import Pricetag from './icons/pricetag'
+import PricetagsOutline from './icons/pricetags-outline'
+import PricetagsSharp from './icons/pricetags-sharp'
+import Pricetags from './icons/pricetags'
+import PrintOutline from './icons/print-outline'
+import PrintSharp from './icons/print-sharp'
+import Print from './icons/print'
+import PulseOutline from './icons/pulse-outline'
+import PulseSharp from './icons/pulse-sharp'
+import Pulse from './icons/pulse'
+import PushOutline from './icons/push-outline'
+import PushSharp from './icons/push-sharp'
+import Push from './icons/push'
+import QrCodeOutline from './icons/qr-code-outline'
+import QrCodeSharp from './icons/qr-code-sharp'
+import QrCode from './icons/qr-code'
+import RadioButtonOffOutline from './icons/radio-button-off-outline'
+import RadioButtonOffSharp from './icons/radio-button-off-sharp'
+import RadioButtonOff from './icons/radio-button-off'
+import RadioButtonOnOutline from './icons/radio-button-on-outline'
+import RadioButtonOnSharp from './icons/radio-button-on-sharp'
+import RadioButtonOn from './icons/radio-button-on'
+import RadioOutline from './icons/radio-outline'
+import RadioSharp from './icons/radio-sharp'
+import Radio from './icons/radio'
+import RainyOutline from './icons/rainy-outline'
+import RainySharp from './icons/rainy-sharp'
+import Rainy from './icons/rainy'
+import ReaderOutline from './icons/reader-outline'
+import ReaderSharp from './icons/reader-sharp'
+import Reader from './icons/reader'
+import ReceiptOutline from './icons/receipt-outline'
+import ReceiptSharp from './icons/receipt-sharp'
+import Receipt from './icons/receipt'
+import RecordingOutline from './icons/recording-outline'
+import RecordingSharp from './icons/recording-sharp'
+import Recording from './icons/recording'
+import RefreshCircleOutline from './icons/refresh-circle-outline'
+import RefreshCircleSharp from './icons/refresh-circle-sharp'
+import RefreshCircle from './icons/refresh-circle'
+import RefreshOutline from './icons/refresh-outline'
+import RefreshSharp from './icons/refresh-sharp'
+import Refresh from './icons/refresh'
+import ReloadCircleOutline from './icons/reload-circle-outline'
+import ReloadCircleSharp from './icons/reload-circle-sharp'
+import ReloadCircle from './icons/reload-circle'
+import ReloadOutline from './icons/reload-outline'
+import ReloadSharp from './icons/reload-sharp'
+import Reload from './icons/reload'
+import RemoveCircleOutline from './icons/remove-circle-outline'
+import RemoveCircleSharp from './icons/remove-circle-sharp'
+import RemoveCircle from './icons/remove-circle'
+import RemoveOutline from './icons/remove-outline'
+import RemoveSharp from './icons/remove-sharp'
+import Remove from './icons/remove'
+import ReorderFourOutline from './icons/reorder-four-outline'
+import ReorderFourSharp from './icons/reorder-four-sharp'
+import ReorderFour from './icons/reorder-four'
+import ReorderThreeOutline from './icons/reorder-three-outline'
+import ReorderThreeSharp from './icons/reorder-three-sharp'
+import ReorderThree from './icons/reorder-three'
+import ReorderTwoOutline from './icons/reorder-two-outline'
+import ReorderTwoSharp from './icons/reorder-two-sharp'
+import ReorderTwo from './icons/reorder-two'
+import RepeatOutline from './icons/repeat-outline'
+import RepeatSharp from './icons/repeat-sharp'
+import Repeat from './icons/repeat'
+import ResizeOutline from './icons/resize-outline'
+import ResizeSharp from './icons/resize-sharp'
+import Resize from './icons/resize'
+import RestaurantOutline from './icons/restaurant-outline'
+import RestaurantSharp from './icons/restaurant-sharp'
+import Restaurant from './icons/restaurant'
+import ReturnDownBackOutline from './icons/return-down-back-outline'
+import ReturnDownBackSharp from './icons/return-down-back-sharp'
+import ReturnDownBack from './icons/return-down-back'
+import ReturnDownForwardOutline from './icons/return-down-forward-outline'
+import ReturnDownForwardSharp from './icons/return-down-forward-sharp'
+import ReturnDownForward from './icons/return-down-forward'
+import ReturnUpBackOutline from './icons/return-up-back-outline'
+import ReturnUpBackSharp from './icons/return-up-back-sharp'
+import ReturnUpBack from './icons/return-up-back'
+import ReturnUpForwardOutline from './icons/return-up-forward-outline'
+import ReturnUpForwardSharp from './icons/return-up-forward-sharp'
+import ReturnUpForward from './icons/return-up-forward'
+import RibbonOutline from './icons/ribbon-outline'
+import RibbonSharp from './icons/ribbon-sharp'
+import Ribbon from './icons/ribbon'
+import RocketOutline from './icons/rocket-outline'
+import RocketSharp from './icons/rocket-sharp'
+import Rocket from './icons/rocket'
+import RoseOutline from './icons/rose-outline'
+import RoseSharp from './icons/rose-sharp'
+import Rose from './icons/rose'
+import SadOutline from './icons/sad-outline'
+import SadSharp from './icons/sad-sharp'
+import Sad from './icons/sad'
+import SaveOutline from './icons/save-outline'
+import SaveSharp from './icons/save-sharp'
+import Save from './icons/save'
+import ScanCircleOutline from './icons/scan-circle-outline'
+import ScanCircleSharp from './icons/scan-circle-sharp'
+import ScanCircle from './icons/scan-circle'
+import ScanOutline from './icons/scan-outline'
+import ScanSharp from './icons/scan-sharp'
+import Scan from './icons/scan'
+import SchoolOutline from './icons/school-outline'
+import SchoolSharp from './icons/school-sharp'
+import School from './icons/school'
+import SearchCircleOutline from './icons/search-circle-outline'
+import SearchCircleSharp from './icons/search-circle-sharp'
+import SearchCircle from './icons/search-circle'
+import SearchOutline from './icons/search-outline'
+import SearchSharp from './icons/search-sharp'
+import Search from './icons/search'
+import SendOutline from './icons/send-outline'
+import SendSharp from './icons/send-sharp'
+import Send from './icons/send'
+import ServerOutline from './icons/server-outline'
+import ServerSharp from './icons/server-sharp'
+import Server from './icons/server'
+import SettingsOutline from './icons/settings-outline'
+import SettingsSharp from './icons/settings-sharp'
+import Settings from './icons/settings'
+import ShapesOutline from './icons/shapes-outline'
+import ShapesSharp from './icons/shapes-sharp'
+import Shapes from './icons/shapes'
+import ShareOutline from './icons/share-outline'
+import ShareSharp from './icons/share-sharp'
+import ShareSocialOutline from './icons/share-social-outline'
+import ShareSocialSharp from './icons/share-social-sharp'
+import ShareSocial from './icons/share-social'
+import Share from './icons/share'
+import ShieldCheckmarkOutline from './icons/shield-checkmark-outline'
+import ShieldCheckmarkSharp from './icons/shield-checkmark-sharp'
+import ShieldCheckmark from './icons/shield-checkmark'
+import ShieldOutline from './icons/shield-outline'
+import ShieldSharp from './icons/shield-sharp'
+import Shield from './icons/shield'
+import ShirtOutline from './icons/shirt-outline'
+import ShirtSharp from './icons/shirt-sharp'
+import Shirt from './icons/shirt'
+import ShuffleOutline from './icons/shuffle-outline'
+import ShuffleSharp from './icons/shuffle-sharp'
+import Shuffle from './icons/shuffle'
+import SkullOutline from './icons/skull-outline'
+import SkullSharp from './icons/skull-sharp'
+import Skull from './icons/skull'
+import SnowOutline from './icons/snow-outline'
+import SnowSharp from './icons/snow-sharp'
+import Snow from './icons/snow'
+import SpeedometerOutline from './icons/speedometer-outline'
+import SpeedometerSharp from './icons/speedometer-sharp'
+import Speedometer from './icons/speedometer'
+import SquareOutline from './icons/square-outline'
+import SquareSharp from './icons/square-sharp'
+import Square from './icons/square'
+import StarHalfOutline from './icons/star-half-outline'
+import StarHalfSharp from './icons/star-half-sharp'
+import StarHalf from './icons/star-half'
+import StarOutline from './icons/star-outline'
+import StarSharp from './icons/star-sharp'
+import Star from './icons/star'
+import StatsChartOutline from './icons/stats-chart-outline'
+import StatsChartSharp from './icons/stats-chart-sharp'
+import StatsChart from './icons/stats-chart'
+import StopCircleOutline from './icons/stop-circle-outline'
+import StopCircleSharp from './icons/stop-circle-sharp'
+import StopCircle from './icons/stop-circle'
+import StopOutline from './icons/stop-outline'
+import StopSharp from './icons/stop-sharp'
+import Stop from './icons/stop'
+import StopwatchOutline from './icons/stopwatch-outline'
+import StopwatchSharp from './icons/stopwatch-sharp'
+import Stopwatch from './icons/stopwatch'
+import SubwayOutline from './icons/subway-outline'
+import SubwaySharp from './icons/subway-sharp'
+import Subway from './icons/subway'
+import SunnyOutline from './icons/sunny-outline'
+import SunnySharp from './icons/sunny-sharp'
+import Sunny from './icons/sunny'
+import SwapHorizontalOutline from './icons/swap-horizontal-outline'
+import SwapHorizontalSharp from './icons/swap-horizontal-sharp'
+import SwapHorizontal from './icons/swap-horizontal'
+import SwapVerticalOutline from './icons/swap-vertical-outline'
+import SwapVerticalSharp from './icons/swap-vertical-sharp'
+import SwapVertical from './icons/swap-vertical'
+import SyncCircleOutline from './icons/sync-circle-outline'
+import SyncCircleSharp from './icons/sync-circle-sharp'
+import SyncCircle from './icons/sync-circle'
+import SyncOutline from './icons/sync-outline'
+import SyncSharp from './icons/sync-sharp'
+import Sync from './icons/sync'
+import TabletLandscapeOutline from './icons/tablet-landscape-outline'
+import TabletLandscapeSharp from './icons/tablet-landscape-sharp'
+import TabletLandscape from './icons/tablet-landscape'
+import TabletPortraitOutline from './icons/tablet-portrait-outline'
+import TabletPortraitSharp from './icons/tablet-portrait-sharp'
+import TabletPortrait from './icons/tablet-portrait'
+import TennisballOutline from './icons/tennisball-outline'
+import TennisballSharp from './icons/tennisball-sharp'
+import Tennisball from './icons/tennisball'
+import TerminalOutline from './icons/terminal-outline'
+import TerminalSharp from './icons/terminal-sharp'
+import Terminal from './icons/terminal'
+import TextOutline from './icons/text-outline'
+import TextSharp from './icons/text-sharp'
+import Text from './icons/text'
+import ThermometerOutline from './icons/thermometer-outline'
+import ThermometerSharp from './icons/thermometer-sharp'
+import Thermometer from './icons/thermometer'
+import ThumbsDownOutline from './icons/thumbs-down-outline'
+import ThumbsDownSharp from './icons/thumbs-down-sharp'
+import ThumbsDown from './icons/thumbs-down'
+import ThumbsUpOutline from './icons/thumbs-up-outline'
+import ThumbsUpSharp from './icons/thumbs-up-sharp'
+import ThumbsUp from './icons/thumbs-up'
+import ThunderstormOutline from './icons/thunderstorm-outline'
+import ThunderstormSharp from './icons/thunderstorm-sharp'
+import Thunderstorm from './icons/thunderstorm'
+import TimeOutline from './icons/time-outline'
+import TimeSharp from './icons/time-sharp'
+import Time from './icons/time'
+import TimerOutline from './icons/timer-outline'
+import TimerSharp from './icons/timer-sharp'
+import Timer from './icons/timer'
+import TodayOutline from './icons/today-outline'
+import TodaySharp from './icons/today-sharp'
+import Today from './icons/today'
+import ToggleOutline from './icons/toggle-outline'
+import ToggleSharp from './icons/toggle-sharp'
+import Toggle from './icons/toggle'
+import TrailSignOutline from './icons/trail-sign-outline'
+import TrailSignSharp from './icons/trail-sign-sharp'
+import TrailSign from './icons/trail-sign'
+import TrainOutline from './icons/train-outline'
+import TrainSharp from './icons/train-sharp'
+import Train from './icons/train'
+import TransgenderOutline from './icons/transgender-outline'
+import TransgenderSharp from './icons/transgender-sharp'
+import Transgender from './icons/transgender'
+import TrashBinOutline from './icons/trash-bin-outline'
+import TrashBinSharp from './icons/trash-bin-sharp'
+import TrashBin from './icons/trash-bin'
+import TrashOutline from './icons/trash-outline'
+import TrashSharp from './icons/trash-sharp'
+import Trash from './icons/trash'
+import TrendingDownOutline from './icons/trending-down-outline'
+import TrendingDownSharp from './icons/trending-down-sharp'
+import TrendingDown from './icons/trending-down'
+import TrendingUpOutline from './icons/trending-up-outline'
+import TrendingUpSharp from './icons/trending-up-sharp'
+import TrendingUp from './icons/trending-up'
+import TriangleOutline from './icons/triangle-outline'
+import TriangleSharp from './icons/triangle-sharp'
+import Triangle from './icons/triangle'
+import TrophyOutline from './icons/trophy-outline'
+import TrophySharp from './icons/trophy-sharp'
+import Trophy from './icons/trophy'
+import TvOutline from './icons/tv-outline'
+import TvSharp from './icons/tv-sharp'
+import Tv from './icons/tv'
+import UmbrellaOutline from './icons/umbrella-outline'
+import UmbrellaSharp from './icons/umbrella-sharp'
+import Umbrella from './icons/umbrella'
+import VideocamOutline from './icons/videocam-outline'
+import VideocamSharp from './icons/videocam-sharp'
+import Videocam from './icons/videocam'
+import VolumeHighOutline from './icons/volume-high-outline'
+import VolumeHighSharp from './icons/volume-high-sharp'
+import VolumeHigh from './icons/volume-high'
+import VolumeLowOutline from './icons/volume-low-outline'
+import VolumeLowSharp from './icons/volume-low-sharp'
+import VolumeLow from './icons/volume-low'
+import VolumeMediumOutline from './icons/volume-medium-outline'
+import VolumeMediumSharp from './icons/volume-medium-sharp'
+import VolumeMedium from './icons/volume-medium'
+import VolumeMuteOutline from './icons/volume-mute-outline'
+import VolumeMuteSharp from './icons/volume-mute-sharp'
+import VolumeMute from './icons/volume-mute'
+import VolumeOffOutline from './icons/volume-off-outline'
+import VolumeOffSharp from './icons/volume-off-sharp'
+import VolumeOff from './icons/volume-off'
+import WalkOutline from './icons/walk-outline'
+import WalkSharp from './icons/walk-sharp'
+import Walk from './icons/walk'
+import WalletOutline from './icons/wallet-outline'
+import WalletSharp from './icons/wallet-sharp'
+import Wallet from './icons/wallet'
+import WarningOutline from './icons/warning-outline'
+import WarningSharp from './icons/warning-sharp'
+import Warning from './icons/warning'
+import WatchOutline from './icons/watch-outline'
+import WatchSharp from './icons/watch-sharp'
+import Watch from './icons/watch'
+import WaterOutline from './icons/water-outline'
+import WaterSharp from './icons/water-sharp'
+import Water from './icons/water'
+import WifiOutline from './icons/wifi-outline'
+import WifiSharp from './icons/wifi-sharp'
+import Wifi from './icons/wifi'
+import WineOutline from './icons/wine-outline'
+import WineSharp from './icons/wine-sharp'
+import Wine from './icons/wine'
+import WomanOutline from './icons/woman-outline'
+import WomanSharp from './icons/woman-sharp'
+import Woman from './icons/woman'
 export { BaseIconProps } from './base/base-icon'
 export { IconProps } from './base/createIcon'
 export default {
   createIcon,
-  Fab500px,
-  FabAccessibleIcon,
-  FabAccusoft,
-  FabAcquisitionsIncorporated,
-  FabAdn,
-  FabAdobe,
-  FabAdversal,
-  FabAffiliatetheme,
-  FabAirbnb,
-  FabAlgolia,
-  FabAlipay,
-  FabAmazonPay,
-  FabAmazon,
-  FabAmilia,
-  FabAndroid,
-  FabAngellist,
-  FabAngrycreative,
-  FabAngular,
-  FabAppStoreIos,
-  FabAppStore,
-  FabApper,
-  FabApplePay,
-  FabApple,
-  FabArtstation,
-  FabAsymmetrik,
-  FabAtlassian,
-  FabAudible,
-  FabAutoprefixer,
-  FabAvianex,
-  FabAviato,
-  FabAws,
-  FabBandcamp,
-  FabBattleNet,
-  FabBehanceSquare,
-  FabBehance,
-  FabBimobject,
-  FabBitbucket,
-  FabBitcoin,
-  FabBity,
-  FabBlackTie,
-  FabBlackberry,
-  FabBloggerB,
-  FabBlogger,
-  FabBluetoothB,
-  FabBluetooth,
-  FabBootstrap,
-  FabBtc,
-  FabBuffer,
-  FabBuromobelexperte,
-  FabBuysellads,
-  FabCanadianMapleLeaf,
-  FabCcAmazonPay,
-  FabCcAmex,
-  FabCcApplePay,
-  FabCcDinersClub,
-  FabCcDiscover,
-  FabCcJcb,
-  FabCcMastercard,
-  FabCcPaypal,
-  FabCcStripe,
-  FabCcVisa,
-  FabCentercode,
-  FabCentos,
-  FabChrome,
-  FabChromecast,
-  FabCloudscale,
-  FabCloudsmith,
-  FabCloudversify,
-  FabCodepen,
-  FabCodiepie,
-  FabConfluence,
-  FabConnectdevelop,
-  FabContao,
-  FabCpanel,
-  FabCreativeCommonsBy,
-  FabCreativeCommonsNcEu,
-  FabCreativeCommonsNcJp,
-  FabCreativeCommonsNc,
-  FabCreativeCommonsNd,
-  FabCreativeCommonsPdAlt,
-  FabCreativeCommonsPd,
-  FabCreativeCommonsRemix,
-  FabCreativeCommonsSa,
-  FabCreativeCommonsSamplingPlus,
-  FabCreativeCommonsSampling,
-  FabCreativeCommonsShare,
-  FabCreativeCommonsZero,
-  FabCreativeCommons,
-  FabCriticalRole,
-  FabCss3Alt,
-  FabCss3,
-  FabCuttlefish,
-  FabDAndDBeyond,
-  FabDAndD,
-  FabDashcube,
-  FabDelicious,
-  FabDeploydog,
-  FabDeskpro,
-  FabDev,
-  FabDeviantart,
-  FabDhl,
-  FabDiaspora,
-  FabDigg,
-  FabDigitalOcean,
-  FabDiscord,
-  FabDiscourse,
-  FabDochub,
-  FabDocker,
-  FabDraft2digital,
-  FabDribbbleSquare,
-  FabDribbble,
-  FabDropbox,
-  FabDrupal,
-  FabDyalog,
-  FabEarlybirds,
-  FabEbay,
-  FabEdge,
-  FabElementor,
-  FabEllo,
-  FabEmber,
-  FabEmpire,
-  FabEnvira,
-  FabErlang,
-  FabEthereum,
-  FabEtsy,
-  FabEvernote,
-  FabExpeditedssl,
-  FabFacebookF,
-  FabFacebookMessenger,
-  FabFacebookSquare,
-  FabFacebook,
-  FabFantasyFlightGames,
-  FabFedex,
-  FabFedora,
-  FabFigma,
-  FabFirefox,
-  FabFirstOrderAlt,
-  FabFirstOrder,
-  FabFirstdraft,
-  FabFlickr,
-  FabFlipboard,
-  FabFly,
-  FabFontAwesomeAlt,
-  FabFontAwesomeFlag,
-  FabFontAwesomeLogoFull,
-  FabFontAwesome,
-  FabFonticonsFi,
-  FabFonticons,
-  FabFortAwesomeAlt,
-  FabFortAwesome,
-  FabForumbee,
-  FabFoursquare,
-  FabFreeCodeCamp,
-  FabFreebsd,
-  FabFulcrum,
-  FabGalacticRepublic,
-  FabGalacticSenate,
-  FabGetPocket,
-  FabGgCircle,
-  FabGg,
-  FabGitAlt,
-  FabGitSquare,
-  FabGit,
-  FabGithubAlt,
-  FabGithubSquare,
-  FabGithub,
-  FabGitkraken,
-  FabGitlab,
-  FabGitter,
-  FabGlideG,
-  FabGlide,
-  FabGofore,
-  FabGoodreadsG,
-  FabGoodreads,
-  FabGoogleDrive,
-  FabGooglePlay,
-  FabGooglePlusG,
-  FabGooglePlusSquare,
-  FabGooglePlus,
-  FabGoogleWallet,
-  FabGoogle,
-  FabGratipay,
-  FabGrav,
-  FabGripfire,
-  FabGrunt,
-  FabGulp,
-  FabHackerNewsSquare,
-  FabHackerNews,
-  FabHackerrank,
-  FabHips,
-  FabHireAHelper,
-  FabHooli,
-  FabHornbill,
-  FabHotjar,
-  FabHouzz,
-  FabHtml5,
-  FabHubspot,
-  FabImdb,
-  FabInstagram,
-  FabIntercom,
-  FabInternetExplorer,
-  FabInvision,
-  FabIoxhost,
-  FabItchIo,
-  FabItunesNote,
-  FabItunes,
-  FabJava,
-  FabJediOrder,
-  FabJenkins,
-  FabJira,
-  FabJoget,
-  FabJoomla,
-  FabJsSquare,
-  FabJs,
-  FabJsfiddle,
-  FabKaggle,
-  FabKeybase,
-  FabKeycdn,
-  FabKickstarterK,
-  FabKickstarter,
-  FabKorvue,
-  FabLaravel,
-  FabLastfmSquare,
-  FabLastfm,
-  FabLeanpub,
-  FabLess,
-  FabLine,
-  FabLinkedinIn,
-  FabLinkedin,
-  FabLinode,
-  FabLinux,
-  FabLyft,
-  FabMagento,
-  FabMailchimp,
-  FabMandalorian,
-  FabMarkdown,
-  FabMastodon,
-  FabMaxcdn,
-  FabMedapps,
-  FabMediumM,
-  FabMedium,
-  FabMedrt,
-  FabMeetup,
-  FabMegaport,
-  FabMendeley,
-  FabMicrosoft,
-  FabMix,
-  FabMixcloud,
-  FabMizuni,
-  FabModx,
-  FabMonero,
-  FabNapster,
-  FabNeos,
-  FabNimblr,
-  FabNintendoSwitch,
-  FabNodeJs,
-  FabNode,
-  FabNpm,
-  FabNs8,
-  FabNutritionix,
-  FabOdnoklassnikiSquare,
-  FabOdnoklassniki,
-  FabOldRepublic,
-  FabOpencart,
-  FabOpenid,
-  FabOpera,
-  FabOptinMonster,
-  FabOsi,
-  FabPage4,
-  FabPagelines,
-  FabPalfed,
-  FabPatreon,
-  FabPaypal,
-  FabPennyArcade,
-  FabPeriscope,
-  FabPhabricator,
-  FabPhoenixFramework,
-  FabPhoenixSquadron,
-  FabPhp,
-  FabPiedPiperAlt,
-  FabPiedPiperHat,
-  FabPiedPiperPp,
-  FabPiedPiper,
-  FabPinterestP,
-  FabPinterestSquare,
-  FabPinterest,
-  FabPlaystation,
-  FabProductHunt,
-  FabPushed,
-  FabPython,
-  FabQq,
-  FabQuinscape,
-  FabQuora,
-  FabRProject,
-  FabRaspberryPi,
-  FabRavelry,
-  FabReact,
-  FabReacteurope,
-  FabReadme,
-  FabRebel,
-  FabRedRiver,
-  FabRedditAlien,
-  FabRedditSquare,
-  FabReddit,
-  FabRedhat,
-  FabRenren,
-  FabReplyd,
-  FabResearchgate,
-  FabResolving,
-  FabRev,
-  FabRocketchat,
-  FabRockrms,
-  FabSafari,
-  FabSalesforce,
-  FabSass,
-  FabSchlix,
-  FabScribd,
-  FabSearchengin,
-  FabSellcast,
-  FabSellsy,
-  FabServicestack,
-  FabShirtsinbulk,
-  FabShopware,
-  FabSimplybuilt,
-  FabSistrix,
-  FabSith,
-  FabSketch,
-  FabSkyatlas,
-  FabSkype,
-  FabSlackHash,
-  FabSlack,
-  FabSlideshare,
-  FabSnapchatGhost,
-  FabSnapchatSquare,
-  FabSnapchat,
-  FabSoundcloud,
-  FabSourcetree,
-  FabSpeakap,
-  FabSpeakerDeck,
-  FabSpotify,
-  FabSquarespace,
-  FabStackExchange,
-  FabStackOverflow,
-  FabStackpath,
-  FabStaylinked,
-  FabSteamSquare,
-  FabSteamSymbol,
-  FabSteam,
-  FabStickerMule,
-  FabStrava,
-  FabStripeS,
-  FabStripe,
-  FabStudiovinari,
-  FabStumbleuponCircle,
-  FabStumbleupon,
-  FabSuperpowers,
-  FabSupple,
-  FabSuse,
-  FabSymfony,
-  FabTeamspeak,
-  FabTelegramPlane,
-  FabTelegram,
-  FabTencentWeibo,
-  FabTheRedYeti,
-  FabThemeco,
-  FabThemeisle,
-  FabThinkPeaks,
-  FabTradeFederation,
-  FabTrello,
-  FabTripadvisor,
-  FabTumblrSquare,
-  FabTumblr,
-  FabTwitch,
-  FabTwitterSquare,
-  FabTwitter,
-  FabTypo3,
-  FabUber,
-  FabUbuntu,
-  FabUikit,
-  FabUniregistry,
-  FabUntappd,
-  FabUps,
-  FabUsb,
-  FabUsps,
-  FabUssunnah,
-  FabVaadin,
-  FabViacoin,
-  FabViadeoSquare,
-  FabViadeo,
-  FabViber,
-  FabVimeoSquare,
-  FabVimeoV,
-  FabVimeo,
-  FabVine,
-  FabVk,
-  FabVnv,
-  FabVuejs,
-  FabWaze,
-  FabWeebly,
-  FabWeibo,
-  FabWeixin,
-  FabWhatsappSquare,
-  FabWhatsapp,
-  FabWhmcs,
-  FabWikipediaW,
-  FabWindows,
-  FabWix,
-  FabWizardsOfTheCoast,
-  FabWolfPackBattalion,
-  FabWordpressSimple,
-  FabWordpress,
-  FabWpbeginner,
-  FabWpexplorer,
-  FabWpforms,
-  FabWpressr,
-  FabXbox,
-  FabXingSquare,
-  FabXing,
-  FabYCombinator,
-  FabYahoo,
-  FabYammer,
-  FabYandexInternational,
-  FabYandex,
-  FabYarn,
-  FabYelp,
-  FabYoast,
-  FabYoutubeSquare,
-  FabYoutube,
-  FabZhihu,
-  FarAddressBook,
-  FarAddressCard,
-  FarAngry,
-  FarArrowAltCircleDown,
-  FarArrowAltCircleLeft,
-  FarArrowAltCircleRight,
-  FarArrowAltCircleUp,
-  FarBellSlash,
-  FarBell,
-  FarBookmark,
-  FarBuilding,
-  FarCalendarAlt,
-  FarCalendarCheck,
-  FarCalendarMinus,
-  FarCalendarPlus,
-  FarCalendarTimes,
-  FarCalendar,
-  FarCaretSquareDown,
-  FarCaretSquareLeft,
-  FarCaretSquareRight,
-  FarCaretSquareUp,
-  FarChartBar,
-  FarCheckCircle,
-  FarCheckSquare,
-  FarCircle,
-  FarClipboard,
-  FarClock,
-  FarClone,
-  FarClosedCaptioning,
-  FarCommentAlt,
-  FarCommentDots,
-  FarComment,
-  FarComments,
-  FarCompass,
-  FarCopy,
-  FarCopyright,
-  FarCreditCard,
-  FarDizzy,
-  FarDotCircle,
-  FarEdit,
-  FarEnvelopeOpen,
-  FarEnvelope,
-  FarEyeSlash,
-  FarEye,
-  FarFileAlt,
-  FarFileArchive,
-  FarFileAudio,
-  FarFileCode,
-  FarFileExcel,
-  FarFileImage,
-  FarFilePdf,
-  FarFilePowerpoint,
-  FarFileVideo,
-  FarFileWord,
-  FarFile,
-  FarFlag,
-  FarFlushed,
-  FarFolderOpen,
-  FarFolder,
-  FarFontAwesomeLogoFull,
-  FarFrownOpen,
-  FarFrown,
-  FarFutbol,
-  FarGem,
-  FarGrimace,
-  FarGrinAlt,
-  FarGrinBeamSweat,
-  FarGrinBeam,
-  FarGrinHearts,
-  FarGrinSquintTears,
-  FarGrinSquint,
-  FarGrinStars,
-  FarGrinTears,
-  FarGrinTongueSquint,
-  FarGrinTongueWink,
-  FarGrinTongue,
-  FarGrinWink,
-  FarGrin,
-  FarHandLizard,
-  FarHandPaper,
-  FarHandPeace,
-  FarHandPointDown,
-  FarHandPointLeft,
-  FarHandPointRight,
-  FarHandPointUp,
-  FarHandPointer,
-  FarHandRock,
-  FarHandScissors,
-  FarHandSpock,
-  FarHandshake,
-  FarHdd,
-  FarHeart,
-  FarHospital,
-  FarHourglass,
-  FarIdBadge,
-  FarIdCard,
-  FarImage,
-  FarImages,
-  FarKeyboard,
-  FarKissBeam,
-  FarKissWinkHeart,
-  FarKiss,
-  FarLaughBeam,
-  FarLaughSquint,
-  FarLaughWink,
-  FarLaugh,
-  FarLemon,
-  FarLifeRing,
-  FarLightbulb,
-  FarListAlt,
-  FarMap,
-  FarMehBlank,
-  FarMehRollingEyes,
-  FarMeh,
-  FarMinusSquare,
-  FarMoneyBillAlt,
-  FarMoon,
-  FarNewspaper,
-  FarObjectGroup,
-  FarObjectUngroup,
-  FarPaperPlane,
-  FarPauseCircle,
-  FarPlayCircle,
-  FarPlusSquare,
-  FarQuestionCircle,
-  FarRegistered,
-  FarSadCry,
-  FarSadTear,
-  FarSave,
-  FarShareSquare,
-  FarSmileBeam,
-  FarSmileWink,
-  FarSmile,
-  FarSnowflake,
-  FarSquare,
-  FarStarHalf,
-  FarStar,
-  FarStickyNote,
-  FarStopCircle,
-  FarSun,
-  FarSurprise,
-  FarThumbsDown,
-  FarThumbsUp,
-  FarTimesCircle,
-  FarTired,
-  FarTrashAlt,
-  FarUserCircle,
-  FarUser,
-  FarWindowClose,
-  FarWindowMaximize,
-  FarWindowMinimize,
-  FarWindowRestore,
-  FasAd,
-  FasAddressBook,
-  FasAddressCard,
-  FasAdjust,
-  FasAirFreshener,
-  FasAlignCenter,
-  FasAlignJustify,
-  FasAlignLeft,
-  FasAlignRight,
-  FasAllergies,
-  FasAmbulance,
-  FasAmericanSignLanguageInterpreting,
-  FasAnchor,
-  FasAngleDoubleDown,
-  FasAngleDoubleLeft,
-  FasAngleDoubleRight,
-  FasAngleDoubleUp,
-  FasAngleDown,
-  FasAngleLeft,
-  FasAngleRight,
-  FasAngleUp,
-  FasAngry,
-  FasAnkh,
-  FasAppleAlt,
-  FasArchive,
-  FasArchway,
-  FasArrowAltCircleDown,
-  FasArrowAltCircleLeft,
-  FasArrowAltCircleRight,
-  FasArrowAltCircleUp,
-  FasArrowCircleDown,
-  FasArrowCircleLeft,
-  FasArrowCircleRight,
-  FasArrowCircleUp,
-  FasArrowDown,
-  FasArrowLeft,
-  FasArrowRight,
-  FasArrowUp,
-  FasArrowsAltH,
-  FasArrowsAltV,
-  FasArrowsAlt,
-  FasAssistiveListeningSystems,
-  FasAsterisk,
-  FasAt,
-  FasAtlas,
-  FasAtom,
-  FasAudioDescription,
-  FasAward,
-  FasBabyCarriage,
-  FasBaby,
-  FasBackspace,
-  FasBackward,
-  FasBacon,
-  FasBalanceScaleLeft,
-  FasBalanceScaleRight,
-  FasBalanceScale,
-  FasBan,
-  FasBandAid,
-  FasBarcode,
-  FasBars,
-  FasBaseballBall,
-  FasBasketballBall,
-  FasBath,
-  FasBatteryEmpty,
-  FasBatteryFull,
-  FasBatteryHalf,
-  FasBatteryQuarter,
-  FasBatteryThreeQuarters,
-  FasBed,
-  FasBeer,
-  FasBellSlash,
-  FasBell,
-  FasBezierCurve,
-  FasBible,
-  FasBicycle,
-  FasBiking,
-  FasBinoculars,
-  FasBiohazard,
-  FasBirthdayCake,
-  FasBlenderPhone,
-  FasBlender,
-  FasBlind,
-  FasBlog,
-  FasBold,
-  FasBolt,
-  FasBomb,
-  FasBone,
-  FasBong,
-  FasBookDead,
-  FasBookMedical,
-  FasBookOpen,
-  FasBookReader,
-  FasBook,
-  FasBookmark,
-  FasBorderAll,
-  FasBorderNone,
-  FasBorderStyle,
-  FasBowlingBall,
-  FasBoxOpen,
-  FasBox,
-  FasBoxes,
-  FasBraille,
-  FasBrain,
-  FasBreadSlice,
-  FasBriefcaseMedical,
-  FasBriefcase,
-  FasBroadcastTower,
-  FasBroom,
-  FasBrush,
-  FasBug,
-  FasBuilding,
-  FasBullhorn,
-  FasBullseye,
-  FasBurn,
-  FasBusAlt,
-  FasBus,
-  FasBusinessTime,
-  FasCalculator,
-  FasCalendarAlt,
-  FasCalendarCheck,
-  FasCalendarDay,
-  FasCalendarMinus,
-  FasCalendarPlus,
-  FasCalendarTimes,
-  FasCalendarWeek,
-  FasCalendar,
-  FasCameraRetro,
-  FasCamera,
-  FasCampground,
-  FasCandyCane,
-  FasCannabis,
-  FasCapsules,
-  FasCarAlt,
-  FasCarBattery,
-  FasCarCrash,
-  FasCarSide,
-  FasCar,
-  FasCaretDown,
-  FasCaretLeft,
-  FasCaretRight,
-  FasCaretSquareDown,
-  FasCaretSquareLeft,
-  FasCaretSquareRight,
-  FasCaretSquareUp,
-  FasCaretUp,
-  FasCarrot,
-  FasCartArrowDown,
-  FasCartPlus,
-  FasCashRegister,
-  FasCat,
-  FasCertificate,
-  FasChair,
-  FasChalkboardTeacher,
-  FasChalkboard,
-  FasChargingStation,
-  FasChartArea,
-  FasChartBar,
-  FasChartLine,
-  FasChartPie,
-  FasCheckCircle,
-  FasCheckDouble,
-  FasCheckSquare,
-  FasCheck,
-  FasCheese,
-  FasChessBishop,
-  FasChessBoard,
-  FasChessKing,
-  FasChessKnight,
-  FasChessPawn,
-  FasChessQueen,
-  FasChessRook,
-  FasChess,
-  FasChevronCircleDown,
-  FasChevronCircleLeft,
-  FasChevronCircleRight,
-  FasChevronCircleUp,
-  FasChevronDown,
-  FasChevronLeft,
-  FasChevronRight,
-  FasChevronUp,
-  FasChild,
-  FasChurch,
-  FasCircleNotch,
-  FasCircle,
-  FasCity,
-  FasClinicMedical,
-  FasClipboardCheck,
-  FasClipboardList,
-  FasClipboard,
-  FasClock,
-  FasClone,
-  FasClosedCaptioning,
-  FasCloudDownloadAlt,
-  FasCloudMeatball,
-  FasCloudMoonRain,
-  FasCloudMoon,
-  FasCloudRain,
-  FasCloudShowersHeavy,
-  FasCloudSunRain,
-  FasCloudSun,
-  FasCloudUploadAlt,
-  FasCloud,
-  FasCocktail,
-  FasCodeBranch,
-  FasCode,
-  FasCoffee,
-  FasCog,
-  FasCogs,
-  FasCoins,
-  FasColumns,
-  FasCommentAlt,
-  FasCommentDollar,
-  FasCommentDots,
-  FasCommentMedical,
-  FasCommentSlash,
-  FasComment,
-  FasCommentsDollar,
-  FasComments,
-  FasCompactDisc,
-  FasCompass,
-  FasCompressArrowsAlt,
-  FasCompress,
-  FasConciergeBell,
-  FasCookieBite,
-  FasCookie,
-  FasCopy,
-  FasCopyright,
-  FasCouch,
-  FasCreditCard,
-  FasCropAlt,
-  FasCrop,
-  FasCross,
-  FasCrosshairs,
-  FasCrow,
-  FasCrown,
-  FasCrutch,
-  FasCube,
-  FasCubes,
-  FasCut,
-  FasDatabase,
-  FasDeaf,
-  FasDemocrat,
-  FasDesktop,
-  FasDharmachakra,
-  FasDiagnoses,
-  FasDiceD20,
-  FasDiceD6,
-  FasDiceFive,
-  FasDiceFour,
-  FasDiceOne,
-  FasDiceSix,
-  FasDiceThree,
-  FasDiceTwo,
-  FasDice,
-  FasDigitalTachograph,
-  FasDirections,
-  FasDivide,
-  FasDizzy,
-  FasDna,
-  FasDog,
-  FasDollarSign,
-  FasDollyFlatbed,
-  FasDolly,
-  FasDonate,
-  FasDoorClosed,
-  FasDoorOpen,
-  FasDotCircle,
-  FasDove,
-  FasDownload,
-  FasDraftingCompass,
-  FasDragon,
-  FasDrawPolygon,
-  FasDrumSteelpan,
-  FasDrum,
-  FasDrumstickBite,
-  FasDumbbell,
-  FasDumpsterFire,
-  FasDumpster,
-  FasDungeon,
-  FasEdit,
-  FasEgg,
-  FasEject,
-  FasEllipsisH,
-  FasEllipsisV,
-  FasEnvelopeOpenText,
-  FasEnvelopeOpen,
-  FasEnvelopeSquare,
-  FasEnvelope,
-  FasEquals,
-  FasEraser,
-  FasEthernet,
-  FasEuroSign,
-  FasExchangeAlt,
-  FasExclamationCircle,
-  FasExclamationTriangle,
-  FasExclamation,
-  FasExpandArrowsAlt,
-  FasExpand,
-  FasExternalLinkAlt,
-  FasExternalLinkSquareAlt,
-  FasEyeDropper,
-  FasEyeSlash,
-  FasEye,
-  FasFan,
-  FasFastBackward,
-  FasFastForward,
-  FasFax,
-  FasFeatherAlt,
-  FasFeather,
-  FasFemale,
-  FasFighterJet,
-  FasFileAlt,
-  FasFileArchive,
-  FasFileAudio,
-  FasFileCode,
-  FasFileContract,
-  FasFileCsv,
-  FasFileDownload,
-  FasFileExcel,
-  FasFileExport,
-  FasFileImage,
-  FasFileImport,
-  FasFileInvoiceDollar,
-  FasFileInvoice,
-  FasFileMedicalAlt,
-  FasFileMedical,
-  FasFilePdf,
-  FasFilePowerpoint,
-  FasFilePrescription,
-  FasFileSignature,
-  FasFileUpload,
-  FasFileVideo,
-  FasFileWord,
-  FasFile,
-  FasFillDrip,
-  FasFill,
-  FasFilm,
-  FasFilter,
-  FasFingerprint,
-  FasFireAlt,
-  FasFireExtinguisher,
-  FasFire,
-  FasFirstAid,
-  FasFish,
-  FasFistRaised,
-  FasFlagCheckered,
-  FasFlagUsa,
-  FasFlag,
-  FasFlask,
-  FasFlushed,
-  FasFolderMinus,
-  FasFolderOpen,
-  FasFolderPlus,
-  FasFolder,
-  FasFontAwesomeLogoFull,
-  FasFont,
-  FasFootballBall,
-  FasForward,
-  FasFrog,
-  FasFrownOpen,
-  FasFrown,
-  FasFunnelDollar,
-  FasFutbol,
-  FasGamepad,
-  FasGasPump,
-  FasGavel,
-  FasGem,
-  FasGenderless,
-  FasGhost,
-  FasGift,
-  FasGifts,
-  FasGlassCheers,
-  FasGlassMartiniAlt,
-  FasGlassMartini,
-  FasGlassWhiskey,
-  FasGlasses,
-  FasGlobeAfrica,
-  FasGlobeAmericas,
-  FasGlobeAsia,
-  FasGlobeEurope,
-  FasGlobe,
-  FasGolfBall,
-  FasGopuram,
-  FasGraduationCap,
-  FasGreaterThanEqual,
-  FasGreaterThan,
-  FasGrimace,
-  FasGrinAlt,
-  FasGrinBeamSweat,
-  FasGrinBeam,
-  FasGrinHearts,
-  FasGrinSquintTears,
-  FasGrinSquint,
-  FasGrinStars,
-  FasGrinTears,
-  FasGrinTongueSquint,
-  FasGrinTongueWink,
-  FasGrinTongue,
-  FasGrinWink,
-  FasGrin,
-  FasGripHorizontal,
-  FasGripLinesVertical,
-  FasGripLines,
-  FasGripVertical,
-  FasGuitar,
-  FasHSquare,
-  FasHamburger,
-  FasHammer,
-  FasHamsa,
-  FasHandHoldingHeart,
-  FasHandHoldingUsd,
-  FasHandHolding,
-  FasHandLizard,
-  FasHandMiddleFinger,
-  FasHandPaper,
-  FasHandPeace,
-  FasHandPointDown,
-  FasHandPointLeft,
-  FasHandPointRight,
-  FasHandPointUp,
-  FasHandPointer,
-  FasHandRock,
-  FasHandScissors,
-  FasHandSpock,
-  FasHandsHelping,
-  FasHands,
-  FasHandshake,
-  FasHanukiah,
-  FasHardHat,
-  FasHashtag,
-  FasHatWizard,
-  FasHaykal,
-  FasHdd,
-  FasHeading,
-  FasHeadphonesAlt,
-  FasHeadphones,
-  FasHeadset,
-  FasHeartBroken,
-  FasHeart,
-  FasHeartbeat,
-  FasHelicopter,
-  FasHighlighter,
-  FasHiking,
-  FasHippo,
-  FasHistory,
-  FasHockeyPuck,
-  FasHollyBerry,
-  FasHome,
-  FasHorseHead,
-  FasHorse,
-  FasHospitalAlt,
-  FasHospitalSymbol,
-  FasHospital,
-  FasHotTub,
-  FasHotdog,
-  FasHotel,
-  FasHourglassEnd,
-  FasHourglassHalf,
-  FasHourglassStart,
-  FasHourglass,
-  FasHouseDamage,
-  FasHryvnia,
-  FasICursor,
-  FasIceCream,
-  FasIcicles,
-  FasIcons,
-  FasIdBadge,
-  FasIdCardAlt,
-  FasIdCard,
-  FasIgloo,
-  FasImage,
-  FasImages,
-  FasInbox,
-  FasIndent,
-  FasIndustry,
-  FasInfinity,
-  FasInfoCircle,
-  FasInfo,
-  FasItalic,
-  FasJedi,
-  FasJoint,
-  FasJournalWhills,
-  FasKaaba,
-  FasKey,
-  FasKeyboard,
-  FasKhanda,
-  FasKissBeam,
-  FasKissWinkHeart,
-  FasKiss,
-  FasKiwiBird,
-  FasLandmark,
-  FasLanguage,
-  FasLaptopCode,
-  FasLaptopMedical,
-  FasLaptop,
-  FasLaughBeam,
-  FasLaughSquint,
-  FasLaughWink,
-  FasLaugh,
-  FasLayerGroup,
-  FasLeaf,
-  FasLemon,
-  FasLessThanEqual,
-  FasLessThan,
-  FasLevelDownAlt,
-  FasLevelUpAlt,
-  FasLifeRing,
-  FasLightbulb,
-  FasLink,
-  FasLiraSign,
-  FasListAlt,
-  FasListOl,
-  FasListUl,
-  FasList,
-  FasLocationArrow,
-  FasLockOpen,
-  FasLock,
-  FasLongArrowAltDown,
-  FasLongArrowAltLeft,
-  FasLongArrowAltRight,
-  FasLongArrowAltUp,
-  FasLowVision,
-  FasLuggageCart,
-  FasMagic,
-  FasMagnet,
-  FasMailBulk,
-  FasMale,
-  FasMapMarkedAlt,
-  FasMapMarked,
-  FasMapMarkerAlt,
-  FasMapMarker,
-  FasMapPin,
-  FasMapSigns,
-  FasMap,
-  FasMarker,
-  FasMarsDouble,
-  FasMarsStrokeH,
-  FasMarsStrokeV,
-  FasMarsStroke,
-  FasMars,
-  FasMask,
-  FasMedal,
-  FasMedkit,
-  FasMehBlank,
-  FasMehRollingEyes,
-  FasMeh,
-  FasMemory,
-  FasMenorah,
-  FasMercury,
-  FasMeteor,
-  FasMicrochip,
-  FasMicrophoneAltSlash,
-  FasMicrophoneAlt,
-  FasMicrophoneSlash,
-  FasMicrophone,
-  FasMicroscope,
-  FasMinusCircle,
-  FasMinusSquare,
-  FasMinus,
-  FasMitten,
-  FasMobileAlt,
-  FasMobile,
-  FasMoneyBillAlt,
-  FasMoneyBillWaveAlt,
-  FasMoneyBillWave,
-  FasMoneyBill,
-  FasMoneyCheckAlt,
-  FasMoneyCheck,
-  FasMonument,
-  FasMoon,
-  FasMortarPestle,
-  FasMosque,
-  FasMotorcycle,
-  FasMountain,
-  FasMousePointer,
-  FasMugHot,
-  FasMusic,
-  FasNetworkWired,
-  FasNeuter,
-  FasNewspaper,
-  FasNotEqual,
-  FasNotesMedical,
-  FasObjectGroup,
-  FasObjectUngroup,
-  FasOilCan,
-  FasOm,
-  FasOtter,
-  FasOutdent,
-  FasPager,
-  FasPaintBrush,
-  FasPaintRoller,
-  FasPalette,
-  FasPallet,
-  FasPaperPlane,
-  FasPaperclip,
-  FasParachuteBox,
-  FasParagraph,
-  FasParking,
-  FasPassport,
-  FasPastafarianism,
-  FasPaste,
-  FasPauseCircle,
-  FasPause,
-  FasPaw,
-  FasPeace,
-  FasPenAlt,
-  FasPenFancy,
-  FasPenNib,
-  FasPenSquare,
-  FasPen,
-  FasPencilAlt,
-  FasPencilRuler,
-  FasPeopleCarry,
-  FasPepperHot,
-  FasPercent,
-  FasPercentage,
-  FasPersonBooth,
-  FasPhoneAlt,
-  FasPhoneSlash,
-  FasPhoneSquareAlt,
-  FasPhoneSquare,
-  FasPhoneVolume,
-  FasPhone,
-  FasPhotoVideo,
-  FasPiggyBank,
-  FasPills,
-  FasPizzaSlice,
-  FasPlaceOfWorship,
-  FasPlaneArrival,
-  FasPlaneDeparture,
-  FasPlane,
-  FasPlayCircle,
-  FasPlay,
-  FasPlug,
-  FasPlusCircle,
-  FasPlusSquare,
-  FasPlus,
-  FasPodcast,
-  FasPollH,
-  FasPoll,
-  FasPooStorm,
-  FasPoo,
-  FasPoop,
-  FasPortrait,
-  FasPoundSign,
-  FasPowerOff,
-  FasPray,
-  FasPrayingHands,
-  FasPrescriptionBottleAlt,
-  FasPrescriptionBottle,
-  FasPrescription,
-  FasPrint,
-  FasProcedures,
-  FasProjectDiagram,
-  FasPuzzlePiece,
-  FasQrcode,
-  FasQuestionCircle,
-  FasQuestion,
-  FasQuidditch,
-  FasQuoteLeft,
-  FasQuoteRight,
-  FasQuran,
-  FasRadiationAlt,
-  FasRadiation,
-  FasRainbow,
-  FasRandom,
-  FasReceipt,
-  FasRecycle,
-  FasRedoAlt,
-  FasRedo,
-  FasRegistered,
-  FasRemoveFormat,
-  FasReplyAll,
-  FasReply,
-  FasRepublican,
-  FasRestroom,
-  FasRetweet,
-  FasRibbon,
-  FasRing,
-  FasRoad,
-  FasRobot,
-  FasRocket,
-  FasRoute,
-  FasRssSquare,
-  FasRss,
-  FasRubleSign,
-  FasRulerCombined,
-  FasRulerHorizontal,
-  FasRulerVertical,
-  FasRuler,
-  FasRunning,
-  FasRupeeSign,
-  FasSadCry,
-  FasSadTear,
-  FasSatelliteDish,
-  FasSatellite,
-  FasSave,
-  FasSchool,
-  FasScrewdriver,
-  FasScroll,
-  FasSdCard,
-  FasSearchDollar,
-  FasSearchLocation,
-  FasSearchMinus,
-  FasSearchPlus,
-  FasSearch,
-  FasSeedling,
-  FasServer,
-  FasShapes,
-  FasShareAltSquare,
-  FasShareAlt,
-  FasShareSquare,
-  FasShare,
-  FasShekelSign,
-  FasShieldAlt,
-  FasShip,
-  FasShippingFast,
-  FasShoePrints,
-  FasShoppingBag,
-  FasShoppingBasket,
-  FasShoppingCart,
-  FasShower,
-  FasShuttleVan,
-  FasSignInAlt,
-  FasSignLanguage,
-  FasSignOutAlt,
-  FasSign,
-  FasSignal,
-  FasSignature,
-  FasSimCard,
-  FasSitemap,
-  FasSkating,
-  FasSkiingNordic,
-  FasSkiing,
-  FasSkullCrossbones,
-  FasSkull,
-  FasSlash,
-  FasSleigh,
-  FasSlidersH,
-  FasSmileBeam,
-  FasSmileWink,
-  FasSmile,
-  FasSmog,
-  FasSmokingBan,
-  FasSmoking,
-  FasSms,
-  FasSnowboarding,
-  FasSnowflake,
-  FasSnowman,
-  FasSnowplow,
-  FasSocks,
-  FasSolarPanel,
-  FasSortAlphaDownAlt,
-  FasSortAlphaDown,
-  FasSortAlphaUpAlt,
-  FasSortAlphaUp,
-  FasSortAmountDownAlt,
-  FasSortAmountDown,
-  FasSortAmountUpAlt,
-  FasSortAmountUp,
-  FasSortDown,
-  FasSortNumericDownAlt,
-  FasSortNumericDown,
-  FasSortNumericUpAlt,
-  FasSortNumericUp,
-  FasSortUp,
-  FasSort,
-  FasSpa,
-  FasSpaceShuttle,
-  FasSpellCheck,
-  FasSpider,
-  FasSpinner,
-  FasSplotch,
-  FasSprayCan,
-  FasSquareFull,
-  FasSquareRootAlt,
-  FasSquare,
-  FasStamp,
-  FasStarAndCrescent,
-  FasStarHalfAlt,
-  FasStarHalf,
-  FasStarOfDavid,
-  FasStarOfLife,
-  FasStar,
-  FasStepBackward,
-  FasStepForward,
-  FasStethoscope,
-  FasStickyNote,
-  FasStopCircle,
-  FasStop,
-  FasStopwatch,
-  FasStoreAlt,
-  FasStore,
-  FasStream,
-  FasStreetView,
-  FasStrikethrough,
-  FasStroopwafel,
-  FasSubscript,
-  FasSubway,
-  FasSuitcaseRolling,
-  FasSuitcase,
-  FasSun,
-  FasSuperscript,
-  FasSurprise,
-  FasSwatchbook,
-  FasSwimmer,
-  FasSwimmingPool,
-  FasSynagogue,
-  FasSyncAlt,
-  FasSync,
-  FasSyringe,
-  FasTableTennis,
-  FasTable,
-  FasTabletAlt,
-  FasTablet,
-  FasTablets,
-  FasTachometerAlt,
-  FasTag,
-  FasTags,
-  FasTape,
-  FasTasks,
-  FasTaxi,
-  FasTeethOpen,
-  FasTeeth,
-  FasTemperatureHigh,
-  FasTemperatureLow,
-  FasTenge,
-  FasTerminal,
-  FasTextHeight,
-  FasTextWidth,
-  FasThLarge,
-  FasThList,
-  FasTh,
-  FasTheaterMasks,
-  FasThermometerEmpty,
-  FasThermometerFull,
-  FasThermometerHalf,
-  FasThermometerQuarter,
-  FasThermometerThreeQuarters,
-  FasThermometer,
-  FasThumbsDown,
-  FasThumbsUp,
-  FasThumbtack,
-  FasTicketAlt,
-  FasTimesCircle,
-  FasTimes,
-  FasTintSlash,
-  FasTint,
-  FasTired,
-  FasToggleOff,
-  FasToggleOn,
-  FasToiletPaper,
-  FasToilet,
-  FasToolbox,
-  FasTools,
-  FasTooth,
-  FasTorah,
-  FasToriiGate,
-  FasTractor,
-  FasTrademark,
-  FasTrafficLight,
-  FasTrain,
-  FasTram,
-  FasTransgenderAlt,
-  FasTransgender,
-  FasTrashAlt,
-  FasTrashRestoreAlt,
-  FasTrashRestore,
-  FasTrash,
-  FasTree,
-  FasTrophy,
-  FasTruckLoading,
-  FasTruckMonster,
-  FasTruckMoving,
-  FasTruckPickup,
-  FasTruck,
-  FasTshirt,
-  FasTty,
-  FasTv,
-  FasUmbrellaBeach,
-  FasUmbrella,
-  FasUnderline,
-  FasUndoAlt,
-  FasUndo,
-  FasUniversalAccess,
-  FasUniversity,
-  FasUnlink,
-  FasUnlockAlt,
-  FasUnlock,
-  FasUpload,
-  FasUserAltSlash,
-  FasUserAlt,
-  FasUserAstronaut,
-  FasUserCheck,
-  FasUserCircle,
-  FasUserClock,
-  FasUserCog,
-  FasUserEdit,
-  FasUserFriends,
-  FasUserGraduate,
-  FasUserInjured,
-  FasUserLock,
-  FasUserMd,
-  FasUserMinus,
-  FasUserNinja,
-  FasUserNurse,
-  FasUserPlus,
-  FasUserSecret,
-  FasUserShield,
-  FasUserSlash,
-  FasUserTag,
-  FasUserTie,
-  FasUserTimes,
-  FasUser,
-  FasUsersCog,
-  FasUsers,
-  FasUtensilSpoon,
-  FasUtensils,
-  FasVectorSquare,
-  FasVenusDouble,
-  FasVenusMars,
-  FasVenus,
-  FasVial,
-  FasVials,
-  FasVideoSlash,
-  FasVideo,
-  FasVihara,
-  FasVoicemail,
-  FasVolleyballBall,
-  FasVolumeDown,
-  FasVolumeMute,
-  FasVolumeOff,
-  FasVolumeUp,
-  FasVoteYea,
-  FasVrCardboard,
-  FasWalking,
-  FasWallet,
-  FasWarehouse,
-  FasWater,
-  FasWaveSquare,
-  FasWeightHanging,
-  FasWeight,
-  FasWheelchair,
-  FasWifi,
-  FasWind,
-  FasWindowClose,
-  FasWindowMaximize,
-  FasWindowMinimize,
-  FasWindowRestore,
-  FasWineBottle,
-  FasWineGlassAlt,
-  FasWineGlass,
-  FasWonSign,
-  FasWrench,
-  FasXRay,
-  FasYenSign,
-  FasYinYang
+  AddCircleOutline,
+  AddCircleSharp,
+  AddCircle,
+  AddOutline,
+  AddSharp,
+  Add,
+  AirplaneOutline,
+  AirplaneSharp,
+  Airplane,
+  AlarmOutline,
+  AlarmSharp,
+  Alarm,
+  AlbumsOutline,
+  AlbumsSharp,
+  Albums,
+  AlertCircleOutline,
+  AlertCircleSharp,
+  AlertCircle,
+  AlertOutline,
+  AlertSharp,
+  Alert,
+  AmericanFootballOutline,
+  AmericanFootballSharp,
+  AmericanFootball,
+  AnalyticsOutline,
+  AnalyticsSharp,
+  Analytics,
+  ApertureOutline,
+  ApertureSharp,
+  Aperture,
+  AppsOutline,
+  AppsSharp,
+  Apps,
+  ArchiveOutline,
+  ArchiveSharp,
+  Archive,
+  ArrowBackCircleOutline,
+  ArrowBackCircleSharp,
+  ArrowBackCircle,
+  ArrowBackOutline,
+  ArrowBackSharp,
+  ArrowBack,
+  ArrowDownCircleOutline,
+  ArrowDownCircleSharp,
+  ArrowDownCircle,
+  ArrowDownOutline,
+  ArrowDownSharp,
+  ArrowDown,
+  ArrowForwardCircleOutline,
+  ArrowForwardCircleSharp,
+  ArrowForwardCircle,
+  ArrowForwardOutline,
+  ArrowForwardSharp,
+  ArrowForward,
+  ArrowRedoCircleOutline,
+  ArrowRedoCircleSharp,
+  ArrowRedoCircle,
+  ArrowRedoOutline,
+  ArrowRedoSharp,
+  ArrowRedo,
+  ArrowUndoCircleOutline,
+  ArrowUndoCircleSharp,
+  ArrowUndoCircle,
+  ArrowUndoOutline,
+  ArrowUndoSharp,
+  ArrowUndo,
+  ArrowUpCircleOutline,
+  ArrowUpCircleSharp,
+  ArrowUpCircle,
+  ArrowUpOutline,
+  ArrowUpSharp,
+  ArrowUp,
+  AtCircleOutline,
+  AtCircleSharp,
+  AtCircle,
+  AtOutline,
+  AtSharp,
+  At,
+  AttachOutline,
+  AttachSharp,
+  Attach,
+  BackspaceOutline,
+  BackspaceSharp,
+  Backspace,
+  BandageOutline,
+  BandageSharp,
+  Bandage,
+  BarChartOutline,
+  BarChartSharp,
+  BarChart,
+  BarbellOutline,
+  BarbellSharp,
+  Barbell,
+  BarcodeOutline,
+  BarcodeSharp,
+  Barcode,
+  BaseballOutline,
+  BaseballSharp,
+  Baseball,
+  BasketOutline,
+  BasketSharp,
+  Basket,
+  BasketballOutline,
+  BasketballSharp,
+  Basketball,
+  BatteryChargingOutline,
+  BatteryChargingSharp,
+  BatteryCharging,
+  BatteryDeadOutline,
+  BatteryDeadSharp,
+  BatteryDead,
+  BatteryFullOutline,
+  BatteryFullSharp,
+  BatteryFull,
+  BatteryHalfOutline,
+  BatteryHalfSharp,
+  BatteryHalf,
+  BeakerOutline,
+  BeakerSharp,
+  Beaker,
+  BedOutline,
+  BedSharp,
+  Bed,
+  BeerOutline,
+  BeerSharp,
+  Beer,
+  BicycleOutline,
+  BicycleSharp,
+  Bicycle,
+  BluetoothOutline,
+  BluetoothSharp,
+  Bluetooth,
+  BoatOutline,
+  BoatSharp,
+  Boat,
+  BodyOutline,
+  BodySharp,
+  Body,
+  BonfireOutline,
+  BonfireSharp,
+  Bonfire,
+  BookOutline,
+  BookSharp,
+  Book,
+  BookmarkOutline,
+  BookmarkSharp,
+  Bookmark,
+  BookmarksOutline,
+  BookmarksSharp,
+  Bookmarks,
+  BriefcaseOutline,
+  BriefcaseSharp,
+  Briefcase,
+  BrowsersOutline,
+  BrowsersSharp,
+  Browsers,
+  BrushOutline,
+  BrushSharp,
+  Brush,
+  BugOutline,
+  BugSharp,
+  Bug,
+  BuildOutline,
+  BuildSharp,
+  Build,
+  BulbOutline,
+  BulbSharp,
+  Bulb,
+  BusOutline,
+  BusSharp,
+  Bus,
+  BusinessOutline,
+  BusinessSharp,
+  Business,
+  CafeOutline,
+  CafeSharp,
+  Cafe,
+  CalculatorOutline,
+  CalculatorSharp,
+  Calculator,
+  CalendarOutline,
+  CalendarSharp,
+  Calendar,
+  CallOutline,
+  CallSharp,
+  Call,
+  CameraOutline,
+  CameraReverseOutline,
+  CameraReverseSharp,
+  CameraReverse,
+  CameraSharp,
+  Camera,
+  CarOutline,
+  CarSharp,
+  CarSportOutline,
+  CarSportSharp,
+  CarSport,
+  Car,
+  CardOutline,
+  CardSharp,
+  Card,
+  CaretBackCircleOutline,
+  CaretBackCircleSharp,
+  CaretBackCircle,
+  CaretBackOutline,
+  CaretBackSharp,
+  CaretBack,
+  CaretDownCircleOutline,
+  CaretDownCircleSharp,
+  CaretDownCircle,
+  CaretDownOutline,
+  CaretDownSharp,
+  CaretDown,
+  CaretForwardCircleOutline,
+  CaretForwardCircleSharp,
+  CaretForwardCircle,
+  CaretForwardOutline,
+  CaretForwardSharp,
+  CaretForward,
+  CaretUpCircleOutline,
+  CaretUpCircleSharp,
+  CaretUpCircle,
+  CaretUpOutline,
+  CaretUpSharp,
+  CaretUp,
+  CartOutline,
+  CartSharp,
+  Cart,
+  CashOutline,
+  CashSharp,
+  Cash,
+  CellularOutline,
+  CellularSharp,
+  Cellular,
+  ChatboxEllipsesOutline,
+  ChatboxEllipsesSharp,
+  ChatboxEllipses,
+  ChatboxOutline,
+  ChatboxSharp,
+  Chatbox,
+  ChatbubbleEllipsesOutline,
+  ChatbubbleEllipsesSharp,
+  ChatbubbleEllipses,
+  ChatbubbleOutline,
+  ChatbubbleSharp,
+  Chatbubble,
+  ChatbubblesOutline,
+  ChatbubblesSharp,
+  Chatbubbles,
+  CheckboxOutline,
+  CheckboxSharp,
+  Checkbox,
+  CheckmarkCircleOutline,
+  CheckmarkCircleSharp,
+  CheckmarkCircle,
+  CheckmarkDoneCircleOutline,
+  CheckmarkDoneCircleSharp,
+  CheckmarkDoneCircle,
+  CheckmarkDoneOutline,
+  CheckmarkDoneSharp,
+  CheckmarkDone,
+  CheckmarkOutline,
+  CheckmarkSharp,
+  Checkmark,
+  ChevronBackCircleOutline,
+  ChevronBackCircleSharp,
+  ChevronBackCircle,
+  ChevronBackOutline,
+  ChevronBackSharp,
+  ChevronBack,
+  ChevronDownCircleOutline,
+  ChevronDownCircleSharp,
+  ChevronDownCircle,
+  ChevronDownOutline,
+  ChevronDownSharp,
+  ChevronDown,
+  ChevronForwardCircleOutline,
+  ChevronForwardCircleSharp,
+  ChevronForwardCircle,
+  ChevronForwardOutline,
+  ChevronForwardSharp,
+  ChevronForward,
+  ChevronUpCircleOutline,
+  ChevronUpCircleSharp,
+  ChevronUpCircle,
+  ChevronUpOutline,
+  ChevronUpSharp,
+  ChevronUp,
+  ClipboardOutline,
+  ClipboardSharp,
+  Clipboard,
+  CloseCircleOutline,
+  CloseCircleSharp,
+  CloseCircle,
+  CloseOutline,
+  CloseSharp,
+  Close,
+  CloudCircleOutline,
+  CloudCircleSharp,
+  CloudCircle,
+  CloudDoneOutline,
+  CloudDoneSharp,
+  CloudDone,
+  CloudDownloadOutline,
+  CloudDownloadSharp,
+  CloudDownload,
+  CloudOfflineOutline,
+  CloudOfflineSharp,
+  CloudOffline,
+  CloudOutline,
+  CloudSharp,
+  CloudUploadOutline,
+  CloudUploadSharp,
+  CloudUpload,
+  Cloud,
+  CloudyNightOutline,
+  CloudyNightSharp,
+  CloudyNight,
+  CloudyOutline,
+  CloudySharp,
+  Cloudy,
+  CodeDownloadOutline,
+  CodeDownloadSharp,
+  CodeDownload,
+  CodeOutline,
+  CodeSharp,
+  CodeSlashOutline,
+  CodeSlashSharp,
+  CodeSlash,
+  CodeWorkingOutline,
+  CodeWorkingSharp,
+  CodeWorking,
+  Code,
+  CogOutline,
+  CogSharp,
+  Cog,
+  ColorFillOutline,
+  ColorFillSharp,
+  ColorFill,
+  ColorFilterOutline,
+  ColorFilterSharp,
+  ColorFilter,
+  ColorPaletteOutline,
+  ColorPaletteSharp,
+  ColorPalette,
+  ColorWandOutline,
+  ColorWandSharp,
+  ColorWand,
+  CompassOutline,
+  CompassSharp,
+  Compass,
+  ConstructOutline,
+  ConstructSharp,
+  Construct,
+  ContractOutline,
+  ContractSharp,
+  Contract,
+  ContrastOutline,
+  ContrastSharp,
+  Contrast,
+  CopyOutline,
+  CopySharp,
+  Copy,
+  CreateOutline,
+  CreateSharp,
+  Create,
+  CropOutline,
+  CropSharp,
+  Crop,
+  CubeOutline,
+  CubeSharp,
+  Cube,
+  CutOutline,
+  CutSharp,
+  Cut,
+  DesktopOutline,
+  DesktopSharp,
+  Desktop,
+  DiscOutline,
+  DiscSharp,
+  Disc,
+  DocumentAttachOutline,
+  DocumentAttachSharp,
+  DocumentAttach,
+  DocumentOutline,
+  DocumentSharp,
+  DocumentTextOutline,
+  DocumentTextSharp,
+  DocumentText,
+  Document,
+  DocumentsOutline,
+  DocumentsSharp,
+  Documents,
+  DownloadOutline,
+  DownloadSharp,
+  Download,
+  DuplicateOutline,
+  DuplicateSharp,
+  Duplicate,
+  EarOutline,
+  EarSharp,
+  Ear,
+  EarthOutline,
+  EarthSharp,
+  Earth,
+  EaselOutline,
+  EaselSharp,
+  Easel,
+  EggOutline,
+  EggSharp,
+  Egg,
+  EllipseOutline,
+  EllipseSharp,
+  Ellipse,
+  EllipsisHorizontalCircleOutline,
+  EllipsisHorizontalCircleSharp,
+  EllipsisHorizontalCircle,
+  EllipsisHorizontalOutline,
+  EllipsisHorizontalSharp,
+  EllipsisHorizontal,
+  EllipsisVerticalCircleOutline,
+  EllipsisVerticalCircleSharp,
+  EllipsisVerticalCircle,
+  EllipsisVerticalOutline,
+  EllipsisVerticalSharp,
+  EllipsisVertical,
+  EnterOutline,
+  EnterSharp,
+  Enter,
+  ExitOutline,
+  ExitSharp,
+  Exit,
+  ExpandOutline,
+  ExpandSharp,
+  Expand,
+  EyeOffOutline,
+  EyeOffSharp,
+  EyeOff,
+  EyeOutline,
+  EyeSharp,
+  Eye,
+  EyedropOutline,
+  EyedropSharp,
+  Eyedrop,
+  FastFoodOutline,
+  FastFoodSharp,
+  FastFood,
+  FemaleOutline,
+  FemaleSharp,
+  Female,
+  FileTrayFullOutline,
+  FileTrayFullSharp,
+  FileTrayFull,
+  FileTrayOutline,
+  FileTraySharp,
+  FileTrayStackedOutline,
+  FileTrayStackedSharp,
+  FileTrayStacked,
+  FileTray,
+  FilmOutline,
+  FilmSharp,
+  Film,
+  FilterOutline,
+  FilterSharp,
+  Filter,
+  FingerPrintOutline,
+  FingerPrintSharp,
+  FingerPrint,
+  FitnessOutline,
+  FitnessSharp,
+  Fitness,
+  FlagOutline,
+  FlagSharp,
+  Flag,
+  FlameOutline,
+  FlameSharp,
+  Flame,
+  FlashOffOutline,
+  FlashOffSharp,
+  FlashOff,
+  FlashOutline,
+  FlashSharp,
+  Flash,
+  FlashlightOutline,
+  FlashlightSharp,
+  Flashlight,
+  FlaskOutline,
+  FlaskSharp,
+  Flask,
+  FlowerOutline,
+  FlowerSharp,
+  Flower,
+  FolderOpenOutline,
+  FolderOpenSharp,
+  FolderOpen,
+  FolderOutline,
+  FolderSharp,
+  Folder,
+  FootballOutline,
+  FootballSharp,
+  Football,
+  FunnelOutline,
+  FunnelSharp,
+  Funnel,
+  GameControllerOutline,
+  GameControllerSharp,
+  GameController,
+  GiftOutline,
+  GiftSharp,
+  Gift,
+  GitBranchOutline,
+  GitBranchSharp,
+  GitBranch,
+  GitCommitOutline,
+  GitCommitSharp,
+  GitCommit,
+  GitCompareOutline,
+  GitCompareSharp,
+  GitCompare,
+  GitMergeOutline,
+  GitMergeSharp,
+  GitMerge,
+  GitNetworkOutline,
+  GitNetworkSharp,
+  GitNetwork,
+  GitPullRequestOutline,
+  GitPullRequestSharp,
+  GitPullRequest,
+  GlassesOutline,
+  GlassesSharp,
+  Glasses,
+  GlobeOutline,
+  GlobeSharp,
+  Globe,
+  GolfOutline,
+  GolfSharp,
+  Golf,
+  GridOutline,
+  GridSharp,
+  Grid,
+  HammerOutline,
+  HammerSharp,
+  Hammer,
+  HandLeftOutline,
+  HandLeftSharp,
+  HandLeft,
+  HandRightOutline,
+  HandRightSharp,
+  HandRight,
+  HappyOutline,
+  HappySharp,
+  Happy,
+  HardwareChipOutline,
+  HardwareChipSharp,
+  HardwareChip,
+  HeadsetOutline,
+  HeadsetSharp,
+  Headset,
+  HeartCircleOutline,
+  HeartCircleSharp,
+  HeartCircle,
+  HeartDislikeCircleOutline,
+  HeartDislikeCircleSharp,
+  HeartDislikeCircle,
+  HeartDislikeOutline,
+  HeartDislikeSharp,
+  HeartDislike,
+  HeartHalfOutline,
+  HeartHalfSharp,
+  HeartHalf,
+  HeartOutline,
+  HeartSharp,
+  Heart,
+  HelpBuoyOutline,
+  HelpBuoySharp,
+  HelpBuoy,
+  HelpCircleOutline,
+  HelpCircleSharp,
+  HelpCircle,
+  HelpOutline,
+  HelpSharp,
+  Help,
+  HomeOutline,
+  HomeSharp,
+  Home,
+  HourglassOutline,
+  HourglassSharp,
+  Hourglass,
+  IceCreamOutline,
+  IceCreamSharp,
+  IceCream,
+  ImageOutline,
+  ImageSharp,
+  Image,
+  ImagesOutline,
+  ImagesSharp,
+  Images,
+  InfiniteOutline,
+  InfiniteSharp,
+  Infinite,
+  InformationCircleOutline,
+  InformationCircleSharp,
+  InformationCircle,
+  InformationOutline,
+  InformationSharp,
+  Information,
+  JournalOutline,
+  JournalSharp,
+  Journal,
+  KeyOutline,
+  KeySharp,
+  Key,
+  KeypadOutline,
+  KeypadSharp,
+  Keypad,
+  LanguageOutline,
+  LanguageSharp,
+  Language,
+  LaptopOutline,
+  LaptopSharp,
+  Laptop,
+  LayersOutline,
+  LayersSharp,
+  Layers,
+  LeafOutline,
+  LeafSharp,
+  Leaf,
+  LibraryOutline,
+  LibrarySharp,
+  Library,
+  LinkOutline,
+  LinkSharp,
+  Link,
+  ListCircleOutline,
+  ListCircleSharp,
+  ListCircle,
+  ListOutline,
+  ListSharp,
+  List,
+  LocateOutline,
+  LocateSharp,
+  Locate,
+  LocationOutline,
+  LocationSharp,
+  Location,
+  LockClosedOutline,
+  LockClosedSharp,
+  LockClosed,
+  LockOpenOutline,
+  LockOpenSharp,
+  LockOpen,
+  LogInOutline,
+  LogInSharp,
+  LogIn,
+  LogOutOutline,
+  LogOutSharp,
+  LogOut,
+  LogoAmazon,
+  LogoAmplify,
+  LogoAndroid,
+  LogoAngular,
+  LogoAppleAppstore,
+  LogoApple,
+  LogoBitbucket,
+  LogoBitcoin,
+  LogoBuffer,
+  LogoCapacitor,
+  LogoChrome,
+  LogoClosedCaptioning,
+  LogoCodepen,
+  LogoCss3,
+  LogoDesignernews,
+  LogoDribbble,
+  LogoDropbox,
+  LogoEdge,
+  LogoElectron,
+  LogoEuro,
+  LogoFacebook,
+  LogoFirebase,
+  LogoFirefox,
+  LogoFlickr,
+  LogoFoursquare,
+  LogoGithub,
+  LogoGooglePlaystore,
+  LogoGoogle,
+  LogoHackernews,
+  LogoHtml5,
+  LogoInstagram,
+  LogoIonic,
+  LogoIonitron,
+  LogoJavascript,
+  LogoLaravel,
+  LogoLinkedin,
+  LogoMarkdown,
+  LogoNoSmoking,
+  LogoNodejs,
+  LogoNpm,
+  LogoOctocat,
+  LogoPinterest,
+  LogoPlaystation,
+  LogoPwa,
+  LogoPython,
+  LogoReact,
+  LogoReddit,
+  LogoRss,
+  LogoSass,
+  LogoSkype,
+  LogoSlack,
+  LogoSnapchat,
+  LogoStackoverflow,
+  LogoSteam,
+  LogoStencil,
+  LogoTumblr,
+  LogoTux,
+  LogoTwitch,
+  LogoTwitter,
+  LogoUsd,
+  LogoVimeo,
+  LogoVk,
+  LogoVue,
+  LogoWebComponent,
+  LogoWhatsapp,
+  LogoWindows,
+  LogoWordpress,
+  LogoXbox,
+  LogoXing,
+  LogoYahoo,
+  LogoYen,
+  LogoYoutube,
+  MagnetOutline,
+  MagnetSharp,
+  Magnet,
+  MailOpenOutline,
+  MailOpenSharp,
+  MailOpen,
+  MailOutline,
+  MailSharp,
+  MailUnreadOutline,
+  MailUnreadSharp,
+  MailUnread,
+  Mail,
+  MaleFemaleOutline,
+  MaleFemaleSharp,
+  MaleFemale,
+  MaleOutline,
+  MaleSharp,
+  Male,
+  ManOutline,
+  ManSharp,
+  Man,
+  MapOutline,
+  MapSharp,
+  Map,
+  MedalOutline,
+  MedalSharp,
+  Medal,
+  MedicalOutline,
+  MedicalSharp,
+  Medical,
+  MedkitOutline,
+  MedkitSharp,
+  Medkit,
+  MegaphoneOutline,
+  MegaphoneSharp,
+  Megaphone,
+  MenuOutline,
+  MenuSharp,
+  Menu,
+  MicCircleOutline,
+  MicCircleSharp,
+  MicCircle,
+  MicOffCircleOutline,
+  MicOffCircleSharp,
+  MicOffCircle,
+  MicOffOutline,
+  MicOffSharp,
+  MicOff,
+  MicOutline,
+  MicSharp,
+  Mic,
+  MoonOutline,
+  MoonSharp,
+  Moon,
+  MoveOutline,
+  MoveSharp,
+  Move,
+  MusicalNoteOutline,
+  MusicalNoteSharp,
+  MusicalNote,
+  MusicalNotesOutline,
+  MusicalNotesSharp,
+  MusicalNotes,
+  NavigateCircleOutline,
+  NavigateCircleSharp,
+  NavigateCircle,
+  NavigateOutline,
+  NavigateSharp,
+  Navigate,
+  NewspaperOutline,
+  NewspaperSharp,
+  Newspaper,
+  NotificationsCircleOutline,
+  NotificationsCircleSharp,
+  NotificationsCircle,
+  NotificationsOffCircleOutline,
+  NotificationsOffCircleSharp,
+  NotificationsOffCircle,
+  NotificationsOffOutline,
+  NotificationsOffSharp,
+  NotificationsOff,
+  NotificationsOutline,
+  NotificationsSharp,
+  Notifications,
+  NuclearOutline,
+  NuclearSharp,
+  Nuclear,
+  NutritionOutline,
+  NutritionSharp,
+  Nutrition,
+  OpenOutline,
+  OpenSharp,
+  Open,
+  OptionsOutline,
+  OptionsSharp,
+  Options,
+  PaperPlaneOutline,
+  PaperPlaneSharp,
+  PaperPlane,
+  PartlySunnyOutline,
+  PartlySunnySharp,
+  PartlySunny,
+  PauseCircleOutline,
+  PauseCircleSharp,
+  PauseCircle,
+  PauseOutline,
+  PauseSharp,
+  Pause,
+  PawOutline,
+  PawSharp,
+  Paw,
+  PencilOutline,
+  PencilSharp,
+  Pencil,
+  PeopleCircleOutline,
+  PeopleCircleSharp,
+  PeopleCircle,
+  PeopleOutline,
+  PeopleSharp,
+  People,
+  PersonAddOutline,
+  PersonAddSharp,
+  PersonAdd,
+  PersonCircleOutline,
+  PersonCircleSharp,
+  PersonCircle,
+  PersonOutline,
+  PersonRemoveOutline,
+  PersonRemoveSharp,
+  PersonRemove,
+  PersonSharp,
+  Person,
+  PhoneLandscapeOutline,
+  PhoneLandscapeSharp,
+  PhoneLandscape,
+  PhonePortraitOutline,
+  PhonePortraitSharp,
+  PhonePortrait,
+  PieChartOutline,
+  PieChartSharp,
+  PieChart,
+  PinOutline,
+  PinSharp,
+  Pin,
+  PintOutline,
+  PintSharp,
+  Pint,
+  PizzaOutline,
+  PizzaSharp,
+  Pizza,
+  PlanetOutline,
+  PlanetSharp,
+  Planet,
+  PlayBackCircleOutline,
+  PlayBackCircleSharp,
+  PlayBackCircle,
+  PlayBackOutline,
+  PlayBackSharp,
+  PlayBack,
+  PlayCircleOutline,
+  PlayCircleSharp,
+  PlayCircle,
+  PlayForwardCircleOutline,
+  PlayForwardCircleSharp,
+  PlayForwardCircle,
+  PlayForwardOutline,
+  PlayForwardSharp,
+  PlayForward,
+  PlayOutline,
+  PlaySharp,
+  PlaySkipBackCircleOutline,
+  PlaySkipBackCircleSharp,
+  PlaySkipBackCircle,
+  PlaySkipBackOutline,
+  PlaySkipBackSharp,
+  PlaySkipBack,
+  PlaySkipForwardCircleOutline,
+  PlaySkipForwardCircleSharp,
+  PlaySkipForwardCircle,
+  PlaySkipForwardOutline,
+  PlaySkipForwardSharp,
+  PlaySkipForward,
+  Play,
+  PodiumOutline,
+  PodiumSharp,
+  Podium,
+  PowerOutline,
+  PowerSharp,
+  Power,
+  PricetagOutline,
+  PricetagSharp,
+  Pricetag,
+  PricetagsOutline,
+  PricetagsSharp,
+  Pricetags,
+  PrintOutline,
+  PrintSharp,
+  Print,
+  PulseOutline,
+  PulseSharp,
+  Pulse,
+  PushOutline,
+  PushSharp,
+  Push,
+  QrCodeOutline,
+  QrCodeSharp,
+  QrCode,
+  RadioButtonOffOutline,
+  RadioButtonOffSharp,
+  RadioButtonOff,
+  RadioButtonOnOutline,
+  RadioButtonOnSharp,
+  RadioButtonOn,
+  RadioOutline,
+  RadioSharp,
+  Radio,
+  RainyOutline,
+  RainySharp,
+  Rainy,
+  ReaderOutline,
+  ReaderSharp,
+  Reader,
+  ReceiptOutline,
+  ReceiptSharp,
+  Receipt,
+  RecordingOutline,
+  RecordingSharp,
+  Recording,
+  RefreshCircleOutline,
+  RefreshCircleSharp,
+  RefreshCircle,
+  RefreshOutline,
+  RefreshSharp,
+  Refresh,
+  ReloadCircleOutline,
+  ReloadCircleSharp,
+  ReloadCircle,
+  ReloadOutline,
+  ReloadSharp,
+  Reload,
+  RemoveCircleOutline,
+  RemoveCircleSharp,
+  RemoveCircle,
+  RemoveOutline,
+  RemoveSharp,
+  Remove,
+  ReorderFourOutline,
+  ReorderFourSharp,
+  ReorderFour,
+  ReorderThreeOutline,
+  ReorderThreeSharp,
+  ReorderThree,
+  ReorderTwoOutline,
+  ReorderTwoSharp,
+  ReorderTwo,
+  RepeatOutline,
+  RepeatSharp,
+  Repeat,
+  ResizeOutline,
+  ResizeSharp,
+  Resize,
+  RestaurantOutline,
+  RestaurantSharp,
+  Restaurant,
+  ReturnDownBackOutline,
+  ReturnDownBackSharp,
+  ReturnDownBack,
+  ReturnDownForwardOutline,
+  ReturnDownForwardSharp,
+  ReturnDownForward,
+  ReturnUpBackOutline,
+  ReturnUpBackSharp,
+  ReturnUpBack,
+  ReturnUpForwardOutline,
+  ReturnUpForwardSharp,
+  ReturnUpForward,
+  RibbonOutline,
+  RibbonSharp,
+  Ribbon,
+  RocketOutline,
+  RocketSharp,
+  Rocket,
+  RoseOutline,
+  RoseSharp,
+  Rose,
+  SadOutline,
+  SadSharp,
+  Sad,
+  SaveOutline,
+  SaveSharp,
+  Save,
+  ScanCircleOutline,
+  ScanCircleSharp,
+  ScanCircle,
+  ScanOutline,
+  ScanSharp,
+  Scan,
+  SchoolOutline,
+  SchoolSharp,
+  School,
+  SearchCircleOutline,
+  SearchCircleSharp,
+  SearchCircle,
+  SearchOutline,
+  SearchSharp,
+  Search,
+  SendOutline,
+  SendSharp,
+  Send,
+  ServerOutline,
+  ServerSharp,
+  Server,
+  SettingsOutline,
+  SettingsSharp,
+  Settings,
+  ShapesOutline,
+  ShapesSharp,
+  Shapes,
+  ShareOutline,
+  ShareSharp,
+  ShareSocialOutline,
+  ShareSocialSharp,
+  ShareSocial,
+  Share,
+  ShieldCheckmarkOutline,
+  ShieldCheckmarkSharp,
+  ShieldCheckmark,
+  ShieldOutline,
+  ShieldSharp,
+  Shield,
+  ShirtOutline,
+  ShirtSharp,
+  Shirt,
+  ShuffleOutline,
+  ShuffleSharp,
+  Shuffle,
+  SkullOutline,
+  SkullSharp,
+  Skull,
+  SnowOutline,
+  SnowSharp,
+  Snow,
+  SpeedometerOutline,
+  SpeedometerSharp,
+  Speedometer,
+  SquareOutline,
+  SquareSharp,
+  Square,
+  StarHalfOutline,
+  StarHalfSharp,
+  StarHalf,
+  StarOutline,
+  StarSharp,
+  Star,
+  StatsChartOutline,
+  StatsChartSharp,
+  StatsChart,
+  StopCircleOutline,
+  StopCircleSharp,
+  StopCircle,
+  StopOutline,
+  StopSharp,
+  Stop,
+  StopwatchOutline,
+  StopwatchSharp,
+  Stopwatch,
+  SubwayOutline,
+  SubwaySharp,
+  Subway,
+  SunnyOutline,
+  SunnySharp,
+  Sunny,
+  SwapHorizontalOutline,
+  SwapHorizontalSharp,
+  SwapHorizontal,
+  SwapVerticalOutline,
+  SwapVerticalSharp,
+  SwapVertical,
+  SyncCircleOutline,
+  SyncCircleSharp,
+  SyncCircle,
+  SyncOutline,
+  SyncSharp,
+  Sync,
+  TabletLandscapeOutline,
+  TabletLandscapeSharp,
+  TabletLandscape,
+  TabletPortraitOutline,
+  TabletPortraitSharp,
+  TabletPortrait,
+  TennisballOutline,
+  TennisballSharp,
+  Tennisball,
+  TerminalOutline,
+  TerminalSharp,
+  Terminal,
+  TextOutline,
+  TextSharp,
+  Text,
+  ThermometerOutline,
+  ThermometerSharp,
+  Thermometer,
+  ThumbsDownOutline,
+  ThumbsDownSharp,
+  ThumbsDown,
+  ThumbsUpOutline,
+  ThumbsUpSharp,
+  ThumbsUp,
+  ThunderstormOutline,
+  ThunderstormSharp,
+  Thunderstorm,
+  TimeOutline,
+  TimeSharp,
+  Time,
+  TimerOutline,
+  TimerSharp,
+  Timer,
+  TodayOutline,
+  TodaySharp,
+  Today,
+  ToggleOutline,
+  ToggleSharp,
+  Toggle,
+  TrailSignOutline,
+  TrailSignSharp,
+  TrailSign,
+  TrainOutline,
+  TrainSharp,
+  Train,
+  TransgenderOutline,
+  TransgenderSharp,
+  Transgender,
+  TrashBinOutline,
+  TrashBinSharp,
+  TrashBin,
+  TrashOutline,
+  TrashSharp,
+  Trash,
+  TrendingDownOutline,
+  TrendingDownSharp,
+  TrendingDown,
+  TrendingUpOutline,
+  TrendingUpSharp,
+  TrendingUp,
+  TriangleOutline,
+  TriangleSharp,
+  Triangle,
+  TrophyOutline,
+  TrophySharp,
+  Trophy,
+  TvOutline,
+  TvSharp,
+  Tv,
+  UmbrellaOutline,
+  UmbrellaSharp,
+  Umbrella,
+  VideocamOutline,
+  VideocamSharp,
+  Videocam,
+  VolumeHighOutline,
+  VolumeHighSharp,
+  VolumeHigh,
+  VolumeLowOutline,
+  VolumeLowSharp,
+  VolumeLow,
+  VolumeMediumOutline,
+  VolumeMediumSharp,
+  VolumeMedium,
+  VolumeMuteOutline,
+  VolumeMuteSharp,
+  VolumeMute,
+  VolumeOffOutline,
+  VolumeOffSharp,
+  VolumeOff,
+  WalkOutline,
+  WalkSharp,
+  Walk,
+  WalletOutline,
+  WalletSharp,
+  Wallet,
+  WarningOutline,
+  WarningSharp,
+  Warning,
+  WatchOutline,
+  WatchSharp,
+  Watch,
+  WaterOutline,
+  WaterSharp,
+  Water,
+  WifiOutline,
+  WifiSharp,
+  Wifi,
+  WineOutline,
+  WineSharp,
+  Wine,
+  WomanOutline,
+  WomanSharp,
+  Woman
 }
 
 export {
   createIcon,
-  Fab500px,
-  FabAccessibleIcon,
-  FabAccusoft,
-  FabAcquisitionsIncorporated,
-  FabAdn,
-  FabAdobe,
-  FabAdversal,
-  FabAffiliatetheme,
-  FabAirbnb,
-  FabAlgolia,
-  FabAlipay,
-  FabAmazonPay,
-  FabAmazon,
-  FabAmilia,
-  FabAndroid,
-  FabAngellist,
-  FabAngrycreative,
-  FabAngular,
-  FabAppStoreIos,
-  FabAppStore,
-  FabApper,
-  FabApplePay,
-  FabApple,
-  FabArtstation,
-  FabAsymmetrik,
-  FabAtlassian,
-  FabAudible,
-  FabAutoprefixer,
-  FabAvianex,
-  FabAviato,
-  FabAws,
-  FabBandcamp,
-  FabBattleNet,
-  FabBehanceSquare,
-  FabBehance,
-  FabBimobject,
-  FabBitbucket,
-  FabBitcoin,
-  FabBity,
-  FabBlackTie,
-  FabBlackberry,
-  FabBloggerB,
-  FabBlogger,
-  FabBluetoothB,
-  FabBluetooth,
-  FabBootstrap,
-  FabBtc,
-  FabBuffer,
-  FabBuromobelexperte,
-  FabBuysellads,
-  FabCanadianMapleLeaf,
-  FabCcAmazonPay,
-  FabCcAmex,
-  FabCcApplePay,
-  FabCcDinersClub,
-  FabCcDiscover,
-  FabCcJcb,
-  FabCcMastercard,
-  FabCcPaypal,
-  FabCcStripe,
-  FabCcVisa,
-  FabCentercode,
-  FabCentos,
-  FabChrome,
-  FabChromecast,
-  FabCloudscale,
-  FabCloudsmith,
-  FabCloudversify,
-  FabCodepen,
-  FabCodiepie,
-  FabConfluence,
-  FabConnectdevelop,
-  FabContao,
-  FabCpanel,
-  FabCreativeCommonsBy,
-  FabCreativeCommonsNcEu,
-  FabCreativeCommonsNcJp,
-  FabCreativeCommonsNc,
-  FabCreativeCommonsNd,
-  FabCreativeCommonsPdAlt,
-  FabCreativeCommonsPd,
-  FabCreativeCommonsRemix,
-  FabCreativeCommonsSa,
-  FabCreativeCommonsSamplingPlus,
-  FabCreativeCommonsSampling,
-  FabCreativeCommonsShare,
-  FabCreativeCommonsZero,
-  FabCreativeCommons,
-  FabCriticalRole,
-  FabCss3Alt,
-  FabCss3,
-  FabCuttlefish,
-  FabDAndDBeyond,
-  FabDAndD,
-  FabDashcube,
-  FabDelicious,
-  FabDeploydog,
-  FabDeskpro,
-  FabDev,
-  FabDeviantart,
-  FabDhl,
-  FabDiaspora,
-  FabDigg,
-  FabDigitalOcean,
-  FabDiscord,
-  FabDiscourse,
-  FabDochub,
-  FabDocker,
-  FabDraft2digital,
-  FabDribbbleSquare,
-  FabDribbble,
-  FabDropbox,
-  FabDrupal,
-  FabDyalog,
-  FabEarlybirds,
-  FabEbay,
-  FabEdge,
-  FabElementor,
-  FabEllo,
-  FabEmber,
-  FabEmpire,
-  FabEnvira,
-  FabErlang,
-  FabEthereum,
-  FabEtsy,
-  FabEvernote,
-  FabExpeditedssl,
-  FabFacebookF,
-  FabFacebookMessenger,
-  FabFacebookSquare,
-  FabFacebook,
-  FabFantasyFlightGames,
-  FabFedex,
-  FabFedora,
-  FabFigma,
-  FabFirefox,
-  FabFirstOrderAlt,
-  FabFirstOrder,
-  FabFirstdraft,
-  FabFlickr,
-  FabFlipboard,
-  FabFly,
-  FabFontAwesomeAlt,
-  FabFontAwesomeFlag,
-  FabFontAwesomeLogoFull,
-  FabFontAwesome,
-  FabFonticonsFi,
-  FabFonticons,
-  FabFortAwesomeAlt,
-  FabFortAwesome,
-  FabForumbee,
-  FabFoursquare,
-  FabFreeCodeCamp,
-  FabFreebsd,
-  FabFulcrum,
-  FabGalacticRepublic,
-  FabGalacticSenate,
-  FabGetPocket,
-  FabGgCircle,
-  FabGg,
-  FabGitAlt,
-  FabGitSquare,
-  FabGit,
-  FabGithubAlt,
-  FabGithubSquare,
-  FabGithub,
-  FabGitkraken,
-  FabGitlab,
-  FabGitter,
-  FabGlideG,
-  FabGlide,
-  FabGofore,
-  FabGoodreadsG,
-  FabGoodreads,
-  FabGoogleDrive,
-  FabGooglePlay,
-  FabGooglePlusG,
-  FabGooglePlusSquare,
-  FabGooglePlus,
-  FabGoogleWallet,
-  FabGoogle,
-  FabGratipay,
-  FabGrav,
-  FabGripfire,
-  FabGrunt,
-  FabGulp,
-  FabHackerNewsSquare,
-  FabHackerNews,
-  FabHackerrank,
-  FabHips,
-  FabHireAHelper,
-  FabHooli,
-  FabHornbill,
-  FabHotjar,
-  FabHouzz,
-  FabHtml5,
-  FabHubspot,
-  FabImdb,
-  FabInstagram,
-  FabIntercom,
-  FabInternetExplorer,
-  FabInvision,
-  FabIoxhost,
-  FabItchIo,
-  FabItunesNote,
-  FabItunes,
-  FabJava,
-  FabJediOrder,
-  FabJenkins,
-  FabJira,
-  FabJoget,
-  FabJoomla,
-  FabJsSquare,
-  FabJs,
-  FabJsfiddle,
-  FabKaggle,
-  FabKeybase,
-  FabKeycdn,
-  FabKickstarterK,
-  FabKickstarter,
-  FabKorvue,
-  FabLaravel,
-  FabLastfmSquare,
-  FabLastfm,
-  FabLeanpub,
-  FabLess,
-  FabLine,
-  FabLinkedinIn,
-  FabLinkedin,
-  FabLinode,
-  FabLinux,
-  FabLyft,
-  FabMagento,
-  FabMailchimp,
-  FabMandalorian,
-  FabMarkdown,
-  FabMastodon,
-  FabMaxcdn,
-  FabMedapps,
-  FabMediumM,
-  FabMedium,
-  FabMedrt,
-  FabMeetup,
-  FabMegaport,
-  FabMendeley,
-  FabMicrosoft,
-  FabMix,
-  FabMixcloud,
-  FabMizuni,
-  FabModx,
-  FabMonero,
-  FabNapster,
-  FabNeos,
-  FabNimblr,
-  FabNintendoSwitch,
-  FabNodeJs,
-  FabNode,
-  FabNpm,
-  FabNs8,
-  FabNutritionix,
-  FabOdnoklassnikiSquare,
-  FabOdnoklassniki,
-  FabOldRepublic,
-  FabOpencart,
-  FabOpenid,
-  FabOpera,
-  FabOptinMonster,
-  FabOsi,
-  FabPage4,
-  FabPagelines,
-  FabPalfed,
-  FabPatreon,
-  FabPaypal,
-  FabPennyArcade,
-  FabPeriscope,
-  FabPhabricator,
-  FabPhoenixFramework,
-  FabPhoenixSquadron,
-  FabPhp,
-  FabPiedPiperAlt,
-  FabPiedPiperHat,
-  FabPiedPiperPp,
-  FabPiedPiper,
-  FabPinterestP,
-  FabPinterestSquare,
-  FabPinterest,
-  FabPlaystation,
-  FabProductHunt,
-  FabPushed,
-  FabPython,
-  FabQq,
-  FabQuinscape,
-  FabQuora,
-  FabRProject,
-  FabRaspberryPi,
-  FabRavelry,
-  FabReact,
-  FabReacteurope,
-  FabReadme,
-  FabRebel,
-  FabRedRiver,
-  FabRedditAlien,
-  FabRedditSquare,
-  FabReddit,
-  FabRedhat,
-  FabRenren,
-  FabReplyd,
-  FabResearchgate,
-  FabResolving,
-  FabRev,
-  FabRocketchat,
-  FabRockrms,
-  FabSafari,
-  FabSalesforce,
-  FabSass,
-  FabSchlix,
-  FabScribd,
-  FabSearchengin,
-  FabSellcast,
-  FabSellsy,
-  FabServicestack,
-  FabShirtsinbulk,
-  FabShopware,
-  FabSimplybuilt,
-  FabSistrix,
-  FabSith,
-  FabSketch,
-  FabSkyatlas,
-  FabSkype,
-  FabSlackHash,
-  FabSlack,
-  FabSlideshare,
-  FabSnapchatGhost,
-  FabSnapchatSquare,
-  FabSnapchat,
-  FabSoundcloud,
-  FabSourcetree,
-  FabSpeakap,
-  FabSpeakerDeck,
-  FabSpotify,
-  FabSquarespace,
-  FabStackExchange,
-  FabStackOverflow,
-  FabStackpath,
-  FabStaylinked,
-  FabSteamSquare,
-  FabSteamSymbol,
-  FabSteam,
-  FabStickerMule,
-  FabStrava,
-  FabStripeS,
-  FabStripe,
-  FabStudiovinari,
-  FabStumbleuponCircle,
-  FabStumbleupon,
-  FabSuperpowers,
-  FabSupple,
-  FabSuse,
-  FabSymfony,
-  FabTeamspeak,
-  FabTelegramPlane,
-  FabTelegram,
-  FabTencentWeibo,
-  FabTheRedYeti,
-  FabThemeco,
-  FabThemeisle,
-  FabThinkPeaks,
-  FabTradeFederation,
-  FabTrello,
-  FabTripadvisor,
-  FabTumblrSquare,
-  FabTumblr,
-  FabTwitch,
-  FabTwitterSquare,
-  FabTwitter,
-  FabTypo3,
-  FabUber,
-  FabUbuntu,
-  FabUikit,
-  FabUniregistry,
-  FabUntappd,
-  FabUps,
-  FabUsb,
-  FabUsps,
-  FabUssunnah,
-  FabVaadin,
-  FabViacoin,
-  FabViadeoSquare,
-  FabViadeo,
-  FabViber,
-  FabVimeoSquare,
-  FabVimeoV,
-  FabVimeo,
-  FabVine,
-  FabVk,
-  FabVnv,
-  FabVuejs,
-  FabWaze,
-  FabWeebly,
-  FabWeibo,
-  FabWeixin,
-  FabWhatsappSquare,
-  FabWhatsapp,
-  FabWhmcs,
-  FabWikipediaW,
-  FabWindows,
-  FabWix,
-  FabWizardsOfTheCoast,
-  FabWolfPackBattalion,
-  FabWordpressSimple,
-  FabWordpress,
-  FabWpbeginner,
-  FabWpexplorer,
-  FabWpforms,
-  FabWpressr,
-  FabXbox,
-  FabXingSquare,
-  FabXing,
-  FabYCombinator,
-  FabYahoo,
-  FabYammer,
-  FabYandexInternational,
-  FabYandex,
-  FabYarn,
-  FabYelp,
-  FabYoast,
-  FabYoutubeSquare,
-  FabYoutube,
-  FabZhihu,
-  FarAddressBook,
-  FarAddressCard,
-  FarAngry,
-  FarArrowAltCircleDown,
-  FarArrowAltCircleLeft,
-  FarArrowAltCircleRight,
-  FarArrowAltCircleUp,
-  FarBellSlash,
-  FarBell,
-  FarBookmark,
-  FarBuilding,
-  FarCalendarAlt,
-  FarCalendarCheck,
-  FarCalendarMinus,
-  FarCalendarPlus,
-  FarCalendarTimes,
-  FarCalendar,
-  FarCaretSquareDown,
-  FarCaretSquareLeft,
-  FarCaretSquareRight,
-  FarCaretSquareUp,
-  FarChartBar,
-  FarCheckCircle,
-  FarCheckSquare,
-  FarCircle,
-  FarClipboard,
-  FarClock,
-  FarClone,
-  FarClosedCaptioning,
-  FarCommentAlt,
-  FarCommentDots,
-  FarComment,
-  FarComments,
-  FarCompass,
-  FarCopy,
-  FarCopyright,
-  FarCreditCard,
-  FarDizzy,
-  FarDotCircle,
-  FarEdit,
-  FarEnvelopeOpen,
-  FarEnvelope,
-  FarEyeSlash,
-  FarEye,
-  FarFileAlt,
-  FarFileArchive,
-  FarFileAudio,
-  FarFileCode,
-  FarFileExcel,
-  FarFileImage,
-  FarFilePdf,
-  FarFilePowerpoint,
-  FarFileVideo,
-  FarFileWord,
-  FarFile,
-  FarFlag,
-  FarFlushed,
-  FarFolderOpen,
-  FarFolder,
-  FarFontAwesomeLogoFull,
-  FarFrownOpen,
-  FarFrown,
-  FarFutbol,
-  FarGem,
-  FarGrimace,
-  FarGrinAlt,
-  FarGrinBeamSweat,
-  FarGrinBeam,
-  FarGrinHearts,
-  FarGrinSquintTears,
-  FarGrinSquint,
-  FarGrinStars,
-  FarGrinTears,
-  FarGrinTongueSquint,
-  FarGrinTongueWink,
-  FarGrinTongue,
-  FarGrinWink,
-  FarGrin,
-  FarHandLizard,
-  FarHandPaper,
-  FarHandPeace,
-  FarHandPointDown,
-  FarHandPointLeft,
-  FarHandPointRight,
-  FarHandPointUp,
-  FarHandPointer,
-  FarHandRock,
-  FarHandScissors,
-  FarHandSpock,
-  FarHandshake,
-  FarHdd,
-  FarHeart,
-  FarHospital,
-  FarHourglass,
-  FarIdBadge,
-  FarIdCard,
-  FarImage,
-  FarImages,
-  FarKeyboard,
-  FarKissBeam,
-  FarKissWinkHeart,
-  FarKiss,
-  FarLaughBeam,
-  FarLaughSquint,
-  FarLaughWink,
-  FarLaugh,
-  FarLemon,
-  FarLifeRing,
-  FarLightbulb,
-  FarListAlt,
-  FarMap,
-  FarMehBlank,
-  FarMehRollingEyes,
-  FarMeh,
-  FarMinusSquare,
-  FarMoneyBillAlt,
-  FarMoon,
-  FarNewspaper,
-  FarObjectGroup,
-  FarObjectUngroup,
-  FarPaperPlane,
-  FarPauseCircle,
-  FarPlayCircle,
-  FarPlusSquare,
-  FarQuestionCircle,
-  FarRegistered,
-  FarSadCry,
-  FarSadTear,
-  FarSave,
-  FarShareSquare,
-  FarSmileBeam,
-  FarSmileWink,
-  FarSmile,
-  FarSnowflake,
-  FarSquare,
-  FarStarHalf,
-  FarStar,
-  FarStickyNote,
-  FarStopCircle,
-  FarSun,
-  FarSurprise,
-  FarThumbsDown,
-  FarThumbsUp,
-  FarTimesCircle,
-  FarTired,
-  FarTrashAlt,
-  FarUserCircle,
-  FarUser,
-  FarWindowClose,
-  FarWindowMaximize,
-  FarWindowMinimize,
-  FarWindowRestore,
-  FasAd,
-  FasAddressBook,
-  FasAddressCard,
-  FasAdjust,
-  FasAirFreshener,
-  FasAlignCenter,
-  FasAlignJustify,
-  FasAlignLeft,
-  FasAlignRight,
-  FasAllergies,
-  FasAmbulance,
-  FasAmericanSignLanguageInterpreting,
-  FasAnchor,
-  FasAngleDoubleDown,
-  FasAngleDoubleLeft,
-  FasAngleDoubleRight,
-  FasAngleDoubleUp,
-  FasAngleDown,
-  FasAngleLeft,
-  FasAngleRight,
-  FasAngleUp,
-  FasAngry,
-  FasAnkh,
-  FasAppleAlt,
-  FasArchive,
-  FasArchway,
-  FasArrowAltCircleDown,
-  FasArrowAltCircleLeft,
-  FasArrowAltCircleRight,
-  FasArrowAltCircleUp,
-  FasArrowCircleDown,
-  FasArrowCircleLeft,
-  FasArrowCircleRight,
-  FasArrowCircleUp,
-  FasArrowDown,
-  FasArrowLeft,
-  FasArrowRight,
-  FasArrowUp,
-  FasArrowsAltH,
-  FasArrowsAltV,
-  FasArrowsAlt,
-  FasAssistiveListeningSystems,
-  FasAsterisk,
-  FasAt,
-  FasAtlas,
-  FasAtom,
-  FasAudioDescription,
-  FasAward,
-  FasBabyCarriage,
-  FasBaby,
-  FasBackspace,
-  FasBackward,
-  FasBacon,
-  FasBalanceScaleLeft,
-  FasBalanceScaleRight,
-  FasBalanceScale,
-  FasBan,
-  FasBandAid,
-  FasBarcode,
-  FasBars,
-  FasBaseballBall,
-  FasBasketballBall,
-  FasBath,
-  FasBatteryEmpty,
-  FasBatteryFull,
-  FasBatteryHalf,
-  FasBatteryQuarter,
-  FasBatteryThreeQuarters,
-  FasBed,
-  FasBeer,
-  FasBellSlash,
-  FasBell,
-  FasBezierCurve,
-  FasBible,
-  FasBicycle,
-  FasBiking,
-  FasBinoculars,
-  FasBiohazard,
-  FasBirthdayCake,
-  FasBlenderPhone,
-  FasBlender,
-  FasBlind,
-  FasBlog,
-  FasBold,
-  FasBolt,
-  FasBomb,
-  FasBone,
-  FasBong,
-  FasBookDead,
-  FasBookMedical,
-  FasBookOpen,
-  FasBookReader,
-  FasBook,
-  FasBookmark,
-  FasBorderAll,
-  FasBorderNone,
-  FasBorderStyle,
-  FasBowlingBall,
-  FasBoxOpen,
-  FasBox,
-  FasBoxes,
-  FasBraille,
-  FasBrain,
-  FasBreadSlice,
-  FasBriefcaseMedical,
-  FasBriefcase,
-  FasBroadcastTower,
-  FasBroom,
-  FasBrush,
-  FasBug,
-  FasBuilding,
-  FasBullhorn,
-  FasBullseye,
-  FasBurn,
-  FasBusAlt,
-  FasBus,
-  FasBusinessTime,
-  FasCalculator,
-  FasCalendarAlt,
-  FasCalendarCheck,
-  FasCalendarDay,
-  FasCalendarMinus,
-  FasCalendarPlus,
-  FasCalendarTimes,
-  FasCalendarWeek,
-  FasCalendar,
-  FasCameraRetro,
-  FasCamera,
-  FasCampground,
-  FasCandyCane,
-  FasCannabis,
-  FasCapsules,
-  FasCarAlt,
-  FasCarBattery,
-  FasCarCrash,
-  FasCarSide,
-  FasCar,
-  FasCaretDown,
-  FasCaretLeft,
-  FasCaretRight,
-  FasCaretSquareDown,
-  FasCaretSquareLeft,
-  FasCaretSquareRight,
-  FasCaretSquareUp,
-  FasCaretUp,
-  FasCarrot,
-  FasCartArrowDown,
-  FasCartPlus,
-  FasCashRegister,
-  FasCat,
-  FasCertificate,
-  FasChair,
-  FasChalkboardTeacher,
-  FasChalkboard,
-  FasChargingStation,
-  FasChartArea,
-  FasChartBar,
-  FasChartLine,
-  FasChartPie,
-  FasCheckCircle,
-  FasCheckDouble,
-  FasCheckSquare,
-  FasCheck,
-  FasCheese,
-  FasChessBishop,
-  FasChessBoard,
-  FasChessKing,
-  FasChessKnight,
-  FasChessPawn,
-  FasChessQueen,
-  FasChessRook,
-  FasChess,
-  FasChevronCircleDown,
-  FasChevronCircleLeft,
-  FasChevronCircleRight,
-  FasChevronCircleUp,
-  FasChevronDown,
-  FasChevronLeft,
-  FasChevronRight,
-  FasChevronUp,
-  FasChild,
-  FasChurch,
-  FasCircleNotch,
-  FasCircle,
-  FasCity,
-  FasClinicMedical,
-  FasClipboardCheck,
-  FasClipboardList,
-  FasClipboard,
-  FasClock,
-  FasClone,
-  FasClosedCaptioning,
-  FasCloudDownloadAlt,
-  FasCloudMeatball,
-  FasCloudMoonRain,
-  FasCloudMoon,
-  FasCloudRain,
-  FasCloudShowersHeavy,
-  FasCloudSunRain,
-  FasCloudSun,
-  FasCloudUploadAlt,
-  FasCloud,
-  FasCocktail,
-  FasCodeBranch,
-  FasCode,
-  FasCoffee,
-  FasCog,
-  FasCogs,
-  FasCoins,
-  FasColumns,
-  FasCommentAlt,
-  FasCommentDollar,
-  FasCommentDots,
-  FasCommentMedical,
-  FasCommentSlash,
-  FasComment,
-  FasCommentsDollar,
-  FasComments,
-  FasCompactDisc,
-  FasCompass,
-  FasCompressArrowsAlt,
-  FasCompress,
-  FasConciergeBell,
-  FasCookieBite,
-  FasCookie,
-  FasCopy,
-  FasCopyright,
-  FasCouch,
-  FasCreditCard,
-  FasCropAlt,
-  FasCrop,
-  FasCross,
-  FasCrosshairs,
-  FasCrow,
-  FasCrown,
-  FasCrutch,
-  FasCube,
-  FasCubes,
-  FasCut,
-  FasDatabase,
-  FasDeaf,
-  FasDemocrat,
-  FasDesktop,
-  FasDharmachakra,
-  FasDiagnoses,
-  FasDiceD20,
-  FasDiceD6,
-  FasDiceFive,
-  FasDiceFour,
-  FasDiceOne,
-  FasDiceSix,
-  FasDiceThree,
-  FasDiceTwo,
-  FasDice,
-  FasDigitalTachograph,
-  FasDirections,
-  FasDivide,
-  FasDizzy,
-  FasDna,
-  FasDog,
-  FasDollarSign,
-  FasDollyFlatbed,
-  FasDolly,
-  FasDonate,
-  FasDoorClosed,
-  FasDoorOpen,
-  FasDotCircle,
-  FasDove,
-  FasDownload,
-  FasDraftingCompass,
-  FasDragon,
-  FasDrawPolygon,
-  FasDrumSteelpan,
-  FasDrum,
-  FasDrumstickBite,
-  FasDumbbell,
-  FasDumpsterFire,
-  FasDumpster,
-  FasDungeon,
-  FasEdit,
-  FasEgg,
-  FasEject,
-  FasEllipsisH,
-  FasEllipsisV,
-  FasEnvelopeOpenText,
-  FasEnvelopeOpen,
-  FasEnvelopeSquare,
-  FasEnvelope,
-  FasEquals,
-  FasEraser,
-  FasEthernet,
-  FasEuroSign,
-  FasExchangeAlt,
-  FasExclamationCircle,
-  FasExclamationTriangle,
-  FasExclamation,
-  FasExpandArrowsAlt,
-  FasExpand,
-  FasExternalLinkAlt,
-  FasExternalLinkSquareAlt,
-  FasEyeDropper,
-  FasEyeSlash,
-  FasEye,
-  FasFan,
-  FasFastBackward,
-  FasFastForward,
-  FasFax,
-  FasFeatherAlt,
-  FasFeather,
-  FasFemale,
-  FasFighterJet,
-  FasFileAlt,
-  FasFileArchive,
-  FasFileAudio,
-  FasFileCode,
-  FasFileContract,
-  FasFileCsv,
-  FasFileDownload,
-  FasFileExcel,
-  FasFileExport,
-  FasFileImage,
-  FasFileImport,
-  FasFileInvoiceDollar,
-  FasFileInvoice,
-  FasFileMedicalAlt,
-  FasFileMedical,
-  FasFilePdf,
-  FasFilePowerpoint,
-  FasFilePrescription,
-  FasFileSignature,
-  FasFileUpload,
-  FasFileVideo,
-  FasFileWord,
-  FasFile,
-  FasFillDrip,
-  FasFill,
-  FasFilm,
-  FasFilter,
-  FasFingerprint,
-  FasFireAlt,
-  FasFireExtinguisher,
-  FasFire,
-  FasFirstAid,
-  FasFish,
-  FasFistRaised,
-  FasFlagCheckered,
-  FasFlagUsa,
-  FasFlag,
-  FasFlask,
-  FasFlushed,
-  FasFolderMinus,
-  FasFolderOpen,
-  FasFolderPlus,
-  FasFolder,
-  FasFontAwesomeLogoFull,
-  FasFont,
-  FasFootballBall,
-  FasForward,
-  FasFrog,
-  FasFrownOpen,
-  FasFrown,
-  FasFunnelDollar,
-  FasFutbol,
-  FasGamepad,
-  FasGasPump,
-  FasGavel,
-  FasGem,
-  FasGenderless,
-  FasGhost,
-  FasGift,
-  FasGifts,
-  FasGlassCheers,
-  FasGlassMartiniAlt,
-  FasGlassMartini,
-  FasGlassWhiskey,
-  FasGlasses,
-  FasGlobeAfrica,
-  FasGlobeAmericas,
-  FasGlobeAsia,
-  FasGlobeEurope,
-  FasGlobe,
-  FasGolfBall,
-  FasGopuram,
-  FasGraduationCap,
-  FasGreaterThanEqual,
-  FasGreaterThan,
-  FasGrimace,
-  FasGrinAlt,
-  FasGrinBeamSweat,
-  FasGrinBeam,
-  FasGrinHearts,
-  FasGrinSquintTears,
-  FasGrinSquint,
-  FasGrinStars,
-  FasGrinTears,
-  FasGrinTongueSquint,
-  FasGrinTongueWink,
-  FasGrinTongue,
-  FasGrinWink,
-  FasGrin,
-  FasGripHorizontal,
-  FasGripLinesVertical,
-  FasGripLines,
-  FasGripVertical,
-  FasGuitar,
-  FasHSquare,
-  FasHamburger,
-  FasHammer,
-  FasHamsa,
-  FasHandHoldingHeart,
-  FasHandHoldingUsd,
-  FasHandHolding,
-  FasHandLizard,
-  FasHandMiddleFinger,
-  FasHandPaper,
-  FasHandPeace,
-  FasHandPointDown,
-  FasHandPointLeft,
-  FasHandPointRight,
-  FasHandPointUp,
-  FasHandPointer,
-  FasHandRock,
-  FasHandScissors,
-  FasHandSpock,
-  FasHandsHelping,
-  FasHands,
-  FasHandshake,
-  FasHanukiah,
-  FasHardHat,
-  FasHashtag,
-  FasHatWizard,
-  FasHaykal,
-  FasHdd,
-  FasHeading,
-  FasHeadphonesAlt,
-  FasHeadphones,
-  FasHeadset,
-  FasHeartBroken,
-  FasHeart,
-  FasHeartbeat,
-  FasHelicopter,
-  FasHighlighter,
-  FasHiking,
-  FasHippo,
-  FasHistory,
-  FasHockeyPuck,
-  FasHollyBerry,
-  FasHome,
-  FasHorseHead,
-  FasHorse,
-  FasHospitalAlt,
-  FasHospitalSymbol,
-  FasHospital,
-  FasHotTub,
-  FasHotdog,
-  FasHotel,
-  FasHourglassEnd,
-  FasHourglassHalf,
-  FasHourglassStart,
-  FasHourglass,
-  FasHouseDamage,
-  FasHryvnia,
-  FasICursor,
-  FasIceCream,
-  FasIcicles,
-  FasIcons,
-  FasIdBadge,
-  FasIdCardAlt,
-  FasIdCard,
-  FasIgloo,
-  FasImage,
-  FasImages,
-  FasInbox,
-  FasIndent,
-  FasIndustry,
-  FasInfinity,
-  FasInfoCircle,
-  FasInfo,
-  FasItalic,
-  FasJedi,
-  FasJoint,
-  FasJournalWhills,
-  FasKaaba,
-  FasKey,
-  FasKeyboard,
-  FasKhanda,
-  FasKissBeam,
-  FasKissWinkHeart,
-  FasKiss,
-  FasKiwiBird,
-  FasLandmark,
-  FasLanguage,
-  FasLaptopCode,
-  FasLaptopMedical,
-  FasLaptop,
-  FasLaughBeam,
-  FasLaughSquint,
-  FasLaughWink,
-  FasLaugh,
-  FasLayerGroup,
-  FasLeaf,
-  FasLemon,
-  FasLessThanEqual,
-  FasLessThan,
-  FasLevelDownAlt,
-  FasLevelUpAlt,
-  FasLifeRing,
-  FasLightbulb,
-  FasLink,
-  FasLiraSign,
-  FasListAlt,
-  FasListOl,
-  FasListUl,
-  FasList,
-  FasLocationArrow,
-  FasLockOpen,
-  FasLock,
-  FasLongArrowAltDown,
-  FasLongArrowAltLeft,
-  FasLongArrowAltRight,
-  FasLongArrowAltUp,
-  FasLowVision,
-  FasLuggageCart,
-  FasMagic,
-  FasMagnet,
-  FasMailBulk,
-  FasMale,
-  FasMapMarkedAlt,
-  FasMapMarked,
-  FasMapMarkerAlt,
-  FasMapMarker,
-  FasMapPin,
-  FasMapSigns,
-  FasMap,
-  FasMarker,
-  FasMarsDouble,
-  FasMarsStrokeH,
-  FasMarsStrokeV,
-  FasMarsStroke,
-  FasMars,
-  FasMask,
-  FasMedal,
-  FasMedkit,
-  FasMehBlank,
-  FasMehRollingEyes,
-  FasMeh,
-  FasMemory,
-  FasMenorah,
-  FasMercury,
-  FasMeteor,
-  FasMicrochip,
-  FasMicrophoneAltSlash,
-  FasMicrophoneAlt,
-  FasMicrophoneSlash,
-  FasMicrophone,
-  FasMicroscope,
-  FasMinusCircle,
-  FasMinusSquare,
-  FasMinus,
-  FasMitten,
-  FasMobileAlt,
-  FasMobile,
-  FasMoneyBillAlt,
-  FasMoneyBillWaveAlt,
-  FasMoneyBillWave,
-  FasMoneyBill,
-  FasMoneyCheckAlt,
-  FasMoneyCheck,
-  FasMonument,
-  FasMoon,
-  FasMortarPestle,
-  FasMosque,
-  FasMotorcycle,
-  FasMountain,
-  FasMousePointer,
-  FasMugHot,
-  FasMusic,
-  FasNetworkWired,
-  FasNeuter,
-  FasNewspaper,
-  FasNotEqual,
-  FasNotesMedical,
-  FasObjectGroup,
-  FasObjectUngroup,
-  FasOilCan,
-  FasOm,
-  FasOtter,
-  FasOutdent,
-  FasPager,
-  FasPaintBrush,
-  FasPaintRoller,
-  FasPalette,
-  FasPallet,
-  FasPaperPlane,
-  FasPaperclip,
-  FasParachuteBox,
-  FasParagraph,
-  FasParking,
-  FasPassport,
-  FasPastafarianism,
-  FasPaste,
-  FasPauseCircle,
-  FasPause,
-  FasPaw,
-  FasPeace,
-  FasPenAlt,
-  FasPenFancy,
-  FasPenNib,
-  FasPenSquare,
-  FasPen,
-  FasPencilAlt,
-  FasPencilRuler,
-  FasPeopleCarry,
-  FasPepperHot,
-  FasPercent,
-  FasPercentage,
-  FasPersonBooth,
-  FasPhoneAlt,
-  FasPhoneSlash,
-  FasPhoneSquareAlt,
-  FasPhoneSquare,
-  FasPhoneVolume,
-  FasPhone,
-  FasPhotoVideo,
-  FasPiggyBank,
-  FasPills,
-  FasPizzaSlice,
-  FasPlaceOfWorship,
-  FasPlaneArrival,
-  FasPlaneDeparture,
-  FasPlane,
-  FasPlayCircle,
-  FasPlay,
-  FasPlug,
-  FasPlusCircle,
-  FasPlusSquare,
-  FasPlus,
-  FasPodcast,
-  FasPollH,
-  FasPoll,
-  FasPooStorm,
-  FasPoo,
-  FasPoop,
-  FasPortrait,
-  FasPoundSign,
-  FasPowerOff,
-  FasPray,
-  FasPrayingHands,
-  FasPrescriptionBottleAlt,
-  FasPrescriptionBottle,
-  FasPrescription,
-  FasPrint,
-  FasProcedures,
-  FasProjectDiagram,
-  FasPuzzlePiece,
-  FasQrcode,
-  FasQuestionCircle,
-  FasQuestion,
-  FasQuidditch,
-  FasQuoteLeft,
-  FasQuoteRight,
-  FasQuran,
-  FasRadiationAlt,
-  FasRadiation,
-  FasRainbow,
-  FasRandom,
-  FasReceipt,
-  FasRecycle,
-  FasRedoAlt,
-  FasRedo,
-  FasRegistered,
-  FasRemoveFormat,
-  FasReplyAll,
-  FasReply,
-  FasRepublican,
-  FasRestroom,
-  FasRetweet,
-  FasRibbon,
-  FasRing,
-  FasRoad,
-  FasRobot,
-  FasRocket,
-  FasRoute,
-  FasRssSquare,
-  FasRss,
-  FasRubleSign,
-  FasRulerCombined,
-  FasRulerHorizontal,
-  FasRulerVertical,
-  FasRuler,
-  FasRunning,
-  FasRupeeSign,
-  FasSadCry,
-  FasSadTear,
-  FasSatelliteDish,
-  FasSatellite,
-  FasSave,
-  FasSchool,
-  FasScrewdriver,
-  FasScroll,
-  FasSdCard,
-  FasSearchDollar,
-  FasSearchLocation,
-  FasSearchMinus,
-  FasSearchPlus,
-  FasSearch,
-  FasSeedling,
-  FasServer,
-  FasShapes,
-  FasShareAltSquare,
-  FasShareAlt,
-  FasShareSquare,
-  FasShare,
-  FasShekelSign,
-  FasShieldAlt,
-  FasShip,
-  FasShippingFast,
-  FasShoePrints,
-  FasShoppingBag,
-  FasShoppingBasket,
-  FasShoppingCart,
-  FasShower,
-  FasShuttleVan,
-  FasSignInAlt,
-  FasSignLanguage,
-  FasSignOutAlt,
-  FasSign,
-  FasSignal,
-  FasSignature,
-  FasSimCard,
-  FasSitemap,
-  FasSkating,
-  FasSkiingNordic,
-  FasSkiing,
-  FasSkullCrossbones,
-  FasSkull,
-  FasSlash,
-  FasSleigh,
-  FasSlidersH,
-  FasSmileBeam,
-  FasSmileWink,
-  FasSmile,
-  FasSmog,
-  FasSmokingBan,
-  FasSmoking,
-  FasSms,
-  FasSnowboarding,
-  FasSnowflake,
-  FasSnowman,
-  FasSnowplow,
-  FasSocks,
-  FasSolarPanel,
-  FasSortAlphaDownAlt,
-  FasSortAlphaDown,
-  FasSortAlphaUpAlt,
-  FasSortAlphaUp,
-  FasSortAmountDownAlt,
-  FasSortAmountDown,
-  FasSortAmountUpAlt,
-  FasSortAmountUp,
-  FasSortDown,
-  FasSortNumericDownAlt,
-  FasSortNumericDown,
-  FasSortNumericUpAlt,
-  FasSortNumericUp,
-  FasSortUp,
-  FasSort,
-  FasSpa,
-  FasSpaceShuttle,
-  FasSpellCheck,
-  FasSpider,
-  FasSpinner,
-  FasSplotch,
-  FasSprayCan,
-  FasSquareFull,
-  FasSquareRootAlt,
-  FasSquare,
-  FasStamp,
-  FasStarAndCrescent,
-  FasStarHalfAlt,
-  FasStarHalf,
-  FasStarOfDavid,
-  FasStarOfLife,
-  FasStar,
-  FasStepBackward,
-  FasStepForward,
-  FasStethoscope,
-  FasStickyNote,
-  FasStopCircle,
-  FasStop,
-  FasStopwatch,
-  FasStoreAlt,
-  FasStore,
-  FasStream,
-  FasStreetView,
-  FasStrikethrough,
-  FasStroopwafel,
-  FasSubscript,
-  FasSubway,
-  FasSuitcaseRolling,
-  FasSuitcase,
-  FasSun,
-  FasSuperscript,
-  FasSurprise,
-  FasSwatchbook,
-  FasSwimmer,
-  FasSwimmingPool,
-  FasSynagogue,
-  FasSyncAlt,
-  FasSync,
-  FasSyringe,
-  FasTableTennis,
-  FasTable,
-  FasTabletAlt,
-  FasTablet,
-  FasTablets,
-  FasTachometerAlt,
-  FasTag,
-  FasTags,
-  FasTape,
-  FasTasks,
-  FasTaxi,
-  FasTeethOpen,
-  FasTeeth,
-  FasTemperatureHigh,
-  FasTemperatureLow,
-  FasTenge,
-  FasTerminal,
-  FasTextHeight,
-  FasTextWidth,
-  FasThLarge,
-  FasThList,
-  FasTh,
-  FasTheaterMasks,
-  FasThermometerEmpty,
-  FasThermometerFull,
-  FasThermometerHalf,
-  FasThermometerQuarter,
-  FasThermometerThreeQuarters,
-  FasThermometer,
-  FasThumbsDown,
-  FasThumbsUp,
-  FasThumbtack,
-  FasTicketAlt,
-  FasTimesCircle,
-  FasTimes,
-  FasTintSlash,
-  FasTint,
-  FasTired,
-  FasToggleOff,
-  FasToggleOn,
-  FasToiletPaper,
-  FasToilet,
-  FasToolbox,
-  FasTools,
-  FasTooth,
-  FasTorah,
-  FasToriiGate,
-  FasTractor,
-  FasTrademark,
-  FasTrafficLight,
-  FasTrain,
-  FasTram,
-  FasTransgenderAlt,
-  FasTransgender,
-  FasTrashAlt,
-  FasTrashRestoreAlt,
-  FasTrashRestore,
-  FasTrash,
-  FasTree,
-  FasTrophy,
-  FasTruckLoading,
-  FasTruckMonster,
-  FasTruckMoving,
-  FasTruckPickup,
-  FasTruck,
-  FasTshirt,
-  FasTty,
-  FasTv,
-  FasUmbrellaBeach,
-  FasUmbrella,
-  FasUnderline,
-  FasUndoAlt,
-  FasUndo,
-  FasUniversalAccess,
-  FasUniversity,
-  FasUnlink,
-  FasUnlockAlt,
-  FasUnlock,
-  FasUpload,
-  FasUserAltSlash,
-  FasUserAlt,
-  FasUserAstronaut,
-  FasUserCheck,
-  FasUserCircle,
-  FasUserClock,
-  FasUserCog,
-  FasUserEdit,
-  FasUserFriends,
-  FasUserGraduate,
-  FasUserInjured,
-  FasUserLock,
-  FasUserMd,
-  FasUserMinus,
-  FasUserNinja,
-  FasUserNurse,
-  FasUserPlus,
-  FasUserSecret,
-  FasUserShield,
-  FasUserSlash,
-  FasUserTag,
-  FasUserTie,
-  FasUserTimes,
-  FasUser,
-  FasUsersCog,
-  FasUsers,
-  FasUtensilSpoon,
-  FasUtensils,
-  FasVectorSquare,
-  FasVenusDouble,
-  FasVenusMars,
-  FasVenus,
-  FasVial,
-  FasVials,
-  FasVideoSlash,
-  FasVideo,
-  FasVihara,
-  FasVoicemail,
-  FasVolleyballBall,
-  FasVolumeDown,
-  FasVolumeMute,
-  FasVolumeOff,
-  FasVolumeUp,
-  FasVoteYea,
-  FasVrCardboard,
-  FasWalking,
-  FasWallet,
-  FasWarehouse,
-  FasWater,
-  FasWaveSquare,
-  FasWeightHanging,
-  FasWeight,
-  FasWheelchair,
-  FasWifi,
-  FasWind,
-  FasWindowClose,
-  FasWindowMaximize,
-  FasWindowMinimize,
-  FasWindowRestore,
-  FasWineBottle,
-  FasWineGlassAlt,
-  FasWineGlass,
-  FasWonSign,
-  FasWrench,
-  FasXRay,
-  FasYenSign,
-  FasYinYang
+  AddCircleOutline,
+  AddCircleSharp,
+  AddCircle,
+  AddOutline,
+  AddSharp,
+  Add,
+  AirplaneOutline,
+  AirplaneSharp,
+  Airplane,
+  AlarmOutline,
+  AlarmSharp,
+  Alarm,
+  AlbumsOutline,
+  AlbumsSharp,
+  Albums,
+  AlertCircleOutline,
+  AlertCircleSharp,
+  AlertCircle,
+  AlertOutline,
+  AlertSharp,
+  Alert,
+  AmericanFootballOutline,
+  AmericanFootballSharp,
+  AmericanFootball,
+  AnalyticsOutline,
+  AnalyticsSharp,
+  Analytics,
+  ApertureOutline,
+  ApertureSharp,
+  Aperture,
+  AppsOutline,
+  AppsSharp,
+  Apps,
+  ArchiveOutline,
+  ArchiveSharp,
+  Archive,
+  ArrowBackCircleOutline,
+  ArrowBackCircleSharp,
+  ArrowBackCircle,
+  ArrowBackOutline,
+  ArrowBackSharp,
+  ArrowBack,
+  ArrowDownCircleOutline,
+  ArrowDownCircleSharp,
+  ArrowDownCircle,
+  ArrowDownOutline,
+  ArrowDownSharp,
+  ArrowDown,
+  ArrowForwardCircleOutline,
+  ArrowForwardCircleSharp,
+  ArrowForwardCircle,
+  ArrowForwardOutline,
+  ArrowForwardSharp,
+  ArrowForward,
+  ArrowRedoCircleOutline,
+  ArrowRedoCircleSharp,
+  ArrowRedoCircle,
+  ArrowRedoOutline,
+  ArrowRedoSharp,
+  ArrowRedo,
+  ArrowUndoCircleOutline,
+  ArrowUndoCircleSharp,
+  ArrowUndoCircle,
+  ArrowUndoOutline,
+  ArrowUndoSharp,
+  ArrowUndo,
+  ArrowUpCircleOutline,
+  ArrowUpCircleSharp,
+  ArrowUpCircle,
+  ArrowUpOutline,
+  ArrowUpSharp,
+  ArrowUp,
+  AtCircleOutline,
+  AtCircleSharp,
+  AtCircle,
+  AtOutline,
+  AtSharp,
+  At,
+  AttachOutline,
+  AttachSharp,
+  Attach,
+  BackspaceOutline,
+  BackspaceSharp,
+  Backspace,
+  BandageOutline,
+  BandageSharp,
+  Bandage,
+  BarChartOutline,
+  BarChartSharp,
+  BarChart,
+  BarbellOutline,
+  BarbellSharp,
+  Barbell,
+  BarcodeOutline,
+  BarcodeSharp,
+  Barcode,
+  BaseballOutline,
+  BaseballSharp,
+  Baseball,
+  BasketOutline,
+  BasketSharp,
+  Basket,
+  BasketballOutline,
+  BasketballSharp,
+  Basketball,
+  BatteryChargingOutline,
+  BatteryChargingSharp,
+  BatteryCharging,
+  BatteryDeadOutline,
+  BatteryDeadSharp,
+  BatteryDead,
+  BatteryFullOutline,
+  BatteryFullSharp,
+  BatteryFull,
+  BatteryHalfOutline,
+  BatteryHalfSharp,
+  BatteryHalf,
+  BeakerOutline,
+  BeakerSharp,
+  Beaker,
+  BedOutline,
+  BedSharp,
+  Bed,
+  BeerOutline,
+  BeerSharp,
+  Beer,
+  BicycleOutline,
+  BicycleSharp,
+  Bicycle,
+  BluetoothOutline,
+  BluetoothSharp,
+  Bluetooth,
+  BoatOutline,
+  BoatSharp,
+  Boat,
+  BodyOutline,
+  BodySharp,
+  Body,
+  BonfireOutline,
+  BonfireSharp,
+  Bonfire,
+  BookOutline,
+  BookSharp,
+  Book,
+  BookmarkOutline,
+  BookmarkSharp,
+  Bookmark,
+  BookmarksOutline,
+  BookmarksSharp,
+  Bookmarks,
+  BriefcaseOutline,
+  BriefcaseSharp,
+  Briefcase,
+  BrowsersOutline,
+  BrowsersSharp,
+  Browsers,
+  BrushOutline,
+  BrushSharp,
+  Brush,
+  BugOutline,
+  BugSharp,
+  Bug,
+  BuildOutline,
+  BuildSharp,
+  Build,
+  BulbOutline,
+  BulbSharp,
+  Bulb,
+  BusOutline,
+  BusSharp,
+  Bus,
+  BusinessOutline,
+  BusinessSharp,
+  Business,
+  CafeOutline,
+  CafeSharp,
+  Cafe,
+  CalculatorOutline,
+  CalculatorSharp,
+  Calculator,
+  CalendarOutline,
+  CalendarSharp,
+  Calendar,
+  CallOutline,
+  CallSharp,
+  Call,
+  CameraOutline,
+  CameraReverseOutline,
+  CameraReverseSharp,
+  CameraReverse,
+  CameraSharp,
+  Camera,
+  CarOutline,
+  CarSharp,
+  CarSportOutline,
+  CarSportSharp,
+  CarSport,
+  Car,
+  CardOutline,
+  CardSharp,
+  Card,
+  CaretBackCircleOutline,
+  CaretBackCircleSharp,
+  CaretBackCircle,
+  CaretBackOutline,
+  CaretBackSharp,
+  CaretBack,
+  CaretDownCircleOutline,
+  CaretDownCircleSharp,
+  CaretDownCircle,
+  CaretDownOutline,
+  CaretDownSharp,
+  CaretDown,
+  CaretForwardCircleOutline,
+  CaretForwardCircleSharp,
+  CaretForwardCircle,
+  CaretForwardOutline,
+  CaretForwardSharp,
+  CaretForward,
+  CaretUpCircleOutline,
+  CaretUpCircleSharp,
+  CaretUpCircle,
+  CaretUpOutline,
+  CaretUpSharp,
+  CaretUp,
+  CartOutline,
+  CartSharp,
+  Cart,
+  CashOutline,
+  CashSharp,
+  Cash,
+  CellularOutline,
+  CellularSharp,
+  Cellular,
+  ChatboxEllipsesOutline,
+  ChatboxEllipsesSharp,
+  ChatboxEllipses,
+  ChatboxOutline,
+  ChatboxSharp,
+  Chatbox,
+  ChatbubbleEllipsesOutline,
+  ChatbubbleEllipsesSharp,
+  ChatbubbleEllipses,
+  ChatbubbleOutline,
+  ChatbubbleSharp,
+  Chatbubble,
+  ChatbubblesOutline,
+  ChatbubblesSharp,
+  Chatbubbles,
+  CheckboxOutline,
+  CheckboxSharp,
+  Checkbox,
+  CheckmarkCircleOutline,
+  CheckmarkCircleSharp,
+  CheckmarkCircle,
+  CheckmarkDoneCircleOutline,
+  CheckmarkDoneCircleSharp,
+  CheckmarkDoneCircle,
+  CheckmarkDoneOutline,
+  CheckmarkDoneSharp,
+  CheckmarkDone,
+  CheckmarkOutline,
+  CheckmarkSharp,
+  Checkmark,
+  ChevronBackCircleOutline,
+  ChevronBackCircleSharp,
+  ChevronBackCircle,
+  ChevronBackOutline,
+  ChevronBackSharp,
+  ChevronBack,
+  ChevronDownCircleOutline,
+  ChevronDownCircleSharp,
+  ChevronDownCircle,
+  ChevronDownOutline,
+  ChevronDownSharp,
+  ChevronDown,
+  ChevronForwardCircleOutline,
+  ChevronForwardCircleSharp,
+  ChevronForwardCircle,
+  ChevronForwardOutline,
+  ChevronForwardSharp,
+  ChevronForward,
+  ChevronUpCircleOutline,
+  ChevronUpCircleSharp,
+  ChevronUpCircle,
+  ChevronUpOutline,
+  ChevronUpSharp,
+  ChevronUp,
+  ClipboardOutline,
+  ClipboardSharp,
+  Clipboard,
+  CloseCircleOutline,
+  CloseCircleSharp,
+  CloseCircle,
+  CloseOutline,
+  CloseSharp,
+  Close,
+  CloudCircleOutline,
+  CloudCircleSharp,
+  CloudCircle,
+  CloudDoneOutline,
+  CloudDoneSharp,
+  CloudDone,
+  CloudDownloadOutline,
+  CloudDownloadSharp,
+  CloudDownload,
+  CloudOfflineOutline,
+  CloudOfflineSharp,
+  CloudOffline,
+  CloudOutline,
+  CloudSharp,
+  CloudUploadOutline,
+  CloudUploadSharp,
+  CloudUpload,
+  Cloud,
+  CloudyNightOutline,
+  CloudyNightSharp,
+  CloudyNight,
+  CloudyOutline,
+  CloudySharp,
+  Cloudy,
+  CodeDownloadOutline,
+  CodeDownloadSharp,
+  CodeDownload,
+  CodeOutline,
+  CodeSharp,
+  CodeSlashOutline,
+  CodeSlashSharp,
+  CodeSlash,
+  CodeWorkingOutline,
+  CodeWorkingSharp,
+  CodeWorking,
+  Code,
+  CogOutline,
+  CogSharp,
+  Cog,
+  ColorFillOutline,
+  ColorFillSharp,
+  ColorFill,
+  ColorFilterOutline,
+  ColorFilterSharp,
+  ColorFilter,
+  ColorPaletteOutline,
+  ColorPaletteSharp,
+  ColorPalette,
+  ColorWandOutline,
+  ColorWandSharp,
+  ColorWand,
+  CompassOutline,
+  CompassSharp,
+  Compass,
+  ConstructOutline,
+  ConstructSharp,
+  Construct,
+  ContractOutline,
+  ContractSharp,
+  Contract,
+  ContrastOutline,
+  ContrastSharp,
+  Contrast,
+  CopyOutline,
+  CopySharp,
+  Copy,
+  CreateOutline,
+  CreateSharp,
+  Create,
+  CropOutline,
+  CropSharp,
+  Crop,
+  CubeOutline,
+  CubeSharp,
+  Cube,
+  CutOutline,
+  CutSharp,
+  Cut,
+  DesktopOutline,
+  DesktopSharp,
+  Desktop,
+  DiscOutline,
+  DiscSharp,
+  Disc,
+  DocumentAttachOutline,
+  DocumentAttachSharp,
+  DocumentAttach,
+  DocumentOutline,
+  DocumentSharp,
+  DocumentTextOutline,
+  DocumentTextSharp,
+  DocumentText,
+  Document,
+  DocumentsOutline,
+  DocumentsSharp,
+  Documents,
+  DownloadOutline,
+  DownloadSharp,
+  Download,
+  DuplicateOutline,
+  DuplicateSharp,
+  Duplicate,
+  EarOutline,
+  EarSharp,
+  Ear,
+  EarthOutline,
+  EarthSharp,
+  Earth,
+  EaselOutline,
+  EaselSharp,
+  Easel,
+  EggOutline,
+  EggSharp,
+  Egg,
+  EllipseOutline,
+  EllipseSharp,
+  Ellipse,
+  EllipsisHorizontalCircleOutline,
+  EllipsisHorizontalCircleSharp,
+  EllipsisHorizontalCircle,
+  EllipsisHorizontalOutline,
+  EllipsisHorizontalSharp,
+  EllipsisHorizontal,
+  EllipsisVerticalCircleOutline,
+  EllipsisVerticalCircleSharp,
+  EllipsisVerticalCircle,
+  EllipsisVerticalOutline,
+  EllipsisVerticalSharp,
+  EllipsisVertical,
+  EnterOutline,
+  EnterSharp,
+  Enter,
+  ExitOutline,
+  ExitSharp,
+  Exit,
+  ExpandOutline,
+  ExpandSharp,
+  Expand,
+  EyeOffOutline,
+  EyeOffSharp,
+  EyeOff,
+  EyeOutline,
+  EyeSharp,
+  Eye,
+  EyedropOutline,
+  EyedropSharp,
+  Eyedrop,
+  FastFoodOutline,
+  FastFoodSharp,
+  FastFood,
+  FemaleOutline,
+  FemaleSharp,
+  Female,
+  FileTrayFullOutline,
+  FileTrayFullSharp,
+  FileTrayFull,
+  FileTrayOutline,
+  FileTraySharp,
+  FileTrayStackedOutline,
+  FileTrayStackedSharp,
+  FileTrayStacked,
+  FileTray,
+  FilmOutline,
+  FilmSharp,
+  Film,
+  FilterOutline,
+  FilterSharp,
+  Filter,
+  FingerPrintOutline,
+  FingerPrintSharp,
+  FingerPrint,
+  FitnessOutline,
+  FitnessSharp,
+  Fitness,
+  FlagOutline,
+  FlagSharp,
+  Flag,
+  FlameOutline,
+  FlameSharp,
+  Flame,
+  FlashOffOutline,
+  FlashOffSharp,
+  FlashOff,
+  FlashOutline,
+  FlashSharp,
+  Flash,
+  FlashlightOutline,
+  FlashlightSharp,
+  Flashlight,
+  FlaskOutline,
+  FlaskSharp,
+  Flask,
+  FlowerOutline,
+  FlowerSharp,
+  Flower,
+  FolderOpenOutline,
+  FolderOpenSharp,
+  FolderOpen,
+  FolderOutline,
+  FolderSharp,
+  Folder,
+  FootballOutline,
+  FootballSharp,
+  Football,
+  FunnelOutline,
+  FunnelSharp,
+  Funnel,
+  GameControllerOutline,
+  GameControllerSharp,
+  GameController,
+  GiftOutline,
+  GiftSharp,
+  Gift,
+  GitBranchOutline,
+  GitBranchSharp,
+  GitBranch,
+  GitCommitOutline,
+  GitCommitSharp,
+  GitCommit,
+  GitCompareOutline,
+  GitCompareSharp,
+  GitCompare,
+  GitMergeOutline,
+  GitMergeSharp,
+  GitMerge,
+  GitNetworkOutline,
+  GitNetworkSharp,
+  GitNetwork,
+  GitPullRequestOutline,
+  GitPullRequestSharp,
+  GitPullRequest,
+  GlassesOutline,
+  GlassesSharp,
+  Glasses,
+  GlobeOutline,
+  GlobeSharp,
+  Globe,
+  GolfOutline,
+  GolfSharp,
+  Golf,
+  GridOutline,
+  GridSharp,
+  Grid,
+  HammerOutline,
+  HammerSharp,
+  Hammer,
+  HandLeftOutline,
+  HandLeftSharp,
+  HandLeft,
+  HandRightOutline,
+  HandRightSharp,
+  HandRight,
+  HappyOutline,
+  HappySharp,
+  Happy,
+  HardwareChipOutline,
+  HardwareChipSharp,
+  HardwareChip,
+  HeadsetOutline,
+  HeadsetSharp,
+  Headset,
+  HeartCircleOutline,
+  HeartCircleSharp,
+  HeartCircle,
+  HeartDislikeCircleOutline,
+  HeartDislikeCircleSharp,
+  HeartDislikeCircle,
+  HeartDislikeOutline,
+  HeartDislikeSharp,
+  HeartDislike,
+  HeartHalfOutline,
+  HeartHalfSharp,
+  HeartHalf,
+  HeartOutline,
+  HeartSharp,
+  Heart,
+  HelpBuoyOutline,
+  HelpBuoySharp,
+  HelpBuoy,
+  HelpCircleOutline,
+  HelpCircleSharp,
+  HelpCircle,
+  HelpOutline,
+  HelpSharp,
+  Help,
+  HomeOutline,
+  HomeSharp,
+  Home,
+  HourglassOutline,
+  HourglassSharp,
+  Hourglass,
+  IceCreamOutline,
+  IceCreamSharp,
+  IceCream,
+  ImageOutline,
+  ImageSharp,
+  Image,
+  ImagesOutline,
+  ImagesSharp,
+  Images,
+  InfiniteOutline,
+  InfiniteSharp,
+  Infinite,
+  InformationCircleOutline,
+  InformationCircleSharp,
+  InformationCircle,
+  InformationOutline,
+  InformationSharp,
+  Information,
+  JournalOutline,
+  JournalSharp,
+  Journal,
+  KeyOutline,
+  KeySharp,
+  Key,
+  KeypadOutline,
+  KeypadSharp,
+  Keypad,
+  LanguageOutline,
+  LanguageSharp,
+  Language,
+  LaptopOutline,
+  LaptopSharp,
+  Laptop,
+  LayersOutline,
+  LayersSharp,
+  Layers,
+  LeafOutline,
+  LeafSharp,
+  Leaf,
+  LibraryOutline,
+  LibrarySharp,
+  Library,
+  LinkOutline,
+  LinkSharp,
+  Link,
+  ListCircleOutline,
+  ListCircleSharp,
+  ListCircle,
+  ListOutline,
+  ListSharp,
+  List,
+  LocateOutline,
+  LocateSharp,
+  Locate,
+  LocationOutline,
+  LocationSharp,
+  Location,
+  LockClosedOutline,
+  LockClosedSharp,
+  LockClosed,
+  LockOpenOutline,
+  LockOpenSharp,
+  LockOpen,
+  LogInOutline,
+  LogInSharp,
+  LogIn,
+  LogOutOutline,
+  LogOutSharp,
+  LogOut,
+  LogoAmazon,
+  LogoAmplify,
+  LogoAndroid,
+  LogoAngular,
+  LogoAppleAppstore,
+  LogoApple,
+  LogoBitbucket,
+  LogoBitcoin,
+  LogoBuffer,
+  LogoCapacitor,
+  LogoChrome,
+  LogoClosedCaptioning,
+  LogoCodepen,
+  LogoCss3,
+  LogoDesignernews,
+  LogoDribbble,
+  LogoDropbox,
+  LogoEdge,
+  LogoElectron,
+  LogoEuro,
+  LogoFacebook,
+  LogoFirebase,
+  LogoFirefox,
+  LogoFlickr,
+  LogoFoursquare,
+  LogoGithub,
+  LogoGooglePlaystore,
+  LogoGoogle,
+  LogoHackernews,
+  LogoHtml5,
+  LogoInstagram,
+  LogoIonic,
+  LogoIonitron,
+  LogoJavascript,
+  LogoLaravel,
+  LogoLinkedin,
+  LogoMarkdown,
+  LogoNoSmoking,
+  LogoNodejs,
+  LogoNpm,
+  LogoOctocat,
+  LogoPinterest,
+  LogoPlaystation,
+  LogoPwa,
+  LogoPython,
+  LogoReact,
+  LogoReddit,
+  LogoRss,
+  LogoSass,
+  LogoSkype,
+  LogoSlack,
+  LogoSnapchat,
+  LogoStackoverflow,
+  LogoSteam,
+  LogoStencil,
+  LogoTumblr,
+  LogoTux,
+  LogoTwitch,
+  LogoTwitter,
+  LogoUsd,
+  LogoVimeo,
+  LogoVk,
+  LogoVue,
+  LogoWebComponent,
+  LogoWhatsapp,
+  LogoWindows,
+  LogoWordpress,
+  LogoXbox,
+  LogoXing,
+  LogoYahoo,
+  LogoYen,
+  LogoYoutube,
+  MagnetOutline,
+  MagnetSharp,
+  Magnet,
+  MailOpenOutline,
+  MailOpenSharp,
+  MailOpen,
+  MailOutline,
+  MailSharp,
+  MailUnreadOutline,
+  MailUnreadSharp,
+  MailUnread,
+  Mail,
+  MaleFemaleOutline,
+  MaleFemaleSharp,
+  MaleFemale,
+  MaleOutline,
+  MaleSharp,
+  Male,
+  ManOutline,
+  ManSharp,
+  Man,
+  MapOutline,
+  MapSharp,
+  Map,
+  MedalOutline,
+  MedalSharp,
+  Medal,
+  MedicalOutline,
+  MedicalSharp,
+  Medical,
+  MedkitOutline,
+  MedkitSharp,
+  Medkit,
+  MegaphoneOutline,
+  MegaphoneSharp,
+  Megaphone,
+  MenuOutline,
+  MenuSharp,
+  Menu,
+  MicCircleOutline,
+  MicCircleSharp,
+  MicCircle,
+  MicOffCircleOutline,
+  MicOffCircleSharp,
+  MicOffCircle,
+  MicOffOutline,
+  MicOffSharp,
+  MicOff,
+  MicOutline,
+  MicSharp,
+  Mic,
+  MoonOutline,
+  MoonSharp,
+  Moon,
+  MoveOutline,
+  MoveSharp,
+  Move,
+  MusicalNoteOutline,
+  MusicalNoteSharp,
+  MusicalNote,
+  MusicalNotesOutline,
+  MusicalNotesSharp,
+  MusicalNotes,
+  NavigateCircleOutline,
+  NavigateCircleSharp,
+  NavigateCircle,
+  NavigateOutline,
+  NavigateSharp,
+  Navigate,
+  NewspaperOutline,
+  NewspaperSharp,
+  Newspaper,
+  NotificationsCircleOutline,
+  NotificationsCircleSharp,
+  NotificationsCircle,
+  NotificationsOffCircleOutline,
+  NotificationsOffCircleSharp,
+  NotificationsOffCircle,
+  NotificationsOffOutline,
+  NotificationsOffSharp,
+  NotificationsOff,
+  NotificationsOutline,
+  NotificationsSharp,
+  Notifications,
+  NuclearOutline,
+  NuclearSharp,
+  Nuclear,
+  NutritionOutline,
+  NutritionSharp,
+  Nutrition,
+  OpenOutline,
+  OpenSharp,
+  Open,
+  OptionsOutline,
+  OptionsSharp,
+  Options,
+  PaperPlaneOutline,
+  PaperPlaneSharp,
+  PaperPlane,
+  PartlySunnyOutline,
+  PartlySunnySharp,
+  PartlySunny,
+  PauseCircleOutline,
+  PauseCircleSharp,
+  PauseCircle,
+  PauseOutline,
+  PauseSharp,
+  Pause,
+  PawOutline,
+  PawSharp,
+  Paw,
+  PencilOutline,
+  PencilSharp,
+  Pencil,
+  PeopleCircleOutline,
+  PeopleCircleSharp,
+  PeopleCircle,
+  PeopleOutline,
+  PeopleSharp,
+  People,
+  PersonAddOutline,
+  PersonAddSharp,
+  PersonAdd,
+  PersonCircleOutline,
+  PersonCircleSharp,
+  PersonCircle,
+  PersonOutline,
+  PersonRemoveOutline,
+  PersonRemoveSharp,
+  PersonRemove,
+  PersonSharp,
+  Person,
+  PhoneLandscapeOutline,
+  PhoneLandscapeSharp,
+  PhoneLandscape,
+  PhonePortraitOutline,
+  PhonePortraitSharp,
+  PhonePortrait,
+  PieChartOutline,
+  PieChartSharp,
+  PieChart,
+  PinOutline,
+  PinSharp,
+  Pin,
+  PintOutline,
+  PintSharp,
+  Pint,
+  PizzaOutline,
+  PizzaSharp,
+  Pizza,
+  PlanetOutline,
+  PlanetSharp,
+  Planet,
+  PlayBackCircleOutline,
+  PlayBackCircleSharp,
+  PlayBackCircle,
+  PlayBackOutline,
+  PlayBackSharp,
+  PlayBack,
+  PlayCircleOutline,
+  PlayCircleSharp,
+  PlayCircle,
+  PlayForwardCircleOutline,
+  PlayForwardCircleSharp,
+  PlayForwardCircle,
+  PlayForwardOutline,
+  PlayForwardSharp,
+  PlayForward,
+  PlayOutline,
+  PlaySharp,
+  PlaySkipBackCircleOutline,
+  PlaySkipBackCircleSharp,
+  PlaySkipBackCircle,
+  PlaySkipBackOutline,
+  PlaySkipBackSharp,
+  PlaySkipBack,
+  PlaySkipForwardCircleOutline,
+  PlaySkipForwardCircleSharp,
+  PlaySkipForwardCircle,
+  PlaySkipForwardOutline,
+  PlaySkipForwardSharp,
+  PlaySkipForward,
+  Play,
+  PodiumOutline,
+  PodiumSharp,
+  Podium,
+  PowerOutline,
+  PowerSharp,
+  Power,
+  PricetagOutline,
+  PricetagSharp,
+  Pricetag,
+  PricetagsOutline,
+  PricetagsSharp,
+  Pricetags,
+  PrintOutline,
+  PrintSharp,
+  Print,
+  PulseOutline,
+  PulseSharp,
+  Pulse,
+  PushOutline,
+  PushSharp,
+  Push,
+  QrCodeOutline,
+  QrCodeSharp,
+  QrCode,
+  RadioButtonOffOutline,
+  RadioButtonOffSharp,
+  RadioButtonOff,
+  RadioButtonOnOutline,
+  RadioButtonOnSharp,
+  RadioButtonOn,
+  RadioOutline,
+  RadioSharp,
+  Radio,
+  RainyOutline,
+  RainySharp,
+  Rainy,
+  ReaderOutline,
+  ReaderSharp,
+  Reader,
+  ReceiptOutline,
+  ReceiptSharp,
+  Receipt,
+  RecordingOutline,
+  RecordingSharp,
+  Recording,
+  RefreshCircleOutline,
+  RefreshCircleSharp,
+  RefreshCircle,
+  RefreshOutline,
+  RefreshSharp,
+  Refresh,
+  ReloadCircleOutline,
+  ReloadCircleSharp,
+  ReloadCircle,
+  ReloadOutline,
+  ReloadSharp,
+  Reload,
+  RemoveCircleOutline,
+  RemoveCircleSharp,
+  RemoveCircle,
+  RemoveOutline,
+  RemoveSharp,
+  Remove,
+  ReorderFourOutline,
+  ReorderFourSharp,
+  ReorderFour,
+  ReorderThreeOutline,
+  ReorderThreeSharp,
+  ReorderThree,
+  ReorderTwoOutline,
+  ReorderTwoSharp,
+  ReorderTwo,
+  RepeatOutline,
+  RepeatSharp,
+  Repeat,
+  ResizeOutline,
+  ResizeSharp,
+  Resize,
+  RestaurantOutline,
+  RestaurantSharp,
+  Restaurant,
+  ReturnDownBackOutline,
+  ReturnDownBackSharp,
+  ReturnDownBack,
+  ReturnDownForwardOutline,
+  ReturnDownForwardSharp,
+  ReturnDownForward,
+  ReturnUpBackOutline,
+  ReturnUpBackSharp,
+  ReturnUpBack,
+  ReturnUpForwardOutline,
+  ReturnUpForwardSharp,
+  ReturnUpForward,
+  RibbonOutline,
+  RibbonSharp,
+  Ribbon,
+  RocketOutline,
+  RocketSharp,
+  Rocket,
+  RoseOutline,
+  RoseSharp,
+  Rose,
+  SadOutline,
+  SadSharp,
+  Sad,
+  SaveOutline,
+  SaveSharp,
+  Save,
+  ScanCircleOutline,
+  ScanCircleSharp,
+  ScanCircle,
+  ScanOutline,
+  ScanSharp,
+  Scan,
+  SchoolOutline,
+  SchoolSharp,
+  School,
+  SearchCircleOutline,
+  SearchCircleSharp,
+  SearchCircle,
+  SearchOutline,
+  SearchSharp,
+  Search,
+  SendOutline,
+  SendSharp,
+  Send,
+  ServerOutline,
+  ServerSharp,
+  Server,
+  SettingsOutline,
+  SettingsSharp,
+  Settings,
+  ShapesOutline,
+  ShapesSharp,
+  Shapes,
+  ShareOutline,
+  ShareSharp,
+  ShareSocialOutline,
+  ShareSocialSharp,
+  ShareSocial,
+  Share,
+  ShieldCheckmarkOutline,
+  ShieldCheckmarkSharp,
+  ShieldCheckmark,
+  ShieldOutline,
+  ShieldSharp,
+  Shield,
+  ShirtOutline,
+  ShirtSharp,
+  Shirt,
+  ShuffleOutline,
+  ShuffleSharp,
+  Shuffle,
+  SkullOutline,
+  SkullSharp,
+  Skull,
+  SnowOutline,
+  SnowSharp,
+  Snow,
+  SpeedometerOutline,
+  SpeedometerSharp,
+  Speedometer,
+  SquareOutline,
+  SquareSharp,
+  Square,
+  StarHalfOutline,
+  StarHalfSharp,
+  StarHalf,
+  StarOutline,
+  StarSharp,
+  Star,
+  StatsChartOutline,
+  StatsChartSharp,
+  StatsChart,
+  StopCircleOutline,
+  StopCircleSharp,
+  StopCircle,
+  StopOutline,
+  StopSharp,
+  Stop,
+  StopwatchOutline,
+  StopwatchSharp,
+  Stopwatch,
+  SubwayOutline,
+  SubwaySharp,
+  Subway,
+  SunnyOutline,
+  SunnySharp,
+  Sunny,
+  SwapHorizontalOutline,
+  SwapHorizontalSharp,
+  SwapHorizontal,
+  SwapVerticalOutline,
+  SwapVerticalSharp,
+  SwapVertical,
+  SyncCircleOutline,
+  SyncCircleSharp,
+  SyncCircle,
+  SyncOutline,
+  SyncSharp,
+  Sync,
+  TabletLandscapeOutline,
+  TabletLandscapeSharp,
+  TabletLandscape,
+  TabletPortraitOutline,
+  TabletPortraitSharp,
+  TabletPortrait,
+  TennisballOutline,
+  TennisballSharp,
+  Tennisball,
+  TerminalOutline,
+  TerminalSharp,
+  Terminal,
+  TextOutline,
+  TextSharp,
+  Text,
+  ThermometerOutline,
+  ThermometerSharp,
+  Thermometer,
+  ThumbsDownOutline,
+  ThumbsDownSharp,
+  ThumbsDown,
+  ThumbsUpOutline,
+  ThumbsUpSharp,
+  ThumbsUp,
+  ThunderstormOutline,
+  ThunderstormSharp,
+  Thunderstorm,
+  TimeOutline,
+  TimeSharp,
+  Time,
+  TimerOutline,
+  TimerSharp,
+  Timer,
+  TodayOutline,
+  TodaySharp,
+  Today,
+  ToggleOutline,
+  ToggleSharp,
+  Toggle,
+  TrailSignOutline,
+  TrailSignSharp,
+  TrailSign,
+  TrainOutline,
+  TrainSharp,
+  Train,
+  TransgenderOutline,
+  TransgenderSharp,
+  Transgender,
+  TrashBinOutline,
+  TrashBinSharp,
+  TrashBin,
+  TrashOutline,
+  TrashSharp,
+  Trash,
+  TrendingDownOutline,
+  TrendingDownSharp,
+  TrendingDown,
+  TrendingUpOutline,
+  TrendingUpSharp,
+  TrendingUp,
+  TriangleOutline,
+  TriangleSharp,
+  Triangle,
+  TrophyOutline,
+  TrophySharp,
+  Trophy,
+  TvOutline,
+  TvSharp,
+  Tv,
+  UmbrellaOutline,
+  UmbrellaSharp,
+  Umbrella,
+  VideocamOutline,
+  VideocamSharp,
+  Videocam,
+  VolumeHighOutline,
+  VolumeHighSharp,
+  VolumeHigh,
+  VolumeLowOutline,
+  VolumeLowSharp,
+  VolumeLow,
+  VolumeMediumOutline,
+  VolumeMediumSharp,
+  VolumeMedium,
+  VolumeMuteOutline,
+  VolumeMuteSharp,
+  VolumeMute,
+  VolumeOffOutline,
+  VolumeOffSharp,
+  VolumeOff,
+  WalkOutline,
+  WalkSharp,
+  Walk,
+  WalletOutline,
+  WalletSharp,
+  Wallet,
+  WarningOutline,
+  WarningSharp,
+  Warning,
+  WatchOutline,
+  WatchSharp,
+  Watch,
+  WaterOutline,
+  WaterSharp,
+  Water,
+  WifiOutline,
+  WifiSharp,
+  Wifi,
+  WineOutline,
+  WineSharp,
+  Wine,
+  WomanOutline,
+  WomanSharp,
+  Woman
 }
 

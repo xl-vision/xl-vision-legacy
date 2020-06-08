@@ -1,50 +1,15 @@
 const generate = require('@xl-vision/icon-generator').default
 const path = require('path')
 const fs = require('fs-extra')
+const toCamel = require('./toCamel')
+const config = require('./config')
 
-const config = {
-  icons: [
-    {
-      src: path.join(__dirname, 'icons/font-awesome/brands/*.svg'),
-      nameFormatter: (name) => `fab-${name}`,
-      dest: 'src/icon/icons'
-    },
-    {
-      src: path.join(__dirname, 'icons/font-awesome/regular/*.svg'),
-      nameFormatter: (name) => `far-${name}`,
-      dest: 'src/icon/icons'
-    },
-    {
-      src: path.join(__dirname, 'icons/font-awesome/solid/*.svg'),
-      nameFormatter: (name) => `fas-${name}`,
-      dest: 'src/icon/icons'
-    }
-  ],
-  template: path.join(__dirname, 'template/index.tsx')
-}
 const iconDestPath = path.join(__dirname, '../../src/icon/icons')
 const iconIndexPath = path.join(iconDestPath, '../index.ts')
 
-const toCamel = (str) => {
-  let tempStr = ''
-  let flag = true
-  for (let i = 0; i < str.length; i++) {
-    let char = str.charAt(i)
-    if (flag) {
-      char = char.toUpperCase()
-      flag = false
-    } else if (char === '-') {
-      flag = true
-      continue
-    }
-    tempStr += char
-  }
-  return tempStr
-}
-
 const run = async () => {
-  fs.removeSync(iconDestPath)
-  fs.removeSync(iconIndexPath)
+  await fs.remove(iconDestPath)
+  await fs.remove(iconIndexPath)
 
   await generate(config)
 

@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
 import { clsPrefix as rootClsPrefix } from '../commons/config'
-import { FasCircleNotch } from '../icon'
+import Reload from '../icon/icons/reload'
 import ButtonContext from './button-context'
 
 export type ButtonSize = 'large' | 'default' | 'small'
@@ -87,7 +87,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
 
   const childrenWrapper = (
     <>
-      {loading && <FasCircleNotch className={`${clsPrefix}__icon`} spin={true} />}
+      {loading && <Reload className={`${clsPrefix}__icon`} spin={true} />}
       {formatChildren(children)}
     </>
   )

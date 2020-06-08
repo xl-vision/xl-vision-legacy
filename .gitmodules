@@ -1,0 +1,3 @@
+[submodule "script/icon/icons/ionicons"]
+	path = script/icon/icons/ionicons
+	url = https://github.com/ionic-team/ionicons.git

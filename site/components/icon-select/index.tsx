@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { Icon } from '../../../src'
-import iconInfos from './icons.json'
 import Clipboard from 'clipboard'
+import Icons, { IconProps } from '../../../src/icon'
+import data from './data.json'
 
 import classes from './index.module.scss'
-import { IconProps } from '../../../src/icon'
 
 export interface IconWrapperProps {
   children: React.ReactNode
@@ -50,43 +49,49 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
   )
 }
 
-const iconNames = Object.keys(Icon).filter((it) => it !== 'createIcon')
+const iconNames = Object.keys(data) as Array<keyof typeof data>
 
 const IconSelect: React.FunctionComponent<{}> = () => {
   const [search, setSearch] = React.useState('')
 
   const icons = React.useMemo(() => {
-    if (!search || search.trim() === '') {
+    const text = (search || '').trim()
+    if (!text) {
       return iconNames
     }
+
+    const keys = text.split(/\s+/).map((it) => it.toLowerCase())
+
     const arr: Array<string> = []
+
     for (const name of iconNames) {
-      const iconInfo = (iconInfos as any)[name] // eslint-disable-line @typescript-eslint/no-explicit-any
-      if (!iconInfo) {
-        // console.warn(`icon '${name}' is not in icon information file`)
-        continue
-      }
-      const searchArr: Array<string> = iconInfo.search || []
-      searchArr.push(name)
-      const upSearch = search.toUpperCase()
-      for (const item of searchArr) {
-        // eslint-disable-next-line @typescript-eslint/prefer-regexp-exec
-        if (item.toUpperCase().match(upSearch)) {
-          arr.push(name)
-          break
+      const tags = data[name]
+      const flag = keys.every((it) => {
+        for (const tag of tags) {
+          if (tag.includes(it)) {
+            return true
+          }
         }
+        return false
+      })
+      if (flag) {
+        arr.push(name)
       }
     }
+
     return arr
   }, [search])
 
   const iconNodes = React.useMemo(() => {
     const arr = []
     for (const name of icons) {
-      const Item = Icon[name as keyof typeof Icon] as React.FunctionComponent<IconProps>
+      const Icon = Icons[name as keyof typeof Icons] as React.FunctionComponent<IconProps>
+      if (!Icon) {
+        continue
+      }
       arr.push(
         <IconWrapper name={name} key={name}>
-          <Item size={40} />
+          <Icon size={40} />
         </IconWrapper>
       )
     }

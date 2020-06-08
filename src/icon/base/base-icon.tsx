@@ -43,6 +43,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
 
   const childrenProps = {
     fill: color || 'currentColor',
+    stroke: color || 'currentColor',
     ...children.props
   }
 
