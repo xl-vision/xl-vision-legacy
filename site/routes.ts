@@ -28,6 +28,11 @@ const routes: Array<Route> = [
         name: '图标',
         path: '/icon',
         component: import('../src/icon/__doc__/index.mdx')
+      },
+      {
+        name: '按钮',
+        path: '/button',
+        component: import('../src/button/__doc__/index.mdx')
       }
     ]
   },

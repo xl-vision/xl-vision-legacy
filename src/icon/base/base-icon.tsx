@@ -51,7 +51,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
     fill: color || 'currentColor',
     stroke: color || 'currentColor'
   }
-  const childrenStyle = { ...childrenProps.style, ...customChildrenStyle }
+  const childrenStyle = { ...customChildrenStyle, ...childrenProps.style }
 
   const cloneChildren = React.cloneElement(children, {
     ...childrenProps,
