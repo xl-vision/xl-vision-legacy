@@ -41,17 +41,15 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
     iconStyle.transform = `rotate(${rotate}deg)`
   }
 
-  if (color) {
-    iconStyle.color = color
-  }
-
   const childrenProps = {
     ...children.props
   }
 
   const customChildrenStyle: React.CSSProperties = {
     height: '1em',
-    width: '1em'
+    width: '1em',
+    fill: color || 'currentColor',
+    stroke: color || 'currentColor'
   }
   const childrenStyle = { ...childrenProps.style, ...customChildrenStyle }
 

@@ -123,22 +123,6 @@ module.exports = {
         type: 'perItem',
         fn: (item) => {
           if (item.isElem()) {
-            if (item.isElem('svg')) {
-              item.addAttr({
-                name: 'fill',
-                value: 'currentColor',
-                prefix: '',
-                local: 'fill'
-              })
-              item.addAttr({
-                name: 'stroke',
-                value: 'currentColor',
-                prefix: '',
-                local: 'stroke'
-              })
-              return
-            }
-
             item.eachAttr((attr) => {
               if (attr.name === 'fill') {
                 if (attr.value !== 'none') {

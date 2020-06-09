@@ -3,7 +3,7 @@ import React from 'react'
 import createIcon from '../base/createIcon'
 
 const svgElement = (
-    <svg viewBox='0 0 512 512' fill='currentColor' stroke='currentColor'>
+    <svg viewBox='0 0 512 512'>
         <path fill='none' strokeLinecap='square' strokeMiterlimit='10' strokeWidth='32' d='M32 144H432V368H32z'/><path fill='none' strokeLinecap='square' strokeMiterlimit='10' strokeWidth='32' d='M480 218.67L480 293.33'/>
     </svg>
 )
