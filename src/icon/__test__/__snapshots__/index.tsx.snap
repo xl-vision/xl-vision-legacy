@@ -3,11 +3,9 @@
 exports[`icon 基本用法 1`] = `
 <i
   class="xl-icon xl-icon--spin test"
-  style="opacity:1;font-size:10px;transform:rotate(10deg)"
+  style="opacity:1;font-size:10px;transform:rotate(10deg);color:red"
 >
   <svg
-    fill="red"
-    stroke="red"
     style="height:1em;width:1em"
     viewBox="0 0 448 512"
   >

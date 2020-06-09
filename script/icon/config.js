@@ -121,18 +121,31 @@ module.exports = {
     {
       addFillNoneCss: {
         type: 'perItem',
-        fn: (item, params) => {
-          if (!Array.isArray(params.attrs)) {
-            params.attrs = [params.attrs]
-          }
+        fn: (item) => {
           if (item.isElem()) {
+            if (item.isElem('svg')) {
+              item.addAttr({
+                name: 'fill',
+                value: 'currentColor',
+                prefix: '',
+                local: 'fill'
+              })
+              item.addAttr({
+                name: 'stroke',
+                value: 'currentColor',
+                prefix: '',
+                local: 'stroke'
+              })
+              return
+            }
+
             item.eachAttr((attr) => {
               if (attr.name === 'fill') {
                 if (attr.value !== 'none') {
-                  attr.value = 'currentColor'
+                  item.removeAttr('fill')
                 }
               } else if (attr.name === 'stroke') {
-                attr.value = 'currentColor'
+                item.removeAttr('stroke')
               }
             })
           }

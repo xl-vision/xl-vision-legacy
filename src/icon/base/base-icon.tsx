@@ -41,9 +41,11 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
     iconStyle.transform = `rotate(${rotate}deg)`
   }
 
+  if (color) {
+    iconStyle.color = color
+  }
+
   const childrenProps = {
-    fill: color || 'currentColor',
-    stroke: color || 'currentColor',
     ...children.props
   }
 

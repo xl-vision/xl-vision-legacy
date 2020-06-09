@@ -49,13 +49,22 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
   )
 }
 
-const iconNames = Object.keys(data) as Array<keyof typeof data>
-
 const IconSelect: React.FunctionComponent<{}> = () => {
   const [search, setSearch] = React.useState('')
 
+  const [type, setType] = React.useState('fill')
+
   const icons = React.useMemo(() => {
+    const iconNames = (Object.keys(data) as Array<keyof typeof data>).filter((it) => {
+      if (type === 'outline') {
+        return it.endsWith('Outline')
+      } else if (type === 'sharp') {
+        return it.endsWith('Sharp')
+      }
+      return !it.endsWith('Outline') && !it.endsWith('Sharp')
+    })
     const text = (search || '').trim()
+
     if (!text) {
       return iconNames
     }
@@ -80,7 +89,7 @@ const IconSelect: React.FunctionComponent<{}> = () => {
     }
 
     return arr
-  }, [search])
+  }, [search, type])
 
   const iconNodes = React.useMemo(() => {
     const arr = []
@@ -106,6 +115,11 @@ const IconSelect: React.FunctionComponent<{}> = () => {
   return (
     <div className={classes.iconSelect}>
       <input onChange={searchClick} className={classes.input} placeholder='搜索图标' />
+      <div className={classes.switch}>
+        <button onClick={() => setType('fill')}>fill</button>
+        <button onClick={() => setType('outline')}>outline</button>
+        <button onClick={() => setType('sharp')}>sharp</button>
+      </div>
       <div className={classes.info}>点击下面图标可以直接复制组件代码</div>
       <div className={classes.list}>{iconNodes}</div>
     </div>

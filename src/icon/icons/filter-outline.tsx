@@ -3,8 +3,8 @@ import React from 'react'
 import createIcon from '../base/createIcon'
 
 const svgElement = (
-    <svg viewBox='0 0 512 512'>
-        <path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M32 144L480 144'/><path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M112 256L400 256'/><path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M208 368L304 368'/>
+    <svg viewBox='0 0 512 512' fill='currentColor' stroke='currentColor'>
+        <path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M32 144L480 144'/><path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M112 256L400 256'/><path fill='none' strokeLinecap='round' strokeLinejoin='round' strokeWidth='32' d='M208 368L304 368'/>
     </svg>
 )
 
