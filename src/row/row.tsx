@@ -1,10 +1,10 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { clsPrefix as rootClsPrefix } from '../commons/config'
 import { ColProps } from './col'
 import useMedia, { BreakPoint, breakPointArray } from './useMedia'
 import RowContext from './row-context'
+import ConfigContext from '../config-provider/context'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'top' | 'middle' | 'bottom'
@@ -17,6 +17,8 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Row: React.FunctionComponent<RowProps> = (props) => {
+  const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
+
   const {
     type,
     justify,

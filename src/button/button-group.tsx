@@ -1,9 +1,9 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { clsPrefix as rootClsPrefix } from '../commons/config'
 import { ButtonProps, ButtonSize } from './button'
 import ButtonContext from './button-context'
+import ConfigContext from '../config-provider/context'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | Array<React.ReactElement<ButtonProps>>
@@ -14,6 +14,8 @@ export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
+  const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
+
   const {
     round,
     vertical,

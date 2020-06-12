@@ -1,9 +1,9 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import { clsPrefix as rootClsPrefix } from '../commons/config'
 import Reload from '../icon/icons/reload'
 import ButtonContext from './button-context'
+import ConfigContext from '../config-provider/context'
 
 export type ButtonSize = 'large' | 'default' | 'small'
 
@@ -32,6 +32,8 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
   HTMLButtonElement & HTMLAnchorElement,
   ButtonProps
 >((props, ref) => {
+  const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
+
   const {
     dashed,
     disabled,

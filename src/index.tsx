@@ -1,4 +1,5 @@
-export { version } from './commons/config'
+export { version } from '../package.json'
+export { default as ConfigProvider } from './config-provider'
 export { default as Transition } from './transition'
 export { default as CssTransition } from './css-transition'
 export { default as CollapseTransition } from './collapse-transition'

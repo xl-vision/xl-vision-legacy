@@ -1,4 +1,4 @@
-@use 'var' as *;
+@use './var' as *;
 @use '../../style/mixins/clearfix';
 
 $col: #{$cls-prefix}-col;

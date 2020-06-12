@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { clsPrefix as rootClsPrefix } from '../../commons/config'
+import ConfigContext from '../../config-provider/context'
 
 export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>
@@ -21,6 +21,8 @@ const getSize = (size: number | string) => {
 }
 
 const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
+  const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
+
   const {
     className,
     spin,

@@ -1,3 +1,6 @@
-@forward 'config';
-@forward 'elevation';
-@forward 'default';
+@forward './config';
+@forward './color';
+@forward './animation';
+@forward './elevation';
+@forward './typography';
+@forward './media';

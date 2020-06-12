@@ -1,9 +1,9 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { clsPrefix as rootClsPrefix } from '../commons/config'
 import { BreakPoint, breakPointArray } from './useMedia'
 import RowContext from './row-context'
+import ConfigContext from '../config-provider/context'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 
@@ -20,6 +20,8 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Col: React.FunctionComponent<ColProps> = (props) => {
   const { media, gutter } = React.useContext(RowContext)
+
+  const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
 
   const {
     className,
