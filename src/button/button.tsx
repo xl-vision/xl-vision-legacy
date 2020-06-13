@@ -5,6 +5,7 @@ import Reload from '../Icon/icons/Reload'
 import { IconProps } from '../icon/base/createIcon'
 import ButtonContext from './ButtonContext'
 import ConfigContext from '../ConfigProvider/ConfigContext'
+import Ripple from '../Ripple'
 
 export type ButtonSize = 'large' | 'default' | 'small'
 
@@ -122,6 +123,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
       {prefixNode}
       {formatChildren(children)}
       {suffixNode}
+      <Ripple/>
     </>
   )
 

@@ -40,7 +40,7 @@ describe('CssTransition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
-        show={true}
+        in={true}
         isAppear={true}
         beforeAppear={() => call('beforeAppear')}
         classNames={classnameMap}
@@ -109,7 +109,7 @@ describe('CssTransition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
-        show={false}
+        in={false}
         isAppear={true}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
@@ -188,7 +188,7 @@ describe('CssTransition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
-        show={false}
+        in={false}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
@@ -264,7 +264,7 @@ describe('CssTransition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
-        show={true}
+        in={true}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
@@ -332,7 +332,7 @@ describe('CssTransition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
-        show={true}
+        in={true}
         isAppear={true}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
@@ -410,7 +410,7 @@ describe('CssTransition', () => {
 
   it('测试包含className调用时机', async () => {
     const wrapper = mount(
-      <CssTransition isAppear show={true} classNames={'test'}>
+      <CssTransition isAppear in={true} classNames={'test'}>
         <div />
       </CssTransition>
     )
@@ -472,7 +472,7 @@ describe('CssTransition', () => {
 
   it('测试timeout调用时机', async () => {
     const wrapper = mount(
-      <CssTransition isAppear show={true} classNames={'test'} timeout={10}>
+      <CssTransition isAppear in={true} classNames={'test'} timeout={10}>
         <div />
       </CssTransition>
     )
@@ -539,7 +539,7 @@ describe('CssTransition', () => {
     const wrapper = mount(
       <CssTransition
         isAppear
-        show={true}
+        in={true}
         css={false}
         classNames={'test'}
         beforeAppear={() => call('beforeAppear')}

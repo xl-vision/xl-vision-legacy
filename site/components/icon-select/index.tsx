@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Clipboard from 'clipboard'
-import Icons, { IconProps } from '../../../src/icon'
+import Icons, { IconProps } from '../../../src/Icon'
 import data from './data.json'
 
 import classes from './index.module.scss'

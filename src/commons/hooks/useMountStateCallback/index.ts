@@ -1,6 +1,6 @@
 import { useRef, useCallback, useEffect } from 'react'
 
-const useMountedState = () => {
+const useMountStateCallback = () => {
   const ref = useRef(false)
   const get = useCallback(() => ref.current, [])
   useEffect(() => {
@@ -12,4 +12,4 @@ const useMountedState = () => {
   return get
 }
 
-export default useMountedState
+export default useMountStateCallback

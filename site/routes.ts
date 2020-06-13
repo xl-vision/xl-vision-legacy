@@ -19,20 +19,20 @@ export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
 const routes: Array<Route> = [
   {
     path: '/',
-    redirect: '/row'
+    redirect: '/Row'
   },
   {
     name: '基础组件',
     children: [
       {
         name: '图标',
-        path: '/icon',
-        component: import('../src/icon/__doc__/index.mdx')
+        path: '/Icon',
+        component: import('../src/Icon/__doc__/index.mdx')
       },
       {
         name: '按钮',
-        path: '/button',
-        component: import('../src/button/__doc__/index.mdx')
+        path: '/Button',
+        component: import('../src/Button/__doc__/index.mdx')
       }
     ]
   },
@@ -41,8 +41,8 @@ const routes: Array<Route> = [
     children: [
       {
         name: 'Grid 栅格布局',
-        path: '/row',
-        component: import('../src/row/__doc__/index.mdx')
+        path: '/Row',
+        component: import('../src/Row/__doc__/index.mdx')
       }
     ]
   },
@@ -51,18 +51,18 @@ const routes: Array<Route> = [
     children: [
       {
         name: 'Transition',
-        path: '/transition',
-        component: import('../src/transition/__doc__/index.mdx')
+        path: '/Transition',
+        component: import('../src/Transition/__doc__/index.mdx')
       },
       {
         name: 'CssTransition',
-        path: '/css-transition',
-        component: import('../src/css-transition/__doc__/index.mdx')
+        path: '/CssTransition',
+        component: import('../src/CssTransition/__doc__/index.mdx')
       },
       {
         name: 'CollapseTransition',
-        path: '/collapse-transition',
-        component: import('../src/collapse-transition/__doc__/index.mdx')
+        path: '/CollapseTransition',
+        component: import('../src/CollapseTransition/__doc__/index.mdx')
       }
     ]
   }

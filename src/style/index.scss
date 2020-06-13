@@ -1,7 +1,8 @@
 @forward './base';
-@forward '../transition/style';
-@forward '../css-transition/style';
-@forward '../collapse-transition/style';
-@forward '../row/style';
-@forward '../icon/style';
-@forward '../button/style';
+@forward '../Transition/style';
+@forward '../CssTransition/style';
+@forward '../CollapseTransition/style';
+@forward '../Row/style';
+@forward '../Icon/style';
+@forward '../Ripple/style';
+@forward '../Button/style';

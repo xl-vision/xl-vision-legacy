@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 
 # CSSTransition
 
-基于<Link to='/transition'>Transition</Link>实现的高级过渡动画组件，支持 Transition 组件的全部功能，同时提供了便捷使用 css 动画的方式。
+基于<Link to='/Transition'>Transition</Link>实现的高级过渡动画组件，支持 Transition 组件的全部功能，同时提供了便捷使用 css 动画的方式。
 
 > **NOTE**
 
@@ -27,7 +27,7 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition show={active} classNames={'fade'}>
+      <CssTransition in={active} classNames={'fade'}>
         <div className='demo'>DEMO</div>
       </CssTransition>
     </div>
@@ -87,7 +87,7 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition isAppear show={active} classNames={'fade'}>
+      <CssTransition isAppear in={active} classNames={'fade'}>
         <div className='demo'>DEMO</div>
       </CssTransition>
     </div>
@@ -130,7 +130,7 @@ export default () => {
 
 ## CssTransition API
 
-> CssTransition 继承所有[Transition](/#/transition)属性
+> CssTransition 继承所有<Link to="Transition">Transition</Link>属性
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |

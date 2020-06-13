@@ -7,7 +7,7 @@ describe('Transition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <Transition
-        show={true}
+        in={true}
         isAppear={true}
         beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
@@ -80,7 +80,7 @@ describe('Transition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <Transition
-        show={false}
+        in={false}
         isAppear={true}
         beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
@@ -158,7 +158,7 @@ describe('Transition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <Transition
-        show={false}
+        in={false}
         beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -234,7 +234,7 @@ describe('Transition', () => {
     const call = jest.fn()
     const wrapper = mount(
       <Transition
-        show={true}
+        in={true}
         beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -298,7 +298,7 @@ describe('Transition', () => {
     const wrapper = mount(
       <Transition
         isAppear={true}
-        show={true}
+        in={true}
         beforeAppear={(el) => call('beforeAppear', el)}
         appear={(el, _done, isCancelled) => {
           if (!isCancelled()) {
@@ -381,7 +381,7 @@ describe('Transition', () => {
 
   it('测试forceRender', () => {
     const wrapper = mount(
-      <Transition show={false} forceRender={false}>
+      <Transition in={false} forceRender={false}>
         <div />
       </Transition>
     )

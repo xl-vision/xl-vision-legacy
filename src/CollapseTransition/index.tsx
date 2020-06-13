@@ -73,7 +73,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
   }, [horizontal])
 
   return (
-    <CssTransition {...transitionEvents} show={show} forceRender={forceRender}>
+    <CssTransition {...transitionEvents} in={show} forceRender={forceRender}>
       <div className={transitionClassName} style={styles}>
         <div ref={wrapperRef} style={{ position: 'relative' }}>
           {children}

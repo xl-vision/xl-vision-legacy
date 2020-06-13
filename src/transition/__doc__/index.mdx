@@ -60,7 +60,7 @@ export default () => {
   return (
     <div>
       <Button onClick={() => setShow(!show)}>Click</Button>
-      <Transition show={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
+      <Transition in={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
         <div className='demo'>DEMO</div>
       </Transition>
     </div>
@@ -136,7 +136,7 @@ export default () => {
   return (
     <div>
       <Button onClick={() => setShow(!show)}>Click</Button>
-      <Transition isAppear show={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
+      <Transition isAppear in={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
         <div className='demo'>DEMO</div>
       </Transition>
     </div>
@@ -214,7 +214,7 @@ export default () => {
       <Transition
         isAppear
         forceRender
-        show={show}
+        in={show}
         beforeEnter={beforeEnter}
         enter={enter}
         leave={leave}
@@ -244,7 +244,7 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
-| show | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | - | — | true |
+| in | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | - | — | true |
 | isAppear | 是否针对初次进场使用单独的钩子函数 | boolean | - | false | false |
 | beforeAppear | 初次进场前钩子，如果没有指定，会自动调用 beforeEnter 钩子函数 | (el: HTMLElement) => void | - | — | false |
 | appear | 初次进场时钩子，如果没有指定，会自动调用 enter 钩子函数 | (el: HTMLElement, done: (() => void), isCancelled: () => boolean) => void | - | — | false |
