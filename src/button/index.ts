@@ -1,8 +1,8 @@
-import Button from './button'
-import ButtonGroup from './button-group'
+import Button from './Button'
+import ButtonGroup from './ButtonGroup'
 
-export { ButtonProps, ButtonSize } from './button'
-export { ButtonGroupProps } from './button-group'
+export { ButtonProps, ButtonSize } from './Button'
+export { ButtonGroupProps } from './ButtonGroup'
 
 const ButtonWithGroup = Button as typeof Button & {
   Group: typeof ButtonGroup

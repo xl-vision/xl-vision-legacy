@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { addClass, removeClass } from '../commons/utils/class'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
-import Transition, { TransitionProps } from '../transition'
+import Transition, { TransitionProps } from '../Transition'
 
 export type CssTransitionClassNamesObject = {
   appear?: string

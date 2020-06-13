@@ -1,9 +1,9 @@
-import Col from './col'
-import Row from './row'
+import Col from './Col'
+import Row from './Row'
 
 export { BreakPoint } from './useMedia'
-export { ColProps, ColSpanType } from './col'
-export { RowProps } from './row'
+export { ColProps, ColSpanType } from './Col'
+export { RowProps } from './Row'
 
 const RowWithCol = Row as typeof Row & {
   Col: typeof Col

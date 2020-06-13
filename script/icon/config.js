@@ -5,7 +5,7 @@ module.exports = {
   icons: [
     {
       src: path.join(__dirname, 'icons/ionicons/src/svg/*.svg'),
-      // nameFormatter: (name) => `fab-${name}`,
+      nameFormatter: (name) => toCamel(name, true),
       dest: 'src/icon/icons'
     }
   ],

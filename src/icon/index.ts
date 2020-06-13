@@ -2,1900 +2,1900 @@
 /* eslint-disable */
 
 import createIcon from './base/createIcon'
-import AddCircleOutline from './icons/add-circle-outline'
-import AddCircleSharp from './icons/add-circle-sharp'
-import AddCircle from './icons/add-circle'
-import AddOutline from './icons/add-outline'
-import AddSharp from './icons/add-sharp'
-import Add from './icons/add'
-import AirplaneOutline from './icons/airplane-outline'
-import AirplaneSharp from './icons/airplane-sharp'
-import Airplane from './icons/airplane'
-import AlarmOutline from './icons/alarm-outline'
-import AlarmSharp from './icons/alarm-sharp'
-import Alarm from './icons/alarm'
-import AlbumsOutline from './icons/albums-outline'
-import AlbumsSharp from './icons/albums-sharp'
-import Albums from './icons/albums'
-import AlertCircleOutline from './icons/alert-circle-outline'
-import AlertCircleSharp from './icons/alert-circle-sharp'
-import AlertCircle from './icons/alert-circle'
-import AlertOutline from './icons/alert-outline'
-import AlertSharp from './icons/alert-sharp'
-import Alert from './icons/alert'
-import AmericanFootballOutline from './icons/american-football-outline'
-import AmericanFootballSharp from './icons/american-football-sharp'
-import AmericanFootball from './icons/american-football'
-import AnalyticsOutline from './icons/analytics-outline'
-import AnalyticsSharp from './icons/analytics-sharp'
-import Analytics from './icons/analytics'
-import ApertureOutline from './icons/aperture-outline'
-import ApertureSharp from './icons/aperture-sharp'
-import Aperture from './icons/aperture'
-import AppsOutline from './icons/apps-outline'
-import AppsSharp from './icons/apps-sharp'
-import Apps from './icons/apps'
-import ArchiveOutline from './icons/archive-outline'
-import ArchiveSharp from './icons/archive-sharp'
-import Archive from './icons/archive'
-import ArrowBackCircleOutline from './icons/arrow-back-circle-outline'
-import ArrowBackCircleSharp from './icons/arrow-back-circle-sharp'
-import ArrowBackCircle from './icons/arrow-back-circle'
-import ArrowBackOutline from './icons/arrow-back-outline'
-import ArrowBackSharp from './icons/arrow-back-sharp'
-import ArrowBack from './icons/arrow-back'
-import ArrowDownCircleOutline from './icons/arrow-down-circle-outline'
-import ArrowDownCircleSharp from './icons/arrow-down-circle-sharp'
-import ArrowDownCircle from './icons/arrow-down-circle'
-import ArrowDownOutline from './icons/arrow-down-outline'
-import ArrowDownSharp from './icons/arrow-down-sharp'
-import ArrowDown from './icons/arrow-down'
-import ArrowForwardCircleOutline from './icons/arrow-forward-circle-outline'
-import ArrowForwardCircleSharp from './icons/arrow-forward-circle-sharp'
-import ArrowForwardCircle from './icons/arrow-forward-circle'
-import ArrowForwardOutline from './icons/arrow-forward-outline'
-import ArrowForwardSharp from './icons/arrow-forward-sharp'
-import ArrowForward from './icons/arrow-forward'
-import ArrowRedoCircleOutline from './icons/arrow-redo-circle-outline'
-import ArrowRedoCircleSharp from './icons/arrow-redo-circle-sharp'
-import ArrowRedoCircle from './icons/arrow-redo-circle'
-import ArrowRedoOutline from './icons/arrow-redo-outline'
-import ArrowRedoSharp from './icons/arrow-redo-sharp'
-import ArrowRedo from './icons/arrow-redo'
-import ArrowUndoCircleOutline from './icons/arrow-undo-circle-outline'
-import ArrowUndoCircleSharp from './icons/arrow-undo-circle-sharp'
-import ArrowUndoCircle from './icons/arrow-undo-circle'
-import ArrowUndoOutline from './icons/arrow-undo-outline'
-import ArrowUndoSharp from './icons/arrow-undo-sharp'
-import ArrowUndo from './icons/arrow-undo'
-import ArrowUpCircleOutline from './icons/arrow-up-circle-outline'
-import ArrowUpCircleSharp from './icons/arrow-up-circle-sharp'
-import ArrowUpCircle from './icons/arrow-up-circle'
-import ArrowUpOutline from './icons/arrow-up-outline'
-import ArrowUpSharp from './icons/arrow-up-sharp'
-import ArrowUp from './icons/arrow-up'
-import AtCircleOutline from './icons/at-circle-outline'
-import AtCircleSharp from './icons/at-circle-sharp'
-import AtCircle from './icons/at-circle'
-import AtOutline from './icons/at-outline'
-import AtSharp from './icons/at-sharp'
-import At from './icons/at'
-import AttachOutline from './icons/attach-outline'
-import AttachSharp from './icons/attach-sharp'
-import Attach from './icons/attach'
-import BackspaceOutline from './icons/backspace-outline'
-import BackspaceSharp from './icons/backspace-sharp'
-import Backspace from './icons/backspace'
-import BandageOutline from './icons/bandage-outline'
-import BandageSharp from './icons/bandage-sharp'
-import Bandage from './icons/bandage'
-import BarChartOutline from './icons/bar-chart-outline'
-import BarChartSharp from './icons/bar-chart-sharp'
-import BarChart from './icons/bar-chart'
-import BarbellOutline from './icons/barbell-outline'
-import BarbellSharp from './icons/barbell-sharp'
-import Barbell from './icons/barbell'
-import BarcodeOutline from './icons/barcode-outline'
-import BarcodeSharp from './icons/barcode-sharp'
-import Barcode from './icons/barcode'
-import BaseballOutline from './icons/baseball-outline'
-import BaseballSharp from './icons/baseball-sharp'
-import Baseball from './icons/baseball'
-import BasketOutline from './icons/basket-outline'
-import BasketSharp from './icons/basket-sharp'
-import Basket from './icons/basket'
-import BasketballOutline from './icons/basketball-outline'
-import BasketballSharp from './icons/basketball-sharp'
-import Basketball from './icons/basketball'
-import BatteryChargingOutline from './icons/battery-charging-outline'
-import BatteryChargingSharp from './icons/battery-charging-sharp'
-import BatteryCharging from './icons/battery-charging'
-import BatteryDeadOutline from './icons/battery-dead-outline'
-import BatteryDeadSharp from './icons/battery-dead-sharp'
-import BatteryDead from './icons/battery-dead'
-import BatteryFullOutline from './icons/battery-full-outline'
-import BatteryFullSharp from './icons/battery-full-sharp'
-import BatteryFull from './icons/battery-full'
-import BatteryHalfOutline from './icons/battery-half-outline'
-import BatteryHalfSharp from './icons/battery-half-sharp'
-import BatteryHalf from './icons/battery-half'
-import BeakerOutline from './icons/beaker-outline'
-import BeakerSharp from './icons/beaker-sharp'
-import Beaker from './icons/beaker'
-import BedOutline from './icons/bed-outline'
-import BedSharp from './icons/bed-sharp'
-import Bed from './icons/bed'
-import BeerOutline from './icons/beer-outline'
-import BeerSharp from './icons/beer-sharp'
-import Beer from './icons/beer'
-import BicycleOutline from './icons/bicycle-outline'
-import BicycleSharp from './icons/bicycle-sharp'
-import Bicycle from './icons/bicycle'
-import BluetoothOutline from './icons/bluetooth-outline'
-import BluetoothSharp from './icons/bluetooth-sharp'
-import Bluetooth from './icons/bluetooth'
-import BoatOutline from './icons/boat-outline'
-import BoatSharp from './icons/boat-sharp'
-import Boat from './icons/boat'
-import BodyOutline from './icons/body-outline'
-import BodySharp from './icons/body-sharp'
-import Body from './icons/body'
-import BonfireOutline from './icons/bonfire-outline'
-import BonfireSharp from './icons/bonfire-sharp'
-import Bonfire from './icons/bonfire'
-import BookOutline from './icons/book-outline'
-import BookSharp from './icons/book-sharp'
-import Book from './icons/book'
-import BookmarkOutline from './icons/bookmark-outline'
-import BookmarkSharp from './icons/bookmark-sharp'
-import Bookmark from './icons/bookmark'
-import BookmarksOutline from './icons/bookmarks-outline'
-import BookmarksSharp from './icons/bookmarks-sharp'
-import Bookmarks from './icons/bookmarks'
-import BriefcaseOutline from './icons/briefcase-outline'
-import BriefcaseSharp from './icons/briefcase-sharp'
-import Briefcase from './icons/briefcase'
-import BrowsersOutline from './icons/browsers-outline'
-import BrowsersSharp from './icons/browsers-sharp'
-import Browsers from './icons/browsers'
-import BrushOutline from './icons/brush-outline'
-import BrushSharp from './icons/brush-sharp'
-import Brush from './icons/brush'
-import BugOutline from './icons/bug-outline'
-import BugSharp from './icons/bug-sharp'
-import Bug from './icons/bug'
-import BuildOutline from './icons/build-outline'
-import BuildSharp from './icons/build-sharp'
-import Build from './icons/build'
-import BulbOutline from './icons/bulb-outline'
-import BulbSharp from './icons/bulb-sharp'
-import Bulb from './icons/bulb'
-import BusOutline from './icons/bus-outline'
-import BusSharp from './icons/bus-sharp'
-import Bus from './icons/bus'
-import BusinessOutline from './icons/business-outline'
-import BusinessSharp from './icons/business-sharp'
-import Business from './icons/business'
-import CafeOutline from './icons/cafe-outline'
-import CafeSharp from './icons/cafe-sharp'
-import Cafe from './icons/cafe'
-import CalculatorOutline from './icons/calculator-outline'
-import CalculatorSharp from './icons/calculator-sharp'
-import Calculator from './icons/calculator'
-import CalendarOutline from './icons/calendar-outline'
-import CalendarSharp from './icons/calendar-sharp'
-import Calendar from './icons/calendar'
-import CallOutline from './icons/call-outline'
-import CallSharp from './icons/call-sharp'
-import Call from './icons/call'
-import CameraOutline from './icons/camera-outline'
-import CameraReverseOutline from './icons/camera-reverse-outline'
-import CameraReverseSharp from './icons/camera-reverse-sharp'
-import CameraReverse from './icons/camera-reverse'
-import CameraSharp from './icons/camera-sharp'
-import Camera from './icons/camera'
-import CarOutline from './icons/car-outline'
-import CarSharp from './icons/car-sharp'
-import CarSportOutline from './icons/car-sport-outline'
-import CarSportSharp from './icons/car-sport-sharp'
-import CarSport from './icons/car-sport'
-import Car from './icons/car'
-import CardOutline from './icons/card-outline'
-import CardSharp from './icons/card-sharp'
-import Card from './icons/card'
-import CaretBackCircleOutline from './icons/caret-back-circle-outline'
-import CaretBackCircleSharp from './icons/caret-back-circle-sharp'
-import CaretBackCircle from './icons/caret-back-circle'
-import CaretBackOutline from './icons/caret-back-outline'
-import CaretBackSharp from './icons/caret-back-sharp'
-import CaretBack from './icons/caret-back'
-import CaretDownCircleOutline from './icons/caret-down-circle-outline'
-import CaretDownCircleSharp from './icons/caret-down-circle-sharp'
-import CaretDownCircle from './icons/caret-down-circle'
-import CaretDownOutline from './icons/caret-down-outline'
-import CaretDownSharp from './icons/caret-down-sharp'
-import CaretDown from './icons/caret-down'
-import CaretForwardCircleOutline from './icons/caret-forward-circle-outline'
-import CaretForwardCircleSharp from './icons/caret-forward-circle-sharp'
-import CaretForwardCircle from './icons/caret-forward-circle'
-import CaretForwardOutline from './icons/caret-forward-outline'
-import CaretForwardSharp from './icons/caret-forward-sharp'
-import CaretForward from './icons/caret-forward'
-import CaretUpCircleOutline from './icons/caret-up-circle-outline'
-import CaretUpCircleSharp from './icons/caret-up-circle-sharp'
-import CaretUpCircle from './icons/caret-up-circle'
-import CaretUpOutline from './icons/caret-up-outline'
-import CaretUpSharp from './icons/caret-up-sharp'
-import CaretUp from './icons/caret-up'
-import CartOutline from './icons/cart-outline'
-import CartSharp from './icons/cart-sharp'
-import Cart from './icons/cart'
-import CashOutline from './icons/cash-outline'
-import CashSharp from './icons/cash-sharp'
-import Cash from './icons/cash'
-import CellularOutline from './icons/cellular-outline'
-import CellularSharp from './icons/cellular-sharp'
-import Cellular from './icons/cellular'
-import ChatboxEllipsesOutline from './icons/chatbox-ellipses-outline'
-import ChatboxEllipsesSharp from './icons/chatbox-ellipses-sharp'
-import ChatboxEllipses from './icons/chatbox-ellipses'
-import ChatboxOutline from './icons/chatbox-outline'
-import ChatboxSharp from './icons/chatbox-sharp'
-import Chatbox from './icons/chatbox'
-import ChatbubbleEllipsesOutline from './icons/chatbubble-ellipses-outline'
-import ChatbubbleEllipsesSharp from './icons/chatbubble-ellipses-sharp'
-import ChatbubbleEllipses from './icons/chatbubble-ellipses'
-import ChatbubbleOutline from './icons/chatbubble-outline'
-import ChatbubbleSharp from './icons/chatbubble-sharp'
-import Chatbubble from './icons/chatbubble'
-import ChatbubblesOutline from './icons/chatbubbles-outline'
-import ChatbubblesSharp from './icons/chatbubbles-sharp'
-import Chatbubbles from './icons/chatbubbles'
-import CheckboxOutline from './icons/checkbox-outline'
-import CheckboxSharp from './icons/checkbox-sharp'
-import Checkbox from './icons/checkbox'
-import CheckmarkCircleOutline from './icons/checkmark-circle-outline'
-import CheckmarkCircleSharp from './icons/checkmark-circle-sharp'
-import CheckmarkCircle from './icons/checkmark-circle'
-import CheckmarkDoneCircleOutline from './icons/checkmark-done-circle-outline'
-import CheckmarkDoneCircleSharp from './icons/checkmark-done-circle-sharp'
-import CheckmarkDoneCircle from './icons/checkmark-done-circle'
-import CheckmarkDoneOutline from './icons/checkmark-done-outline'
-import CheckmarkDoneSharp from './icons/checkmark-done-sharp'
-import CheckmarkDone from './icons/checkmark-done'
-import CheckmarkOutline from './icons/checkmark-outline'
-import CheckmarkSharp from './icons/checkmark-sharp'
-import Checkmark from './icons/checkmark'
-import ChevronBackCircleOutline from './icons/chevron-back-circle-outline'
-import ChevronBackCircleSharp from './icons/chevron-back-circle-sharp'
-import ChevronBackCircle from './icons/chevron-back-circle'
-import ChevronBackOutline from './icons/chevron-back-outline'
-import ChevronBackSharp from './icons/chevron-back-sharp'
-import ChevronBack from './icons/chevron-back'
-import ChevronDownCircleOutline from './icons/chevron-down-circle-outline'
-import ChevronDownCircleSharp from './icons/chevron-down-circle-sharp'
-import ChevronDownCircle from './icons/chevron-down-circle'
-import ChevronDownOutline from './icons/chevron-down-outline'
-import ChevronDownSharp from './icons/chevron-down-sharp'
-import ChevronDown from './icons/chevron-down'
-import ChevronForwardCircleOutline from './icons/chevron-forward-circle-outline'
-import ChevronForwardCircleSharp from './icons/chevron-forward-circle-sharp'
-import ChevronForwardCircle from './icons/chevron-forward-circle'
-import ChevronForwardOutline from './icons/chevron-forward-outline'
-import ChevronForwardSharp from './icons/chevron-forward-sharp'
-import ChevronForward from './icons/chevron-forward'
-import ChevronUpCircleOutline from './icons/chevron-up-circle-outline'
-import ChevronUpCircleSharp from './icons/chevron-up-circle-sharp'
-import ChevronUpCircle from './icons/chevron-up-circle'
-import ChevronUpOutline from './icons/chevron-up-outline'
-import ChevronUpSharp from './icons/chevron-up-sharp'
-import ChevronUp from './icons/chevron-up'
-import ClipboardOutline from './icons/clipboard-outline'
-import ClipboardSharp from './icons/clipboard-sharp'
-import Clipboard from './icons/clipboard'
-import CloseCircleOutline from './icons/close-circle-outline'
-import CloseCircleSharp from './icons/close-circle-sharp'
-import CloseCircle from './icons/close-circle'
-import CloseOutline from './icons/close-outline'
-import CloseSharp from './icons/close-sharp'
-import Close from './icons/close'
-import CloudCircleOutline from './icons/cloud-circle-outline'
-import CloudCircleSharp from './icons/cloud-circle-sharp'
-import CloudCircle from './icons/cloud-circle'
-import CloudDoneOutline from './icons/cloud-done-outline'
-import CloudDoneSharp from './icons/cloud-done-sharp'
-import CloudDone from './icons/cloud-done'
-import CloudDownloadOutline from './icons/cloud-download-outline'
-import CloudDownloadSharp from './icons/cloud-download-sharp'
-import CloudDownload from './icons/cloud-download'
-import CloudOfflineOutline from './icons/cloud-offline-outline'
-import CloudOfflineSharp from './icons/cloud-offline-sharp'
-import CloudOffline from './icons/cloud-offline'
-import CloudOutline from './icons/cloud-outline'
-import CloudSharp from './icons/cloud-sharp'
-import CloudUploadOutline from './icons/cloud-upload-outline'
-import CloudUploadSharp from './icons/cloud-upload-sharp'
-import CloudUpload from './icons/cloud-upload'
-import Cloud from './icons/cloud'
-import CloudyNightOutline from './icons/cloudy-night-outline'
-import CloudyNightSharp from './icons/cloudy-night-sharp'
-import CloudyNight from './icons/cloudy-night'
-import CloudyOutline from './icons/cloudy-outline'
-import CloudySharp from './icons/cloudy-sharp'
-import Cloudy from './icons/cloudy'
-import CodeDownloadOutline from './icons/code-download-outline'
-import CodeDownloadSharp from './icons/code-download-sharp'
-import CodeDownload from './icons/code-download'
-import CodeOutline from './icons/code-outline'
-import CodeSharp from './icons/code-sharp'
-import CodeSlashOutline from './icons/code-slash-outline'
-import CodeSlashSharp from './icons/code-slash-sharp'
-import CodeSlash from './icons/code-slash'
-import CodeWorkingOutline from './icons/code-working-outline'
-import CodeWorkingSharp from './icons/code-working-sharp'
-import CodeWorking from './icons/code-working'
-import Code from './icons/code'
-import CogOutline from './icons/cog-outline'
-import CogSharp from './icons/cog-sharp'
-import Cog from './icons/cog'
-import ColorFillOutline from './icons/color-fill-outline'
-import ColorFillSharp from './icons/color-fill-sharp'
-import ColorFill from './icons/color-fill'
-import ColorFilterOutline from './icons/color-filter-outline'
-import ColorFilterSharp from './icons/color-filter-sharp'
-import ColorFilter from './icons/color-filter'
-import ColorPaletteOutline from './icons/color-palette-outline'
-import ColorPaletteSharp from './icons/color-palette-sharp'
-import ColorPalette from './icons/color-palette'
-import ColorWandOutline from './icons/color-wand-outline'
-import ColorWandSharp from './icons/color-wand-sharp'
-import ColorWand from './icons/color-wand'
-import CompassOutline from './icons/compass-outline'
-import CompassSharp from './icons/compass-sharp'
-import Compass from './icons/compass'
-import ConstructOutline from './icons/construct-outline'
-import ConstructSharp from './icons/construct-sharp'
-import Construct from './icons/construct'
-import ContractOutline from './icons/contract-outline'
-import ContractSharp from './icons/contract-sharp'
-import Contract from './icons/contract'
-import ContrastOutline from './icons/contrast-outline'
-import ContrastSharp from './icons/contrast-sharp'
-import Contrast from './icons/contrast'
-import CopyOutline from './icons/copy-outline'
-import CopySharp from './icons/copy-sharp'
-import Copy from './icons/copy'
-import CreateOutline from './icons/create-outline'
-import CreateSharp from './icons/create-sharp'
-import Create from './icons/create'
-import CropOutline from './icons/crop-outline'
-import CropSharp from './icons/crop-sharp'
-import Crop from './icons/crop'
-import CubeOutline from './icons/cube-outline'
-import CubeSharp from './icons/cube-sharp'
-import Cube from './icons/cube'
-import CutOutline from './icons/cut-outline'
-import CutSharp from './icons/cut-sharp'
-import Cut from './icons/cut'
-import DesktopOutline from './icons/desktop-outline'
-import DesktopSharp from './icons/desktop-sharp'
-import Desktop from './icons/desktop'
-import DiscOutline from './icons/disc-outline'
-import DiscSharp from './icons/disc-sharp'
-import Disc from './icons/disc'
-import DocumentAttachOutline from './icons/document-attach-outline'
-import DocumentAttachSharp from './icons/document-attach-sharp'
-import DocumentAttach from './icons/document-attach'
-import DocumentOutline from './icons/document-outline'
-import DocumentSharp from './icons/document-sharp'
-import DocumentTextOutline from './icons/document-text-outline'
-import DocumentTextSharp from './icons/document-text-sharp'
-import DocumentText from './icons/document-text'
-import Document from './icons/document'
-import DocumentsOutline from './icons/documents-outline'
-import DocumentsSharp from './icons/documents-sharp'
-import Documents from './icons/documents'
-import DownloadOutline from './icons/download-outline'
-import DownloadSharp from './icons/download-sharp'
-import Download from './icons/download'
-import DuplicateOutline from './icons/duplicate-outline'
-import DuplicateSharp from './icons/duplicate-sharp'
-import Duplicate from './icons/duplicate'
-import EarOutline from './icons/ear-outline'
-import EarSharp from './icons/ear-sharp'
-import Ear from './icons/ear'
-import EarthOutline from './icons/earth-outline'
-import EarthSharp from './icons/earth-sharp'
-import Earth from './icons/earth'
-import EaselOutline from './icons/easel-outline'
-import EaselSharp from './icons/easel-sharp'
-import Easel from './icons/easel'
-import EggOutline from './icons/egg-outline'
-import EggSharp from './icons/egg-sharp'
-import Egg from './icons/egg'
-import EllipseOutline from './icons/ellipse-outline'
-import EllipseSharp from './icons/ellipse-sharp'
-import Ellipse from './icons/ellipse'
-import EllipsisHorizontalCircleOutline from './icons/ellipsis-horizontal-circle-outline'
-import EllipsisHorizontalCircleSharp from './icons/ellipsis-horizontal-circle-sharp'
-import EllipsisHorizontalCircle from './icons/ellipsis-horizontal-circle'
-import EllipsisHorizontalOutline from './icons/ellipsis-horizontal-outline'
-import EllipsisHorizontalSharp from './icons/ellipsis-horizontal-sharp'
-import EllipsisHorizontal from './icons/ellipsis-horizontal'
-import EllipsisVerticalCircleOutline from './icons/ellipsis-vertical-circle-outline'
-import EllipsisVerticalCircleSharp from './icons/ellipsis-vertical-circle-sharp'
-import EllipsisVerticalCircle from './icons/ellipsis-vertical-circle'
-import EllipsisVerticalOutline from './icons/ellipsis-vertical-outline'
-import EllipsisVerticalSharp from './icons/ellipsis-vertical-sharp'
-import EllipsisVertical from './icons/ellipsis-vertical'
-import EnterOutline from './icons/enter-outline'
-import EnterSharp from './icons/enter-sharp'
-import Enter from './icons/enter'
-import ExitOutline from './icons/exit-outline'
-import ExitSharp from './icons/exit-sharp'
-import Exit from './icons/exit'
-import ExpandOutline from './icons/expand-outline'
-import ExpandSharp from './icons/expand-sharp'
-import Expand from './icons/expand'
-import EyeOffOutline from './icons/eye-off-outline'
-import EyeOffSharp from './icons/eye-off-sharp'
-import EyeOff from './icons/eye-off'
-import EyeOutline from './icons/eye-outline'
-import EyeSharp from './icons/eye-sharp'
-import Eye from './icons/eye'
-import EyedropOutline from './icons/eyedrop-outline'
-import EyedropSharp from './icons/eyedrop-sharp'
-import Eyedrop from './icons/eyedrop'
-import FastFoodOutline from './icons/fast-food-outline'
-import FastFoodSharp from './icons/fast-food-sharp'
-import FastFood from './icons/fast-food'
-import FemaleOutline from './icons/female-outline'
-import FemaleSharp from './icons/female-sharp'
-import Female from './icons/female'
-import FileTrayFullOutline from './icons/file-tray-full-outline'
-import FileTrayFullSharp from './icons/file-tray-full-sharp'
-import FileTrayFull from './icons/file-tray-full'
-import FileTrayOutline from './icons/file-tray-outline'
-import FileTraySharp from './icons/file-tray-sharp'
-import FileTrayStackedOutline from './icons/file-tray-stacked-outline'
-import FileTrayStackedSharp from './icons/file-tray-stacked-sharp'
-import FileTrayStacked from './icons/file-tray-stacked'
-import FileTray from './icons/file-tray'
-import FilmOutline from './icons/film-outline'
-import FilmSharp from './icons/film-sharp'
-import Film from './icons/film'
-import FilterOutline from './icons/filter-outline'
-import FilterSharp from './icons/filter-sharp'
-import Filter from './icons/filter'
-import FingerPrintOutline from './icons/finger-print-outline'
-import FingerPrintSharp from './icons/finger-print-sharp'
-import FingerPrint from './icons/finger-print'
-import FitnessOutline from './icons/fitness-outline'
-import FitnessSharp from './icons/fitness-sharp'
-import Fitness from './icons/fitness'
-import FlagOutline from './icons/flag-outline'
-import FlagSharp from './icons/flag-sharp'
-import Flag from './icons/flag'
-import FlameOutline from './icons/flame-outline'
-import FlameSharp from './icons/flame-sharp'
-import Flame from './icons/flame'
-import FlashOffOutline from './icons/flash-off-outline'
-import FlashOffSharp from './icons/flash-off-sharp'
-import FlashOff from './icons/flash-off'
-import FlashOutline from './icons/flash-outline'
-import FlashSharp from './icons/flash-sharp'
-import Flash from './icons/flash'
-import FlashlightOutline from './icons/flashlight-outline'
-import FlashlightSharp from './icons/flashlight-sharp'
-import Flashlight from './icons/flashlight'
-import FlaskOutline from './icons/flask-outline'
-import FlaskSharp from './icons/flask-sharp'
-import Flask from './icons/flask'
-import FlowerOutline from './icons/flower-outline'
-import FlowerSharp from './icons/flower-sharp'
-import Flower from './icons/flower'
-import FolderOpenOutline from './icons/folder-open-outline'
-import FolderOpenSharp from './icons/folder-open-sharp'
-import FolderOpen from './icons/folder-open'
-import FolderOutline from './icons/folder-outline'
-import FolderSharp from './icons/folder-sharp'
-import Folder from './icons/folder'
-import FootballOutline from './icons/football-outline'
-import FootballSharp from './icons/football-sharp'
-import Football from './icons/football'
-import FunnelOutline from './icons/funnel-outline'
-import FunnelSharp from './icons/funnel-sharp'
-import Funnel from './icons/funnel'
-import GameControllerOutline from './icons/game-controller-outline'
-import GameControllerSharp from './icons/game-controller-sharp'
-import GameController from './icons/game-controller'
-import GiftOutline from './icons/gift-outline'
-import GiftSharp from './icons/gift-sharp'
-import Gift from './icons/gift'
-import GitBranchOutline from './icons/git-branch-outline'
-import GitBranchSharp from './icons/git-branch-sharp'
-import GitBranch from './icons/git-branch'
-import GitCommitOutline from './icons/git-commit-outline'
-import GitCommitSharp from './icons/git-commit-sharp'
-import GitCommit from './icons/git-commit'
-import GitCompareOutline from './icons/git-compare-outline'
-import GitCompareSharp from './icons/git-compare-sharp'
-import GitCompare from './icons/git-compare'
-import GitMergeOutline from './icons/git-merge-outline'
-import GitMergeSharp from './icons/git-merge-sharp'
-import GitMerge from './icons/git-merge'
-import GitNetworkOutline from './icons/git-network-outline'
-import GitNetworkSharp from './icons/git-network-sharp'
-import GitNetwork from './icons/git-network'
-import GitPullRequestOutline from './icons/git-pull-request-outline'
-import GitPullRequestSharp from './icons/git-pull-request-sharp'
-import GitPullRequest from './icons/git-pull-request'
-import GlassesOutline from './icons/glasses-outline'
-import GlassesSharp from './icons/glasses-sharp'
-import Glasses from './icons/glasses'
-import GlobeOutline from './icons/globe-outline'
-import GlobeSharp from './icons/globe-sharp'
-import Globe from './icons/globe'
-import GolfOutline from './icons/golf-outline'
-import GolfSharp from './icons/golf-sharp'
-import Golf from './icons/golf'
-import GridOutline from './icons/grid-outline'
-import GridSharp from './icons/grid-sharp'
-import Grid from './icons/grid'
-import HammerOutline from './icons/hammer-outline'
-import HammerSharp from './icons/hammer-sharp'
-import Hammer from './icons/hammer'
-import HandLeftOutline from './icons/hand-left-outline'
-import HandLeftSharp from './icons/hand-left-sharp'
-import HandLeft from './icons/hand-left'
-import HandRightOutline from './icons/hand-right-outline'
-import HandRightSharp from './icons/hand-right-sharp'
-import HandRight from './icons/hand-right'
-import HappyOutline from './icons/happy-outline'
-import HappySharp from './icons/happy-sharp'
-import Happy from './icons/happy'
-import HardwareChipOutline from './icons/hardware-chip-outline'
-import HardwareChipSharp from './icons/hardware-chip-sharp'
-import HardwareChip from './icons/hardware-chip'
-import HeadsetOutline from './icons/headset-outline'
-import HeadsetSharp from './icons/headset-sharp'
-import Headset from './icons/headset'
-import HeartCircleOutline from './icons/heart-circle-outline'
-import HeartCircleSharp from './icons/heart-circle-sharp'
-import HeartCircle from './icons/heart-circle'
-import HeartDislikeCircleOutline from './icons/heart-dislike-circle-outline'
-import HeartDislikeCircleSharp from './icons/heart-dislike-circle-sharp'
-import HeartDislikeCircle from './icons/heart-dislike-circle'
-import HeartDislikeOutline from './icons/heart-dislike-outline'
-import HeartDislikeSharp from './icons/heart-dislike-sharp'
-import HeartDislike from './icons/heart-dislike'
-import HeartHalfOutline from './icons/heart-half-outline'
-import HeartHalfSharp from './icons/heart-half-sharp'
-import HeartHalf from './icons/heart-half'
-import HeartOutline from './icons/heart-outline'
-import HeartSharp from './icons/heart-sharp'
-import Heart from './icons/heart'
-import HelpBuoyOutline from './icons/help-buoy-outline'
-import HelpBuoySharp from './icons/help-buoy-sharp'
-import HelpBuoy from './icons/help-buoy'
-import HelpCircleOutline from './icons/help-circle-outline'
-import HelpCircleSharp from './icons/help-circle-sharp'
-import HelpCircle from './icons/help-circle'
-import HelpOutline from './icons/help-outline'
-import HelpSharp from './icons/help-sharp'
-import Help from './icons/help'
-import HomeOutline from './icons/home-outline'
-import HomeSharp from './icons/home-sharp'
-import Home from './icons/home'
-import HourglassOutline from './icons/hourglass-outline'
-import HourglassSharp from './icons/hourglass-sharp'
-import Hourglass from './icons/hourglass'
-import IceCreamOutline from './icons/ice-cream-outline'
-import IceCreamSharp from './icons/ice-cream-sharp'
-import IceCream from './icons/ice-cream'
-import ImageOutline from './icons/image-outline'
-import ImageSharp from './icons/image-sharp'
-import Image from './icons/image'
-import ImagesOutline from './icons/images-outline'
-import ImagesSharp from './icons/images-sharp'
-import Images from './icons/images'
-import InfiniteOutline from './icons/infinite-outline'
-import InfiniteSharp from './icons/infinite-sharp'
-import Infinite from './icons/infinite'
-import InformationCircleOutline from './icons/information-circle-outline'
-import InformationCircleSharp from './icons/information-circle-sharp'
-import InformationCircle from './icons/information-circle'
-import InformationOutline from './icons/information-outline'
-import InformationSharp from './icons/information-sharp'
-import Information from './icons/information'
-import JournalOutline from './icons/journal-outline'
-import JournalSharp from './icons/journal-sharp'
-import Journal from './icons/journal'
-import KeyOutline from './icons/key-outline'
-import KeySharp from './icons/key-sharp'
-import Key from './icons/key'
-import KeypadOutline from './icons/keypad-outline'
-import KeypadSharp from './icons/keypad-sharp'
-import Keypad from './icons/keypad'
-import LanguageOutline from './icons/language-outline'
-import LanguageSharp from './icons/language-sharp'
-import Language from './icons/language'
-import LaptopOutline from './icons/laptop-outline'
-import LaptopSharp from './icons/laptop-sharp'
-import Laptop from './icons/laptop'
-import LayersOutline from './icons/layers-outline'
-import LayersSharp from './icons/layers-sharp'
-import Layers from './icons/layers'
-import LeafOutline from './icons/leaf-outline'
-import LeafSharp from './icons/leaf-sharp'
-import Leaf from './icons/leaf'
-import LibraryOutline from './icons/library-outline'
-import LibrarySharp from './icons/library-sharp'
-import Library from './icons/library'
-import LinkOutline from './icons/link-outline'
-import LinkSharp from './icons/link-sharp'
-import Link from './icons/link'
-import ListCircleOutline from './icons/list-circle-outline'
-import ListCircleSharp from './icons/list-circle-sharp'
-import ListCircle from './icons/list-circle'
-import ListOutline from './icons/list-outline'
-import ListSharp from './icons/list-sharp'
-import List from './icons/list'
-import LocateOutline from './icons/locate-outline'
-import LocateSharp from './icons/locate-sharp'
-import Locate from './icons/locate'
-import LocationOutline from './icons/location-outline'
-import LocationSharp from './icons/location-sharp'
-import Location from './icons/location'
-import LockClosedOutline from './icons/lock-closed-outline'
-import LockClosedSharp from './icons/lock-closed-sharp'
-import LockClosed from './icons/lock-closed'
-import LockOpenOutline from './icons/lock-open-outline'
-import LockOpenSharp from './icons/lock-open-sharp'
-import LockOpen from './icons/lock-open'
-import LogInOutline from './icons/log-in-outline'
-import LogInSharp from './icons/log-in-sharp'
-import LogIn from './icons/log-in'
-import LogOutOutline from './icons/log-out-outline'
-import LogOutSharp from './icons/log-out-sharp'
-import LogOut from './icons/log-out'
-import LogoAmazon from './icons/logo-amazon'
-import LogoAmplify from './icons/logo-amplify'
-import LogoAndroid from './icons/logo-android'
-import LogoAngular from './icons/logo-angular'
-import LogoAppleAppstore from './icons/logo-apple-appstore'
-import LogoApple from './icons/logo-apple'
-import LogoBitbucket from './icons/logo-bitbucket'
-import LogoBitcoin from './icons/logo-bitcoin'
-import LogoBuffer from './icons/logo-buffer'
-import LogoCapacitor from './icons/logo-capacitor'
-import LogoChrome from './icons/logo-chrome'
-import LogoClosedCaptioning from './icons/logo-closed-captioning'
-import LogoCodepen from './icons/logo-codepen'
-import LogoCss3 from './icons/logo-css3'
-import LogoDesignernews from './icons/logo-designernews'
-import LogoDribbble from './icons/logo-dribbble'
-import LogoDropbox from './icons/logo-dropbox'
-import LogoEdge from './icons/logo-edge'
-import LogoElectron from './icons/logo-electron'
-import LogoEuro from './icons/logo-euro'
-import LogoFacebook from './icons/logo-facebook'
-import LogoFirebase from './icons/logo-firebase'
-import LogoFirefox from './icons/logo-firefox'
-import LogoFlickr from './icons/logo-flickr'
-import LogoFoursquare from './icons/logo-foursquare'
-import LogoGithub from './icons/logo-github'
-import LogoGooglePlaystore from './icons/logo-google-playstore'
-import LogoGoogle from './icons/logo-google'
-import LogoHackernews from './icons/logo-hackernews'
-import LogoHtml5 from './icons/logo-html5'
-import LogoInstagram from './icons/logo-instagram'
-import LogoIonic from './icons/logo-ionic'
-import LogoIonitron from './icons/logo-ionitron'
-import LogoJavascript from './icons/logo-javascript'
-import LogoLaravel from './icons/logo-laravel'
-import LogoLinkedin from './icons/logo-linkedin'
-import LogoMarkdown from './icons/logo-markdown'
-import LogoNoSmoking from './icons/logo-no-smoking'
-import LogoNodejs from './icons/logo-nodejs'
-import LogoNpm from './icons/logo-npm'
-import LogoOctocat from './icons/logo-octocat'
-import LogoPinterest from './icons/logo-pinterest'
-import LogoPlaystation from './icons/logo-playstation'
-import LogoPwa from './icons/logo-pwa'
-import LogoPython from './icons/logo-python'
-import LogoReact from './icons/logo-react'
-import LogoReddit from './icons/logo-reddit'
-import LogoRss from './icons/logo-rss'
-import LogoSass from './icons/logo-sass'
-import LogoSkype from './icons/logo-skype'
-import LogoSlack from './icons/logo-slack'
-import LogoSnapchat from './icons/logo-snapchat'
-import LogoStackoverflow from './icons/logo-stackoverflow'
-import LogoSteam from './icons/logo-steam'
-import LogoStencil from './icons/logo-stencil'
-import LogoTumblr from './icons/logo-tumblr'
-import LogoTux from './icons/logo-tux'
-import LogoTwitch from './icons/logo-twitch'
-import LogoTwitter from './icons/logo-twitter'
-import LogoUsd from './icons/logo-usd'
-import LogoVimeo from './icons/logo-vimeo'
-import LogoVk from './icons/logo-vk'
-import LogoVue from './icons/logo-vue'
-import LogoWebComponent from './icons/logo-web-component'
-import LogoWhatsapp from './icons/logo-whatsapp'
-import LogoWindows from './icons/logo-windows'
-import LogoWordpress from './icons/logo-wordpress'
-import LogoXbox from './icons/logo-xbox'
-import LogoXing from './icons/logo-xing'
-import LogoYahoo from './icons/logo-yahoo'
-import LogoYen from './icons/logo-yen'
-import LogoYoutube from './icons/logo-youtube'
-import MagnetOutline from './icons/magnet-outline'
-import MagnetSharp from './icons/magnet-sharp'
-import Magnet from './icons/magnet'
-import MailOpenOutline from './icons/mail-open-outline'
-import MailOpenSharp from './icons/mail-open-sharp'
-import MailOpen from './icons/mail-open'
-import MailOutline from './icons/mail-outline'
-import MailSharp from './icons/mail-sharp'
-import MailUnreadOutline from './icons/mail-unread-outline'
-import MailUnreadSharp from './icons/mail-unread-sharp'
-import MailUnread from './icons/mail-unread'
-import Mail from './icons/mail'
-import MaleFemaleOutline from './icons/male-female-outline'
-import MaleFemaleSharp from './icons/male-female-sharp'
-import MaleFemale from './icons/male-female'
-import MaleOutline from './icons/male-outline'
-import MaleSharp from './icons/male-sharp'
-import Male from './icons/male'
-import ManOutline from './icons/man-outline'
-import ManSharp from './icons/man-sharp'
-import Man from './icons/man'
-import MapOutline from './icons/map-outline'
-import MapSharp from './icons/map-sharp'
-import Map from './icons/map'
-import MedalOutline from './icons/medal-outline'
-import MedalSharp from './icons/medal-sharp'
-import Medal from './icons/medal'
-import MedicalOutline from './icons/medical-outline'
-import MedicalSharp from './icons/medical-sharp'
-import Medical from './icons/medical'
-import MedkitOutline from './icons/medkit-outline'
-import MedkitSharp from './icons/medkit-sharp'
-import Medkit from './icons/medkit'
-import MegaphoneOutline from './icons/megaphone-outline'
-import MegaphoneSharp from './icons/megaphone-sharp'
-import Megaphone from './icons/megaphone'
-import MenuOutline from './icons/menu-outline'
-import MenuSharp from './icons/menu-sharp'
-import Menu from './icons/menu'
-import MicCircleOutline from './icons/mic-circle-outline'
-import MicCircleSharp from './icons/mic-circle-sharp'
-import MicCircle from './icons/mic-circle'
-import MicOffCircleOutline from './icons/mic-off-circle-outline'
-import MicOffCircleSharp from './icons/mic-off-circle-sharp'
-import MicOffCircle from './icons/mic-off-circle'
-import MicOffOutline from './icons/mic-off-outline'
-import MicOffSharp from './icons/mic-off-sharp'
-import MicOff from './icons/mic-off'
-import MicOutline from './icons/mic-outline'
-import MicSharp from './icons/mic-sharp'
-import Mic from './icons/mic'
-import MoonOutline from './icons/moon-outline'
-import MoonSharp from './icons/moon-sharp'
-import Moon from './icons/moon'
-import MoveOutline from './icons/move-outline'
-import MoveSharp from './icons/move-sharp'
-import Move from './icons/move'
-import MusicalNoteOutline from './icons/musical-note-outline'
-import MusicalNoteSharp from './icons/musical-note-sharp'
-import MusicalNote from './icons/musical-note'
-import MusicalNotesOutline from './icons/musical-notes-outline'
-import MusicalNotesSharp from './icons/musical-notes-sharp'
-import MusicalNotes from './icons/musical-notes'
-import NavigateCircleOutline from './icons/navigate-circle-outline'
-import NavigateCircleSharp from './icons/navigate-circle-sharp'
-import NavigateCircle from './icons/navigate-circle'
-import NavigateOutline from './icons/navigate-outline'
-import NavigateSharp from './icons/navigate-sharp'
-import Navigate from './icons/navigate'
-import NewspaperOutline from './icons/newspaper-outline'
-import NewspaperSharp from './icons/newspaper-sharp'
-import Newspaper from './icons/newspaper'
-import NotificationsCircleOutline from './icons/notifications-circle-outline'
-import NotificationsCircleSharp from './icons/notifications-circle-sharp'
-import NotificationsCircle from './icons/notifications-circle'
-import NotificationsOffCircleOutline from './icons/notifications-off-circle-outline'
-import NotificationsOffCircleSharp from './icons/notifications-off-circle-sharp'
-import NotificationsOffCircle from './icons/notifications-off-circle'
-import NotificationsOffOutline from './icons/notifications-off-outline'
-import NotificationsOffSharp from './icons/notifications-off-sharp'
-import NotificationsOff from './icons/notifications-off'
-import NotificationsOutline from './icons/notifications-outline'
-import NotificationsSharp from './icons/notifications-sharp'
-import Notifications from './icons/notifications'
-import NuclearOutline from './icons/nuclear-outline'
-import NuclearSharp from './icons/nuclear-sharp'
-import Nuclear from './icons/nuclear'
-import NutritionOutline from './icons/nutrition-outline'
-import NutritionSharp from './icons/nutrition-sharp'
-import Nutrition from './icons/nutrition'
-import OpenOutline from './icons/open-outline'
-import OpenSharp from './icons/open-sharp'
-import Open from './icons/open'
-import OptionsOutline from './icons/options-outline'
-import OptionsSharp from './icons/options-sharp'
-import Options from './icons/options'
-import PaperPlaneOutline from './icons/paper-plane-outline'
-import PaperPlaneSharp from './icons/paper-plane-sharp'
-import PaperPlane from './icons/paper-plane'
-import PartlySunnyOutline from './icons/partly-sunny-outline'
-import PartlySunnySharp from './icons/partly-sunny-sharp'
-import PartlySunny from './icons/partly-sunny'
-import PauseCircleOutline from './icons/pause-circle-outline'
-import PauseCircleSharp from './icons/pause-circle-sharp'
-import PauseCircle from './icons/pause-circle'
-import PauseOutline from './icons/pause-outline'
-import PauseSharp from './icons/pause-sharp'
-import Pause from './icons/pause'
-import PawOutline from './icons/paw-outline'
-import PawSharp from './icons/paw-sharp'
-import Paw from './icons/paw'
-import PencilOutline from './icons/pencil-outline'
-import PencilSharp from './icons/pencil-sharp'
-import Pencil from './icons/pencil'
-import PeopleCircleOutline from './icons/people-circle-outline'
-import PeopleCircleSharp from './icons/people-circle-sharp'
-import PeopleCircle from './icons/people-circle'
-import PeopleOutline from './icons/people-outline'
-import PeopleSharp from './icons/people-sharp'
-import People from './icons/people'
-import PersonAddOutline from './icons/person-add-outline'
-import PersonAddSharp from './icons/person-add-sharp'
-import PersonAdd from './icons/person-add'
-import PersonCircleOutline from './icons/person-circle-outline'
-import PersonCircleSharp from './icons/person-circle-sharp'
-import PersonCircle from './icons/person-circle'
-import PersonOutline from './icons/person-outline'
-import PersonRemoveOutline from './icons/person-remove-outline'
-import PersonRemoveSharp from './icons/person-remove-sharp'
-import PersonRemove from './icons/person-remove'
-import PersonSharp from './icons/person-sharp'
-import Person from './icons/person'
-import PhoneLandscapeOutline from './icons/phone-landscape-outline'
-import PhoneLandscapeSharp from './icons/phone-landscape-sharp'
-import PhoneLandscape from './icons/phone-landscape'
-import PhonePortraitOutline from './icons/phone-portrait-outline'
-import PhonePortraitSharp from './icons/phone-portrait-sharp'
-import PhonePortrait from './icons/phone-portrait'
-import PieChartOutline from './icons/pie-chart-outline'
-import PieChartSharp from './icons/pie-chart-sharp'
-import PieChart from './icons/pie-chart'
-import PinOutline from './icons/pin-outline'
-import PinSharp from './icons/pin-sharp'
-import Pin from './icons/pin'
-import PintOutline from './icons/pint-outline'
-import PintSharp from './icons/pint-sharp'
-import Pint from './icons/pint'
-import PizzaOutline from './icons/pizza-outline'
-import PizzaSharp from './icons/pizza-sharp'
-import Pizza from './icons/pizza'
-import PlanetOutline from './icons/planet-outline'
-import PlanetSharp from './icons/planet-sharp'
-import Planet from './icons/planet'
-import PlayBackCircleOutline from './icons/play-back-circle-outline'
-import PlayBackCircleSharp from './icons/play-back-circle-sharp'
-import PlayBackCircle from './icons/play-back-circle'
-import PlayBackOutline from './icons/play-back-outline'
-import PlayBackSharp from './icons/play-back-sharp'
-import PlayBack from './icons/play-back'
-import PlayCircleOutline from './icons/play-circle-outline'
-import PlayCircleSharp from './icons/play-circle-sharp'
-import PlayCircle from './icons/play-circle'
-import PlayForwardCircleOutline from './icons/play-forward-circle-outline'
-import PlayForwardCircleSharp from './icons/play-forward-circle-sharp'
-import PlayForwardCircle from './icons/play-forward-circle'
-import PlayForwardOutline from './icons/play-forward-outline'
-import PlayForwardSharp from './icons/play-forward-sharp'
-import PlayForward from './icons/play-forward'
-import PlayOutline from './icons/play-outline'
-import PlaySharp from './icons/play-sharp'
-import PlaySkipBackCircleOutline from './icons/play-skip-back-circle-outline'
-import PlaySkipBackCircleSharp from './icons/play-skip-back-circle-sharp'
-import PlaySkipBackCircle from './icons/play-skip-back-circle'
-import PlaySkipBackOutline from './icons/play-skip-back-outline'
-import PlaySkipBackSharp from './icons/play-skip-back-sharp'
-import PlaySkipBack from './icons/play-skip-back'
-import PlaySkipForwardCircleOutline from './icons/play-skip-forward-circle-outline'
-import PlaySkipForwardCircleSharp from './icons/play-skip-forward-circle-sharp'
-import PlaySkipForwardCircle from './icons/play-skip-forward-circle'
-import PlaySkipForwardOutline from './icons/play-skip-forward-outline'
-import PlaySkipForwardSharp from './icons/play-skip-forward-sharp'
-import PlaySkipForward from './icons/play-skip-forward'
-import Play from './icons/play'
-import PodiumOutline from './icons/podium-outline'
-import PodiumSharp from './icons/podium-sharp'
-import Podium from './icons/podium'
-import PowerOutline from './icons/power-outline'
-import PowerSharp from './icons/power-sharp'
-import Power from './icons/power'
-import PricetagOutline from './icons/pricetag-outline'
-import PricetagSharp from './icons/pricetag-sharp'
-import Pricetag from './icons/pricetag'
-import PricetagsOutline from './icons/pricetags-outline'
-import PricetagsSharp from './icons/pricetags-sharp'
-import Pricetags from './icons/pricetags'
-import PrintOutline from './icons/print-outline'
-import PrintSharp from './icons/print-sharp'
-import Print from './icons/print'
-import PulseOutline from './icons/pulse-outline'
-import PulseSharp from './icons/pulse-sharp'
-import Pulse from './icons/pulse'
-import PushOutline from './icons/push-outline'
-import PushSharp from './icons/push-sharp'
-import Push from './icons/push'
-import QrCodeOutline from './icons/qr-code-outline'
-import QrCodeSharp from './icons/qr-code-sharp'
-import QrCode from './icons/qr-code'
-import RadioButtonOffOutline from './icons/radio-button-off-outline'
-import RadioButtonOffSharp from './icons/radio-button-off-sharp'
-import RadioButtonOff from './icons/radio-button-off'
-import RadioButtonOnOutline from './icons/radio-button-on-outline'
-import RadioButtonOnSharp from './icons/radio-button-on-sharp'
-import RadioButtonOn from './icons/radio-button-on'
-import RadioOutline from './icons/radio-outline'
-import RadioSharp from './icons/radio-sharp'
-import Radio from './icons/radio'
-import RainyOutline from './icons/rainy-outline'
-import RainySharp from './icons/rainy-sharp'
-import Rainy from './icons/rainy'
-import ReaderOutline from './icons/reader-outline'
-import ReaderSharp from './icons/reader-sharp'
-import Reader from './icons/reader'
-import ReceiptOutline from './icons/receipt-outline'
-import ReceiptSharp from './icons/receipt-sharp'
-import Receipt from './icons/receipt'
-import RecordingOutline from './icons/recording-outline'
-import RecordingSharp from './icons/recording-sharp'
-import Recording from './icons/recording'
-import RefreshCircleOutline from './icons/refresh-circle-outline'
-import RefreshCircleSharp from './icons/refresh-circle-sharp'
-import RefreshCircle from './icons/refresh-circle'
-import RefreshOutline from './icons/refresh-outline'
-import RefreshSharp from './icons/refresh-sharp'
-import Refresh from './icons/refresh'
-import ReloadCircleOutline from './icons/reload-circle-outline'
-import ReloadCircleSharp from './icons/reload-circle-sharp'
-import ReloadCircle from './icons/reload-circle'
-import ReloadOutline from './icons/reload-outline'
-import ReloadSharp from './icons/reload-sharp'
-import Reload from './icons/reload'
-import RemoveCircleOutline from './icons/remove-circle-outline'
-import RemoveCircleSharp from './icons/remove-circle-sharp'
-import RemoveCircle from './icons/remove-circle'
-import RemoveOutline from './icons/remove-outline'
-import RemoveSharp from './icons/remove-sharp'
-import Remove from './icons/remove'
-import ReorderFourOutline from './icons/reorder-four-outline'
-import ReorderFourSharp from './icons/reorder-four-sharp'
-import ReorderFour from './icons/reorder-four'
-import ReorderThreeOutline from './icons/reorder-three-outline'
-import ReorderThreeSharp from './icons/reorder-three-sharp'
-import ReorderThree from './icons/reorder-three'
-import ReorderTwoOutline from './icons/reorder-two-outline'
-import ReorderTwoSharp from './icons/reorder-two-sharp'
-import ReorderTwo from './icons/reorder-two'
-import RepeatOutline from './icons/repeat-outline'
-import RepeatSharp from './icons/repeat-sharp'
-import Repeat from './icons/repeat'
-import ResizeOutline from './icons/resize-outline'
-import ResizeSharp from './icons/resize-sharp'
-import Resize from './icons/resize'
-import RestaurantOutline from './icons/restaurant-outline'
-import RestaurantSharp from './icons/restaurant-sharp'
-import Restaurant from './icons/restaurant'
-import ReturnDownBackOutline from './icons/return-down-back-outline'
-import ReturnDownBackSharp from './icons/return-down-back-sharp'
-import ReturnDownBack from './icons/return-down-back'
-import ReturnDownForwardOutline from './icons/return-down-forward-outline'
-import ReturnDownForwardSharp from './icons/return-down-forward-sharp'
-import ReturnDownForward from './icons/return-down-forward'
-import ReturnUpBackOutline from './icons/return-up-back-outline'
-import ReturnUpBackSharp from './icons/return-up-back-sharp'
-import ReturnUpBack from './icons/return-up-back'
-import ReturnUpForwardOutline from './icons/return-up-forward-outline'
-import ReturnUpForwardSharp from './icons/return-up-forward-sharp'
-import ReturnUpForward from './icons/return-up-forward'
-import RibbonOutline from './icons/ribbon-outline'
-import RibbonSharp from './icons/ribbon-sharp'
-import Ribbon from './icons/ribbon'
-import RocketOutline from './icons/rocket-outline'
-import RocketSharp from './icons/rocket-sharp'
-import Rocket from './icons/rocket'
-import RoseOutline from './icons/rose-outline'
-import RoseSharp from './icons/rose-sharp'
-import Rose from './icons/rose'
-import SadOutline from './icons/sad-outline'
-import SadSharp from './icons/sad-sharp'
-import Sad from './icons/sad'
-import SaveOutline from './icons/save-outline'
-import SaveSharp from './icons/save-sharp'
-import Save from './icons/save'
-import ScanCircleOutline from './icons/scan-circle-outline'
-import ScanCircleSharp from './icons/scan-circle-sharp'
-import ScanCircle from './icons/scan-circle'
-import ScanOutline from './icons/scan-outline'
-import ScanSharp from './icons/scan-sharp'
-import Scan from './icons/scan'
-import SchoolOutline from './icons/school-outline'
-import SchoolSharp from './icons/school-sharp'
-import School from './icons/school'
-import SearchCircleOutline from './icons/search-circle-outline'
-import SearchCircleSharp from './icons/search-circle-sharp'
-import SearchCircle from './icons/search-circle'
-import SearchOutline from './icons/search-outline'
-import SearchSharp from './icons/search-sharp'
-import Search from './icons/search'
-import SendOutline from './icons/send-outline'
-import SendSharp from './icons/send-sharp'
-import Send from './icons/send'
-import ServerOutline from './icons/server-outline'
-import ServerSharp from './icons/server-sharp'
-import Server from './icons/server'
-import SettingsOutline from './icons/settings-outline'
-import SettingsSharp from './icons/settings-sharp'
-import Settings from './icons/settings'
-import ShapesOutline from './icons/shapes-outline'
-import ShapesSharp from './icons/shapes-sharp'
-import Shapes from './icons/shapes'
-import ShareOutline from './icons/share-outline'
-import ShareSharp from './icons/share-sharp'
-import ShareSocialOutline from './icons/share-social-outline'
-import ShareSocialSharp from './icons/share-social-sharp'
-import ShareSocial from './icons/share-social'
-import Share from './icons/share'
-import ShieldCheckmarkOutline from './icons/shield-checkmark-outline'
-import ShieldCheckmarkSharp from './icons/shield-checkmark-sharp'
-import ShieldCheckmark from './icons/shield-checkmark'
-import ShieldOutline from './icons/shield-outline'
-import ShieldSharp from './icons/shield-sharp'
-import Shield from './icons/shield'
-import ShirtOutline from './icons/shirt-outline'
-import ShirtSharp from './icons/shirt-sharp'
-import Shirt from './icons/shirt'
-import ShuffleOutline from './icons/shuffle-outline'
-import ShuffleSharp from './icons/shuffle-sharp'
-import Shuffle from './icons/shuffle'
-import SkullOutline from './icons/skull-outline'
-import SkullSharp from './icons/skull-sharp'
-import Skull from './icons/skull'
-import SnowOutline from './icons/snow-outline'
-import SnowSharp from './icons/snow-sharp'
-import Snow from './icons/snow'
-import SpeedometerOutline from './icons/speedometer-outline'
-import SpeedometerSharp from './icons/speedometer-sharp'
-import Speedometer from './icons/speedometer'
-import SquareOutline from './icons/square-outline'
-import SquareSharp from './icons/square-sharp'
-import Square from './icons/square'
-import StarHalfOutline from './icons/star-half-outline'
-import StarHalfSharp from './icons/star-half-sharp'
-import StarHalf from './icons/star-half'
-import StarOutline from './icons/star-outline'
-import StarSharp from './icons/star-sharp'
-import Star from './icons/star'
-import StatsChartOutline from './icons/stats-chart-outline'
-import StatsChartSharp from './icons/stats-chart-sharp'
-import StatsChart from './icons/stats-chart'
-import StopCircleOutline from './icons/stop-circle-outline'
-import StopCircleSharp from './icons/stop-circle-sharp'
-import StopCircle from './icons/stop-circle'
-import StopOutline from './icons/stop-outline'
-import StopSharp from './icons/stop-sharp'
-import Stop from './icons/stop'
-import StopwatchOutline from './icons/stopwatch-outline'
-import StopwatchSharp from './icons/stopwatch-sharp'
-import Stopwatch from './icons/stopwatch'
-import SubwayOutline from './icons/subway-outline'
-import SubwaySharp from './icons/subway-sharp'
-import Subway from './icons/subway'
-import SunnyOutline from './icons/sunny-outline'
-import SunnySharp from './icons/sunny-sharp'
-import Sunny from './icons/sunny'
-import SwapHorizontalOutline from './icons/swap-horizontal-outline'
-import SwapHorizontalSharp from './icons/swap-horizontal-sharp'
-import SwapHorizontal from './icons/swap-horizontal'
-import SwapVerticalOutline from './icons/swap-vertical-outline'
-import SwapVerticalSharp from './icons/swap-vertical-sharp'
-import SwapVertical from './icons/swap-vertical'
-import SyncCircleOutline from './icons/sync-circle-outline'
-import SyncCircleSharp from './icons/sync-circle-sharp'
-import SyncCircle from './icons/sync-circle'
-import SyncOutline from './icons/sync-outline'
-import SyncSharp from './icons/sync-sharp'
-import Sync from './icons/sync'
-import TabletLandscapeOutline from './icons/tablet-landscape-outline'
-import TabletLandscapeSharp from './icons/tablet-landscape-sharp'
-import TabletLandscape from './icons/tablet-landscape'
-import TabletPortraitOutline from './icons/tablet-portrait-outline'
-import TabletPortraitSharp from './icons/tablet-portrait-sharp'
-import TabletPortrait from './icons/tablet-portrait'
-import TennisballOutline from './icons/tennisball-outline'
-import TennisballSharp from './icons/tennisball-sharp'
-import Tennisball from './icons/tennisball'
-import TerminalOutline from './icons/terminal-outline'
-import TerminalSharp from './icons/terminal-sharp'
-import Terminal from './icons/terminal'
-import TextOutline from './icons/text-outline'
-import TextSharp from './icons/text-sharp'
-import Text from './icons/text'
-import ThermometerOutline from './icons/thermometer-outline'
-import ThermometerSharp from './icons/thermometer-sharp'
-import Thermometer from './icons/thermometer'
-import ThumbsDownOutline from './icons/thumbs-down-outline'
-import ThumbsDownSharp from './icons/thumbs-down-sharp'
-import ThumbsDown from './icons/thumbs-down'
-import ThumbsUpOutline from './icons/thumbs-up-outline'
-import ThumbsUpSharp from './icons/thumbs-up-sharp'
-import ThumbsUp from './icons/thumbs-up'
-import ThunderstormOutline from './icons/thunderstorm-outline'
-import ThunderstormSharp from './icons/thunderstorm-sharp'
-import Thunderstorm from './icons/thunderstorm'
-import TimeOutline from './icons/time-outline'
-import TimeSharp from './icons/time-sharp'
-import Time from './icons/time'
-import TimerOutline from './icons/timer-outline'
-import TimerSharp from './icons/timer-sharp'
-import Timer from './icons/timer'
-import TodayOutline from './icons/today-outline'
-import TodaySharp from './icons/today-sharp'
-import Today from './icons/today'
-import ToggleOutline from './icons/toggle-outline'
-import ToggleSharp from './icons/toggle-sharp'
-import Toggle from './icons/toggle'
-import TrailSignOutline from './icons/trail-sign-outline'
-import TrailSignSharp from './icons/trail-sign-sharp'
-import TrailSign from './icons/trail-sign'
-import TrainOutline from './icons/train-outline'
-import TrainSharp from './icons/train-sharp'
-import Train from './icons/train'
-import TransgenderOutline from './icons/transgender-outline'
-import TransgenderSharp from './icons/transgender-sharp'
-import Transgender from './icons/transgender'
-import TrashBinOutline from './icons/trash-bin-outline'
-import TrashBinSharp from './icons/trash-bin-sharp'
-import TrashBin from './icons/trash-bin'
-import TrashOutline from './icons/trash-outline'
-import TrashSharp from './icons/trash-sharp'
-import Trash from './icons/trash'
-import TrendingDownOutline from './icons/trending-down-outline'
-import TrendingDownSharp from './icons/trending-down-sharp'
-import TrendingDown from './icons/trending-down'
-import TrendingUpOutline from './icons/trending-up-outline'
-import TrendingUpSharp from './icons/trending-up-sharp'
-import TrendingUp from './icons/trending-up'
-import TriangleOutline from './icons/triangle-outline'
-import TriangleSharp from './icons/triangle-sharp'
-import Triangle from './icons/triangle'
-import TrophyOutline from './icons/trophy-outline'
-import TrophySharp from './icons/trophy-sharp'
-import Trophy from './icons/trophy'
-import TvOutline from './icons/tv-outline'
-import TvSharp from './icons/tv-sharp'
-import Tv from './icons/tv'
-import UmbrellaOutline from './icons/umbrella-outline'
-import UmbrellaSharp from './icons/umbrella-sharp'
-import Umbrella from './icons/umbrella'
-import VideocamOutline from './icons/videocam-outline'
-import VideocamSharp from './icons/videocam-sharp'
-import Videocam from './icons/videocam'
-import VolumeHighOutline from './icons/volume-high-outline'
-import VolumeHighSharp from './icons/volume-high-sharp'
-import VolumeHigh from './icons/volume-high'
-import VolumeLowOutline from './icons/volume-low-outline'
-import VolumeLowSharp from './icons/volume-low-sharp'
-import VolumeLow from './icons/volume-low'
-import VolumeMediumOutline from './icons/volume-medium-outline'
-import VolumeMediumSharp from './icons/volume-medium-sharp'
-import VolumeMedium from './icons/volume-medium'
-import VolumeMuteOutline from './icons/volume-mute-outline'
-import VolumeMuteSharp from './icons/volume-mute-sharp'
-import VolumeMute from './icons/volume-mute'
-import VolumeOffOutline from './icons/volume-off-outline'
-import VolumeOffSharp from './icons/volume-off-sharp'
-import VolumeOff from './icons/volume-off'
-import WalkOutline from './icons/walk-outline'
-import WalkSharp from './icons/walk-sharp'
-import Walk from './icons/walk'
-import WalletOutline from './icons/wallet-outline'
-import WalletSharp from './icons/wallet-sharp'
-import Wallet from './icons/wallet'
-import WarningOutline from './icons/warning-outline'
-import WarningSharp from './icons/warning-sharp'
-import Warning from './icons/warning'
-import WatchOutline from './icons/watch-outline'
-import WatchSharp from './icons/watch-sharp'
-import Watch from './icons/watch'
-import WaterOutline from './icons/water-outline'
-import WaterSharp from './icons/water-sharp'
-import Water from './icons/water'
-import WifiOutline from './icons/wifi-outline'
-import WifiSharp from './icons/wifi-sharp'
-import Wifi from './icons/wifi'
-import WineOutline from './icons/wine-outline'
-import WineSharp from './icons/wine-sharp'
-import Wine from './icons/wine'
-import WomanOutline from './icons/woman-outline'
-import WomanSharp from './icons/woman-sharp'
-import Woman from './icons/woman'
-export { BaseIconProps } from './base/base-icon'
+import Add from './icons/Add'
+import AddCircle from './icons/AddCircle'
+import AddCircleOutline from './icons/AddCircleOutline'
+import AddCircleSharp from './icons/AddCircleSharp'
+import AddOutline from './icons/AddOutline'
+import AddSharp from './icons/AddSharp'
+import Airplane from './icons/Airplane'
+import AirplaneOutline from './icons/AirplaneOutline'
+import AirplaneSharp from './icons/AirplaneSharp'
+import Alarm from './icons/Alarm'
+import AlarmOutline from './icons/AlarmOutline'
+import AlarmSharp from './icons/AlarmSharp'
+import Albums from './icons/Albums'
+import AlbumsOutline from './icons/AlbumsOutline'
+import AlbumsSharp from './icons/AlbumsSharp'
+import Alert from './icons/Alert'
+import AlertCircle from './icons/AlertCircle'
+import AlertCircleOutline from './icons/AlertCircleOutline'
+import AlertCircleSharp from './icons/AlertCircleSharp'
+import AlertOutline from './icons/AlertOutline'
+import AlertSharp from './icons/AlertSharp'
+import AmericanFootball from './icons/AmericanFootball'
+import AmericanFootballOutline from './icons/AmericanFootballOutline'
+import AmericanFootballSharp from './icons/AmericanFootballSharp'
+import Analytics from './icons/Analytics'
+import AnalyticsOutline from './icons/AnalyticsOutline'
+import AnalyticsSharp from './icons/AnalyticsSharp'
+import Aperture from './icons/Aperture'
+import ApertureOutline from './icons/ApertureOutline'
+import ApertureSharp from './icons/ApertureSharp'
+import Apps from './icons/Apps'
+import AppsOutline from './icons/AppsOutline'
+import AppsSharp from './icons/AppsSharp'
+import Archive from './icons/Archive'
+import ArchiveOutline from './icons/ArchiveOutline'
+import ArchiveSharp from './icons/ArchiveSharp'
+import ArrowBack from './icons/ArrowBack'
+import ArrowBackCircle from './icons/ArrowBackCircle'
+import ArrowBackCircleOutline from './icons/ArrowBackCircleOutline'
+import ArrowBackCircleSharp from './icons/ArrowBackCircleSharp'
+import ArrowBackOutline from './icons/ArrowBackOutline'
+import ArrowBackSharp from './icons/ArrowBackSharp'
+import ArrowDown from './icons/ArrowDown'
+import ArrowDownCircle from './icons/ArrowDownCircle'
+import ArrowDownCircleOutline from './icons/ArrowDownCircleOutline'
+import ArrowDownCircleSharp from './icons/ArrowDownCircleSharp'
+import ArrowDownOutline from './icons/ArrowDownOutline'
+import ArrowDownSharp from './icons/ArrowDownSharp'
+import ArrowForward from './icons/ArrowForward'
+import ArrowForwardCircle from './icons/ArrowForwardCircle'
+import ArrowForwardCircleOutline from './icons/ArrowForwardCircleOutline'
+import ArrowForwardCircleSharp from './icons/ArrowForwardCircleSharp'
+import ArrowForwardOutline from './icons/ArrowForwardOutline'
+import ArrowForwardSharp from './icons/ArrowForwardSharp'
+import ArrowRedo from './icons/ArrowRedo'
+import ArrowRedoCircle from './icons/ArrowRedoCircle'
+import ArrowRedoCircleOutline from './icons/ArrowRedoCircleOutline'
+import ArrowRedoCircleSharp from './icons/ArrowRedoCircleSharp'
+import ArrowRedoOutline from './icons/ArrowRedoOutline'
+import ArrowRedoSharp from './icons/ArrowRedoSharp'
+import ArrowUndo from './icons/ArrowUndo'
+import ArrowUndoCircle from './icons/ArrowUndoCircle'
+import ArrowUndoCircleOutline from './icons/ArrowUndoCircleOutline'
+import ArrowUndoCircleSharp from './icons/ArrowUndoCircleSharp'
+import ArrowUndoOutline from './icons/ArrowUndoOutline'
+import ArrowUndoSharp from './icons/ArrowUndoSharp'
+import ArrowUp from './icons/ArrowUp'
+import ArrowUpCircle from './icons/ArrowUpCircle'
+import ArrowUpCircleOutline from './icons/ArrowUpCircleOutline'
+import ArrowUpCircleSharp from './icons/ArrowUpCircleSharp'
+import ArrowUpOutline from './icons/ArrowUpOutline'
+import ArrowUpSharp from './icons/ArrowUpSharp'
+import At from './icons/At'
+import AtCircle from './icons/AtCircle'
+import AtCircleOutline from './icons/AtCircleOutline'
+import AtCircleSharp from './icons/AtCircleSharp'
+import AtOutline from './icons/AtOutline'
+import AtSharp from './icons/AtSharp'
+import Attach from './icons/Attach'
+import AttachOutline from './icons/AttachOutline'
+import AttachSharp from './icons/AttachSharp'
+import Backspace from './icons/Backspace'
+import BackspaceOutline from './icons/BackspaceOutline'
+import BackspaceSharp from './icons/BackspaceSharp'
+import Bandage from './icons/Bandage'
+import BandageOutline from './icons/BandageOutline'
+import BandageSharp from './icons/BandageSharp'
+import BarChart from './icons/BarChart'
+import BarChartOutline from './icons/BarChartOutline'
+import BarChartSharp from './icons/BarChartSharp'
+import Barbell from './icons/Barbell'
+import BarbellOutline from './icons/BarbellOutline'
+import BarbellSharp from './icons/BarbellSharp'
+import Barcode from './icons/Barcode'
+import BarcodeOutline from './icons/BarcodeOutline'
+import BarcodeSharp from './icons/BarcodeSharp'
+import Baseball from './icons/Baseball'
+import BaseballOutline from './icons/BaseballOutline'
+import BaseballSharp from './icons/BaseballSharp'
+import Basket from './icons/Basket'
+import BasketOutline from './icons/BasketOutline'
+import BasketSharp from './icons/BasketSharp'
+import Basketball from './icons/Basketball'
+import BasketballOutline from './icons/BasketballOutline'
+import BasketballSharp from './icons/BasketballSharp'
+import BatteryCharging from './icons/BatteryCharging'
+import BatteryChargingOutline from './icons/BatteryChargingOutline'
+import BatteryChargingSharp from './icons/BatteryChargingSharp'
+import BatteryDead from './icons/BatteryDead'
+import BatteryDeadOutline from './icons/BatteryDeadOutline'
+import BatteryDeadSharp from './icons/BatteryDeadSharp'
+import BatteryFull from './icons/BatteryFull'
+import BatteryFullOutline from './icons/BatteryFullOutline'
+import BatteryFullSharp from './icons/BatteryFullSharp'
+import BatteryHalf from './icons/BatteryHalf'
+import BatteryHalfOutline from './icons/BatteryHalfOutline'
+import BatteryHalfSharp from './icons/BatteryHalfSharp'
+import Beaker from './icons/Beaker'
+import BeakerOutline from './icons/BeakerOutline'
+import BeakerSharp from './icons/BeakerSharp'
+import Bed from './icons/Bed'
+import BedOutline from './icons/BedOutline'
+import BedSharp from './icons/BedSharp'
+import Beer from './icons/Beer'
+import BeerOutline from './icons/BeerOutline'
+import BeerSharp from './icons/BeerSharp'
+import Bicycle from './icons/Bicycle'
+import BicycleOutline from './icons/BicycleOutline'
+import BicycleSharp from './icons/BicycleSharp'
+import Bluetooth from './icons/Bluetooth'
+import BluetoothOutline from './icons/BluetoothOutline'
+import BluetoothSharp from './icons/BluetoothSharp'
+import Boat from './icons/Boat'
+import BoatOutline from './icons/BoatOutline'
+import BoatSharp from './icons/BoatSharp'
+import Body from './icons/Body'
+import BodyOutline from './icons/BodyOutline'
+import BodySharp from './icons/BodySharp'
+import Bonfire from './icons/Bonfire'
+import BonfireOutline from './icons/BonfireOutline'
+import BonfireSharp from './icons/BonfireSharp'
+import Book from './icons/Book'
+import BookOutline from './icons/BookOutline'
+import BookSharp from './icons/BookSharp'
+import Bookmark from './icons/Bookmark'
+import BookmarkOutline from './icons/BookmarkOutline'
+import BookmarkSharp from './icons/BookmarkSharp'
+import Bookmarks from './icons/Bookmarks'
+import BookmarksOutline from './icons/BookmarksOutline'
+import BookmarksSharp from './icons/BookmarksSharp'
+import Briefcase from './icons/Briefcase'
+import BriefcaseOutline from './icons/BriefcaseOutline'
+import BriefcaseSharp from './icons/BriefcaseSharp'
+import Browsers from './icons/Browsers'
+import BrowsersOutline from './icons/BrowsersOutline'
+import BrowsersSharp from './icons/BrowsersSharp'
+import Brush from './icons/Brush'
+import BrushOutline from './icons/BrushOutline'
+import BrushSharp from './icons/BrushSharp'
+import Bug from './icons/Bug'
+import BugOutline from './icons/BugOutline'
+import BugSharp from './icons/BugSharp'
+import Build from './icons/Build'
+import BuildOutline from './icons/BuildOutline'
+import BuildSharp from './icons/BuildSharp'
+import Bulb from './icons/Bulb'
+import BulbOutline from './icons/BulbOutline'
+import BulbSharp from './icons/BulbSharp'
+import Bus from './icons/Bus'
+import BusOutline from './icons/BusOutline'
+import BusSharp from './icons/BusSharp'
+import Business from './icons/Business'
+import BusinessOutline from './icons/BusinessOutline'
+import BusinessSharp from './icons/BusinessSharp'
+import Cafe from './icons/Cafe'
+import CafeOutline from './icons/CafeOutline'
+import CafeSharp from './icons/CafeSharp'
+import Calculator from './icons/Calculator'
+import CalculatorOutline from './icons/CalculatorOutline'
+import CalculatorSharp from './icons/CalculatorSharp'
+import Calendar from './icons/Calendar'
+import CalendarOutline from './icons/CalendarOutline'
+import CalendarSharp from './icons/CalendarSharp'
+import Call from './icons/Call'
+import CallOutline from './icons/CallOutline'
+import CallSharp from './icons/CallSharp'
+import Camera from './icons/Camera'
+import CameraOutline from './icons/CameraOutline'
+import CameraReverse from './icons/CameraReverse'
+import CameraReverseOutline from './icons/CameraReverseOutline'
+import CameraReverseSharp from './icons/CameraReverseSharp'
+import CameraSharp from './icons/CameraSharp'
+import Car from './icons/Car'
+import CarOutline from './icons/CarOutline'
+import CarSharp from './icons/CarSharp'
+import CarSport from './icons/CarSport'
+import CarSportOutline from './icons/CarSportOutline'
+import CarSportSharp from './icons/CarSportSharp'
+import Card from './icons/Card'
+import CardOutline from './icons/CardOutline'
+import CardSharp from './icons/CardSharp'
+import CaretBack from './icons/CaretBack'
+import CaretBackCircle from './icons/CaretBackCircle'
+import CaretBackCircleOutline from './icons/CaretBackCircleOutline'
+import CaretBackCircleSharp from './icons/CaretBackCircleSharp'
+import CaretBackOutline from './icons/CaretBackOutline'
+import CaretBackSharp from './icons/CaretBackSharp'
+import CaretDown from './icons/CaretDown'
+import CaretDownCircle from './icons/CaretDownCircle'
+import CaretDownCircleOutline from './icons/CaretDownCircleOutline'
+import CaretDownCircleSharp from './icons/CaretDownCircleSharp'
+import CaretDownOutline from './icons/CaretDownOutline'
+import CaretDownSharp from './icons/CaretDownSharp'
+import CaretForward from './icons/CaretForward'
+import CaretForwardCircle from './icons/CaretForwardCircle'
+import CaretForwardCircleOutline from './icons/CaretForwardCircleOutline'
+import CaretForwardCircleSharp from './icons/CaretForwardCircleSharp'
+import CaretForwardOutline from './icons/CaretForwardOutline'
+import CaretForwardSharp from './icons/CaretForwardSharp'
+import CaretUp from './icons/CaretUp'
+import CaretUpCircle from './icons/CaretUpCircle'
+import CaretUpCircleOutline from './icons/CaretUpCircleOutline'
+import CaretUpCircleSharp from './icons/CaretUpCircleSharp'
+import CaretUpOutline from './icons/CaretUpOutline'
+import CaretUpSharp from './icons/CaretUpSharp'
+import Cart from './icons/Cart'
+import CartOutline from './icons/CartOutline'
+import CartSharp from './icons/CartSharp'
+import Cash from './icons/Cash'
+import CashOutline from './icons/CashOutline'
+import CashSharp from './icons/CashSharp'
+import Cellular from './icons/Cellular'
+import CellularOutline from './icons/CellularOutline'
+import CellularSharp from './icons/CellularSharp'
+import Chatbox from './icons/Chatbox'
+import ChatboxEllipses from './icons/ChatboxEllipses'
+import ChatboxEllipsesOutline from './icons/ChatboxEllipsesOutline'
+import ChatboxEllipsesSharp from './icons/ChatboxEllipsesSharp'
+import ChatboxOutline from './icons/ChatboxOutline'
+import ChatboxSharp from './icons/ChatboxSharp'
+import Chatbubble from './icons/Chatbubble'
+import ChatbubbleEllipses from './icons/ChatbubbleEllipses'
+import ChatbubbleEllipsesOutline from './icons/ChatbubbleEllipsesOutline'
+import ChatbubbleEllipsesSharp from './icons/ChatbubbleEllipsesSharp'
+import ChatbubbleOutline from './icons/ChatbubbleOutline'
+import ChatbubbleSharp from './icons/ChatbubbleSharp'
+import Chatbubbles from './icons/Chatbubbles'
+import ChatbubblesOutline from './icons/ChatbubblesOutline'
+import ChatbubblesSharp from './icons/ChatbubblesSharp'
+import Checkbox from './icons/Checkbox'
+import CheckboxOutline from './icons/CheckboxOutline'
+import CheckboxSharp from './icons/CheckboxSharp'
+import Checkmark from './icons/Checkmark'
+import CheckmarkCircle from './icons/CheckmarkCircle'
+import CheckmarkCircleOutline from './icons/CheckmarkCircleOutline'
+import CheckmarkCircleSharp from './icons/CheckmarkCircleSharp'
+import CheckmarkDone from './icons/CheckmarkDone'
+import CheckmarkDoneCircle from './icons/CheckmarkDoneCircle'
+import CheckmarkDoneCircleOutline from './icons/CheckmarkDoneCircleOutline'
+import CheckmarkDoneCircleSharp from './icons/CheckmarkDoneCircleSharp'
+import CheckmarkDoneOutline from './icons/CheckmarkDoneOutline'
+import CheckmarkDoneSharp from './icons/CheckmarkDoneSharp'
+import CheckmarkOutline from './icons/CheckmarkOutline'
+import CheckmarkSharp from './icons/CheckmarkSharp'
+import ChevronBack from './icons/ChevronBack'
+import ChevronBackCircle from './icons/ChevronBackCircle'
+import ChevronBackCircleOutline from './icons/ChevronBackCircleOutline'
+import ChevronBackCircleSharp from './icons/ChevronBackCircleSharp'
+import ChevronBackOutline from './icons/ChevronBackOutline'
+import ChevronBackSharp from './icons/ChevronBackSharp'
+import ChevronDown from './icons/ChevronDown'
+import ChevronDownCircle from './icons/ChevronDownCircle'
+import ChevronDownCircleOutline from './icons/ChevronDownCircleOutline'
+import ChevronDownCircleSharp from './icons/ChevronDownCircleSharp'
+import ChevronDownOutline from './icons/ChevronDownOutline'
+import ChevronDownSharp from './icons/ChevronDownSharp'
+import ChevronForward from './icons/ChevronForward'
+import ChevronForwardCircle from './icons/ChevronForwardCircle'
+import ChevronForwardCircleOutline from './icons/ChevronForwardCircleOutline'
+import ChevronForwardCircleSharp from './icons/ChevronForwardCircleSharp'
+import ChevronForwardOutline from './icons/ChevronForwardOutline'
+import ChevronForwardSharp from './icons/ChevronForwardSharp'
+import ChevronUp from './icons/ChevronUp'
+import ChevronUpCircle from './icons/ChevronUpCircle'
+import ChevronUpCircleOutline from './icons/ChevronUpCircleOutline'
+import ChevronUpCircleSharp from './icons/ChevronUpCircleSharp'
+import ChevronUpOutline from './icons/ChevronUpOutline'
+import ChevronUpSharp from './icons/ChevronUpSharp'
+import Clipboard from './icons/Clipboard'
+import ClipboardOutline from './icons/ClipboardOutline'
+import ClipboardSharp from './icons/ClipboardSharp'
+import Close from './icons/Close'
+import CloseCircle from './icons/CloseCircle'
+import CloseCircleOutline from './icons/CloseCircleOutline'
+import CloseCircleSharp from './icons/CloseCircleSharp'
+import CloseOutline from './icons/CloseOutline'
+import CloseSharp from './icons/CloseSharp'
+import Cloud from './icons/Cloud'
+import CloudCircle from './icons/CloudCircle'
+import CloudCircleOutline from './icons/CloudCircleOutline'
+import CloudCircleSharp from './icons/CloudCircleSharp'
+import CloudDone from './icons/CloudDone'
+import CloudDoneOutline from './icons/CloudDoneOutline'
+import CloudDoneSharp from './icons/CloudDoneSharp'
+import CloudDownload from './icons/CloudDownload'
+import CloudDownloadOutline from './icons/CloudDownloadOutline'
+import CloudDownloadSharp from './icons/CloudDownloadSharp'
+import CloudOffline from './icons/CloudOffline'
+import CloudOfflineOutline from './icons/CloudOfflineOutline'
+import CloudOfflineSharp from './icons/CloudOfflineSharp'
+import CloudOutline from './icons/CloudOutline'
+import CloudSharp from './icons/CloudSharp'
+import CloudUpload from './icons/CloudUpload'
+import CloudUploadOutline from './icons/CloudUploadOutline'
+import CloudUploadSharp from './icons/CloudUploadSharp'
+import Cloudy from './icons/Cloudy'
+import CloudyNight from './icons/CloudyNight'
+import CloudyNightOutline from './icons/CloudyNightOutline'
+import CloudyNightSharp from './icons/CloudyNightSharp'
+import CloudyOutline from './icons/CloudyOutline'
+import CloudySharp from './icons/CloudySharp'
+import Code from './icons/Code'
+import CodeDownload from './icons/CodeDownload'
+import CodeDownloadOutline from './icons/CodeDownloadOutline'
+import CodeDownloadSharp from './icons/CodeDownloadSharp'
+import CodeOutline from './icons/CodeOutline'
+import CodeSharp from './icons/CodeSharp'
+import CodeSlash from './icons/CodeSlash'
+import CodeSlashOutline from './icons/CodeSlashOutline'
+import CodeSlashSharp from './icons/CodeSlashSharp'
+import CodeWorking from './icons/CodeWorking'
+import CodeWorkingOutline from './icons/CodeWorkingOutline'
+import CodeWorkingSharp from './icons/CodeWorkingSharp'
+import Cog from './icons/Cog'
+import CogOutline from './icons/CogOutline'
+import CogSharp from './icons/CogSharp'
+import ColorFill from './icons/ColorFill'
+import ColorFillOutline from './icons/ColorFillOutline'
+import ColorFillSharp from './icons/ColorFillSharp'
+import ColorFilter from './icons/ColorFilter'
+import ColorFilterOutline from './icons/ColorFilterOutline'
+import ColorFilterSharp from './icons/ColorFilterSharp'
+import ColorPalette from './icons/ColorPalette'
+import ColorPaletteOutline from './icons/ColorPaletteOutline'
+import ColorPaletteSharp from './icons/ColorPaletteSharp'
+import ColorWand from './icons/ColorWand'
+import ColorWandOutline from './icons/ColorWandOutline'
+import ColorWandSharp from './icons/ColorWandSharp'
+import Compass from './icons/Compass'
+import CompassOutline from './icons/CompassOutline'
+import CompassSharp from './icons/CompassSharp'
+import Construct from './icons/Construct'
+import ConstructOutline from './icons/ConstructOutline'
+import ConstructSharp from './icons/ConstructSharp'
+import Contract from './icons/Contract'
+import ContractOutline from './icons/ContractOutline'
+import ContractSharp from './icons/ContractSharp'
+import Contrast from './icons/Contrast'
+import ContrastOutline from './icons/ContrastOutline'
+import ContrastSharp from './icons/ContrastSharp'
+import Copy from './icons/Copy'
+import CopyOutline from './icons/CopyOutline'
+import CopySharp from './icons/CopySharp'
+import Create from './icons/Create'
+import CreateOutline from './icons/CreateOutline'
+import CreateSharp from './icons/CreateSharp'
+import Crop from './icons/Crop'
+import CropOutline from './icons/CropOutline'
+import CropSharp from './icons/CropSharp'
+import Cube from './icons/Cube'
+import CubeOutline from './icons/CubeOutline'
+import CubeSharp from './icons/CubeSharp'
+import Cut from './icons/Cut'
+import CutOutline from './icons/CutOutline'
+import CutSharp from './icons/CutSharp'
+import Desktop from './icons/Desktop'
+import DesktopOutline from './icons/DesktopOutline'
+import DesktopSharp from './icons/DesktopSharp'
+import Disc from './icons/Disc'
+import DiscOutline from './icons/DiscOutline'
+import DiscSharp from './icons/DiscSharp'
+import Document from './icons/Document'
+import DocumentAttach from './icons/DocumentAttach'
+import DocumentAttachOutline from './icons/DocumentAttachOutline'
+import DocumentAttachSharp from './icons/DocumentAttachSharp'
+import DocumentOutline from './icons/DocumentOutline'
+import DocumentSharp from './icons/DocumentSharp'
+import DocumentText from './icons/DocumentText'
+import DocumentTextOutline from './icons/DocumentTextOutline'
+import DocumentTextSharp from './icons/DocumentTextSharp'
+import Documents from './icons/Documents'
+import DocumentsOutline from './icons/DocumentsOutline'
+import DocumentsSharp from './icons/DocumentsSharp'
+import Download from './icons/Download'
+import DownloadOutline from './icons/DownloadOutline'
+import DownloadSharp from './icons/DownloadSharp'
+import Duplicate from './icons/Duplicate'
+import DuplicateOutline from './icons/DuplicateOutline'
+import DuplicateSharp from './icons/DuplicateSharp'
+import Ear from './icons/Ear'
+import EarOutline from './icons/EarOutline'
+import EarSharp from './icons/EarSharp'
+import Earth from './icons/Earth'
+import EarthOutline from './icons/EarthOutline'
+import EarthSharp from './icons/EarthSharp'
+import Easel from './icons/Easel'
+import EaselOutline from './icons/EaselOutline'
+import EaselSharp from './icons/EaselSharp'
+import Egg from './icons/Egg'
+import EggOutline from './icons/EggOutline'
+import EggSharp from './icons/EggSharp'
+import Ellipse from './icons/Ellipse'
+import EllipseOutline from './icons/EllipseOutline'
+import EllipseSharp from './icons/EllipseSharp'
+import EllipsisHorizontal from './icons/EllipsisHorizontal'
+import EllipsisHorizontalCircle from './icons/EllipsisHorizontalCircle'
+import EllipsisHorizontalCircleOutline from './icons/EllipsisHorizontalCircleOutline'
+import EllipsisHorizontalCircleSharp from './icons/EllipsisHorizontalCircleSharp'
+import EllipsisHorizontalOutline from './icons/EllipsisHorizontalOutline'
+import EllipsisHorizontalSharp from './icons/EllipsisHorizontalSharp'
+import EllipsisVertical from './icons/EllipsisVertical'
+import EllipsisVerticalCircle from './icons/EllipsisVerticalCircle'
+import EllipsisVerticalCircleOutline from './icons/EllipsisVerticalCircleOutline'
+import EllipsisVerticalCircleSharp from './icons/EllipsisVerticalCircleSharp'
+import EllipsisVerticalOutline from './icons/EllipsisVerticalOutline'
+import EllipsisVerticalSharp from './icons/EllipsisVerticalSharp'
+import Enter from './icons/Enter'
+import EnterOutline from './icons/EnterOutline'
+import EnterSharp from './icons/EnterSharp'
+import Exit from './icons/Exit'
+import ExitOutline from './icons/ExitOutline'
+import ExitSharp from './icons/ExitSharp'
+import Expand from './icons/Expand'
+import ExpandOutline from './icons/ExpandOutline'
+import ExpandSharp from './icons/ExpandSharp'
+import Eye from './icons/Eye'
+import EyeOff from './icons/EyeOff'
+import EyeOffOutline from './icons/EyeOffOutline'
+import EyeOffSharp from './icons/EyeOffSharp'
+import EyeOutline from './icons/EyeOutline'
+import EyeSharp from './icons/EyeSharp'
+import Eyedrop from './icons/Eyedrop'
+import EyedropOutline from './icons/EyedropOutline'
+import EyedropSharp from './icons/EyedropSharp'
+import FastFood from './icons/FastFood'
+import FastFoodOutline from './icons/FastFoodOutline'
+import FastFoodSharp from './icons/FastFoodSharp'
+import Female from './icons/Female'
+import FemaleOutline from './icons/FemaleOutline'
+import FemaleSharp from './icons/FemaleSharp'
+import FileTray from './icons/FileTray'
+import FileTrayFull from './icons/FileTrayFull'
+import FileTrayFullOutline from './icons/FileTrayFullOutline'
+import FileTrayFullSharp from './icons/FileTrayFullSharp'
+import FileTrayOutline from './icons/FileTrayOutline'
+import FileTraySharp from './icons/FileTraySharp'
+import FileTrayStacked from './icons/FileTrayStacked'
+import FileTrayStackedOutline from './icons/FileTrayStackedOutline'
+import FileTrayStackedSharp from './icons/FileTrayStackedSharp'
+import Film from './icons/Film'
+import FilmOutline from './icons/FilmOutline'
+import FilmSharp from './icons/FilmSharp'
+import Filter from './icons/Filter'
+import FilterOutline from './icons/FilterOutline'
+import FilterSharp from './icons/FilterSharp'
+import FingerPrint from './icons/FingerPrint'
+import FingerPrintOutline from './icons/FingerPrintOutline'
+import FingerPrintSharp from './icons/FingerPrintSharp'
+import Fitness from './icons/Fitness'
+import FitnessOutline from './icons/FitnessOutline'
+import FitnessSharp from './icons/FitnessSharp'
+import Flag from './icons/Flag'
+import FlagOutline from './icons/FlagOutline'
+import FlagSharp from './icons/FlagSharp'
+import Flame from './icons/Flame'
+import FlameOutline from './icons/FlameOutline'
+import FlameSharp from './icons/FlameSharp'
+import Flash from './icons/Flash'
+import FlashOff from './icons/FlashOff'
+import FlashOffOutline from './icons/FlashOffOutline'
+import FlashOffSharp from './icons/FlashOffSharp'
+import FlashOutline from './icons/FlashOutline'
+import FlashSharp from './icons/FlashSharp'
+import Flashlight from './icons/Flashlight'
+import FlashlightOutline from './icons/FlashlightOutline'
+import FlashlightSharp from './icons/FlashlightSharp'
+import Flask from './icons/Flask'
+import FlaskOutline from './icons/FlaskOutline'
+import FlaskSharp from './icons/FlaskSharp'
+import Flower from './icons/Flower'
+import FlowerOutline from './icons/FlowerOutline'
+import FlowerSharp from './icons/FlowerSharp'
+import Folder from './icons/Folder'
+import FolderOpen from './icons/FolderOpen'
+import FolderOpenOutline from './icons/FolderOpenOutline'
+import FolderOpenSharp from './icons/FolderOpenSharp'
+import FolderOutline from './icons/FolderOutline'
+import FolderSharp from './icons/FolderSharp'
+import Football from './icons/Football'
+import FootballOutline from './icons/FootballOutline'
+import FootballSharp from './icons/FootballSharp'
+import Funnel from './icons/Funnel'
+import FunnelOutline from './icons/FunnelOutline'
+import FunnelSharp from './icons/FunnelSharp'
+import GameController from './icons/GameController'
+import GameControllerOutline from './icons/GameControllerOutline'
+import GameControllerSharp from './icons/GameControllerSharp'
+import Gift from './icons/Gift'
+import GiftOutline from './icons/GiftOutline'
+import GiftSharp from './icons/GiftSharp'
+import GitBranch from './icons/GitBranch'
+import GitBranchOutline from './icons/GitBranchOutline'
+import GitBranchSharp from './icons/GitBranchSharp'
+import GitCommit from './icons/GitCommit'
+import GitCommitOutline from './icons/GitCommitOutline'
+import GitCommitSharp from './icons/GitCommitSharp'
+import GitCompare from './icons/GitCompare'
+import GitCompareOutline from './icons/GitCompareOutline'
+import GitCompareSharp from './icons/GitCompareSharp'
+import GitMerge from './icons/GitMerge'
+import GitMergeOutline from './icons/GitMergeOutline'
+import GitMergeSharp from './icons/GitMergeSharp'
+import GitNetwork from './icons/GitNetwork'
+import GitNetworkOutline from './icons/GitNetworkOutline'
+import GitNetworkSharp from './icons/GitNetworkSharp'
+import GitPullRequest from './icons/GitPullRequest'
+import GitPullRequestOutline from './icons/GitPullRequestOutline'
+import GitPullRequestSharp from './icons/GitPullRequestSharp'
+import Glasses from './icons/Glasses'
+import GlassesOutline from './icons/GlassesOutline'
+import GlassesSharp from './icons/GlassesSharp'
+import Globe from './icons/Globe'
+import GlobeOutline from './icons/GlobeOutline'
+import GlobeSharp from './icons/GlobeSharp'
+import Golf from './icons/Golf'
+import GolfOutline from './icons/GolfOutline'
+import GolfSharp from './icons/GolfSharp'
+import Grid from './icons/Grid'
+import GridOutline from './icons/GridOutline'
+import GridSharp from './icons/GridSharp'
+import Hammer from './icons/Hammer'
+import HammerOutline from './icons/HammerOutline'
+import HammerSharp from './icons/HammerSharp'
+import HandLeft from './icons/HandLeft'
+import HandLeftOutline from './icons/HandLeftOutline'
+import HandLeftSharp from './icons/HandLeftSharp'
+import HandRight from './icons/HandRight'
+import HandRightOutline from './icons/HandRightOutline'
+import HandRightSharp from './icons/HandRightSharp'
+import Happy from './icons/Happy'
+import HappyOutline from './icons/HappyOutline'
+import HappySharp from './icons/HappySharp'
+import HardwareChip from './icons/HardwareChip'
+import HardwareChipOutline from './icons/HardwareChipOutline'
+import HardwareChipSharp from './icons/HardwareChipSharp'
+import Headset from './icons/Headset'
+import HeadsetOutline from './icons/HeadsetOutline'
+import HeadsetSharp from './icons/HeadsetSharp'
+import Heart from './icons/Heart'
+import HeartCircle from './icons/HeartCircle'
+import HeartCircleOutline from './icons/HeartCircleOutline'
+import HeartCircleSharp from './icons/HeartCircleSharp'
+import HeartDislike from './icons/HeartDislike'
+import HeartDislikeCircle from './icons/HeartDislikeCircle'
+import HeartDislikeCircleOutline from './icons/HeartDislikeCircleOutline'
+import HeartDislikeCircleSharp from './icons/HeartDislikeCircleSharp'
+import HeartDislikeOutline from './icons/HeartDislikeOutline'
+import HeartDislikeSharp from './icons/HeartDislikeSharp'
+import HeartHalf from './icons/HeartHalf'
+import HeartHalfOutline from './icons/HeartHalfOutline'
+import HeartHalfSharp from './icons/HeartHalfSharp'
+import HeartOutline from './icons/HeartOutline'
+import HeartSharp from './icons/HeartSharp'
+import Help from './icons/Help'
+import HelpBuoy from './icons/HelpBuoy'
+import HelpBuoyOutline from './icons/HelpBuoyOutline'
+import HelpBuoySharp from './icons/HelpBuoySharp'
+import HelpCircle from './icons/HelpCircle'
+import HelpCircleOutline from './icons/HelpCircleOutline'
+import HelpCircleSharp from './icons/HelpCircleSharp'
+import HelpOutline from './icons/HelpOutline'
+import HelpSharp from './icons/HelpSharp'
+import Home from './icons/Home'
+import HomeOutline from './icons/HomeOutline'
+import HomeSharp from './icons/HomeSharp'
+import Hourglass from './icons/Hourglass'
+import HourglassOutline from './icons/HourglassOutline'
+import HourglassSharp from './icons/HourglassSharp'
+import IceCream from './icons/IceCream'
+import IceCreamOutline from './icons/IceCreamOutline'
+import IceCreamSharp from './icons/IceCreamSharp'
+import Image from './icons/Image'
+import ImageOutline from './icons/ImageOutline'
+import ImageSharp from './icons/ImageSharp'
+import Images from './icons/Images'
+import ImagesOutline from './icons/ImagesOutline'
+import ImagesSharp from './icons/ImagesSharp'
+import Infinite from './icons/Infinite'
+import InfiniteOutline from './icons/InfiniteOutline'
+import InfiniteSharp from './icons/InfiniteSharp'
+import Information from './icons/Information'
+import InformationCircle from './icons/InformationCircle'
+import InformationCircleOutline from './icons/InformationCircleOutline'
+import InformationCircleSharp from './icons/InformationCircleSharp'
+import InformationOutline from './icons/InformationOutline'
+import InformationSharp from './icons/InformationSharp'
+import Journal from './icons/Journal'
+import JournalOutline from './icons/JournalOutline'
+import JournalSharp from './icons/JournalSharp'
+import Key from './icons/Key'
+import KeyOutline from './icons/KeyOutline'
+import KeySharp from './icons/KeySharp'
+import Keypad from './icons/Keypad'
+import KeypadOutline from './icons/KeypadOutline'
+import KeypadSharp from './icons/KeypadSharp'
+import Language from './icons/Language'
+import LanguageOutline from './icons/LanguageOutline'
+import LanguageSharp from './icons/LanguageSharp'
+import Laptop from './icons/Laptop'
+import LaptopOutline from './icons/LaptopOutline'
+import LaptopSharp from './icons/LaptopSharp'
+import Layers from './icons/Layers'
+import LayersOutline from './icons/LayersOutline'
+import LayersSharp from './icons/LayersSharp'
+import Leaf from './icons/Leaf'
+import LeafOutline from './icons/LeafOutline'
+import LeafSharp from './icons/LeafSharp'
+import Library from './icons/Library'
+import LibraryOutline from './icons/LibraryOutline'
+import LibrarySharp from './icons/LibrarySharp'
+import Link from './icons/Link'
+import LinkOutline from './icons/LinkOutline'
+import LinkSharp from './icons/LinkSharp'
+import List from './icons/List'
+import ListCircle from './icons/ListCircle'
+import ListCircleOutline from './icons/ListCircleOutline'
+import ListCircleSharp from './icons/ListCircleSharp'
+import ListOutline from './icons/ListOutline'
+import ListSharp from './icons/ListSharp'
+import Locate from './icons/Locate'
+import LocateOutline from './icons/LocateOutline'
+import LocateSharp from './icons/LocateSharp'
+import Location from './icons/Location'
+import LocationOutline from './icons/LocationOutline'
+import LocationSharp from './icons/LocationSharp'
+import LockClosed from './icons/LockClosed'
+import LockClosedOutline from './icons/LockClosedOutline'
+import LockClosedSharp from './icons/LockClosedSharp'
+import LockOpen from './icons/LockOpen'
+import LockOpenOutline from './icons/LockOpenOutline'
+import LockOpenSharp from './icons/LockOpenSharp'
+import LogIn from './icons/LogIn'
+import LogInOutline from './icons/LogInOutline'
+import LogInSharp from './icons/LogInSharp'
+import LogOut from './icons/LogOut'
+import LogOutOutline from './icons/LogOutOutline'
+import LogOutSharp from './icons/LogOutSharp'
+import LogoAmazon from './icons/LogoAmazon'
+import LogoAmplify from './icons/LogoAmplify'
+import LogoAndroid from './icons/LogoAndroid'
+import LogoAngular from './icons/LogoAngular'
+import LogoApple from './icons/LogoApple'
+import LogoAppleAppstore from './icons/LogoAppleAppstore'
+import LogoBitbucket from './icons/LogoBitbucket'
+import LogoBitcoin from './icons/LogoBitcoin'
+import LogoBuffer from './icons/LogoBuffer'
+import LogoCapacitor from './icons/LogoCapacitor'
+import LogoChrome from './icons/LogoChrome'
+import LogoClosedCaptioning from './icons/LogoClosedCaptioning'
+import LogoCodepen from './icons/LogoCodepen'
+import LogoCss3 from './icons/LogoCss3'
+import LogoDesignernews from './icons/LogoDesignernews'
+import LogoDribbble from './icons/LogoDribbble'
+import LogoDropbox from './icons/LogoDropbox'
+import LogoEdge from './icons/LogoEdge'
+import LogoElectron from './icons/LogoElectron'
+import LogoEuro from './icons/LogoEuro'
+import LogoFacebook from './icons/LogoFacebook'
+import LogoFirebase from './icons/LogoFirebase'
+import LogoFirefox from './icons/LogoFirefox'
+import LogoFlickr from './icons/LogoFlickr'
+import LogoFoursquare from './icons/LogoFoursquare'
+import LogoGithub from './icons/LogoGithub'
+import LogoGoogle from './icons/LogoGoogle'
+import LogoGooglePlaystore from './icons/LogoGooglePlaystore'
+import LogoHackernews from './icons/LogoHackernews'
+import LogoHtml5 from './icons/LogoHtml5'
+import LogoInstagram from './icons/LogoInstagram'
+import LogoIonic from './icons/LogoIonic'
+import LogoIonitron from './icons/LogoIonitron'
+import LogoJavascript from './icons/LogoJavascript'
+import LogoLaravel from './icons/LogoLaravel'
+import LogoLinkedin from './icons/LogoLinkedin'
+import LogoMarkdown from './icons/LogoMarkdown'
+import LogoNoSmoking from './icons/LogoNoSmoking'
+import LogoNodejs from './icons/LogoNodejs'
+import LogoNpm from './icons/LogoNpm'
+import LogoOctocat from './icons/LogoOctocat'
+import LogoPinterest from './icons/LogoPinterest'
+import LogoPlaystation from './icons/LogoPlaystation'
+import LogoPwa from './icons/LogoPwa'
+import LogoPython from './icons/LogoPython'
+import LogoReact from './icons/LogoReact'
+import LogoReddit from './icons/LogoReddit'
+import LogoRss from './icons/LogoRss'
+import LogoSass from './icons/LogoSass'
+import LogoSkype from './icons/LogoSkype'
+import LogoSlack from './icons/LogoSlack'
+import LogoSnapchat from './icons/LogoSnapchat'
+import LogoStackoverflow from './icons/LogoStackoverflow'
+import LogoSteam from './icons/LogoSteam'
+import LogoStencil from './icons/LogoStencil'
+import LogoTumblr from './icons/LogoTumblr'
+import LogoTux from './icons/LogoTux'
+import LogoTwitch from './icons/LogoTwitch'
+import LogoTwitter from './icons/LogoTwitter'
+import LogoUsd from './icons/LogoUsd'
+import LogoVimeo from './icons/LogoVimeo'
+import LogoVk from './icons/LogoVk'
+import LogoVue from './icons/LogoVue'
+import LogoWebComponent from './icons/LogoWebComponent'
+import LogoWhatsapp from './icons/LogoWhatsapp'
+import LogoWindows from './icons/LogoWindows'
+import LogoWordpress from './icons/LogoWordpress'
+import LogoXbox from './icons/LogoXbox'
+import LogoXing from './icons/LogoXing'
+import LogoYahoo from './icons/LogoYahoo'
+import LogoYen from './icons/LogoYen'
+import LogoYoutube from './icons/LogoYoutube'
+import Magnet from './icons/Magnet'
+import MagnetOutline from './icons/MagnetOutline'
+import MagnetSharp from './icons/MagnetSharp'
+import Mail from './icons/Mail'
+import MailOpen from './icons/MailOpen'
+import MailOpenOutline from './icons/MailOpenOutline'
+import MailOpenSharp from './icons/MailOpenSharp'
+import MailOutline from './icons/MailOutline'
+import MailSharp from './icons/MailSharp'
+import MailUnread from './icons/MailUnread'
+import MailUnreadOutline from './icons/MailUnreadOutline'
+import MailUnreadSharp from './icons/MailUnreadSharp'
+import Male from './icons/Male'
+import MaleFemale from './icons/MaleFemale'
+import MaleFemaleOutline from './icons/MaleFemaleOutline'
+import MaleFemaleSharp from './icons/MaleFemaleSharp'
+import MaleOutline from './icons/MaleOutline'
+import MaleSharp from './icons/MaleSharp'
+import Man from './icons/Man'
+import ManOutline from './icons/ManOutline'
+import ManSharp from './icons/ManSharp'
+import Map from './icons/Map'
+import MapOutline from './icons/MapOutline'
+import MapSharp from './icons/MapSharp'
+import Medal from './icons/Medal'
+import MedalOutline from './icons/MedalOutline'
+import MedalSharp from './icons/MedalSharp'
+import Medical from './icons/Medical'
+import MedicalOutline from './icons/MedicalOutline'
+import MedicalSharp from './icons/MedicalSharp'
+import Medkit from './icons/Medkit'
+import MedkitOutline from './icons/MedkitOutline'
+import MedkitSharp from './icons/MedkitSharp'
+import Megaphone from './icons/Megaphone'
+import MegaphoneOutline from './icons/MegaphoneOutline'
+import MegaphoneSharp from './icons/MegaphoneSharp'
+import Menu from './icons/Menu'
+import MenuOutline from './icons/MenuOutline'
+import MenuSharp from './icons/MenuSharp'
+import Mic from './icons/Mic'
+import MicCircle from './icons/MicCircle'
+import MicCircleOutline from './icons/MicCircleOutline'
+import MicCircleSharp from './icons/MicCircleSharp'
+import MicOff from './icons/MicOff'
+import MicOffCircle from './icons/MicOffCircle'
+import MicOffCircleOutline from './icons/MicOffCircleOutline'
+import MicOffCircleSharp from './icons/MicOffCircleSharp'
+import MicOffOutline from './icons/MicOffOutline'
+import MicOffSharp from './icons/MicOffSharp'
+import MicOutline from './icons/MicOutline'
+import MicSharp from './icons/MicSharp'
+import Moon from './icons/Moon'
+import MoonOutline from './icons/MoonOutline'
+import MoonSharp from './icons/MoonSharp'
+import Move from './icons/Move'
+import MoveOutline from './icons/MoveOutline'
+import MoveSharp from './icons/MoveSharp'
+import MusicalNote from './icons/MusicalNote'
+import MusicalNoteOutline from './icons/MusicalNoteOutline'
+import MusicalNoteSharp from './icons/MusicalNoteSharp'
+import MusicalNotes from './icons/MusicalNotes'
+import MusicalNotesOutline from './icons/MusicalNotesOutline'
+import MusicalNotesSharp from './icons/MusicalNotesSharp'
+import Navigate from './icons/Navigate'
+import NavigateCircle from './icons/NavigateCircle'
+import NavigateCircleOutline from './icons/NavigateCircleOutline'
+import NavigateCircleSharp from './icons/NavigateCircleSharp'
+import NavigateOutline from './icons/NavigateOutline'
+import NavigateSharp from './icons/NavigateSharp'
+import Newspaper from './icons/Newspaper'
+import NewspaperOutline from './icons/NewspaperOutline'
+import NewspaperSharp from './icons/NewspaperSharp'
+import Notifications from './icons/Notifications'
+import NotificationsCircle from './icons/NotificationsCircle'
+import NotificationsCircleOutline from './icons/NotificationsCircleOutline'
+import NotificationsCircleSharp from './icons/NotificationsCircleSharp'
+import NotificationsOff from './icons/NotificationsOff'
+import NotificationsOffCircle from './icons/NotificationsOffCircle'
+import NotificationsOffCircleOutline from './icons/NotificationsOffCircleOutline'
+import NotificationsOffCircleSharp from './icons/NotificationsOffCircleSharp'
+import NotificationsOffOutline from './icons/NotificationsOffOutline'
+import NotificationsOffSharp from './icons/NotificationsOffSharp'
+import NotificationsOutline from './icons/NotificationsOutline'
+import NotificationsSharp from './icons/NotificationsSharp'
+import Nuclear from './icons/Nuclear'
+import NuclearOutline from './icons/NuclearOutline'
+import NuclearSharp from './icons/NuclearSharp'
+import Nutrition from './icons/Nutrition'
+import NutritionOutline from './icons/NutritionOutline'
+import NutritionSharp from './icons/NutritionSharp'
+import Open from './icons/Open'
+import OpenOutline from './icons/OpenOutline'
+import OpenSharp from './icons/OpenSharp'
+import Options from './icons/Options'
+import OptionsOutline from './icons/OptionsOutline'
+import OptionsSharp from './icons/OptionsSharp'
+import PaperPlane from './icons/PaperPlane'
+import PaperPlaneOutline from './icons/PaperPlaneOutline'
+import PaperPlaneSharp from './icons/PaperPlaneSharp'
+import PartlySunny from './icons/PartlySunny'
+import PartlySunnyOutline from './icons/PartlySunnyOutline'
+import PartlySunnySharp from './icons/PartlySunnySharp'
+import Pause from './icons/Pause'
+import PauseCircle from './icons/PauseCircle'
+import PauseCircleOutline from './icons/PauseCircleOutline'
+import PauseCircleSharp from './icons/PauseCircleSharp'
+import PauseOutline from './icons/PauseOutline'
+import PauseSharp from './icons/PauseSharp'
+import Paw from './icons/Paw'
+import PawOutline from './icons/PawOutline'
+import PawSharp from './icons/PawSharp'
+import Pencil from './icons/Pencil'
+import PencilOutline from './icons/PencilOutline'
+import PencilSharp from './icons/PencilSharp'
+import People from './icons/People'
+import PeopleCircle from './icons/PeopleCircle'
+import PeopleCircleOutline from './icons/PeopleCircleOutline'
+import PeopleCircleSharp from './icons/PeopleCircleSharp'
+import PeopleOutline from './icons/PeopleOutline'
+import PeopleSharp from './icons/PeopleSharp'
+import Person from './icons/Person'
+import PersonAdd from './icons/PersonAdd'
+import PersonAddOutline from './icons/PersonAddOutline'
+import PersonAddSharp from './icons/PersonAddSharp'
+import PersonCircle from './icons/PersonCircle'
+import PersonCircleOutline from './icons/PersonCircleOutline'
+import PersonCircleSharp from './icons/PersonCircleSharp'
+import PersonOutline from './icons/PersonOutline'
+import PersonRemove from './icons/PersonRemove'
+import PersonRemoveOutline from './icons/PersonRemoveOutline'
+import PersonRemoveSharp from './icons/PersonRemoveSharp'
+import PersonSharp from './icons/PersonSharp'
+import PhoneLandscape from './icons/PhoneLandscape'
+import PhoneLandscapeOutline from './icons/PhoneLandscapeOutline'
+import PhoneLandscapeSharp from './icons/PhoneLandscapeSharp'
+import PhonePortrait from './icons/PhonePortrait'
+import PhonePortraitOutline from './icons/PhonePortraitOutline'
+import PhonePortraitSharp from './icons/PhonePortraitSharp'
+import PieChart from './icons/PieChart'
+import PieChartOutline from './icons/PieChartOutline'
+import PieChartSharp from './icons/PieChartSharp'
+import Pin from './icons/Pin'
+import PinOutline from './icons/PinOutline'
+import PinSharp from './icons/PinSharp'
+import Pint from './icons/Pint'
+import PintOutline from './icons/PintOutline'
+import PintSharp from './icons/PintSharp'
+import Pizza from './icons/Pizza'
+import PizzaOutline from './icons/PizzaOutline'
+import PizzaSharp from './icons/PizzaSharp'
+import Planet from './icons/Planet'
+import PlanetOutline from './icons/PlanetOutline'
+import PlanetSharp from './icons/PlanetSharp'
+import Play from './icons/Play'
+import PlayBack from './icons/PlayBack'
+import PlayBackCircle from './icons/PlayBackCircle'
+import PlayBackCircleOutline from './icons/PlayBackCircleOutline'
+import PlayBackCircleSharp from './icons/PlayBackCircleSharp'
+import PlayBackOutline from './icons/PlayBackOutline'
+import PlayBackSharp from './icons/PlayBackSharp'
+import PlayCircle from './icons/PlayCircle'
+import PlayCircleOutline from './icons/PlayCircleOutline'
+import PlayCircleSharp from './icons/PlayCircleSharp'
+import PlayForward from './icons/PlayForward'
+import PlayForwardCircle from './icons/PlayForwardCircle'
+import PlayForwardCircleOutline from './icons/PlayForwardCircleOutline'
+import PlayForwardCircleSharp from './icons/PlayForwardCircleSharp'
+import PlayForwardOutline from './icons/PlayForwardOutline'
+import PlayForwardSharp from './icons/PlayForwardSharp'
+import PlayOutline from './icons/PlayOutline'
+import PlaySharp from './icons/PlaySharp'
+import PlaySkipBack from './icons/PlaySkipBack'
+import PlaySkipBackCircle from './icons/PlaySkipBackCircle'
+import PlaySkipBackCircleOutline from './icons/PlaySkipBackCircleOutline'
+import PlaySkipBackCircleSharp from './icons/PlaySkipBackCircleSharp'
+import PlaySkipBackOutline from './icons/PlaySkipBackOutline'
+import PlaySkipBackSharp from './icons/PlaySkipBackSharp'
+import PlaySkipForward from './icons/PlaySkipForward'
+import PlaySkipForwardCircle from './icons/PlaySkipForwardCircle'
+import PlaySkipForwardCircleOutline from './icons/PlaySkipForwardCircleOutline'
+import PlaySkipForwardCircleSharp from './icons/PlaySkipForwardCircleSharp'
+import PlaySkipForwardOutline from './icons/PlaySkipForwardOutline'
+import PlaySkipForwardSharp from './icons/PlaySkipForwardSharp'
+import Podium from './icons/Podium'
+import PodiumOutline from './icons/PodiumOutline'
+import PodiumSharp from './icons/PodiumSharp'
+import Power from './icons/Power'
+import PowerOutline from './icons/PowerOutline'
+import PowerSharp from './icons/PowerSharp'
+import Pricetag from './icons/Pricetag'
+import PricetagOutline from './icons/PricetagOutline'
+import PricetagSharp from './icons/PricetagSharp'
+import Pricetags from './icons/Pricetags'
+import PricetagsOutline from './icons/PricetagsOutline'
+import PricetagsSharp from './icons/PricetagsSharp'
+import Print from './icons/Print'
+import PrintOutline from './icons/PrintOutline'
+import PrintSharp from './icons/PrintSharp'
+import Pulse from './icons/Pulse'
+import PulseOutline from './icons/PulseOutline'
+import PulseSharp from './icons/PulseSharp'
+import Push from './icons/Push'
+import PushOutline from './icons/PushOutline'
+import PushSharp from './icons/PushSharp'
+import QrCode from './icons/QrCode'
+import QrCodeOutline from './icons/QrCodeOutline'
+import QrCodeSharp from './icons/QrCodeSharp'
+import Radio from './icons/Radio'
+import RadioButtonOff from './icons/RadioButtonOff'
+import RadioButtonOffOutline from './icons/RadioButtonOffOutline'
+import RadioButtonOffSharp from './icons/RadioButtonOffSharp'
+import RadioButtonOn from './icons/RadioButtonOn'
+import RadioButtonOnOutline from './icons/RadioButtonOnOutline'
+import RadioButtonOnSharp from './icons/RadioButtonOnSharp'
+import RadioOutline from './icons/RadioOutline'
+import RadioSharp from './icons/RadioSharp'
+import Rainy from './icons/Rainy'
+import RainyOutline from './icons/RainyOutline'
+import RainySharp from './icons/RainySharp'
+import Reader from './icons/Reader'
+import ReaderOutline from './icons/ReaderOutline'
+import ReaderSharp from './icons/ReaderSharp'
+import Receipt from './icons/Receipt'
+import ReceiptOutline from './icons/ReceiptOutline'
+import ReceiptSharp from './icons/ReceiptSharp'
+import Recording from './icons/Recording'
+import RecordingOutline from './icons/RecordingOutline'
+import RecordingSharp from './icons/RecordingSharp'
+import Refresh from './icons/Refresh'
+import RefreshCircle from './icons/RefreshCircle'
+import RefreshCircleOutline from './icons/RefreshCircleOutline'
+import RefreshCircleSharp from './icons/RefreshCircleSharp'
+import RefreshOutline from './icons/RefreshOutline'
+import RefreshSharp from './icons/RefreshSharp'
+import Reload from './icons/Reload'
+import ReloadCircle from './icons/ReloadCircle'
+import ReloadCircleOutline from './icons/ReloadCircleOutline'
+import ReloadCircleSharp from './icons/ReloadCircleSharp'
+import ReloadOutline from './icons/ReloadOutline'
+import ReloadSharp from './icons/ReloadSharp'
+import Remove from './icons/Remove'
+import RemoveCircle from './icons/RemoveCircle'
+import RemoveCircleOutline from './icons/RemoveCircleOutline'
+import RemoveCircleSharp from './icons/RemoveCircleSharp'
+import RemoveOutline from './icons/RemoveOutline'
+import RemoveSharp from './icons/RemoveSharp'
+import ReorderFour from './icons/ReorderFour'
+import ReorderFourOutline from './icons/ReorderFourOutline'
+import ReorderFourSharp from './icons/ReorderFourSharp'
+import ReorderThree from './icons/ReorderThree'
+import ReorderThreeOutline from './icons/ReorderThreeOutline'
+import ReorderThreeSharp from './icons/ReorderThreeSharp'
+import ReorderTwo from './icons/ReorderTwo'
+import ReorderTwoOutline from './icons/ReorderTwoOutline'
+import ReorderTwoSharp from './icons/ReorderTwoSharp'
+import Repeat from './icons/Repeat'
+import RepeatOutline from './icons/RepeatOutline'
+import RepeatSharp from './icons/RepeatSharp'
+import Resize from './icons/Resize'
+import ResizeOutline from './icons/ResizeOutline'
+import ResizeSharp from './icons/ResizeSharp'
+import Restaurant from './icons/Restaurant'
+import RestaurantOutline from './icons/RestaurantOutline'
+import RestaurantSharp from './icons/RestaurantSharp'
+import ReturnDownBack from './icons/ReturnDownBack'
+import ReturnDownBackOutline from './icons/ReturnDownBackOutline'
+import ReturnDownBackSharp from './icons/ReturnDownBackSharp'
+import ReturnDownForward from './icons/ReturnDownForward'
+import ReturnDownForwardOutline from './icons/ReturnDownForwardOutline'
+import ReturnDownForwardSharp from './icons/ReturnDownForwardSharp'
+import ReturnUpBack from './icons/ReturnUpBack'
+import ReturnUpBackOutline from './icons/ReturnUpBackOutline'
+import ReturnUpBackSharp from './icons/ReturnUpBackSharp'
+import ReturnUpForward from './icons/ReturnUpForward'
+import ReturnUpForwardOutline from './icons/ReturnUpForwardOutline'
+import ReturnUpForwardSharp from './icons/ReturnUpForwardSharp'
+import Ribbon from './icons/Ribbon'
+import RibbonOutline from './icons/RibbonOutline'
+import RibbonSharp from './icons/RibbonSharp'
+import Rocket from './icons/Rocket'
+import RocketOutline from './icons/RocketOutline'
+import RocketSharp from './icons/RocketSharp'
+import Rose from './icons/Rose'
+import RoseOutline from './icons/RoseOutline'
+import RoseSharp from './icons/RoseSharp'
+import Sad from './icons/Sad'
+import SadOutline from './icons/SadOutline'
+import SadSharp from './icons/SadSharp'
+import Save from './icons/Save'
+import SaveOutline from './icons/SaveOutline'
+import SaveSharp from './icons/SaveSharp'
+import Scan from './icons/Scan'
+import ScanCircle from './icons/ScanCircle'
+import ScanCircleOutline from './icons/ScanCircleOutline'
+import ScanCircleSharp from './icons/ScanCircleSharp'
+import ScanOutline from './icons/ScanOutline'
+import ScanSharp from './icons/ScanSharp'
+import School from './icons/School'
+import SchoolOutline from './icons/SchoolOutline'
+import SchoolSharp from './icons/SchoolSharp'
+import Search from './icons/Search'
+import SearchCircle from './icons/SearchCircle'
+import SearchCircleOutline from './icons/SearchCircleOutline'
+import SearchCircleSharp from './icons/SearchCircleSharp'
+import SearchOutline from './icons/SearchOutline'
+import SearchSharp from './icons/SearchSharp'
+import Send from './icons/Send'
+import SendOutline from './icons/SendOutline'
+import SendSharp from './icons/SendSharp'
+import Server from './icons/Server'
+import ServerOutline from './icons/ServerOutline'
+import ServerSharp from './icons/ServerSharp'
+import Settings from './icons/Settings'
+import SettingsOutline from './icons/SettingsOutline'
+import SettingsSharp from './icons/SettingsSharp'
+import Shapes from './icons/Shapes'
+import ShapesOutline from './icons/ShapesOutline'
+import ShapesSharp from './icons/ShapesSharp'
+import Share from './icons/Share'
+import ShareOutline from './icons/ShareOutline'
+import ShareSharp from './icons/ShareSharp'
+import ShareSocial from './icons/ShareSocial'
+import ShareSocialOutline from './icons/ShareSocialOutline'
+import ShareSocialSharp from './icons/ShareSocialSharp'
+import Shield from './icons/Shield'
+import ShieldCheckmark from './icons/ShieldCheckmark'
+import ShieldCheckmarkOutline from './icons/ShieldCheckmarkOutline'
+import ShieldCheckmarkSharp from './icons/ShieldCheckmarkSharp'
+import ShieldOutline from './icons/ShieldOutline'
+import ShieldSharp from './icons/ShieldSharp'
+import Shirt from './icons/Shirt'
+import ShirtOutline from './icons/ShirtOutline'
+import ShirtSharp from './icons/ShirtSharp'
+import Shuffle from './icons/Shuffle'
+import ShuffleOutline from './icons/ShuffleOutline'
+import ShuffleSharp from './icons/ShuffleSharp'
+import Skull from './icons/Skull'
+import SkullOutline from './icons/SkullOutline'
+import SkullSharp from './icons/SkullSharp'
+import Snow from './icons/Snow'
+import SnowOutline from './icons/SnowOutline'
+import SnowSharp from './icons/SnowSharp'
+import Speedometer from './icons/Speedometer'
+import SpeedometerOutline from './icons/SpeedometerOutline'
+import SpeedometerSharp from './icons/SpeedometerSharp'
+import Square from './icons/Square'
+import SquareOutline from './icons/SquareOutline'
+import SquareSharp from './icons/SquareSharp'
+import Star from './icons/Star'
+import StarHalf from './icons/StarHalf'
+import StarHalfOutline from './icons/StarHalfOutline'
+import StarHalfSharp from './icons/StarHalfSharp'
+import StarOutline from './icons/StarOutline'
+import StarSharp from './icons/StarSharp'
+import StatsChart from './icons/StatsChart'
+import StatsChartOutline from './icons/StatsChartOutline'
+import StatsChartSharp from './icons/StatsChartSharp'
+import Stop from './icons/Stop'
+import StopCircle from './icons/StopCircle'
+import StopCircleOutline from './icons/StopCircleOutline'
+import StopCircleSharp from './icons/StopCircleSharp'
+import StopOutline from './icons/StopOutline'
+import StopSharp from './icons/StopSharp'
+import Stopwatch from './icons/Stopwatch'
+import StopwatchOutline from './icons/StopwatchOutline'
+import StopwatchSharp from './icons/StopwatchSharp'
+import Subway from './icons/Subway'
+import SubwayOutline from './icons/SubwayOutline'
+import SubwaySharp from './icons/SubwaySharp'
+import Sunny from './icons/Sunny'
+import SunnyOutline from './icons/SunnyOutline'
+import SunnySharp from './icons/SunnySharp'
+import SwapHorizontal from './icons/SwapHorizontal'
+import SwapHorizontalOutline from './icons/SwapHorizontalOutline'
+import SwapHorizontalSharp from './icons/SwapHorizontalSharp'
+import SwapVertical from './icons/SwapVertical'
+import SwapVerticalOutline from './icons/SwapVerticalOutline'
+import SwapVerticalSharp from './icons/SwapVerticalSharp'
+import Sync from './icons/Sync'
+import SyncCircle from './icons/SyncCircle'
+import SyncCircleOutline from './icons/SyncCircleOutline'
+import SyncCircleSharp from './icons/SyncCircleSharp'
+import SyncOutline from './icons/SyncOutline'
+import SyncSharp from './icons/SyncSharp'
+import TabletLandscape from './icons/TabletLandscape'
+import TabletLandscapeOutline from './icons/TabletLandscapeOutline'
+import TabletLandscapeSharp from './icons/TabletLandscapeSharp'
+import TabletPortrait from './icons/TabletPortrait'
+import TabletPortraitOutline from './icons/TabletPortraitOutline'
+import TabletPortraitSharp from './icons/TabletPortraitSharp'
+import Tennisball from './icons/Tennisball'
+import TennisballOutline from './icons/TennisballOutline'
+import TennisballSharp from './icons/TennisballSharp'
+import Terminal from './icons/Terminal'
+import TerminalOutline from './icons/TerminalOutline'
+import TerminalSharp from './icons/TerminalSharp'
+import Text from './icons/Text'
+import TextOutline from './icons/TextOutline'
+import TextSharp from './icons/TextSharp'
+import Thermometer from './icons/Thermometer'
+import ThermometerOutline from './icons/ThermometerOutline'
+import ThermometerSharp from './icons/ThermometerSharp'
+import ThumbsDown from './icons/ThumbsDown'
+import ThumbsDownOutline from './icons/ThumbsDownOutline'
+import ThumbsDownSharp from './icons/ThumbsDownSharp'
+import ThumbsUp from './icons/ThumbsUp'
+import ThumbsUpOutline from './icons/ThumbsUpOutline'
+import ThumbsUpSharp from './icons/ThumbsUpSharp'
+import Thunderstorm from './icons/Thunderstorm'
+import ThunderstormOutline from './icons/ThunderstormOutline'
+import ThunderstormSharp from './icons/ThunderstormSharp'
+import Time from './icons/Time'
+import TimeOutline from './icons/TimeOutline'
+import TimeSharp from './icons/TimeSharp'
+import Timer from './icons/Timer'
+import TimerOutline from './icons/TimerOutline'
+import TimerSharp from './icons/TimerSharp'
+import Today from './icons/Today'
+import TodayOutline from './icons/TodayOutline'
+import TodaySharp from './icons/TodaySharp'
+import Toggle from './icons/Toggle'
+import ToggleOutline from './icons/ToggleOutline'
+import ToggleSharp from './icons/ToggleSharp'
+import TrailSign from './icons/TrailSign'
+import TrailSignOutline from './icons/TrailSignOutline'
+import TrailSignSharp from './icons/TrailSignSharp'
+import Train from './icons/Train'
+import TrainOutline from './icons/TrainOutline'
+import TrainSharp from './icons/TrainSharp'
+import Transgender from './icons/Transgender'
+import TransgenderOutline from './icons/TransgenderOutline'
+import TransgenderSharp from './icons/TransgenderSharp'
+import Trash from './icons/Trash'
+import TrashBin from './icons/TrashBin'
+import TrashBinOutline from './icons/TrashBinOutline'
+import TrashBinSharp from './icons/TrashBinSharp'
+import TrashOutline from './icons/TrashOutline'
+import TrashSharp from './icons/TrashSharp'
+import TrendingDown from './icons/TrendingDown'
+import TrendingDownOutline from './icons/TrendingDownOutline'
+import TrendingDownSharp from './icons/TrendingDownSharp'
+import TrendingUp from './icons/TrendingUp'
+import TrendingUpOutline from './icons/TrendingUpOutline'
+import TrendingUpSharp from './icons/TrendingUpSharp'
+import Triangle from './icons/Triangle'
+import TriangleOutline from './icons/TriangleOutline'
+import TriangleSharp from './icons/TriangleSharp'
+import Trophy from './icons/Trophy'
+import TrophyOutline from './icons/TrophyOutline'
+import TrophySharp from './icons/TrophySharp'
+import Tv from './icons/Tv'
+import TvOutline from './icons/TvOutline'
+import TvSharp from './icons/TvSharp'
+import Umbrella from './icons/Umbrella'
+import UmbrellaOutline from './icons/UmbrellaOutline'
+import UmbrellaSharp from './icons/UmbrellaSharp'
+import Videocam from './icons/Videocam'
+import VideocamOutline from './icons/VideocamOutline'
+import VideocamSharp from './icons/VideocamSharp'
+import VolumeHigh from './icons/VolumeHigh'
+import VolumeHighOutline from './icons/VolumeHighOutline'
+import VolumeHighSharp from './icons/VolumeHighSharp'
+import VolumeLow from './icons/VolumeLow'
+import VolumeLowOutline from './icons/VolumeLowOutline'
+import VolumeLowSharp from './icons/VolumeLowSharp'
+import VolumeMedium from './icons/VolumeMedium'
+import VolumeMediumOutline from './icons/VolumeMediumOutline'
+import VolumeMediumSharp from './icons/VolumeMediumSharp'
+import VolumeMute from './icons/VolumeMute'
+import VolumeMuteOutline from './icons/VolumeMuteOutline'
+import VolumeMuteSharp from './icons/VolumeMuteSharp'
+import VolumeOff from './icons/VolumeOff'
+import VolumeOffOutline from './icons/VolumeOffOutline'
+import VolumeOffSharp from './icons/VolumeOffSharp'
+import Walk from './icons/Walk'
+import WalkOutline from './icons/WalkOutline'
+import WalkSharp from './icons/WalkSharp'
+import Wallet from './icons/Wallet'
+import WalletOutline from './icons/WalletOutline'
+import WalletSharp from './icons/WalletSharp'
+import Warning from './icons/Warning'
+import WarningOutline from './icons/WarningOutline'
+import WarningSharp from './icons/WarningSharp'
+import Watch from './icons/Watch'
+import WatchOutline from './icons/WatchOutline'
+import WatchSharp from './icons/WatchSharp'
+import Water from './icons/Water'
+import WaterOutline from './icons/WaterOutline'
+import WaterSharp from './icons/WaterSharp'
+import Wifi from './icons/Wifi'
+import WifiOutline from './icons/WifiOutline'
+import WifiSharp from './icons/WifiSharp'
+import Wine from './icons/Wine'
+import WineOutline from './icons/WineOutline'
+import WineSharp from './icons/WineSharp'
+import Woman from './icons/Woman'
+import WomanOutline from './icons/WomanOutline'
+import WomanSharp from './icons/WomanSharp'
+export { BaseIconProps } from './base/BaseIcon'
 export { IconProps } from './base/createIcon'
 export default {
   createIcon,
+  Add,
+  AddCircle,
   AddCircleOutline,
   AddCircleSharp,
-  AddCircle,
   AddOutline,
   AddSharp,
-  Add,
+  Airplane,
   AirplaneOutline,
   AirplaneSharp,
-  Airplane,
+  Alarm,
   AlarmOutline,
   AlarmSharp,
-  Alarm,
+  Albums,
   AlbumsOutline,
   AlbumsSharp,
-  Albums,
+  Alert,
+  AlertCircle,
   AlertCircleOutline,
   AlertCircleSharp,
-  AlertCircle,
   AlertOutline,
   AlertSharp,
-  Alert,
+  AmericanFootball,
   AmericanFootballOutline,
   AmericanFootballSharp,
-  AmericanFootball,
+  Analytics,
   AnalyticsOutline,
   AnalyticsSharp,
-  Analytics,
+  Aperture,
   ApertureOutline,
   ApertureSharp,
-  Aperture,
+  Apps,
   AppsOutline,
   AppsSharp,
-  Apps,
+  Archive,
   ArchiveOutline,
   ArchiveSharp,
-  Archive,
+  ArrowBack,
+  ArrowBackCircle,
   ArrowBackCircleOutline,
   ArrowBackCircleSharp,
-  ArrowBackCircle,
   ArrowBackOutline,
   ArrowBackSharp,
-  ArrowBack,
+  ArrowDown,
+  ArrowDownCircle,
   ArrowDownCircleOutline,
   ArrowDownCircleSharp,
-  ArrowDownCircle,
   ArrowDownOutline,
   ArrowDownSharp,
-  ArrowDown,
+  ArrowForward,
+  ArrowForwardCircle,
   ArrowForwardCircleOutline,
   ArrowForwardCircleSharp,
-  ArrowForwardCircle,
   ArrowForwardOutline,
   ArrowForwardSharp,
-  ArrowForward,
+  ArrowRedo,
+  ArrowRedoCircle,
   ArrowRedoCircleOutline,
   ArrowRedoCircleSharp,
-  ArrowRedoCircle,
   ArrowRedoOutline,
   ArrowRedoSharp,
-  ArrowRedo,
+  ArrowUndo,
+  ArrowUndoCircle,
   ArrowUndoCircleOutline,
   ArrowUndoCircleSharp,
-  ArrowUndoCircle,
   ArrowUndoOutline,
   ArrowUndoSharp,
-  ArrowUndo,
+  ArrowUp,
+  ArrowUpCircle,
   ArrowUpCircleOutline,
   ArrowUpCircleSharp,
-  ArrowUpCircle,
   ArrowUpOutline,
   ArrowUpSharp,
-  ArrowUp,
+  At,
+  AtCircle,
   AtCircleOutline,
   AtCircleSharp,
-  AtCircle,
   AtOutline,
   AtSharp,
-  At,
+  Attach,
   AttachOutline,
   AttachSharp,
-  Attach,
+  Backspace,
   BackspaceOutline,
   BackspaceSharp,
-  Backspace,
+  Bandage,
   BandageOutline,
   BandageSharp,
-  Bandage,
+  BarChart,
   BarChartOutline,
   BarChartSharp,
-  BarChart,
+  Barbell,
   BarbellOutline,
   BarbellSharp,
-  Barbell,
+  Barcode,
   BarcodeOutline,
   BarcodeSharp,
-  Barcode,
+  Baseball,
   BaseballOutline,
   BaseballSharp,
-  Baseball,
+  Basket,
   BasketOutline,
   BasketSharp,
-  Basket,
+  Basketball,
   BasketballOutline,
   BasketballSharp,
-  Basketball,
+  BatteryCharging,
   BatteryChargingOutline,
   BatteryChargingSharp,
-  BatteryCharging,
+  BatteryDead,
   BatteryDeadOutline,
   BatteryDeadSharp,
-  BatteryDead,
+  BatteryFull,
   BatteryFullOutline,
   BatteryFullSharp,
-  BatteryFull,
+  BatteryHalf,
   BatteryHalfOutline,
   BatteryHalfSharp,
-  BatteryHalf,
+  Beaker,
   BeakerOutline,
   BeakerSharp,
-  Beaker,
+  Bed,
   BedOutline,
   BedSharp,
-  Bed,
+  Beer,
   BeerOutline,
   BeerSharp,
-  Beer,
+  Bicycle,
   BicycleOutline,
   BicycleSharp,
-  Bicycle,
+  Bluetooth,
   BluetoothOutline,
   BluetoothSharp,
-  Bluetooth,
+  Boat,
   BoatOutline,
   BoatSharp,
-  Boat,
+  Body,
   BodyOutline,
   BodySharp,
-  Body,
+  Bonfire,
   BonfireOutline,
   BonfireSharp,
-  Bonfire,
+  Book,
   BookOutline,
   BookSharp,
-  Book,
+  Bookmark,
   BookmarkOutline,
   BookmarkSharp,
-  Bookmark,
+  Bookmarks,
   BookmarksOutline,
   BookmarksSharp,
-  Bookmarks,
+  Briefcase,
   BriefcaseOutline,
   BriefcaseSharp,
-  Briefcase,
+  Browsers,
   BrowsersOutline,
   BrowsersSharp,
-  Browsers,
+  Brush,
   BrushOutline,
   BrushSharp,
-  Brush,
+  Bug,
   BugOutline,
   BugSharp,
-  Bug,
+  Build,
   BuildOutline,
   BuildSharp,
-  Build,
+  Bulb,
   BulbOutline,
   BulbSharp,
-  Bulb,
+  Bus,
   BusOutline,
   BusSharp,
-  Bus,
+  Business,
   BusinessOutline,
   BusinessSharp,
-  Business,
+  Cafe,
   CafeOutline,
   CafeSharp,
-  Cafe,
+  Calculator,
   CalculatorOutline,
   CalculatorSharp,
-  Calculator,
+  Calendar,
   CalendarOutline,
   CalendarSharp,
-  Calendar,
+  Call,
   CallOutline,
   CallSharp,
-  Call,
+  Camera,
   CameraOutline,
+  CameraReverse,
   CameraReverseOutline,
   CameraReverseSharp,
-  CameraReverse,
   CameraSharp,
-  Camera,
+  Car,
   CarOutline,
   CarSharp,
+  CarSport,
   CarSportOutline,
   CarSportSharp,
-  CarSport,
-  Car,
+  Card,
   CardOutline,
   CardSharp,
-  Card,
+  CaretBack,
+  CaretBackCircle,
   CaretBackCircleOutline,
   CaretBackCircleSharp,
-  CaretBackCircle,
   CaretBackOutline,
   CaretBackSharp,
-  CaretBack,
+  CaretDown,
+  CaretDownCircle,
   CaretDownCircleOutline,
   CaretDownCircleSharp,
-  CaretDownCircle,
   CaretDownOutline,
   CaretDownSharp,
-  CaretDown,
+  CaretForward,
+  CaretForwardCircle,
   CaretForwardCircleOutline,
   CaretForwardCircleSharp,
-  CaretForwardCircle,
   CaretForwardOutline,
   CaretForwardSharp,
-  CaretForward,
+  CaretUp,
+  CaretUpCircle,
   CaretUpCircleOutline,
   CaretUpCircleSharp,
-  CaretUpCircle,
   CaretUpOutline,
   CaretUpSharp,
-  CaretUp,
+  Cart,
   CartOutline,
   CartSharp,
-  Cart,
+  Cash,
   CashOutline,
   CashSharp,
-  Cash,
+  Cellular,
   CellularOutline,
   CellularSharp,
-  Cellular,
+  Chatbox,
+  ChatboxEllipses,
   ChatboxEllipsesOutline,
   ChatboxEllipsesSharp,
-  ChatboxEllipses,
   ChatboxOutline,
   ChatboxSharp,
-  Chatbox,
+  Chatbubble,
+  ChatbubbleEllipses,
   ChatbubbleEllipsesOutline,
   ChatbubbleEllipsesSharp,
-  ChatbubbleEllipses,
   ChatbubbleOutline,
   ChatbubbleSharp,
-  Chatbubble,
+  Chatbubbles,
   ChatbubblesOutline,
   ChatbubblesSharp,
-  Chatbubbles,
+  Checkbox,
   CheckboxOutline,
   CheckboxSharp,
-  Checkbox,
+  Checkmark,
+  CheckmarkCircle,
   CheckmarkCircleOutline,
   CheckmarkCircleSharp,
-  CheckmarkCircle,
+  CheckmarkDone,
+  CheckmarkDoneCircle,
   CheckmarkDoneCircleOutline,
   CheckmarkDoneCircleSharp,
-  CheckmarkDoneCircle,
   CheckmarkDoneOutline,
   CheckmarkDoneSharp,
-  CheckmarkDone,
   CheckmarkOutline,
   CheckmarkSharp,
-  Checkmark,
+  ChevronBack,
+  ChevronBackCircle,
   ChevronBackCircleOutline,
   ChevronBackCircleSharp,
-  ChevronBackCircle,
   ChevronBackOutline,
   ChevronBackSharp,
-  ChevronBack,
+  ChevronDown,
+  ChevronDownCircle,
   ChevronDownCircleOutline,
   ChevronDownCircleSharp,
-  ChevronDownCircle,
   ChevronDownOutline,
   ChevronDownSharp,
-  ChevronDown,
+  ChevronForward,
+  ChevronForwardCircle,
   ChevronForwardCircleOutline,
   ChevronForwardCircleSharp,
-  ChevronForwardCircle,
   ChevronForwardOutline,
   ChevronForwardSharp,
-  ChevronForward,
+  ChevronUp,
+  ChevronUpCircle,
   ChevronUpCircleOutline,
   ChevronUpCircleSharp,
-  ChevronUpCircle,
   ChevronUpOutline,
   ChevronUpSharp,
-  ChevronUp,
+  Clipboard,
   ClipboardOutline,
   ClipboardSharp,
-  Clipboard,
+  Close,
+  CloseCircle,
   CloseCircleOutline,
   CloseCircleSharp,
-  CloseCircle,
   CloseOutline,
   CloseSharp,
-  Close,
+  Cloud,
+  CloudCircle,
   CloudCircleOutline,
   CloudCircleSharp,
-  CloudCircle,
+  CloudDone,
   CloudDoneOutline,
   CloudDoneSharp,
-  CloudDone,
+  CloudDownload,
   CloudDownloadOutline,
   CloudDownloadSharp,
-  CloudDownload,
+  CloudOffline,
   CloudOfflineOutline,
   CloudOfflineSharp,
-  CloudOffline,
   CloudOutline,
   CloudSharp,
+  CloudUpload,
   CloudUploadOutline,
   CloudUploadSharp,
-  CloudUpload,
-  Cloud,
+  Cloudy,
+  CloudyNight,
   CloudyNightOutline,
   CloudyNightSharp,
-  CloudyNight,
   CloudyOutline,
   CloudySharp,
-  Cloudy,
+  Code,
+  CodeDownload,
   CodeDownloadOutline,
   CodeDownloadSharp,
-  CodeDownload,
   CodeOutline,
   CodeSharp,
+  CodeSlash,
   CodeSlashOutline,
   CodeSlashSharp,
-  CodeSlash,
+  CodeWorking,
   CodeWorkingOutline,
   CodeWorkingSharp,
-  CodeWorking,
-  Code,
+  Cog,
   CogOutline,
   CogSharp,
-  Cog,
+  ColorFill,
   ColorFillOutline,
   ColorFillSharp,
-  ColorFill,
+  ColorFilter,
   ColorFilterOutline,
   ColorFilterSharp,
-  ColorFilter,
+  ColorPalette,
   ColorPaletteOutline,
   ColorPaletteSharp,
-  ColorPalette,
+  ColorWand,
   ColorWandOutline,
   ColorWandSharp,
-  ColorWand,
+  Compass,
   CompassOutline,
   CompassSharp,
-  Compass,
+  Construct,
   ConstructOutline,
   ConstructSharp,
-  Construct,
+  Contract,
   ContractOutline,
   ContractSharp,
-  Contract,
+  Contrast,
   ContrastOutline,
   ContrastSharp,
-  Contrast,
+  Copy,
   CopyOutline,
   CopySharp,
-  Copy,
+  Create,
   CreateOutline,
   CreateSharp,
-  Create,
+  Crop,
   CropOutline,
   CropSharp,
-  Crop,
+  Cube,
   CubeOutline,
   CubeSharp,
-  Cube,
+  Cut,
   CutOutline,
   CutSharp,
-  Cut,
+  Desktop,
   DesktopOutline,
   DesktopSharp,
-  Desktop,
+  Disc,
   DiscOutline,
   DiscSharp,
-  Disc,
+  Document,
+  DocumentAttach,
   DocumentAttachOutline,
   DocumentAttachSharp,
-  DocumentAttach,
   DocumentOutline,
   DocumentSharp,
+  DocumentText,
   DocumentTextOutline,
   DocumentTextSharp,
-  DocumentText,
-  Document,
+  Documents,
   DocumentsOutline,
   DocumentsSharp,
-  Documents,
+  Download,
   DownloadOutline,
   DownloadSharp,
-  Download,
+  Duplicate,
   DuplicateOutline,
   DuplicateSharp,
-  Duplicate,
+  Ear,
   EarOutline,
   EarSharp,
-  Ear,
+  Earth,
   EarthOutline,
   EarthSharp,
-  Earth,
+  Easel,
   EaselOutline,
   EaselSharp,
-  Easel,
+  Egg,
   EggOutline,
   EggSharp,
-  Egg,
+  Ellipse,
   EllipseOutline,
   EllipseSharp,
-  Ellipse,
+  EllipsisHorizontal,
+  EllipsisHorizontalCircle,
   EllipsisHorizontalCircleOutline,
   EllipsisHorizontalCircleSharp,
-  EllipsisHorizontalCircle,
   EllipsisHorizontalOutline,
   EllipsisHorizontalSharp,
-  EllipsisHorizontal,
+  EllipsisVertical,
+  EllipsisVerticalCircle,
   EllipsisVerticalCircleOutline,
   EllipsisVerticalCircleSharp,
-  EllipsisVerticalCircle,
   EllipsisVerticalOutline,
   EllipsisVerticalSharp,
-  EllipsisVertical,
+  Enter,
   EnterOutline,
   EnterSharp,
-  Enter,
+  Exit,
   ExitOutline,
   ExitSharp,
-  Exit,
+  Expand,
   ExpandOutline,
   ExpandSharp,
-  Expand,
+  Eye,
+  EyeOff,
   EyeOffOutline,
   EyeOffSharp,
-  EyeOff,
   EyeOutline,
   EyeSharp,
-  Eye,
+  Eyedrop,
   EyedropOutline,
   EyedropSharp,
-  Eyedrop,
+  FastFood,
   FastFoodOutline,
   FastFoodSharp,
-  FastFood,
+  Female,
   FemaleOutline,
   FemaleSharp,
-  Female,
+  FileTray,
+  FileTrayFull,
   FileTrayFullOutline,
   FileTrayFullSharp,
-  FileTrayFull,
   FileTrayOutline,
   FileTraySharp,
+  FileTrayStacked,
   FileTrayStackedOutline,
   FileTrayStackedSharp,
-  FileTrayStacked,
-  FileTray,
+  Film,
   FilmOutline,
   FilmSharp,
-  Film,
+  Filter,
   FilterOutline,
   FilterSharp,
-  Filter,
+  FingerPrint,
   FingerPrintOutline,
   FingerPrintSharp,
-  FingerPrint,
+  Fitness,
   FitnessOutline,
   FitnessSharp,
-  Fitness,
+  Flag,
   FlagOutline,
   FlagSharp,
-  Flag,
+  Flame,
   FlameOutline,
   FlameSharp,
-  Flame,
+  Flash,
+  FlashOff,
   FlashOffOutline,
   FlashOffSharp,
-  FlashOff,
   FlashOutline,
   FlashSharp,
-  Flash,
+  Flashlight,
   FlashlightOutline,
   FlashlightSharp,
-  Flashlight,
+  Flask,
   FlaskOutline,
   FlaskSharp,
-  Flask,
+  Flower,
   FlowerOutline,
   FlowerSharp,
-  Flower,
+  Folder,
+  FolderOpen,
   FolderOpenOutline,
   FolderOpenSharp,
-  FolderOpen,
   FolderOutline,
   FolderSharp,
-  Folder,
+  Football,
   FootballOutline,
   FootballSharp,
-  Football,
+  Funnel,
   FunnelOutline,
   FunnelSharp,
-  Funnel,
+  GameController,
   GameControllerOutline,
   GameControllerSharp,
-  GameController,
+  Gift,
   GiftOutline,
   GiftSharp,
-  Gift,
+  GitBranch,
   GitBranchOutline,
   GitBranchSharp,
-  GitBranch,
+  GitCommit,
   GitCommitOutline,
   GitCommitSharp,
-  GitCommit,
+  GitCompare,
   GitCompareOutline,
   GitCompareSharp,
-  GitCompare,
+  GitMerge,
   GitMergeOutline,
   GitMergeSharp,
-  GitMerge,
+  GitNetwork,
   GitNetworkOutline,
   GitNetworkSharp,
-  GitNetwork,
+  GitPullRequest,
   GitPullRequestOutline,
   GitPullRequestSharp,
-  GitPullRequest,
+  Glasses,
   GlassesOutline,
   GlassesSharp,
-  Glasses,
+  Globe,
   GlobeOutline,
   GlobeSharp,
-  Globe,
+  Golf,
   GolfOutline,
   GolfSharp,
-  Golf,
+  Grid,
   GridOutline,
   GridSharp,
-  Grid,
+  Hammer,
   HammerOutline,
   HammerSharp,
-  Hammer,
+  HandLeft,
   HandLeftOutline,
   HandLeftSharp,
-  HandLeft,
+  HandRight,
   HandRightOutline,
   HandRightSharp,
-  HandRight,
+  Happy,
   HappyOutline,
   HappySharp,
-  Happy,
+  HardwareChip,
   HardwareChipOutline,
   HardwareChipSharp,
-  HardwareChip,
+  Headset,
   HeadsetOutline,
   HeadsetSharp,
-  Headset,
+  Heart,
+  HeartCircle,
   HeartCircleOutline,
   HeartCircleSharp,
-  HeartCircle,
+  HeartDislike,
+  HeartDislikeCircle,
   HeartDislikeCircleOutline,
   HeartDislikeCircleSharp,
-  HeartDislikeCircle,
   HeartDislikeOutline,
   HeartDislikeSharp,
-  HeartDislike,
+  HeartHalf,
   HeartHalfOutline,
   HeartHalfSharp,
-  HeartHalf,
   HeartOutline,
   HeartSharp,
-  Heart,
+  Help,
+  HelpBuoy,
   HelpBuoyOutline,
   HelpBuoySharp,
-  HelpBuoy,
+  HelpCircle,
   HelpCircleOutline,
   HelpCircleSharp,
-  HelpCircle,
   HelpOutline,
   HelpSharp,
-  Help,
+  Home,
   HomeOutline,
   HomeSharp,
-  Home,
+  Hourglass,
   HourglassOutline,
   HourglassSharp,
-  Hourglass,
+  IceCream,
   IceCreamOutline,
   IceCreamSharp,
-  IceCream,
+  Image,
   ImageOutline,
   ImageSharp,
-  Image,
+  Images,
   ImagesOutline,
   ImagesSharp,
-  Images,
+  Infinite,
   InfiniteOutline,
   InfiniteSharp,
-  Infinite,
+  Information,
+  InformationCircle,
   InformationCircleOutline,
   InformationCircleSharp,
-  InformationCircle,
   InformationOutline,
   InformationSharp,
-  Information,
+  Journal,
   JournalOutline,
   JournalSharp,
-  Journal,
+  Key,
   KeyOutline,
   KeySharp,
-  Key,
+  Keypad,
   KeypadOutline,
   KeypadSharp,
-  Keypad,
+  Language,
   LanguageOutline,
   LanguageSharp,
-  Language,
+  Laptop,
   LaptopOutline,
   LaptopSharp,
-  Laptop,
+  Layers,
   LayersOutline,
   LayersSharp,
-  Layers,
+  Leaf,
   LeafOutline,
   LeafSharp,
-  Leaf,
+  Library,
   LibraryOutline,
   LibrarySharp,
-  Library,
+  Link,
   LinkOutline,
   LinkSharp,
-  Link,
+  List,
+  ListCircle,
   ListCircleOutline,
   ListCircleSharp,
-  ListCircle,
   ListOutline,
   ListSharp,
-  List,
+  Locate,
   LocateOutline,
   LocateSharp,
-  Locate,
+  Location,
   LocationOutline,
   LocationSharp,
-  Location,
+  LockClosed,
   LockClosedOutline,
   LockClosedSharp,
-  LockClosed,
+  LockOpen,
   LockOpenOutline,
   LockOpenSharp,
-  LockOpen,
+  LogIn,
   LogInOutline,
   LogInSharp,
-  LogIn,
+  LogOut,
   LogOutOutline,
   LogOutSharp,
-  LogOut,
   LogoAmazon,
   LogoAmplify,
   LogoAndroid,
   LogoAngular,
-  LogoAppleAppstore,
   LogoApple,
+  LogoAppleAppstore,
   LogoBitbucket,
   LogoBitcoin,
   LogoBuffer,
@@ -1916,8 +1916,8 @@ export default {
   LogoFlickr,
   LogoFoursquare,
   LogoGithub,
-  LogoGooglePlaystore,
   LogoGoogle,
+  LogoGooglePlaystore,
   LogoHackernews,
   LogoHtml5,
   LogoInstagram,
@@ -1962,1171 +1962,1171 @@ export default {
   LogoYahoo,
   LogoYen,
   LogoYoutube,
+  Magnet,
   MagnetOutline,
   MagnetSharp,
-  Magnet,
+  Mail,
+  MailOpen,
   MailOpenOutline,
   MailOpenSharp,
-  MailOpen,
   MailOutline,
   MailSharp,
+  MailUnread,
   MailUnreadOutline,
   MailUnreadSharp,
-  MailUnread,
-  Mail,
+  Male,
+  MaleFemale,
   MaleFemaleOutline,
   MaleFemaleSharp,
-  MaleFemale,
   MaleOutline,
   MaleSharp,
-  Male,
+  Man,
   ManOutline,
   ManSharp,
-  Man,
+  Map,
   MapOutline,
   MapSharp,
-  Map,
+  Medal,
   MedalOutline,
   MedalSharp,
-  Medal,
+  Medical,
   MedicalOutline,
   MedicalSharp,
-  Medical,
+  Medkit,
   MedkitOutline,
   MedkitSharp,
-  Medkit,
+  Megaphone,
   MegaphoneOutline,
   MegaphoneSharp,
-  Megaphone,
+  Menu,
   MenuOutline,
   MenuSharp,
-  Menu,
+  Mic,
+  MicCircle,
   MicCircleOutline,
   MicCircleSharp,
-  MicCircle,
+  MicOff,
+  MicOffCircle,
   MicOffCircleOutline,
   MicOffCircleSharp,
-  MicOffCircle,
   MicOffOutline,
   MicOffSharp,
-  MicOff,
   MicOutline,
   MicSharp,
-  Mic,
+  Moon,
   MoonOutline,
   MoonSharp,
-  Moon,
+  Move,
   MoveOutline,
   MoveSharp,
-  Move,
+  MusicalNote,
   MusicalNoteOutline,
   MusicalNoteSharp,
-  MusicalNote,
+  MusicalNotes,
   MusicalNotesOutline,
   MusicalNotesSharp,
-  MusicalNotes,
+  Navigate,
+  NavigateCircle,
   NavigateCircleOutline,
   NavigateCircleSharp,
-  NavigateCircle,
   NavigateOutline,
   NavigateSharp,
-  Navigate,
+  Newspaper,
   NewspaperOutline,
   NewspaperSharp,
-  Newspaper,
+  Notifications,
+  NotificationsCircle,
   NotificationsCircleOutline,
   NotificationsCircleSharp,
-  NotificationsCircle,
+  NotificationsOff,
+  NotificationsOffCircle,
   NotificationsOffCircleOutline,
   NotificationsOffCircleSharp,
-  NotificationsOffCircle,
   NotificationsOffOutline,
   NotificationsOffSharp,
-  NotificationsOff,
   NotificationsOutline,
   NotificationsSharp,
-  Notifications,
+  Nuclear,
   NuclearOutline,
   NuclearSharp,
-  Nuclear,
+  Nutrition,
   NutritionOutline,
   NutritionSharp,
-  Nutrition,
+  Open,
   OpenOutline,
   OpenSharp,
-  Open,
+  Options,
   OptionsOutline,
   OptionsSharp,
-  Options,
+  PaperPlane,
   PaperPlaneOutline,
   PaperPlaneSharp,
-  PaperPlane,
+  PartlySunny,
   PartlySunnyOutline,
   PartlySunnySharp,
-  PartlySunny,
+  Pause,
+  PauseCircle,
   PauseCircleOutline,
   PauseCircleSharp,
-  PauseCircle,
   PauseOutline,
   PauseSharp,
-  Pause,
+  Paw,
   PawOutline,
   PawSharp,
-  Paw,
+  Pencil,
   PencilOutline,
   PencilSharp,
-  Pencil,
+  People,
+  PeopleCircle,
   PeopleCircleOutline,
   PeopleCircleSharp,
-  PeopleCircle,
   PeopleOutline,
   PeopleSharp,
-  People,
+  Person,
+  PersonAdd,
   PersonAddOutline,
   PersonAddSharp,
-  PersonAdd,
+  PersonCircle,
   PersonCircleOutline,
   PersonCircleSharp,
-  PersonCircle,
   PersonOutline,
+  PersonRemove,
   PersonRemoveOutline,
   PersonRemoveSharp,
-  PersonRemove,
   PersonSharp,
-  Person,
+  PhoneLandscape,
   PhoneLandscapeOutline,
   PhoneLandscapeSharp,
-  PhoneLandscape,
+  PhonePortrait,
   PhonePortraitOutline,
   PhonePortraitSharp,
-  PhonePortrait,
+  PieChart,
   PieChartOutline,
   PieChartSharp,
-  PieChart,
+  Pin,
   PinOutline,
   PinSharp,
-  Pin,
+  Pint,
   PintOutline,
   PintSharp,
-  Pint,
+  Pizza,
   PizzaOutline,
   PizzaSharp,
-  Pizza,
+  Planet,
   PlanetOutline,
   PlanetSharp,
-  Planet,
+  Play,
+  PlayBack,
+  PlayBackCircle,
   PlayBackCircleOutline,
   PlayBackCircleSharp,
-  PlayBackCircle,
   PlayBackOutline,
   PlayBackSharp,
-  PlayBack,
+  PlayCircle,
   PlayCircleOutline,
   PlayCircleSharp,
-  PlayCircle,
+  PlayForward,
+  PlayForwardCircle,
   PlayForwardCircleOutline,
   PlayForwardCircleSharp,
-  PlayForwardCircle,
   PlayForwardOutline,
   PlayForwardSharp,
-  PlayForward,
   PlayOutline,
   PlaySharp,
+  PlaySkipBack,
+  PlaySkipBackCircle,
   PlaySkipBackCircleOutline,
   PlaySkipBackCircleSharp,
-  PlaySkipBackCircle,
   PlaySkipBackOutline,
   PlaySkipBackSharp,
-  PlaySkipBack,
+  PlaySkipForward,
+  PlaySkipForwardCircle,
   PlaySkipForwardCircleOutline,
   PlaySkipForwardCircleSharp,
-  PlaySkipForwardCircle,
   PlaySkipForwardOutline,
   PlaySkipForwardSharp,
-  PlaySkipForward,
-  Play,
+  Podium,
   PodiumOutline,
   PodiumSharp,
-  Podium,
+  Power,
   PowerOutline,
   PowerSharp,
-  Power,
+  Pricetag,
   PricetagOutline,
   PricetagSharp,
-  Pricetag,
+  Pricetags,
   PricetagsOutline,
   PricetagsSharp,
-  Pricetags,
+  Print,
   PrintOutline,
   PrintSharp,
-  Print,
+  Pulse,
   PulseOutline,
   PulseSharp,
-  Pulse,
+  Push,
   PushOutline,
   PushSharp,
-  Push,
+  QrCode,
   QrCodeOutline,
   QrCodeSharp,
-  QrCode,
+  Radio,
+  RadioButtonOff,
   RadioButtonOffOutline,
   RadioButtonOffSharp,
-  RadioButtonOff,
+  RadioButtonOn,
   RadioButtonOnOutline,
   RadioButtonOnSharp,
-  RadioButtonOn,
   RadioOutline,
   RadioSharp,
-  Radio,
+  Rainy,
   RainyOutline,
   RainySharp,
-  Rainy,
+  Reader,
   ReaderOutline,
   ReaderSharp,
-  Reader,
+  Receipt,
   ReceiptOutline,
   ReceiptSharp,
-  Receipt,
+  Recording,
   RecordingOutline,
   RecordingSharp,
-  Recording,
+  Refresh,
+  RefreshCircle,
   RefreshCircleOutline,
   RefreshCircleSharp,
-  RefreshCircle,
   RefreshOutline,
   RefreshSharp,
-  Refresh,
+  Reload,
+  ReloadCircle,
   ReloadCircleOutline,
   ReloadCircleSharp,
-  ReloadCircle,
   ReloadOutline,
   ReloadSharp,
-  Reload,
+  Remove,
+  RemoveCircle,
   RemoveCircleOutline,
   RemoveCircleSharp,
-  RemoveCircle,
   RemoveOutline,
   RemoveSharp,
-  Remove,
+  ReorderFour,
   ReorderFourOutline,
   ReorderFourSharp,
-  ReorderFour,
+  ReorderThree,
   ReorderThreeOutline,
   ReorderThreeSharp,
-  ReorderThree,
+  ReorderTwo,
   ReorderTwoOutline,
   ReorderTwoSharp,
-  ReorderTwo,
+  Repeat,
   RepeatOutline,
   RepeatSharp,
-  Repeat,
+  Resize,
   ResizeOutline,
   ResizeSharp,
-  Resize,
+  Restaurant,
   RestaurantOutline,
   RestaurantSharp,
-  Restaurant,
+  ReturnDownBack,
   ReturnDownBackOutline,
   ReturnDownBackSharp,
-  ReturnDownBack,
+  ReturnDownForward,
   ReturnDownForwardOutline,
   ReturnDownForwardSharp,
-  ReturnDownForward,
+  ReturnUpBack,
   ReturnUpBackOutline,
   ReturnUpBackSharp,
-  ReturnUpBack,
+  ReturnUpForward,
   ReturnUpForwardOutline,
   ReturnUpForwardSharp,
-  ReturnUpForward,
+  Ribbon,
   RibbonOutline,
   RibbonSharp,
-  Ribbon,
+  Rocket,
   RocketOutline,
   RocketSharp,
-  Rocket,
+  Rose,
   RoseOutline,
   RoseSharp,
-  Rose,
+  Sad,
   SadOutline,
   SadSharp,
-  Sad,
+  Save,
   SaveOutline,
   SaveSharp,
-  Save,
+  Scan,
+  ScanCircle,
   ScanCircleOutline,
   ScanCircleSharp,
-  ScanCircle,
   ScanOutline,
   ScanSharp,
-  Scan,
+  School,
   SchoolOutline,
   SchoolSharp,
-  School,
+  Search,
+  SearchCircle,
   SearchCircleOutline,
   SearchCircleSharp,
-  SearchCircle,
   SearchOutline,
   SearchSharp,
-  Search,
+  Send,
   SendOutline,
   SendSharp,
-  Send,
+  Server,
   ServerOutline,
   ServerSharp,
-  Server,
+  Settings,
   SettingsOutline,
   SettingsSharp,
-  Settings,
+  Shapes,
   ShapesOutline,
   ShapesSharp,
-  Shapes,
+  Share,
   ShareOutline,
   ShareSharp,
+  ShareSocial,
   ShareSocialOutline,
   ShareSocialSharp,
-  ShareSocial,
-  Share,
+  Shield,
+  ShieldCheckmark,
   ShieldCheckmarkOutline,
   ShieldCheckmarkSharp,
-  ShieldCheckmark,
   ShieldOutline,
   ShieldSharp,
-  Shield,
+  Shirt,
   ShirtOutline,
   ShirtSharp,
-  Shirt,
+  Shuffle,
   ShuffleOutline,
   ShuffleSharp,
-  Shuffle,
+  Skull,
   SkullOutline,
   SkullSharp,
-  Skull,
+  Snow,
   SnowOutline,
   SnowSharp,
-  Snow,
+  Speedometer,
   SpeedometerOutline,
   SpeedometerSharp,
-  Speedometer,
+  Square,
   SquareOutline,
   SquareSharp,
-  Square,
+  Star,
+  StarHalf,
   StarHalfOutline,
   StarHalfSharp,
-  StarHalf,
   StarOutline,
   StarSharp,
-  Star,
+  StatsChart,
   StatsChartOutline,
   StatsChartSharp,
-  StatsChart,
+  Stop,
+  StopCircle,
   StopCircleOutline,
   StopCircleSharp,
-  StopCircle,
   StopOutline,
   StopSharp,
-  Stop,
+  Stopwatch,
   StopwatchOutline,
   StopwatchSharp,
-  Stopwatch,
+  Subway,
   SubwayOutline,
   SubwaySharp,
-  Subway,
+  Sunny,
   SunnyOutline,
   SunnySharp,
-  Sunny,
+  SwapHorizontal,
   SwapHorizontalOutline,
   SwapHorizontalSharp,
-  SwapHorizontal,
+  SwapVertical,
   SwapVerticalOutline,
   SwapVerticalSharp,
-  SwapVertical,
+  Sync,
+  SyncCircle,
   SyncCircleOutline,
   SyncCircleSharp,
-  SyncCircle,
   SyncOutline,
   SyncSharp,
-  Sync,
+  TabletLandscape,
   TabletLandscapeOutline,
   TabletLandscapeSharp,
-  TabletLandscape,
+  TabletPortrait,
   TabletPortraitOutline,
   TabletPortraitSharp,
-  TabletPortrait,
+  Tennisball,
   TennisballOutline,
   TennisballSharp,
-  Tennisball,
+  Terminal,
   TerminalOutline,
   TerminalSharp,
-  Terminal,
+  Text,
   TextOutline,
   TextSharp,
-  Text,
+  Thermometer,
   ThermometerOutline,
   ThermometerSharp,
-  Thermometer,
+  ThumbsDown,
   ThumbsDownOutline,
   ThumbsDownSharp,
-  ThumbsDown,
+  ThumbsUp,
   ThumbsUpOutline,
   ThumbsUpSharp,
-  ThumbsUp,
+  Thunderstorm,
   ThunderstormOutline,
   ThunderstormSharp,
-  Thunderstorm,
+  Time,
   TimeOutline,
   TimeSharp,
-  Time,
+  Timer,
   TimerOutline,
   TimerSharp,
-  Timer,
+  Today,
   TodayOutline,
   TodaySharp,
-  Today,
+  Toggle,
   ToggleOutline,
   ToggleSharp,
-  Toggle,
+  TrailSign,
   TrailSignOutline,
   TrailSignSharp,
-  TrailSign,
+  Train,
   TrainOutline,
   TrainSharp,
-  Train,
+  Transgender,
   TransgenderOutline,
   TransgenderSharp,
-  Transgender,
+  Trash,
+  TrashBin,
   TrashBinOutline,
   TrashBinSharp,
-  TrashBin,
   TrashOutline,
   TrashSharp,
-  Trash,
+  TrendingDown,
   TrendingDownOutline,
   TrendingDownSharp,
-  TrendingDown,
+  TrendingUp,
   TrendingUpOutline,
   TrendingUpSharp,
-  TrendingUp,
+  Triangle,
   TriangleOutline,
   TriangleSharp,
-  Triangle,
+  Trophy,
   TrophyOutline,
   TrophySharp,
-  Trophy,
+  Tv,
   TvOutline,
   TvSharp,
-  Tv,
+  Umbrella,
   UmbrellaOutline,
   UmbrellaSharp,
-  Umbrella,
+  Videocam,
   VideocamOutline,
   VideocamSharp,
-  Videocam,
+  VolumeHigh,
   VolumeHighOutline,
   VolumeHighSharp,
-  VolumeHigh,
+  VolumeLow,
   VolumeLowOutline,
   VolumeLowSharp,
-  VolumeLow,
+  VolumeMedium,
   VolumeMediumOutline,
   VolumeMediumSharp,
-  VolumeMedium,
+  VolumeMute,
   VolumeMuteOutline,
   VolumeMuteSharp,
-  VolumeMute,
+  VolumeOff,
   VolumeOffOutline,
   VolumeOffSharp,
-  VolumeOff,
+  Walk,
   WalkOutline,
   WalkSharp,
-  Walk,
+  Wallet,
   WalletOutline,
   WalletSharp,
-  Wallet,
+  Warning,
   WarningOutline,
   WarningSharp,
-  Warning,
+  Watch,
   WatchOutline,
   WatchSharp,
-  Watch,
+  Water,
   WaterOutline,
   WaterSharp,
-  Water,
+  Wifi,
   WifiOutline,
   WifiSharp,
-  Wifi,
+  Wine,
   WineOutline,
   WineSharp,
-  Wine,
+  Woman,
   WomanOutline,
-  WomanSharp,
-  Woman
+  WomanSharp
 }
 
 export {
   createIcon,
+  Add,
+  AddCircle,
   AddCircleOutline,
   AddCircleSharp,
-  AddCircle,
   AddOutline,
   AddSharp,
-  Add,
+  Airplane,
   AirplaneOutline,
   AirplaneSharp,
-  Airplane,
+  Alarm,
   AlarmOutline,
   AlarmSharp,
-  Alarm,
+  Albums,
   AlbumsOutline,
   AlbumsSharp,
-  Albums,
+  Alert,
+  AlertCircle,
   AlertCircleOutline,
   AlertCircleSharp,
-  AlertCircle,
   AlertOutline,
   AlertSharp,
-  Alert,
+  AmericanFootball,
   AmericanFootballOutline,
   AmericanFootballSharp,
-  AmericanFootball,
+  Analytics,
   AnalyticsOutline,
   AnalyticsSharp,
-  Analytics,
+  Aperture,
   ApertureOutline,
   ApertureSharp,
-  Aperture,
+  Apps,
   AppsOutline,
   AppsSharp,
-  Apps,
+  Archive,
   ArchiveOutline,
   ArchiveSharp,
-  Archive,
+  ArrowBack,
+  ArrowBackCircle,
   ArrowBackCircleOutline,
   ArrowBackCircleSharp,
-  ArrowBackCircle,
   ArrowBackOutline,
   ArrowBackSharp,
-  ArrowBack,
+  ArrowDown,
+  ArrowDownCircle,
   ArrowDownCircleOutline,
   ArrowDownCircleSharp,
-  ArrowDownCircle,
   ArrowDownOutline,
   ArrowDownSharp,
-  ArrowDown,
+  ArrowForward,
+  ArrowForwardCircle,
   ArrowForwardCircleOutline,
   ArrowForwardCircleSharp,
-  ArrowForwardCircle,
   ArrowForwardOutline,
   ArrowForwardSharp,
-  ArrowForward,
+  ArrowRedo,
+  ArrowRedoCircle,
   ArrowRedoCircleOutline,
   ArrowRedoCircleSharp,
-  ArrowRedoCircle,
   ArrowRedoOutline,
   ArrowRedoSharp,
-  ArrowRedo,
+  ArrowUndo,
+  ArrowUndoCircle,
   ArrowUndoCircleOutline,
   ArrowUndoCircleSharp,
-  ArrowUndoCircle,
   ArrowUndoOutline,
   ArrowUndoSharp,
-  ArrowUndo,
+  ArrowUp,
+  ArrowUpCircle,
   ArrowUpCircleOutline,
   ArrowUpCircleSharp,
-  ArrowUpCircle,
   ArrowUpOutline,
   ArrowUpSharp,
-  ArrowUp,
+  At,
+  AtCircle,
   AtCircleOutline,
   AtCircleSharp,
-  AtCircle,
   AtOutline,
   AtSharp,
-  At,
+  Attach,
   AttachOutline,
   AttachSharp,
-  Attach,
+  Backspace,
   BackspaceOutline,
   BackspaceSharp,
-  Backspace,
+  Bandage,
   BandageOutline,
   BandageSharp,
-  Bandage,
+  BarChart,
   BarChartOutline,
   BarChartSharp,
-  BarChart,
+  Barbell,
   BarbellOutline,
   BarbellSharp,
-  Barbell,
+  Barcode,
   BarcodeOutline,
   BarcodeSharp,
-  Barcode,
+  Baseball,
   BaseballOutline,
   BaseballSharp,
-  Baseball,
+  Basket,
   BasketOutline,
   BasketSharp,
-  Basket,
+  Basketball,
   BasketballOutline,
   BasketballSharp,
-  Basketball,
+  BatteryCharging,
   BatteryChargingOutline,
   BatteryChargingSharp,
-  BatteryCharging,
+  BatteryDead,
   BatteryDeadOutline,
   BatteryDeadSharp,
-  BatteryDead,
+  BatteryFull,
   BatteryFullOutline,
   BatteryFullSharp,
-  BatteryFull,
+  BatteryHalf,
   BatteryHalfOutline,
   BatteryHalfSharp,
-  BatteryHalf,
+  Beaker,
   BeakerOutline,
   BeakerSharp,
-  Beaker,
+  Bed,
   BedOutline,
   BedSharp,
-  Bed,
+  Beer,
   BeerOutline,
   BeerSharp,
-  Beer,
+  Bicycle,
   BicycleOutline,
   BicycleSharp,
-  Bicycle,
+  Bluetooth,
   BluetoothOutline,
   BluetoothSharp,
-  Bluetooth,
+  Boat,
   BoatOutline,
   BoatSharp,
-  Boat,
+  Body,
   BodyOutline,
   BodySharp,
-  Body,
+  Bonfire,
   BonfireOutline,
   BonfireSharp,
-  Bonfire,
+  Book,
   BookOutline,
   BookSharp,
-  Book,
+  Bookmark,
   BookmarkOutline,
   BookmarkSharp,
-  Bookmark,
+  Bookmarks,
   BookmarksOutline,
   BookmarksSharp,
-  Bookmarks,
+  Briefcase,
   BriefcaseOutline,
   BriefcaseSharp,
-  Briefcase,
+  Browsers,
   BrowsersOutline,
   BrowsersSharp,
-  Browsers,
+  Brush,
   BrushOutline,
   BrushSharp,
-  Brush,
+  Bug,
   BugOutline,
   BugSharp,
-  Bug,
+  Build,
   BuildOutline,
   BuildSharp,
-  Build,
+  Bulb,
   BulbOutline,
   BulbSharp,
-  Bulb,
+  Bus,
   BusOutline,
   BusSharp,
-  Bus,
+  Business,
   BusinessOutline,
   BusinessSharp,
-  Business,
+  Cafe,
   CafeOutline,
   CafeSharp,
-  Cafe,
+  Calculator,
   CalculatorOutline,
   CalculatorSharp,
-  Calculator,
+  Calendar,
   CalendarOutline,
   CalendarSharp,
-  Calendar,
+  Call,
   CallOutline,
   CallSharp,
-  Call,
+  Camera,
   CameraOutline,
+  CameraReverse,
   CameraReverseOutline,
   CameraReverseSharp,
-  CameraReverse,
   CameraSharp,
-  Camera,
+  Car,
   CarOutline,
   CarSharp,
+  CarSport,
   CarSportOutline,
   CarSportSharp,
-  CarSport,
-  Car,
+  Card,
   CardOutline,
   CardSharp,
-  Card,
+  CaretBack,
+  CaretBackCircle,
   CaretBackCircleOutline,
   CaretBackCircleSharp,
-  CaretBackCircle,
   CaretBackOutline,
   CaretBackSharp,
-  CaretBack,
+  CaretDown,
+  CaretDownCircle,
   CaretDownCircleOutline,
   CaretDownCircleSharp,
-  CaretDownCircle,
   CaretDownOutline,
   CaretDownSharp,
-  CaretDown,
+  CaretForward,
+  CaretForwardCircle,
   CaretForwardCircleOutline,
   CaretForwardCircleSharp,
-  CaretForwardCircle,
   CaretForwardOutline,
   CaretForwardSharp,
-  CaretForward,
+  CaretUp,
+  CaretUpCircle,
   CaretUpCircleOutline,
   CaretUpCircleSharp,
-  CaretUpCircle,
   CaretUpOutline,
   CaretUpSharp,
-  CaretUp,
+  Cart,
   CartOutline,
   CartSharp,
-  Cart,
+  Cash,
   CashOutline,
   CashSharp,
-  Cash,
+  Cellular,
   CellularOutline,
   CellularSharp,
-  Cellular,
+  Chatbox,
+  ChatboxEllipses,
   ChatboxEllipsesOutline,
   ChatboxEllipsesSharp,
-  ChatboxEllipses,
   ChatboxOutline,
   ChatboxSharp,
-  Chatbox,
+  Chatbubble,
+  ChatbubbleEllipses,
   ChatbubbleEllipsesOutline,
   ChatbubbleEllipsesSharp,
-  ChatbubbleEllipses,
   ChatbubbleOutline,
   ChatbubbleSharp,
-  Chatbubble,
+  Chatbubbles,
   ChatbubblesOutline,
   ChatbubblesSharp,
-  Chatbubbles,
+  Checkbox,
   CheckboxOutline,
   CheckboxSharp,
-  Checkbox,
+  Checkmark,
+  CheckmarkCircle,
   CheckmarkCircleOutline,
   CheckmarkCircleSharp,
-  CheckmarkCircle,
+  CheckmarkDone,
+  CheckmarkDoneCircle,
   CheckmarkDoneCircleOutline,
   CheckmarkDoneCircleSharp,
-  CheckmarkDoneCircle,
   CheckmarkDoneOutline,
   CheckmarkDoneSharp,
-  CheckmarkDone,
   CheckmarkOutline,
   CheckmarkSharp,
-  Checkmark,
+  ChevronBack,
+  ChevronBackCircle,
   ChevronBackCircleOutline,
   ChevronBackCircleSharp,
-  ChevronBackCircle,
   ChevronBackOutline,
   ChevronBackSharp,
-  ChevronBack,
+  ChevronDown,
+  ChevronDownCircle,
   ChevronDownCircleOutline,
   ChevronDownCircleSharp,
-  ChevronDownCircle,
   ChevronDownOutline,
   ChevronDownSharp,
-  ChevronDown,
+  ChevronForward,
+  ChevronForwardCircle,
   ChevronForwardCircleOutline,
   ChevronForwardCircleSharp,
-  ChevronForwardCircle,
   ChevronForwardOutline,
   ChevronForwardSharp,
-  ChevronForward,
+  ChevronUp,
+  ChevronUpCircle,
   ChevronUpCircleOutline,
   ChevronUpCircleSharp,
-  ChevronUpCircle,
   ChevronUpOutline,
   ChevronUpSharp,
-  ChevronUp,
+  Clipboard,
   ClipboardOutline,
   ClipboardSharp,
-  Clipboard,
+  Close,
+  CloseCircle,
   CloseCircleOutline,
   CloseCircleSharp,
-  CloseCircle,
   CloseOutline,
   CloseSharp,
-  Close,
+  Cloud,
+  CloudCircle,
   CloudCircleOutline,
   CloudCircleSharp,
-  CloudCircle,
+  CloudDone,
   CloudDoneOutline,
   CloudDoneSharp,
-  CloudDone,
+  CloudDownload,
   CloudDownloadOutline,
   CloudDownloadSharp,
-  CloudDownload,
+  CloudOffline,
   CloudOfflineOutline,
   CloudOfflineSharp,
-  CloudOffline,
   CloudOutline,
   CloudSharp,
+  CloudUpload,
   CloudUploadOutline,
   CloudUploadSharp,
-  CloudUpload,
-  Cloud,
+  Cloudy,
+  CloudyNight,
   CloudyNightOutline,
   CloudyNightSharp,
-  CloudyNight,
   CloudyOutline,
   CloudySharp,
-  Cloudy,
+  Code,
+  CodeDownload,
   CodeDownloadOutline,
   CodeDownloadSharp,
-  CodeDownload,
   CodeOutline,
   CodeSharp,
+  CodeSlash,
   CodeSlashOutline,
   CodeSlashSharp,
-  CodeSlash,
+  CodeWorking,
   CodeWorkingOutline,
   CodeWorkingSharp,
-  CodeWorking,
-  Code,
+  Cog,
   CogOutline,
   CogSharp,
-  Cog,
+  ColorFill,
   ColorFillOutline,
   ColorFillSharp,
-  ColorFill,
+  ColorFilter,
   ColorFilterOutline,
   ColorFilterSharp,
-  ColorFilter,
+  ColorPalette,
   ColorPaletteOutline,
   ColorPaletteSharp,
-  ColorPalette,
+  ColorWand,
   ColorWandOutline,
   ColorWandSharp,
-  ColorWand,
+  Compass,
   CompassOutline,
   CompassSharp,
-  Compass,
+  Construct,
   ConstructOutline,
   ConstructSharp,
-  Construct,
+  Contract,
   ContractOutline,
   ContractSharp,
-  Contract,
+  Contrast,
   ContrastOutline,
   ContrastSharp,
-  Contrast,
+  Copy,
   CopyOutline,
   CopySharp,
-  Copy,
+  Create,
   CreateOutline,
   CreateSharp,
-  Create,
+  Crop,
   CropOutline,
   CropSharp,
-  Crop,
+  Cube,
   CubeOutline,
   CubeSharp,
-  Cube,
+  Cut,
   CutOutline,
   CutSharp,
-  Cut,
+  Desktop,
   DesktopOutline,
   DesktopSharp,
-  Desktop,
+  Disc,
   DiscOutline,
   DiscSharp,
-  Disc,
+  Document,
+  DocumentAttach,
   DocumentAttachOutline,
   DocumentAttachSharp,
-  DocumentAttach,
   DocumentOutline,
   DocumentSharp,
+  DocumentText,
   DocumentTextOutline,
   DocumentTextSharp,
-  DocumentText,
-  Document,
+  Documents,
   DocumentsOutline,
   DocumentsSharp,
-  Documents,
+  Download,
   DownloadOutline,
   DownloadSharp,
-  Download,
+  Duplicate,
   DuplicateOutline,
   DuplicateSharp,
-  Duplicate,
+  Ear,
   EarOutline,
   EarSharp,
-  Ear,
+  Earth,
   EarthOutline,
   EarthSharp,
-  Earth,
+  Easel,
   EaselOutline,
   EaselSharp,
-  Easel,
+  Egg,
   EggOutline,
   EggSharp,
-  Egg,
+  Ellipse,
   EllipseOutline,
   EllipseSharp,
-  Ellipse,
+  EllipsisHorizontal,
+  EllipsisHorizontalCircle,
   EllipsisHorizontalCircleOutline,
   EllipsisHorizontalCircleSharp,
-  EllipsisHorizontalCircle,
   EllipsisHorizontalOutline,
   EllipsisHorizontalSharp,
-  EllipsisHorizontal,
+  EllipsisVertical,
+  EllipsisVerticalCircle,
   EllipsisVerticalCircleOutline,
   EllipsisVerticalCircleSharp,
-  EllipsisVerticalCircle,
   EllipsisVerticalOutline,
   EllipsisVerticalSharp,
-  EllipsisVertical,
+  Enter,
   EnterOutline,
   EnterSharp,
-  Enter,
+  Exit,
   ExitOutline,
   ExitSharp,
-  Exit,
+  Expand,
   ExpandOutline,
   ExpandSharp,
-  Expand,
+  Eye,
+  EyeOff,
   EyeOffOutline,
   EyeOffSharp,
-  EyeOff,
   EyeOutline,
   EyeSharp,
-  Eye,
+  Eyedrop,
   EyedropOutline,
   EyedropSharp,
-  Eyedrop,
+  FastFood,
   FastFoodOutline,
   FastFoodSharp,
-  FastFood,
+  Female,
   FemaleOutline,
   FemaleSharp,
-  Female,
+  FileTray,
+  FileTrayFull,
   FileTrayFullOutline,
   FileTrayFullSharp,
-  FileTrayFull,
   FileTrayOutline,
   FileTraySharp,
+  FileTrayStacked,
   FileTrayStackedOutline,
   FileTrayStackedSharp,
-  FileTrayStacked,
-  FileTray,
+  Film,
   FilmOutline,
   FilmSharp,
-  Film,
+  Filter,
   FilterOutline,
   FilterSharp,
-  Filter,
+  FingerPrint,
   FingerPrintOutline,
   FingerPrintSharp,
-  FingerPrint,
+  Fitness,
   FitnessOutline,
   FitnessSharp,
-  Fitness,
+  Flag,
   FlagOutline,
   FlagSharp,
-  Flag,
+  Flame,
   FlameOutline,
   FlameSharp,
-  Flame,
+  Flash,
+  FlashOff,
   FlashOffOutline,
   FlashOffSharp,
-  FlashOff,
   FlashOutline,
   FlashSharp,
-  Flash,
+  Flashlight,
   FlashlightOutline,
   FlashlightSharp,
-  Flashlight,
+  Flask,
   FlaskOutline,
   FlaskSharp,
-  Flask,
+  Flower,
   FlowerOutline,
   FlowerSharp,
-  Flower,
+  Folder,
+  FolderOpen,
   FolderOpenOutline,
   FolderOpenSharp,
-  FolderOpen,
   FolderOutline,
   FolderSharp,
-  Folder,
+  Football,
   FootballOutline,
   FootballSharp,
-  Football,
+  Funnel,
   FunnelOutline,
   FunnelSharp,
-  Funnel,
+  GameController,
   GameControllerOutline,
   GameControllerSharp,
-  GameController,
+  Gift,
   GiftOutline,
   GiftSharp,
-  Gift,
+  GitBranch,
   GitBranchOutline,
   GitBranchSharp,
-  GitBranch,
+  GitCommit,
   GitCommitOutline,
   GitCommitSharp,
-  GitCommit,
+  GitCompare,
   GitCompareOutline,
   GitCompareSharp,
-  GitCompare,
+  GitMerge,
   GitMergeOutline,
   GitMergeSharp,
-  GitMerge,
+  GitNetwork,
   GitNetworkOutline,
   GitNetworkSharp,
-  GitNetwork,
+  GitPullRequest,
   GitPullRequestOutline,
   GitPullRequestSharp,
-  GitPullRequest,
+  Glasses,
   GlassesOutline,
   GlassesSharp,
-  Glasses,
+  Globe,
   GlobeOutline,
   GlobeSharp,
-  Globe,
+  Golf,
   GolfOutline,
   GolfSharp,
-  Golf,
+  Grid,
   GridOutline,
   GridSharp,
-  Grid,
+  Hammer,
   HammerOutline,
   HammerSharp,
-  Hammer,
+  HandLeft,
   HandLeftOutline,
   HandLeftSharp,
-  HandLeft,
+  HandRight,
   HandRightOutline,
   HandRightSharp,
-  HandRight,
+  Happy,
   HappyOutline,
   HappySharp,
-  Happy,
+  HardwareChip,
   HardwareChipOutline,
   HardwareChipSharp,
-  HardwareChip,
+  Headset,
   HeadsetOutline,
   HeadsetSharp,
-  Headset,
+  Heart,
+  HeartCircle,
   HeartCircleOutline,
   HeartCircleSharp,
-  HeartCircle,
+  HeartDislike,
+  HeartDislikeCircle,
   HeartDislikeCircleOutline,
   HeartDislikeCircleSharp,
-  HeartDislikeCircle,
   HeartDislikeOutline,
   HeartDislikeSharp,
-  HeartDislike,
+  HeartHalf,
   HeartHalfOutline,
   HeartHalfSharp,
-  HeartHalf,
   HeartOutline,
   HeartSharp,
-  Heart,
+  Help,
+  HelpBuoy,
   HelpBuoyOutline,
   HelpBuoySharp,
-  HelpBuoy,
+  HelpCircle,
   HelpCircleOutline,
   HelpCircleSharp,
-  HelpCircle,
   HelpOutline,
   HelpSharp,
-  Help,
+  Home,
   HomeOutline,
   HomeSharp,
-  Home,
+  Hourglass,
   HourglassOutline,
   HourglassSharp,
-  Hourglass,
+  IceCream,
   IceCreamOutline,
   IceCreamSharp,
-  IceCream,
+  Image,
   ImageOutline,
   ImageSharp,
-  Image,
+  Images,
   ImagesOutline,
   ImagesSharp,
-  Images,
+  Infinite,
   InfiniteOutline,
   InfiniteSharp,
-  Infinite,
+  Information,
+  InformationCircle,
   InformationCircleOutline,
   InformationCircleSharp,
-  InformationCircle,
   InformationOutline,
   InformationSharp,
-  Information,
+  Journal,
   JournalOutline,
   JournalSharp,
-  Journal,
+  Key,
   KeyOutline,
   KeySharp,
-  Key,
+  Keypad,
   KeypadOutline,
   KeypadSharp,
-  Keypad,
+  Language,
   LanguageOutline,
   LanguageSharp,
-  Language,
+  Laptop,
   LaptopOutline,
   LaptopSharp,
-  Laptop,
+  Layers,
   LayersOutline,
   LayersSharp,
-  Layers,
+  Leaf,
   LeafOutline,
   LeafSharp,
-  Leaf,
+  Library,
   LibraryOutline,
   LibrarySharp,
-  Library,
+  Link,
   LinkOutline,
   LinkSharp,
-  Link,
+  List,
+  ListCircle,
   ListCircleOutline,
   ListCircleSharp,
-  ListCircle,
   ListOutline,
   ListSharp,
-  List,
+  Locate,
   LocateOutline,
   LocateSharp,
-  Locate,
+  Location,
   LocationOutline,
   LocationSharp,
-  Location,
+  LockClosed,
   LockClosedOutline,
   LockClosedSharp,
-  LockClosed,
+  LockOpen,
   LockOpenOutline,
   LockOpenSharp,
-  LockOpen,
+  LogIn,
   LogInOutline,
   LogInSharp,
-  LogIn,
+  LogOut,
   LogOutOutline,
   LogOutSharp,
-  LogOut,
   LogoAmazon,
   LogoAmplify,
   LogoAndroid,
   LogoAngular,
-  LogoAppleAppstore,
   LogoApple,
+  LogoAppleAppstore,
   LogoBitbucket,
   LogoBitcoin,
   LogoBuffer,
@@ -3147,8 +3147,8 @@ export {
   LogoFlickr,
   LogoFoursquare,
   LogoGithub,
-  LogoGooglePlaystore,
   LogoGoogle,
+  LogoGooglePlaystore,
   LogoHackernews,
   LogoHtml5,
   LogoInstagram,
@@ -3193,503 +3193,503 @@ export {
   LogoYahoo,
   LogoYen,
   LogoYoutube,
+  Magnet,
   MagnetOutline,
   MagnetSharp,
-  Magnet,
+  Mail,
+  MailOpen,
   MailOpenOutline,
   MailOpenSharp,
-  MailOpen,
   MailOutline,
   MailSharp,
+  MailUnread,
   MailUnreadOutline,
   MailUnreadSharp,
-  MailUnread,
-  Mail,
+  Male,
+  MaleFemale,
   MaleFemaleOutline,
   MaleFemaleSharp,
-  MaleFemale,
   MaleOutline,
   MaleSharp,
-  Male,
+  Man,
   ManOutline,
   ManSharp,
-  Man,
+  Map,
   MapOutline,
   MapSharp,
-  Map,
+  Medal,
   MedalOutline,
   MedalSharp,
-  Medal,
+  Medical,
   MedicalOutline,
   MedicalSharp,
-  Medical,
+  Medkit,
   MedkitOutline,
   MedkitSharp,
-  Medkit,
+  Megaphone,
   MegaphoneOutline,
   MegaphoneSharp,
-  Megaphone,
+  Menu,
   MenuOutline,
   MenuSharp,
-  Menu,
+  Mic,
+  MicCircle,
   MicCircleOutline,
   MicCircleSharp,
-  MicCircle,
+  MicOff,
+  MicOffCircle,
   MicOffCircleOutline,
   MicOffCircleSharp,
-  MicOffCircle,
   MicOffOutline,
   MicOffSharp,
-  MicOff,
   MicOutline,
   MicSharp,
-  Mic,
+  Moon,
   MoonOutline,
   MoonSharp,
-  Moon,
+  Move,
   MoveOutline,
   MoveSharp,
-  Move,
+  MusicalNote,
   MusicalNoteOutline,
   MusicalNoteSharp,
-  MusicalNote,
+  MusicalNotes,
   MusicalNotesOutline,
   MusicalNotesSharp,
-  MusicalNotes,
+  Navigate,
+  NavigateCircle,
   NavigateCircleOutline,
   NavigateCircleSharp,
-  NavigateCircle,
   NavigateOutline,
   NavigateSharp,
-  Navigate,
+  Newspaper,
   NewspaperOutline,
   NewspaperSharp,
-  Newspaper,
+  Notifications,
+  NotificationsCircle,
   NotificationsCircleOutline,
   NotificationsCircleSharp,
-  NotificationsCircle,
+  NotificationsOff,
+  NotificationsOffCircle,
   NotificationsOffCircleOutline,
   NotificationsOffCircleSharp,
-  NotificationsOffCircle,
   NotificationsOffOutline,
   NotificationsOffSharp,
-  NotificationsOff,
   NotificationsOutline,
   NotificationsSharp,
-  Notifications,
+  Nuclear,
   NuclearOutline,
   NuclearSharp,
-  Nuclear,
+  Nutrition,
   NutritionOutline,
   NutritionSharp,
-  Nutrition,
+  Open,
   OpenOutline,
   OpenSharp,
-  Open,
+  Options,
   OptionsOutline,
   OptionsSharp,
-  Options,
+  PaperPlane,
   PaperPlaneOutline,
   PaperPlaneSharp,
-  PaperPlane,
+  PartlySunny,
   PartlySunnyOutline,
   PartlySunnySharp,
-  PartlySunny,
+  Pause,
+  PauseCircle,
   PauseCircleOutline,
   PauseCircleSharp,
-  PauseCircle,
   PauseOutline,
   PauseSharp,
-  Pause,
+  Paw,
   PawOutline,
   PawSharp,
-  Paw,
+  Pencil,
   PencilOutline,
   PencilSharp,
-  Pencil,
+  People,
+  PeopleCircle,
   PeopleCircleOutline,
   PeopleCircleSharp,
-  PeopleCircle,
   PeopleOutline,
   PeopleSharp,
-  People,
+  Person,
+  PersonAdd,
   PersonAddOutline,
   PersonAddSharp,
-  PersonAdd,
+  PersonCircle,
   PersonCircleOutline,
   PersonCircleSharp,
-  PersonCircle,
   PersonOutline,
+  PersonRemove,
   PersonRemoveOutline,
   PersonRemoveSharp,
-  PersonRemove,
   PersonSharp,
-  Person,
+  PhoneLandscape,
   PhoneLandscapeOutline,
   PhoneLandscapeSharp,
-  PhoneLandscape,
+  PhonePortrait,
   PhonePortraitOutline,
   PhonePortraitSharp,
-  PhonePortrait,
+  PieChart,
   PieChartOutline,
   PieChartSharp,
-  PieChart,
+  Pin,
   PinOutline,
   PinSharp,
-  Pin,
+  Pint,
   PintOutline,
   PintSharp,
-  Pint,
+  Pizza,
   PizzaOutline,
   PizzaSharp,
-  Pizza,
+  Planet,
   PlanetOutline,
   PlanetSharp,
-  Planet,
+  Play,
+  PlayBack,
+  PlayBackCircle,
   PlayBackCircleOutline,
   PlayBackCircleSharp,
-  PlayBackCircle,
   PlayBackOutline,
   PlayBackSharp,
-  PlayBack,
+  PlayCircle,
   PlayCircleOutline,
   PlayCircleSharp,
-  PlayCircle,
+  PlayForward,
+  PlayForwardCircle,
   PlayForwardCircleOutline,
   PlayForwardCircleSharp,
-  PlayForwardCircle,
   PlayForwardOutline,
   PlayForwardSharp,
-  PlayForward,
   PlayOutline,
   PlaySharp,
+  PlaySkipBack,
+  PlaySkipBackCircle,
   PlaySkipBackCircleOutline,
   PlaySkipBackCircleSharp,
-  PlaySkipBackCircle,
   PlaySkipBackOutline,
   PlaySkipBackSharp,
-  PlaySkipBack,
+  PlaySkipForward,
+  PlaySkipForwardCircle,
   PlaySkipForwardCircleOutline,
   PlaySkipForwardCircleSharp,
-  PlaySkipForwardCircle,
   PlaySkipForwardOutline,
   PlaySkipForwardSharp,
-  PlaySkipForward,
-  Play,
+  Podium,
   PodiumOutline,
   PodiumSharp,
-  Podium,
+  Power,
   PowerOutline,
   PowerSharp,
-  Power,
+  Pricetag,
   PricetagOutline,
   PricetagSharp,
-  Pricetag,
+  Pricetags,
   PricetagsOutline,
   PricetagsSharp,
-  Pricetags,
+  Print,
   PrintOutline,
   PrintSharp,
-  Print,
+  Pulse,
   PulseOutline,
   PulseSharp,
-  Pulse,
+  Push,
   PushOutline,
   PushSharp,
-  Push,
+  QrCode,
   QrCodeOutline,
   QrCodeSharp,
-  QrCode,
+  Radio,
+  RadioButtonOff,
   RadioButtonOffOutline,
   RadioButtonOffSharp,
-  RadioButtonOff,
+  RadioButtonOn,
   RadioButtonOnOutline,
   RadioButtonOnSharp,
-  RadioButtonOn,
   RadioOutline,
   RadioSharp,
-  Radio,
+  Rainy,
   RainyOutline,
   RainySharp,
-  Rainy,
+  Reader,
   ReaderOutline,
   ReaderSharp,
-  Reader,
+  Receipt,
   ReceiptOutline,
   ReceiptSharp,
-  Receipt,
+  Recording,
   RecordingOutline,
   RecordingSharp,
-  Recording,
+  Refresh,
+  RefreshCircle,
   RefreshCircleOutline,
   RefreshCircleSharp,
-  RefreshCircle,
   RefreshOutline,
   RefreshSharp,
-  Refresh,
+  Reload,
+  ReloadCircle,
   ReloadCircleOutline,
   ReloadCircleSharp,
-  ReloadCircle,
   ReloadOutline,
   ReloadSharp,
-  Reload,
+  Remove,
+  RemoveCircle,
   RemoveCircleOutline,
   RemoveCircleSharp,
-  RemoveCircle,
   RemoveOutline,
   RemoveSharp,
-  Remove,
+  ReorderFour,
   ReorderFourOutline,
   ReorderFourSharp,
-  ReorderFour,
+  ReorderThree,
   ReorderThreeOutline,
   ReorderThreeSharp,
-  ReorderThree,
+  ReorderTwo,
   ReorderTwoOutline,
   ReorderTwoSharp,
-  ReorderTwo,
+  Repeat,
   RepeatOutline,
   RepeatSharp,
-  Repeat,
+  Resize,
   ResizeOutline,
   ResizeSharp,
-  Resize,
+  Restaurant,
   RestaurantOutline,
   RestaurantSharp,
-  Restaurant,
+  ReturnDownBack,
   ReturnDownBackOutline,
   ReturnDownBackSharp,
-  ReturnDownBack,
+  ReturnDownForward,
   ReturnDownForwardOutline,
   ReturnDownForwardSharp,
-  ReturnDownForward,
+  ReturnUpBack,
   ReturnUpBackOutline,
   ReturnUpBackSharp,
-  ReturnUpBack,
+  ReturnUpForward,
   ReturnUpForwardOutline,
   ReturnUpForwardSharp,
-  ReturnUpForward,
+  Ribbon,
   RibbonOutline,
   RibbonSharp,
-  Ribbon,
+  Rocket,
   RocketOutline,
   RocketSharp,
-  Rocket,
+  Rose,
   RoseOutline,
   RoseSharp,
-  Rose,
+  Sad,
   SadOutline,
   SadSharp,
-  Sad,
+  Save,
   SaveOutline,
   SaveSharp,
-  Save,
+  Scan,
+  ScanCircle,
   ScanCircleOutline,
   ScanCircleSharp,
-  ScanCircle,
   ScanOutline,
   ScanSharp,
-  Scan,
+  School,
   SchoolOutline,
   SchoolSharp,
-  School,
+  Search,
+  SearchCircle,
   SearchCircleOutline,
   SearchCircleSharp,
-  SearchCircle,
   SearchOutline,
   SearchSharp,
-  Search,
+  Send,
   SendOutline,
   SendSharp,
-  Send,
+  Server,
   ServerOutline,
   ServerSharp,
-  Server,
+  Settings,
   SettingsOutline,
   SettingsSharp,
-  Settings,
+  Shapes,
   ShapesOutline,
   ShapesSharp,
-  Shapes,
+  Share,
   ShareOutline,
   ShareSharp,
+  ShareSocial,
   ShareSocialOutline,
   ShareSocialSharp,
-  ShareSocial,
-  Share,
+  Shield,
+  ShieldCheckmark,
   ShieldCheckmarkOutline,
   ShieldCheckmarkSharp,
-  ShieldCheckmark,
   ShieldOutline,
   ShieldSharp,
-  Shield,
+  Shirt,
   ShirtOutline,
   ShirtSharp,
-  Shirt,
+  Shuffle,
   ShuffleOutline,
   ShuffleSharp,
-  Shuffle,
+  Skull,
   SkullOutline,
   SkullSharp,
-  Skull,
+  Snow,
   SnowOutline,
   SnowSharp,
-  Snow,
+  Speedometer,
   SpeedometerOutline,
   SpeedometerSharp,
-  Speedometer,
+  Square,
   SquareOutline,
   SquareSharp,
-  Square,
+  Star,
+  StarHalf,
   StarHalfOutline,
   StarHalfSharp,
-  StarHalf,
   StarOutline,
   StarSharp,
-  Star,
+  StatsChart,
   StatsChartOutline,
   StatsChartSharp,
-  StatsChart,
+  Stop,
+  StopCircle,
   StopCircleOutline,
   StopCircleSharp,
-  StopCircle,
   StopOutline,
   StopSharp,
-  Stop,
+  Stopwatch,
   StopwatchOutline,
   StopwatchSharp,
-  Stopwatch,
+  Subway,
   SubwayOutline,
   SubwaySharp,
-  Subway,
+  Sunny,
   SunnyOutline,
   SunnySharp,
-  Sunny,
+  SwapHorizontal,
   SwapHorizontalOutline,
   SwapHorizontalSharp,
-  SwapHorizontal,
+  SwapVertical,
   SwapVerticalOutline,
   SwapVerticalSharp,
-  SwapVertical,
+  Sync,
+  SyncCircle,
   SyncCircleOutline,
   SyncCircleSharp,
-  SyncCircle,
   SyncOutline,
   SyncSharp,
-  Sync,
+  TabletLandscape,
   TabletLandscapeOutline,
   TabletLandscapeSharp,
-  TabletLandscape,
+  TabletPortrait,
   TabletPortraitOutline,
   TabletPortraitSharp,
-  TabletPortrait,
+  Tennisball,
   TennisballOutline,
   TennisballSharp,
-  Tennisball,
+  Terminal,
   TerminalOutline,
   TerminalSharp,
-  Terminal,
+  Text,
   TextOutline,
   TextSharp,
-  Text,
+  Thermometer,
   ThermometerOutline,
   ThermometerSharp,
-  Thermometer,
+  ThumbsDown,
   ThumbsDownOutline,
   ThumbsDownSharp,
-  ThumbsDown,
+  ThumbsUp,
   ThumbsUpOutline,
   ThumbsUpSharp,
-  ThumbsUp,
+  Thunderstorm,
   ThunderstormOutline,
   ThunderstormSharp,
-  Thunderstorm,
+  Time,
   TimeOutline,
   TimeSharp,
-  Time,
+  Timer,
   TimerOutline,
   TimerSharp,
-  Timer,
+  Today,
   TodayOutline,
   TodaySharp,
-  Today,
+  Toggle,
   ToggleOutline,
   ToggleSharp,
-  Toggle,
+  TrailSign,
   TrailSignOutline,
   TrailSignSharp,
-  TrailSign,
+  Train,
   TrainOutline,
   TrainSharp,
-  Train,
+  Transgender,
   TransgenderOutline,
   TransgenderSharp,
-  Transgender,
+  Trash,
+  TrashBin,
   TrashBinOutline,
   TrashBinSharp,
-  TrashBin,
   TrashOutline,
   TrashSharp,
-  Trash,
+  TrendingDown,
   TrendingDownOutline,
   TrendingDownSharp,
-  TrendingDown,
+  TrendingUp,
   TrendingUpOutline,
   TrendingUpSharp,
-  TrendingUp,
+  Triangle,
   TriangleOutline,
   TriangleSharp,
-  Triangle,
+  Trophy,
   TrophyOutline,
   TrophySharp,
-  Trophy,
+  Tv,
   TvOutline,
   TvSharp,
-  Tv,
+  Umbrella,
   UmbrellaOutline,
   UmbrellaSharp,
-  Umbrella,
+  Videocam,
   VideocamOutline,
   VideocamSharp,
-  Videocam,
+  VolumeHigh,
   VolumeHighOutline,
   VolumeHighSharp,
-  VolumeHigh,
+  VolumeLow,
   VolumeLowOutline,
   VolumeLowSharp,
-  VolumeLow,
+  VolumeMedium,
   VolumeMediumOutline,
   VolumeMediumSharp,
-  VolumeMedium,
+  VolumeMute,
   VolumeMuteOutline,
   VolumeMuteSharp,
-  VolumeMute,
+  VolumeOff,
   VolumeOffOutline,
   VolumeOffSharp,
-  VolumeOff,
+  Walk,
   WalkOutline,
   WalkSharp,
-  Walk,
+  Wallet,
   WalletOutline,
   WalletSharp,
-  Wallet,
+  Warning,
   WarningOutline,
   WarningSharp,
-  Warning,
+  Watch,
   WatchOutline,
   WatchSharp,
-  Watch,
+  Water,
   WaterOutline,
   WaterSharp,
-  Water,
+  Wifi,
   WifiOutline,
   WifiSharp,
-  Wifi,
+  Wine,
   WineOutline,
   WineSharp,
-  Wine,
+  Woman,
   WomanOutline,
-  WomanSharp,
-  Woman
+  WomanSharp
 }
 

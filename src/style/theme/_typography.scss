@@ -1,7 +1,7 @@
 @use 'sass:math';
 
-$font-family: 'Roboto, "Helvetica Neue", sans-serif';
-$html-font-size: 16px;
+$font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+$html-font-size: 14px;
 
 $font-weight-light: 300;
 $font-weight-regular: 400;
@@ -12,16 +12,20 @@ $font-weight-bold: 700;
   @return $size * 1px / $html-font-size * 1rem;
 }
 
+@function _round($value) {
+  @return math.round($value * 1e5) / 1e5;
+}
+
 @mixin build-style($font-weight, $size, $line-height, $letter-space, $text-transform: false) {
   $font-size: px2rem($size);
 
   font-weight: $font-weight;
   font-size: px2rem($size);
   line-height: $line-height;
-  letter-spacing: math.round($letter-space / $size) * 1rem;
+  letter-spacing: _round($letter-space / $size) * 1rem;
 
   @if ($text-transform) {
-    text-transform: 'uppercase';
+    text-transform: uppercase;
   }
 }
 
@@ -66,7 +70,7 @@ $font-weight-bold: 700;
 }
 
 @mixin button {
-  @include build-style($font-weight-regular, 14, 1.75, 0.4, true);
+  @include build-style($font-weight-medium, 14, 1.75, 0.4, true);
 }
 
 @mixin caption {

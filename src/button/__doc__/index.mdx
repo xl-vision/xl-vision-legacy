@@ -59,28 +59,22 @@ export default () => {
         </Button>
       </div>
       <div className='column'>
-        <Button>
-          <Icon.Search />
+        <Button prefixIcon={<Icon.Search />}>
           Default
         </Button>
-        <Button type='primary'>
+        <Button type='primary' suffixIcon={<Icon.Search />}>
           Primary
-          <Icon.Search />
         </Button>
-        <Button type='success'>
-          <Icon.Search />
+        <Button type='success' prefixIcon={<Icon.Search />}>
           Success
         </Button>
-        <Button type='warning'>
-          <Icon.Search />
+        <Button type='warning' prefixIcon={<Icon.Search />}>
           Warning
         </Button>
-        <Button type='error'>
-          <Icon.Search />
+        <Button type='error' prefixIcon={<Icon.Search />}>
           Error
         </Button>
-        <Button type='text'>
-          <Icon.Search />
+        <Button type='text' prefixIcon={<Icon.Search />}>
           Text
         </Button>
       </div>
@@ -611,6 +605,8 @@ export default () => {
 | shape | 设置按钮的形状，通常`circle`与[Icon](#/icon)连用 | string | cirlce &#x007c; round | - | false |
 | type | 设置按钮类型 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; text | default | false |
 | size | 设置按钮大小 | string | default &#x007c; large &#x007c; small | default | false |
+| prefixIcon | 前缀图标 | ReactElement | - | - | false |
+| suffixIcon | 后缀图标 | ReactElement | - | - | false |
 
 ## Group API
 

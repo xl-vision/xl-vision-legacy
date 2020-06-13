@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonSize } from './button'
+import { ButtonSize } from './Button'
 
 export interface ButtonContextState {
   size?: ButtonSize

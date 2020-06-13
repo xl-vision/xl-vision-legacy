@@ -2,8 +2,8 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { BreakPoint, breakPointArray } from './useMedia'
-import RowContext from './row-context'
-import ConfigContext from '../config-provider/context'
+import RowContext from './RowContext'
+import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 

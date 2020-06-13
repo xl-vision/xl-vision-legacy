@@ -1,10 +1,10 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ColProps } from './col'
+import { ColProps } from './Col'
 import useMedia, { BreakPoint, breakPointArray } from './useMedia'
-import RowContext from './row-context'
-import ConfigContext from '../config-provider/context'
+import RowContext from './RowContext'
+import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'top' | 'middle' | 'bottom'

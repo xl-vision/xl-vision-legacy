@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import ConfigContext from '../../config-provider/context'
+import ConfigContext from '../../ConfigProvider/ConfigContext'
 
 export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>

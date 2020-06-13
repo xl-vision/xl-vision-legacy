@@ -1,9 +1,9 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ButtonProps, ButtonSize } from './button'
-import ButtonContext from './button-context'
-import ConfigContext from '../config-provider/context'
+import { ButtonProps, ButtonSize } from './Button'
+import ButtonContext from './ButtonContext'
+import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | Array<React.ReactElement<ButtonProps>>

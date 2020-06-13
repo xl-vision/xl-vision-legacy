@@ -2,6 +2,9 @@
 @use '../functions/color' as *;
 @use 'sass:map';
 
+$white: #ffffff;
+$black: #000000;
+
 // state
 $opacity-enabled: 0;
 $opacity-hover: 0.04;
@@ -23,6 +26,9 @@ $light-secondary-text: palette.$light-secondary-text;
 $light-disabled-text: palette.$light-disabled-text;
 $light-dividers: palette.$light-dividers;
 $light-focused: palette.$light-focused;
+
+// background
+$background-default: map.get(palette.$gray, 50);
 
 $primary: (
   light: map.get(palette.$indigo, 300),

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import CssTransition from '../css-transition'
+import CssTransition from '../CssTransition'
 
 export interface CollapseTransitionProp {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>

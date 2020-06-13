@@ -1,9 +1,10 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import Reload from '../icon/icons/reload'
-import ButtonContext from './button-context'
-import ConfigContext from '../config-provider/context'
+import Reload from '../Icon/icons/Reload'
+import { IconProps } from '../icon/base/createIcon'
+import ButtonContext from './ButtonContext'
+import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export type ButtonSize = 'large' | 'default' | 'small'
 
@@ -22,6 +23,8 @@ export interface BaseButtonProps {
   shape?: 'circle' | 'round'
   size?: ButtonSize
   type?: 'default' | 'primary' | 'success' | 'warning' | 'error' | 'text'
+  prefixIcon?: React.ReactElement<IconProps>
+  suffixIcon?: React.ReactElement<IconProps>
 }
 
 export type ButtonProps = BaseButtonProps &
@@ -49,6 +52,8 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     children,
     clsPrefix = `${rootClsPrefix}-button`,
     onClick,
+    prefixIcon,
+    suffixIcon,
     ...others
   } = props
 
@@ -87,10 +92,36 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
     [onClick, disabled, loading]
   )
 
+  const prefixNode = React.useMemo(() => {
+    const classes = classnames(`${clsPrefix}__icon`, `${clsPrefix}__icon--prefix`)
+    if (loading) {
+      return <Reload className={classes} spin={true} />
+    }
+    if (!prefixIcon) {
+      return
+    }
+    const node = React.cloneElement(prefixIcon, {
+      className: classnames(prefixIcon.props.className, classes)
+    })
+    return node
+  }, [loading, prefixIcon, clsPrefix])
+
+  const suffixNode = React.useMemo(() => {
+    if (!suffixIcon) {
+      return
+    }
+    const classes = classnames(`${clsPrefix}__icon`, `${clsPrefix}__icon--suffix`)
+    const node = React.cloneElement(suffixIcon, {
+      className: classnames(suffixIcon.props.className, classes)
+    })
+    return node
+  }, [suffixIcon, clsPrefix])
+
   const childrenWrapper = (
     <>
-      {loading && <Reload className={`${clsPrefix}__icon`} spin={true} />}
+      {prefixNode}
       {formatChildren(children)}
+      {suffixNode}
     </>
   )
 
@@ -124,7 +155,9 @@ Button.propTypes = {
   clsPrefix: PropTypes.string,
   shape: PropTypes.oneOf<'circle' | 'round'>(['circle', 'round']),
   size: PropTypes.oneOf(['large', 'default', 'small']),
-  type: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text'])
+  type: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text']),
+  prefixIcon: PropTypes.element,
+  suffixIcon: PropTypes.element
 }
 
 export default Button
