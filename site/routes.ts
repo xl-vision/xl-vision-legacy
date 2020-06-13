@@ -60,6 +60,11 @@ const routes: Array<Route> = [
         component: import('../src/CssTransition/__doc__/index.mdx')
       },
       {
+        name: 'TransitionGroup',
+        path: '/TransitionGroup',
+        component: import('../src/TransitionGroup/__doc__/index.mdx')
+      },
+      {
         name: 'CollapseTransition',
         path: '/CollapseTransition',
         component: import('../src/CollapseTransition/__doc__/index.mdx')

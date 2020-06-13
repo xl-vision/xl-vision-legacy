@@ -1,4 +1,4 @@
-import { isClient } from './env'
+import { isBrowser } from './env'
 import { voidFn } from './function'
 
 let transitionProp = 'transition'
@@ -6,7 +6,7 @@ let transitionEndEvent = 'transitionend'
 let animationProp = 'animation'
 let animationEndEvent = 'animationend'
 
-if (isClient) {
+if (isBrowser) {
   if (
     window.ontransitionend === undefined &&
     (window as { onwebkittransitionend?: Function }).onwebkittransitionend !== undefined
@@ -92,7 +92,7 @@ const toMs = (s: string) => {
   return Number(s.slice(0, -1)) * 1000
 }
 
-export const raf = isClient
+export const raf = isBrowser
   ? window.requestAnimationFrame
     ? window.requestAnimationFrame.bind(window)
     : setTimeout

@@ -1,0 +1,315 @@
+# TransitionGroup
+
+> `TransitionGroup`可以很方便地进行列表过渡动画
+
+:::demo 基础用法
+
+基础用法
+
+```jsx
+import React from 'react'
+import { CssTransition, TransitionGroup, Button } from 'xl-vision'
+export default () => {
+  const nextNumRef = React.useRef(10)
+
+  const [items, setItems] = React.useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+  const add = React.useCallback(() => {
+    setItems((prev) => {
+      const index = parseInt(Math.random() * prev.length)
+      prev.splice(index, 0, nextNumRef.current++)
+      return [...prev]
+    })
+  }, [])
+
+  const remove = React.useCallback(() => {
+    setItems((prev) => {
+      const index = parseInt(Math.random() * prev.length)
+      prev.splice(index, 1)
+      return [...prev]
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button.Group>
+        <Button onClick={add}>add</Button>
+        <Button onClick={remove}>remove</Button>
+      </Button.Group>
+      <div className='list'>
+        <TransitionGroup classNames='item'>
+          {items.map((it) => (
+            <span key={it} className={'item'}>
+              {it}
+            </span>
+          ))}
+        </TransitionGroup>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.list {
+  position: relative;
+  margin-top: 10px;
+
+  &::deep {
+    .item-enter-active,
+    .item-leave-active {
+      transition: all 1s ease-in-out;
+    }
+
+    .item-leave-to,
+    .item-enter {
+      opacity: 0;
+    }
+
+    .item-leave,
+    .item-enter-to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    .item-enter {
+      transform: translateY(-30px);
+    }
+    .item-leave-to {
+      transform: translateY(30px);
+    }
+  }
+}
+
+.item {
+  display: inline-block;
+  margin-right: 10px;
+}
+```
+
+:::
+
+:::demo 列表过渡
+
+`TransitionGroup`内部使用了一个叫[FLIP](https://aerotwist.com/blog/flip-your-animations/)简单的动画队列。使用`transforms`将元素从之前的位置平滑过渡新的位置。通过`classNames`设置过渡动画。
+
+```jsx
+import React from 'react'
+import { CssTransition, TransitionGroup, Button } from 'xl-vision'
+export default () => {
+  const nextNumRef = React.useRef(10)
+
+  const [items, setItems] = React.useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+  const add = React.useCallback(() => {
+    setItems((prev) => {
+      const index = Math.floor(Math.random() * prev.length)
+      prev.splice(index, 0, nextNumRef.current++)
+      return [...prev]
+    })
+  }, [])
+
+  const remove = React.useCallback(() => {
+    setItems((prev) => {
+      const index = Math.floor(Math.random() * prev.length)
+      prev.splice(index, 1)
+      return [...prev]
+    })
+  }, [])
+
+  const shuffle = React.useCallback(() => {
+    setItems((prev) => {
+      const arr = []
+      let i = prev.length
+      while (i > 0) {
+        const index = Math.floor(Math.random() * i)
+        const item = prev.splice(index, 1)
+        arr.push(item)
+        i--
+      }
+      return arr
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button.Group>
+        <Button onClick={shuffle}>shuffle</Button>
+        <Button onClick={add}>add</Button>
+        <Button onClick={remove}>remove</Button>
+      </Button.Group>
+      <div className='list'>
+        <TransitionGroup classNames='item'>
+          {items.map((it) => (
+            <span key={it} className={'item'}>
+              {it}
+            </span>
+          ))}
+        </TransitionGroup>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.list {
+  position: relative;
+  margin-top: 10px;
+
+  &::deep {
+    .item-enter-active,
+    .item-leave-active {
+      transition: all 1s ease-in-out;
+    }
+
+    // 使离开动画更加平滑
+    .item-leave-active {
+      position: absolute;
+    }
+
+    .item-leave-to,
+    .item-enter {
+      opacity: 0;
+    }
+
+    .item-leave,
+    .item-enter-to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    .item-enter {
+      transform: translateY(-30px);
+    }
+    .item-leave-to {
+      transform: translateY(30px);
+    }
+
+    // 这是重点
+    .item-move {
+      transition: transform 1s ease-in-out;
+    }
+  }
+}
+
+.item {
+  display: inline-block;
+  margin-right: 10px;
+}
+```
+
+:::
+
+:::demo 网格过渡
+
+也可以实现多维网格的过渡
+
+```jsx
+import React from 'react'
+import { CssTransition, TransitionGroup, Button } from 'xl-vision'
+export default () => {
+  const [items, setItems] = React.useState(() => {
+    const arr = []
+    for (let i = 0; i < 100; i++) {
+      arr.push(i)
+    }
+    return arr
+  })
+
+  const shuffle = React.useCallback(() => {
+    setItems((prev) => {
+      const arr = []
+      let i = prev.length
+      while (i > 0) {
+        const index = Math.floor(Math.random() * i)
+        const item = prev.splice(index, 1)
+        arr.push(item)
+        i--
+      }
+      return arr
+    })
+  }, [])
+
+  return (
+    <div>
+      <Button.Group>
+        <Button onClick={shuffle}>shuffle</Button>
+      </Button.Group>
+      <div className='box'>
+        <TransitionGroup classNames='item'>
+          {items.map((it) => (
+            <div key={it} className={'item'}>
+              {it}
+            </div>
+          ))}
+        </TransitionGroup>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.box {
+  margin-top: 10px;
+  position: flex;
+  flex-wrap: wrap;
+  width: (25+1) * 10px;
+  &::deep {
+    .item-enter-active,
+    .item-leave-active {
+      transition: all 1s ease-in-out;
+    }
+
+    // 使离开动画更加平滑
+    .item-leave-active {
+      position: absolute;
+    }
+
+    .item-leave-to,
+    .item-enter {
+      opacity: 0;
+    }
+
+    .item-leave,
+    .item-enter-to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    .item-enter {
+      transform: translateY(-30px);
+    }
+    .item-leave-to {
+      transform: translateY(30px);
+    }
+
+    // 这是重点
+    .item-move {
+      transition: transform 1s ease-in-out;
+    }
+  }
+}
+
+.item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin: 0 -1px -1px 0;
+  border: 1px solid #aaa;
+}
+```
+
+:::
+
+## Transition API
+
+> 其他参数参看[CssTransition](#/CssTransition)
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| childFactory | 批量处理所有的子元素，通常用于批量使用 Transition 进行包裹 | (child: React.ReactElement) => React.ReactElement&#x3C;TransitionProps&#x3E; | - | (child: React.ReactElement) => child | false |
+| children | 数组或单个元素，需要为 Transition 或其子类型，可以配合`childFactory`使用 | React.ReactElement[] | - | — | true |

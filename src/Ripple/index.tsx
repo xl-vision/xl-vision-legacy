@@ -14,15 +14,7 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
 
   const [rippers, setRippers] = React.useState([])
 
-  const onClick = React.useCallback(() =>{
-
-  }, [])
-
-  return (
-    <span className={clsPrefix} onClick={onClick}>
-      {rippers}
-    </span>
-  )
+  return <span className={clsPrefix}>{rippers}</span>
 }
 
 export default Ripple

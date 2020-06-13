@@ -6,7 +6,6 @@ import useLayoutEffect from '../commons/utils/useLayoutEffect'
 import fillRef from '../commons/utils/fillRef'
 
 enum State {
-  STATE_INIT,
   STATE_APPEARING,
   STATE_APPEARED,
   STATE_ENTERING,
@@ -59,7 +58,9 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   afterAppear = afterAppear || afterEnter
   appearCancelled = appearCancelled || enterCancelled
 
-  const [state, setState] = React.useState(State.STATE_INIT)
+  const [state, setState] = React.useState(() =>
+    inProp ? (isAppear ? State.STATE_APPEARING : State.STATE_ENTERED) : State.STATE_LEAVED
+  )
 
   // 标记当前组件是否被卸载
   const mountStateCallback = useMountStateCallback()
@@ -105,24 +106,18 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   const inPropTrigger = useConstantCallback((inProp: boolean) => {
     const isMounted = mountStateCallback()
     if (inProp) {
-      // 还没有初始化
-      if (state === State.STATE_INIT) {
-        setState(isAppear ? State.STATE_APPEARING : State.STATE_ENTERED)
-        // 此时说明leave动画还没有完成，需要触发leaveCancelled
-      } else if (state === State.STATE_LEAVING) {
+      // 此时说明leave动画还没有完成，需要触发leaveCancelled
+      if (state === State.STATE_LEAVING) {
         leaveCancelled && leaveCancelled(childrenNodeRef.current!)
         // 确保组件还在挂载中，防止leaveCancelled中做了卸载操作
         if (isMounted) {
           setState(State.STATE_ENTERING)
         }
-      } else if (state !== State.STATE_ENTERED && state !== State.STATE_ENTERING) {
+      } else if (state === State.STATE_LEAVED) {
         setState(State.STATE_ENTERING)
       }
     } else {
-      // 还没有初始化，设置为离开状态
-      if (state === State.STATE_INIT) {
-        setState(State.STATE_LEAVED)
-      } else if (state === State.STATE_APPEARING) {
+      if (state === State.STATE_APPEARING) {
         appearCancelled && appearCancelled(childrenNodeRef.current!)
         // 确保组件还在挂载中，防止appearCancelled中做了卸载操作
         if (isMounted) {
@@ -135,7 +130,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
         if (isMounted) {
           setState(State.STATE_LEAVING)
         }
-      } else if (state !== State.STATE_LEAVING && state !== State.STATE_LEAVED) {
+      } else if (state === State.STATE_APPEARED || state === State.STATE_ENTERED) {
         setState(State.STATE_LEAVING)
       }
     }
@@ -191,7 +186,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     stateTrigger
   ])
 
-  const display = state !== State.STATE_INIT && state !== State.STATE_LEAVED
+  const display = state !== State.STATE_LEAVED
 
   if (!forceRender && !display) {
     return null
