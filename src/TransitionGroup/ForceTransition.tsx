@@ -1,10 +1,11 @@
 import React from 'react'
 import CssTransition, { CssTransitionProps } from '../CssTransition'
+import useLayoutEffect from '../commons/utils/useLayoutEffect'
 
 /**
  * 强制触发enter或leave动作
  */
-const ForceEnterTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
+const ForceTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
   const { in: inProp, children, ...others } = props
 
   // 本组件主要处理进出动画，不涉及appear，阻止其干扰
@@ -12,7 +13,8 @@ const ForceEnterTransition: React.FunctionComponent<CssTransitionProps> = (props
 
   const [showState, setShowState] = React.useState(!inProp)
 
-  React.useEffect(() => {
+  useLayoutEffect(() => {
+    console.log(1)
     setShowState((prev) => !prev)
   }, [])
 
@@ -23,4 +25,4 @@ const ForceEnterTransition: React.FunctionComponent<CssTransitionProps> = (props
   )
 }
 
-export default ForceEnterTransition
+export default ForceTransition

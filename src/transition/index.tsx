@@ -6,8 +6,6 @@ import useLayoutEffect from '../commons/utils/useLayoutEffect'
 import fillRef from '../commons/utils/fillRef'
 
 enum State {
-  STATE_APPEARING,
-  STATE_APPEARED,
   STATE_ENTERING,
   STATE_ENTERED,
   STATE_LEAVING,
@@ -15,29 +13,25 @@ enum State {
 }
 
 export interface TransitionProps {
-  afterAppear?: (el: HTMLElement) => void
-  afterEnter?: (el: HTMLElement) => void
-  afterLeave?: (el: HTMLElement) => void
-  appear?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
-  appearCancelled?: (el: HTMLElement) => void
-  beforeAppear?: (el: HTMLElement) => void
-  beforeEnter?: (el: HTMLElement) => void
-  beforeLeave?: (el: HTMLElement) => void
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  enter?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
-  enterCancelled?: (el: HTMLElement) => void
-  forceRender?: boolean
-  isAppear?: boolean
-  leave?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
-  leaveCancelled?: (el: HTMLElement) => void
   in: boolean
+  forceRender?: boolean
+  transitionOnFirst?: boolean
+  beforeEnter?: (el: HTMLElement) => void
+  enter?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
+  afterEnter?: (el: HTMLElement) => void
+  enterCancelled?: (el: HTMLElement) => void
+  beforeLeave?: (el: HTMLElement) => void
+  leave?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
+  afterLeave?: (el: HTMLElement) => void
+  leaveCancelled?: (el: HTMLElement) => void
 }
 
 const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   const {
     in: inProp,
     // 初次挂载时，如果是进入状态，是否触发appear动画
-    isAppear,
+    transitionOnFirst,
     afterEnter,
     afterLeave,
     beforeEnter,
@@ -50,16 +44,14 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     forceRender
   } = props
 
-  let { beforeAppear, appear, appearCancelled, afterAppear } = props
-
-  // 如果开启appear,默认使用enter的生命周期方法
-  beforeAppear = beforeAppear || beforeEnter
-  appear = appear || enter
-  afterAppear = afterAppear || afterEnter
-  appearCancelled = appearCancelled || enterCancelled
-
   const [state, setState] = React.useState(() =>
-    inProp ? (isAppear ? State.STATE_APPEARING : State.STATE_ENTERED) : State.STATE_LEAVED
+    inProp
+      ? transitionOnFirst
+        ? State.STATE_ENTERING
+        : State.STATE_ENTERED
+      : transitionOnFirst
+      ? State.STATE_LEAVING
+      : State.STATE_LEAVED
   )
 
   // 标记当前组件是否被卸载
@@ -117,20 +109,14 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
         setState(State.STATE_ENTERING)
       }
     } else {
-      if (state === State.STATE_APPEARING) {
-        appearCancelled && appearCancelled(childrenNodeRef.current!)
-        // 确保组件还在挂载中，防止appearCancelled中做了卸载操作
-        if (isMounted) {
-          setState(State.STATE_LEAVING)
-        }
-        // 此时说明enter动画还没有完成，需要触发enterCancelled
-      } else if (state === State.STATE_ENTERING) {
+      // 此时说明enter动画还没有完成，需要触发enterCancelled
+      if (state === State.STATE_ENTERING) {
         enterCancelled && enterCancelled(childrenNodeRef.current!)
         // 确保组件还在挂载中，防止enterCancelled中做了卸载操作
         if (isMounted) {
           setState(State.STATE_LEAVING)
         }
-      } else if (state === State.STATE_APPEARED || state === State.STATE_ENTERED) {
+      } else if (state === State.STATE_ENTERED) {
         setState(State.STATE_LEAVING)
       }
     }
@@ -146,17 +132,8 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   ])
 
   const stateTrigger = useConstantCallback((state: State) => {
-    if (state === State.STATE_APPEARING) {
-      beforeAppear && beforeAppear(childrenNodeRef.current!)
-      onTransitionEnd(
-        () => setState(State.STATE_APPEARED),
-        () => {
-          afterAppear && afterAppear(childrenNodeRef.current!)
-        },
-        appear
-      )
-      // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
-    } else if (state === State.STATE_ENTERING) {
+    // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
+    if (state === State.STATE_ENTERING) {
       beforeEnter && beforeEnter(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_ENTERED),
@@ -206,19 +183,15 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
 }
 
 Transition.propTypes = {
-  afterAppear: PropTypes.func,
+  transitionOnFirst: PropTypes.bool,
   afterEnter: PropTypes.func,
   afterLeave: PropTypes.func,
-  appear: PropTypes.func,
-  appearCancelled: PropTypes.func,
-  beforeAppear: PropTypes.func,
   beforeEnter: PropTypes.func,
   beforeLeave: PropTypes.func,
   children: PropTypes.element.isRequired,
   enter: PropTypes.func,
   enterCancelled: PropTypes.func,
   forceRender: PropTypes.bool,
-  isAppear: PropTypes.bool,
   leave: PropTypes.func,
   leaveCancelled: PropTypes.func,
   in: PropTypes.bool.isRequired

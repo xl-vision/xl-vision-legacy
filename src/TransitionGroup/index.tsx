@@ -5,16 +5,16 @@ import CssTransition, { CssTransitionProps, CssTransitionClassNamesObject } from
 import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass } from '../commons/utils/class'
 import { onTransitionEnd } from '../commons/utils/transition'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
-import computeQuene from './computeQuene'
+import computeQuene, { Data } from './computeQuene'
 import useLayoutEffect from '../commons/utils/useLayoutEffect'
+import useConstantCallback from '../commons/hooks/useConstantCallback'
 
 export interface TransitionGroupClassNames extends CssTransitionClassNamesObject {
   move?: string
 }
 
 export interface TransitionGroupProps
-  extends Omit<Omit<Omit<CssTransitionProps, 'children'>, 'in'>, 'classNames'> {
+  extends Omit<Omit<Omit<CssTransitionProps, 'children'>, 'show'>, 'classNames'> {
   children: Array<CssTransitionProps['children']>
   classNames?: string | TransitionGroupClassNames
 }
@@ -30,15 +30,13 @@ type PositionMap = {
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
   const { children, classNames, ...others } = props
 
-  const prevChildrenRef = React.useRef<Array<React.ReactElement>>([])
-  const childrenRef = React.useRef<Array<React.ReactElement>>([])
-
-  const createNode = React.useCallback(() => {
-    const prevChildren = (prevChildrenRef.current = childrenRef.current)
-    childrenRef.current = children
-  }, [children])
-
   const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
+
+  const nodesRef = React.useRef<NodeMap>({})
+  const oldPosRef = React.useRef<PositionMap>({})
+  const queneRef = React.useRef<Array<Data<React.ReactElement>>>([])
+
+  const computedRef = React.useRef(false)
 
   const moveClass = React.useMemo(() => {
     if (!classNames) {
@@ -49,6 +47,153 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     }
     return classNames.move
   }, [classNames])
+
+  const fillRefForElement = React.useCallback(
+    (element: React.ReactElement<React.HTMLAttributes<HTMLElement>>) => {
+      const cb = (node: HTMLElement) => {
+        if (!node) {
+          delete nodesRef.current[element.key!]
+        } else {
+          nodesRef.current[element.key!] = node
+        }
+      }
+      return fillRef(element, cb)
+    },
+    []
+  )
+
+  const prevChildrenRef = React.useRef<Array<React.ReactElement>>(
+    children.filter(Boolean).map(fillRefForElement)
+  )
+
+  const childrenTrigger = useConstantCallback((children: Array<React.ReactElement>) => {
+    oldPosRef.current = {}
+    const nodeMap = nodesRef.current
+    Object.keys(nodeMap).forEach((key) => {
+      const node = nodeMap[key]
+      oldPosRef.current[key] = node.getBoundingClientRect()
+    })
+
+    const prevChildren = prevChildrenRef.current
+
+    const refChildren = children.filter(Boolean).map(fillRefForElement)
+
+    const quene = (queneRef.current = computeQuene(prevChildren, refChildren))
+    const arr: Array<React.ReactElement> = []
+
+    for (const data of quene) {
+      if (data.same) {
+        const ele = data.next[0]
+        arr.push(ele)
+        continue
+      }
+      const prev = data.prev.map((it) => {
+        if (it.type === ForceTransition) {
+          return it
+        }
+        const { afterLeave, ...others2 } = others
+
+        const afterLeaveWrap = (el: HTMLElement) => {
+          afterLeave && afterLeave(el)
+          prevChildrenRef.current = prevChildrenRef.current.filter((prev) => prev.key !== it.key)
+        }
+
+        return (
+          <ForceTransition
+            {...others2}
+            afterLeave={afterLeaveWrap}
+            classNames={classNames}
+            in={false}
+            key={it.key!}
+          >
+            {it}
+          </ForceTransition>
+        )
+      })
+      data.prev = prev
+      arr.push(...prev)
+      const next = data.next
+      arr.push(...next)
+    }
+
+    setElements(arr)
+
+    computedRef.current = true
+  })
+
+  React.useEffect(() => {
+    childrenTrigger(children)
+  }, [children, childrenTrigger])
+
+  const elementsTrigger = useConstantCallback((elements: Array<React.ReactElement>) => {
+    if (!computedRef.current) {
+      return
+    }
+    computedRef.current = false
+
+    const nodeMap = nodesRef.current
+
+    const quene = queneRef.current
+    const arr: Array<React.ReactElement> = []
+    const movedNodes: Array<HTMLElement> = []
+
+    for (const data of quene) {
+      if (data.same) {
+        const ele = data.next[0]
+        arr.push(ele)
+        const key = ele.key + ''
+        const node = nodeMap[key]
+        const newPos = node.getBoundingClientRect()
+        const oldPos = oldPosRef.current[key]
+        if (!oldPos) {
+          return
+        }
+        const dx = oldPos.left - newPos.left
+        const dy = oldPos.top - newPos.top
+        if (dx || dy) {
+          const s = node.style
+          s.transform = s.webkitTransform = `translate(${dx}px,${dy}px)`
+          s.transitionDuration = '0s'
+          movedNodes.push(node)
+        }
+
+        continue
+      }
+      const prev = data.prev
+      const next = data.next.map((it) => {
+        return (
+          <ForceTransition {...others} key={it.key!} classNames={classNames} in={true}>
+            {it}
+          </ForceTransition>
+        )
+      })
+      arr.push(...prev)
+      arr.push(...next)
+    }
+
+    document.body.offsetHeight
+
+    if (moveClass) {
+      movedNodes.forEach((it) => {
+        const s = it.style
+        addClass(it, moveClass)
+        s.transform = s.webkitTransform = s.transitionDuration = ''
+
+        onTransitionEnd(it, () => {
+          removeClass(it, moveClass)
+        })
+      })
+    }
+    prevChildrenRef.current = arr
+    setElements(arr)
+  })
+
+  // 同步执行，避免闪烁
+  useLayoutEffect(() => {
+    console.log(2)
+
+    elementsTrigger(elements)
+  }, [elements, elementsTrigger])
 
   return <>{elements}</>
 }
