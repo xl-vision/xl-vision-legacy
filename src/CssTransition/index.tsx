@@ -14,6 +14,9 @@ export type CssTransitionClassNamesObject = {
   leave: string
   leaveActive: string
   leaveTo: string
+  disappear?: string
+  disappearActive?: string
+  disappearTo?: string
 }
 
 export type CssTransitionClassNames = CssTransitionClassNamesObject | string
@@ -27,6 +30,7 @@ export interface CssTransitionProps extends TransitionProps {
         appear?: number
         enter?: number
         leave?: number
+        disappear?: number
       }
 }
 
@@ -46,19 +50,6 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
     ...others
   } = props
 
-  let { beforeAppear, appear, appearCancelled, afterAppear } = others
-
-  delete others.beforeAppear
-  delete others.appear
-  delete others.appearCancelled
-  delete others.afterAppear
-
-  // 如果开启appear,默认使用enter的生命周期方法
-  beforeAppear = beforeAppear || beforeEnter
-  appear = appear || enter
-  afterAppear = afterAppear || afterEnter
-  appearCancelled = appearCancelled || enterCancelled
-
   const classNameMap = React.useMemo(() => {
     if (!classNames) {
       return null
@@ -75,7 +66,10 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
       enterTo: `${classNames}-enter-to`,
       leave: `${classNames}-leave`,
       leaveActive: `${classNames}-leave-active`,
-      leaveTo: `${classNames}-leave-to`
+      leaveTo: `${classNames}-leave-to`,
+      disappear: `${classNames}-disappear`,
+      disappearActive: `${classNames}-disappear-active`,
+      disappearTo: `${classNames}-disappear-to`
     }
   }, [classNames])
 
