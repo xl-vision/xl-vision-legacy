@@ -6,7 +6,7 @@ module.exports = {
     {
       src: path.join(__dirname, 'icons/ionicons/src/svg/*.svg'),
       nameFormatter: (name) => toCamel(name, true),
-      dest: 'src/icon/icons'
+      dest: 'src/icon'
     }
   ],
   template: path.join(__dirname, 'template/index.tsx'),

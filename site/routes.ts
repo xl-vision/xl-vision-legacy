@@ -27,7 +27,7 @@ const routes: Array<Route> = [
       {
         name: '图标',
         path: '/Icon',
-        component: import('../src/Icon/__doc__/index.mdx')
+        component: import('../src/icon/__doc__/index.mdx')
       },
       {
         name: '按钮',

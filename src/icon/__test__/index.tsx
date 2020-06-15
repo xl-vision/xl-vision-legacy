@@ -1,6 +1,6 @@
 import { mount, render } from 'enzyme'
 import React from 'react'
-import Icon from '..'
+import { createIcon } from '..'
 
 const svgElement = (
   <svg viewBox='0 0 448 512'>
@@ -9,7 +9,7 @@ const svgElement = (
 )
 
 describe('icon', () => {
-  const TestIcon = Icon.createIcon(svgElement)
+  const TestIcon = createIcon(svgElement)
   it('基本用法', () => {
     const wrapper = render(
       <TestIcon

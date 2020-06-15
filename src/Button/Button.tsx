@@ -1,8 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import Reload from '../Icon/icons/Reload'
-import { IconProps } from '../icon/base/createIcon'
+import { Reload, IconProps } from '../icon'
 import ButtonContext from './ButtonContext'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import Ripple from '../Ripple'
@@ -123,7 +122,7 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
       {prefixNode}
       {formatChildren(children)}
       {suffixNode}
-      <Ripple/>
+      <Ripple />
     </>
   )
 

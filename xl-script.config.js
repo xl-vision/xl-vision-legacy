@@ -124,7 +124,12 @@ module.exports = [
         name: 'docs',
         options: {
           dev: true,
-          tsConfig: 'tsconfig.site.json'
+          tsConfig: 'tsconfig.site.json',
+          alias: {
+            'xl-vision$': 'src/index.tsx',
+            'xl-vision/lib/icon': 'src/icon',
+            'xl-vision/es/icon': 'src/icon'
+          }
         }
       }
     ]
@@ -136,7 +141,12 @@ module.exports = [
         name: 'docs',
         options: {
           publicPath: '/xl-vision/',
-          tsConfig: 'tsconfig.site.json'
+          tsConfig: 'tsconfig.site.json',
+          alias: {
+            'xl-vision$': 'src/index.tsx',
+            'xl-vision/lib/': 'src',
+            'xl-vision/es': 'src'
+          }
         }
       }
     ]

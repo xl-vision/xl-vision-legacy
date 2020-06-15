@@ -1,12 +1,12 @@
-import IconSelect from '@/site/components/icon-select'
+import IconSelect from '@/site/components/IconSelect'
 
 # 图标
 
 语义化的矢量图形。图标来自[ionicons](http://ionicons.com/)
 
-> 引入 Icon 时会导致包的体积变大，如果需要 tree-shaking，减小体积。
+> 引入 Icon 时可能会导致包的体积变大，如果需要 tree-shaking，减小体积。
 
-> 请以这种方式引入:`import { Fab500px } from 'xl-vision/lib/icon`
+> 请以这种方式引入:`import AddCircleOutline from 'xl-vision/lib/icon/AddCircleOutline`
 
 ::: demo 基础用法
 
@@ -14,15 +14,15 @@ import IconSelect from '@/site/components/icon-select'
 
 ```jsx
 import React from 'react'
-import { Icon } from 'xl-vision'
+import { AddCircleOutline, Alarm, Albums, ArrowBack, Reload } from 'xl-vision/lib/icon'
 export default () => {
   return (
     <div className='demo'>
-      <Icon.AddCircleOutline size='2rem' />
-      <Icon.Alarm size={32} />
-      <Icon.Albums size={32} color='red' />
-      <Icon.ArrowBack size={32} rotate={20} />
-      <Icon.Reload size={32} spin />
+      <AddCircleOutline size='2rem' />
+      <Alarm size={32} />
+      <Albums size={32} color='red' />
+      <ArrowBack size={32} rotate={20} />
+      <Reload size={32} spin />
     </div>
   )
 }

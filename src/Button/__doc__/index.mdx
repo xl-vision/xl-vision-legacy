@@ -8,7 +8,9 @@
 
 ```jsx
 import React from 'react'
-import { Button, Icon } from 'xl-vision'
+import { Button } from 'xl-vision'
+import { Search } from 'xl-vision/lib/icon'
+
 export default () => {
   return (
     <div className='wrapper'>
@@ -59,22 +61,20 @@ export default () => {
         </Button>
       </div>
       <div className='column'>
-        <Button prefixIcon={<Icon.Search />}>
-          Default
-        </Button>
-        <Button type='primary' suffixIcon={<Icon.Search />}>
+        <Button prefixIcon={<Search />}>Default</Button>
+        <Button type='primary' suffixIcon={<Search />}>
           Primary
         </Button>
-        <Button type='success' prefixIcon={<Icon.Search />}>
+        <Button type='success' prefixIcon={<Search />}>
           Success
         </Button>
-        <Button type='warning' prefixIcon={<Icon.Search />}>
+        <Button type='warning' prefixIcon={<Search />}>
           Warning
         </Button>
-        <Button type='error' prefixIcon={<Icon.Search />}>
+        <Button type='error' prefixIcon={<Search />}>
           Error
         </Button>
-        <Button type='text' prefixIcon={<Icon.Search />}>
+        <Button type='text' prefixIcon={<Search />}>
           Text
         </Button>
       </div>
@@ -97,7 +97,8 @@ export default () => {
 
 ```jsx
 import React from 'react'
-import { Button, Icon } from 'xl-vision'
+import { Search } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
 export default () => {
   return (
     <div className='wrapper'>
@@ -121,22 +122,22 @@ export default () => {
       </div>
       <div className='column'>
         <Button shape='circle'>
-          <Icon.Search />
+          <Search />
         </Button>
         <Button shape='circle' type='primary'>
-          <Icon.Search />
+          <Search />
         </Button>
         <Button shape='circle' type='success'>
-          <Icon.Search />
+          <Search />
         </Button>
         <Button shape='circle' type='warning'>
-          <Icon.Search />
+          <Search />
         </Button>
         <Button shape='circle' type='error'>
-          <Icon.Search />
+          <Search />
         </Button>
         <Button shape='circle' type='text'>
-          <Icon.Search />
+          <Search />
         </Button>
       </div>
     </div>
@@ -158,7 +159,8 @@ export default () => {
 
 ```jsx
 import React from 'react'
-import { Button, Icon } from 'xl-vision'
+import { Search } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -197,27 +199,27 @@ export default () => {
       </div>
       <div className='column'>
         <Button size={size}>
-          <Icon.Search />
+          <Search />
           Default
         </Button>
         <Button size={size} type='primary'>
           Primary
-          <Icon.Search />
+          <Search />
         </Button>
         <Button size={size} type='success'>
-          <Icon.Search />
+          <Search />
           Success
         </Button>
         <Button size={size} type='warning'>
-          <Icon.Search />
+          <Search />
           Warning
         </Button>
         <Button size={size} type='error'>
-          <Icon.Search />
+          <Search />
           Error
         </Button>
         <Button size={size} type='text'>
-          <Icon.Search />
+          <Search />
           Text
         </Button>
       </div>
@@ -229,10 +231,10 @@ export default () => {
           Primary
         </Button>
         <Button size={size} shape='circle'>
-          <Icon.Search />
+          <Search />
         </Button>
         <Button size={size} shape='circle' type='primary'>
-          <Icon.Search />
+          <Search />
         </Button>
       </div>
     </div>
@@ -465,7 +467,8 @@ export default () => {
 
 ```jsx
 import React from 'react'
-import { Button, Icon } from 'xl-vision'
+import { ArrowBack, ArrowForward } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -505,12 +508,12 @@ export default () => {
       <div>
         <Button.Group size={size}>
           <Button>
-            <Icon.ArrowBack />
+            <ArrowBack />
             上一页
           </Button>
           <Button>
             下一页
-            <Icon.ArrowForward />
+            <ArrowForward />
           </Button>
         </Button.Group>
       </div>
@@ -533,7 +536,8 @@ export default () => {
 
 ```jsx
 import React from 'react'
-import { Button, Icon } from 'xl-vision'
+import { ArrowUp, ArrowDown } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
 export default () => {
   const [size, setSize] = React.useState('default')
   return (
@@ -568,11 +572,11 @@ export default () => {
       </Button.Group>
       <Button.Group vertical size={size}>
         <Button>
-          <Icon.ArrowUp />
+          <ArrowUp />
           上一页
         </Button>
         <Button>
-          <Icon.ArrowDown />
+          <ArrowDown />
           下一页
         </Button>
       </Button.Group>
