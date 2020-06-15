@@ -20,4 +20,8 @@ const BaseButton: React.ForwardRefRenderFunction<any, BaseButtonProps> = (props,
     disabled = false,
     ...others
   } = props
+
+  return <div></div>
 }
+
+export default BaseButton

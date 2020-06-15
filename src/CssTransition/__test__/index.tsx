@@ -36,12 +36,12 @@ describe('CssTransition', () => {
     })
   })
 
-  it('测试设置isAppear为true且show为true生命周期', async () => {
+  it('测试设置transitionOnFirst为true且show为true生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
         in={true}
-        isAppear={true}
+        transitionOnFirst={true}
         beforeAppear={() => call('beforeAppear')}
         classNames={classnameMap}
         appear={(_el, done, isCancelled) => {
@@ -105,12 +105,12 @@ describe('CssTransition', () => {
     call.mockClear()
   })
 
-  it('测试设置isAppear为true且show为false生命周期', async () => {
+  it('测试设置transitionOnFirst为true且show为false生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
         in={false}
-        isAppear={true}
+        transitionOnFirst={true}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
@@ -184,7 +184,7 @@ describe('CssTransition', () => {
     call.mockClear()
   })
 
-  it('测试不设置isAppear且show为false时的生命周期', async () => {
+  it('测试不设置transitionOnFirst且show为false时的生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
@@ -260,7 +260,7 @@ describe('CssTransition', () => {
     call.mockClear()
   })
 
-  it('测试不设置isAppear且show为true生命周期', async () => {
+  it('测试不设置transitionOnFirst且show为true生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
       <CssTransition
@@ -333,7 +333,7 @@ describe('CssTransition', () => {
     const wrapper = mount(
       <CssTransition
         in={true}
-        isAppear={true}
+        transitionOnFirst={true}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, _done, isCancelled) => {
@@ -410,7 +410,7 @@ describe('CssTransition', () => {
 
   it('测试包含className调用时机', async () => {
     const wrapper = mount(
-      <CssTransition isAppear in={true} classNames={'test'}>
+      <CssTransition transitionOnFirst in={true} classNames={'test'}>
         <div />
       </CssTransition>
     )
@@ -472,7 +472,7 @@ describe('CssTransition', () => {
 
   it('测试timeout调用时机', async () => {
     const wrapper = mount(
-      <CssTransition isAppear in={true} classNames={'test'} timeout={10}>
+      <CssTransition transitionOnFirst in={true} classNames={'test'} timeout={10}>
         <div />
       </CssTransition>
     )
@@ -538,7 +538,7 @@ describe('CssTransition', () => {
 
     const wrapper = mount(
       <CssTransition
-        isAppear
+        transitionOnFirst
         in={true}
         css={false}
         classNames={'test'}

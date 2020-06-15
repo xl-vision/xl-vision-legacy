@@ -122,7 +122,6 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
       {prefixNode}
       {formatChildren(children)}
       {suffixNode}
-      <Ripple />
     </>
   )
 

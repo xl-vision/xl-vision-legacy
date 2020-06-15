@@ -41,9 +41,10 @@ module.exports = {
       ],
       rules: {
         'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'warn',
+        'react-hooks/exhaustive-deps': 'error',
         'react/prop-types': 'off',
         'react/display-name': 'off',
+        'react/jsx-boolean-value': ['error', 'always'],
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
