@@ -55,9 +55,9 @@ const routes: Array<Route> = [
         component: import('../src/Transition/__doc__/index.mdx')
       },
       {
-        name: 'CssTransition',
-        path: '/CssTransition',
-        component: import('../src/CssTransition/__doc__/index.mdx')
+        name: 'CSSTransition',
+        path: '/CSSTransition',
+        component: import('../src/CSSTransition/__doc__/index.mdx')
       },
       {
         name: 'TransitionGroup',

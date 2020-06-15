@@ -13,7 +13,7 @@ describe('CollapseTransition', () => {
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper.setProps({
-      show: true
+      in: true
     })
 
     wrapper.update()
@@ -31,7 +31,7 @@ describe('CollapseTransition', () => {
     expect(wrapper.render()).toMatchSnapshot()
 
     wrapper.setProps({
-      show: true
+      in: true
     })
 
     wrapper.update()

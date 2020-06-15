@@ -85,4 +85,4 @@ BaseIcon.propTypes = {
   style: PropTypes.object
 }
 
-export default React.memo(BaseIcon)
+export default BaseIcon
