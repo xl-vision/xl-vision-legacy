@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ForceTransition from './ForceTransition'
-import CssTransition, { CssTransitionProps, CssTransitionClassNamesObject } from '../CssTransition'
+import CSSTransition, { CSSTransitionProps, CSSTransitionClassNamesObject } from '../CSSTransition'
 import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass, containClass } from '../commons/utils/class'
 import { onTransitionEnd } from '../commons/utils/transition'
@@ -9,13 +8,13 @@ import computeQuene, { Data } from './computeQuene'
 import useLayoutEffect from '../commons/utils/useLayoutEffect'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 
-export interface TransitionGroupClassNames extends CssTransitionClassNamesObject {
+export interface TransitionGroupClassNames extends CSSTransitionClassNamesObject {
   move?: string
 }
 
 export interface TransitionGroupProps
-  extends Omit<Omit<Omit<CssTransitionProps, 'children'>, 'show'>, 'classNames'> {
-  children: Array<CssTransitionProps['children']>
+  extends Omit<Omit<Omit<CSSTransitionProps, 'children'>, 'show'>, 'classNames'> {
+  children: Array<CSSTransitionProps['children']>
   classNames?: string | TransitionGroupClassNames
 }
 
@@ -60,6 +59,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   const nodesRef = React.useRef<NodeMap>({})
   const oldPosRef = React.useRef<PositionMap>({})
   const queneRef = React.useRef<Array<Data<React.ReactElement>>>([])
+  const transitionCancelRef = React.useRef<Array<ReturnType<typeof onTransitionEnd>>>([])
 
   const computedRef = React.useRef(false)
 
@@ -103,7 +103,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         continue
       }
       const prev = data.prev.map((it) => {
-        const isTransition = it.type === CssTransition
+        const isTransition = it.type === CSSTransition
         if (isTransition && it.props.in === false) {
           return it
         }
@@ -116,16 +116,16 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         }
 
         return (
-          <CssTransition
+          <CSSTransition
             {...others2}
-            transitionOnFirst
+            transitionOnFirst={true}
             afterLeave={afterLeaveWrap}
             classNames={classNames}
             in={false}
             key={it.key!}
           >
             {child}
-          </CssTransition>
+          </CSSTransition>
         )
       })
       data.prev = prev
@@ -153,70 +153,96 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 
     const quene = queneRef.current
     const arr: Array<React.ReactElement> = []
-    const movedNodes: Array<HTMLElement> = []
+    const movedElements: Array<React.ReactElement> = []
 
     for (const data of quene) {
       if (data.same) {
         const ele = data.next[0]
         arr.push(ele)
-        const key = ele.key + ''
-        const node = nodeMap[key]
-
-        // if (classNames.appearActive && containClass(node, classNames.appearActive)) {
-        //   return
-        // }
-
-        const newPos = node.getBoundingClientRect()
-        const oldPos = oldPosRef.current[key]
-        if (!oldPos) {
-          return
-        }
-        const dx = oldPos.left - newPos.left
-        const dy = oldPos.top - newPos.top
-        if (classNames.move && (dx || dy)) {
-          const s = node.style
-          s.transform = s.webkitTransform = `translate(${dx}px,${dy}px)`
-          s.transitionDuration = '0s'
-          movedNodes.push(node)
-        }
-
+        movedElements.push(ele)
         continue
       }
       const prev = data.prev
       const next = data.next.map((it) => {
         return (
-          <CssTransition
+          <CSSTransition
             {...others}
-            transitionOnFirst
+            transitionOnFirst={true}
             key={it.key!}
             classNames={classNames}
             in={true}
           >
             {it}
-          </CssTransition>
+          </CSSTransition>
         )
       })
       arr.push(...prev)
       arr.push(...next)
     }
 
-    document.body.offsetHeight
-
-    const moveClass = classNames.move
-
-    if (moveClass) {
-      movedNodes.forEach((it) => {
-        const s = it.style
-        addClass(it, moveClass)
-        s.transform = s.webkitTransform = s.transitionDuration = ''
-
-        onTransitionEnd(it, () => {
-          removeClass(it, moveClass)
-        })
-      })
-    }
     prevChildrenRef.current = arr
     setElements(arr)
+
+    transitionCancelRef.current.forEach((it) => {
+      it()
+    })
+    const moveClass = classNames.move
+
+    if (!moveClass) {
+      return
+    }
+
+    movedElements.forEach((it) => {
+      const node = nodeMap[it.key + '']
+      const s = node.style
+
+      if (classNames.appearActive && containClass(node, classNames.appearActive)) {
+        return
+      }
+
+      s.transform = s.webkitTransform = s.transitionDuration = ''
+
+      removeClass(node, moveClass)
+    })
+
+    document.body.offsetHeight
+
+    movedElements.forEach((it) => {
+      const key = it.key + ''
+      const node = nodeMap[key]
+      if (classNames.appearActive && containClass(node, classNames.appearActive)) {
+        return
+      }
+      const newPos = node.getBoundingClientRect()
+      const oldPos = oldPosRef.current[key]
+      if (!oldPos) {
+        return
+      }
+      const dx = oldPos.left - newPos.left
+      const dy = oldPos.top - newPos.top
+      console.log(dx)
+      if (dx || dy) {
+        const s = node.style
+        s.transform = s.webkitTransform = `translate(${dx}px,${dy}px)`
+        s.transitionDuration = '0s'
+      }
+    })
+    document.body.offsetHeight
+
+    transitionCancelRef.current = []
+
+    movedElements.forEach((it) => {
+      const key = it.key + ''
+      const node = nodeMap[key]
+      const s = node.style
+      addClass(node, moveClass)
+      s.transform = s.webkitTransform = s.transitionDuration = ''
+
+      const cb = onTransitionEnd(node, () => {
+        removeClass(node, moveClass)
+      })
+      transitionCancelRef.current.push(cb)
+    })
   })
 
   // 同步执行，避免闪烁
@@ -240,6 +266,9 @@ TransitionGroup.propTypes = {
       leave: PropTypes.string.isRequired,
       leaveActive: PropTypes.string.isRequired,
       leaveTo: PropTypes.string.isRequired,
+      disappear: PropTypes.string,
+      disappearActive: PropTypes.string,
+      disappearTo: PropTypes.string,
       move: PropTypes.string.isRequired
     })
   ]),

@@ -1,8 +1,8 @@
 import React from 'react'
-import CssTransition, { CssTransitionClassNames } from '../CssTransition'
+import CSSTransition, { CSSTransitionClassNames } from '../CSSTransition'
 
 export interface BaseRippleProps {
-  classNames: CssTransitionClassNames
+  classNames: CSSTransitionClassNames
   in: boolean
   size: number
   x: number
@@ -21,9 +21,9 @@ const Ripple: React.FunctionComponent<BaseRippleProps> = (props) => {
   }
 
   return (
-    <CssTransition in={inProp} classNames={classNames} afterEnter={onExit}>
+    <CSSTransition in={inProp} classNames={classNames} afterEnter={onExit}>
       <span style={styles}></span>
-    </CssTransition>
+    </CSSTransition>
   )
 }
 

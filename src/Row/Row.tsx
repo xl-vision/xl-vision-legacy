@@ -100,6 +100,7 @@ Row.propTypes = {
     'space-between'
   ]),
   clsPrefix: PropTypes.string,
-  type: PropTypes.oneOf<'flex'>(['flex'])
+  type: PropTypes.oneOf<'flex'>(['flex']),
+  style: PropTypes.object
 }
 export default Row

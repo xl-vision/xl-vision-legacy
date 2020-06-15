@@ -4,9 +4,7 @@
 
 :::demo 基础用法
 
-通过`CollaseTrannsition`包裹对应的元素来触发折叠和展开的动画效果。
-通过`transitionClassName`自定义动画方式。
-如果不指定，将使用默认动画`width/height 1s ease`
+通过`CollaseTrannsition`包裹对应的元素来触发折叠和展开的动画效果。通过`transitionClassName`自定义动画方式。如果不指定，将使用默认动画`width/height 1s ease`
 
 ```jsx
 import React from 'react'
@@ -23,7 +21,7 @@ export default () => {
       >
         Click
       </Button>
-      <CollapseTransition show={active} transitionClassName={'demo-fade'}>
+      <CollapseTransition in={active} transitionClassName={'demo-fade'}>
         <div className='demo'>DEMO</div>
       </CollapseTransition>
     </div>
@@ -68,7 +66,7 @@ export default () => {
       >
         Click
       </Button>
-      <CollapseTransition show={active} transitionClassName={'demo-fade'} horizontal>
+      <CollapseTransition in={active} transitionClassName={'demo-fade'} horizontal>
         <div className='demo'>DEMO</div>
       </CollapseTransition>
     </div>
@@ -99,7 +97,8 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
-| show | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | - | — | true |
+| in | 触发进出场动画,`true`表示进场，`false`表示出场 | boolean | - | — | true |
 | transitionClassName | 指定动画过程中的 class 名,如果不指定，会使用默认动画`height(width) 1s ease` | string | - | - | false |
 | children | 子元素 | React.ReactElement | - | — | true |
 | horizontal | 是否横向 | boolean | - | — | - |
+| transitionOnFirst | 是否初始化完成时就触发动画 | boolean | - | false | false |

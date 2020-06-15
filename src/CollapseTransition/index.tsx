@@ -1,17 +1,25 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import CssTransition from '../CssTransition'
+import CSSTransition from '../CSSTransition'
 
 export interface CollapseTransitionProp {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   forceRender?: boolean
-  show: boolean
+  in: boolean
   transitionClassName?: string
   horizontal?: boolean
+  transitionOnFirst?: boolean
 }
 
 const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (props) => {
-  const { children, transitionClassName, show, forceRender, horizontal } = props
+  const {
+    children,
+    transitionClassName,
+    in: inProp,
+    forceRender,
+    horizontal,
+    transitionOnFirst
+  } = props
 
   const wrapperRef = React.useRef<HTMLDivElement>(null)
 
@@ -73,19 +81,28 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
   }, [horizontal])
 
   return (
-    <CssTransition {...transitionEvents} in={show} forceRender={forceRender}>
+    <CSSTransition
+      transitionOnFirst={transitionOnFirst}
+      {...transitionEvents}
+      in={inProp}
+      forceRender={forceRender}
+    >
       <div className={transitionClassName} style={styles}>
         <div ref={wrapperRef} style={{ position: 'relative' }}>
           {children}
         </div>
       </div>
-    </CssTransition>
+    </CSSTransition>
   )
 }
 
 CollapseTransition.propTypes = {
   transitionClassName: PropTypes.string,
-  horizontal: PropTypes.bool
+  horizontal: PropTypes.bool,
+  children: PropTypes.element.isRequired,
+  in: PropTypes.bool.isRequired,
+  forceRender: PropTypes.bool,
+  transitionOnFirst: PropTypes.bool
 }
 
 export default CollapseTransition

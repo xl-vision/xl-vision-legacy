@@ -25,7 +25,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
       <div className={classes.actions}>
         <button onClick={onClick}>{expand ? '收起' : '展开'}</button>
       </div>
-      <CollapseTransition show={expand}>
+      <CollapseTransition in={expand}>
         <div className={classes.codes}>
           {blocks.map((it, index) => {
             return (

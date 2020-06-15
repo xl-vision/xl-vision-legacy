@@ -112,7 +112,7 @@ export default () => {
   const remove = React.useCallback(() => {
     setItems((prev) => {
       const index = Math.floor(Math.random() * prev.length)
-      prev.splice(index, 1)
+      prev.splice(0, 1)
       return [...prev]
     })
   }, [])

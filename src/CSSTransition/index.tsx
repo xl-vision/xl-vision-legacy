@@ -5,7 +5,7 @@ import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import Transition, { TransitionProps } from '../Transition'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 
-export type CssTransitionClassNamesObject = {
+export type CSSTransitionClassNamesObject = {
   appear?: string
   appearActive?: string
   appearTo?: string
@@ -20,11 +20,11 @@ export type CssTransitionClassNamesObject = {
   disappearTo?: string
 }
 
-export type CssTransitionClassNames = CssTransitionClassNamesObject | string
+export type CSSTransitionClassNames = CSSTransitionClassNamesObject | string
 
-export interface CssTransitionProps extends TransitionProps {
+export interface CSSTransitionProps extends TransitionProps {
   css?: boolean
-  classNames?: string | CssTransitionClassNames
+  classNames?: string | CSSTransitionClassNames
   timeout?:
     | number
     | {
@@ -35,7 +35,7 @@ export interface CssTransitionProps extends TransitionProps {
       }
 }
 
-const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
+const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const {
     css = true,
     classNames,
@@ -316,19 +316,19 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
   )
 }
 
-CssTransition.propTypes = {
+CSSTransition.propTypes = {
   classNames: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
       appear: PropTypes.string,
       appearActive: PropTypes.string,
       appearTo: PropTypes.string,
-      enter: PropTypes.string.isRequired,
-      enterActive: PropTypes.string.isRequired,
-      enterTo: PropTypes.string.isRequired,
-      leave: PropTypes.string.isRequired,
-      leaveActive: PropTypes.string.isRequired,
-      leaveTo: PropTypes.string.isRequired,
+      enter: PropTypes.string,
+      enterActive: PropTypes.string,
+      enterTo: PropTypes.string,
+      leave: PropTypes.string,
+      leaveActive: PropTypes.string,
+      leaveTo: PropTypes.string,
       disappear: PropTypes.string,
       disappearActive: PropTypes.string,
       disappearTo: PropTypes.string
@@ -343,7 +343,23 @@ CssTransition.propTypes = {
       disappear: PropTypes.number
     })
   ]),
-  css: PropTypes.bool
+  css: PropTypes.bool,
+  beforeAppear: PropTypes.func,
+  appear: PropTypes.func,
+  afterAppear: PropTypes.func,
+  appearCancelled: PropTypes.func,
+  beforeEnter: PropTypes.func,
+  enter: PropTypes.func,
+  afterEnter: PropTypes.func,
+  enterCancelled: PropTypes.func,
+  beforeLeave: PropTypes.func,
+  leave: PropTypes.func,
+  afterLeave: PropTypes.func,
+  leaveCancelled: PropTypes.func,
+  beforeDisappear: PropTypes.func,
+  disappear: PropTypes.func,
+  afterDisappear: PropTypes.func,
+  disappearCancelled: PropTypes.func
 }
 
-export default CssTransition
+export default CSSTransition

@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 
 ```jsx
 import React from 'react'
-import { CssTransition, Button } from 'xl-vision'
+import { CSSTransition, Button } from 'xl-vision'
 export default () => {
   const [active, setActive] = React.useState(true)
 
@@ -27,9 +27,9 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition in={active} classNames={'fade'}>
+      <CSSTransition in={active} classNames={'fade'}>
         <div className='demo'>DEMO</div>
-      </CssTransition>
+      </CSSTransition>
     </div>
   )
 }
@@ -74,7 +74,7 @@ export default () => {
 
 ```jsx
 import React from 'react'
-import { CssTransition, Button } from 'xl-vision'
+import { CSSTransition, Button } from 'xl-vision'
 export default () => {
   const [active, setActive] = React.useState(true)
 
@@ -88,13 +88,13 @@ export default () => {
         Click
       </Button>
       <p>进场</p>
-      <CssTransition transitionOnFirst in={active} classNames={'fade'}>
+      <CSSTransition transitionOnFirst in={active} classNames={'fade'}>
         <div className='demo'>DEMO</div>
-      </CssTransition>
+      </CSSTransition>
       <p>出场</p>
-      <CssTransition transitionOnFirst in={!active} classNames={'fade'}>
+      <CSSTransition transitionOnFirst in={!active} classNames={'fade'}>
         <div className='demo'>DEMO</div>
-      </CssTransition>
+      </CSSTransition>
     </div>
   )
 }
@@ -136,9 +136,9 @@ export default () => {
 
 :::
 
-## CssTransition API
+## CSSTransition API
 
-> CssTransition 继承所有<Link to="Transition">Transition</Link>属性
+> CSSTransition 继承所有<Link to="Transition">**Transition**</Link>属性
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |

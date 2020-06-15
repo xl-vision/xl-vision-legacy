@@ -29,8 +29,8 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   const transitionDurations: Array<string> = (styles[`${transitionProp}Duration`] || '').split(', ')
   const animationDelays: Array<string> = (styles[`${animationProp}Delay`] || '').split(', ')
   const animationDurations: Array<string> = (styles[`${animationProp}Duration`] || '').split(', ')
-  const transitionTimeout: number = getTimeout(transitionDelays, transitionDurations)
-  const animationTimeout: number = getTimeout(animationDelays, animationDurations)
+  const transitionTimeout: number = _getTimeout(transitionDelays, transitionDurations)
+  const animationTimeout: number = _getTimeout(animationDelays, animationDurations)
   let event = transitionEndEvent
   let timeout = transitionTimeout
   let eventCount = transitionDurations.length
@@ -75,23 +75,6 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   }
 }
 
-const getTimeout = (delays: Array<string>, durations: Array<string>) => {
-  while (delays.length < durations.length) {
-    delays = delays.concat(delays)
-  }
-
-  return Math.max.apply(
-    null,
-    durations.map((d, i) => {
-      return toMs(d) + toMs(delays[i])
-    })
-  )
-}
-
-const toMs = (s: string) => {
-  return Number(s.slice(0, -1)) * 1000
-}
-
 export const raf = isBrowser
   ? window.requestAnimationFrame
     ? window.requestAnimationFrame.bind(window)
@@ -102,4 +85,21 @@ export const nextFrame = (fn: Function) => {
   raf(() => {
     raf(fn)
   })
+}
+
+const _getTimeout = (delays: Array<string>, durations: Array<string>) => {
+  while (delays.length < durations.length) {
+    delays = delays.concat(delays)
+  }
+
+  return Math.max.apply(
+    null,
+    durations.map((d, i) => {
+      return _toMs(d) + _toMs(delays[i])
+    })
+  )
+}
+
+const _toMs = (s: string) => {
+  return Number(s.slice(0, -1)) * 1000
 }

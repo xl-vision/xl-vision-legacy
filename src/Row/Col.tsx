@@ -122,7 +122,8 @@ Col.propTypes = {
   clsPrefix: PropTypes.string,
   pull: spanValidator,
   push: spanValidator,
-  span: spanValidator
+  span: spanValidator,
+  style: PropTypes.object
 }
 
 export default Col

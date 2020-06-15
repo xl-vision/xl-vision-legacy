@@ -1,9 +1,9 @@
 import React from 'react'
-import CssTransition, { CssTransitionClassNames } from '../CssTransition'
+import CSSTransition, { CSSTransitionClassNames } from '../CSSTransition'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export interface RippleProps {
-  classNames: CssTransitionClassNames
+  classNames: CSSTransitionClassNames
   clsPrefix?: string
   in: boolean
 }

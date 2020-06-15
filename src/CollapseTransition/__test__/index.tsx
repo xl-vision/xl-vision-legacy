@@ -5,7 +5,7 @@ import CollapseTransition from '..'
 describe('CollapseTransition', () => {
   it('基本使用', () => {
     const wrapper = mount(
-      <CollapseTransition show={false}>
+      <CollapseTransition in={false}>
         <div />
       </CollapseTransition>
     )
@@ -23,7 +23,7 @@ describe('CollapseTransition', () => {
 
   it('测试horizontal', () => {
     const wrapper = mount(
-      <CollapseTransition horizontal={true} show={false}>
+      <CollapseTransition horizontal={true} in={false}>
         <div />
       </CollapseTransition>
     )

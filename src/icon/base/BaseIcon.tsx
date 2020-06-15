@@ -81,7 +81,8 @@ BaseIcon.propTypes = {
   clsPrefix: PropTypes.string,
   rotate: PropTypes.number,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  spin: PropTypes.bool
+  spin: PropTypes.bool,
+  style: PropTypes.object
 }
 
 export default React.memo(BaseIcon)

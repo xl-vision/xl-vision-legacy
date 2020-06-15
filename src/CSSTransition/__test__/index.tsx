@@ -1,11 +1,11 @@
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import CssTransition, { CssTransitionClassNames } from '..'
+import CSSTransition, { CSSTransitionClassNames } from '..'
 import wait from '../../../test/wait'
 import * as TransitionUtils from '../../commons/utils/transition'
 
-const classnameMap: CssTransitionClassNames = {
+const classnameMap: CSSTransitionClassNames = {
   appear: 'appear',
   appearActive: 'appearActive',
   appearTo: 'appearTo',
@@ -17,7 +17,7 @@ const classnameMap: CssTransitionClassNames = {
   leaveTo: 'leavtTo'
 }
 
-describe('CssTransition', () => {
+describe('CSSTransition', () => {
   let onTransitionEndSpy: jest.SpyInstance
   let nextFrameSpy: jest.SpyInstance
 
@@ -39,7 +39,7 @@ describe('CssTransition', () => {
   it('测试设置transitionOnFirst为true且show为true生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
-      <CssTransition
+      <CSSTransition
         in={true}
         transitionOnFirst={true}
         beforeAppear={() => call('beforeAppear')}
@@ -72,7 +72,7 @@ describe('CssTransition', () => {
         leaveCancelled={() => call('leaveCancelled')}
       >
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
     // 给动画执行时间
     await act(() => wait(100))
@@ -108,7 +108,7 @@ describe('CssTransition', () => {
   it('测试设置transitionOnFirst为true且show为false生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
-      <CssTransition
+      <CSSTransition
         in={false}
         transitionOnFirst={true}
         classNames={classnameMap}
@@ -141,7 +141,7 @@ describe('CssTransition', () => {
         leaveCancelled={() => call('leaveCancelled')}
       >
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
 
     // 给动画执行时间
@@ -187,7 +187,7 @@ describe('CssTransition', () => {
   it('测试不设置transitionOnFirst且show为false时的生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
-      <CssTransition
+      <CSSTransition
         in={false}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
@@ -219,7 +219,7 @@ describe('CssTransition', () => {
         leaveCancelled={() => call('leaveCancelled')}
       >
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
 
     // 给动画执行时间
@@ -263,7 +263,7 @@ describe('CssTransition', () => {
   it('测试不设置transitionOnFirst且show为true生命周期', async () => {
     const call = jest.fn()
     const wrapper = mount(
-      <CssTransition
+      <CSSTransition
         in={true}
         classNames={classnameMap}
         beforeAppear={() => call('beforeAppear')}
@@ -295,7 +295,7 @@ describe('CssTransition', () => {
         leaveCancelled={() => call('leaveCancelled')}
       >
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
     // 给动画执行时间
     await act(() => wait(100))
@@ -331,7 +331,7 @@ describe('CssTransition', () => {
     onTransitionEndSpy.mockImplementation(() => {})
     const call = jest.fn()
     const wrapper = mount(
-      <CssTransition
+      <CSSTransition
         in={true}
         transitionOnFirst={true}
         classNames={classnameMap}
@@ -364,7 +364,7 @@ describe('CssTransition', () => {
         leaveCancelled={() => call('leaveCancelled')}
       >
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
     // 给动画执行时间
     await act(() => wait(50))
@@ -410,9 +410,9 @@ describe('CssTransition', () => {
 
   it('测试包含className调用时机', async () => {
     const wrapper = mount(
-      <CssTransition transitionOnFirst in={true} classNames={'test'}>
+      <CSSTransition transitionOnFirst in={true} classNames={'test'}>
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
     // nextFrame未执行
     expect(wrapper.getDOMNode().classList).toContain('test-appear')
@@ -472,9 +472,9 @@ describe('CssTransition', () => {
 
   it('测试timeout调用时机', async () => {
     const wrapper = mount(
-      <CssTransition transitionOnFirst in={true} classNames={'test'} timeout={10}>
+      <CSSTransition transitionOnFirst in={true} classNames={'test'} timeout={10}>
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
     // nextFrame未执行
     expect(wrapper.getDOMNode().classList).toContain('test-appear')
@@ -537,7 +537,7 @@ describe('CssTransition', () => {
     const call = jest.fn()
 
     const wrapper = mount(
-      <CssTransition
+      <CSSTransition
         transitionOnFirst
         in={true}
         css={false}
@@ -574,7 +574,7 @@ describe('CssTransition', () => {
         leaveCancelled={() => call('leaveCancelled')}
       >
         <div />
-      </CssTransition>
+      </CSSTransition>
     )
     // enter beforeAppear
     expect(wrapper.getDOMNode().className).not.toContain('test')

@@ -1,7 +1,7 @@
 export { version } from '../package.json'
 export { default as ConfigProvider } from './ConfigProvider'
 export { default as Transition } from './Transition'
-export { default as CssTransition } from './CssTransition'
+export { default as CSSTransition } from './CSSTransition'
 export { default as TransitionGroup } from './TransitionGroup'
 export { default as CollapseTransition } from './CollapseTransition'
 export { default as Row } from './Row'
