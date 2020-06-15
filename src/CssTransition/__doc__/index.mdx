@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 # CSSTransition
 
@@ -70,7 +70,7 @@ export default () => {
 
 :::demo 自动触发进场动画
 
-设置`isAppear`，并默认开启动画时，会自动触发进场动画。可以通过`classnames`修改动画效果。
+设置`transitionOnFirst`，并默认开启动画时，会自动触发进出场动画。可以通过`classnames`修改动画效果。
 
 ```jsx
 import React from 'react'
@@ -87,7 +87,12 @@ export default () => {
       >
         Click
       </Button>
-      <CssTransition isAppear in={active} classNames={'fade'}>
+      <p>进场</p>
+      <CssTransition transitionOnFirst in={active} classNames={'fade'}>
+        <div className='demo'>DEMO</div>
+      </CssTransition>
+      <p>出场</p>
+      <CssTransition transitionOnFirst in={!active} classNames={'fade'}>
         <div className='demo'>DEMO</div>
       </CssTransition>
     </div>
@@ -108,11 +113,13 @@ export default () => {
 
 .fade-enter-active,
 .fade-leave-active,
-.fade-appear-active {
+.fade-appear-active,
+.fade-disappear-active {
   transition: opacity 2s ease, height 2s ease;
 }
 
 .fade-leave-to,
+.fade-disappear-to,
 .fade-appear,
 .fade-enter {
   height: 0;
@@ -120,6 +127,7 @@ export default () => {
 }
 
 .fade-leave,
+.fade-disappear,
 .fade-appear-to,
 .fade-enter-to {
   opacity: 1;

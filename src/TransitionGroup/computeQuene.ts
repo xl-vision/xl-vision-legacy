@@ -68,7 +68,7 @@ const computeQuene = <T extends React.ReactElement>(
       }
       // 2. i++,j++，保存记录，
       // 找到和next相同key的prev
-      const prevIndex = sameKeyObj[prev.key + ''].prevIndex
+      const prevIndex = sameKeyObj[next.key + ''].prevIndex
       quene.push({
         prev: [prevChildren[prevIndex]],
         next: [next],

@@ -3,17 +3,18 @@ import React from 'react'
 import { addClass, removeClass } from '../commons/utils/class'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import Transition, { TransitionProps } from '../Transition'
+import useConstantCallback from '../commons/hooks/useConstantCallback'
 
 export type CssTransitionClassNamesObject = {
   appear?: string
   appearActive?: string
   appearTo?: string
-  enter: string
-  enterActive: string
-  enterTo: string
-  leave: string
-  leaveActive: string
-  leaveTo: string
+  enter?: string
+  enterActive?: string
+  enterTo?: string
+  leave?: string
+  leaveActive?: string
+  leaveTo?: string
   disappear?: string
   disappearActive?: string
   disappearTo?: string
@@ -50,6 +51,28 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
     ...others
   } = props
 
+  let {
+    beforeAppear,
+    appear,
+    appearCancelled,
+    afterAppear,
+    beforeDisappear,
+    disappear,
+    afterDisappear,
+    disappearCancelled
+  } = props
+
+  // 如果开启transitionOnFirst,默认使用enter和leave的生命周期方法
+  beforeAppear = beforeAppear || beforeEnter
+  appear = appear || enter
+  afterAppear = afterAppear || afterEnter
+  appearCancelled = appearCancelled || enterCancelled
+
+  beforeDisappear = beforeDisappear || beforeLeave
+  disappear = disappear || leave
+  afterDisappear = afterDisappear || afterLeave
+  disappearCancelled = disappearCancelled || leaveCancelled
+
   const classNameMap = React.useMemo(() => {
     if (!classNames) {
       return null
@@ -83,22 +106,20 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
     return {
       appear: timeout,
       enter: timeout,
-      leave: timeout
+      leave: timeout,
+      disappear: timeout
     }
   }, [timeout])
 
-  const beforeAppearWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        classNameMap.appear && addClass(el, classNameMap.appear)
-        classNameMap.appearActive && addClass(el, classNameMap.appearActive)
-      }
-      beforeAppear && beforeAppear(el)
-    },
-    [classNameMap, beforeAppear, css]
-  )
+  const beforeAppearWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.appear && addClass(el, classNameMap.appear)
+      classNameMap.appearActive && addClass(el, classNameMap.appearActive)
+    }
+    beforeAppear && beforeAppear(el)
+  })
 
-  const appearWrapper = React.useCallback(
+  const appearWrapper = useConstantCallback(
     (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
       nextFrame(() => {
         if (!isCancelled()) {
@@ -115,52 +136,42 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
           appear && appear(el, done, isCancelled)
         }
       })
-    },
-    [classNameMap, appear, timeoutMap, css]
+    }
   )
 
-  const afterAppearWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
-        classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
-      }
-      afterAppear && afterAppear(el)
-    },
-    [classNameMap, afterAppear, css]
-  )
+  const afterAppearWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
+      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
+    }
+    afterAppear && afterAppear(el)
+  })
 
-  const appearCancelledWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
-        classNameMap.appear && removeClass(el, classNameMap.appear)
-        classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
-      }
-      appearCancelled && appearCancelled(el)
-    },
-    [classNameMap, appearCancelled, css]
-  )
+  const appearCancelledWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
+      classNameMap.appear && removeClass(el, classNameMap.appear)
+      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
+    }
+    appearCancelled && appearCancelled(el)
+  })
 
-  const beforeEnterWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        addClass(el, classNameMap.enter)
-        addClass(el, classNameMap.enterActive)
-      }
-      beforeEnter && beforeEnter(el)
-    },
-    [classNameMap, beforeEnter, css]
-  )
+  const beforeEnterWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.enter && addClass(el, classNameMap.enter)
+      classNameMap.enterActive && addClass(el, classNameMap.enterActive)
+    }
+    beforeEnter && beforeEnter(el)
+  })
 
-  const enterWrapper = React.useCallback(
+  const enterWrapper = useConstantCallback(
     (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
       nextFrame(() => {
         if (!isCancelled()) {
           if (css) {
             if (classNameMap) {
-              removeClass(el, classNameMap.enter)
-              addClass(el, classNameMap.enterTo)
+              classNameMap.enter && removeClass(el, classNameMap.enter)
+              classNameMap.enterTo && addClass(el, classNameMap.enterTo)
             }
             onTransitionEnd(el, done)
           }
@@ -171,52 +182,42 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
           enter && enter(el, done, isCancelled)
         }
       })
-    },
-    [classNameMap, enter, timeoutMap, css]
+    }
   )
 
-  const afterEnterWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        removeClass(el, classNameMap.enterActive)
-        removeClass(el, classNameMap.enterTo)
-      }
-      afterEnter && afterEnter(el)
-    },
-    [classNameMap, afterEnter, css]
-  )
+  const afterEnterWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.enterActive && removeClass(el, classNameMap.enterActive)
+      classNameMap.enterTo && removeClass(el, classNameMap.enterTo)
+    }
+    afterEnter && afterEnter(el)
+  })
 
-  const enterCancelledWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        removeClass(el, classNameMap.enterActive)
-        removeClass(el, classNameMap.enter)
-        removeClass(el, classNameMap.enterTo)
-      }
-      enterCancelled && enterCancelled(el)
-    },
-    [classNameMap, enterCancelled, css]
-  )
+  const enterCancelledWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.enterActive && removeClass(el, classNameMap.enterActive)
+      classNameMap.enter && removeClass(el, classNameMap.enter)
+      classNameMap.enterTo && removeClass(el, classNameMap.enterTo)
+    }
+    enterCancelled && enterCancelled(el)
+  })
 
-  const beforeLeaveWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        addClass(el, classNameMap.leave)
-        addClass(el, classNameMap.leaveActive)
-      }
-      beforeLeave && beforeLeave(el)
-    },
-    [classNameMap, beforeLeave, css]
-  )
+  const beforeLeaveWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.leave && addClass(el, classNameMap.leave)
+      classNameMap.leaveActive && addClass(el, classNameMap.leaveActive)
+    }
+    beforeLeave && beforeLeave(el)
+  })
 
-  const leaveWrapper = React.useCallback(
+  const leaveWrapper = useConstantCallback(
     (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
       nextFrame(() => {
         if (!isCancelled()) {
           if (css) {
             if (classNameMap) {
-              removeClass(el, classNameMap.leave)
-              addClass(el, classNameMap.leaveTo)
+              classNameMap.leave && removeClass(el, classNameMap.leave)
+              classNameMap.leaveTo && addClass(el, classNameMap.leaveTo)
             }
             onTransitionEnd(el, done)
           }
@@ -227,32 +228,70 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
           leave && leave(el, done, isCancelled)
         }
       })
-    },
-    [classNameMap, leave, timeoutMap, css]
+    }
   )
 
-  const afterLeaveWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        removeClass(el, classNameMap.leaveActive)
-        removeClass(el, classNameMap.leaveTo)
-      }
-      afterLeave && afterLeave(el)
-    },
-    [classNameMap, afterLeave, css]
+  const afterLeaveWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.leaveActive && removeClass(el, classNameMap.leaveActive)
+      classNameMap.leaveTo && removeClass(el, classNameMap.leaveTo)
+    }
+    afterLeave && afterLeave(el)
+  })
+
+  const leaveCancelledWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.leaveActive && removeClass(el, classNameMap.leaveActive)
+      classNameMap.leave && removeClass(el, classNameMap.leave)
+      classNameMap.leaveTo && removeClass(el, classNameMap.leaveTo)
+    }
+    leaveCancelled && leaveCancelled(el)
+  })
+
+  const beforeDisappearWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.disappear && addClass(el, classNameMap.disappear)
+      classNameMap.disappearActive && addClass(el, classNameMap.disappearActive)
+    }
+    beforeDisappear && beforeDisappear(el)
+  })
+
+  const disappearWrapper = useConstantCallback(
+    (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
+      nextFrame(() => {
+        if (!isCancelled()) {
+          if (css) {
+            if (classNameMap) {
+              classNameMap.disappear && removeClass(el, classNameMap.disappear)
+              classNameMap.disappearTo && addClass(el, classNameMap.disappearTo)
+            }
+            onTransitionEnd(el, done)
+          }
+          if (timeoutMap && timeoutMap.appear) {
+            setTimeout(done, timeoutMap.disappear)
+          }
+          disappear && disappear(el, done, isCancelled)
+        }
+      })
+    }
   )
 
-  const leaveCancelledWrapper = React.useCallback(
-    (el: HTMLElement) => {
-      if (css && classNameMap) {
-        removeClass(el, classNameMap.leaveActive)
-        removeClass(el, classNameMap.leave)
-        removeClass(el, classNameMap.leaveTo)
-      }
-      leaveCancelled && leaveCancelled(el)
-    },
-    [classNameMap, leaveCancelled, css]
-  )
+  const afterDisappearWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.disappearActive && removeClass(el, classNameMap.disappearActive)
+      classNameMap.disappearTo && removeClass(el, classNameMap.disappearTo)
+    }
+    afterDisappear && afterDisappear(el)
+  })
+
+  const disappearCancelledWrapper = useConstantCallback((el: HTMLElement) => {
+    if (css && classNameMap) {
+      classNameMap.disappearActive && removeClass(el, classNameMap.disappearActive)
+      classNameMap.disappear && removeClass(el, classNameMap.disappear)
+      classNameMap.disappearTo && removeClass(el, classNameMap.disappearTo)
+    }
+    disappearCancelled && disappearCancelled(el)
+  })
 
   return (
     <Transition
@@ -269,6 +308,10 @@ const CssTransition: React.FunctionComponent<CssTransitionProps> = (props) => {
       leave={leaveWrapper}
       afterLeave={afterLeaveWrapper}
       leaveCancelled={leaveCancelledWrapper}
+      beforeDisappear={beforeDisappearWrapper}
+      disappear={disappearWrapper}
+      afterDisappear={afterDisappearWrapper}
+      disappearCancelled={disappearCancelledWrapper}
     />
   )
 }
@@ -285,7 +328,10 @@ CssTransition.propTypes = {
       enterTo: PropTypes.string.isRequired,
       leave: PropTypes.string.isRequired,
       leaveActive: PropTypes.string.isRequired,
-      leaveTo: PropTypes.string.isRequired
+      leaveTo: PropTypes.string.isRequired,
+      disappear: PropTypes.string,
+      disappearActive: PropTypes.string,
+      disappearTo: PropTypes.string
     })
   ]),
   timeout: PropTypes.oneOfType([
@@ -293,7 +339,8 @@ CssTransition.propTypes = {
     PropTypes.shape({
       appear: PropTypes.number,
       enter: PropTypes.number,
-      leave: PropTypes.number
+      leave: PropTypes.number,
+      disappear: PropTypes.number
     })
   ]),
   css: PropTypes.bool
