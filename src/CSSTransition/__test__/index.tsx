@@ -70,6 +70,15 @@ describe('CSSTransition', () => {
         }}
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
+        beforeDisappear={(el) => call('beforeDisappear', el)}
+        disappear={(el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`disappear`, el)
+            done()
+          }
+        }}
+        afterDisappear={(el) => call('afterDisappear', el)}
+        disappearCancelled={(el) => call('disappearCancelled', el)}
       >
         <div />
       </CSSTransition>
@@ -139,6 +148,15 @@ describe('CSSTransition', () => {
         }}
         afterLeave={() => call('afterLeave')}
         leaveCancelled={() => call('leaveCancelled')}
+        beforeDisappear={(el) => call('beforeDisappear', el)}
+        disappear={(el, done, isCancelled) => {
+          if (!isCancelled()) {
+            call(`disappear`, el)
+            done()
+          }
+        }}
+        afterDisappear={(el) => call('afterDisappear', el)}
+        disappearCancelled={(el) => call('disappearCancelled', el)}
       >
         <div />
       </CSSTransition>
@@ -146,8 +164,11 @@ describe('CSSTransition', () => {
 
     // 给动画执行时间
     await act(() => wait(100))
-
-    expect(call.mock.calls.length).toBe(0)
+    expect(call.mock.calls.length).toBe(3)
+    expect(call.mock.calls[0][0]).toBe('beforeDisappear')
+    expect(call.mock.calls[1][0]).toBe('disappear')
+    expect(call.mock.calls[2][0]).toBe('afterDisappear')
+    call.mockClear()
 
     wrapper.setProps({
       in: true
