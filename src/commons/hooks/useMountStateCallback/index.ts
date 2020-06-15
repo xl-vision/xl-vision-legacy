@@ -1,9 +1,10 @@
-import { useRef, useCallback, useEffect } from 'react'
+import { useRef, useCallback } from 'react'
+import useLayoutEffect from '../../utils/useLayoutEffect'
 
 const useMountStateCallback = () => {
   const ref = useRef(false)
   const get = useCallback(() => ref.current, [])
-  useEffect(() => {
+  useLayoutEffect(() => {
     ref.current = true
     return () => {
       ref.current = false

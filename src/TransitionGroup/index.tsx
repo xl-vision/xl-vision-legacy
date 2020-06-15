@@ -13,7 +13,7 @@ export interface TransitionGroupClassNames extends CSSTransitionClassNamesObject
 }
 
 export interface TransitionGroupProps
-  extends Omit<Omit<Omit<CSSTransitionProps, 'children'>, 'show'>, 'classNames'> {
+  extends Omit<CSSTransitionProps, 'children' | 'in' | 'classNames'> {
   children: Array<CSSTransitionProps['children']>
   classNames?: string | TransitionGroupClassNames
 }
@@ -143,7 +143,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     childrenTrigger(children)
   }, [children, childrenTrigger])
 
-  const elementsTrigger = useConstantCallback((elements: Array<React.ReactElement>) => {
+  const elementsTrigger = useConstantCallback(() => {
     if (!computedRef.current) {
       return
     }
