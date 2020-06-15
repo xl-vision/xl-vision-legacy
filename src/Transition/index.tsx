@@ -94,31 +94,34 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   const childrenNodeRef = React.useRef<HTMLElement>()
 
   // 保存回调
-  const cbRef = React.useRef<(() => void) & { isFinished?: boolean }>()
+  const cbRef = React.useRef<() => void>()
 
   const onTransitionEnd = useConstantCallback(
     (
       // 回调完成后设置状态，此方法默认组件没有被卸载
       applyState: () => void,
       // 回调函数，此方法交给用户使用，无法保证期间不会存在导致状态变化的操作，比如卸载了组件
-      callback: (() => void) & { isFinished?: boolean },
+      callback: () => void,
       action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void
     ) => {
-      cbRef.current = callback
+      // 多次调用时，由于callback可能会相同(目前由于callback都是新创建的，不可能相同，这里主要做进一步防止)，所以这里创建一个新的函数
+      // 这个函数都是不同的，所以多次触发时可以保证isCancelled是准确的
+      const newCallback = () => callback()
+      cbRef.current = newCallback
       const ele = childrenNodeRef.current!
 
-      const isCancelled = () => callback !== cbRef.current || !!callback.isFinished
+      const isCancelled = () => newCallback !== cbRef.current
 
       // 判断回调是否执行了
       const wrapCallback = () => {
         if (!isCancelled() && mountStateCallback()) {
-          callback()
+          newCallback()
           // 确保组件还在挂载中，防止callback中做了卸载操作
           if (mountStateCallback()) {
             applyState()
           }
           // 防止重复触发
-          callback.isFinished = true
+          cbRef.current = undefined
         }
       }
       if (action) {
@@ -182,9 +185,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
       beforeAppear && beforeAppear(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_APPEARED),
-        () => {
-          afterAppear && afterAppear(childrenNodeRef.current!)
-        },
+        () => afterAppear && afterAppear(childrenNodeRef.current!),
         appear
       )
       // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
@@ -192,27 +193,21 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
       beforeEnter && beforeEnter(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_ENTERED),
-        () => {
-          afterEnter && afterEnter(childrenNodeRef.current!)
-        },
+        () => afterEnter && afterEnter(childrenNodeRef.current!),
         enter
       )
     } else if (state === State.STATE_LEAVING) {
       beforeLeave && beforeLeave(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_LEAVED),
-        () => {
-          afterLeave && afterLeave(childrenNodeRef.current!)
-        },
+        () => afterLeave && afterLeave(childrenNodeRef.current!),
         leave
       )
     } else if (state === State.STATE_DISAPPEARING) {
       beforeDisappear && beforeDisappear(childrenNodeRef.current!)
       onTransitionEnd(
         () => setState(State.STATE_DISAPPEARED),
-        () => {
-          afterDisappear && afterDisappear(childrenNodeRef.current!)
-        },
+        () => afterDisappear && afterDisappear(childrenNodeRef.current!),
         disappear
       )
     }

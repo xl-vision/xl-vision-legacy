@@ -17,7 +17,6 @@ describe('Transition', () => {
           }
         }}
         afterAppear={(el) => {
-          console.log('=========')
           call('afterAppear', el)
         }}
         appearCancelled={(el) => call('appearCancelled', el)}
