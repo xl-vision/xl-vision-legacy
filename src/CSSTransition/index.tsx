@@ -40,7 +40,10 @@ export interface CSSTransitionProps extends TransitionProps {
       }
 }
 
-type TransitionElement = HTMLElement & { _ctc: CSSTransitionClassNamesObject }
+export type TransitionElement = HTMLElement & {
+  _ctc?: CSSTransitionClassNamesObject
+  _done?: () => void
+}
 
 const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const {
@@ -313,6 +316,7 @@ const createBeforeEventHook = (
   nativeHook?: BeforeEventHook
 ): BeforeEventHook => {
   return (el: TransitionElement) => {
+    // for TransitionGroup
     el._ctc = {}
     if (ctc) {
       for (const name of Object.keys(ctc)) {
@@ -335,13 +339,26 @@ const createEventHook = (
   nativeHook?: EventHook
 ): EventHook => {
   return (el: TransitionElement, done: () => void, isCancelled: () => boolean) => {
+    let isInterrupt = false
+    let cancelEvent: () => void
+    let timeoutId: NodeJS.Timeout
+
+    const doneCb = () => {
+      el._done = undefined
+      done()
+    }
+
     nextFrame(() => {
+      // 被用户强制中断
+      if (isInterrupt) {
+        return
+      }
       if (!isCancelled()) {
         for (const name of removedClassNames) {
-          const clazz = el._ctc[name]
+          const clazz = el._ctc![name]
           if (clazz) {
             removeClass(el, clazz)
-            delete el._ctc[name]
+            delete el._ctc![name]
           }
         }
         if (ctc) {
@@ -350,17 +367,33 @@ const createEventHook = (
             const clazz = ctc[key]
             if (clazz) {
               addClass(el, clazz)
-              el._ctc[key] = clazz
+              el._ctc![key] = clazz
             }
           }
-          onTransitionEnd(el, done)
         }
         if (timeout && timeout > 0) {
-          setTimeout(done, timeout)
+          timeoutId = setTimeout(doneCb, timeout)
+        } else {
+          cancelEvent = onTransitionEnd(el, doneCb)
         }
-        nativeHook && nativeHook(el, done, isCancelled)
       }
+      nativeHook && nativeHook(el, doneCb, isCancelled)
     })
+
+    el._done = () => {
+      isInterrupt = true
+      // 清除事件
+      cancelEvent && cancelEvent()
+      clearTimeout(timeoutId)
+      if (!el._ctc) {
+        return
+      }
+      // 移除所有样式
+      for (const clazz of Object.values(el._ctc)) {
+        clazz && el.classList.remove(clazz)
+      }
+      doneCb()
+    }
   }
 }
 
@@ -368,11 +401,11 @@ const createAfterOrCancelledEventHook = (
   nativeHook?: AfterEventHook | EventCancelledHook
 ): NonNullable<typeof nativeHook> => {
   return (el: TransitionElement) => {
-    for (const name of Object.keys(el._ctc)) {
+    for (const name of Object.keys(el._ctc!)) {
       const key = name as keyof CSSTransitionClassNamesObject
-      const clazz = el._ctc[key]
+      const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
-      delete el._ctc[key]
+      delete el._ctc![key]
     }
     nativeHook && nativeHook(el)
   }
