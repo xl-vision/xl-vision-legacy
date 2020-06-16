@@ -40,12 +40,13 @@ export interface TransitionGroupProps
   > {
   children: Array<CSSTransitionProps['children']>
   classNames?: string | TransitionGroupClassNames
+  tag?: React.ElementType<{}>
 }
 
 type TransitionGroupElement = TransitionElement & { _move?: () => void; _oldPos?: DOMRect }
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
-  const { children, classNames: _classNames, ...others } = props
+  const { children, classNames: _classNames, tag: Tag = React.Fragment, ...others } = props
 
   // 阻止用户故意传入appear和disappear钩子
   /* eslint-disable */
@@ -264,7 +265,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     elementsTrigger()
   }, [flag, elementsTrigger])
 
-  return <>{elements}</>
+  return <Tag>{elements}</Tag>
 }
 
 TransitionGroup.propTypes = {
@@ -280,7 +281,9 @@ TransitionGroup.propTypes = {
       move: PropTypes.string.isRequired
     })
   ]),
-  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  tag: PropTypes.elementType as any
 }
 
 export default TransitionGroup
