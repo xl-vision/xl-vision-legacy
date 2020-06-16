@@ -86,8 +86,17 @@ module.exports = [
   {
     name: 'task:dist',
     tasks: [
+      // 项目
       {
         name: 'bundle'
+      },
+      // icon
+      {
+        name: 'bundle',
+        options: {
+          entry: 'src/icon',
+          libraryName: 'xl-vision-icon'
+        }
       },
       {
         name: 'compile:scss',
@@ -106,13 +115,6 @@ module.exports = [
           sourceMap: true,
           rename: 'xl-vision.min.css',
           beautify: false
-        }
-      },
-      {
-        name: 'copy',
-        options: {
-          from: ['src/**/*.scss', '!**/__*__/**'],
-          to: 'es'
         }
       }
     ]
