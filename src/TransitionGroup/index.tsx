@@ -11,8 +11,13 @@ import { onTransitionEnd, getTransitionInfo, raf } from '../commons/utils/transi
 import computeQuene, { Data } from './computeQuene'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
+import { warning } from '../commons/utils/logger'
 
-export interface TransitionGroupClassNames extends CSSTransitionClassNamesObject {
+export interface TransitionGroupClassNames
+  extends Omit<
+    CSSTransitionClassNamesObject,
+    'appear' | 'appearActive' | 'appearTo' | 'disappear' | 'disappearActive' | 'disappearTo'
+  > {
   move?: string
 }
 
@@ -37,10 +42,6 @@ export interface TransitionGroupProps
   classNames?: string | TransitionGroupClassNames
 }
 
-type NodeMap = {
-  [key: string]: TransitionGroupElement
-}
-
 type TransitionGroupElement = TransitionElement & { _move?: () => void; _oldPos?: DOMRect }
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
@@ -59,7 +60,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   /* eslint-enable */
 
   const classNames = React.useMemo(() => {
-    let obj: TransitionGroupClassNames = {}
+    let obj: CSSTransitionClassNamesObject & { move?: string } = {}
 
     // 组件实际上是使用CSSTransition的appear和disappear钩子实现动画，但是向用户隐藏实现细节，
     // 所以这里需要将enter和leave的class设置到appear和disappear上
@@ -93,14 +94,19 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 
   const computedRef = React.useRef(false)
 
-  const nodesRef = React.useRef<NodeMap>({})
+  const nodeMapRef = React.useRef<Map<string | number, TransitionGroupElement>>()
 
   const fillRefForElement = React.useCallback((element: React.ReactElement) => {
+    const nodeMap = (nodeMapRef.current =
+      nodeMapRef.current || new Map<string | number, TransitionGroupElement>())
+    const key = element.key
+    warning(!key, '<TransitioGroup> must has a key')
+
     const cb = (node: HTMLElement) => {
       if (!node) {
-        delete nodesRef.current[element.key!]
+        nodeMap.delete(key!)
       } else {
-        nodesRef.current[element.key!] = node
+        nodeMap.set(key!, node)
       }
     }
     return fillRef(element, cb)
@@ -111,15 +117,16 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   )
 
   const childrenTrigger = useConstantCallback((children: Array<React.ReactElement>) => {
-    const nodeMap = nodesRef.current
-    Object.keys(nodeMap).forEach((key) => {
-      const node = nodeMap[key]
-      node._oldPos = node.getBoundingClientRect()
-    })
+    const nodeMap = nodeMapRef.current
+    if (nodeMap) {
+      nodeMap.forEach((node) => {
+        node._oldPos = node.getBoundingClientRect()
+      })
+    }
 
     const prevChildren = prevChildrenRef.current
 
-    const refChildren = children.filter(Boolean).map(fillRefForElement)
+    const refChildren = children.map(fillRefForElement)
 
     const quene = (queneRef.current = computeQuene(prevChildren, refChildren))
     const arr: Array<React.ReactElement> = []
@@ -172,6 +179,8 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     childrenTrigger(children)
   }, [children, childrenTrigger])
 
+  // Transition中需要触发两次layoutEffect才能正确调用hook
+  // 这里等待Transition逻辑执行完毕
   useLayoutEffect(() => {
     if (computedRef.current) {
       setFlag((prev) => !prev)
@@ -184,7 +193,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     }
     computedRef.current = false
 
-    const nodeMap = nodesRef.current
+    const nodeMap = nodeMapRef.current
 
     const quene = queneRef.current
     const arr: Array<React.ReactElement> = []
@@ -194,9 +203,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       if (data.same) {
         const ele = data.prev[0]
         arr.push(ele)
-        const node = nodeMap[ele.key + '']
-        if (node) {
-          sameNodes.push(node)
+        if (nodeMap) {
+          const node = nodeMap.get(ele.key!)
+          if (node) {
+            sameNodes.push(node)
+          }
         }
         continue
       }
@@ -260,18 +271,12 @@ TransitionGroup.propTypes = {
   classNames: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
-      appear: PropTypes.string,
-      appearActive: PropTypes.string,
-      appearTo: PropTypes.string,
       enter: PropTypes.string.isRequired,
       enterActive: PropTypes.string.isRequired,
       enterTo: PropTypes.string.isRequired,
       leave: PropTypes.string.isRequired,
       leaveActive: PropTypes.string.isRequired,
       leaveTo: PropTypes.string.isRequired,
-      disappear: PropTypes.string,
-      disappearActive: PropTypes.string,
-      disappearTo: PropTypes.string,
       move: PropTypes.string.isRequired
     })
   ]),

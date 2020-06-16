@@ -267,27 +267,27 @@ CSSTransition.propTypes = {
   classNames: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
-      appear: PropTypes.string,
-      appearActive: PropTypes.string,
-      appearTo: PropTypes.string,
-      enter: PropTypes.string,
-      enterActive: PropTypes.string,
-      enterTo: PropTypes.string,
-      leave: PropTypes.string,
-      leaveActive: PropTypes.string,
-      leaveTo: PropTypes.string,
-      disappear: PropTypes.string,
-      disappearActive: PropTypes.string,
-      disappearTo: PropTypes.string
+      appear: PropTypes.string.isRequired,
+      appearActive: PropTypes.string.isRequired,
+      appearTo: PropTypes.string.isRequired,
+      enter: PropTypes.string.isRequired,
+      enterActive: PropTypes.string.isRequired,
+      enterTo: PropTypes.string.isRequired,
+      leave: PropTypes.string.isRequired,
+      leaveActive: PropTypes.string.isRequired,
+      leaveTo: PropTypes.string.isRequired,
+      disappear: PropTypes.string.isRequired,
+      disappearActive: PropTypes.string.isRequired,
+      disappearTo: PropTypes.string.isRequired
     })
   ]),
   timeout: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.shape({
-      appear: PropTypes.number,
-      enter: PropTypes.number,
-      leave: PropTypes.number,
-      disappear: PropTypes.number
+      appear: PropTypes.number.isRequired,
+      enter: PropTypes.number.isRequired,
+      leave: PropTypes.number.isRequired,
+      disappear: PropTypes.number.isRequired
     })
   ]),
   css: PropTypes.bool,
