@@ -1,15 +1,15 @@
 @use './var' as *;
 @use '../../style/mixins/clearfix' as *;
 
-$row: #{$cls-prefix}-row;
-.#{$row} {
+$grid: #{$cls-prefix}-grid;
+.#{$grid} {
   position: relative;
   box-sizing: border-box;
 
   @include clearfix();
 }
 
-.#{$row}-flex {
+.#{$grid}-flex {
   display: flex;
   flex-direction: row;
 

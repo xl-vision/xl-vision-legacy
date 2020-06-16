@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ColProps } from './Col'
 import useMedia, { BreakPoint, breakPointArray } from './useMedia'
-import RowContext from './RowContext'
+import RowContext from './GridContext'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 
-export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'top' | 'middle' | 'bottom'
   children: React.ReactElement<ColProps> | Array<React.ReactElement<ColProps>>
   className?: string
@@ -16,7 +16,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'flex'
 }
 
-const Row: React.FunctionComponent<RowProps> = (props) => {
+const Grid: React.FunctionComponent<GridProps> = (props) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
 
   const {
@@ -27,7 +27,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
     style,
     children,
     gutter,
-    clsPrefix = `${rootClsPrefix}-row`,
+    clsPrefix = `${rootClsPrefix}-grid`,
     ...others
   } = props
 
@@ -74,7 +74,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
   )
 }
 
-Row.propTypes = {
+Grid.propTypes = {
   align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>(['top', 'middle', 'bottom']),
   children: PropTypes.oneOfType([
     PropTypes.element.isRequired,
@@ -103,4 +103,4 @@ Row.propTypes = {
   type: PropTypes.oneOf<'flex'>(['flex']),
   style: PropTypes.object
 }
-export default Row
+export default Grid

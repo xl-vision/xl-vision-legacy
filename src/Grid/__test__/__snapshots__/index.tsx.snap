@@ -3,10 +3,10 @@
 exports[`Grid flex布局 1`] = `
 <div>
   <div
-    class="grid-row-box grid-row-box--flex"
+    class="box"
   >
     <div
-      class="xl-row-flex xl-row-flex--top"
+      class="xl-grid-flex xl-grid-flex--top"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -14,7 +14,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -24,7 +24,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -34,7 +34,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -44,7 +44,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>
@@ -52,10 +52,10 @@ exports[`Grid flex布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box grid-row-box--flex"
+    class="box"
   >
     <div
-      class="xl-row-flex xl-row-flex--middle"
+      class="xl-grid-flex xl-grid-flex--middle"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -63,7 +63,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -73,7 +73,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -83,7 +83,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -93,7 +93,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>
@@ -101,10 +101,10 @@ exports[`Grid flex布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box grid-row-box--flex"
+    class="box"
   >
     <div
-      class="xl-row-flex xl-row-flex--bottom"
+      class="xl-grid-flex xl-grid-flex--bottom"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -112,7 +112,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -122,7 +122,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -132,7 +132,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -142,7 +142,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>
@@ -150,10 +150,10 @@ exports[`Grid flex布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box grid-row-box--flex"
+    class="box"
   >
     <div
-      class="xl-row-flex xl-row-flex--start"
+      class="xl-grid-flex xl-grid-flex--start"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -161,7 +161,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -171,7 +171,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -181,7 +181,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -189,10 +189,10 @@ exports[`Grid flex布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box grid-row-box--flex"
+    class="box"
   >
     <div
-      class="xl-row-flex xl-row-flex--center"
+      class="xl-grid-flex xl-grid-flex--center"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -200,7 +200,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -210,7 +210,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -220,7 +220,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -228,10 +228,10 @@ exports[`Grid flex布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box grid-row-box--flex"
+    class="box"
   >
     <div
-      class="xl-row-flex xl-row-flex--end"
+      class="xl-grid-flex xl-grid-flex--end"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -239,7 +239,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -249,7 +249,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -259,7 +259,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -267,10 +267,10 @@ exports[`Grid flex布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box grid-row-box--flex"
+    class="box"
   >
     <div
-      class="xl-row-flex"
+      class="xl-grid-flex"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -278,7 +278,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -288,7 +288,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -298,7 +298,7 @@ exports[`Grid flex布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -311,10 +311,10 @@ exports[`Grid flex布局 1`] = `
 exports[`Grid 偏移布局 1`] = `
 <div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -322,7 +322,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -332,7 +332,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -342,7 +342,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -350,10 +350,10 @@ exports[`Grid 偏移布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -361,7 +361,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -371,7 +371,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -381,7 +381,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -391,7 +391,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>
@@ -399,10 +399,10 @@ exports[`Grid 偏移布局 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -410,7 +410,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -420,7 +420,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -430,7 +430,7 @@ exports[`Grid 偏移布局 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>
@@ -443,10 +443,10 @@ exports[`Grid 偏移布局 1`] = `
 exports[`Grid 响应式偏移 1`] = `
 <div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -454,7 +454,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -464,7 +464,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -474,7 +474,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -482,10 +482,10 @@ exports[`Grid 响应式偏移 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -493,7 +493,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -503,7 +503,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -513,7 +513,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -521,10 +521,10 @@ exports[`Grid 响应式偏移 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -532,7 +532,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -542,7 +542,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -552,7 +552,7 @@ exports[`Grid 响应式偏移 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -564,16 +564,16 @@ exports[`Grid 响应式偏移 1`] = `
 
 exports[`Grid 响应式布局 1`] = `
 <div
-  class="grid-row-box"
+  class="box"
 >
   <div
-    class="xl-row"
+    class="xl-grid"
   >
     <div
       class="xl-col"
     >
       <div
-        class="grid-col-box"
+        class="col"
       >
         col1
       </div>
@@ -582,7 +582,7 @@ exports[`Grid 响应式布局 1`] = `
       class="xl-col"
     >
       <div
-        class="grid-col-box"
+        class="col"
       >
         col2
       </div>
@@ -591,7 +591,7 @@ exports[`Grid 响应式布局 1`] = `
       class="xl-col"
     >
       <div
-        class="grid-col-box"
+        class="col"
       >
         col3
       </div>
@@ -600,7 +600,7 @@ exports[`Grid 响应式布局 1`] = `
       class="xl-col"
     >
       <div
-        class="grid-col-box"
+        class="col"
       >
         col4
       </div>
@@ -612,10 +612,10 @@ exports[`Grid 响应式布局 1`] = `
 exports[`Grid 基本用法 1`] = `
 <div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -623,7 +623,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -633,7 +633,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -643,7 +643,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -653,7 +653,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>
@@ -661,10 +661,10 @@ exports[`Grid 基本用法 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -672,7 +672,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -682,7 +682,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -692,7 +692,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -702,7 +702,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>
@@ -710,10 +710,10 @@ exports[`Grid 基本用法 1`] = `
     </div>
   </div>
   <div
-    class="grid-row-box"
+    class="box"
   >
     <div
-      class="xl-row"
+      class="xl-grid"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
@@ -721,7 +721,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col1
         </div>
@@ -731,7 +731,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col2
         </div>
@@ -741,7 +741,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col3
         </div>
@@ -751,7 +751,7 @@ exports[`Grid 基本用法 1`] = `
         style="padding-left:5px;padding-right:5px"
       >
         <div
-          class="grid-col-box"
+          class="col"
         >
           col4
         </div>

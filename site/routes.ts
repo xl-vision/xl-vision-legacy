@@ -19,7 +19,7 @@ export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
 const routes: Array<Route> = [
   {
     path: '/',
-    redirect: '/Row'
+    redirect: '/Grid'
   },
   {
     name: '基础组件',
@@ -41,8 +41,8 @@ const routes: Array<Route> = [
     children: [
       {
         name: 'Grid 栅格布局',
-        path: '/Row',
-        component: import('../src/Row/__doc__/index.mdx')
+        path: '/Grid',
+        component: import('../src/Grid/__doc__/index.mdx')
       }
     ]
   },
