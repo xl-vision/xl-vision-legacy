@@ -5,7 +5,7 @@ import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass, containClass } from '../commons/utils/class'
 import { onTransitionEnd } from '../commons/utils/transition'
 import computeQuene, { Data } from './computeQuene'
-import useLayoutEffect from '../commons/utils/useLayoutEffect'
+import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 
 export interface TransitionGroupClassNames extends CSSTransitionClassNamesObject {
@@ -139,7 +139,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     computedRef.current = true
   })
 
-  React.useEffect(() => {
+  useLayoutEffect(() => {
     childrenTrigger(children)
   }, [children, childrenTrigger])
 
@@ -157,7 +157,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 
     for (const data of quene) {
       if (data.same) {
-        const ele = data.next[0]
+        const ele = data.prev[0]
         arr.push(ele)
         movedElements.push(ele)
         continue
@@ -192,24 +192,30 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       return
     }
 
-    movedElements.forEach((it) => {
-      const node = nodeMap[it.key + '']
-      const s = node.style
+    // movedElements.forEach((it) => {
+    //   const node = nodeMap[it.key + '']
+    //   if (!node) {
+    //     return
+    //   }
+    //   const s = node.style
 
-      if (classNames.appearActive && containClass(node, classNames.appearActive)) {
-        return
-      }
+    //   if (classNames.appearActive && containClass(node, classNames.appearActive)) {
+    //     return
+    //   }
 
-      s.transform = s.webkitTransform = s.transitionDuration = ''
+    //   s.transform = s.webkitTransform = s.transitionDuration = ''
 
-      removeClass(node, moveClass)
-    })
+    //   removeClass(node, moveClass)
+    // })
 
-    document.body.offsetHeight
+    // document.body.offsetHeight
 
     movedElements.forEach((it) => {
       const key = it.key + ''
       const node = nodeMap[key]
+      if (!node) {
+        return
+      }
       if (classNames.appearActive && containClass(node, classNames.appearActive)) {
         return
       }
@@ -234,6 +240,9 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     movedElements.forEach((it) => {
       const key = it.key + ''
       const node = nodeMap[key]
+      if (!node) {
+        return
+      }
       const s = node.style
       addClass(node, moveClass)
       s.transform = s.webkitTransform = s.transitionDuration = ''
@@ -277,84 +286,23 @@ TransitionGroup.propTypes = {
 
 export default TransitionGroup
 
-const CANCEL_KEY = '__cancel__'
-const STYLE_KEY = '__style__'
-
-const setTranslate = (element: HTMLElement, moveClass: string, oldPos: DOMRect) => {
-  const node = element as HTMLElement & {
-    [CANCEL_KEY]?: () => void
-    [STYLE_KEY]?: Partial<CSSStyleDeclaration>
+const hasCSSTransform = (el: ElementWithTransition, root: Node, moveClass: string) => {
+  // Detect whether an element with the move class applied has
+  // CSS transitions. Since the element may be inside an entering
+  // transition at this very moment, we make a clone of it and remove
+  // all other transition classes applied to ensure only the move class
+  // is applied.
+  const clone = el.cloneNode() as HTMLElement
+  if (el._vtc) {
+    el._vtc.forEach((cls) => {
+      cls.split(/\s+/).forEach((c) => c && clone.classList.remove(c))
+    })
   }
-  const cancel = node[CANCEL_KEY]
-  if (cancel) {
-    cancel()
-    removeClass(node, moveClass)
-    node[CANCEL_KEY] = undefined
-  }
-
-  const style = node[STYLE_KEY]
-
-  if (!style) {
-    const transition = node.style.transition
-    const transitionDelay = node.style.transitionDelay
-    const transitionDuration = node.style.transitionDuration
-    const animation = node.style.animation
-    const animationDelay = node.style.animationDelay
-    const animationDuration = node.style.animationDuration
-    const transform = node.style.transform
-
-    node[STYLE_KEY] = {
-      transition,
-      transitionDelay,
-      transitionDuration,
-      animation,
-      animationDelay,
-      animationDuration,
-      transform
-    }
-    node.style.transition = 'none'
-    node.style.transitionDelay = '0s'
-    node.style.transitionDuration = '0s'
-    node.style.animation = 'none'
-    node.style.animationDelay = '0s'
-    node.style.animationDuration = '0s'
-
-    node.style.transition = ''
-    node.style.animation = ''
-  }
-
-  const reset = () => {
-    removeClass(node, moveClass)
-    const style = node[STYLE_KEY]!
-
-    node.style.transition = style.transition!
-    node.style.transitionDelay = style.transitionDelay!
-    node.style.transitionDuration = style.transitionDuration!
-    node.style.animation = style.animation!
-    node.style.animationDelay = style.animationDelay!
-    node.style.animationDuration = style.animationDuration!
-    node.style.transform = style.transform!
-    node[CANCEL_KEY] = undefined
-    node[STYLE_KEY] = undefined
-  }
-
-  const newPos = node.getBoundingClientRect()
-
-  const dx = oldPos.left - newPos.left
-  const dy = oldPos.top - newPos.top
-
-  if (!dx && !dy) {
-    reset()
-    return
-  }
-
-  node.style.transform = `translate(${dx}px, ${dy}px)`
-  // eslint-disable-next-line no-unused-expressions
-  document.body.offsetHeight
-  node.style.transition = ''
-  node.style.animation = ''
-  addClass(node, moveClass)
-  node.style.transform = 'translate(0px, 0px)'
-
-  node[CANCEL_KEY] = onTransitionEnd(node, reset)
+  moveClass.split(/\s+/).forEach((c) => c && clone.classList.add(c))
+  clone.style.display = 'none'
+  const container = (root.nodeType === 1 ? root : root.parentNode) as HTMLElement
+  container.appendChild(clone)
+  const { hasTransform } = getTransitionInfo(clone)
+  container.removeChild(clone)
+  return hasTransform
 }

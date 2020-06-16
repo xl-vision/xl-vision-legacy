@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import useMountStateCallback from '../commons/hooks/useMountStateCallback'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
-import useLayoutEffect from '../commons/utils/useLayoutEffect'
+import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import fillRef from '../commons/utils/fillRef'
 
 enum State {
@@ -16,23 +16,28 @@ enum State {
   STATE_DISAPPEARED
 }
 
+export type BeforeEventHook = (el: HTMLElement) => void
+export type EventHook = (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
+export type AfterEventHook = (el: HTMLElement) => void
+export type EventCancelledHook = (el: HTMLElement) => void
+
 export interface TransitionProps {
-  beforeAppear?: (el: HTMLElement) => void
-  appear?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
-  afterAppear?: (el: HTMLElement) => void
-  appearCancelled?: (el: HTMLElement) => void
-  beforeEnter?: (el: HTMLElement) => void
-  enter?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
-  afterEnter?: (el: HTMLElement) => void
-  enterCancelled?: (el: HTMLElement) => void
-  beforeLeave?: (el: HTMLElement) => void
-  leave?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
-  afterLeave?: (el: HTMLElement) => void
-  leaveCancelled?: (el: HTMLElement) => void
-  beforeDisappear?: (el: HTMLElement) => void
-  disappear?: (el: HTMLElement, done: () => void, isCancelled: () => boolean) => void
-  afterDisappear?: (el: HTMLElement) => void
-  disappearCancelled?: (el: HTMLElement) => void
+  beforeAppear?: BeforeEventHook
+  appear?: EventHook
+  afterAppear?: AfterEventHook
+  appearCancelled?: EventCancelledHook
+  beforeEnter?: BeforeEventHook
+  enter?: EventHook
+  afterEnter?: AfterEventHook
+  enterCancelled?: EventCancelledHook
+  beforeLeave?: BeforeEventHook
+  leave?: EventHook
+  afterLeave?: AfterEventHook
+  leaveCancelled?: EventCancelledHook
+  beforeDisappear?: BeforeEventHook
+  disappear?: EventHook
+  afterDisappear?: AfterEventHook
+  disappearCancelled?: EventCancelledHook
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   forceRender?: boolean
   transitionOnFirst?: boolean
@@ -102,7 +107,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
       applyState: () => void,
       // 回调函数，此方法交给用户使用，无法保证期间不会存在导致状态变化的操作，比如卸载了组件
       callback: () => void,
-      action?: (el: HTMLElement, cb: () => void, isCancelled: () => boolean) => void
+      action?: EventHook
     ) => {
       // 多次调用时，由于callback可能会相同(目前由于callback都是新创建的，不可能相同，这里主要做进一步防止)，所以这里创建一个新的函数
       // 这个函数都是不同的，所以多次触发时可以保证isCancelled是准确的

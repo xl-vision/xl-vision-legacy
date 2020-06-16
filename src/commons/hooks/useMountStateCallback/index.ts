@@ -1,5 +1,5 @@
 import { useRef, useCallback } from 'react'
-import useLayoutEffect from '../../utils/useLayoutEffect'
+import useLayoutEffect from '../useLayoutEffect'
 
 const useMountStateCallback = () => {
   const ref = useRef(false)

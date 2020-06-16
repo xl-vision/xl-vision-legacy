@@ -2,8 +2,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { addClass, removeClass } from '../commons/utils/class'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
-import Transition, { TransitionProps } from '../Transition'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+import Transition, {
+  TransitionProps,
+  BeforeEventHook,
+  EventHook,
+  AfterEventHook,
+  EventCancelledHook
+} from '../Transition'
 
 export type CSSTransitionClassNamesObject = {
   appear?: string
@@ -34,6 +39,8 @@ export interface CSSTransitionProps extends TransitionProps {
         disappear?: number
       }
 }
+
+type TransitionElement = HTMLElement & { _ctc: CSSTransitionClassNamesObject }
 
 const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const {
@@ -111,187 +118,124 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     }
   }, [timeout])
 
-  const beforeAppearWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.appear && addClass(el, classNameMap.appear)
-      classNameMap.appearActive && addClass(el, classNameMap.appearActive)
-    }
-    beforeAppear && beforeAppear(el)
-  })
-
-  const appearWrapper = useConstantCallback(
-    (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
-      nextFrame(() => {
-        if (!isCancelled()) {
-          if (css) {
-            if (classNameMap) {
-              classNameMap.appear && removeClass(el, classNameMap.appear)
-              classNameMap.appearTo && addClass(el, classNameMap.appearTo)
-            }
-            onTransitionEnd(el, done)
-          }
-          if (timeoutMap && timeoutMap.appear) {
-            setTimeout(done, timeoutMap.appear)
-          }
-          appear && appear(el, done, isCancelled)
-        }
-      })
-    }
+  const beforeAppearWrapper = React.useMemo(
+    () =>
+      createBeforeEventHook(
+        css && {
+          appear: classNameMap?.appear,
+          appearActive: classNameMap?.appearActive
+        },
+        beforeAppear
+      ),
+    [css, classNameMap?.appear, classNameMap?.appearActive, beforeAppear]
   )
 
-  const afterAppearWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
-      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
-    }
-    afterAppear && afterAppear(el)
-  })
+  const appearWrapper = React.useMemo(
+    () =>
+      createEventHook(
+        ['appear'],
+        css && {
+          appearTo: classNameMap?.appearTo
+        },
+        timeoutMap?.appear,
+        appear
+      ),
+    [css, classNameMap?.appearTo, timeoutMap?.appear, appear]
+  )
+  const afterAppearWrapper = React.useMemo(() => createAfterEventHook(afterAppear), [afterAppear])
+  const appearCancelledWrapper = React.useMemo(() => createEventCancelledHook(appearCancelled), [
+    appearCancelled
+  ])
 
-  const appearCancelledWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.appearActive && removeClass(el, classNameMap.appearActive)
-      classNameMap.appear && removeClass(el, classNameMap.appear)
-      classNameMap.appearTo && removeClass(el, classNameMap.appearTo)
-    }
-    appearCancelled && appearCancelled(el)
-  })
-
-  const beforeEnterWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.enter && addClass(el, classNameMap.enter)
-      classNameMap.enterActive && addClass(el, classNameMap.enterActive)
-    }
-    beforeEnter && beforeEnter(el)
-  })
-
-  const enterWrapper = useConstantCallback(
-    (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
-      nextFrame(() => {
-        if (!isCancelled()) {
-          if (css) {
-            if (classNameMap) {
-              classNameMap.enter && removeClass(el, classNameMap.enter)
-              classNameMap.enterTo && addClass(el, classNameMap.enterTo)
-            }
-            onTransitionEnd(el, done)
-          }
-
-          if (timeoutMap && timeoutMap.enter) {
-            setTimeout(done, timeoutMap.enter)
-          }
-          enter && enter(el, done, isCancelled)
-        }
-      })
-    }
+  const beforeEnterWrapper = React.useMemo(
+    () =>
+      createBeforeEventHook(
+        css && {
+          enter: classNameMap?.enter,
+          enterActive: classNameMap?.enterActive
+        },
+        beforeEnter
+      ),
+    [css, classNameMap?.enter, classNameMap?.enterActive, beforeEnter]
   )
 
-  const afterEnterWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.enterActive && removeClass(el, classNameMap.enterActive)
-      classNameMap.enterTo && removeClass(el, classNameMap.enterTo)
-    }
-    afterEnter && afterEnter(el)
-  })
+  const enterWrapper = React.useMemo(
+    () =>
+      createEventHook(
+        ['enter'],
+        css && {
+          enterTo: classNameMap?.enterTo
+        },
+        timeoutMap?.enter,
+        enter
+      ),
+    [css, classNameMap?.enterTo, timeoutMap?.enter, enter]
+  )
+  const afterEnterWrapper = React.useMemo(() => createAfterEventHook(afterEnter), [afterEnter])
+  const enterCancelledWrapper = React.useMemo(() => createEventCancelledHook(enterCancelled), [
+    enterCancelled
+  ])
 
-  const enterCancelledWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.enterActive && removeClass(el, classNameMap.enterActive)
-      classNameMap.enter && removeClass(el, classNameMap.enter)
-      classNameMap.enterTo && removeClass(el, classNameMap.enterTo)
-    }
-    enterCancelled && enterCancelled(el)
-  })
-
-  const beforeLeaveWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.leave && addClass(el, classNameMap.leave)
-      classNameMap.leaveActive && addClass(el, classNameMap.leaveActive)
-    }
-    beforeLeave && beforeLeave(el)
-  })
-
-  const leaveWrapper = useConstantCallback(
-    (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
-      nextFrame(() => {
-        if (!isCancelled()) {
-          if (css) {
-            if (classNameMap) {
-              classNameMap.leave && removeClass(el, classNameMap.leave)
-              classNameMap.leaveTo && addClass(el, classNameMap.leaveTo)
-            }
-            onTransitionEnd(el, done)
-          }
-
-          if (timeoutMap && timeoutMap.leave) {
-            setTimeout(done, timeoutMap.leave)
-          }
-          leave && leave(el, done, isCancelled)
-        }
-      })
-    }
+  const beforeLeaveWrapper = React.useMemo(
+    () =>
+      createBeforeEventHook(
+        css && {
+          leave: classNameMap?.leave,
+          leaveActive: classNameMap?.leaveActive
+        },
+        beforeLeave
+      ),
+    [css, classNameMap?.leave, classNameMap?.leaveActive, beforeLeave]
   )
 
-  const afterLeaveWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.leaveActive && removeClass(el, classNameMap.leaveActive)
-      classNameMap.leaveTo && removeClass(el, classNameMap.leaveTo)
-    }
-    afterLeave && afterLeave(el)
-  })
+  const leaveWrapper = React.useMemo(
+    () =>
+      createEventHook(
+        ['leave'],
+        css && {
+          leaveTo: classNameMap?.leaveTo
+        },
+        timeoutMap?.leave,
+        leave
+      ),
+    [css, classNameMap?.leaveTo, timeoutMap?.leave, leave]
+  )
+  const afterLeaveWrapper = React.useMemo(() => createAfterEventHook(afterLeave), [afterLeave])
+  const leaveCancelledWrapper = React.useMemo(() => createEventCancelledHook(leaveCancelled), [
+    leaveCancelled
+  ])
 
-  const leaveCancelledWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.leaveActive && removeClass(el, classNameMap.leaveActive)
-      classNameMap.leave && removeClass(el, classNameMap.leave)
-      classNameMap.leaveTo && removeClass(el, classNameMap.leaveTo)
-    }
-    leaveCancelled && leaveCancelled(el)
-  })
-
-  const beforeDisappearWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.disappear && addClass(el, classNameMap.disappear)
-      classNameMap.disappearActive && addClass(el, classNameMap.disappearActive)
-    }
-    beforeDisappear && beforeDisappear(el)
-  })
-
-  const disappearWrapper = useConstantCallback(
-    (el: HTMLElement, done: () => void, isCancelled: () => boolean) => {
-      nextFrame(() => {
-        if (!isCancelled()) {
-          if (css) {
-            if (classNameMap) {
-              classNameMap.disappear && removeClass(el, classNameMap.disappear)
-              classNameMap.disappearTo && addClass(el, classNameMap.disappearTo)
-            }
-            onTransitionEnd(el, done)
-          }
-          if (timeoutMap && timeoutMap.appear) {
-            setTimeout(done, timeoutMap.disappear)
-          }
-          disappear && disappear(el, done, isCancelled)
-        }
-      })
-    }
+  const beforeDisappearWrapper = React.useMemo(
+    () =>
+      createBeforeEventHook(
+        css && {
+          disappear: classNameMap?.disappear,
+          disappearActive: classNameMap?.disappearActive
+        },
+        beforeDisappear
+      ),
+    [css, classNameMap?.disappear, classNameMap?.disappearActive, beforeDisappear]
   )
 
-  const afterDisappearWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.disappearActive && removeClass(el, classNameMap.disappearActive)
-      classNameMap.disappearTo && removeClass(el, classNameMap.disappearTo)
-    }
-    afterDisappear && afterDisappear(el)
-  })
-
-  const disappearCancelledWrapper = useConstantCallback((el: HTMLElement) => {
-    if (css && classNameMap) {
-      classNameMap.disappearActive && removeClass(el, classNameMap.disappearActive)
-      classNameMap.disappear && removeClass(el, classNameMap.disappear)
-      classNameMap.disappearTo && removeClass(el, classNameMap.disappearTo)
-    }
-    disappearCancelled && disappearCancelled(el)
-  })
+  const disappearWrapper = React.useMemo(
+    () =>
+      createEventHook(
+        ['disappear'],
+        css && {
+          disappearTo: classNameMap?.disappearTo
+        },
+        timeoutMap?.disappear,
+        disappear
+      ),
+    [css, classNameMap?.disappearTo, timeoutMap?.disappear, disappear]
+  )
+  const afterDisappearWrapper = React.useMemo(() => createAfterEventHook(afterDisappear), [
+    afterDisappear
+  ])
+  const disappearCancelledWrapper = React.useMemo(
+    () => createEventCancelledHook(disappearCancelled),
+    [disappearCancelled]
+  )
 
   return (
     <Transition
@@ -363,3 +307,81 @@ CSSTransition.propTypes = {
 }
 
 export default CSSTransition
+
+const createBeforeEventHook = (
+  ctc: CSSTransitionClassNamesObject | false,
+  nativeHook?: BeforeEventHook
+): BeforeEventHook => {
+  return (el: TransitionElement) => {
+    el._ctc = {}
+    if (ctc) {
+      for (const name of Object.keys(ctc)) {
+        const key = name as keyof CSSTransitionClassNamesObject
+        const clazz = ctc[key]
+        if (clazz) {
+          addClass(el, clazz)
+          el._ctc[key] = clazz
+        }
+      }
+    }
+    nativeHook && nativeHook(el)
+  }
+}
+
+const createEventHook = (
+  removedClassNames: Array<keyof CSSTransitionClassNamesObject>,
+  ctc: CSSTransitionClassNamesObject | false,
+  timeout?: number,
+  nativeHook?: EventHook
+): EventHook => {
+  return (el: TransitionElement, done: () => void, isCancelled: () => boolean) => {
+    nextFrame(() => {
+      if (!isCancelled()) {
+        for (const name of removedClassNames) {
+          const clazz = el._ctc[name]
+          if (clazz) {
+            removeClass(el, clazz)
+            delete el._ctc[name]
+          }
+        }
+        if (ctc) {
+          for (const name of Object.keys(ctc)) {
+            const key = name as keyof CSSTransitionClassNamesObject
+            const clazz = ctc[key]
+            if (clazz) {
+              addClass(el, clazz)
+              el._ctc[key] = clazz
+            }
+          }
+          onTransitionEnd(el, done)
+        }
+        if (timeout && timeout > 0) {
+          setTimeout(done, timeout)
+        }
+        nativeHook && nativeHook(el, done, isCancelled)
+      }
+    })
+  }
+}
+
+const createAfterOrCancelledEventHook = (
+  nativeHook?: AfterEventHook | EventCancelledHook
+): NonNullable<typeof nativeHook> => {
+  return (el: TransitionElement) => {
+    for (const name of Object.keys(el._ctc)) {
+      const key = name as keyof CSSTransitionClassNamesObject
+      const clazz = el._ctc[key]
+      clazz && removeClass(el, clazz)
+      delete el._ctc[key]
+    }
+    nativeHook && nativeHook(el)
+  }
+}
+
+const createAfterEventHook: (
+  nativeHook?: AfterEventHook
+) => AfterEventHook = createAfterOrCancelledEventHook
+
+const createEventCancelledHook: (
+  nativeHook?: EventCancelledHook
+) => EventCancelledHook = createAfterOrCancelledEventHook

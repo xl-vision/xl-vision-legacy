@@ -1,5 +1,5 @@
 import { useRef, useCallback } from 'react'
-import useLayoutEffect from '../../utils/useLayoutEffect'
+import useLayoutEffect from '../useLayoutEffect'
 
 /**
  * https://github.com/facebook/react/issues/14099#issuecomment-440013892
