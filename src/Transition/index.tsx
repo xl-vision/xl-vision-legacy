@@ -4,16 +4,17 @@ import useMountStateCallback from '../commons/hooks/useMountStateCallback'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import fillRef from '../commons/utils/fillRef'
+import ReactDOM from 'react-dom'
 
 enum State {
-  STATE_APPEARING,
-  STATE_APPEARED,
-  STATE_ENTERING,
-  STATE_ENTERED,
-  STATE_LEAVING,
-  STATE_LEAVED,
-  STATE_DISAPPEARING,
-  STATE_DISAPPEARED
+  STATE_APPEARING, // 0
+  STATE_APPEARED, // 1
+  STATE_ENTERING, // 2
+  STATE_ENTERED, // 3
+  STATE_LEAVING, // 4
+  STATE_LEAVED, // 5
+  STATE_DISAPPEARING, // 6
+  STATE_DISAPPEARED // 7
 }
 
 export type BeforeEventHook = (el: HTMLElement) => void
@@ -102,60 +103,82 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   const cbRef = React.useRef<() => void>()
 
   const onTransitionEnd = useConstantCallback(
-    (state: State, eventHook?: EventHook, afterEventHook?: AfterEventHook) => {
+    (nextState: State, eventHook?: EventHook, afterEventHook?: AfterEventHook) => {
       const afterEventHookWrap = () => afterEventHook && afterEventHook(childrenNodeRef.current!)
       cbRef.current = afterEventHookWrap
-      const ele = childrenNodeRef.current!
 
       const isCancelled = () => afterEventHookWrap !== cbRef.current
-
       // 判断回调是否执行了
       const wrapCallback = () => {
-        if (!isCancelled() && mountStateCallback()) {
-          afterEventHookWrap()
-          // 防止afterEventHookWrap卸载了组件
-          if (mountStateCallback()) {
-            setState((prev) => {
-              if (isCancelled()) {
-                return prev
-              }
-              // 防止重复触发
-              cbRef.current = undefined
-              return state
-            })
+        // wrapCallback可能会在setTimeout中被调用，默认同步setState，这里强制异步处理
+        // https://github.com/facebook/react/issues/19013#issuecomment-634777298
+        ReactDOM.unstable_batchedUpdates(() => {
+          if (!isCancelled() && mountStateCallback()) {
+            setState(nextState)
+            // 必须放在后面，防止其中修改了prop in
+            afterEventHookWrap()
+            // 避免多次触发
+            cbRef.current = undefined
           }
-        }
+        })
       }
       if (eventHook) {
-        eventHook(ele, wrapCallback, isCancelled)
+        eventHook(childrenNodeRef.current!, wrapCallback, isCancelled)
       } else {
         wrapCallback()
       }
     }
   )
 
-  const inPropTrigger = useConstantCallback((inProp: boolean) => {
-    // 新的更改，之前的event取消
-    cbRef.current = undefined
+  const stateTrigger = useConstantCallback((state: State) => {
     if (inProp) {
-      if (state === State.STATE_DISAPPEARING) {
-        setState(State.STATE_ENTERING)
-        disappearCancelled && disappearCancelled(childrenNodeRef.current!)
-      } else if (state === State.STATE_LEAVING) {
-        setState(State.STATE_ENTERING)
-        leaveCancelled && leaveCancelled(childrenNodeRef.current!)
-      } else if (state === State.STATE_LEAVED || state === State.STATE_DISAPPEARED) {
-        setState(State.STATE_ENTERING)
+      if (state === State.STATE_APPEARING) {
+        beforeAppear && beforeAppear(childrenNodeRef.current!)
+        onTransitionEnd(State.STATE_APPEARED, appear, afterAppear)
+        // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
+      } else if (state === State.STATE_ENTERING) {
+        beforeEnter && beforeEnter(childrenNodeRef.current!)
+        onTransitionEnd(State.STATE_ENTERED, enter, afterEnter)
       }
     } else {
+      if (state === State.STATE_LEAVING) {
+        beforeLeave && beforeLeave(childrenNodeRef.current!)
+        onTransitionEnd(State.STATE_LEAVED, leave, afterLeave)
+      } else if (state === State.STATE_DISAPPEARING) {
+        beforeDisappear && beforeDisappear(childrenNodeRef.current!)
+        onTransitionEnd(State.STATE_DISAPPEARED, disappear, afterDisappear)
+      }
+    }
+  })
+
+  // 必须同步执行，否则可能由于浏览器性能问题，导致延后调用，会出现界面一直停留在还没有初始化之前
+  useLayoutEffect(() => {
+    stateTrigger(state)
+  }, [
+    state,
+    // 以下都是常量
+    stateTrigger
+  ])
+
+  const inPropTrigger = useConstantCallback((inProp: boolean) => {
+    console.log('inPropTrigger', inProp, state)
+
+    if (inProp && state >= State.STATE_LEAVING) {
+      cbRef.current = undefined
+      // 新的更改，之前的event取消
+      setState(State.STATE_ENTERING)
+      if (state === State.STATE_DISAPPEARING) {
+        disappearCancelled && disappearCancelled(childrenNodeRef.current!)
+      } else if (state === State.STATE_LEAVING) {
+        leaveCancelled && leaveCancelled(childrenNodeRef.current!)
+      }
+    } else if (!inProp && state < State.STATE_LEAVING) {
+      cbRef.current = undefined
+      setState(State.STATE_LEAVING)
       if (state === State.STATE_APPEARING) {
-        setState(State.STATE_LEAVING)
         appearCancelled && appearCancelled(childrenNodeRef.current!)
       } else if (state === State.STATE_ENTERING) {
-        setState(State.STATE_LEAVING)
         enterCancelled && enterCancelled(childrenNodeRef.current!)
-      } else if (state === State.STATE_APPEARED || state === State.STATE_ENTERED) {
-        setState(State.STATE_LEAVING)
       }
     }
   })
@@ -167,32 +190,6 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     inProp,
     // 以下都是常量
     inPropTrigger
-  ])
-
-  const stateTrigger = useConstantCallback((state: State) => {
-    if (state === State.STATE_APPEARING) {
-      onTransitionEnd(State.STATE_APPEARED, appear, afterAppear)
-      beforeAppear && beforeAppear(childrenNodeRef.current!)
-      // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
-    } else if (state === State.STATE_ENTERING) {
-      onTransitionEnd(State.STATE_ENTERED, enter, afterEnter)
-      beforeEnter && beforeEnter(childrenNodeRef.current!)
-    } else if (state === State.STATE_LEAVING) {
-      onTransitionEnd(State.STATE_LEAVED, leave, afterLeave)
-      beforeLeave && beforeLeave(childrenNodeRef.current!)
-    } else if (state === State.STATE_DISAPPEARING) {
-      onTransitionEnd(State.STATE_DISAPPEARED, disappear, afterDisappear)
-      beforeDisappear && beforeDisappear(childrenNodeRef.current!)
-    }
-  })
-
-  // 必须同步执行，否则可能由于浏览器性能问题，导致延后调用，会出现界面一直停留在还没有初始化之前
-  useLayoutEffect(() => {
-    stateTrigger(state)
-  }, [
-    state,
-    // 以下都是常量
-    stateTrigger
   ])
 
   const display = state !== State.STATE_LEAVED && state !== State.STATE_DISAPPEARED
