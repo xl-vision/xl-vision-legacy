@@ -60,7 +60,7 @@ $button: #{$cls-prefix}-button;
 
     &-enter-active,
     &-leave-active {
-      transition: all $standard-duration $fast-out-slow-in-timing-function;
+      transition: all 1s $fast-out-slow-in-timing-function;
     }
 
     &-enter {

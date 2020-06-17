@@ -11,8 +11,8 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
   const { rippleClass, rippleInnerClass, transitionClasses } = props
 
   const [ripples, setRipples] = React.useState<Array<React.ReactElement>>([])
-  const finishedRipplesRef = React.useRef<Array<string>>([])
-  const waitFinishedRipplesRef = React.useRef<Array<string>>([])
+  const finishedCountRef = React.useRef(0)
+  const waitFinishedCountRef = React.useRef(0)
   const keyRef = React.useRef(0)
   const ignoreMouseDonwRef = React.useRef(false)
 
@@ -25,9 +25,7 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
         top: -size / 2 + y,
         left: -size / 2 + x
       }
-      const ripple = (
-        <div data-key={key} className={rippleInnerClass} key={key} style={styles}></div>
-      )
+      const ripple = <div className={rippleInnerClass} key={key} style={styles}></div>
       setRipples((prev) => [...prev, ripple])
       keyRef.current++
     },
@@ -44,7 +42,7 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
       if (e.type === 'touchstart') {
         ignoreMouseDonwRef.current = true
       }
-      const el = e.target as HTMLElement
+      const el = e.currentTarget as HTMLElement
       const rect = el.getBoundingClientRect()
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -61,29 +59,22 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
     [startCommit]
   )
 
-  const stop = React.useCallback(
-    (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-      const key = (e.target as HTMLElement).dataset.key!
-      if (finishedRipplesRef.current.includes(key)) {
-        setRipples((prev) => prev.filter((it) => it.key !== key))
-        finishedRipplesRef.current = finishedRipplesRef.current.filter((it) => it !== key)
-        return
-      }
-      console.log(e.target)
-      console.log(key)
-      waitFinishedRipplesRef.current.push(key)
-    },
-    []
-  )
-
-  const afterEnter = React.useCallback((e: HTMLElement) => {
-    const key = e.dataset.key!
-    if (waitFinishedRipplesRef.current.includes(key)) {
-      setRipples((prev) => prev.filter((it) => it.key !== key))
-      waitFinishedRipplesRef.current = waitFinishedRipplesRef.current.filter((it) => it !== key)
+  const stop = React.useCallback(() => {
+    if (finishedCountRef.current > 0) {
+      setRipples((prev) => prev.slice(1))
+      finishedCountRef.current--
       return
     }
-    finishedRipplesRef.current.push(key)
+    waitFinishedCountRef.current++
+  }, [])
+
+  const afterEnter = React.useCallback(() => {
+    if (waitFinishedCountRef.current > 0) {
+      setRipples((prev) => prev.slice(1))
+      waitFinishedCountRef.current--
+      return
+    }
+    finishedCountRef.current++
   }, [])
 
   return (
