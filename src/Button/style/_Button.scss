@@ -1,6 +1,8 @@
 @use './var' as *;
+@use '../../Ripple/style/' as ripple;
 
 $button: #{$cls-prefix}-button;
+$ripple: #{$cls-prefix}-ripple;
 
 .#{$button} {
   position: relative;
@@ -43,36 +45,21 @@ $button: #{$cls-prefix}-button;
     margin-left: 4px;
   }
 
-  &__ripple {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    border-radius: inherit;
-    &-inner {
-      position: relative;
-      border-radius: 50%;
-      opacity: 0.3;
-      background-color: red;
+  .#{$ripple} {
+    &__inner {
+      opacity: $opacity-selected;
     }
+  }
 
-    &-enter-active,
-    &-leave-active {
-      transition: all 1s $fast-out-slow-in-timing-function;
+  &__ripple {
+    &-enter-active {
+      transform: scale(1);
+      transition: all $standard-duration $fast-out-slow-in-timing-function;
     }
 
     &-enter {
       transform: scale(0);
       opacity: 0.1;
-    }
-
-    &-enter-to {
-      transform: scale(1);
-    }
-    &-leave-to {
-      transform: scale(0);
     }
   }
 }

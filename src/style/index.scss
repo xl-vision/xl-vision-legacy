@@ -1,9 +1,9 @@
-@forward './base';
-@forward '../Transition/style';
-@forward '../CSSTransition/style';
-@forward '../TransitionGroup/style';
-@forward '../CollapseTransition/style';
-@forward '../Grid/style';
-@forward '../Icon/style';
-@forward '../Ripple/style';
-@forward '../Button/style';
+@use './base' as base;
+@use '../Transition/style' as Transition;
+@use '../CSSTransition/style' as CSSTransition;
+@use '../TransitionGroup/style' as TransitionGroup;
+@use '../CollapseTransition/style' as CollapseTransition;
+@use '../Grid/style' as Grid;
+@use '../Icon/style' as Icon;
+@use '../Ripple/style' as Ripple;
+@use '../Button/style' as Button;

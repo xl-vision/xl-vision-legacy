@@ -47,7 +47,7 @@ export interface TransitionGroupProps
 type TransitionGroupElement = TransitionElement & { _move?: () => void; _oldPos?: DOMRect }
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
-  const { children, transitionClasses: _transitionClasses, ...others } = props
+  const { children, transitionClasses, ...others } = props
 
   // 阻止用户故意传入appear和disappear钩子
   /* eslint-disable */
@@ -61,16 +61,16 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   delete (others as any).disappearCancelled
   /* eslint-enable */
 
-  const TransitionClasses = React.useMemo(() => {
+  const transitionClassesObj = React.useMemo(() => {
     let obj: CSSTransitionClassesObject & { move?: string } = {}
 
-    if (!_transitionClasses) {
+    if (!transitionClasses) {
       return {}
     }
     // 组件实际上是使用CSSTransition的appear和disappear钩子实现动画，但是向用户隐藏实现细节，
     // 所以这里需要将enter和leave的class设置到appear和disappear上
-    else if (typeof _transitionClasses === 'object') {
-      obj = { ..._transitionClasses }
+    else if (typeof transitionClasses === 'object') {
+      obj = { ...transitionClasses }
       obj.appear = obj.enter
       obj.appearActive = obj.enterActive
       obj.appearTo = obj.enterTo
@@ -79,17 +79,17 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       obj.disappearActive = obj.leaveActive
       obj.disappearTo = obj.leaveTo
     } else {
-      obj.appear = obj.enter = `${_transitionClasses}-enter`
-      obj.appearTo = obj.enterTo = `${_transitionClasses}-enter-to`
-      obj.appearActive = obj.enterActive = `${_transitionClasses}-enter-active`
-      obj.disappear = obj.leave = `${_transitionClasses}-leave`
-      obj.disappearTo = obj.leaveTo = `${_transitionClasses}-leave-to`
-      obj.disappearActive = obj.leaveActive = `${_transitionClasses}-leave-active`
-      obj.move = `${_transitionClasses}-move`
+      obj.appear = obj.enter = `${transitionClasses}-enter`
+      obj.appearTo = obj.enterTo = `${transitionClasses}-enter-to`
+      obj.appearActive = obj.enterActive = `${transitionClasses}-enter-active`
+      obj.disappear = obj.leave = `${transitionClasses}-leave`
+      obj.disappearTo = obj.leaveTo = `${transitionClasses}-leave-to`
+      obj.disappearActive = obj.leaveActive = `${transitionClasses}-leave-active`
+      obj.move = `${transitionClasses}-move`
     }
 
     return obj
-  }, [_transitionClasses])
+  }, [transitionClasses])
 
   const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
 
@@ -162,7 +162,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
             {...others2}
             transitionOnFirst={true}
             afterLeave={afterLeaveWrap}
-            transitionClasses={TransitionClasses}
+            transitionClasses={transitionClassesObj}
             in={false}
             key={it.key!}
           >
@@ -225,7 +225,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
             {...others}
             transitionOnFirst={true}
             key={it.key!}
-            transitionClasses={TransitionClasses}
+            transitionClasses={transitionClassesObj}
             in={true}
           >
             {it}
@@ -238,7 +238,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     prevChildrenRef.current = arr
     setElements(arr)
 
-    const moveClass = TransitionClasses.move
+    const moveClass = transitionClassesObj.move
 
     const hasMove = sameNodes.length > 0 && moveClass && hasCSSTransform(sameNodes[0], moveClass)
 

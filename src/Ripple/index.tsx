@@ -1,14 +1,15 @@
 import React, { TouchEvent, MouseEvent } from 'react'
 import TransitionGroup, { TransitionGroupClasses } from '../TransitionGroup'
+import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export interface RippleProps {
   transitionClasses?: TransitionGroupClasses
-  rippleClass?: string
-  rippleInnerClass?: string
+  clsPrefix?: string
 }
 
 const Ripple: React.FunctionComponent<RippleProps> = (props) => {
-  const { rippleClass, rippleInnerClass, transitionClasses } = props
+  const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
+  const { clsPrefix = `${rootClsPrefix}-ripple`, transitionClasses } = props
 
   const [ripples, setRipples] = React.useState<Array<React.ReactElement>>([])
   const finishedCountRef = React.useRef(0)
@@ -25,15 +26,16 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
         top: -size / 2 + y,
         left: -size / 2 + x
       }
-      const ripple = <div className={rippleInnerClass} key={key} style={styles}></div>
+      const ripple = <div className={`${clsPrefix}__inner`} key={key} style={styles}></div>
       setRipples((prev) => [...prev, ripple])
       keyRef.current++
     },
-    [rippleInnerClass]
+    [clsPrefix]
   )
 
   const start = React.useCallback(
     (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+      console.log(e.type)
       if (e.type === 'mousedown' && ignoreMouseDonwRef.current) {
         ignoreMouseDonwRef.current = false
         return
@@ -79,7 +81,7 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
 
   return (
     <div
-      className={rippleClass}
+      className={`${clsPrefix}`}
       onMouseDown={start}
       onTouchStart={start}
       onMouseUp={stop}
