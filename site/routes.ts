@@ -68,6 +68,11 @@ const routes: Array<Route> = [
         name: 'CollapseTransition',
         path: '/CollapseTransition',
         component: import('../src/CollapseTransition/__doc__/index.mdx')
+      },
+      {
+        name: 'Ripple',
+        path: '/Ripple',
+        component: import('../src/Ripple/__doc__/index.mdx')
       }
     ]
   }
