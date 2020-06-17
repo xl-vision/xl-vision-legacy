@@ -102,35 +102,32 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   const cbRef = React.useRef<() => void>()
 
   const onTransitionEnd = useConstantCallback(
-    (
-      // 回调完成后设置状态，此方法默认组件没有被卸载
-      applyState: () => void,
-      // 回调函数，此方法交给用户使用，无法保证期间不会存在导致状态变化的操作，比如卸载了组件
-      callback: () => void,
-      action?: EventHook
-    ) => {
-      // 多次调用时，由于callback可能会相同(目前由于callback都是新创建的，不可能相同，这里主要做进一步防止)，所以这里创建一个新的函数
-      // 这个函数都是不同的，所以多次触发时可以保证isCancelled是准确的
-      const newCallback = () => callback()
-      cbRef.current = newCallback
+    (state: State, eventHook?: EventHook, afterEventHook?: AfterEventHook) => {
+      const afterEventHookWrap = () => afterEventHook && afterEventHook(childrenNodeRef.current!)
+      cbRef.current = afterEventHookWrap
       const ele = childrenNodeRef.current!
 
-      const isCancelled = () => newCallback !== cbRef.current
+      const isCancelled = () => afterEventHookWrap !== cbRef.current
 
       // 判断回调是否执行了
       const wrapCallback = () => {
         if (!isCancelled() && mountStateCallback()) {
-          newCallback()
-          // 确保组件还在挂载中，防止callback中做了卸载操作
+          afterEventHookWrap()
+          // 防止afterEventHookWrap卸载了组件
           if (mountStateCallback()) {
-            applyState()
+            setState((prev) => {
+              if (isCancelled()) {
+                return prev
+              }
+              // 防止重复触发
+              cbRef.current = undefined
+              return state
+            })
           }
-          // 防止重复触发
-          cbRef.current = undefined
         }
       }
-      if (action) {
-        action(ele, wrapCallback, isCancelled)
+      if (eventHook) {
+        eventHook(ele, wrapCallback, isCancelled)
       } else {
         wrapCallback()
       }
@@ -138,38 +135,25 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   )
 
   const inPropTrigger = useConstantCallback((inProp: boolean) => {
-    const isMounted = mountStateCallback()
+    // 新的更改，之前的event取消
+    cbRef.current = undefined
     if (inProp) {
       if (state === State.STATE_DISAPPEARING) {
+        setState(State.STATE_ENTERING)
         disappearCancelled && disappearCancelled(childrenNodeRef.current!)
-        // 确保组件还在挂载中，防止appearCancelled中做了卸载操作
-        if (isMounted) {
-          setState(State.STATE_ENTERING)
-        }
-        // 此时说明leave动画还没有完成，需要触发leaveCancelled
       } else if (state === State.STATE_LEAVING) {
+        setState(State.STATE_ENTERING)
         leaveCancelled && leaveCancelled(childrenNodeRef.current!)
-        // 确保组件还在挂载中，防止leaveCancelled中做了卸载操作
-        if (isMounted) {
-          setState(State.STATE_ENTERING)
-        }
       } else if (state === State.STATE_LEAVED || state === State.STATE_DISAPPEARED) {
         setState(State.STATE_ENTERING)
       }
     } else {
       if (state === State.STATE_APPEARING) {
+        setState(State.STATE_LEAVING)
         appearCancelled && appearCancelled(childrenNodeRef.current!)
-        // 确保组件还在挂载中，防止appearCancelled中做了卸载操作
-        if (isMounted) {
-          setState(State.STATE_LEAVING)
-        }
-        // 此时说明enter动画还没有完成，需要触发enterCancelled
       } else if (state === State.STATE_ENTERING) {
+        setState(State.STATE_LEAVING)
         enterCancelled && enterCancelled(childrenNodeRef.current!)
-        // 确保组件还在挂载中，防止enterCancelled中做了卸载操作
-        if (isMounted) {
-          setState(State.STATE_LEAVING)
-        }
       } else if (state === State.STATE_APPEARED || state === State.STATE_ENTERED) {
         setState(State.STATE_LEAVING)
       }
@@ -187,34 +171,18 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
 
   const stateTrigger = useConstantCallback((state: State) => {
     if (state === State.STATE_APPEARING) {
+      onTransitionEnd(State.STATE_APPEARED, appear, afterAppear)
       beforeAppear && beforeAppear(childrenNodeRef.current!)
-      onTransitionEnd(
-        () => setState(State.STATE_APPEARED),
-        () => afterAppear && afterAppear(childrenNodeRef.current!),
-        appear
-      )
       // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
     } else if (state === State.STATE_ENTERING) {
+      onTransitionEnd(State.STATE_ENTERED, enter, afterEnter)
       beforeEnter && beforeEnter(childrenNodeRef.current!)
-      onTransitionEnd(
-        () => setState(State.STATE_ENTERED),
-        () => afterEnter && afterEnter(childrenNodeRef.current!),
-        enter
-      )
     } else if (state === State.STATE_LEAVING) {
+      onTransitionEnd(State.STATE_LEAVED, leave, afterLeave)
       beforeLeave && beforeLeave(childrenNodeRef.current!)
-      onTransitionEnd(
-        () => setState(State.STATE_LEAVED),
-        () => afterLeave && afterLeave(childrenNodeRef.current!),
-        leave
-      )
     } else if (state === State.STATE_DISAPPEARING) {
+      onTransitionEnd(State.STATE_DISAPPEARED, disappear, afterDisappear)
       beforeDisappear && beforeDisappear(childrenNodeRef.current!)
-      onTransitionEnd(
-        () => setState(State.STATE_DISAPPEARED),
-        () => afterDisappear && afterDisappear(childrenNodeRef.current!),
-        disappear
-      )
     }
   })
 
