@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import CSSTransition, {
   CSSTransitionProps,
-  CSSTransitionClassNamesObject,
+  CSSTransitionClassesObject,
   TransitionElement
 } from '../CSSTransition'
 import fillRef from '../commons/utils/fillRef'
@@ -13,13 +13,15 @@ import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import { warning } from '../commons/utils/logger'
 
-export interface TransitionGroupClassNames
+export interface TransitionGroupClassesObject
   extends Omit<
-    CSSTransitionClassNamesObject,
+    CSSTransitionClassesObject,
     'appear' | 'appearActive' | 'appearTo' | 'disappear' | 'disappearActive' | 'disappearTo'
   > {
   move?: string
 }
+
+export type TransitionGroupClasses = string | TransitionGroupClassesObject
 
 export interface TransitionGroupProps
   extends Omit<
@@ -39,14 +41,13 @@ export interface TransitionGroupProps
     | 'classNames'
   > {
   children: Array<CSSTransitionProps['children']>
-  classNames?: string | TransitionGroupClassNames
-  tag?: React.ElementType<{}>
+  transitionClasses?: TransitionGroupClasses
 }
 
 type TransitionGroupElement = TransitionElement & { _move?: () => void; _oldPos?: DOMRect }
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
-  const { children, classNames: _classNames, tag: Tag = React.Fragment, ...others } = props
+  const { children, transitionClasses: _transitionClasses, ...others } = props
 
   // 阻止用户故意传入appear和disappear钩子
   /* eslint-disable */
@@ -60,13 +61,16 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   delete (others as any).disappearCancelled
   /* eslint-enable */
 
-  const classNames = React.useMemo(() => {
-    let obj: CSSTransitionClassNamesObject & { move?: string } = {}
+  const TransitionClasses = React.useMemo(() => {
+    let obj: CSSTransitionClassesObject & { move?: string } = {}
 
+    if (!_transitionClasses) {
+      return {}
+    }
     // 组件实际上是使用CSSTransition的appear和disappear钩子实现动画，但是向用户隐藏实现细节，
     // 所以这里需要将enter和leave的class设置到appear和disappear上
-    if (typeof _classNames === 'object') {
-      obj = { ..._classNames }
+    else if (typeof _transitionClasses === 'object') {
+      obj = { ..._transitionClasses }
       obj.appear = obj.enter
       obj.appearActive = obj.enterActive
       obj.appearTo = obj.enterTo
@@ -75,17 +79,17 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       obj.disappearActive = obj.leaveActive
       obj.disappearTo = obj.leaveTo
     } else {
-      obj.appear = obj.enter = `${_classNames}-enter`
-      obj.appearTo = obj.enterTo = `${_classNames}-enter-to`
-      obj.appearActive = obj.enterActive = `${_classNames}-enter-active`
-      obj.disappear = obj.leave = `${_classNames}-leave`
-      obj.disappearTo = obj.leaveTo = `${_classNames}-leave-to`
-      obj.disappearActive = obj.leaveActive = `${_classNames}-leave-active`
-      obj.move = `${_classNames}-move`
+      obj.appear = obj.enter = `${_transitionClasses}-enter`
+      obj.appearTo = obj.enterTo = `${_transitionClasses}-enter-to`
+      obj.appearActive = obj.enterActive = `${_transitionClasses}-enter-active`
+      obj.disappear = obj.leave = `${_transitionClasses}-leave`
+      obj.disappearTo = obj.leaveTo = `${_transitionClasses}-leave-to`
+      obj.disappearActive = obj.leaveActive = `${_transitionClasses}-leave-active`
+      obj.move = `${_transitionClasses}-move`
     }
 
     return obj
-  }, [_classNames])
+  }, [_transitionClasses])
 
   const [elements, setElements] = React.useState<Array<React.ReactElement>>([])
 
@@ -147,9 +151,10 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         const child = isTransition ? it.props.children : it
         const { afterLeave, ...others2 } = others
 
-        const afterLeaveWrap = (el: HTMLElement) => {
+        const afterLeaveWrap = (el: TransitionElement) => {
           afterLeave && afterLeave(el)
           prevChildrenRef.current = prevChildrenRef.current.filter((prev) => prev.key !== it.key)
+          computedRef.current = true
         }
 
         return (
@@ -157,7 +162,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
             {...others2}
             transitionOnFirst={true}
             afterLeave={afterLeaveWrap}
-            classNames={classNames}
+            transitionClasses={TransitionClasses}
             in={false}
             key={it.key!}
           >
@@ -220,7 +225,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
             {...others}
             transitionOnFirst={true}
             key={it.key!}
-            classNames={classNames}
+            transitionClasses={TransitionClasses}
             in={true}
           >
             {it}
@@ -233,7 +238,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     prevChildrenRef.current = arr
     setElements(arr)
 
-    const moveClass = classNames.move
+    const moveClass = TransitionClasses.move
 
     const hasMove = sameNodes.length > 0 && moveClass && hasCSSTransform(sameNodes[0], moveClass)
 
@@ -265,25 +270,23 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     elementsTrigger()
   }, [flag, elementsTrigger])
 
-  return <Tag>{elements}</Tag>
+  return <>{elements}</>
 }
 
 TransitionGroup.propTypes = {
-  classNames: PropTypes.oneOfType([
+  transitionClasses: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
-      enter: PropTypes.string.isRequired,
-      enterActive: PropTypes.string.isRequired,
-      enterTo: PropTypes.string.isRequired,
-      leave: PropTypes.string.isRequired,
-      leaveActive: PropTypes.string.isRequired,
-      leaveTo: PropTypes.string.isRequired,
-      move: PropTypes.string.isRequired
+      enter: PropTypes.string,
+      enterActive: PropTypes.string,
+      enterTo: PropTypes.string,
+      leave: PropTypes.string,
+      leaveActive: PropTypes.string,
+      leaveTo: PropTypes.string,
+      move: PropTypes.string
     })
   ]),
-  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  tag: PropTypes.elementType as any
+  children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
 }
 
 export default TransitionGroup

@@ -122,6 +122,11 @@ const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
       {prefixNode}
       {formatChildren(children)}
       {suffixNode}
+      <Ripple
+        rippleClass={`${clsPrefix}__ripple`}
+        rippleInnerClass={`${clsPrefix}__ripple-inner`}
+        transitionClasses={`${clsPrefix}__ripple`}
+      />
     </>
   )
 

@@ -10,7 +10,7 @@ import Transition, {
   EventCancelledHook
 } from '../Transition'
 
-export type CSSTransitionClassNamesObject = {
+export type CSSTransitionClassesObject = {
   appear?: string
   appearActive?: string
   appearTo?: string
@@ -25,11 +25,11 @@ export type CSSTransitionClassNamesObject = {
   disappearTo?: string
 }
 
-export type CSSTransitionClassNames = CSSTransitionClassNamesObject | string
+export type CSSTransitionClasses = CSSTransitionClassesObject | string
 
 export interface CSSTransitionProps extends TransitionProps {
   css?: boolean
-  classNames?: string | CSSTransitionClassNames
+  transitionClasses?: CSSTransitionClasses
   timeout?:
     | number
     | {
@@ -41,14 +41,14 @@ export interface CSSTransitionProps extends TransitionProps {
 }
 
 export type TransitionElement = HTMLElement & {
-  _ctc?: CSSTransitionClassNamesObject
+  _ctc?: CSSTransitionClassesObject
   _done?: () => void
 }
 
 const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const {
     css = true,
-    classNames,
+    transitionClasses,
     beforeEnter,
     enter,
     afterEnter,
@@ -83,28 +83,28 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   afterDisappear = afterDisappear || afterLeave
   disappearCancelled = disappearCancelled || leaveCancelled
 
-  const classNameMap = React.useMemo(() => {
-    if (!classNames) {
+  const transitionClassesObj = React.useMemo(() => {
+    if (!transitionClasses) {
       return null
     }
-    if (typeof classNames === 'object') {
-      return classNames
+    if (typeof transitionClasses === 'object') {
+      return transitionClasses
     }
     return {
-      appear: `${classNames}-appear`,
-      appearActive: `${classNames}-appear-active`,
-      appearTo: `${classNames}-appear-to`,
-      enter: `${classNames}-enter`,
-      enterActive: `${classNames}-enter-active`,
-      enterTo: `${classNames}-enter-to`,
-      leave: `${classNames}-leave`,
-      leaveActive: `${classNames}-leave-active`,
-      leaveTo: `${classNames}-leave-to`,
-      disappear: `${classNames}-disappear`,
-      disappearActive: `${classNames}-disappear-active`,
-      disappearTo: `${classNames}-disappear-to`
+      appear: `${transitionClasses}-appear`,
+      appearActive: `${transitionClasses}-appear-active`,
+      appearTo: `${transitionClasses}-appear-to`,
+      enter: `${transitionClasses}-enter`,
+      enterActive: `${transitionClasses}-enter-active`,
+      enterTo: `${transitionClasses}-enter-to`,
+      leave: `${transitionClasses}-leave`,
+      leaveActive: `${transitionClasses}-leave-active`,
+      leaveTo: `${transitionClasses}-leave-to`,
+      disappear: `${transitionClasses}-disappear`,
+      disappearActive: `${transitionClasses}-disappear-active`,
+      disappearTo: `${transitionClasses}-disappear-to`
     }
-  }, [classNames])
+  }, [transitionClasses])
 
   const timeoutMap = React.useMemo(() => {
     if (!timeout) {
@@ -125,12 +125,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         css && {
-          appear: classNameMap?.appear,
-          appearActive: classNameMap?.appearActive
+          appear: transitionClassesObj?.appear,
+          appearActive: transitionClassesObj?.appearActive
         },
         beforeAppear
       ),
-    [css, classNameMap?.appear, classNameMap?.appearActive, beforeAppear]
+    [css, transitionClassesObj?.appear, transitionClassesObj?.appearActive, beforeAppear]
   )
 
   const appearWrapper = React.useMemo(
@@ -138,12 +138,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['appear'],
         css && {
-          appearTo: classNameMap?.appearTo
+          appearTo: transitionClassesObj?.appearTo
         },
         timeoutMap?.appear,
         appear
       ),
-    [css, classNameMap?.appearTo, timeoutMap?.appear, appear]
+    [css, transitionClassesObj?.appearTo, timeoutMap?.appear, appear]
   )
   const afterAppearWrapper = React.useMemo(() => createAfterEventHook(afterAppear), [afterAppear])
   const appearCancelledWrapper = React.useMemo(() => createEventCancelledHook(appearCancelled), [
@@ -154,12 +154,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         css && {
-          enter: classNameMap?.enter,
-          enterActive: classNameMap?.enterActive
+          enter: transitionClassesObj?.enter,
+          enterActive: transitionClassesObj?.enterActive
         },
         beforeEnter
       ),
-    [css, classNameMap?.enter, classNameMap?.enterActive, beforeEnter]
+    [css, transitionClassesObj?.enter, transitionClassesObj?.enterActive, beforeEnter]
   )
 
   const enterWrapper = React.useMemo(
@@ -167,12 +167,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['enter'],
         css && {
-          enterTo: classNameMap?.enterTo
+          enterTo: transitionClassesObj?.enterTo
         },
         timeoutMap?.enter,
         enter
       ),
-    [css, classNameMap?.enterTo, timeoutMap?.enter, enter]
+    [css, transitionClassesObj?.enterTo, timeoutMap?.enter, enter]
   )
   const afterEnterWrapper = React.useMemo(() => createAfterEventHook(afterEnter), [afterEnter])
   const enterCancelledWrapper = React.useMemo(() => createEventCancelledHook(enterCancelled), [
@@ -183,12 +183,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         css && {
-          leave: classNameMap?.leave,
-          leaveActive: classNameMap?.leaveActive
+          leave: transitionClassesObj?.leave,
+          leaveActive: transitionClassesObj?.leaveActive
         },
         beforeLeave
       ),
-    [css, classNameMap?.leave, classNameMap?.leaveActive, beforeLeave]
+    [css, transitionClassesObj?.leave, transitionClassesObj?.leaveActive, beforeLeave]
   )
 
   const leaveWrapper = React.useMemo(
@@ -196,12 +196,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['leave'],
         css && {
-          leaveTo: classNameMap?.leaveTo
+          leaveTo: transitionClassesObj?.leaveTo
         },
         timeoutMap?.leave,
         leave
       ),
-    [css, classNameMap?.leaveTo, timeoutMap?.leave, leave]
+    [css, transitionClassesObj?.leaveTo, timeoutMap?.leave, leave]
   )
   const afterLeaveWrapper = React.useMemo(() => createAfterEventHook(afterLeave), [afterLeave])
   const leaveCancelledWrapper = React.useMemo(() => createEventCancelledHook(leaveCancelled), [
@@ -212,12 +212,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         css && {
-          disappear: classNameMap?.disappear,
-          disappearActive: classNameMap?.disappearActive
+          disappear: transitionClassesObj?.disappear,
+          disappearActive: transitionClassesObj?.disappearActive
         },
         beforeDisappear
       ),
-    [css, classNameMap?.disappear, classNameMap?.disappearActive, beforeDisappear]
+    [css, transitionClassesObj?.disappear, transitionClassesObj?.disappearActive, beforeDisappear]
   )
 
   const disappearWrapper = React.useMemo(
@@ -225,12 +225,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['disappear'],
         css && {
-          disappearTo: classNameMap?.disappearTo
+          disappearTo: transitionClassesObj?.disappearTo
         },
         timeoutMap?.disappear,
         disappear
       ),
-    [css, classNameMap?.disappearTo, timeoutMap?.disappear, disappear]
+    [css, transitionClassesObj?.disappearTo, timeoutMap?.disappear, disappear]
   )
   const afterDisappearWrapper = React.useMemo(() => createAfterEventHook(afterDisappear), [
     afterDisappear
@@ -264,30 +264,30 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
 }
 
 CSSTransition.propTypes = {
-  classNames: PropTypes.oneOfType([
+  transitionClasses: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
-      appear: PropTypes.string.isRequired,
-      appearActive: PropTypes.string.isRequired,
-      appearTo: PropTypes.string.isRequired,
-      enter: PropTypes.string.isRequired,
-      enterActive: PropTypes.string.isRequired,
-      enterTo: PropTypes.string.isRequired,
-      leave: PropTypes.string.isRequired,
-      leaveActive: PropTypes.string.isRequired,
-      leaveTo: PropTypes.string.isRequired,
-      disappear: PropTypes.string.isRequired,
-      disappearActive: PropTypes.string.isRequired,
-      disappearTo: PropTypes.string.isRequired
+      appear: PropTypes.string,
+      appearActive: PropTypes.string,
+      appearTo: PropTypes.string,
+      enter: PropTypes.string,
+      enterActive: PropTypes.string,
+      enterTo: PropTypes.string,
+      leave: PropTypes.string,
+      leaveActive: PropTypes.string,
+      leaveTo: PropTypes.string,
+      disappear: PropTypes.string,
+      disappearActive: PropTypes.string,
+      disappearTo: PropTypes.string
     })
   ]),
   timeout: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.shape({
-      appear: PropTypes.number.isRequired,
-      enter: PropTypes.number.isRequired,
-      leave: PropTypes.number.isRequired,
-      disappear: PropTypes.number.isRequired
+      appear: PropTypes.number,
+      enter: PropTypes.number,
+      leave: PropTypes.number,
+      disappear: PropTypes.number
     })
   ]),
   css: PropTypes.bool,
@@ -312,7 +312,7 @@ CSSTransition.propTypes = {
 export default CSSTransition
 
 const createBeforeEventHook = (
-  ctc: CSSTransitionClassNamesObject | false,
+  ctc: CSSTransitionClassesObject | false,
   nativeHook?: BeforeEventHook
 ): BeforeEventHook => {
   return (el: TransitionElement) => {
@@ -320,7 +320,7 @@ const createBeforeEventHook = (
     el._ctc = {}
     if (ctc) {
       for (const name of Object.keys(ctc)) {
-        const key = name as keyof CSSTransitionClassNamesObject
+        const key = name as keyof CSSTransitionClassesObject
         const clazz = ctc[key]
         if (clazz) {
           addClass(el, clazz)
@@ -333,8 +333,8 @@ const createBeforeEventHook = (
 }
 
 const createEventHook = (
-  removedClassNames: Array<keyof CSSTransitionClassNamesObject>,
-  ctc: CSSTransitionClassNamesObject | false,
+  removedClassNames: Array<keyof CSSTransitionClassesObject>,
+  ctc: CSSTransitionClassesObject | false,
   timeout?: number,
   nativeHook?: EventHook
 ): EventHook => {
@@ -363,7 +363,7 @@ const createEventHook = (
         }
         if (ctc) {
           for (const name of Object.keys(ctc)) {
-            const key = name as keyof CSSTransitionClassNamesObject
+            const key = name as keyof CSSTransitionClassesObject
             const clazz = ctc[key]
             if (clazz) {
               addClass(el, clazz)
@@ -380,6 +380,7 @@ const createEventHook = (
       nativeHook && nativeHook(el, doneCb, isCancelled)
     })
 
+    // for TransitionGroup
     el._done = () => {
       isInterrupt = true
       // 清除事件
@@ -402,7 +403,7 @@ const createAfterOrCancelledEventHook = (
 ): NonNullable<typeof nativeHook> => {
   return (el: TransitionElement) => {
     for (const name of Object.keys(el._ctc!)) {
-      const key = name as keyof CSSTransitionClassNamesObject
+      const key = name as keyof CSSTransitionClassesObject
       const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
       delete el._ctc![key]

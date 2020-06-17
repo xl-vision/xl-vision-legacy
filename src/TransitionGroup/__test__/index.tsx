@@ -11,7 +11,7 @@ describe('TransitionGroup', () => {
     const Comp = (props: { arr: Array<number> }) => {
       const { arr } = props
       const children = arr.map((it) => <div key={it}>{it}</div>)
-      return <TransitionGroup classNames='demo'>{children}</TransitionGroup>
+      return <TransitionGroup transitionClasses='demo'>{children}</TransitionGroup>
     }
     const wrapper = mount(<Comp arr={prevArr} />)
     expect(wrapper.text()).toBe(prevArr.map((it) => it + '').reduce((a, b) => a + b))

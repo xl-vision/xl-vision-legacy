@@ -1,4 +1,4 @@
-import { isDevelopment } from "./env"
+import { isDevelopment } from './env'
 
 export const warning = isDevelopment
   ? (condition: boolean, format: string, ...args: Array<string>) => {

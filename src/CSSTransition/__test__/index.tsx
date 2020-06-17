@@ -1,11 +1,11 @@
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import CSSTransition, { CSSTransitionClassNames } from '..'
+import CSSTransition, { CSSTransitionClasses } from '..'
 import wait from '../../../test/wait'
 import * as TransitionUtils from '../../commons/utils/transition'
 
-const classnameMap: CSSTransitionClassNames = {
+const classnameMap: CSSTransitionClasses = {
   appear: 'appear',
   appearActive: 'appearActive',
   appearTo: 'appearTo',
@@ -43,7 +43,7 @@ describe('CSSTransition', () => {
         in={true}
         transitionOnFirst={true}
         beforeAppear={() => call('beforeAppear')}
-        classNames={classnameMap}
+        transitionClasses={classnameMap}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
@@ -120,7 +120,7 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={false}
         transitionOnFirst={true}
-        classNames={classnameMap}
+        transitionClasses={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -210,7 +210,7 @@ describe('CSSTransition', () => {
     const wrapper = mount(
       <CSSTransition
         in={false}
-        classNames={classnameMap}
+        transitionClasses={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -286,7 +286,7 @@ describe('CSSTransition', () => {
     const wrapper = mount(
       <CSSTransition
         in={true}
-        classNames={classnameMap}
+        transitionClasses={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -355,7 +355,7 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={true}
         transitionOnFirst={true}
-        classNames={classnameMap}
+        transitionClasses={classnameMap}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
@@ -431,7 +431,7 @@ describe('CSSTransition', () => {
 
   it('测试包含className调用时机', async () => {
     const wrapper = mount(
-      <CSSTransition transitionOnFirst={true} in={true} classNames={'test'}>
+      <CSSTransition transitionOnFirst={true} in={true} transitionClasses={'test'}>
         <div />
       </CSSTransition>
     )
@@ -493,7 +493,7 @@ describe('CSSTransition', () => {
 
   it('测试timeout调用时机', async () => {
     const wrapper = mount(
-      <CSSTransition transitionOnFirst={true} in={true} classNames={'test'} timeout={10}>
+      <CSSTransition transitionOnFirst={true} in={true} transitionClasses={'test'} timeout={10}>
         <div />
       </CSSTransition>
     )
@@ -562,7 +562,7 @@ describe('CSSTransition', () => {
         transitionOnFirst={true}
         in={true}
         css={false}
-        classNames={'test'}
+        transitionClasses={'test'}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {

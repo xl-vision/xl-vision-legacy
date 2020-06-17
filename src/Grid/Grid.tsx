@@ -84,12 +84,12 @@ Grid.propTypes = {
   gutter: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.shape({
-      lg: PropTypes.number.isRequired,
-      md: PropTypes.number.isRequired,
-      sm: PropTypes.number.isRequired,
-      xl: PropTypes.number.isRequired,
-      xs: PropTypes.number.isRequired,
-      xxl: PropTypes.number.isRequired
+      lg: PropTypes.number,
+      md: PropTypes.number,
+      sm: PropTypes.number,
+      xl: PropTypes.number,
+      xs: PropTypes.number,
+      xxl: PropTypes.number
     })
   ]),
   justify: PropTypes.oneOf<'start' | 'end' | 'center' | 'space-around' | 'space-between'>([

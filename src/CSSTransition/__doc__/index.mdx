@@ -27,7 +27,7 @@ export default () => {
       >
         Click
       </Button>
-      <CSSTransition in={active} classNames={'fade'}>
+      <CSSTransition in={active} transitionClasses={'fade'}>
         <div className='demo'>DEMO</div>
       </CSSTransition>
     </div>
@@ -88,11 +88,11 @@ export default () => {
         Click
       </Button>
       <p>进场</p>
-      <CSSTransition transitionOnFirst in={active} classNames={'fade'}>
+      <CSSTransition transitionOnFirst in={active} transitionClasses={'fade'}>
         <div className='demo'>DEMO</div>
       </CSSTransition>
       <p>出场</p>
-      <CSSTransition transitionOnFirst in={!active} classNames={'fade'}>
+      <CSSTransition transitionOnFirst in={!active} transitionClasses={'fade'}>
         <div className='demo'>DEMO</div>
       </CSSTransition>
     </div>
@@ -142,6 +142,6 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
-| classNames | 指定动画过程中的`class`名 | string &#x007c; object | - | - | false |
+| transitionClasses | 指定动画过程中的`class`名 | string &#x007c; object | - | - | false |
 | timeout | 指定动画需要的时间 | string &#x007c; object | - | - | false |
 | css | 指定是否启用`css`动画，如果想使用 js 进行动画控制，避免 css 动画的干扰，可以将此属性置为`false` | boolean | - | - | true |

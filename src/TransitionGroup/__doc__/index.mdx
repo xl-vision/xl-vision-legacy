@@ -43,7 +43,7 @@ export default () => {
         <Button onClick={remove}>remove</Button>
       </Button.Group>
       <div className='list'>
-        <TransitionGroup classNames='item'>
+        <TransitionGroup transitionClasses='item'>
           {items.map((it) => (
             <span key={it} className={'item'}>
               {it}
@@ -145,7 +145,7 @@ export default () => {
         <Button onClick={remove}>remove</Button>
       </Button.Group>
       <div className='list'>
-        <TransitionGroup classNames='item'>
+        <TransitionGroup transitionClasses='item'>
           {items.map((it) => (
             <span key={it} className={'item'}>
               {it}
@@ -241,7 +241,7 @@ export default () => {
         <Button onClick={shuffle}>shuffle</Button>
       </Button.Group>
       <div className='box'>
-        <TransitionGroup classNames='item'>
+        <TransitionGroup transitionClasses='item'>
           {items.map((it) => (
             <div key={it} className={'item'}>
               {it}
@@ -389,6 +389,5 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
-| classNames | 指定动画过程中的`class`名,相比`CSSTransition`多了一个`move`动画 | string &#x007c; object | - | - | false |
+| transitionClasses | 指定动画过程中的`class`名,相比`CSSTransition`多了一个`move`动画 | string &#x007c; object | - | - | false |
 | children | 数组或单个元素，需要为 Transition 或其子类型，可以配合`childFactory`使用 | React.ReactElement[] | - | — | true |
-| tag | 自定义容器标签 | - | - | React.Fragment | false |

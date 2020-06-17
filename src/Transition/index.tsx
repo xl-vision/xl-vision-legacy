@@ -161,8 +161,6 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   ])
 
   const inPropTrigger = useConstantCallback((inProp: boolean) => {
-    console.log('inPropTrigger', inProp, state)
-
     if (inProp && state >= State.STATE_LEAVING) {
       cbRef.current = undefined
       // 新的更改，之前的event取消
