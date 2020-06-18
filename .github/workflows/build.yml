@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10'
+    - run: npm install
     - name: lint:es
       run: npm run lint:es
     - name: lint:style
@@ -18,12 +22,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10'
+    - run: npm install
     - name: test
       run: ../../script/ci/test.sh
   compile:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10'
+    - run: npm install
     - name: compile:lib
       run: npm run compile:lib
     - name: compile:es
@@ -32,11 +44,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10'
+    - run: npm install
     - name: dist
       run: npm run dist
   docs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10'
+    - run: npm install
     - name: docs
       run: npm run docs
