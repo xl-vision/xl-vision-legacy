@@ -11,6 +11,7 @@ export interface IconWrapperProps {
 }
 
 const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { children, name } = props
   const [hover, setHover] = React.useState(false)
   const iconRef = React.useRef<HTMLDivElement>(null)

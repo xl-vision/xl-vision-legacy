@@ -7,6 +7,7 @@ import { CollapseTransition } from '../../../src'
 import 'prismjs/themes/prism.css'
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { title, desc, blocks, children } = props
 
   const [expand, setExpand] = React.useState(false)
@@ -27,23 +28,26 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
       </div>
       <CollapseTransition in={expand}>
         <div className={classes.codes}>
-          {blocks.map((it, index) => {
-            return (
-              <div className={classes.codeWrapper} key={index}>
-                <ul className={classes.lines}>
-                  {it.content.split('\n').map((_, index) => {
-                    return (
-                      <li key={index} className={classes.line}>
-                        {index + 1}
-                      </li>
-                    )
-                  })}
-                </ul>
-                <div className={classes.lang}>{it.lang}</div>
-                <div className={classes.code}>{it.preview}</div>
-              </div>
-            )
-          })}
+          {
+            // eslint-disable-next-line react/prop-types
+            blocks.map((it, index) => {
+              return (
+                <div className={classes.codeWrapper} key={index}>
+                  <ul className={classes.lines}>
+                    {it.content.split('\n').map((_, index) => {
+                      return (
+                        <li key={index} className={classes.line}>
+                          {index + 1}
+                        </li>
+                      )
+                    })}
+                  </ul>
+                  <div className={classes.lang}>{it.lang}</div>
+                  <div className={classes.code}>{it.preview}</div>
+                </div>
+              )
+            })
+          }
         </div>
       </CollapseTransition>
     </div>

@@ -15,11 +15,14 @@ type MarkdownProps = {
 }
 
 const Markdown: React.FunctionComponent<MarkdownProps> = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { route } = props
+  // eslint-disable-next-line react/prop-types
   const Loadable = React.lazy(() => route.component)
 
   React.useEffect(() => {
     if (document) {
+      // eslint-disable-next-line react/prop-types
       document.title = route.name
     }
   }, [route])

@@ -158,7 +158,8 @@ Button.propTypes = {
   size: PropTypes.oneOf(['large', 'default', 'small']),
   type: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'error', 'text']),
   prefixIcon: PropTypes.element,
-  suffixIcon: PropTypes.element
+  suffixIcon: PropTypes.element,
+  onClick: PropTypes.func
 }
 
 export default Button
