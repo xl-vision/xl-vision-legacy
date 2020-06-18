@@ -1,4 +1,73 @@
 # Changelog
+## [0.1.0-beta.1](https://github.com/xl-vision/xl-vision/compare/v0.1.0-beta.0...v0.1.0-beta.1) (2020-06-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **transition csstransition:** Rename isAppear to transiionOnFirst
+* remove type function for prop 'transitionName'
+
+### Features
+
+* **ripple:** complete component ripple ([558b77b](https://github.com/xl-vision/xl-vision/commit/558b77bf68304af0b90b5e1cec3889a04b284c5b))
+* working in progress ([554b272](https://github.com/xl-vision/xl-vision/commit/554b2728375fc8933c6f10f3e2113c3da9992ff6))
+* working in progress ([f15b846](https://github.com/xl-vision/xl-vision/commit/f15b846b1c7dd4315cd27406b5b77e686172f7ca))
+* working in progress ([87551d6](https://github.com/xl-vision/xl-vision/commit/87551d62b88fd58b170946b8b0d0705a084ca443))
+* **transitiongroup:** complete developing TransitionGroup ([13c8959](https://github.com/xl-vision/xl-vision/commit/13c895918f04fc3e4c8179c6f3b7d8d7f7b29537))
+* **transitiongroup:** working in progress ([e20935f](https://github.com/xl-vision/xl-vision/commit/e20935f79aa4c33a0c3eae9a0a1fa83296831c24))
+* add new color palette ([386f1e2](https://github.com/xl-vision/xl-vision/commit/386f1e2487d6db5a65fc8ca29a027444ab4ca2b9))
+
+
+### Bug Fixes
+
+* **icon:** style import path error ([a91a609](https://github.com/xl-vision/xl-vision/commit/a91a6098ae1327fdf7e911a4c791c204aaa48545))
+* **transition:** fix a bug 'mount state' can not be get correctly ([765eed2](https://github.com/xl-vision/xl-vision/commit/765eed2e07f9c2d8d05809ffbf35be8f77c9150a))
+* **transition:** fix bug on function onTransitionEnd ([2a2389c](https://github.com/xl-vision/xl-vision/commit/2a2389c8c2a2dc673cb0ed32e9a1a967a3c9264b))
+* **transition:** fix onTransitionEnd bug ([016f802](https://github.com/xl-vision/xl-vision/commit/016f8025bf8ee8558e4406f13a2075381d9bb39e))
+* **transition:** fix possible bugs ([623db68](https://github.com/xl-vision/xl-vision/commit/623db6805a27b199319c4ab3479215e138dcf709))
+* fix bugs ([f662601](https://github.com/xl-vision/xl-vision/commit/f6626016025ec9e0f114b0becccc0ad682de9bed))
+* fix compile error ([48d0af1](https://github.com/xl-vision/xl-vision/commit/48d0af1418e92ecf32fb39ff6fc6ebc17204495f))
+* fix travis errors ([a6e4a37](https://github.com/xl-vision/xl-vision/commit/a6e4a37340acfd8b82267a6433f8ea1b8619445b))
+* fix travis errors ([c6c7d0a](https://github.com/xl-vision/xl-vision/commit/c6c7d0a7696e8becaa5ed43ef1c8afc55346542a))
+* fix travis errors ([2c1adc1](https://github.com/xl-vision/xl-vision/commit/2c1adc1d5d180bf6081b6484d58987965a0bae4f))
+* fix type ([b883f42](https://github.com/xl-vision/xl-vision/commit/b883f421f266995f611de7cd9eac18e39cda2893))
+* fix typo ([e04d4d4](https://github.com/xl-vision/xl-vision/commit/e04d4d4ade6f82e941ddb6121718e10f78c06012))
+* fixed bug that animation of poppers didn't trigger ([bd9b039](https://github.com/xl-vision/xl-vision/commit/bd9b0398e4d437b9f4bdd19b687fd855d89e1996))
+* the default shell in travis does not support '()',so modify it ([ba9f138](https://github.com/xl-vision/xl-vision/commit/ba9f138237455f4a59c77c9e2407b668abeb61b2))
+* transitionName doesn't support function now ([a9ff752](https://github.com/xl-vision/xl-vision/commit/a9ff7524e50fefb31d3aa0d7de7c5c72dab6fc02))
+* **transition:** fix callback function in transition invoking too late ([2ba0cde](https://github.com/xl-vision/xl-vision/commit/2ba0cde68a20e6a9cef59fbe6f5429b863cb2fea))
+
+
+### Improvement
+
+* **transition-group:** improve animation ([b0c0ae3](https://github.com/xl-vision/xl-vision/commit/b0c0ae3c99282354ce491d6137e98e6220312080))
+
+
+### chore
+
+* **transition csstransition:** support disappear hooks ([c09b82a](https://github.com/xl-vision/xl-vision/commit/c09b82aa6387a06a4cd108480cfecb98882f293f))
+
+
+### Refactor
+
+* working in progress ([dd66b50](https://github.com/xl-vision/xl-vision/commit/dd66b5077b73fa25c79ebb87d9ec4c35dc356b6f))
+* **csstransition:** extract common logic codes, and some info ([68ecad9](https://github.com/xl-vision/xl-vision/commit/68ecad922a1a4e539556d139e74b719d6c827326))
+* rename row to grid ([8a2f791](https://github.com/xl-vision/xl-vision/commit/8a2f79180972160dd15b060eb2acb9cafb3be804))
+* **icon:** replace font-awesome with ionicon ([c08948b](https://github.com/xl-vision/xl-vision/commit/c08948b2dffe3e6e54960bb2ede115c7aad099b4))
+* **icon:** replace font-awesome with ionicon ([fd1882c](https://github.com/xl-vision/xl-vision/commit/fd1882c2008d274d48e151eb9f8713e25a02cb24))
+* **icon:** update ([8416953](https://github.com/xl-vision/xl-vision/commit/8416953a2941c07a34e354b86419d73671f26d3d))
+* **icon:** update ([3d4cab6](https://github.com/xl-vision/xl-vision/commit/3d4cab6c107214f12b23f5d7d105d486d18c4a41))
+* **icon:** update Icon ([b909f94](https://github.com/xl-vision/xl-vision/commit/b909f94954f4bf4ed9157ce9cdac3a5fce44795d))
+* **transition:** refactor ([4729e2a](https://github.com/xl-vision/xl-vision/commit/4729e2a364bf6da305dcc26b0270abb37dfeab12))
+* **transition:** remove transition state 'STATE_INIT' ([8dcdac9](https://github.com/xl-vision/xl-vision/commit/8dcdac93d81af84eb94b0fbc666f177872979743))
+* initially completed the environment construction ([029d4c3](https://github.com/xl-vision/xl-vision/commit/029d4c31dc77b5934e37f2e09734bdccfd93de75))
+* initially completed the environment construction ([9d2ac81](https://github.com/xl-vision/xl-vision/commit/9d2ac819bd33c8a200b6344c194dd4f3bd7ff24e))
+* refactor project  directory structure ([2e23e81](https://github.com/xl-vision/xl-vision/commit/2e23e811069f5f8783bef08d579bd9b709621eef))
+* refactor Transitio,CssTransition,CollapseTransition ([ea49e23](https://github.com/xl-vision/xl-vision/commit/ea49e2344b00bfea50f312b93b4b511134ba95f2))
+* update components' name ([d5403da](https://github.com/xl-vision/xl-vision/commit/d5403daee21669036c59ac4577bea4d127e43653))
+* work in progress ([6ad65ce](https://github.com/xl-vision/xl-vision/commit/6ad65cef86090cf3a0fede66aa9c363c0fd098e3))
+* work in progress ([14e3845](https://github.com/xl-vision/xl-vision/commit/14e3845ec25c46ed7df09b2cff02d682683aa87c))
+
 ## [0.1.0-beta.0](https://github.com/xl-vision/xl-vision/compare/v0.0.2-beta.71...v0.1.0-beta.0) (2020-01-13)
 
 
@@ -104,4 +173,3 @@
 
 * fix a bug ([e5e0f51](https://github.com/xl-vision/xl-vision/commit/e5e0f51802235e4dd6a60323d6d452058e5f218a))
 * only give a error tip when commit message format is illegal ([88e6ad0](https://github.com/xl-vision/xl-vision/commit/88e6ad0f0d047563b3124734fa748db7c2dc88a7))
-
