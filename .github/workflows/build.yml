@@ -27,6 +27,8 @@ jobs:
         node-version: '10'
     - run: npm install
     - name: test
+      env:
+        CODACY_TOKEN: ${{secrets.CODACY_TOKEN}}
       run: ./script/ci/test.sh
   compile:
     runs-on: ubuntu-latest
