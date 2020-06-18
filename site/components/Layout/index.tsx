@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { Grid } from '../../../src'
 import Aside from '../Aside'
 import Content from '../Content'

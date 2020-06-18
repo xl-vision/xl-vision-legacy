@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10'
     - run: npm install
     - name: lint:es
       run: npm run lint:es
@@ -22,9 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10'
     - run: npm install
     - name: test
       run: npm run test -- --coverage --bail
@@ -36,9 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10'
     - run: npm install
     - name: compile:lib
       run: npm run compile:lib
@@ -48,9 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10'
     - run: npm install
     - name: dist
       run: npm run dist
@@ -58,9 +46,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10'
     - run: npm install
     - name: docs
       run: npm run docs

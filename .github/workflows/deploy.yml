@@ -1,0 +1,28 @@
+name: Deploy website
+on:
+  release:
+    types: [created]
+    branches:
+      - master
+      - dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: install
+      run: npm install
+
+    - name: build docs
+      run: npm run docs
+
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v3
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./docs
+      with:
+        emptyCommits: false
