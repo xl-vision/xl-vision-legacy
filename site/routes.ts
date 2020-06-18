@@ -19,7 +19,7 @@ export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
 const routes: Array<Route> = [
   {
     path: '/',
-    redirect: '/Grid'
+    redirect: '/Icon'
   },
   {
     name: '基础组件',
