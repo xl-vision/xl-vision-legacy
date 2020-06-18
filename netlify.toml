@@ -1,3 +1,6 @@
+[build]
+  publish = "docs/"
+  command = "npm run docs"
 [context.production]
-  publish = "/"
+  publish = ""
   command = ""
