@@ -27,7 +27,7 @@ jobs:
         node-version: '10'
     - run: npm install
     - name: test
-      run: ../../script/ci/test.sh
+      run: ./script/ci/test.sh
   compile:
     runs-on: ubuntu-latest
     steps:
