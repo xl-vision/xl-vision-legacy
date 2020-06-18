@@ -142,7 +142,6 @@ module.exports = [
       {
         name: 'docs',
         options: {
-          publicPath: '/xl-vision/',
           tsConfig: 'tsconfig.site.json',
           alias: {
             'xl-vision$': 'src/index.tsx',

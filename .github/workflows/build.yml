@@ -1,0 +1,42 @@
+name: Test And Build
+on: 
+  pull_request:
+  push:
+    branches:
+      - master
+      - dev
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: lint:es
+      run: npm run lint:es
+    - name: lint:style
+      run: npm run lint:style
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: test
+      run: ../../script/ci/test.sh
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: compile:lib
+      run: npm run compile:lib
+    - name: compile:es
+      run: npm run compile:es
+  dist:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: dist
+      run: npm run dist
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: docs
+      run: npm run docs
