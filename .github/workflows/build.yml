@@ -32,7 +32,6 @@ jobs:
       uses: codacy/codacy-coverage-reporter-action@master
       with:
         project-token: ${{secrets.CODACY_TOKEN}}
-      run: ./script/ci/test.sh
   compile:
     runs-on: ubuntu-latest
     steps:
