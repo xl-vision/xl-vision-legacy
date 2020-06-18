@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 > `TransitionGroup`可以很方便地进行列表过渡动画
 
-> 本组件灵感来自于`vue`的`transition-group`,与其具有类似的api，
+> 本组件灵感来自于`vue`的`transition-group`,与其具有类似的 api，
 
->如果熟悉[`vue`](https://cn.vuejs.org/),将很容易上手。
+> 如果熟悉[`vue`](https://cn.vuejs.org/),将很容易上手。
 
 :::demo 基础用法
 
@@ -367,7 +367,7 @@ export default () => {
         leave={leave}
       >
         {list.map((it, index) => (
-          <li data-index={index} key={it}>
+          <li data-index={index + 1} key={it}>
             {it}
           </li>
         ))}
