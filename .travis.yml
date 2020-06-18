@@ -1,3 +1,5 @@
+os: linux
+dist: xenial
 branches:
   except:
     - gh-pages
@@ -23,15 +25,16 @@ jobs:
       name: compile
       deploy:
         - provider: npm
-          skip_cleanup: true
+          cleanup: false
           email: xrs4433@outlook.com
           api_token: $NPM_TOKEN
           on:
             tags: true
         - provider: pages
-          skip_cleanup: true
+          cleanup: false
           token: $GITHUB_TOKEN
           local_dir: ./docs
           target_branch: gh-pages
+          strategy: git
           on:
             tags: true
