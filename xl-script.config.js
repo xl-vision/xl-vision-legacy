@@ -146,8 +146,8 @@ module.exports = [
           tsConfig: 'tsconfig.site.json',
           alias: {
             'xl-vision$': 'src/index.tsx',
-            'xl-vision/lib/': 'src',
-            'xl-vision/es': 'src'
+            'xl-vision/lib/icon': 'src/icon',
+            'xl-vision/es/icon': 'src/icon'
           }
         }
       }
