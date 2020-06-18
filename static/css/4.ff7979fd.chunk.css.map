@@ -1,0 +1,1 @@
+{"version":3,"sources":["/home/runner/work/xl-vision/xl-vision/src/Button/__doc__/index.mdx"],"names":[],"mappings":"AAAA,mMACE,YAAc,CACf,2BAEC,6BAAkC,CAJpC,mMACE,YAAc","file":"4.ff7979fd.chunk.css","sourcesContent":[".column::deep .xl-button {\n  margin: 0.5rem;\n}"]}

@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{120:function(n,o,t){"use strict";t.r(o),t.d(o,"default",(function(){return a}));var e=t(3),p=t.n(e),c=t(8),r=t.n(c),s=(t(0),t(36)),u={};function a(n){var o=n.components,t=r()(n,["components"]);return Object(s.b)("wrapper",p()({},u,t,{components:o,mdxType:"MDXLayout"}))}a.isMDXComponent=!0}}]);
-//# sourceMappingURL=22.7d6054fb.chunk.js.map
