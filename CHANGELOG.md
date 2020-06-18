@@ -1,4 +1,6 @@
 # Changelog
+## [0.1.0-beta.5](https://github.com/xl-vision/xl-vision/compare/v0.1.0-beta.4...v0.1.0-beta.5) (2020-06-18)
+
 ## [0.1.0-beta.4](https://github.com/xl-vision/xl-vision/compare/v0.1.0-beta.3...v0.1.0-beta.4) (2020-06-18)
 
 ## [0.1.0-beta.3](https://github.com/xl-vision/xl-vision/compare/v0.1.0-beta.2...v0.1.0-beta.3) (2020-06-18)
