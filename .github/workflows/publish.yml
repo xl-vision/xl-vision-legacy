@@ -1,4 +1,4 @@
-name: Deploy website
+name: Publish npm
 on:
   push:
     tags:
