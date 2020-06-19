@@ -35,7 +35,6 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
 
   const start = React.useCallback(
     (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-      console.log(e.type)
       if (e.type === 'mousedown' && ignoreMouseDonwRef.current) {
         ignoreMouseDonwRef.current = false
         return
