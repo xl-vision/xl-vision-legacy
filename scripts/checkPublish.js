@@ -1,6 +1,5 @@
 'use strict'
 const chalk = require('chalk')
-const shell = require('shelljs')
 
 checkPublish()
 
@@ -10,6 +9,6 @@ function checkPublish() {
   if (actions) {
     return
   }
-  console.log(chalk.red('Please use command "npm run release" to publish a new version'))
-  shell.exit(1)
+  console.log(chalk.yellow('Please use command "npm run release" to publish a new version'))
+  process.exit(1)
 }

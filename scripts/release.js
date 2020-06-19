@@ -1,23 +1,29 @@
 'use strict'
-const shell = require('shelljs')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
 const semver = require('semver')
 const path = require('path')
 const standardVersion = require('standard-version')
+const simpleGit = require('simple-git/promise')
+const fetch = require('node-fetch')
+
+const git = simpleGit(process.cwd())
 
 run()
 
-function run() {
-  if (!shell.which('git')) {
-    console.log(chalk.red('git不存在，请先安装git'))
-    return
+async function run() {
+  const status = await git.status()
+
+  const allowBranches = ['origin/master']
+
+  if (!allowBranches.includes(status.tracking)) {
+    console.log(chalk.yellow('🤔 You are not in the origin/master branch!\n'))
   }
 
-  if (needCommit()) {
-    console.error(chalk.red('Please commit changed file first.'))
-    return
-  }
+  // if (status.files.length > 0) {
+  //   console.log(chalk.yellow('🤔 Please commit changed file first.\n'))
+  //   return
+  // }
 
   const pkg = require(resolvePath('package.json'))
 
@@ -36,9 +42,20 @@ function run() {
       }
     ])
     .then(async function (answers) {
-      const oldCommitId = getLastCommit()
+      const oldCommitId = (await git.log()).latest.hash
 
       const version = answers.version
+
+      const { versions } = await fetch('http://registry.npmjs.org/xl-vision').then((res) =>
+        res.json()
+      )
+      if (version in versions) {
+        console.log(chalk.yellow('😈 The new version already exists. Forget update package.json?'))
+        console.log(chalk.cyan(' => Now:'), version, '\n')
+        return
+      }
+
+      return
 
       const versionObject = versionList.filter((it) => it.version === version)[0]
 
@@ -60,18 +77,17 @@ function run() {
       try {
         await standardVersion(options)
 
-        console.log(chalk.green('======upload files======'))
-        const cmd = `git push --follow-tags origin master --no-verify`
-        if (shell.exec(cmd).code) {
-          throw new Error('upload files failed')
-        }
+        console.log(chalk.green('======Upload files======'))
+        await git.push('origin', 'master')
+        await git.pushTags('origin')
 
-        console.log(chalk.green('======upload files success======'))
+        console.log(chalk.green('======Upload files success======'))
       } catch (err) {
-        console.error(chalk.red(`release failed with message: ${err.message}`))
-        console.log(chalk.red('======try to rollback======'))
-        shell.exec(`git tag -d v${version}`)
-        shell.exec(`git reset --hard ${oldCommitId}`)
+        console.error(chalk.red(`Release failed with message: ${err.message}`))
+        console.log(chalk.red('======Try to rollback======'))
+        await git.tag({ delete: `v${version}` })
+        await git.reset(['--hard', oldCommitId])
+        console.log(chalk.red('======Rollback success======'))
       }
     })
 }
@@ -100,27 +116,4 @@ function getVersionList(version) {
 
 function resolvePath(file) {
   return path.resolve(__dirname, '..', file)
-}
-
-function getLastCommit() {
-  const ret = shell.exec('git show', {
-    silent: true
-  })
-  if (ret.code === 1) {
-    console.error(chalk.red('exec command "git show" failed'))
-    shell.exit(1)
-  }
-  const commitLine = ret.stdout.split('\n')[0]
-  const commit = commitLine.substring('commit '.length)
-  return commit
-}
-
-function needCommit() {
-  const ret = shell.exec('git status --porcelain', {
-    silent: true
-  })
-  if (ret.code === 1) {
-    return false
-  }
-  return ret.trim() !== ''
 }

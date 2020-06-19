@@ -1,5 +1,5 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
-  formatter: require.resolve('./script/commitlintFormatter'),
+  formatter: require.resolve('./scripts/commitlintFormatter'),
   rules: {}
 }
