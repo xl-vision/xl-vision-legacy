@@ -20,10 +20,10 @@ async function run() {
     console.log(chalk.yellow('🤔 You are not in the origin/master branch!\n'))
   }
 
-  // if (status.files.length > 0) {
-  //   console.log(chalk.yellow('🤔 Please commit changed file first.\n'))
-  //   return
-  // }
+  if (status.files.length > 0) {
+    console.log(chalk.yellow('🤔 Please commit changed file first.\n'))
+    return
+  }
 
   const pkg = require(resolvePath('package.json'))
 
@@ -55,8 +55,6 @@ async function run() {
         return
       }
 
-      return
-
       const versionObject = versionList.filter((it) => it.version === version)[0]
 
       const options = {
@@ -85,7 +83,7 @@ async function run() {
       } catch (err) {
         console.error(chalk.red(`Release failed with message: ${err.message}`))
         console.log(chalk.red('======Try to rollback======'))
-        await git.tag({ delete: `v${version}` })
+        await git.tag(['--delete', `v${version}`])
         await git.reset(['--hard', oldCommitId])
         console.log(chalk.red('======Rollback success======'))
       }
