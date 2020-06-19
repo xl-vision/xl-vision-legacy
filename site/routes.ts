@@ -19,30 +19,20 @@ export type Route = ChildrenRoute | RedirectRoute | ComponentRoute
 const routes: Array<Route> = [
   {
     path: '/',
-    redirect: '/quickstart'
-  },
-  {
-    name: '快速上手',
-    path: '/quickstart',
-    component: import('./docs/quickstart/index.mdx')
-  },
-  {
-    name: '色彩',
-    path: '/color',
-    component: import('./docs/color/index.mdx')
+    redirect: '/Icon'
   },
   {
     name: '基础组件',
     children: [
       {
-        name: 'Icon 图标',
-        path: '/icon',
+        name: '图标',
+        path: '/Icon',
         component: import('../src/icon/__doc__/index.mdx')
       },
       {
-        name: 'Button 按钮',
-        path: '/button',
-        component: import('../src/button/__doc__/index.mdx')
+        name: '按钮',
+        path: '/Button',
+        component: import('../src/Button/__doc__/index.mdx')
       }
     ]
   },
@@ -51,63 +41,8 @@ const routes: Array<Route> = [
     children: [
       {
         name: 'Grid 栅格布局',
-        path: '/row',
-        component: import('../src/row/__doc__/index.mdx')
-      }
-    ]
-  },
-  {
-    name: '导航组件',
-    children: [
-      {
-        name: 'Dropdown 下拉菜单',
-        path: '/dropdown',
-        component: import('../src/dropdown/__doc__/index.mdx')
-      }
-    ]
-  },
-  {
-    name: '数据展示',
-    children: [
-      {
-        name: 'Tooltip 文字提示',
-        path: '/tooltip',
-        component: import('../src/tooltip/__doc__/index.mdx')
-      },
-      {
-        name: 'Popover 气泡卡片',
-        path: '/popover',
-        component: import('../src/popover/__doc__/index.mdx')
-      },
-      {
-        name: 'Carousel 走马灯',
-        path: '/carousel',
-        component: import('../src/carousel/__doc__/index.mdx')
-      },
-      {
-        name: 'Collapse 折叠面板',
-        path: '/collapse',
-        component: import('../src/collapse/__doc__/index.mdx')
-      }
-    ]
-  },
-  {
-    name: '反馈组件',
-    children: [
-      {
-        name: 'Popconfirm 气泡确认框',
-        path: '/popconfirm',
-        component: import('../src/popconfirm/__doc__/index.mdx')
-      },
-      {
-        name: 'Spin 加载中',
-        path: '/spin',
-        component: import('../src/spin/__doc__/index.mdx')
-      },
-      {
-        name: 'Modal 对话框',
-        path: '/modal',
-        component: import('../src/modal/__doc__/index.mdx')
+        path: '/Grid',
+        component: import('../src/Grid/__doc__/index.mdx')
       }
     ]
   },
@@ -115,24 +50,29 @@ const routes: Array<Route> = [
     name: '动画',
     children: [
       {
-        name: 'Transition 动画',
-        path: '/transition',
-        component: import('../src/transition/__doc__/index.mdx')
+        name: 'Transition',
+        path: '/Transition',
+        component: import('../src/Transition/__doc__/index.mdx')
       },
       {
-        name: 'CssTransition CSS动画',
-        path: '/CssTransition',
-        component: import('../src/css-transition/__doc__/index.mdx')
+        name: 'CSSTransition',
+        path: '/CSSTransition',
+        component: import('../src/CSSTransition/__doc__/index.mdx')
       },
       {
-        name: 'TransitionGroup 列表动画',
+        name: 'TransitionGroup',
         path: '/TransitionGroup',
-        component: import('../src/transition-group/__doc__/index.mdx')
+        component: import('../src/TransitionGroup/__doc__/index.mdx')
       },
       {
-        name: 'CollapseTransition 展开动画',
+        name: 'CollapseTransition',
         path: '/CollapseTransition',
-        component: import('../src/collapse-transition/__doc__/index.mdx')
+        component: import('../src/CollapseTransition/__doc__/index.mdx')
+      },
+      {
+        name: 'Ripple',
+        path: '/Ripple',
+        component: import('../src/Ripple/__doc__/index.mdx')
       }
     ]
   }

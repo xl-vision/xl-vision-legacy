@@ -1,0 +1,622 @@
+# 按钮
+
+基础的交互组件
+
+:::demo 基础用法
+
+通过`type`、`plain`、`dashed`指定按钮的样式，按钮中也可以添加[Icon](#/icon)。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Search } from 'xl-vision/lib/icon'
+
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Button>Default</Button>
+        <Button type='primary'>Primary</Button>
+        <Button type='success'>Success</Button>
+        <Button type='warning'>Warning</Button>
+        <Button type='error'>Error</Button>
+        <Button type='text'>Text</Button>
+      </div>
+      <div className='column'>
+        <Button plain>Default</Button>
+        <Button plain type='primary'>
+          Primary
+        </Button>
+        <Button plain type='success'>
+          Success
+        </Button>
+        <Button plain type='warning'>
+          Warning
+        </Button>
+        <Button plain type='error'>
+          Error
+        </Button>
+        <Button plain type='text'>
+          Text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button plain dashed>
+          Default
+        </Button>
+        <Button plain dashed type='primary'>
+          Primary
+        </Button>
+        <Button plain dashed type='success'>
+          Success
+        </Button>
+        <Button plain dashed type='warning'>
+          Warning
+        </Button>
+        <Button plain dashed type='error'>
+          Error
+        </Button>
+        <Button plain dashed type='text'>
+          Text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button prefixIcon={<Search />}>Default</Button>
+        <Button type='primary' suffixIcon={<Search />}>
+          Primary
+        </Button>
+        <Button type='success' prefixIcon={<Search />}>
+          Success
+        </Button>
+        <Button type='warning' prefixIcon={<Search />}>
+          Warning
+        </Button>
+        <Button type='error' prefixIcon={<Search />}>
+          Error
+        </Button>
+        <Button type='text' prefixIcon={<Search />}>
+          Text
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 指定按钮的形状
+
+给按钮指定`shape`属性即可改变按钮的形状，可以设置的值有`circle`、`round`两种，通常`circle`用于图标按钮。
+
+```jsx
+import React from 'react'
+import { Search } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Button shape='round'>Default</Button>
+        <Button shape='round' type='primary'>
+          Primary
+        </Button>
+        <Button shape='round' type='success'>
+          Success
+        </Button>
+        <Button shape='round' type='warning'>
+          Warning
+        </Button>
+        <Button shape='round' type='error'>
+          Error
+        </Button>
+        <Button shape='round' type='text'>
+          Text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button shape='circle'>
+          <Search />
+        </Button>
+        <Button shape='circle' type='primary'>
+          <Search />
+        </Button>
+        <Button shape='circle' type='success'>
+          <Search />
+        </Button>
+        <Button shape='circle' type='warning'>
+          <Search />
+        </Button>
+        <Button shape='circle' type='error'>
+          <Search />
+        </Button>
+        <Button shape='circle' type='text'>
+          <Search />
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+::: demo 按钮大小
+
+通过`size`调整按钮大小
+
+```jsx
+import React from 'react'
+import { Search } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
+export default () => {
+  const [size, setSize] = React.useState('default')
+  return (
+    <div className='wrapper'>
+      <Button.Group>
+        <Button onClick={() => setSize('large')} type={size === 'large' ? 'primary' : 'default'}>
+          L
+        </Button>
+        <Button
+          onClick={() => setSize('default')}
+          type={size === 'default' ? 'primary' : 'default'}
+        >
+          M
+        </Button>
+        <Button onClick={() => setSize('small')} type={size === 'small' ? 'primary' : 'default'}>
+          S
+        </Button>
+      </Button.Group>
+      <div className='column'>
+        <Button size={size}>Default</Button>
+        <Button size={size} type='primary'>
+          Primary
+        </Button>
+        <Button size={size} type='success'>
+          Success
+        </Button>
+        <Button size={size} type='warning'>
+          Warning
+        </Button>
+        <Button size={size} type='error'>
+          Error
+        </Button>
+        <Button size={size} type='text'>
+          Text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button size={size}>
+          <Search />
+          Default
+        </Button>
+        <Button size={size} type='primary'>
+          Primary
+          <Search />
+        </Button>
+        <Button size={size} type='success'>
+          <Search />
+          Success
+        </Button>
+        <Button size={size} type='warning'>
+          <Search />
+          Warning
+        </Button>
+        <Button size={size} type='error'>
+          <Search />
+          Error
+        </Button>
+        <Button size={size} type='text'>
+          <Search />
+          Text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button size={size} shape='round'>
+          Default
+        </Button>
+        <Button size={size} shape='round' type='primary'>
+          Primary
+        </Button>
+        <Button size={size} shape='circle'>
+          <Search />
+        </Button>
+        <Button size={size} shape='circle' type='primary'>
+          <Search />
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 加载中状态
+
+给按钮添加`loading`属性即可让按钮处于加载状态，此时 icon 属性会被 loading 组件覆盖
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+export default () => {
+  const [loading, setLoading] = React.useState(false)
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Button loading={loading} onClick={() => setLoading(true)}>
+          click
+        </Button>
+        <Button loading type='primary'>
+          Primary
+        </Button>
+        <Button loading type='success'>
+          Success
+        </Button>
+        <Button loading type='warning'>
+          Warning
+        </Button>
+        <Button loading type='error'>
+          Error
+        </Button>
+        <Button loading type='text'>
+          Text
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 不可用状态
+
+给按钮添加`disabled`属性即可让按钮处于不可用
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Button disabled>Default</Button>
+        <Button disabled type='primary'>
+          Primary
+        </Button>
+        <Button disabled type='success'>
+          Success
+        </Button>
+        <Button disabled type='warning'>
+          Warning
+        </Button>
+        <Button disabled type='error'>
+          Error
+        </Button>
+        <Button disabled type='text'>
+          Text
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 幽灵按钮
+
+给按钮添加`ghost`属性可以使 button 的背景变透明，适合在彩色背景中使用。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column ghost'>
+        <Button ghost>Default</Button>
+        <Button ghost type='primary'>
+          Primary
+        </Button>
+        <Button ghost type='success'>
+          Success
+        </Button>
+        <Button ghost type='warning'>
+          Warning
+        </Button>
+        <Button ghost type='error'>
+          Error
+        </Button>
+        <Button ghost type='text'>
+          Text
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+.ghost {
+  background: rgba(27, 31, 35, 0.05);
+}
+```
+
+:::
+
+:::demo 给按钮指定 href
+
+给按钮添加`href`可以使按钮与 a 链接表现一致，获得跳转 url 的功能。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Button href='#/button?1'>Default</Button>
+        <Button href='#/button?2' type='primary'>
+          Primary
+        </Button>
+        <Button href='#/button?3' type='success' onClick={() => console.log(1)}>
+          Success
+        </Button>
+        <Button href='#/button?4' type='warning' disabled onClick={() => console.log(1)}>
+          Warning
+        </Button>
+        <Button href='#/button?5' type='error' loading onClick={() => console.log(1)}>
+          Error
+        </Button>
+        <Button href='#/button?6' type='text'>
+          Text
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 长按钮
+
+给按钮添加`long`可以使按钮变成长按钮。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Button long>Default</Button>
+        <Button long type='primary'>
+          Primary
+        </Button>
+        <Button long type='success'>
+          Success
+        </Button>
+        <Button long type='warning'>
+          Warning
+        </Button>
+        <Button long type='error'>
+          Error
+        </Button>
+        <Button long type='text'>
+          Text
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 按钮组
+
+通过 ButtonGroup 包裹按钮，可以组成按钮组
+
+```jsx
+import React from 'react'
+import { ArrowBack, ArrowForward } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
+export default () => {
+  const [size, setSize] = React.useState('default')
+  return (
+    <div className='wrapper'>
+      <Button.Group>
+        <Button onClick={() => setSize('large')} type={size === 'large' ? 'primary' : 'default'}>
+          L
+        </Button>
+        <Button
+          onClick={() => setSize('default')}
+          type={size === 'default' ? 'primary' : 'default'}
+        >
+          M
+        </Button>
+        <Button onClick={() => setSize('small')} type={size === 'small' ? 'primary' : 'default'}>
+          S
+        </Button>
+      </Button.Group>
+      <div>
+        <Button.Group size={size}>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+        </Button.Group>
+      </div>
+      <div>
+        <Button.Group round size={size}>
+          <Button>Default</Button>
+          <Button type='primary'>Primary</Button>
+          <Button type='success'>Success</Button>
+          <Button type='warning'>Warning</Button>
+          <Button type='error'>Error</Button>
+        </Button.Group>
+      </div>
+      <div>
+        <Button.Group size={size}>
+          <Button>
+            <ArrowBack />
+            上一页
+          </Button>
+          <Button>
+            下一页
+            <ArrowForward />
+          </Button>
+        </Button.Group>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 垂直方向的按钮组
+
+通过指定`vertical`属性，可以组成垂直方向的按钮组
+
+```jsx
+import React from 'react'
+import { ArrowUp, ArrowDown } from 'xl-vision/lib/icon'
+import { Button } from 'xl-vision'
+export default () => {
+  const [size, setSize] = React.useState('default')
+  return (
+    <div className='wrapper'>
+      <Button.Group size={size}>
+        <Button onClick={() => setSize('large')} type={size === 'large' ? 'primary' : 'default'}>
+          L
+        </Button>
+        <Button
+          onClick={() => setSize('default')}
+          type={size === 'default' ? 'primary' : 'default'}
+        >
+          M
+        </Button>
+        <Button onClick={() => setSize('small')} type={size === 'small' ? 'primary' : 'default'}>
+          S
+        </Button>
+      </Button.Group>
+      <Button.Group vertical size={size}>
+        <Button>Default</Button>
+        <Button type='primary'>Primary</Button>
+        <Button type='success'>Success</Button>
+        <Button type='warning'>Warning</Button>
+        <Button type='error'>Error</Button>
+      </Button.Group>
+      <Button.Group vertical round size={size}>
+        <Button>Default</Button>
+        <Button type='primary'>Primary</Button>
+        <Button type='success'>Success</Button>
+        <Button type='warning'>Warning</Button>
+        <Button type='error'>Error</Button>
+      </Button.Group>
+      <Button.Group vertical size={size}>
+        <Button>
+          <ArrowUp />
+          上一页
+        </Button>
+        <Button>
+          <ArrowDown />
+          下一页
+        </Button>
+      </Button.Group>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+## Button API
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| clsPrefix | 自定义类名前缀 | string | - | - | false |
+| dashed | 设置按钮边框为虚线样式，需要和`plain`连用才能显示出效果 | boolean | - | false | false |
+| disabled | 禁止按钮 | boolean | - | false | false |
+| ghost | 幽灵属性，使按钮背景透明 | boolean | - | false | false |
+| href | 点击跳转地址，此时 button 行为与 a 标签一致 | string | - | - | false |
+| htmlType | 设置 button 的原生`type`值 | string | submit &#x007c; reset &#x007c; button | - | false |
+| loading | 设置按钮为加载中 | boolean | - | false | false |
+| long | 设置为长按钮 | boolean | - | false | false |
+| plain | 设置为朴素按钮 | boolean | - | false | false |
+| shape | 设置按钮的形状，通常`circle`与[Icon](#/icon)连用 | string | cirlce &#x007c; round | - | false |
+| type | 设置按钮类型 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; text | default | false |
+| size | 设置按钮大小 | string | default &#x007c; large &#x007c; small | default | false |
+| prefixIcon | 前缀图标 | ReactElement | - | - | false |
+| suffixIcon | 后缀图标 | ReactElement | - | - | false |
+
+## Group API
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| clsPrefix | 自定义类名前缀 | string | - | - | false |
+| round | 指定按钮组中按钮的圆角样式 | boolean | - | false | false |
+| vertical | 指定按钮组为垂直方向 | boolean | - | false | false |
+| size | 设置按钮大小,如果按钮自动设置了 size，则会覆盖这个值 | string | default &#x007c; large &#x007c; small | default | false |

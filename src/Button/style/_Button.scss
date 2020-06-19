@@ -1,0 +1,65 @@
+@use './var' as *;
+@use '../../Ripple/style/' as ripple;
+
+$button: #{$cls-prefix}-button;
+$ripple: #{$cls-prefix}-ripple;
+
+.#{$button} {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: $button-min-width;
+  padding: $button-padding-6 $button-padding-16;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 0;
+  border-radius: $border-radius-medium;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  user-select: none;
+  touch-action: manipulation;
+  // 阻止在移动端按下按钮后闪烁的问题
+  -webkit-tap-highlight-color: transparent;
+
+  @include button();
+
+  > * {
+    vertical-align: middle;
+  }
+
+  &__icon {
+    margin: 0 $button-padding-12 - $button-padding-16;
+    font-size: $button-icon-size;
+  }
+
+  &__icon--prefix {
+    margin-right: 4px;
+    margin-left: -4px;
+  }
+
+  &__icon--suffix {
+    margin-right: -4px;
+    margin-left: 4px;
+  }
+
+  .#{$ripple} {
+    &__inner {
+      opacity: $opacity-selected;
+    }
+  }
+
+  &__ripple {
+    &-enter-active {
+      transform: scale(1);
+      transition: all $standard-duration $fast-out-slow-in-timing-function;
+    }
+
+    &-enter {
+      transform: scale(0);
+      opacity: 0.1;
+    }
+  }
+}

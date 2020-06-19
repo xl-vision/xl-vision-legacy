@@ -5,9 +5,9 @@ const shell = require('shelljs')
 checkPublish()
 
 function checkPublish() {
-  const travis = process.env.TRAVIS
+  const actions = process.env.GITHUB_ACTIONS
 
-  if (travis) {
+  if (actions) {
     return
   }
   console.log(chalk.red('Please use command "npm run release" to publish a new version'))

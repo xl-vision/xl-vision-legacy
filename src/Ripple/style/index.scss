@@ -1,0 +1,18 @@
+@use './var' as *;
+
+$ripple: #{$cls-prefix}-ripple;
+
+.#{$ripple} {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  &__inner {
+    position: absolute;
+    background-color: currentColor;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,25 @@
+@use '../../assets/style/var' as *;
+
+.aside {
+  background-color: #ffffff;
+}
+
+.menus {
+  margin: 0;
+  margin-left: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.menu {
+  font-weight: bold;
+}
+
+.menuName {
+  padding: 0.5rem 0.3rem;
+
+  a {
+    color: #333333;
+    text-decoration: none;
+  }
+}

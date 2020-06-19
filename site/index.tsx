@@ -1,8 +1,8 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import Layout from './components/Layout'
 
 import './assets/style/index.scss'
-import Layout from './components/layout'
 // import * as ServiceWorker from './serviceWorker'
 
 ReactDOM.render(<Layout />, document.querySelector('#app'))

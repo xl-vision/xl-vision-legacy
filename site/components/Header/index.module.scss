@@ -1,0 +1,17 @@
+@use '../../assets/style/var' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  // box-shadow: 0 2px 8px #f0f1f2;
+  // border-bottom: 1px solid $border-color;
+}
+.logo {
+  text-decoration: none;
+  img {
+    height: 3.5rem;
+  }
+}

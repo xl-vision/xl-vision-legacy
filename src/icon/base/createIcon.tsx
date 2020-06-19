@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseIcon from './base-icon'
+import BaseIcon from './BaseIcon'
 
 export interface IconProps {
   className?: string

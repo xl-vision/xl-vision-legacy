@@ -2,10 +2,11 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-prettier/recommended',
-    'stylelint-config-rational-order',
+    'stylelint-config-rational-order'
   ],
   plugins: ['stylelint-scss'],
   rules: {
+    'color-hex-length': 'long',
     'color-no-invalid-hex': true,
     'color-hex-case': 'lower',
     'at-rule-no-unknown': null,
@@ -14,8 +15,8 @@ module.exports = {
       'always',
       {
         except: ['blockless-after-blockless'],
-        ignore: ['after-comment'],
-        ignoreAtRules: ['if', 'else', 'include', 'return']
+        ignore: ['after-comment', 'first-nested'],
+        ignoreAtRules: ['else']
       }
     ],
     'block-closing-brace-newline-after': [

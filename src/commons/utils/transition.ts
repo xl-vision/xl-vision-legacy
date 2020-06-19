@@ -1,45 +1,63 @@
-import { isClient } from './env'
+import { isBrowser } from './env'
 import { voidFn } from './function'
 
-let transitionProp = 'transition'
-let transitionEndEvent = 'transitionend'
-let animationProp = 'animation'
-let animationEndEvent = 'animationend'
+let TRANSITION_NAME = 'transition'
+let ANIMATION_NAME = 'animation'
 
-if (isClient) {
+if (isBrowser) {
   if (
     window.ontransitionend === undefined &&
     (window as { onwebkittransitionend?: Function }).onwebkittransitionend !== undefined
   ) {
-    transitionProp = 'WebkitTransition'
-    transitionEndEvent = 'webkitTransitionEnd'
+    TRANSITION_NAME = 'WebkitTransition'
   }
   if (
     window.onanimationend === undefined &&
     (window as { onwebkitanimationend?: Function }).onwebkitanimationend !== undefined
   ) {
-    animationProp = 'WebkitAnimation'
-    animationEndEvent = 'webkitAnimationEnd'
+    ANIMATION_NAME = 'WebkitAnimation'
+  }
+}
+
+export const getTransitionInfo = (el: HTMLElement) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const styles: any = getComputedStyle(el)
+
+  const getStyleProperties = (key: string) => (styles[key] || '').split(', ')
+
+  const transitionDelays = getStyleProperties(TRANSITION_NAME + 'Delay')
+  const transitionDurations = getStyleProperties(TRANSITION_NAME + 'Duration')
+  const transitionTimeout: number = _getTimeout(transitionDelays, transitionDurations)
+
+  const animationDelays = getStyleProperties(ANIMATION_NAME + 'Delay')
+  const animationDurations = getStyleProperties(ANIMATION_NAME + 'Duration')
+  const animationTimeout: number = _getTimeout(animationDelays, animationDurations)
+
+  const timeout = Math.max(transitionTimeout, animationTimeout)
+
+  const type =
+    timeout > 0 ? (transitionTimeout > animationTimeout ? TRANSITION_NAME : ANIMATION_NAME) : null
+  const durationCount = type
+    ? type === TRANSITION_NAME
+      ? transitionDurations.length
+      : animationDurations.length
+    : 0
+
+  const hasTransform =
+    type === TRANSITION_NAME && /\b(transform|all)(,|$)/.test(styles[TRANSITION_NAME + 'Property'])
+
+  return {
+    type,
+    timeout,
+    durationCount,
+    hasTransform
   }
 }
 
 export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
-  const styles = (getComputedStyle(el) as unknown) as { [key: string]: string }
-  const transitionDelays: Array<string> = (styles[`${transitionProp}Delay`] || '').split(', ')
-  const transitionDurations: Array<string> = (styles[`${transitionProp}Duration`] || '').split(', ')
-  const animationDelays: Array<string> = (styles[`${animationProp}Delay`] || '').split(', ')
-  const animationDurations: Array<string> = (styles[`${animationProp}Duration`] || '').split(', ')
-  const transitionTimeout: number = getTimeout(transitionDelays, transitionDurations)
-  const animationTimeout: number = getTimeout(animationDelays, animationDurations)
-  let event = transitionEndEvent
-  let timeout = transitionTimeout
-  let eventCount = transitionDurations.length
+  const { timeout, durationCount, type } = getTransitionInfo(el)
 
-  if (timeout < animationTimeout) {
-    event = animationEndEvent
-    timeout = animationTimeout
-    eventCount = animationDurations.length
-  }
+  const eventName = type + 'end'
 
   if (timeout <= 0) {
     done()
@@ -49,7 +67,7 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   let count = 0
 
   const end = () => {
-    el.removeEventListener(event, onEnd)
+    el.removeEventListener(eventName, onEnd)
     done()
   }
 
@@ -57,42 +75,25 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
     if (e.target !== el) {
       return
     }
-    if (++count >= eventCount) {
+    if (++count >= durationCount) {
       end()
     }
   }
 
   const id = setTimeout(() => {
-    if (count < eventCount) {
+    if (count < durationCount) {
       end()
     }
   }, timeout + 1)
 
-  el.addEventListener(event, onEnd)
+  el.addEventListener(eventName, onEnd)
   return () => {
     clearTimeout(id)
-    el.removeEventListener(event, onEnd)
+    el.removeEventListener(eventName, onEnd)
   }
 }
 
-const getTimeout = (delays: Array<string>, durations: Array<string>) => {
-  while (delays.length < durations.length) {
-    delays = delays.concat(delays)
-  }
-
-  return Math.max.apply(
-    null,
-    durations.map((d, i) => {
-      return toMs(d) + toMs(delays[i])
-    })
-  )
-}
-
-const toMs = (s: string) => {
-  return Number(s.slice(0, -1)) * 1000
-}
-
-export const raf = isClient
+export const raf = isBrowser
   ? window.requestAnimationFrame
     ? window.requestAnimationFrame.bind(window)
     : setTimeout
@@ -102,4 +103,20 @@ export const nextFrame = (fn: Function) => {
   raf(() => {
     raf(fn)
   })
+}
+
+const _getTimeout = (delays: Array<string>, durations: Array<string>) => {
+  while (delays.length < durations.length) {
+    delays = delays.concat(delays)
+  }
+
+  return Math.max(
+    ...durations.map((d, i) => {
+      return _toMs(d) + _toMs(delays[i])
+    })
+  )
+}
+
+const _toMs = (s: string) => {
+  return Number(s.slice(0, -1)) * 1000
 }

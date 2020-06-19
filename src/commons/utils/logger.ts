@@ -1,6 +1,6 @@
-const __DEV__ = process.env.NODE_ENV !== 'production'
+import { isDevelopment } from './env'
 
-export const warning = __DEV__
+export const warning = isDevelopment
   ? (condition: boolean, format: string, ...args: Array<string>) => {
       if (condition) {
         printWarning(format, args)

@@ -1,0 +1,147 @@
+import { Link } from 'react-router-dom'
+
+# CSSTransition
+
+基于<Link to='/Transition'>Transition</Link>实现的高级过渡动画组件，支持 Transition 组件的全部功能，同时提供了便捷使用 css 动画的方式。
+
+> **NOTE**
+
+> 相比**Transition**组件使用钩子函数时必须及时调用回调函数，本组件在不禁止 css 动画（`css=false`）的情况下，可以不进行调用。当然，如果你想在钩子完成时立即改变状态，最好还是手动调用。
+
+:::demo 基础用法
+
+通过属性`classNames`设置进出场动画，支持`字符串`和`对象`两种设置方式。
+
+```jsx
+import React from 'react'
+import { CSSTransition, Button } from 'xl-vision'
+export default () => {
+  const [active, setActive] = React.useState(true)
+
+  return (
+    <div>
+      <Button
+        onClick={() => {
+          setActive(!active)
+        }}
+      >
+        Click
+      </Button>
+      <CSSTransition in={active} transitionClasses={'fade'}>
+        <div className='demo'>DEMO</div>
+      </CSSTransition>
+    </div>
+  )
+}
+```
+
+```scss
+.demo {
+  height: 10rem;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 10rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #007bff;
+}
+
+.fade-enter-active,
+.fade-leave-active,
+.fade-appear-active {
+  transition: opacity 2s ease, height 2s ease;
+}
+
+.fade-leave-to,
+.fade-appear,
+.fade-enter {
+  height: 0;
+  opacity: 0;
+}
+
+.fade-leave,
+.fade-appear-to,
+.fade-enter-to {
+  opacity: 1;
+}
+```
+
+:::
+
+:::demo 自动触发进场动画
+
+设置`transitionOnFirst`，并默认开启动画时，会自动触发进出场动画。可以通过`classnames`修改动画效果。
+
+```jsx
+import React from 'react'
+import { CSSTransition, Button } from 'xl-vision'
+export default () => {
+  const [active, setActive] = React.useState(true)
+
+  return (
+    <div>
+      <Button
+        onClick={() => {
+          setActive(!active)
+        }}
+      >
+        Click
+      </Button>
+      <p>进场</p>
+      <CSSTransition transitionOnFirst in={active} transitionClasses={'fade'}>
+        <div className='demo'>DEMO</div>
+      </CSSTransition>
+      <p>出场</p>
+      <CSSTransition transitionOnFirst in={!active} transitionClasses={'fade'}>
+        <div className='demo'>DEMO</div>
+      </CSSTransition>
+    </div>
+  )
+}
+```
+
+```scss
+.demo {
+  height: 10rem;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 10rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #007bff;
+}
+
+.fade-enter-active,
+.fade-leave-active,
+.fade-appear-active,
+.fade-disappear-active {
+  transition: opacity 2s ease, height 2s ease;
+}
+
+.fade-leave-to,
+.fade-disappear-to,
+.fade-appear,
+.fade-enter {
+  height: 0;
+  opacity: 0;
+}
+
+.fade-leave,
+.fade-disappear,
+.fade-appear-to,
+.fade-enter-to {
+  opacity: 1;
+}
+```
+
+:::
+
+## CSSTransition API
+
+> CSSTransition 继承所有<Link to="Transition">**Transition**</Link>属性
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| transitionClasses | 指定动画过程中的`class`名 | string &#x007c; object | - | - | false |
+| timeout | 指定动画需要的时间 | string &#x007c; object | - | - | false |
+| css | 指定是否启用`css`动画，如果想使用 js 进行动画控制，避免 css 动画的干扰，可以将此属性置为`false` | boolean | - | - | true |

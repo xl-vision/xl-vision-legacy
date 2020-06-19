@@ -1,5 +1,4 @@
-@import '../../assets/style/var';
-@import '~prismjs/themes/prism.css';
+@use './var' as *;
 
 .md {
   display: block;
@@ -14,10 +13,6 @@
       font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
       line-height: 2;
     }
-  }
-
-  .demobox {
-    margin-bottom: 1rem;
   }
 
   &_code_inline {
@@ -50,13 +45,12 @@
   // }
 
   &_a {
-    color: $--link-color;
+    // color: $link-color;
     text-decoration: none;
-    transition: color $--animation-duration ease-in-out,
-      text-decoration $--animation-duration ease-in-out;
+    transition: color 0.4s ease-in-out, text-decoration 0.4s ease-in-out;
 
     &:hover {
-      color: $--link-color-hover;
+      // color: $link-color-hover;
       text-decoration: underline;
     }
   }
@@ -83,18 +77,18 @@
     td,
     th {
       padding: 1rem;
-      border-bottom: 1px solid $--border-color;
+      border-bottom: 1px solid #eeeeee;
     }
 
     th {
-      color: color-level($--text-color, -$--color-level * 2);
+      // color: $title-color;
       font-weight: bold;
       white-space: nowrap;
       text-align: left;
     }
 
     td {
-      color: $--text-color;
+      // color: $text-color;
     }
   }
 
