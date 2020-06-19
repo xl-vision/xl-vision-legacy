@@ -359,19 +359,20 @@ export default () => {
   return (
     <div className='demo'>
       <input onChange={onChange} />
-      <TransitionGroup
-        tag='ul'
-        beforeEnter={beforeEnter}
-        enter={enter}
-        beforeLeave={beforeLeave}
-        leave={leave}
-      >
-        {list.map((it, index) => (
-          <li data-index={index + 1} key={it}>
-            {it}
-          </li>
-        ))}
-      </TransitionGroup>
+      <ul>
+        <TransitionGroup
+          beforeEnter={beforeEnter}
+          enter={enter}
+          beforeLeave={beforeLeave}
+          leave={leave}
+        >
+          {list.map((it, index) => (
+            <li data-index={index + 1} key={it}>
+              {it}
+            </li>
+          ))}
+        </TransitionGroup>
+      </ul>
     </div>
   )
 }

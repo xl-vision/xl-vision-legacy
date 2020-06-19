@@ -44,7 +44,11 @@ export interface TransitionGroupProps
   transitionClasses?: TransitionGroupClasses
 }
 
-type TransitionGroupElement = TransitionElement & { _move?: () => void; _oldPos?: DOMRect }
+type TransitionGroupElement = TransitionElement & {
+  _move?: () => void
+  _oldPos?: DOMRect
+  _NEED_CANCEL?: boolean
+}
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
   const { children, transitionClasses, ...others } = props
@@ -138,8 +142,22 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 
     for (const data of quene) {
       if (data.same) {
-        const prev = data.prev[0]
+        let prev = data.prev[0]
+
+        // 如果删除后立即添加同一个元素，由于删除的afterLeave还没有执行，会导致此节点缺失
+        // 这里在dom上添加标记，提示自定义的afterLeave方法取消执行
+        // 为什么不直接将in=false？因为这里添加的，是在下一次循环才会真正渲染到dom tree，
+        // 在那之前可能afterLeave执行了，删除了节点
+        if (prev.type === CSSTransition && prev.props.in === false) {
+          const node = nodeMap?.get(prev.key!)
+          node && (node._NEED_CANCEL = true)
+          prev = React.cloneElement(prev, {
+            in: true
+          })
+        }
+
         arr.push(prev)
+        data.prev[0] = prev
         continue
       }
       const prev = data.prev.map((it) => {
@@ -151,10 +169,16 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         const child = isTransition ? it.props.children : it
         const { afterLeave, ...others2 } = others
 
-        const afterLeaveWrap = (el: TransitionElement) => {
+        const afterLeaveWrap = (el: TransitionGroupElement) => {
+          // 如果标记取消leave
+          // 触发leaveCancelled
+          if (el._NEED_CANCEL) {
+            others2.leaveCancelled && others2.leaveCancelled(el)
+            el._NEED_CANCEL = false
+            return
+          }
           afterLeave && afterLeave(el)
           prevChildrenRef.current = prevChildrenRef.current.filter((prev) => prev.key !== it.key)
-          computedRef.current = true
         }
 
         return (
