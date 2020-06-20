@@ -2,6 +2,7 @@ import React, { TouchEvent, MouseEvent } from 'react'
 import TransitionGroup, { TransitionGroupClasses } from '../TransitionGroup'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
+import PropTypes from 'prop-types'
 
 export interface RippleProps {
   transitionClasses?: TransitionGroupClasses
@@ -110,6 +111,23 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
       </TransitionGroup>
     </div>
   )
+}
+
+Ripple.propTypes = {
+  clsPrefix: PropTypes.string,
+  leaveAfterEnter: PropTypes.bool,
+  transitionClasses: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      enter: PropTypes.string,
+      enterActive: PropTypes.string,
+      enterTo: PropTypes.string,
+      leave: PropTypes.string,
+      leaveActive: PropTypes.string,
+      leaveTo: PropTypes.string,
+      move: PropTypes.string
+    })
+  ])
 }
 
 export default Ripple
