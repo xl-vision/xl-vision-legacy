@@ -1,15 +1,17 @@
 import React, { TouchEvent, MouseEvent } from 'react'
 import TransitionGroup, { TransitionGroupClasses } from '../TransitionGroup'
 import ConfigContext from '../ConfigProvider/ConfigContext'
+import useConstantCallback from '../commons/hooks/useConstantCallback'
 
 export interface RippleProps {
   transitionClasses?: TransitionGroupClasses
   clsPrefix?: string
+  leaveAfterEnter?: boolean
 }
 
 const Ripple: React.FunctionComponent<RippleProps> = (props) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
-  const { clsPrefix = `${rootClsPrefix}-ripple`, transitionClasses } = props
+  const { clsPrefix = `${rootClsPrefix}-ripple`, transitionClasses, leaveAfterEnter } = props
 
   const [ripples, setRipples] = React.useState<Array<React.ReactElement>>([])
   const finishedCountRef = React.useRef(0)
@@ -60,23 +62,38 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
     [startCommit]
   )
 
-  const stop = React.useCallback(() => {
-    if (finishedCountRef.current > 0) {
-      setRipples((prev) => prev.slice(1))
-      finishedCountRef.current--
-      return
-    }
-    waitFinishedCountRef.current++
-  }, [])
+  const stop = useConstantCallback(() => {
+    if (leaveAfterEnter) {
+      if (finishedCountRef.current > 0) {
+        setRipples((prev) => prev.slice(1))
+        finishedCountRef.current--
+        return
+      }
 
-  const afterEnter = React.useCallback(() => {
-    if (waitFinishedCountRef.current > 0) {
-      setRipples((prev) => prev.slice(1))
-      waitFinishedCountRef.current--
-      return
+      // 当多次触发stop，需要判断是否触发次数过多
+      if (ripples.length > 0) {
+        waitFinishedCountRef.current++
+      }
+    } else {
+      setRipples((prev) => {
+        if (prev.length > 0) {
+          return prev.slice(1)
+        }
+        return prev
+      })
     }
-    finishedCountRef.current++
-  }, [])
+  })
+
+  const afterEnter = useConstantCallback(() => {
+    if (leaveAfterEnter) {
+      if (waitFinishedCountRef.current > 0) {
+        setRipples((prev) => prev.slice(1))
+        waitFinishedCountRef.current--
+        return
+      }
+      finishedCountRef.current++
+    }
+  })
 
   return (
     <div
