@@ -85,6 +85,8 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
       onTouchStart={start}
       onMouseUp={stop}
       onTouchEnd={stop}
+      onMouseLeave={stop}
+      onTouchMove={stop}
     >
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
