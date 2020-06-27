@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ripple 基本用法 1`] = `
+<div>
+  click me
+  <div
+    class="xl-ripple"
+  />
+</div>
+`;
+
+exports[`Ripple 基本用法 2`] = `
+<div>
+  click me
+  <div
+    class="xl-ripple"
+  >
+    <div
+      class="xl-ripple__inner ripple-enter ripple-enter-active"
+    />
+  </div>
+</div>
+`;
+
+exports[`Ripple 基本用法 3`] = `
+<div>
+  click me
+  <div
+    class="xl-ripple"
+  >
+    <div
+      class="xl-ripple__inner ripple-leave ripple-leave-active"
+    />
+  </div>
+</div>
+`;
