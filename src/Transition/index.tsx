@@ -225,6 +225,8 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   return fillRef(clone, childrenNodeRef)
 }
 
+Transition.displayName = 'Transition'
+
 Transition.propTypes = {
   beforeAppear: PropTypes.func,
   appear: PropTypes.func,

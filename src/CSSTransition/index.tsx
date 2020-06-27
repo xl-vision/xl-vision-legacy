@@ -263,6 +263,8 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   )
 }
 
+CSSTransition.displayName = 'CSSTransition'
+
 CSSTransition.propTypes = {
   transitionClasses: PropTypes.oneOfType([
     PropTypes.string,

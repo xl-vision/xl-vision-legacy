@@ -114,6 +114,8 @@ const spanValidator = (props: ColProps, propName: keyof ColProps, componentName:
   return null
 }
 
+Col.displayName = 'Col'
+
 Col.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

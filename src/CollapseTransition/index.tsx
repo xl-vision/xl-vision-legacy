@@ -99,6 +99,8 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
   )
 }
 
+CollapseTransition.displayName = 'CollapseTransition'
+
 CollapseTransition.propTypes = {
   transitionClassName: PropTypes.string,
   horizontal: PropTypes.bool,

@@ -74,6 +74,8 @@ const Grid: React.FunctionComponent<GridProps> = (props) => {
   )
 }
 
+Grid.displayName = 'Grid'
+
 Grid.propTypes = {
   align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>(['top', 'middle', 'bottom']),
   children: PropTypes.oneOfType([

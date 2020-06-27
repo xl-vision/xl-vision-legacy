@@ -310,6 +310,8 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   return <>{elements}</>
 }
 
+TransitionGroup.displayName = 'TransitionGroup'
+
 TransitionGroup.propTypes = {
   transitionClasses: PropTypes.oneOfType([
     PropTypes.string,

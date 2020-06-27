@@ -74,6 +74,8 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
   )
 }
 
+BaseIcon.displayName = 'BaseIcon'
+
 BaseIcon.propTypes = {
   children: PropTypes.element.isRequired,
   className: PropTypes.string,
