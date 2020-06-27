@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CollapseTransition 基本使用 1`] = `null`;
+exports[`CollapseTransition 基本使用 1`] = `
+<div
+  style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; transition: height 1s ease; display: none;"
+>
+  <div
+    style="position: relative;"
+  >
+    <div />
+  </div>
+</div>
+`;
 
 exports[`CollapseTransition 基本使用 2`] = `
 <div
@@ -14,7 +24,17 @@ exports[`CollapseTransition 基本使用 2`] = `
 </div>
 `;
 
-exports[`CollapseTransition 测试horizontal 1`] = `null`;
+exports[`CollapseTransition 测试horizontal 1`] = `
+<div
+  style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; transition: width 1s ease; display: none;"
+>
+  <div
+    style="position: relative;"
+  >
+    <div />
+  </div>
+</div>
+`;
 
 exports[`CollapseTransition 测试horizontal 2`] = `
 <div

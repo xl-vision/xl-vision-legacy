@@ -40,7 +40,8 @@ export interface TransitionProps {
   afterDisappear?: AfterEventHook
   disappearCancelled?: EventCancelledHook
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  forceRender?: boolean
+  mountOnEnter?: boolean
+  unmountOnLeave?: boolean
   transitionOnFirst?: boolean
   in: boolean
 }
@@ -59,7 +60,8 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     enterCancelled,
     leave,
     leaveCancelled,
-    forceRender
+    mountOnEnter,
+    unmountOnLeave
   } = props
 
   let {
@@ -192,9 +194,23 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
 
   const display = state !== State.STATE_LEAVED && state !== State.STATE_DISAPPEARED
 
-  if (!forceRender && !display) {
-    return null
+  // 判断是否是第一次挂载
+  const isFirstMountRef = React.useRef(true)
+
+  if (transitionOnFirst || inProp) {
+    isFirstMountRef.current = false
   }
+
+  if (isFirstMountRef.current) {
+    if (mountOnEnter && !display) {
+      return null
+    }
+  } else {
+    if (unmountOnLeave && !display) {
+      return null
+    }
+  }
+
   const style = { ...children.props.style }
   if (!display) {
     style.display = 'none'
@@ -227,7 +243,8 @@ Transition.propTypes = {
   afterDisappear: PropTypes.func,
   disappearCancelled: PropTypes.func,
   children: PropTypes.element.isRequired,
-  forceRender: PropTypes.bool,
+  mountOnEnter: PropTypes.bool,
+  unmountOnLeave: PropTypes.bool,
   transitionOnFirst: PropTypes.bool,
   in: PropTypes.bool.isRequired
 }

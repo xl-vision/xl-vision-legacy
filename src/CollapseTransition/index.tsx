@@ -4,7 +4,8 @@ import CSSTransition from '../CSSTransition'
 
 export interface CollapseTransitionProp {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  forceRender?: boolean
+  mountOnEnter?: boolean
+  unmountOnLeave?: boolean
   in: boolean
   transitionClassName?: string
   horizontal?: boolean
@@ -16,7 +17,8 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
     children,
     transitionClassName,
     in: inProp,
-    forceRender,
+    mountOnEnter,
+    unmountOnLeave,
     horizontal,
     transitionOnFirst
   } = props
@@ -85,7 +87,8 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
       transitionOnFirst={transitionOnFirst}
       {...transitionEvents}
       in={inProp}
-      forceRender={forceRender}
+      mountOnEnter={mountOnEnter}
+      unmountOnLeave={unmountOnLeave}
     >
       <div className={transitionClassName} style={styles}>
         <div ref={wrapperRef} style={{ position: 'relative' }}>
@@ -101,7 +104,8 @@ CollapseTransition.propTypes = {
   horizontal: PropTypes.bool,
   children: PropTypes.element.isRequired,
   in: PropTypes.bool.isRequired,
-  forceRender: PropTypes.bool,
+  mountOnEnter: PropTypes.bool,
+  unmountOnLeave: PropTypes.bool,
   transitionOnFirst: PropTypes.bool
 }
 

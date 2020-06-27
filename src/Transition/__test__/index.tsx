@@ -528,9 +528,9 @@ describe('Transition', () => {
     call.mockClear()
   })
 
-  it('测试forceRender', () => {
+  it('测试mountOnEnter', () => {
     const wrapper = mount(
-      <Transition in={false} forceRender={false}>
+      <Transition in={false} mountOnEnter={true}>
         <div />
       </Transition>
     )
@@ -546,15 +546,35 @@ describe('Transition', () => {
     expect(wrapper.getDOMNode()).not.toBeNull()
 
     wrapper.setProps({
-      forceRender: true,
       in: false
     })
+    wrapper.update()
+
+    expect(wrapper.getDOMNode()).not.toBeNull()
+  })
+
+  it('测试unmountOnLeave', () => {
+    const wrapper = mount(
+      <Transition in={false} unmountOnLeave={true}>
+        <div />
+      </Transition>
+    )
+
     expect(wrapper.getDOMNode()).not.toBeNull()
 
     wrapper.setProps({
-      forceRender: true,
       in: true
     })
+
+    wrapper.update()
+
     expect(wrapper.getDOMNode()).not.toBeNull()
+
+    wrapper.setProps({
+      in: false
+    })
+    wrapper.update()
+
+    expect(wrapper.getDOMNode()).toBeNull()
   })
 })
