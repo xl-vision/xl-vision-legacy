@@ -48,7 +48,7 @@ export interface TransitionGroupProps
 type TransitionGroupElement = TransitionElement & {
   _move?: () => void
   _oldPos?: DOMRect
-  _NEED_CANCEL?: boolean
+  _NEED_LEAVE_CANCEL?: boolean
 }
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
@@ -145,15 +145,26 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       if (data.same) {
         let prev = data.prev[0]
 
-        // 如果删除后立即添加同一个元素，由于删除的afterLeave还没有执行，会导致此节点缺失
+        // 如果删除后立即添加同一个元素，由于会对same中的元素执行clearTransition操作，
+        // 间接执行了afterLeave，会会导致元素被添加后又删除了。
         // 这里在dom上添加标记，提示自定义的afterLeave方法取消执行
         // 为什么不直接将in=false？因为这里添加的，是在下一次循环才会真正渲染到dom tree，
         // 在那之前可能afterLeave执行了，删除了节点
         if (prev.type === CSSTransition && prev.props.in === false) {
           const node = nodeMap?.get(prev.key!)
-          node && (node._NEED_CANCEL = true)
+          node && (node._NEED_LEAVE_CANCEL = true)
+
+          const beforeEnter = others.beforeEnter
+
+          // beforeEnter可能先执行，此时不用考虑afterLeave
+          const beforeEnterWrap = (el: TransitionGroupElement) => {
+            el._NEED_LEAVE_CANCEL = false
+            beforeEnter && beforeEnter(el)
+          }
+
           prev = React.cloneElement(prev, {
-            in: true
+            in: true,
+            beforeEnter: beforeEnterWrap
           })
         }
 
@@ -173,9 +184,9 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         const afterLeaveWrap = (el: TransitionGroupElement) => {
           // 如果标记取消leave
           // 触发leaveCancelled
-          if (el._NEED_CANCEL) {
+          if (el._NEED_LEAVE_CANCEL) {
             others2.leaveCancelled && others2.leaveCancelled(el)
-            el._NEED_CANCEL = false
+            el._NEED_LEAVE_CANCEL = false
             return
           }
           afterLeave && afterLeave(el)
@@ -271,6 +282,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       return
     }
 
+    // 使元素尽快归位，防止插入元素动画太突兀
     sameNodes.forEach(clearTransition)
     const moveNodes = sameNodes.filter(applyTransition)
 
