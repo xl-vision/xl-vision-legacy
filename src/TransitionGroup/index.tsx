@@ -37,8 +37,9 @@ export interface TransitionGroupProps
     | 'children'
     | 'transitionOnFirst'
     | 'in'
-    | 'css'
     | 'classNames'
+    | 'mountOnEnter'
+    | 'unmountOnLeave'
   > {
   children: Array<CSSTransitionProps['children']>
   transitionClasses?: TransitionGroupClasses
