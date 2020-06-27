@@ -110,6 +110,84 @@ export default () => {
 
 :::
 
+:::demo 自定义触发方式
+
+通过传递 ref，可以轻松获取到`start`和`stop`方法，这两个方法就可以用来自定义触发方式。
+
+```jsx
+import React from 'react'
+import { Ripple } from 'xl-vision'
+
+export default () => {
+  const ref = React.useRef()
+  const keydownRef = React.useRef(false)
+
+  React.useEffect(() => {
+    const keyDown = (e) => {
+      if (!keydownRef.current && e.key === 'Enter') {
+        ref.current.start()
+        keydownRef.current = true
+      }
+    }
+    const keyUp = (e) => {
+      if (keydownRef.current && e.key === 'Enter') {
+        ref.current.stop()
+        keydownRef.current = false
+      }
+    }
+
+    document.body.addEventListener('keydown', keyDown)
+    document.body.addEventListener('keyup', keyUp)
+
+    return () => {
+      document.body.removeEventListener('keydown', keyDown)
+      document.body.removeEventListener('keyup', keyUp)
+    }
+  }, [])
+
+  return (
+    <div className='box'>
+      press key enter
+      <Ripple ref={ref} transitionClasses='ripple' />
+    </div>
+  )
+}
+```
+
+```scss
+.box {
+  position: relative;
+  height: 100px;
+  background-color: #eee;
+  color: #80bdff;
+  font-size: 26px;
+  text-align: center;
+  line-height: 100px;
+
+  &::deep {
+    .xl-ripple {
+      opacity: 0.3;
+    }
+    .ripple-enter-active,
+    .ripple-leave-active {
+      transition: all 0.4s ease;
+    }
+    .ripple-enter,
+    .ripple-leave-to {
+      transform: scale(0);
+      opacity: 0.1;
+    }
+    .ripple-enter-to,
+    .ripple-leave {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+  }
+}
+```
+
+:::
+
 ## Ripple API
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |

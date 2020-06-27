@@ -10,7 +10,13 @@ export interface RippleProps {
   leaveAfterEnter?: boolean
 }
 
-const Ripple: React.FunctionComponent<RippleProps> = (props) => {
+export interface RippleRef {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  start: (e: any) => void
+  stop: () => void
+}
+
+const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
   const { clsPrefix = `${rootClsPrefix}-ripple`, transitionClasses, leaveAfterEnter } = props
 
@@ -19,6 +25,7 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
   const waitFinishedCountRef = React.useRef(0)
   const keyRef = React.useRef(0)
   const ignoreMouseDonwRef = React.useRef(false)
+  const containerRef = React.useRef<HTMLDivElement>(null)
 
   const startCommit = React.useCallback(
     ({ x, y, size }: { x: number; y: number; size: number }) => {
@@ -37,7 +44,8 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
   )
 
   const start = React.useCallback(
-    (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (e: any = {}) => {
       if (e.type === 'mousedown' && ignoreMouseDonwRef.current) {
         ignoreMouseDonwRef.current = false
         return
@@ -46,17 +54,27 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
       if (e.type === 'touchstart') {
         ignoreMouseDonwRef.current = true
       }
-      const el = e.currentTarget as HTMLElement
-      const rect = el.getBoundingClientRect()
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { clientX, clientY } = (e as any).touches
+      const el = e.currentTarget ? (e.currentTarget as HTMLElement) : containerRef.current
+      const rect = el
+        ? el.getBoundingClientRect()
+        : {
+            left: 0,
+            top: 0,
+            width: 0,
+            height: 0
+          }
+
+      const { clientX, clientY } = (e as React.TouchEvent<HTMLDivElement>).touches
         ? (e as TouchEvent).touches[0]
         : (e as MouseEvent)
-      const x = Math.round(clientX - rect.left)
-      const y = Math.round(clientY - rect.top)
-      const sizeX = Math.max(Math.abs(el.clientWidth - x), x) * 2 + 2
-      const sizeY = Math.max(Math.abs(el.clientHeight - y), y) * 2 + 2
+
+      const clientWidth = el ? el.clientWidth : 0
+      const clientHeight = el ? el.clientHeight : 0
+      const x = Math.round(typeof clientX === 'undefined' ? clientWidth / 2 : clientX - rect.left)
+      const y = Math.round(typeof clientY === 'undefined' ? clientHeight / 2 : clientY - rect.top)
+      const sizeX = Math.max(Math.abs(clientWidth - x), x) * 2 + 2
+      const sizeY = Math.max(Math.abs(clientHeight - y), y) * 2 + 2
       const size = Math.sqrt(sizeX ** 2 + sizeY ** 2)
       startCommit({ x, y, size })
     },
@@ -96,22 +114,31 @@ const Ripple: React.FunctionComponent<RippleProps> = (props) => {
     }
   })
 
+  React.useImperativeHandle(ref, () => ({
+    start,
+    stop
+  }))
+
   return (
     <div
       className={`${clsPrefix}`}
-      onMouseDown={start}
       onTouchStart={start}
-      onMouseUp={stop}
       onTouchEnd={stop}
-      onMouseLeave={stop}
       onTouchMove={stop}
+      onMouseDown={start}
+      onMouseUp={stop}
+      onMouseLeave={stop}
+      onDragLeave={stop}
+      ref={containerRef}
     >
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
       </TransitionGroup>
     </div>
   )
-}
+})
+
+Ripple.displayName = 'Ripple'
 
 Ripple.propTypes = {
   clsPrefix: PropTypes.string,
