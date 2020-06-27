@@ -26,7 +26,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
       <div className={classes.actions}>
         <button onClick={onClick}>{expand ? '收起' : '展开'}</button>
       </div>
-      <CollapseTransition in={expand}>
+      <CollapseTransition in={expand} mountOnEnter={true}>
         <div className={classes.codes}>
           {
             // eslint-disable-next-line react/prop-types
