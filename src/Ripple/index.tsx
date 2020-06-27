@@ -8,6 +8,7 @@ export interface RippleProps {
   transitionClasses?: TransitionGroupClasses
   clsPrefix?: string
   leaveAfterEnter?: boolean
+  disableEvents?: boolean
 }
 
 export interface RippleRef {
@@ -18,7 +19,12 @@ export interface RippleRef {
 
 const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
-  const { clsPrefix = `${rootClsPrefix}-ripple`, transitionClasses, leaveAfterEnter } = props
+  const {
+    disableEvents,
+    clsPrefix = `${rootClsPrefix}-ripple`,
+    transitionClasses,
+    leaveAfterEnter
+  } = props
 
   const [ripples, setRipples] = React.useState<Array<React.ReactElement>>([])
   const finishedCountRef = React.useRef(0)
@@ -119,18 +125,23 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
     stop
   }))
 
+  const events = React.useMemo(() => {
+    if (disableEvents) {
+      return
+    }
+    return {
+      onTouchStart: start,
+      onTouchEnd: stop,
+      onTouchMove: stop,
+      onMouseDown: start,
+      onMouseUp: stop,
+      onMouseLeave: stop,
+      onDragLeave: stop
+    }
+  }, [disableEvents, start, stop])
+
   return (
-    <div
-      className={`${clsPrefix}`}
-      onTouchStart={start}
-      onTouchEnd={stop}
-      onTouchMove={stop}
-      onMouseDown={start}
-      onMouseUp={stop}
-      onMouseLeave={stop}
-      onDragLeave={stop}
-      ref={containerRef}
-    >
+    <div {...events} className={`${clsPrefix}`} ref={containerRef}>
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
       </TransitionGroup>
@@ -141,6 +152,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
 Ripple.displayName = 'Ripple'
 
 Ripple.propTypes = {
+  disableEvents: PropTypes.bool,
   clsPrefix: PropTypes.string,
   leaveAfterEnter: PropTypes.bool,
   transitionClasses: PropTypes.oneOfType([
