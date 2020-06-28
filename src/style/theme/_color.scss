@@ -5,16 +5,6 @@
 $white: #ffffff;
 $black: #000000;
 
-// state
-$opacity-enabled: 0;
-$opacity-hover: 0.04;
-$opacity-focus: 0.12;
-$opacity-selected: 0.08;
-$opacity-activated: 0.12;
-$opacity-pressed: 0.12;
-$opacity-dragged: 0.08;
-$opacity-disabled: 0.38;
-
 // text
 $dark-primary-text: palette.$dark-primary-text;
 $dark-secondary-text: palette.$dark-secondary-text;
@@ -27,72 +17,83 @@ $light-disabled-text: palette.$light-disabled-text;
 $light-dividers: palette.$light-dividers;
 $light-focused: palette.$light-focused;
 
+@function theme-pick($map, $key, $contrast: false) {
+  @if ($contrast) {
+    @return map.get(map.get($map, contrast), $key);
+  }
+
+  @return map.get($map, $key);
+}
+
 // background
-$background-default: map.get(palette.$gray, 50);
+$background-default: theme-pick(palette.$gray, 50);
+
+// gary
+$gray: palette.$gray;
 
 $primary: (
-  light: map.get(palette.$indigo, 300),
-  main: map.get(palette.$indigo, 500),
-  dark: map.get(palette.$indigo, 700),
+  light: theme-pick(palette.$indigo, 300),
+  main: theme-pick(palette.$indigo, 500),
+  dark: theme-pick(palette.$indigo, 700),
   contrast: (
-    light: map.get(map.get(palette.$indigo, contrast), 300),
-    main: map.get(map.get(palette.$indigo, contrast), 500),
-    dark: map.get(map.get(palette.$indigo, contrast), 700)
+    light: theme-pick(palette.$indigo, 300, true),
+    main: theme-pick(palette.$indigo, 500, true),
+    dark: theme-pick(palette.$indigo, 700, true)
   )
 );
 
 $secondary: (
-  light: map.get(palette.$pink, 'A200'),
-  main: map.get(palette.$pink, 'A400'),
-  dark: map.get(palette.$pink, 'A700'),
+  light: theme-pick(palette.$pink, 'A200'),
+  main: theme-pick(palette.$pink, 'A400'),
+  dark: theme-pick(palette.$pink, 'A700'),
   contrast: (
-    light: map.get(map.get(palette.$pink, contrast), 'A200'),
-    main: map.get(map.get(palette.$pink, contrast), 'A400'),
-    dark: map.get(map.get(palette.$pink, contrast), 'A700')
+    light: theme-pick(palette.$pink, 'A200', true),
+    main: theme-pick(palette.$pink, 'A400', true),
+    dark: theme-pick(palette.$pink, 'A700', true)
   )
 );
 
 $success: (
-  light: map.get(palette.$green, 300),
-  main: map.get(palette.$green, 500),
-  dark: map.get(palette.$green, 700),
+  light: theme-pick(palette.$green, 300),
+  main: theme-pick(palette.$green, 500),
+  dark: theme-pick(palette.$green, 700),
   contrast: (
-    light: map.get(map.get(palette.$green, contrast), 300),
-    main: map.get(map.get(palette.$green, contrast), 500),
-    dark: map.get(map.get(palette.$green, contrast), 700)
+    light: theme-pick(palette.$green, 300, true),
+    main: theme-pick(palette.$green, 500, true),
+    dark: theme-pick(palette.$green, 700, true)
   )
 );
 
 $error: (
-  light: map.get(palette.$red, 300),
-  main: map.get(palette.$red, 500),
-  dark: map.get(palette.$red, 700),
+  light: theme-pick(palette.$red, 300),
+  main: theme-pick(palette.$red, 500),
+  dark: theme-pick(palette.$red, 700),
   contrast: (
-    light: map.get(map.get(palette.$red, contrast), 300),
-    main: map.get(map.get(palette.$red, contrast), 500),
-    dark: map.get(map.get(palette.$red, contrast), 700)
+    light: theme-pick(palette.$red, 300, true),
+    main: theme-pick(palette.$red, 500, true),
+    dark: theme-pick(palette.$red, 700, true)
   )
 );
 
 $info: (
-  light: map.get(palette.$blue, 300),
-  main: map.get(palette.$blue, 500),
-  dark: map.get(palette.$blue, 700),
+  light: theme-pick(palette.$blue, 300),
+  main: theme-pick(palette.$blue, 500),
+  dark: theme-pick(palette.$blue, 700),
   contrast: (
-    light: map.get(map.get(palette.$blue, contrast), 300),
-    main: map.get(map.get(palette.$blue, contrast), 500),
-    dark: map.get(map.get(palette.$blue, contrast), 700)
+    light: theme-pick(palette.$blue, 300, true),
+    main: theme-pick(palette.$blue, 500, true),
+    dark: theme-pick(palette.$blue, 700, true)
   )
 );
 
 $warning: (
-  light: map.get(palette.$orange, 300),
-  main: map.get(palette.$orange, 500),
-  dark: map.get(palette.$orange, 700),
+  light: theme-pick(palette.$orange, 300),
+  main: theme-pick(palette.$orange, 500),
+  dark: theme-pick(palette.$orange, 700),
   contrast: (
-    light: map.get(map.get(palette.$orange, contrast), 300),
-    main: map.get(map.get(palette.$orange, contrast), 500),
-    dark: map.get(map.get(palette.$orange, contrast), 700)
+    light: theme-pick(palette.$orange, 300, true),
+    main: theme-pick(palette.$orange, 500, true),
+    dark: theme-pick(palette.$orange, 700, true)
   )
 );
 

@@ -5,4 +5,193 @@ $button: #{$cls-prefix}-button;
 $ripple: #{$cls-prefix}-ripple;
 
 .#{$button} {
+  min-width: $button-min-width;
+  padding: $button-padding-6 $button-padding-16;
+  border-radius: $border-radius-medium;
+  transition: all $fast-out-slow-in-timing-function $standard-duration;
+
+  @include button();
+
+  &--variant-contained {
+    $background-color: theme-pick($gray, 300);
+
+    color: $dark-primary-text;
+    background-color: $background-color;
+
+    &.#{$button}--disabled {
+      background-color: overlay-color($background-color, $overlay-disabled);
+
+      @include elevation(0);
+    }
+
+    &:not(.#{$button}--disabled) {
+      @include elevation(2);
+
+      &:hover {
+        background-color: overlay-color($background-color, $overlay-hover);
+
+        @include elevation(4);
+      }
+
+      &:focus {
+        background-color: overlay-color($background-color, $overlay-focus);
+
+        @include elevation(6);
+      }
+
+      &:active {
+        background-color: overlay-color($background-color, $overlay-activated);
+
+        @include elevation(8);
+      }
+    }
+
+    @each $key, $value in $theme {
+      &.#{$button}--theme-#{$key} {
+        $background-color: theme-pick($value, main);
+
+        color: theme-pick($value, main, true);
+        background-color: $background-color;
+
+        &:not(.#{$button}--disabled) {
+          &:hover {
+            background-color: overlay-color($background-color, $overlay-hover);
+          }
+
+          &:focus {
+            background-color: overlay-color($background-color, $overlay-focus);
+          }
+
+          &:active {
+            background-color: overlay-color($background-color, $overlay-activated);
+          }
+        }
+
+        &.#{$button}--disabled {
+          background-color: overlay-color($background-color, $overlay-disabled);
+        }
+      }
+    }
+  }
+
+  &--variant-outlined {
+    $border-color: theme-pick($gray, 400);
+    $background-color: theme-pick($gray, 100);
+
+    // minus border width
+    padding: $button-padding-5 $button-padding-15;
+    color: $dark-primary-text;
+    background-color: transparent;
+    border: $button-border-width solid $border-color;
+
+    &.#{$button}--disabled {
+      background-color: overlay-color($background-color, $overlay-disabled);
+      border-color: overlay-color($border-color, $overlay-disabled);
+
+      @include elevation(0);
+    }
+
+    &:not(.#{$button}--disabled) {
+      &:hover {
+        background-color: overlay-color($background-color, $overlay-hover);
+        border-color: overlay-color($border-color, $overlay-hover);
+      }
+
+      &:focus {
+        background-color: overlay-color($background-color, $overlay-focus);
+        border-color: overlay-color($border-color, $overlay-focus);
+      }
+
+      &:active {
+        background-color: overlay-color($background-color, $overlay-activated);
+        border-color: overlay-color($border-color, $overlay-activated);
+      }
+    }
+
+    @each $key, $value in $theme {
+      &.#{$button}--theme-#{$key} {
+        $border-color: theme-pick($value, light);
+        $color: theme-pick($value, main);
+
+        color: $color;
+        border-color: $border-color;
+
+        &:not(.#{$button}--disabled) {
+          &:hover {
+            background-color: overlay-color($color, 1 - $overlay-hover);
+            border-color: overlay-color($border-color, $overlay-hover);
+          }
+
+          &:focus {
+            background-color: overlay-color($color, 1 - $overlay-focus);
+            border-color: overlay-color($border-color, $overlay-focus);
+          }
+
+          &:active {
+            background-color: overlay-color($color, 1 - $overlay-activated);
+            border-color: overlay-color($border-color, $overlay-activated);
+          }
+        }
+
+        &.#{$button}--disabled {
+          color: overlay-color($color, $overlay-disabled);
+          border-color: overlay-color($border-color, $overlay-disabled);
+        }
+      }
+    }
+  }
+
+  &--variant-text {
+    $background-color: theme-pick($gray, 100);
+    $color: $dark-primary-text;
+
+    color: $color;
+    background-color: transparent;
+
+    &.#{$button}--disabled {
+      color: overlay-color($color, $overlay-disabled);
+
+      @include elevation(0);
+    }
+
+    &:not(.#{$button}--disabled) {
+      &:hover {
+        background-color: overlay-color($background-color, $overlay-hover);
+      }
+
+      &:focus {
+        background-color: overlay-color($background-color, $overlay-focus);
+      }
+
+      &:active {
+        background-color: overlay-color($background-color, $overlay-activated);
+      }
+    }
+
+    @each $key, $value in $theme {
+      &.#{$button}--theme-#{$key} {
+        $color: theme-pick($value, main);
+
+        color: $color;
+
+        &:not(.#{$button}--disabled) {
+          &:hover {
+            background-color: overlay-color($color, 1 - $overlay-hover);
+          }
+
+          &:focus {
+            background-color: overlay-color($color, 1 - $overlay-focus);
+          }
+
+          &:active {
+            background-color: overlay-color($color, 1 - $overlay-activated);
+          }
+        }
+
+        &.#{$button}--disabled {
+          color: overlay-color($color, $overlay-disabled);
+        }
+      }
+    }
+  }
 }

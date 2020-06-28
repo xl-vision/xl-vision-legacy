@@ -8,12 +8,14 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
-@function px2rem($size) {
-  @return $size * 1px / $html-font-size * 1rem;
+@function _round($value) {
+  @return math.round($value * 1e2) / 1e2;
 }
 
-@function _round($value) {
-  @return math.round($value * 1e5) / 1e5;
+@function px2rem($size) {
+  $size: if(math.is-unitless($size), $size * 1px, $size);
+
+  @return _round($size / $html-font-size * 1rem);
 }
 
 @mixin build-style($font-weight, $size, $line-height, $letter-space, $text-transform: false) {

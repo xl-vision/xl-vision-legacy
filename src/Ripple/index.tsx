@@ -5,7 +5,7 @@ import useConstantCallback from '../commons/hooks/useConstantCallback'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-export interface RippleProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface RippleProps extends React.HTMLAttributes<HTMLSpanElement> {
   transitionClasses?: TransitionGroupClasses
   clsPrefix?: string
   leaveAfterEnter?: boolean
@@ -146,11 +146,11 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const classes = classnames(clsPrefix, className)
 
   return (
-    <div {...others} {...events} className={classes} ref={containerRef}>
+    <span {...others} {...events} className={classes} ref={containerRef}>
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
       </TransitionGroup>
-    </div>
+    </span>
   )
 })
 

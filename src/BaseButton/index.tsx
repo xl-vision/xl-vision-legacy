@@ -109,8 +109,9 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
       className={classes}
       ref={ref}
       tabIndex={disabled ? -1 : tabIndex}
+      href={href}
     >
-      <span>{children}</span>
+      <span className={`${clsPrefix}__inner`}>{children}</span>
       <Ripple
         ref={rippleRef}
         disableEvents={!shouldEnableRipple}
@@ -134,6 +135,7 @@ BaseButton.propTypes = {
   onClick: PropTypes.func,
   onKeyUp: PropTypes.func,
   onKeyDown: PropTypes.func,
+  onBlur: PropTypes.func,
   className: PropTypes.string
 }
 

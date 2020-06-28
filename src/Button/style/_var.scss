@@ -1,2 +1,16 @@
 @use '../../style/theme' as *;
+@use 'sass:map';
 @forward '../../style/theme';
+
+$button-border-width: 1px;
+
+$button-min-width: 64px;
+
+$button-padding-16: 16px;
+$button-padding-6: 6px;
+$button-padding-15: 16px - $button-border-width;
+$button-padding-5: 6px - $button-border-width;
+$button-padding-12: 12px;
+$button-padding-8: 8px;
+
+$button-icon-size: px2rem(18);

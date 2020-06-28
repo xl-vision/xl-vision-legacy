@@ -10,6 +10,7 @@ $ripple: #{$cls-prefix}-ripple;
   left: 0;
   overflow: hidden;
   border-radius: inherit;
+
   &__inner {
     position: absolute;
     background-color: currentColor;
