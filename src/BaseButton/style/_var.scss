@@ -1,0 +1,11 @@
+@use '../../style/theme' as *;
+@forward '../../style/theme';
+
+$button-min-width: px2rem(64);
+
+$button-padding-16: px2rem(16);
+$button-padding-6: px2rem(6);
+$button-padding-12: px2rem(12);
+$button-padding-8: px2rem(8);
+
+$button-icon-size: px2rem(18);

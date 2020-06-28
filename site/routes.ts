@@ -31,8 +31,18 @@ const routes: Array<Route> = [
       },
       {
         name: '按钮',
-        path: '/Button',
-        component: import('../src/Button/__doc__/index.mdx')
+        children: [
+          {
+            name: '按钮',
+            path: '/Button',
+            component: import('../src/Button/__doc__/index.mdx')
+          },
+          {
+            name: '基础按钮',
+            path: '/BaseButton',
+            component: import('../src/BaseButton/__doc__/index.mdx')
+          }
+        ]
       }
     ]
   },

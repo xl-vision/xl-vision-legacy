@@ -3,8 +3,9 @@ import TransitionGroup, { TransitionGroupClasses } from '../TransitionGroup'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-export interface RippleProps {
+export interface RippleProps extends React.HTMLAttributes<HTMLDivElement> {
   transitionClasses?: TransitionGroupClasses
   clsPrefix?: string
   leaveAfterEnter?: boolean
@@ -23,7 +24,9 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
     disableEvents,
     clsPrefix = `${rootClsPrefix}-ripple`,
     transitionClasses,
-    leaveAfterEnter
+    leaveAfterEnter,
+    className,
+    ...others
   } = props
 
   const [ripples, setRipples] = React.useState<Array<React.ReactElement>>([])
@@ -81,7 +84,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
       const y = Math.round(typeof clientY === 'undefined' ? clientHeight / 2 : clientY - rect.top)
       const sizeX = Math.max(Math.abs(clientWidth - x), x) * 2 + 2
       const sizeY = Math.max(Math.abs(clientHeight - y), y) * 2 + 2
-      const size = Math.sqrt(sizeX ** 2 + sizeY ** 2)
+      const size = Math.round(Math.sqrt(sizeX ** 2 + sizeY ** 2))
       startCommit({ x, y, size })
     },
     [startCommit]
@@ -140,8 +143,10 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
     }
   }, [disableEvents, start, stop])
 
+  const classes = classnames(clsPrefix, className)
+
   return (
-    <div {...events} className={`${clsPrefix}`} ref={containerRef}>
+    <div {...others} {...events} className={classes} ref={containerRef}>
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
       </TransitionGroup>
@@ -155,6 +160,7 @@ Ripple.propTypes = {
   disableEvents: PropTypes.bool,
   clsPrefix: PropTypes.string,
   leaveAfterEnter: PropTypes.bool,
+  className: PropTypes.string,
   transitionClasses: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({

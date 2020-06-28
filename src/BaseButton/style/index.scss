@@ -1,0 +1,47 @@
+@use './var' as *;
+@use '../../Ripple/style';
+
+$button: #{$cls-prefix}-base-button;
+$ripple: #{$cls-prefix}-ripple;
+
+.#{$button} {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  user-select: none;
+  touch-action: manipulation;
+  // 阻止在移动端按下按钮后闪烁的问题
+  -webkit-tap-highlight-color: transparent;
+
+  &--disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .#{$ripple} {
+    transform: scale(1);
+    opacity: $opacity-pressed;
+  }
+
+  &__ripple {
+    &-enter-active {
+      transition: all $standard-duration $fast-out-slow-in-timing-function;
+    }
+
+    &-enter {
+      transform: scale(0);
+      opacity: 0.1;
+    }
+  }
+}

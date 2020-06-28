@@ -17,6 +17,7 @@ exports[`Ripple 基本用法 2`] = `
   >
     <div
       class="xl-ripple__inner ripple-enter ripple-enter-active"
+      style="width: 3px; height: 3px; top: -1.5px; left: -1.5px;"
     />
   </div>
 </div>
@@ -30,6 +31,7 @@ exports[`Ripple 基本用法 3`] = `
   >
     <div
       class="xl-ripple__inner ripple-leave ripple-leave-active"
+      style="width: 3px; height: 3px; top: -1.5px; left: -1.5px;"
     />
   </div>
 </div>
