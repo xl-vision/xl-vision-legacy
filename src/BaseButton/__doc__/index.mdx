@@ -32,6 +32,10 @@ export default () => {
 
       @include button;
       @include elevation(2);
+
+      &:focus {
+        opacity: 0.85;
+      }
     }
   }
 }
@@ -99,6 +103,9 @@ export default () => {
       position: relative;
       height: 200px;
       color: #000;
+      &:focus {
+        opacity: 0.85;
+      }
     }
     .img {
       display: block;

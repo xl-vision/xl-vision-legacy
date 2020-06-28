@@ -14,7 +14,7 @@ export interface RippleProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export interface RippleRef {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  start: (e: any) => void
+  start: (e?: any) => void
   stop: () => void
 }
 

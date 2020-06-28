@@ -1,5 +1,5 @@
 import React from 'react'
-import Ripple from '../Ripple'
+import Ripple, { RippleRef } from '../Ripple'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
@@ -29,10 +29,17 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     href,
     disabled,
     loading,
-    onClick,
     className,
+    tabIndex = 0,
+    onClick,
+    onKeyDown,
+    onKeyUp,
+    onBlur,
     ...others
   } = props
+
+  const rippleRef = React.useRef<RippleRef>(null)
+  const isKeyDownRef = React.useRef(false)
 
   const Component = href ? 'a' : 'button'
 
@@ -56,12 +63,56 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     [loading, disabled, onClick]
   )
 
+  const onKeyDownWrap = React.useCallback(
+    (e: React.KeyboardEvent<ButtonElement>) => {
+      if (rippleRef.current && !isKeyDownRef.current && e.key === ' ') {
+        isKeyDownRef.current = true
+        rippleRef.current.start()
+      }
+
+      onKeyDown && onKeyDown(e)
+    },
+    [onKeyDown]
+  )
+  const onKeyUpWrap = React.useCallback(
+    (e: React.KeyboardEvent<ButtonElement>) => {
+      if (rippleRef.current && isKeyDownRef.current && e.key === ' ') {
+        isKeyDownRef.current = false
+        rippleRef.current.stop()
+      }
+      onKeyUp && onKeyUp(e)
+    },
+    [onKeyUp]
+  )
+
+  // 防止按键按下时移除焦点了
+  const onBlurWrap = React.useCallback(
+    (e: React.FocusEvent<ButtonElement>) => {
+      if (rippleRef.current && isKeyDownRef.current) {
+        isKeyDownRef.current = false
+        rippleRef.current.stop()
+      }
+      onBlur && onBlur(e)
+    },
+    [onBlur]
+  )
+
   const shouldEnableRipple = enableRipple && !disabled && !loading
 
   return (
-    <Component {...others} onClick={onClickWrap} className={classes} ref={ref}>
+    <Component
+      {...others}
+      onClick={onClickWrap}
+      onKeyDown={onKeyDownWrap}
+      onKeyUp={onKeyUpWrap}
+      onBlur={onBlurWrap}
+      className={classes}
+      ref={ref}
+      tabIndex={disabled ? -1 : tabIndex}
+    >
       <span>{children}</span>
       <Ripple
+        ref={rippleRef}
         disableEvents={!shouldEnableRipple}
         leaveAfterEnter={true}
         transitionClasses={`${clsPrefix}__ripple`}
@@ -73,6 +124,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
 BaseButton.displayName = 'BaseButton'
 
 BaseButton.propTypes = {
+  tabIndex: PropTypes.number,
   clsPrefix: PropTypes.string,
   children: PropTypes.node,
   enableRipple: PropTypes.bool,
@@ -80,6 +132,8 @@ BaseButton.propTypes = {
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
   onClick: PropTypes.func,
+  onKeyUp: PropTypes.func,
+  onKeyDown: PropTypes.func,
   className: PropTypes.string
 }
 
