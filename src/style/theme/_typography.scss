@@ -9,7 +9,7 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 @function _round($value) {
-  @return math.round($value * 1e2) / 1e2;
+  @return math.round($value * 1e5) / 1e5;
 }
 
 @function px2rem($size) {

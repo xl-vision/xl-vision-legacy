@@ -2,15 +2,20 @@
 @use 'sass:map';
 @forward '../../style/theme';
 
-$button-border-width: 1px;
+$button-border-width: px2rem(1px);
 
-$button-min-width: 64px;
+$button-min-width: px2rem(64px);
 
-$button-padding-16: 16px;
-$button-padding-6: 6px;
-$button-padding-15: 16px - $button-border-width;
-$button-padding-5: 6px - $button-border-width;
-$button-padding-12: 12px;
-$button-padding-8: 8px;
+$button-padding-16: px2rem(16px);
+$button-padding-6: px2rem(6px);
+$button-padding-15: $button-padding-16 - $button-border-width;
+$button-padding-5: $button-padding-6 - $button-border-width;
+$button-padding-12: px2rem(12px);
+$button-padding-8: px2rem(8px);
 
-$button-icon-size: px2rem(18);
+$button-icon-size: px2rem(18px);
+$button-icon-line-height: 1;
+
+$button-round: px2rem(14 * 1.75) + $button-padding-6 * 2;
+
+$button-loading-duration: 1s;

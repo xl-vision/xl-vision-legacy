@@ -25,6 +25,9 @@ export default () => {
         <Button theme='primary' href='#'>
           Link
         </Button>
+        <Button theme='secondary' round>
+          Round
+        </Button>
       </div>
       <div className='column'>
         <Button variant='outlined'>Default</Button>
@@ -49,6 +52,9 @@ export default () => {
         <Button variant='outlined' theme='primary' href='#'>
           Link
         </Button>
+        <Button variant='outlined' theme='secondary' round>
+          Round
+        </Button>
       </div>
       <div className='column'>
         <Button variant='text'>Default</Button>
@@ -72,6 +78,9 @@ export default () => {
         </Button>
         <Button variant='text' theme='primary' href='#'>
           Link
+        </Button>
+        <Button variant='text' theme='secondary' round>
+          Round
         </Button>
       </div>
     </div>
@@ -122,6 +131,9 @@ export default () => {
         <Button disabled theme='primary' href='#'>
           Link
         </Button>
+        <Button disabled theme='secondary' round>
+          Round
+        </Button>
       </div>
       <div className='column'>
         <Button disabled variant='outlined'>
@@ -147,6 +159,9 @@ export default () => {
         </Button>
         <Button disabled variant='outlined' theme='primary' href='#'>
           Link
+        </Button>
+        <Button disabled variant='outlined' theme='secondary' round>
+          Round
         </Button>
       </div>
       <div className='column'>
@@ -174,7 +189,246 @@ export default () => {
         <Button disabled variant='text' theme='primary' href='#'>
           Link
         </Button>
+        <Button disabled variant='text' theme='secondary' round>
+          Round
+        </Button>
       </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 取消阴影
+
+对于`variant`为`contained`类型的按钮，可以通过`elevation`取消阴影。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+
+export default () => {
+  return (
+    <div className='column'>
+      <Button elevation={false}>Default</Button>
+      <Button elevation={false} theme='primary'>
+        Primary
+      </Button>
+      <Button elevation={false} theme='secondary'>
+        Secondary
+      </Button>
+      <Button elevation={false} theme='error'>
+        Error
+      </Button>
+      <Button elevation={false} theme='info'>
+        Info
+      </Button>
+      <Button elevation={false} theme='warning'>
+        Warning
+      </Button>
+      <Button elevation={false} theme='success'>
+        Success
+      </Button>
+      <Button elevation={false} theme='primary' href='#'>
+        Link
+      </Button>
+      <Button elevation={false} theme='secondary' round>
+        Round
+      </Button>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 添加图标
+
+添加图标可以使按钮更加醒目
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Trash, Close } from 'xl-vision/lib/icon'
+
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Button theme='primary'>Button</Button>
+        <Button theme='primary' variant='outlined'>
+          Button
+        </Button>
+        <Button theme='primary' variant='text'>
+          Button
+        </Button>
+      </div>
+      <div className='column'>
+        <Button theme='primary' prefixIcon={<Trash />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='outlined' prefixIcon={<Trash />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='text' prefixIcon={<Trash />}>
+          Button
+        </Button>
+      </div>
+      <div className='column'>
+        <Button theme='primary' suffixIcon={<Close />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='outlined' suffixIcon={<Close />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='text' suffixIcon={<Close />}>
+          Button
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 加载中
+
+加载中的按钮不会响应用户操作，适合在某些需要延时完成的操作，可以避免用户的多次点击。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Trash, Close } from 'xl-vision/lib/icon'
+
+const Loading = ({ children }) => {
+  const [loading, setLoading] = React.useState(false)
+  const timerRef = React.useRef()
+
+  React.useEffect(() => {
+    return () => {
+      clearTimeout(timerRef.current)
+    }
+  }, [])
+
+  const onClick = React.useCallback(() => {
+    setLoading(true)
+    timerRef.current = setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
+
+  return React.cloneElement(children, {
+    loading,
+    onClick
+  })
+}
+
+export default () => {
+  return (
+    <div className='wrapper'>
+      <div className='column'>
+        <Loading>
+          <Button theme='primary'>Button</Button>
+        </Loading>
+        <Loading>
+          <Button theme='primary' variant='outlined'>
+            Button
+          </Button>
+        </Loading>
+        <Loading>
+          <Button theme='primary' variant='text'>
+            Button
+          </Button>
+        </Loading>
+      </div>
+      <div className='column'>
+        <Loading>
+          <Button theme='primary' prefixIcon={<Trash />}>
+            Button
+          </Button>
+        </Loading>
+        <Loading>
+          <Button theme='primary' variant='outlined' prefixIcon={<Trash />}>
+            Button
+          </Button>
+        </Loading>
+        <Loading>
+          <Button theme='primary' variant='text' prefixIcon={<Trash />}>
+            Button
+          </Button>
+        </Loading>
+      </div>
+      <div className='column'>
+        <Loading>
+          <Button theme='primary' suffixIcon={<Close />}>
+            Button
+          </Button>
+        </Loading>
+        <Loading>
+          <Button theme='primary' variant='outlined' suffixIcon={<Close />}>
+            Button
+          </Button>
+        </Loading>
+        <Loading>
+          <Button theme='primary' variant='text' suffixIcon={<Close />}>
+            Button
+          </Button>
+        </Loading>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 更长的按钮
+
+通过`long`是按钮占据一整行
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Trash, Close } from 'xl-vision/lib/icon'
+
+export default () => {
+  return (
+    <div className='column'>
+      <Button long theme='primary'>
+        long
+      </Button>
+      <Button long theme='secondary' prefixIcon={<Trash />}>
+        Delete
+      </Button>
+      <Button long theme='error' suffixIcon={<Close />}>
+        Close
+      </Button>
     </div>
   )
 }
@@ -193,18 +447,16 @@ export default () => {
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | clsPrefix | 自定义类名前缀 | string | - | - | false |
-| dashed | 设置按钮边框为虚线样式，需要和`plain`连用才能显示出效果 | boolean | - | false | false |
-| disabled | 禁止按钮 | boolean | - | false | false |
-| ghost | 幽灵属性，使按钮背景透明 | boolean | - | false | false |
 | href | 点击跳转地址，此时 button 行为与 a 标签一致 | string | - | - | false |
-| loading | 设置按钮为加载中 | boolean | - | false | false |
+| disabled | 禁止按钮 | boolean | - | false | false |
+| theme | 设置按钮主题 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
+| variant | 设置按钮类型 | string | contained &#x007c; outlined &#x007c; text | contained | false |
 | long | 设置为长按钮 | boolean | - | false | false |
-| plain | 设置为朴素按钮 | boolean | - | false | false |
-| shape | 设置按钮的形状，通常`circle`与[Icon](#/icon)连用 | string | cirlce &#x007c; round | - | false |
-| theme | 设置按钮类型 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
-| size | 设置按钮大小 | string | default &#x007c; large &#x007c; small | default | false |
 | prefixIcon | 前缀图标 | ReactElement | - | - | false |
 | suffixIcon | 后缀图标 | ReactElement | - | - | false |
+| loading | 设置按钮为加载中 | boolean | - | false | false |
+| round | 圆角按钮 | boolean | - | - | false |
+| size | 设置按钮大小 | string | default &#x007c; large &#x007c; small | default | false |
 
 ## Group API
 

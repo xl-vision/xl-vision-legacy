@@ -2,7 +2,19 @@
 @use '../../BaseButton/style';
 
 $button: #{$cls-prefix}-button;
+$base-button: #{$cls-prefix}-base-button;
 $ripple: #{$cls-prefix}-ripple;
+$icon: #{$cls-prefix}-icon;
+
+@keyframes #{$button}-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .#{$button} {
   min-width: $button-min-width;
@@ -12,37 +24,80 @@ $ripple: #{$cls-prefix}-ripple;
 
   @include button();
 
+  .#{$icon} {
+    font-size: $button-icon-size;
+    vertical-align: middle;
+  }
+
+  &__icon--loading {
+    animation: #{$button}-loading $button-loading-duration $fast-out-slow-in-timing-function infinite;
+  }
+
+  &__prefix {
+    display: inline-block;
+    margin-right: $button-padding-8;
+    margin-left: $button-padding-12 - $button-padding-16;
+  }
+
+  &__suffix {
+    display: inline-block;
+    margin-right: $button-padding-12 - $button-padding-16;
+    margin-left: $button-padding-8;
+  }
+
+  &--long {
+    display: block;
+    width: 100%;
+  }
+
+  &--round {
+    border-radius: $button-round;
+  }
+
+  &--elevation {
+    &.#{$button}--disabled,
+    &.#{$button}--loading {
+      @include elevation(0);
+    }
+
+    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
+      @include elevation(2);
+      &:hover {
+        @include elevation(4);
+      }
+
+      &:focus {
+        @include elevation(6);
+      }
+
+      &:active {
+        @include elevation(8);
+      }
+    }
+  }
+
   &--variant-contained {
     $background-color: theme-pick($gray, 300);
 
     color: $dark-primary-text;
     background-color: $background-color;
 
-    &.#{$button}--disabled {
+    &.#{$button}--disabled,
+    &.#{$button}--loading {
       background-color: overlay-color($background-color, $overlay-disabled);
-
-      @include elevation(0);
     }
 
-    &:not(.#{$button}--disabled) {
-      @include elevation(2);
-
+    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
         background-color: overlay-color($background-color, $overlay-hover);
-
-        @include elevation(4);
       }
 
       &:focus {
         background-color: overlay-color($background-color, $overlay-focus);
-
-        @include elevation(6);
       }
 
       &:active {
         background-color: overlay-color($background-color, $overlay-activated);
-
-        @include elevation(8);
       }
     }
 
@@ -53,7 +108,7 @@ $ripple: #{$cls-prefix}-ripple;
         color: theme-pick($value, main, true);
         background-color: $background-color;
 
-        &:not(.#{$button}--disabled) {
+        &:not(.#{$button}--disabled):not(.#{$button}--loading) {
           &:hover {
             background-color: overlay-color($background-color, $overlay-hover);
           }
@@ -67,7 +122,8 @@ $ripple: #{$cls-prefix}-ripple;
           }
         }
 
-        &.#{$button}--disabled {
+        &.#{$button}--disabled,
+        &.#{$button}--loading {
           background-color: overlay-color($background-color, $overlay-disabled);
         }
       }
@@ -84,14 +140,15 @@ $ripple: #{$cls-prefix}-ripple;
     background-color: transparent;
     border: $button-border-width solid $border-color;
 
-    &.#{$button}--disabled {
+    &.#{$button}--disabled,
+    &.#{$button}--loading {
       background-color: overlay-color($background-color, $overlay-disabled);
       border-color: overlay-color($border-color, $overlay-disabled);
 
       @include elevation(0);
     }
 
-    &:not(.#{$button}--disabled) {
+    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
         background-color: overlay-color($background-color, $overlay-hover);
         border-color: overlay-color($border-color, $overlay-hover);
@@ -116,7 +173,7 @@ $ripple: #{$cls-prefix}-ripple;
         color: $color;
         border-color: $border-color;
 
-        &:not(.#{$button}--disabled) {
+        &:not(.#{$button}--disabled):not(.#{$button}--loading) {
           &:hover {
             background-color: overlay-color($color, 1 - $overlay-hover);
             border-color: overlay-color($border-color, $overlay-hover);
@@ -133,7 +190,8 @@ $ripple: #{$cls-prefix}-ripple;
           }
         }
 
-        &.#{$button}--disabled {
+        &.#{$button}--disabled,
+        &.#{$button}--loading {
           color: overlay-color($color, $overlay-disabled);
           border-color: overlay-color($border-color, $overlay-disabled);
         }
@@ -148,13 +206,14 @@ $ripple: #{$cls-prefix}-ripple;
     color: $color;
     background-color: transparent;
 
-    &.#{$button}--disabled {
+    &.#{$button}--disabled,
+    &.#{$button}--loading {
       color: overlay-color($color, $overlay-disabled);
 
       @include elevation(0);
     }
 
-    &:not(.#{$button}--disabled) {
+    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
         background-color: overlay-color($background-color, $overlay-hover);
       }
@@ -174,7 +233,7 @@ $ripple: #{$cls-prefix}-ripple;
 
         color: $color;
 
-        &:not(.#{$button}--disabled) {
+        &:not(.#{$button}--disabled):not(.#{$button}--loading) {
           &:hover {
             background-color: overlay-color($color, 1 - $overlay-hover);
           }
@@ -188,7 +247,8 @@ $ripple: #{$cls-prefix}-ripple;
           }
         }
 
-        &.#{$button}--disabled {
+        &.#{$button}--disabled,
+        &.#{$button}--loading {
           color: overlay-color($color, $overlay-disabled);
         }
       }

@@ -29,9 +29,17 @@ $ripple: #{$cls-prefix}-ripple;
     pointer-events: none;
   }
 
+  &--loading {
+    cursor: not-allowed;
+  }
+
   .#{$ripple} {
     transform: scale(1);
     opacity: $overlay-pressed;
+  }
+
+  &__inner {
+    vertical-align: middle;
   }
 
   &__ripple {

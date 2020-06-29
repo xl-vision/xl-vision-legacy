@@ -14,7 +14,10 @@ export interface ButtonProps extends BaseButtonProps {
   suffixIcon?: React.ReactNode
   theme?: ButtonTheme
   variant?: ButtonVariant
-  circle?: boolean
+  elevation?: boolean
+  round?: boolean
+  long?: boolean
+  loading?: boolean
 }
 
 const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
@@ -23,18 +26,48 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     clsPrefix = `${rootClsPrefix}-button`,
     theme,
     variant = 'contained',
-    prefixIcon,
-    suffixIcon,
+    elevation = true,
+    round,
+    long,
+    prefixIcon: _prefixIcon,
+    suffixIcon: _suffixIcon,
+    children,
     disabled,
+    loading,
     ...others
   } = props
 
+  let prefixIcon = _prefixIcon
+  let suffixIcon = _suffixIcon
+
+  if (loading) {
+    const loadingIcon = <Reload className={`${clsPrefix}__icon--loading`} />
+    if (prefixIcon || !suffixIcon) {
+      prefixIcon = loadingIcon
+    } else {
+      suffixIcon = loadingIcon
+    }
+  }
+
   const classes = classnames(clsPrefix, `${clsPrefix}--variant-${variant}`, {
     [`${clsPrefix}--theme-${theme}`]: theme,
-    [`${clsPrefix}--disabled`]: disabled
+    [`${clsPrefix}--disabled`]: disabled,
+    [`${clsPrefix}--loading`]: loading,
+    [`${clsPrefix}--round`]: round,
+    [`${clsPrefix}--long`]: long,
+    [`${clsPrefix}--elevation`]: elevation && variant === 'contained'
   })
 
-  return <BaseButton {...others} disabled={disabled} className={classes} ref={ref} />
+  const prefixNode = prefixIcon && <span className={`${clsPrefix}__prefix`}>{prefixIcon}</span>
+  const suffixNode = suffixIcon && <span className={`${clsPrefix}__suffix`}>{suffixIcon}</span>
+
+  return (
+    <BaseButton {...others} disabled={disabled} loading={loading} className={classes} ref={ref}>
+      {prefixNode}
+      {children}
+      {suffixNode}
+    </BaseButton>
+  )
 })
 
 Button.displayName = 'Button'
@@ -45,7 +78,12 @@ Button.propTypes = {
   prefixIcon: PropTypes.node,
   suffixIcon: PropTypes.node,
   disabled: PropTypes.bool,
-  clsPrefix: PropTypes.string
+  clsPrefix: PropTypes.string,
+  elevation: PropTypes.bool,
+  round: PropTypes.bool,
+  long: PropTypes.bool,
+  loading: PropTypes.bool,
+  children: PropTypes.node
 }
 
 export default Button
