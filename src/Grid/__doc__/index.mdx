@@ -168,8 +168,7 @@ export default () => {
 
 ::: demo 响应式布局
 
-`span`可以传入对象的形式实现不同尺寸下的布局可以设置的参数有:`xs`,`sm`,`md`,`lg`,`xl`,`xxl`。
-请尝试改变浏览器窗口大小。
+`span`可以传入对象的形式实现不同尺寸下的布局可以设置的参数有:`xs`,`sm`,`md`,`lg`,`xl`,`xxl`。请尝试改变浏览器窗口大小。
 
 ```jsx
 import React from 'react'
@@ -237,6 +236,7 @@ export default () => {
   )
 }
 ```
+
 ```scss
 .grid-box {
   padding: 0.5rem;
@@ -256,6 +256,7 @@ export default () => {
   border-radius: 5px;
 }
 ```
+
 :::
 
 ::: demo 响应式偏移
@@ -342,6 +343,7 @@ export default () => {
   )
 }
 ```
+
 ```scss
 .grid-box {
   padding: 0.5rem;
@@ -478,6 +480,7 @@ export default () => {
   )
 }
 ```
+
 ```scss
 .grid-box {
   padding: 0.5rem;
@@ -502,6 +505,7 @@ export default () => {
   border-radius: 5px;
 }
 ```
+
 :::
 
 ## Grid API
@@ -513,6 +517,7 @@ export default () => {
 | type | 布局类型 | flex | - | - | false |
 | justify | 栅格左右对齐方式(在`type=flex`下有效) | string | start &#x007c; end &#x007c; center &#x007c; space-around &#x007c; space-between | — | false |
 | align | 栅格上下对齐方式(在`type=flex`下有效) | string | top &#x007c; middle &#x007c; bottom | — | false |
+| children | `Col`数组 | Col &#x007c; Col[] | - | - | true |
 
 ## Col API
 
@@ -524,3 +529,4 @@ export default () => {
 | push | 栅格向右移动的列数(支持响应式) | number &#x007c; object | 1-24 | — | false |
 | pull | 栅格向左移动的列数(支持响应式) | number &#x007c; object | 1-24 | — | false |
 | order | 栅格顺序，flex 布局模式下有效(支持响应式) | number &#x007c; object | 1-24 | — | false |
+| children | 子节点 | ReactNode | - | - | false |

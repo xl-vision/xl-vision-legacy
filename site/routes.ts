@@ -22,7 +22,7 @@ const routes: Array<Route> = [
     redirect: '/Icon'
   },
   {
-    name: '基础组件',
+    name: '通用组件',
     children: [
       {
         name: '图标',
@@ -83,6 +83,16 @@ const routes: Array<Route> = [
         name: 'Ripple',
         path: '/Ripple',
         component: import('../src/Ripple/__doc__/index.mdx')
+      }
+    ]
+  },
+  {
+    name: '基础组件',
+    children: [
+      {
+        name: 'Portal',
+        path: '/Portal',
+        component: import('../src/Portal/__doc__/index.mdx')
       }
     ]
   }

@@ -522,6 +522,7 @@ export default () => {
 | loading | 设置按钮为加载中 | boolean | - | false | false |
 | round | 圆角按钮 | boolean | - | - | false |
 | disableElevation | 禁止阴影效果，仅对`variant=contained` | boolean | - | - | false |
+| children | 子节点，在指定了`prefixIcon`或`suffixIcon`时可以为空 | ReactNode | - | - | false |
 
 ## Group API
 
@@ -535,3 +536,4 @@ export default () => {
 | disableRipple | 禁止水波纹 | boolean | - | - | false |
 | theme | 设置按钮主题 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
 | variant | 设置按钮类型 | string | contained &#x007c; outlined &#x007c; text | contained | false |
+| children | 按钮数组 | Button &#x007c; Button[] | - | - | true |

@@ -116,7 +116,7 @@ BaseButton.displayName = 'BaseButton'
 BaseButton.propTypes = {
   tabIndex: PropTypes.number,
   clsPrefix: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   disableRipple: PropTypes.bool,
   href: PropTypes.string,
   disabled: PropTypes.bool,
