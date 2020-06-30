@@ -33,19 +33,14 @@ $icon: #{$cls-prefix}-icon;
     animation: #{$button}-loading $button-loading-duration $fast-out-slow-in-timing-function infinite;
   }
 
-  &__prefix,
-  &__suffix {
-    display: inline-block;
-  }
-
   &__prefix {
     margin-right: $button-icon-padding-content;
     margin-left: $button-icon-padding-border - $button-padding-x;
   }
 
-  &__suffix {
-    margin-right: $button-icon-padding-border - $button-padding-x;
-    margin-left: $button-icon-padding-content;
+  &--only-icon {
+    min-width: $button-round;
+    padding: $button-padding-y;
   }
 
   &--long {
@@ -142,6 +137,11 @@ $icon: #{$cls-prefix}-icon;
     color: $dark-primary-text;
     background-color: transparent;
     border: $button-border-width solid $border-color;
+
+    &.#{$button}--only-icon {
+      min-width: $button-round;
+      padding: $button-padding-y-outlined;
+    }
 
     &.#{$button}--disabled,
     &.#{$button}--loading {

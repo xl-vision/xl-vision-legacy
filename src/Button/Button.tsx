@@ -9,14 +9,13 @@ export type ButtonTheme = 'primary' | 'error' | 'warning' | 'secondary' | 'succe
 export type ButtonVariant = 'contained' | 'text' | 'outlined'
 
 export interface ButtonProps extends BaseButtonProps {
-  prefixIcon?: React.ReactNode
-  suffixIcon?: React.ReactNode
   theme?: ButtonTheme
   variant?: ButtonVariant
-  elevation?: boolean
+  disableElevation?: boolean
   round?: boolean
   long?: boolean
   loading?: boolean
+  icon?: React.ReactNode
 }
 
 const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
@@ -25,27 +24,20 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     clsPrefix = `${rootClsPrefix}-button`,
     theme,
     variant = 'contained',
-    elevation = true,
+    disableElevation,
     round,
     long,
-    prefixIcon: _prefixIcon,
-    suffixIcon: _suffixIcon,
+    icon: _icon,
     children,
     disabled,
     loading,
     ...others
   } = props
 
-  let prefixIcon = _prefixIcon
-  let suffixIcon = _suffixIcon
+  let icon = loading ? <Reload className={`${clsPrefix}__icon--loading`} /> : _icon
 
-  if (loading) {
-    const loadingIcon = <Reload className={`${clsPrefix}__icon--loading`} />
-    if (prefixIcon || !suffixIcon) {
-      prefixIcon = loadingIcon
-    } else {
-      suffixIcon = loadingIcon
-    }
+  if (icon && children) {
+    icon = <span className={`${clsPrefix}__prefix`}>{icon}</span>
   }
 
   const classes = classnames(clsPrefix, `${clsPrefix}--variant-${variant}`, {
@@ -54,17 +46,14 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     [`${clsPrefix}--loading`]: loading,
     [`${clsPrefix}--round`]: round,
     [`${clsPrefix}--long`]: long,
-    [`${clsPrefix}--elevation`]: elevation && variant === 'contained'
+    [`${clsPrefix}--only-icon`]: icon && !children,
+    [`${clsPrefix}--elevation`]: !disableElevation && variant === 'contained'
   })
-
-  const prefixNode = prefixIcon && <span className={`${clsPrefix}__prefix`}>{prefixIcon}</span>
-  const suffixNode = suffixIcon && <span className={`${clsPrefix}__suffix`}>{suffixIcon}</span>
 
   return (
     <BaseButton {...others} disabled={disabled} loading={loading} className={classes} ref={ref}>
-      {prefixNode}
+      {icon}
       {children}
-      {suffixNode}
     </BaseButton>
   )
 })
@@ -74,14 +63,13 @@ Button.displayName = 'Button'
 Button.propTypes = {
   theme: PropTypes.oneOf(['primary', 'error', 'warning', 'secondary', 'success', 'info']),
   variant: PropTypes.oneOf(['contained', 'text', 'outlined']),
-  prefixIcon: PropTypes.node,
-  suffixIcon: PropTypes.node,
   disabled: PropTypes.bool,
   clsPrefix: PropTypes.string,
-  elevation: PropTypes.bool,
+  disableElevation: PropTypes.bool,
   round: PropTypes.bool,
   long: PropTypes.bool,
   loading: PropTypes.bool,
+  icon: PropTypes.node,
   children: PropTypes.node
 }
 

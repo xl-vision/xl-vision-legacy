@@ -38,10 +38,6 @@ $ripple: #{$cls-prefix}-ripple;
     opacity: $overlay-pressed;
   }
 
-  &__inner {
-    vertical-align: middle;
-  }
-
   &__ripple {
     &-enter-active {
       transition: all $standard-duration $fast-out-slow-in-timing-function;

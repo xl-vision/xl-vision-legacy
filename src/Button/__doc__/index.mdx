@@ -78,26 +78,28 @@ export default () => {
 
 :::
 
-:::demo 圆角按钮
+:::demo 添加图标
 
-可以通过`round`设置圆角按钮
+添加图标可以使按钮更加醒目
 
 ```jsx
 import React from 'react'
 import { Button } from 'xl-vision'
+import { Trash } from 'xl-vision/lib/icon'
 
 export default () => {
   return (
     <div className='column'>
-      <Button theme='primary' round>
-        contained
+      <Button theme='primary' icon={<Trash />}>
+        Button
       </Button>
-      <Button theme='primary' round variant='outlined'>
-        outlined
+      <Button theme='primary' variant='outlined' icon={<Trash />}>
+        Button
       </Button>
-      <Button theme='primary' round variant='text'>
-        text
+      <Button theme='primary' variant='text' icon={<Trash />}>
+        Button
       </Button>
+      <Button theme='primary' icon={<Trash />} />
     </div>
   )
 }
@@ -111,59 +113,44 @@ export default () => {
 
 :::
 
-:::demo 添加图标
+:::demo 圆角按钮
 
-添加图标可以使按钮更加醒目
+可以通过`round`设置圆角按钮
 
 ```jsx
 import React from 'react'
 import { Button } from 'xl-vision'
-import { Trash, Close } from 'xl-vision/lib/icon'
+import { Trash } from 'xl-vision/lib/icon'
 
 export default () => {
   return (
-    <div className='wrapper'>
+    <div>
       <div className='column'>
-        <Button theme='primary'>Button</Button>
-        <Button theme='primary' variant='outlined'>
-          Button
+        <Button theme='primary' round>
+          contained
         </Button>
-        <Button theme='primary' variant='text'>
-          Button
+        <Button theme='primary' round variant='outlined'>
+          outlined
+        </Button>
+        <Button theme='primary' round variant='text'>
+          text
         </Button>
       </div>
       <div className='column'>
-        <Button theme='primary' prefixIcon={<Trash />}>
-          Button
+        <Button theme='primary' icon={<Trash />} round>
+          contained
         </Button>
-        <Button theme='primary' variant='outlined' prefixIcon={<Trash />}>
-          Button
+        <Button theme='primary' icon={<Trash />} round variant='outlined'>
+          outlined
         </Button>
-        <Button theme='primary' variant='text' prefixIcon={<Trash />}>
-          Button
-        </Button>
-      </div>
-      <div className='column'>
-        <Button theme='primary' suffixIcon={<Close />}>
-          Button
-        </Button>
-        <Button theme='primary' variant='outlined' suffixIcon={<Close />}>
-          Button
-        </Button>
-        <Button theme='primary' variant='text' suffixIcon={<Close />}>
-          Button
+        <Button theme='primary' icon={<Trash />} round variant='text'>
+          text
         </Button>
       </div>
       <div className='column'>
-        <Button round theme='primary' prefixIcon={<Close />}>
-          Button
-        </Button>
-        <Button round theme='primary' variant='outlined' suffixIcon={<Close />}>
-          Button
-        </Button>
-        <Button round theme='primary' variant='text' prefixIcon={<Close />}>
-          Button
-        </Button>
+        <Button theme='primary' icon={<Trash />} round></Button>
+        <Button theme='primary' icon={<Trash />} round variant='outlined'></Button>
+        <Button theme='primary' icon={<Trash />} round variant='text'></Button>
       </div>
     </div>
   )
@@ -213,15 +200,10 @@ export default () => {
         </Button>
       </div>
       <div className='column'>
-        <Button disabled theme='primary' prefixIcon={<Close />}>
+        <Button disabled theme='primary' icon={<Close />}>
           Button
         </Button>
-        <Button disabled theme='primary' variant='outlined' prefixIcon={<Close />}>
-          Button
-        </Button>
-        <Button disabled theme='primary' variant='text' prefixIcon={<Close />}>
-          Button
-        </Button>
+        <Button disabled theme='primary' variant='outlined' icon={<Close />} />
       </div>
     </div>
   )
@@ -238,7 +220,7 @@ export default () => {
 
 :::demo 取消阴影
 
-对于`variant`为`contained`类型的按钮，可以通过`elevation`取消阴影。
+对于`variant`为`contained`类型的按钮，可以通过`disableElevation`取消阴影。
 
 ```jsx
 import React from 'react'
@@ -247,23 +229,23 @@ import { Button } from 'xl-vision'
 export default () => {
   return (
     <div className='column'>
-      <Button elevation={false}>Default</Button>
-      <Button elevation={false} theme='primary'>
+      <Button disableElevation>Default</Button>
+      <Button disableElevation theme='primary'>
         Primary
       </Button>
-      <Button elevation={false} theme='secondary'>
+      <Button disableElevation theme='secondary'>
         Secondary
       </Button>
-      <Button elevation={false} theme='error'>
+      <Button disableElevation theme='error'>
         Error
       </Button>
-      <Button elevation={false} theme='info'>
+      <Button disableElevation theme='info'>
         Info
       </Button>
-      <Button elevation={false} theme='warning'>
+      <Button disableElevation theme='warning'>
         Warning
       </Button>
-      <Button elevation={false} theme='success'>
+      <Button disableElevation theme='success'>
         Success
       </Button>
     </div>
@@ -331,36 +313,30 @@ export default () => {
       </div>
       <div className='column'>
         <Loading>
-          <Button theme='primary' prefixIcon={<Trash />}>
+          <Button theme='primary' icon={<Trash />}>
             Button
           </Button>
         </Loading>
         <Loading>
-          <Button theme='primary' variant='outlined' prefixIcon={<Trash />}>
+          <Button theme='primary' variant='outlined' icon={<Trash />}>
             Button
           </Button>
         </Loading>
         <Loading>
-          <Button theme='primary' variant='text' prefixIcon={<Trash />}>
+          <Button theme='primary' variant='text' icon={<Trash />}>
             Button
           </Button>
         </Loading>
       </div>
       <div className='column'>
         <Loading>
-          <Button theme='primary' suffixIcon={<Close />}>
-            Button
-          </Button>
+          <Button round theme='primary' icon={<Close />} />
         </Loading>
         <Loading>
-          <Button theme='primary' variant='outlined' suffixIcon={<Close />}>
-            Button
-          </Button>
+          <Button round theme='primary' variant='outlined' icon={<Close />} />
         </Loading>
         <Loading>
-          <Button theme='primary' variant='text' suffixIcon={<Close />}>
-            Button
-          </Button>
+          <Button round theme='primary' variant='text' icon={<Close />} />
         </Loading>
       </div>
     </div>
@@ -391,11 +367,8 @@ export default () => {
       <Button long theme='primary'>
         long
       </Button>
-      <Button long theme='secondary' prefixIcon={<Trash />}>
+      <Button long theme='secondary' icon={<Trash />}>
         Delete
-      </Button>
-      <Button long theme='error' suffixIcon={<Close />}>
-        Close
       </Button>
     </div>
   )
@@ -420,11 +393,10 @@ export default () => {
 | theme | 设置按钮主题 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
 | variant | 设置按钮类型 | string | contained &#x007c; outlined &#x007c; text | contained | false |
 | long | 设置为长按钮 | boolean | - | false | false |
-| prefixIcon | 前缀图标 | ReactElement | - | - | false |
-| suffixIcon | 后缀图标 | ReactElement | - | - | false |
+| icon | 图标 | ReactElement | - | - | false |
 | loading | 设置按钮为加载中 | boolean | - | false | false |
 | round | 圆角按钮 | boolean | - | - | false |
-| elevation | 是否展示阴影效果，仅对`variant=contained` | boolean | - | - | false |
+| disableElevation | 禁止阴影效果，仅对`variant=contained` | boolean | - | - | false |
 
 ## Group API
 

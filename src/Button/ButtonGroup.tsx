@@ -1,14 +1,14 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ButtonProps } from './Button'
+import { ButtonProps, ButtonVariant } from './Button'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | Array<React.ReactElement<ButtonProps>>
   clsPrefix?: string
   round?: boolean
-  vertical?: boolean
+  variant?: ButtonVariant
 }
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
