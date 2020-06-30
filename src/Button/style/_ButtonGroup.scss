@@ -1,1 +1,85 @@
 @use './var' as *;
+
+$button: #{$cls-prefix}-button;
+$button-group: #{$cls-prefix}-button-group;
+
+.#{$button-group} {
+  &__child {
+    border-radius: 0;
+
+    &:not(:last-child) {
+      border-right: $button-border-width solid $button-default-bg;
+    }
+
+    &:first-child {
+      border-top-left-radius: $border-radius-medium;
+      border-bottom-left-radius: $border-radius-medium;
+    }
+
+    &:last-child {
+      border-top-right-radius: $border-radius-medium;
+      border-bottom-right-radius: $border-radius-medium;
+    }
+
+    &.#{$button}--variant-contained {
+      @each $key, $value in $button-theme {
+        &.#{$button}--theme-#{$key} {
+          &:not(:last-child) {
+            border-right-color: theme-pick($value, dark);
+          }
+        }
+      }
+    }
+
+    &.#{$button}--variant-outlined {
+      @each $key, $value in $button-theme {
+        &.#{$button}--theme-#{$key} {
+          &:not(:last-child) {
+            // appead width
+            padding-right: $button-padding-x-outlined + $button-border-width;
+            border-right-color: theme-pick($value, dark);
+          }
+
+          &:not(:first-child) {
+            // appead width
+            padding-left: $button-padding-x-outlined + $button-border-width;
+            border-left-width: 0;
+
+            &.#{$button}--only-icon {
+              // appead width
+              padding-left: $button-padding-y-outlined + $button-border-width;
+            }
+          }
+        }
+      }
+
+      &.#{$button}--only-icon {
+        &:not(:last-child) {
+          // appead width
+          padding-right: $button-padding-y-outlined + $button-border-width;
+        }
+
+        &:not(:first-child) {
+          &.#{$button}--only-icon {
+            // appead width
+            padding-left: $button-padding-y-outlined + $button-border-width;
+          }
+        }
+      }
+    }
+  }
+
+  &--round {
+    .#{$button-group}__child {
+      &:first-child {
+        border-top-left-radius: $button-border-radius-round;
+        border-bottom-left-radius: $button-border-radius-round;
+      }
+
+      &:last-child {
+        border-top-right-radius: $button-border-radius-round;
+        border-bottom-right-radius: $button-border-radius-round;
+      }
+    }
+  }
+}

@@ -26,7 +26,6 @@ $icon: #{$cls-prefix}-icon;
 
   .#{$icon} {
     font-size: $button-icon-size;
-    vertical-align: middle;
   }
 
   &__icon--loading {
@@ -44,7 +43,7 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--only-icon {
-    min-width: $button-round;
+    min-width: $button-border-radius-round;
     padding: $button-padding-y;
   }
 
@@ -54,7 +53,7 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--round {
-    border-radius: $button-round;
+    border-radius: $button-border-radius-round;
   }
 
   &--elevation {
@@ -80,31 +79,29 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--variant-contained {
-    $background-color: theme-pick($gray, 300);
-
     color: $dark-primary-text;
-    background-color: $background-color;
+    background-color: $button-default-bg;
 
     &.#{$button}--disabled,
     &.#{$button}--loading {
-      background-color: overlay-color($background-color, $overlay-disabled);
+      background-color: overlay-color($button-default-bg, $overlay-disabled);
     }
 
     &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
-        background-color: overlay-color($background-color, $overlay-hover);
+        background-color: overlay-color($button-default-bg, $overlay-hover);
       }
 
       &:focus {
-        background-color: overlay-color($background-color, $overlay-focus);
+        background-color: overlay-color($button-default-bg, $overlay-focus);
       }
 
       &:active {
-        background-color: overlay-color($background-color, $overlay-activated);
+        background-color: overlay-color($button-default-bg, $overlay-activated);
       }
     }
 
-    @each $key, $value in $theme {
+    @each $key, $value in $button-theme {
       &.#{$button}--theme-#{$key} {
         $background-color: theme-pick($value, main);
 
@@ -134,46 +131,42 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--variant-outlined {
-    $border-color: theme-pick($gray, 400);
-    $background-color: theme-pick($gray, 100);
-
-    // minus border width
     padding: $button-padding-y-outlined $button-padding-x-outlined;
     color: $dark-primary-text;
     background-color: transparent;
-    border: $button-border-width solid $border-color;
+    border: $button-border-width solid $button-default-border-color;
 
     &.#{$button}--only-icon {
-      min-width: $button-round;
+      min-width: $button-border-radius-round;
       padding: $button-padding-y-outlined;
     }
 
     &.#{$button}--disabled,
     &.#{$button}--loading {
-      background-color: overlay-color($background-color, $overlay-disabled);
-      border-color: overlay-color($border-color, $overlay-disabled);
+      background-color: overlay-color($button-default-bg-outline, $overlay-disabled);
+      border-color: overlay-color($button-default-border-color, $overlay-disabled);
 
       @include elevation(0);
     }
 
     &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
-        background-color: overlay-color($background-color, $overlay-hover);
-        border-color: overlay-color($border-color, $overlay-hover);
+        background-color: overlay-color($button-default-bg-outline, $overlay-hover);
+        border-color: overlay-color($button-default-border-color, $overlay-hover);
       }
 
       &:focus {
-        background-color: overlay-color($background-color, $overlay-focus);
-        border-color: overlay-color($border-color, $overlay-focus);
+        background-color: overlay-color($button-default-bg-outline, $overlay-focus);
+        border-color: overlay-color($button-default-border-color, $overlay-focus);
       }
 
       &:active {
-        background-color: overlay-color($background-color, $overlay-activated);
-        border-color: overlay-color($border-color, $overlay-activated);
+        background-color: overlay-color($button-default-bg-outline, $overlay-activated);
+        border-color: overlay-color($button-default-border-color, $overlay-activated);
       }
     }
 
-    @each $key, $value in $theme {
+    @each $key, $value in $button-theme {
       &.#{$button}--theme-#{$key} {
         $border-color: theme-pick($value, light);
         $color: theme-pick($value, main);
@@ -208,7 +201,6 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--variant-text {
-    $background-color: theme-pick($gray, 100);
     $color: $dark-primary-text;
 
     color: $color;
@@ -223,19 +215,19 @@ $icon: #{$cls-prefix}-icon;
 
     &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
-        background-color: overlay-color($background-color, $overlay-hover);
+        background-color: overlay-color($button-default-bg-text, $overlay-hover);
       }
 
       &:focus {
-        background-color: overlay-color($background-color, $overlay-focus);
+        background-color: overlay-color($button-default-bg-text, $overlay-focus);
       }
 
       &:active {
-        background-color: overlay-color($background-color, $overlay-activated);
+        background-color: overlay-color($button-default-bg-text, $overlay-activated);
       }
     }
 
-    @each $key, $value in $theme {
+    @each $key, $value in $button-theme {
       &.#{$button}--theme-#{$key} {
         $color: theme-pick($value, main);
 

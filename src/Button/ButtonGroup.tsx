@@ -1,14 +1,16 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { ButtonProps, ButtonVariant } from './Button'
+import { ButtonProps } from './Button'
 import ConfigContext from '../ConfigProvider/ConfigContext'
+import ButtonContext, { ButtonContextProps } from './ButtonContext'
 
-export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ButtonGroupProps
+  extends Omit<ButtonContextProps, 'isGroup'>,
+    React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | Array<React.ReactElement<ButtonProps>>
   clsPrefix?: string
   round?: boolean
-  variant?: ButtonVariant
 }
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
@@ -16,33 +18,43 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
 
   const {
     round,
-    vertical,
     className,
     clsPrefix = `${rootClsPrefix}-button-group`,
+    disableRipple,
+    disableElevation,
+    theme,
+    variant,
     ...others
   } = props
   const classes = classnames(
     {
       [clsPrefix]: true,
-      [`${clsPrefix}--horizontal`]: !vertical,
-      [`${clsPrefix}--vertical`]: vertical,
       [`${clsPrefix}--round`]: round
     },
     className
   )
 
-  return <div {...others} className={classes} />
+  return (
+    <ButtonContext.Provider
+      value={{ groupClsPrefix: `${clsPrefix}`, disableRipple, disableElevation, theme, variant }}
+    >
+      <div {...others} className={classes} />
+    </ButtonContext.Provider>
+  )
 }
 
 ButtonGroup.propTypes = {
+  theme: PropTypes.oneOf(['primary', 'error', 'warning', 'secondary', 'success', 'info']),
+  variant: PropTypes.oneOf(['contained', 'text', 'outlined']),
+  disableRipple: PropTypes.bool,
+  disableElevation: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.element.isRequired,
     PropTypes.arrayOf(PropTypes.element.isRequired)
   ]).isRequired,
   clsPrefix: PropTypes.string,
-  round: PropTypes.bool,
-  vertical: PropTypes.bool
+  round: PropTypes.bool
 }
 
 export default ButtonGroup

@@ -438,6 +438,73 @@ export default () => {
 
 :::
 
+:::demo 按钮组
+
+将多个相应功能的按钮放在一起形成一个按钮组
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Trash, Close } from 'xl-vision/lib/icon'
+
+export default () => {
+  return (
+    <div>
+      <div className='column'>
+        <Button.Group theme='primary'>
+          <Button>button1</Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group theme='primary' variant='outlined'>
+          <Button suffixIcon={<Close />}></Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group theme='primary' variant='text'>
+          <Button prefixIcon={<Trash />}>button1</Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group round theme='primary'>
+          <Button prefixIcon={<Trash />}></Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group round theme='primary' variant='outlined'>
+          <Button suffixIcon={<Close />}>button1</Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group round theme='primary' variant='text'>
+          <Button prefixIcon={<Trash />}>button1</Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button-group {
+  margin: 0.5rem;
+}
+```
+
+:::
+
 ## Button API
 
 > 其余参数请参考<Link to='BaseButton'>`BaseButton`</Link>
@@ -458,9 +525,13 @@ export default () => {
 
 ## Group API
 
+> 使用按钮组时，按钮样式以下属性在`Button`中设置无效
+
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | clsPrefix | 自定义类名前缀 | string | - | - | false |
 | round | 指定按钮组中按钮的圆角样式 | boolean | - | false | false |
-| vertical | 指定按钮组为垂直方向 | boolean | - | false | false |
-| size | 设置按钮大小,如果按钮自动设置了 size，则会覆盖这个值 | string | default &#x007c; large &#x007c; small | default | false |
+| disableElevation | 禁止阴影效果，仅对`variant=contained` | boolean | - | - | false |
+| disableRipple | 禁止水波纹 | boolean | - | - | false |
+| theme | 设置按钮主题 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
+| variant | 设置按钮类型 | string | contained &#x007c; outlined &#x007c; text | contained | false |
