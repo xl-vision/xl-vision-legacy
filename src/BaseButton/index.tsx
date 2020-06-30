@@ -3,6 +3,7 @@ import Ripple, { RippleRef } from '../Ripple'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
+import useConstantCallback from '../commons/hooks/useConstantCallback'
 
 export interface CommonBaseButtonProps {
   href?: string
@@ -52,50 +53,38 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     className
   )
 
-  const onClickWrap = React.useCallback(
-    (e: React.MouseEvent) => {
-      if (loading || disabled) {
-        e.preventDefault()
-        return
-      }
-      onClick && onClick(e)
-    },
-    [loading, disabled, onClick]
-  )
+  const onClickWrap = useConstantCallback((e: React.MouseEvent) => {
+    if (loading || disabled) {
+      e.preventDefault()
+      return
+    }
+    onClick && onClick(e)
+  })
 
-  const onKeyDownWrap = React.useCallback(
-    (e: React.KeyboardEvent<ButtonElement>) => {
-      if (rippleRef.current && !isKeyDownRef.current && e.key === ' ') {
-        isKeyDownRef.current = true
-        rippleRef.current.start()
-      }
+  const onKeyDownWrap = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
+    if (rippleRef.current && !isKeyDownRef.current && e.key === ' ') {
+      isKeyDownRef.current = true
+      rippleRef.current.start()
+    }
 
-      onKeyDown && onKeyDown(e)
-    },
-    [onKeyDown]
-  )
-  const onKeyUpWrap = React.useCallback(
-    (e: React.KeyboardEvent<ButtonElement>) => {
-      if (rippleRef.current && isKeyDownRef.current && e.key === ' ') {
-        isKeyDownRef.current = false
-        rippleRef.current.stop()
-      }
-      onKeyUp && onKeyUp(e)
-    },
-    [onKeyUp]
-  )
+    onKeyDown && onKeyDown(e)
+  })
+  const onKeyUpWrap = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
+    if (rippleRef.current && isKeyDownRef.current && e.key === ' ') {
+      isKeyDownRef.current = false
+      rippleRef.current.stop()
+    }
+    onKeyUp && onKeyUp(e)
+  })
 
   // 防止按键按下时移除焦点了
-  const onBlurWrap = React.useCallback(
-    (e: React.FocusEvent<ButtonElement>) => {
-      if (rippleRef.current && isKeyDownRef.current) {
-        isKeyDownRef.current = false
-        rippleRef.current.stop()
-      }
-      onBlur && onBlur(e)
-    },
-    [onBlur]
-  )
+  const onBlurWrap = useConstantCallback((e: React.FocusEvent<ButtonElement>) => {
+    if (rippleRef.current && isKeyDownRef.current) {
+      isKeyDownRef.current = false
+      rippleRef.current.stop()
+    }
+    onBlur && onBlur(e)
+  })
 
   const shouldEnableRipple = !disableRipple && !disabled && !loading
 

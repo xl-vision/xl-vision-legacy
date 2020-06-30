@@ -1,0 +1,522 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button 基本测试 1`] = `
+<div>
+  <button
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-error xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <i
+          class="xl-icon"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+            />
+          </svg>
+        </i>
+      </span>
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+      <span
+        class="xl-button__suffix"
+      >
+        <i
+          class="xl-icon"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+            />
+          </svg>
+        </i>
+      </span>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--only-icon xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <i
+        class="xl-icon"
+      >
+        <svg
+          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+          />
+        </svg>
+      </i>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--only-icon xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <i
+        class="xl-icon"
+      >
+        <svg
+          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+          />
+        </svg>
+      </i>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--long xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--loading xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <i
+          class="xl-icon xl-button__icon--loading"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </i>
+      </span>
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--loading xl-button--only-icon xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <i
+        class="xl-icon xl-button__icon--loading"
+      >
+        <svg
+          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+            fill="none"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+            stroke-width="32"
+          />
+          <path
+            d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+          />
+        </svg>
+      </i>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--loading xl-button--elevation"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <i
+          class="xl-icon xl-button__icon--loading"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </i>
+      </span>
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+</div>
+`;
+
+exports[`ButtonGroup 基本测试 1`] = `
+<div
+  class="xl-button-group"
+>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <i
+          class="xl-icon"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+            />
+          </svg>
+        </i>
+      </span>
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      button
+      <span
+        class="xl-button__suffix"
+      >
+        <i
+          class="xl-icon"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+            />
+          </svg>
+        </i>
+      </span>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error xl-button--only-icon"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <i
+        class="xl-icon"
+      >
+        <svg
+          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+          />
+        </svg>
+      </i>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error xl-button--only-icon"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <i
+        class="xl-icon"
+      >
+        <svg
+          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+          />
+        </svg>
+      </i>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error xl-button--loading"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <i
+          class="xl-icon xl-button__icon--loading"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </i>
+      </span>
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error xl-button--loading xl-button--only-icon"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <i
+        class="xl-icon xl-button__icon--loading"
+      >
+        <svg
+          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+          viewBox="0 0 512 512"
+        >
+          <path
+            d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+            fill="none"
+            stroke-linecap="round"
+            stroke-miterlimit="10"
+            stroke-width="32"
+          />
+          <path
+            d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+          />
+        </svg>
+      </i>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-outlined xl-button-group__child xl-button--theme-error xl-button--loading"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <i
+          class="xl-icon xl-button__icon--loading"
+        >
+          <svg
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </i>
+      </span>
+      button
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+</div>
+`;
