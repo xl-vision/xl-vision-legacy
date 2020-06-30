@@ -18,7 +18,7 @@ $icon: #{$cls-prefix}-icon;
 
 .#{$button} {
   min-width: $button-min-width;
-  padding: $button-padding-6 $button-padding-16;
+  padding: $button-padding-y $button-padding-x;
   border-radius: $border-radius-medium;
   transition: all $fast-out-slow-in-timing-function $standard-duration;
 
@@ -33,16 +33,19 @@ $icon: #{$cls-prefix}-icon;
     animation: #{$button}-loading $button-loading-duration $fast-out-slow-in-timing-function infinite;
   }
 
-  &__prefix {
+  &__prefix,
+  &__suffix {
     display: inline-block;
-    margin-right: $button-padding-8;
-    margin-left: $button-padding-12 - $button-padding-16;
+  }
+
+  &__prefix {
+    margin-right: $button-icon-padding-content;
+    margin-left: $button-icon-padding-border - $button-padding-x;
   }
 
   &__suffix {
-    display: inline-block;
-    margin-right: $button-padding-12 - $button-padding-16;
-    margin-left: $button-padding-8;
+    margin-right: $button-icon-padding-border - $button-padding-x;
+    margin-left: $button-icon-padding-content;
   }
 
   &--long {
@@ -135,7 +138,7 @@ $icon: #{$cls-prefix}-icon;
     $background-color: theme-pick($gray, 100);
 
     // minus border width
-    padding: $button-padding-5 $button-padding-15;
+    padding: $button-padding-y-outlined $button-padding-x-outlined;
     color: $dark-primary-text;
     background-color: transparent;
     border: $button-border-width solid $border-color;

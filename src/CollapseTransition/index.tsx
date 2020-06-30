@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import CSSTransition from '../CSSTransition'
 
-export interface CollapseTransitionProp {
+export interface CollapseTransitionProp extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   mountOnEnter?: boolean
   unmountOnLeave?: boolean
@@ -20,7 +20,8 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
     mountOnEnter,
     unmountOnLeave,
     horizontal,
-    transitionOnFirst
+    transitionOnFirst,
+    ...others
   } = props
 
   const wrapperRef = React.useRef<HTMLDivElement>(null)
@@ -84,13 +85,13 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
 
   return (
     <CSSTransition
-      transitionOnFirst={transitionOnFirst}
       {...transitionEvents}
+      transitionOnFirst={transitionOnFirst}
       in={inProp}
       mountOnEnter={mountOnEnter}
       unmountOnLeave={unmountOnLeave}
     >
-      <div className={transitionClassName} style={styles}>
+      <div {...others} className={transitionClassName} style={styles}>
         <div ref={wrapperRef} style={{ position: 'relative' }}>
           {children}
         </div>

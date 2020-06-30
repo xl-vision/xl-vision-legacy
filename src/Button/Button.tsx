@@ -1,8 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import { Reload, IconProps } from '../icon'
-import ButtonContext from './ButtonContext'
+import { Reload } from '../icon'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import BaseButton, { BaseButtonProps, ButtonElement } from '../BaseButton'
 

@@ -22,12 +22,6 @@ export default () => {
         <Button theme='info'>Info</Button>
         <Button theme='warning'>Warning</Button>
         <Button theme='success'>Success</Button>
-        <Button theme='primary' href='#'>
-          Link
-        </Button>
-        <Button theme='secondary' round>
-          Round
-        </Button>
       </div>
       <div className='column'>
         <Button variant='outlined'>Default</Button>
@@ -48,12 +42,6 @@ export default () => {
         </Button>
         <Button variant='outlined' theme='success'>
           Success
-        </Button>
-        <Button variant='outlined' theme='primary' href='#'>
-          Link
-        </Button>
-        <Button variant='outlined' theme='secondary' round>
-          Round
         </Button>
       </div>
       <div className='column'>
@@ -76,12 +64,6 @@ export default () => {
         <Button variant='text' theme='success'>
           Success
         </Button>
-        <Button variant='text' theme='primary' href='#'>
-          Link
-        </Button>
-        <Button variant='text' theme='secondary' round>
-          Round
-        </Button>
       </div>
     </div>
   )
@@ -96,119 +78,9 @@ export default () => {
 
 :::
 
-:::demo 禁止状态
+:::demo 圆角按钮
 
-通过`disabled`禁止按钮
-
-```jsx
-import React from 'react'
-import { Button } from 'xl-vision'
-import { Search } from 'xl-vision/lib/icon'
-
-export default () => {
-  return (
-    <div className='wrapper'>
-      <div className='column'>
-        <Button disabled>Default</Button>
-        <Button disabled theme='primary'>
-          Primary
-        </Button>
-        <Button disabled theme='secondary'>
-          Secondary
-        </Button>
-        <Button disabled theme='error'>
-          Error
-        </Button>
-        <Button disabled theme='info'>
-          Info
-        </Button>
-        <Button disabled theme='warning'>
-          Warning
-        </Button>
-        <Button disabled theme='success'>
-          Success
-        </Button>
-        <Button disabled theme='primary' href='#'>
-          Link
-        </Button>
-        <Button disabled theme='secondary' round>
-          Round
-        </Button>
-      </div>
-      <div className='column'>
-        <Button disabled variant='outlined'>
-          Default
-        </Button>
-        <Button disabled variant='outlined' theme='primary'>
-          Primary
-        </Button>
-        <Button disabled variant='outlined' theme='secondary'>
-          Secondary
-        </Button>
-        <Button disabled variant='outlined' theme='error'>
-          Error
-        </Button>
-        <Button disabled variant='outlined' theme='info'>
-          Info
-        </Button>
-        <Button disabled variant='outlined' theme='warning'>
-          Warning
-        </Button>
-        <Button disabled variant='outlined' theme='success'>
-          Success
-        </Button>
-        <Button disabled variant='outlined' theme='primary' href='#'>
-          Link
-        </Button>
-        <Button disabled variant='outlined' theme='secondary' round>
-          Round
-        </Button>
-      </div>
-      <div className='column'>
-        <Button disabled variant='text'>
-          Default
-        </Button>
-        <Button disabled variant='text' theme='primary'>
-          Primary
-        </Button>
-        <Button disabled variant='text' theme='secondary'>
-          Secondary
-        </Button>
-        <Button disabled variant='text' theme='error'>
-          Error
-        </Button>
-        <Button disabled variant='text' theme='info'>
-          Info
-        </Button>
-        <Button disabled variant='text' theme='warning'>
-          Warning
-        </Button>
-        <Button disabled variant='text' theme='success'>
-          Success
-        </Button>
-        <Button disabled variant='text' theme='primary' href='#'>
-          Link
-        </Button>
-        <Button disabled variant='text' theme='secondary' round>
-          Round
-        </Button>
-      </div>
-    </div>
-  )
-}
-```
-
-```scss
-.column::deep .xl-button {
-  margin: 0.5rem;
-}
-```
-
-:::
-
-:::demo 取消阴影
-
-对于`variant`为`contained`类型的按钮，可以通过`elevation`取消阴影。
+可以通过`round`设置圆角按钮
 
 ```jsx
 import React from 'react'
@@ -217,30 +89,14 @@ import { Button } from 'xl-vision'
 export default () => {
   return (
     <div className='column'>
-      <Button elevation={false}>Default</Button>
-      <Button elevation={false} theme='primary'>
-        Primary
+      <Button theme='primary' round>
+        contained
       </Button>
-      <Button elevation={false} theme='secondary'>
-        Secondary
+      <Button theme='primary' round variant='outlined'>
+        outlined
       </Button>
-      <Button elevation={false} theme='error'>
-        Error
-      </Button>
-      <Button elevation={false} theme='info'>
-        Info
-      </Button>
-      <Button elevation={false} theme='warning'>
-        Warning
-      </Button>
-      <Button elevation={false} theme='success'>
-        Success
-      </Button>
-      <Button elevation={false} theme='primary' href='#'>
-        Link
-      </Button>
-      <Button elevation={false} theme='secondary' round>
-        Round
+      <Button theme='primary' round variant='text'>
+        text
       </Button>
     </div>
   )
@@ -298,6 +154,118 @@ export default () => {
           Button
         </Button>
       </div>
+      <div className='column'>
+        <Button round theme='primary' prefixIcon={<Close />}>
+          Button
+        </Button>
+        <Button round theme='primary' variant='outlined' suffixIcon={<Close />}>
+          Button
+        </Button>
+        <Button round theme='primary' variant='text' prefixIcon={<Close />}>
+          Button
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 禁止状态
+
+通过`disabled`禁止按钮
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Trash, Close } from 'xl-vision/lib/icon'
+
+export default () => {
+  return (
+    <div className='container'>
+      <div className='column'>
+        <Button disabled theme='primary'>
+          contained
+        </Button>
+        <Button disabled theme='primary' variant='outlined'>
+          outlined
+        </Button>
+        <Button disabled theme='primary' variant='text'>
+          text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button disabled round theme='primary'>
+          contained
+        </Button>
+        <Button disabled round theme='primary' variant='outlined'>
+          outlined
+        </Button>
+        <Button disabled round theme='primary' variant='text'>
+          text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button disabled theme='primary' prefixIcon={<Close />}>
+          Button
+        </Button>
+        <Button disabled theme='primary' variant='outlined' prefixIcon={<Close />}>
+          Button
+        </Button>
+        <Button disabled theme='primary' variant='text' prefixIcon={<Close />}>
+          Button
+        </Button>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 取消阴影
+
+对于`variant`为`contained`类型的按钮，可以通过`elevation`取消阴影。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+
+export default () => {
+  return (
+    <div className='column'>
+      <Button elevation={false}>Default</Button>
+      <Button elevation={false} theme='primary'>
+        Primary
+      </Button>
+      <Button elevation={false} theme='secondary'>
+        Secondary
+      </Button>
+      <Button elevation={false} theme='error'>
+        Error
+      </Button>
+      <Button elevation={false} theme='info'>
+        Info
+      </Button>
+      <Button elevation={false} theme='warning'>
+        Warning
+      </Button>
+      <Button elevation={false} theme='success'>
+        Success
+      </Button>
     </div>
   )
 }
@@ -456,7 +424,7 @@ export default () => {
 | suffixIcon | 后缀图标 | ReactElement | - | - | false |
 | loading | 设置按钮为加载中 | boolean | - | false | false |
 | round | 圆角按钮 | boolean | - | - | false |
-| size | 设置按钮大小 | string | default &#x007c; large &#x007c; small | default | false |
+| elevation | 是否展示阴影效果，仅对`variant=contained` | boolean | - | - | false |
 
 ## Group API
 
