@@ -38,6 +38,11 @@ $icon: #{$cls-prefix}-icon;
     margin-left: $button-icon-padding-border - $button-padding-x;
   }
 
+  &__suffix {
+    margin-right: $button-icon-padding-border - $button-padding-x;
+    margin-left: $button-icon-padding-content;
+  }
+
   &--only-icon {
     min-width: $button-round;
     padding: $button-padding-y;

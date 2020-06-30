@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 export interface CommonBaseButtonProps {
   href?: string
-  enableRipple?: boolean
+  disableRipple?: boolean
   clsPrefix?: string
   disabled?: boolean
   loading?: boolean
@@ -25,7 +25,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
   const {
     clsPrefix = `${rootClsPrefix}-base-button`,
     children,
-    enableRipple = true,
+    disableRipple,
     href,
     disabled,
     loading,
@@ -97,7 +97,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     [onBlur]
   )
 
-  const shouldEnableRipple = enableRipple && !disabled && !loading
+  const shouldEnableRipple = !disableRipple && !disabled && !loading
 
   return (
     <Component
@@ -128,7 +128,7 @@ BaseButton.propTypes = {
   tabIndex: PropTypes.number,
   clsPrefix: PropTypes.string,
   children: PropTypes.node,
-  enableRipple: PropTypes.bool,
+  disableRipple: PropTypes.bool,
   href: PropTypes.string,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,

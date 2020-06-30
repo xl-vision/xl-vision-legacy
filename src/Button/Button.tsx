@@ -15,7 +15,8 @@ export interface ButtonProps extends BaseButtonProps {
   round?: boolean
   long?: boolean
   loading?: boolean
-  icon?: React.ReactNode
+  prefixIcon?: React.ReactNode
+  suffixIcon?: React.ReactNode
 }
 
 const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
@@ -27,17 +28,31 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     disableElevation,
     round,
     long,
-    icon: _icon,
+    prefixIcon: _prefixIcon,
+    suffixIcon: _suffixIcon,
     children,
     disabled,
     loading,
     ...others
   } = props
 
-  let icon = loading ? <Reload className={`${clsPrefix}__icon--loading`} /> : _icon
+  let prefixIcon = _prefixIcon
+  let suffixIcon = _suffixIcon
 
-  if (icon && children) {
-    icon = <span className={`${clsPrefix}__prefix`}>{icon}</span>
+  if (loading) {
+    if (prefixIcon || !suffixIcon) {
+      prefixIcon = <Reload className={`${clsPrefix}__icon--loading`} />
+    } else {
+      suffixIcon = <Reload className={`${clsPrefix}__icon--loading`} />
+    }
+  }
+
+  if (prefixIcon && (children || suffixIcon)) {
+    prefixIcon = <span className={`${clsPrefix}__prefix`}>{prefixIcon}</span>
+  }
+
+  if (suffixIcon && (children || prefixIcon)) {
+    suffixIcon = <span className={`${clsPrefix}__suffix`}>{suffixIcon}</span>
   }
 
   const classes = classnames(clsPrefix, `${clsPrefix}--variant-${variant}`, {
@@ -46,14 +61,16 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     [`${clsPrefix}--loading`]: loading,
     [`${clsPrefix}--round`]: round,
     [`${clsPrefix}--long`]: long,
-    [`${clsPrefix}--only-icon`]: icon && !children,
+    [`${clsPrefix}--only-icon`]:
+      !children && ((prefixIcon && !suffixIcon) || (suffixIcon && !prefixIcon)),
     [`${clsPrefix}--elevation`]: !disableElevation && variant === 'contained'
   })
 
   return (
     <BaseButton {...others} disabled={disabled} loading={loading} className={classes} ref={ref}>
-      {icon}
+      {prefixIcon}
       {children}
+      {suffixIcon}
     </BaseButton>
   )
 })

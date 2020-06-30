@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 # 按钮
 
 基础的交互组件
@@ -85,21 +87,35 @@ export default () => {
 ```jsx
 import React from 'react'
 import { Button } from 'xl-vision'
-import { Trash } from 'xl-vision/lib/icon'
+import { Trash, Close } from 'xl-vision/lib/icon'
 
 export default () => {
   return (
-    <div className='column'>
-      <Button theme='primary' icon={<Trash />}>
-        Button
-      </Button>
-      <Button theme='primary' variant='outlined' icon={<Trash />}>
-        Button
-      </Button>
-      <Button theme='primary' variant='text' icon={<Trash />}>
-        Button
-      </Button>
-      <Button theme='primary' icon={<Trash />} />
+    <div>
+      <div className='column'>
+        <Button theme='primary' prefixIcon={<Trash />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='outlined' prefixIcon={<Trash />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='text' prefixIcon={<Trash />}>
+          Button
+        </Button>
+        <Button theme='primary' prefixIcon={<Trash />} />
+      </div>
+      <div className='column'>
+        <Button theme='primary' suffixIcon={<Close />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='outlined' suffixIcon={<Close />}>
+          Button
+        </Button>
+        <Button theme='primary' variant='text' suffixIcon={<Close />}>
+          Button
+        </Button>
+        <Button theme='primary' suffixIcon={<Close />} />
+      </div>
     </div>
   )
 }
@@ -120,7 +136,7 @@ export default () => {
 ```jsx
 import React from 'react'
 import { Button } from 'xl-vision'
-import { Trash } from 'xl-vision/lib/icon'
+import { Trash, Close } from 'xl-vision/lib/icon'
 
 export default () => {
   return (
@@ -137,20 +153,36 @@ export default () => {
         </Button>
       </div>
       <div className='column'>
-        <Button theme='primary' icon={<Trash />} round>
+        <Button theme='primary' prefixIcon={<Trash />} round>
           contained
         </Button>
-        <Button theme='primary' icon={<Trash />} round variant='outlined'>
+        <Button theme='primary' prefixIcon={<Trash />} round variant='outlined'>
           outlined
         </Button>
-        <Button theme='primary' icon={<Trash />} round variant='text'>
+        <Button theme='primary' prefixIcon={<Trash />} round variant='text'>
           text
         </Button>
       </div>
       <div className='column'>
-        <Button theme='primary' icon={<Trash />} round></Button>
-        <Button theme='primary' icon={<Trash />} round variant='outlined'></Button>
-        <Button theme='primary' icon={<Trash />} round variant='text'></Button>
+        <Button theme='primary' suffixIcon={<Close />} round>
+          contained
+        </Button>
+        <Button theme='primary' suffixIcon={<Close />} round variant='outlined'>
+          outlined
+        </Button>
+        <Button theme='primary' suffixIcon={<Close />} round variant='text'>
+          text
+        </Button>
+      </div>
+      <div className='column'>
+        <Button theme='primary' prefixIcon={<Trash />} round></Button>
+        <Button theme='primary' prefixIcon={<Trash />} round variant='outlined'></Button>
+        <Button theme='primary' prefixIcon={<Trash />} round variant='text'></Button>
+      </div>
+      <div className='column'>
+        <Button theme='primary' suffixIcon={<Trash />} round></Button>
+        <Button theme='primary' suffixIcon={<Trash />} round variant='outlined'></Button>
+        <Button theme='primary' suffixIcon={<Trash />} round variant='text'></Button>
       </div>
     </div>
   )
@@ -200,10 +232,13 @@ export default () => {
         </Button>
       </div>
       <div className='column'>
-        <Button disabled theme='primary' icon={<Close />}>
+        <Button disabled theme='primary' prefixIcon={<Trash />}>
           Button
         </Button>
-        <Button disabled theme='primary' variant='outlined' icon={<Close />} />
+        <Button disabled theme='primary' suffixIcon={<Close />}>
+          Button
+        </Button>
+        <Button disabled round theme='primary' variant='outlined' prefixIcon={<Close />} />
       </div>
     </div>
   )
@@ -313,30 +348,47 @@ export default () => {
       </div>
       <div className='column'>
         <Loading>
-          <Button theme='primary' icon={<Trash />}>
+          <Button theme='primary' prefixIcon={<Trash />}>
             Button
           </Button>
         </Loading>
         <Loading>
-          <Button theme='primary' variant='outlined' icon={<Trash />}>
+          <Button theme='primary' variant='outlined' prefixIcon={<Trash />}>
             Button
           </Button>
         </Loading>
         <Loading>
-          <Button theme='primary' variant='text' icon={<Trash />}>
+          <Button theme='primary' variant='text' prefixIcon={<Trash />}>
             Button
           </Button>
         </Loading>
       </div>
       <div className='column'>
         <Loading>
-          <Button round theme='primary' icon={<Close />} />
+          <Button theme='primary' suffixIcon={<Close />}>
+            Button
+          </Button>
         </Loading>
         <Loading>
-          <Button round theme='primary' variant='outlined' icon={<Close />} />
+          <Button theme='primary' variant='outlined' suffixIcon={<Close />}>
+            Button
+          </Button>
         </Loading>
         <Loading>
-          <Button round theme='primary' variant='text' icon={<Close />} />
+          <Button theme='primary' variant='text' suffixIcon={<Close />}>
+            Button
+          </Button>
+        </Loading>
+      </div>
+      <div className='column'>
+        <Loading>
+          <Button round theme='primary' prefixIcon={<Close />} />
+        </Loading>
+        <Loading>
+          <Button round theme='primary' variant='outlined' suffixIcon={<Close />} />
+        </Loading>
+        <Loading>
+          <Button round theme='primary' variant='text' prefixIcon={<Close />} />
         </Loading>
       </div>
     </div>
@@ -367,8 +419,11 @@ export default () => {
       <Button long theme='primary'>
         long
       </Button>
-      <Button long theme='secondary' icon={<Trash />}>
+      <Button long theme='secondary' prefixIcon={<Trash />}>
         Delete
+      </Button>
+      <Button long theme='error' suffixIcon={<Close />}>
+        Close
       </Button>
     </div>
   )
@@ -385,6 +440,8 @@ export default () => {
 
 ## Button API
 
+> 其余参数请参考<Link to='BaseButton'>`BaseButton`</Link>
+
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | clsPrefix | 自定义类名前缀 | string | - | - | false |
@@ -393,7 +450,8 @@ export default () => {
 | theme | 设置按钮主题 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
 | variant | 设置按钮类型 | string | contained &#x007c; outlined &#x007c; text | contained | false |
 | long | 设置为长按钮 | boolean | - | false | false |
-| icon | 图标 | ReactElement | - | - | false |
+| prefixIcon | 前置图标 | ReactElement | - | - | false |
+| suffixIcon | 后置图标 | ReactElement | - | - | false |
 | loading | 设置按钮为加载中 | boolean | - | false | false |
 | round | 圆角按钮 | boolean | - | - | false |
 | disableElevation | 禁止阴影效果，仅对`variant=contained` | boolean | - | - | false |
