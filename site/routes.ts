@@ -93,6 +93,11 @@ const routes: Array<Route> = [
         name: 'Portal',
         path: '/Portal',
         component: import('../src/Portal/__doc__/index.mdx')
+      },
+      {
+        name: 'Popper',
+        path: '/Popper',
+        component: import('../src/Popper/__doc__/index.mdx')
       }
     ]
   }

@@ -561,7 +561,7 @@ describe('CSSTransition', () => {
       <CSSTransition
         transitionOnFirst={true}
         in={true}
-        css={false}
+        disableCss={true}
         transitionClasses={'test'}
         beforeAppear={() => call('beforeAppear')}
         appear={(_el, done, isCancelled) => {

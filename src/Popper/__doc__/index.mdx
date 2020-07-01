@@ -1,0 +1,81 @@
+# Popper
+
+基础的弹出框定位组件
+
+:::demo 基础用法
+
+基础用法
+
+```jsx
+import React from 'react'
+import { Popper, Button } from 'xl-vision'
+
+export default () => {
+  return (
+    <div className='container'>
+      <Popper
+        transitionClasses='transition'
+        placement='bottom-start'
+        offset='10px'
+        overlayClassName={(p) => 'overlay' - p.split('-')[0]}
+        popup={<span className='popup'>This is popper</span>}
+      >
+        <Button theme='primary'>button</Button>
+      </Popper>
+    </div>
+  )
+}
+```
+
+```scss
+.popup {
+  display: inline-block;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+::deep {
+  .overlay {
+    &-bottom {
+      transform-origin: 50% 0;
+    }
+    &-left {
+      transform-origin: 0% 50%;
+    }
+    &-right {
+      transform-origin: 100% 50%;
+    }
+    &-top {
+      transform-origin: 50% 100%;
+    }
+  }
+  .transition {
+    &-enter-active,
+    &-leave-active {
+      transition: all 0.4s ease-in-out;
+    }
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+
+    &-enter-to,
+    &-leave {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+```
+
+:::
+
+## Popper API
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| getContainer | 指定挂载的父节点，支持字符串，节点实例或返回这些的函数 | string &#x007c; HTMLElement &#x007c; (() => string &#x007c; HTMLElement) | - | - | false |
+| children | 子元素 | ReactNode | - | — | true |
