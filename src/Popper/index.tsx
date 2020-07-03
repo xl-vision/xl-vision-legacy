@@ -1,54 +1,47 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { createPopper, Placement, Modifier, Options, Instance } from '@popperjs/core'
+import { createPopper, Placement, Options, Instance, State, Modifier } from '@popperjs/core'
 import Portal, { ContainerType } from '../Portal'
 import useUpdate from '../commons/hooks/useUpdate'
 import useMountStateCallback from '../commons/hooks/useMountStateCallback'
 import PopperContext from './popper-context'
 import { mergeEvents } from '../commons/utils/event'
-import CSSTransition, { CSSTransitionProps } from '../CSSTransition'
+import CSSTransition, { CSSTransitionProps, TransitionElement } from '../CSSTransition'
 import useClickOutside from '../commons/hooks/useClickOutside'
-import { increaseZIndex, getCurrentIndex } from '../commons/utils/zIndex-manager'
+import { increaseZIndex } from '../commons/utils/zIndex-manager'
 import fillRef from '../commons/utils/fillRef'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
+import useLayoutEffect from '../commons/hooks/useLayoutEffect'
+import { addClass, removeClass } from '../commons/utils/class'
 
 export { Placement }
-export { Modifier }
-
-export type ActualPlacement = Omit<Placement, 'auto' | 'auto-start' | 'auto-end'>
 
 export interface PopperProps {
+  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
+  popup: React.ReactElement
   placement?: Placement
   getPopupContainer?: ContainerType
-  popup: React.ReactElement | ((placement: ActualPlacement) => React.ReactElement)
-  children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
   visible?: boolean
   onVisibleChange?: (visible: boolean) => void
-  delayHide?: number
-  delayShow?: number
+  hideDelay?: number
+  showDelay?: number
   trigger?: 'hover' | 'focus' | 'click' | 'contextMenu' | 'custom'
   disablePopupEnter?: boolean
   transitionClasses?: CSSTransitionProps['transitionClasses']
   forceRender?: boolean
-  arrow?: React.ReactElement | ((placement: ActualPlacement) => React.ReactElement)
-  offset?: number | string
-  overlayStyle?: React.CSSProperties | ((placement: ActualPlacement) => React.CSSProperties)
-  overlayClassName?: string | ((placement: ActualPlacement) => string)
+  arrow?: React.ReactElement
+  offset?: number | [number, number]
+  popupStyle?: React.CSSProperties
+  popupClassName?: string
+  enableOverflow?: boolean
 }
 
 const defaultGetContainer = () => document.body
 
-const defaultPopperModifiers = [
-  {
-    name: 'preventOverflow',
-    options: {
-      boundariesElement: 'window'
-    }
-  }
-]
+const HIDE_TIME_DELAY = 200
+const SHOW_TIME_DELAY = 20
 
-// 约等于1帧的时间
-const TIME_DELAY = 1000 / 60
+const VISIBLE_TIME_DELAY = 15
 
 /**
  * 此组件是所有弹出框组件的基础组件
@@ -65,32 +58,31 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     children,
     visible = false,
     onVisibleChange,
-    delayHide = 0,
-    delayShow = 0,
+    hideDelay: _hideDelay = 0,
+    showDelay: _showDelay = 0,
     trigger = 'hover',
     disablePopupEnter,
     transitionClasses,
     forceRender,
     arrow,
-    offset = 0,
-    overlayStyle,
-    overlayClassName
+    offset,
+    popupStyle,
+    popupClassName,
+    enableOverflow
   } = props
+
+  const hideDelay = Math.max(_hideDelay, HIDE_TIME_DELAY)
+  const showDelay = Math.max(_showDelay, SHOW_TIME_DELAY)
 
   const popperJsRef = React.useRef<Instance>()
 
   const referenceNodeRef = React.useRef<HTMLDivElement>(null)
   const popupNodeRef = React.useRef<HTMLDivElement>(null)
+  const innerPopupNodeRef = React.useRef<HTMLDivElement>(null)
 
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
 
   const [actualVisible, setActualVisible] = React.useState(visible)
-
-  // 实际的placement，可能和传入的placement不同
-  const [actualPlacement, setActualPlacement] = React.useState(placement)
-
-  // 弹出框zIndex，保证后弹出的弹出框zIndex更大
-  const [zIndex, setZIndex] = React.useState(getCurrentIndex)
 
   // popper是否需要挂载的状态
   // visible为true时就直接挂载
@@ -136,7 +128,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           setActualVisible(isVisible)
         }
       },
-      isVisible ? Math.max(delayShow, TIME_DELAY) : Math.max(delayHide, TIME_DELAY)
+      isVisible ? showDelay : hideDelay
     )
   })
 
@@ -157,40 +149,32 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     }
   }, [addParentCloseHandler, removeParentCloseHandler, setActualWrapper])
 
-  const modifiers = React.useMemo(() => {
-    return defaultPopperModifiers.concat([])
-  }, [])
-
-  const createPopperJs = useConstantCallback(() => {
-    let popperJs = popperJsRef.current
-    if (popperJs) {
-      popperJs.destroy()
-      popperJsRef.current = undefined
-    }
-
-    const reference = referenceNodeRef.current
-    const popup = popupNodeRef.current
-
-    if (!reference || !popup) {
-      return
-    }
-
-    const options: Partial<Options> = {
-      placement,
-      modifiers
-    }
-    popperJs = createPopper(reference, popup, options)
-
-    popperJsRef.current = popperJs
-  })
-
-  const updatePopperJs = useConstantCallback(() => {
-    if (popperJsRef.current) {
-      popperJsRef.current.setOptions({
-        placement
-      })
-    }
-  })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const modifiers = React.useMemo<Array<Partial<Modifier<any, any>>>>(() => {
+    return [
+      {
+        name: 'offset',
+        enabled: !!offset,
+        options: {
+          offset: typeof offset === 'number' ? [0, offset] : offset
+        }
+      },
+      {
+        name: 'preventOverflow',
+        enabled: !enableOverflow
+      },
+      {
+        name: 'applyPlacement',
+        enabled: true,
+        phase: 'main',
+        fn({ state }: { state: State }) {
+          if (innerPopupNodeRef.current) {
+            innerPopupNodeRef.current.dataset.placement = state.placement
+          }
+        }
+      }
+    ]
+  }, [offset, enableOverflow])
 
   const actualVisibleTrigger = useConstantCallback((actualVisible: boolean) => {
     onVisibleChange && onVisibleChange(actualVisible)
@@ -205,7 +189,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     setTimeout(() => {
       setActualWrapper(visible)
       // 增加延时保证这个方法最后调用,时间不能大于TIME_DELAY,否则上一个任务就执行完了
-    }, TIME_DELAY * 0.5)
+    }, VISIBLE_TIME_DELAY)
   })
 
   // visible修改时触发actualVisible更新
@@ -217,50 +201,16 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     visibleTrigger
   ])
 
-  const updatePopper = useConstantCallback(() => {
-    if (actualVisible) {
-      // 更新zIndex
-      setZIndex(increaseZIndex())
-      if (!popperJsRef.current) {
-        createPopperJs()
-      } else {
-        updatePopperJs()
-      }
-    }
-    if (popperJsRef.current) {
-      // 只有显示时才监听事件
-      popperJsRef.current
-        .setOptions({
-          modifiers: [
-            ...modifiers,
-            {
-              name: 'eventListeners',
-              enabled: actualVisible
-            }
-          ]
-        })
-        .then((state) => {
-          setActualPlacement(state.placement!)
-        })
-    }
-  })
+  useLayoutEffect(() => {
+    const popperJs = popperJsRef.current
+    // eslint-disable-next-line no-unused-expressions
+    popperJs?.setOptions({ placement })
+  }, [placement])
 
-  // 弹出框显示时更新位置
-  React.useEffect(() => {
-    updatePopper()
-  }, [
-    placement,
-    // 常量
-    updatePopper
-  ])
-
-  // 组件销毁时销毁popperJs
   React.useEffect(() => {
     return () => {
-      const popperJs = popperJsRef.current
-      if (popperJs) {
-        popperJs.destroy()
-      }
+      // eslint-disable-next-line no-unused-expressions
+      popperJsRef.current?.destroy()
     }
   }, [])
 
@@ -290,12 +240,12 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 由于此方法可能会在onClickoutside之前执行，但是需要取消onClickoutside的执行。
    *
    * 让clickoutside先触发，此方法会取消onClickoutside
-   * 延迟时间必须小于TIME_DELAY,否则onClickOutside就执行了.也要小于TIME_DELAY * 0.5.
+   * 延迟时间必须小于VISIBLE_TIME_DELAY,否则onClickOutside就执行了.也要小于VISIBLE_TIME_DELAY * 0.5.
    * 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
    */
   const onPopupClick = useConstantCallback(() => {
     if (trigger === 'click' || trigger === 'contextMenu') {
-      setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
+      setTimeout(() => setActualWrapper(true), VISIBLE_TIME_DELAY * 0.5)
     }
   })
 
@@ -346,43 +296,80 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   // 在reference外点击时触发
   useClickOutside(referenceNodeRef, onClickOutside)
 
-  // popup
-  const popupNode = typeof popup === 'function' ? popup(actualPlacement) : popup
+  const updatePopper = useConstantCallback(() => {
+    const reference = referenceNodeRef.current
+    const popup = popupNodeRef.current
+    const el = innerPopupNodeRef.current
 
-  // arrow
-  let arrowNode = typeof arrow === 'function' ? arrow(actualPlacement) : arrow
+    if (!reference || !popup || !el) {
+      return
+    }
 
-  if (arrowNode) {
-    arrowNode = React.cloneElement(arrowNode, {
-      'data-popper-arrow': ''
+    popup.style.zIndex = increaseZIndex() + ''
+
+    let popperJs = popperJsRef.current
+
+    if (!popperJs) {
+      const options: Partial<Options> = {
+        placement,
+        modifiers
+      }
+      popperJs = popperJsRef.current = createPopper(reference, popup, options)
+    } else {
+      popperJs.setOptions({
+        placement,
+        modifiers: [
+          ...modifiers,
+          {
+            name: 'eventListeners',
+            enabled: true
+          }
+        ]
+      })
+    }
+
+    popperJs.forceUpdate()
+    el.dataset.placement = popperJs.state.placement
+  })
+
+  // 默认就是true，不触发beforeEnter，需要特殊处理
+  const isFirstVisibleRef = React.useRef(true)
+  React.useEffect(() => {
+    if (isFirstVisibleRef.current && actualVisible) {
+      updatePopper()
+    }
+    isFirstVisibleRef.current = false
+  }, [actualVisible, updatePopper])
+
+  // 移除transition class对定位的干扰
+  const beforeEnter = useConstantCallback((el: TransitionElement) => {
+    removeClass(el, el._ctc?.enterActive || '')
+    removeClass(el, el._ctc?.enter || '')
+
+    updatePopper()
+  })
+
+  // 将beforeEnter中的transition class添加在enter中
+  const enter = useConstantCallback((el: TransitionElement) => {
+    addClass(el, el._ctc?.enter || '')
+    // eslint-disable-next-line no-unused-expressions
+    el.scrollHeight
+    addClass(el, el._ctc?.enterActive || '')
+  })
+
+  const afterLeave = useConstantCallback(() => {
+    // eslint-disable-next-line no-unused-expressions
+    popperJsRef.current?.setOptions({
+      placement,
+      modifiers: [
+        ...modifiers,
+        {
+          name: 'eventListeners',
+          enabled: true
+        }
+      ]
     })
-  }
-
-  const popupStyle: React.CSSProperties = {
-    zIndex,
-    position: 'absolute'
-  }
-  const direction = actualPlacement.split('-')[0]
-  if (direction === 'top') {
-    popupStyle.paddingBottom = offset
-  } else if (direction === 'bottom') {
-    popupStyle.paddingTop = offset
-  } else if (direction === 'left') {
-    popupStyle.paddingRight = offset
-  } else {
-    popupStyle.paddingLeft = offset
-  }
-
-  /**
-   * 提供介入popup弹出框弹出动画的操作，比如根据位置进行动画定位。可以参见tooltip
-   */
-  const overlayStyleWrapper =
-    typeof overlayStyle === 'function' ? overlayStyle(actualPlacement) : overlayStyle || {}
-
-  overlayStyleWrapper.position = 'relative'
-
-  const overlayClassNameWrapper =
-    typeof overlayClassName === 'function' ? overlayClassName(actualPlacement) : overlayClassName
+  })
 
   const portal = (
     <Portal getContainer={getPopupContainer}>
@@ -393,21 +380,24 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         }}
       >
         <div
-          style={popupStyle}
           onMouseEnter={onPopupMouseEnter}
           onMouseLeave={onPopupMouseLeave}
           onClick={onPopupClick}
           ref={popupNodeRef}
         >
           <CSSTransition
+            beforeEnter={beforeEnter}
+            enter={enter}
+            afterLeave={afterLeave}
             in={actualVisible}
             transitionClasses={transitionClasses}
-            beforeEnter={updatePopper}
-            afterLeave={updatePopper}
           >
-            <div style={overlayStyleWrapper} className={overlayClassNameWrapper}>
-              {arrowNode}
-              {popupNode}
+            <div style={popupStyle} className={popupClassName} ref={innerPopupNodeRef}>
+              {arrow &&
+                React.cloneElement(arrow, {
+                  'data-popper-arrow': ''
+                })}
+              {popup}
             </div>
           </CSSTransition>
         </div>
@@ -450,35 +440,40 @@ Popper.propTypes = {
   getPopupContainer: PropTypes.func,
   placement: PropTypes.oneOf([
     'auto',
-    'top',
-    'left',
-    'right',
-    'bottom',
     'auto-start',
     'auto-end',
+    'top',
     'top-start',
     'top-end',
+    'right',
+    'right-start',
+    'right-end',
+    'bottom',
     'bottom-start',
     'bottom-end',
+    'left',
     'left-start',
-    'left-end',
-    'right-start',
-    'right-end'
+    'left-end'
   ]),
   transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  popup: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
+  popup: PropTypes.element.isRequired,
   children: PropTypes.element.isRequired,
   visible: PropTypes.bool,
   onVisibleChange: PropTypes.func,
-  delayHide: PropTypes.number,
-  delayShow: PropTypes.number,
+  showDelay: PropTypes.number,
+  hideDelay: PropTypes.number,
   trigger: PropTypes.oneOf(['hover', 'focus', 'click', 'contextMenu', 'custom']),
   disablePopupEnter: PropTypes.bool,
   forceRender: PropTypes.bool,
-  arrow: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  arrow: PropTypes.element,
+  popupStyle: PropTypes.object,
+  popupClassName: PropTypes.string,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   overlayStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  overlayClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  overlayClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  enableOverflow: PropTypes.bool
 }
 
 export default Popper

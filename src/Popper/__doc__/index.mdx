@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 # Popper
 
 基础的弹出框定位组件
@@ -13,15 +15,49 @@ import { Popper, Button } from 'xl-vision'
 export default () => {
   return (
     <div className='container'>
-      <Popper
-        transitionClasses='transition'
-        placement='bottom-start'
-        offset='10px'
-        overlayClassName={(p) => 'overlay' - p.split('-')[0]}
-        popup={<span className='popup'>This is popper</span>}
-      >
-        <Button theme='primary'>button</Button>
-      </Popper>
+      <Button.Group theme='primary'>
+        <Popper
+          transitionClasses='transition'
+          placement='left'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>left</Button>
+        </Popper>
+        <Popper
+          transitionClasses='transition'
+          placement='top'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>top</Button>
+        </Popper>
+        <Popper
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>bottom</Button>
+        </Popper>
+
+        <Popper
+          transitionClasses='transition'
+          placement='right'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>right</Button>
+        </Popper>
+      </Button.Group>
     </div>
   )
 }
@@ -36,18 +72,47 @@ export default () => {
   border-radius: 4px;
 }
 ::deep {
+  .arrow {
+    &,
+    &::before {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      z-index: -1;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+    &::before {
+      content: '';
+      transform: rotate(45deg);
+      border: 1px solid #ccc;
+    }
+  }
+
   .overlay {
-    &-bottom {
-      transform-origin: 50% 0;
+    &[data-placement^='bottom'] {
+      transform-origin: 50% 0%;
+      .arrow {
+        top: -4px;
+      }
     }
-    &-left {
-      transform-origin: 0% 50%;
-    }
-    &-right {
+    &[data-placement^='left'] {
       transform-origin: 100% 50%;
+      .arrow {
+        right: -4px;
+      }
     }
-    &-top {
+    &[data-placement^='right'] {
+      transform-origin: 0% 50%;
+      .arrow {
+        left: -4px;
+      }
+    }
+    &[data-placement^='top'] {
       transform-origin: 50% 100%;
+      .arrow {
+        bottom: -4px;
+      }
     }
   }
   .transition {
@@ -77,5 +142,20 @@ export default () => {
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
-| getContainer | 指定挂载的父节点，支持字符串，节点实例或返回这些的函数 | string &#x007c; HTMLElement &#x007c; (() => string &#x007c; HTMLElement) | - | - | false |
-| children | 子元素 | ReactNode | - | — | true |
+| children | 子元素 | React.ReactElement | - | — | true |
+| popup | 弹出框 | React.ReactElement | - | - | true |
+| placement | 指定弹出框的方位 | `auto`&#x007c;`auto-start`&#x007c;`auto-end`&#x007c;`top`&#x007c;`top-start`&#x007c;`top-end`&#x007c;`right`&#x007c;`right-start`&#x007c;`right-end`&#x007c;`bottom`&#x007c;`bottom-start`&#x007c;`bottom-end`&#x007c;`left`&#x007c;`left-start`&#x007c;`left-end` | - | `auto` | false |
+| getPopupContainer | 指定弹出框的父容器 | string &#x007c; HTMLElement &#x007c; (() => string &#x007c; HTMLElement) | - | 默认为`body` | false |
+| visible | 是否显示弹出框 | boolean | - | false | false |
+| onVisibleChange | 弹出框状态改变时的回调 | (visible: boolean) => void | - | - | false |
+| hideDelay | 延时关闭 | number | - | - | false |
+| showDelay | 延时显示 | number | - | - | false |
+| trigger | 触发方式 | `hover`&#x007c;`focus`&#x007c;`click`&#x007c;`contextMenu`&#x007c;`custom` | - | `hover` | false |
+| disablePopupEnter | 禁止鼠标进入弹出框 | boolean | - | - | false |
+| transitionClasses | 动画 class，参看<Link to='CSSTransition'>CSSTransition</Link> | boolean | - | - | false |
+| forceRender | 强制弹出框立即挂载到 dom 中，即使弹出框还没有显示 | boolean | - | - | false |
+| arrow | 箭头 | React.ReactElement | - | - | false |
+| offset | 弹出框偏移 | `[number, number]` | - | - | false |
+| popupStyle | 弹出框样式 | React.CSSProperties | - | - | false |
+| popupClassName | 弹出框类名 | string | - | - | false |
+| enableOverflow | 允许弹出框被遮挡 | boolean | - | - | false |
