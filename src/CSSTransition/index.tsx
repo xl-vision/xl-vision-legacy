@@ -42,7 +42,8 @@ export interface CSSTransitionProps extends TransitionProps {
 
 export type TransitionElement = HTMLElement & {
   _ctc?: CSSTransitionClassesObject
-  _done?: () => void
+  _done?: (cancel?: boolean) => void
+  _cancelled?: boolean
 }
 
 const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
@@ -85,7 +86,7 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
 
   const transitionClassesObj = React.useMemo(() => {
     if (!transitionClasses) {
-      return null
+      return {}
     }
     if (typeof transitionClasses === 'object') {
       return transitionClasses
@@ -108,7 +109,7 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
 
   const timeoutMap = React.useMemo(() => {
     if (!timeout) {
-      return null
+      return {}
     }
     if (typeof timeout === 'object') {
       return timeout
@@ -125,12 +126,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         !disableCss && {
-          appear: transitionClassesObj?.appear,
-          appearActive: transitionClassesObj?.appearActive
+          appear: transitionClassesObj.appear,
+          appearActive: transitionClassesObj.appearActive
         },
         beforeAppear
       ),
-    [disableCss, transitionClassesObj?.appear, transitionClassesObj?.appearActive, beforeAppear]
+    [disableCss, transitionClassesObj, beforeAppear]
   )
 
   const appearWrapper = React.useMemo(
@@ -138,12 +139,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['appear'],
         !disableCss && {
-          appearTo: transitionClassesObj?.appearTo
+          appearTo: transitionClassesObj.appearTo
         },
-        timeoutMap?.appear,
+        timeoutMap.appear,
         appear
       ),
-    [disableCss, transitionClassesObj?.appearTo, timeoutMap?.appear, appear]
+    [disableCss, transitionClassesObj, timeoutMap, appear]
   )
   const afterAppearWrapper = React.useMemo(() => createAfterEventHook(afterAppear), [afterAppear])
   const appearCancelledWrapper = React.useMemo(() => createEventCancelledHook(appearCancelled), [
@@ -154,12 +155,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         !disableCss && {
-          enter: transitionClassesObj?.enter,
-          enterActive: transitionClassesObj?.enterActive
+          enter: transitionClassesObj.enter,
+          enterActive: transitionClassesObj.enterActive
         },
         beforeEnter
       ),
-    [disableCss, transitionClassesObj?.enter, transitionClassesObj?.enterActive, beforeEnter]
+    [disableCss, transitionClassesObj, beforeEnter]
   )
 
   const enterWrapper = React.useMemo(
@@ -167,12 +168,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['enter'],
         !disableCss && {
-          enterTo: transitionClassesObj?.enterTo
+          enterTo: transitionClassesObj.enterTo
         },
-        timeoutMap?.enter,
+        timeoutMap.enter,
         enter
       ),
-    [disableCss, transitionClassesObj?.enterTo, timeoutMap?.enter, enter]
+    [disableCss, transitionClassesObj, timeoutMap, enter]
   )
   const afterEnterWrapper = React.useMemo(() => createAfterEventHook(afterEnter), [afterEnter])
   const enterCancelledWrapper = React.useMemo(() => createEventCancelledHook(enterCancelled), [
@@ -183,12 +184,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         !disableCss && {
-          leave: transitionClassesObj?.leave,
-          leaveActive: transitionClassesObj?.leaveActive
+          leave: transitionClassesObj.leave,
+          leaveActive: transitionClassesObj.leaveActive
         },
         beforeLeave
       ),
-    [disableCss, transitionClassesObj?.leave, transitionClassesObj?.leaveActive, beforeLeave]
+    [disableCss, transitionClassesObj, beforeLeave]
   )
 
   const leaveWrapper = React.useMemo(
@@ -196,12 +197,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['leave'],
         !disableCss && {
-          leaveTo: transitionClassesObj?.leaveTo
+          leaveTo: transitionClassesObj.leaveTo
         },
-        timeoutMap?.leave,
+        timeoutMap.leave,
         leave
       ),
-    [disableCss, transitionClassesObj?.leaveTo, timeoutMap?.leave, leave]
+    [disableCss, transitionClassesObj, timeoutMap, leave]
   )
   const afterLeaveWrapper = React.useMemo(() => createAfterEventHook(afterLeave), [afterLeave])
   const leaveCancelledWrapper = React.useMemo(() => createEventCancelledHook(leaveCancelled), [
@@ -212,17 +213,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     () =>
       createBeforeEventHook(
         !disableCss && {
-          disappear: transitionClassesObj?.disappear,
-          disappearActive: transitionClassesObj?.disappearActive
+          disappear: transitionClassesObj.disappear,
+          disappearActive: transitionClassesObj.disappearActive
         },
         beforeDisappear
       ),
-    [
-      disableCss,
-      transitionClassesObj?.disappear,
-      transitionClassesObj?.disappearActive,
-      beforeDisappear
-    ]
+    [disableCss, transitionClassesObj, beforeDisappear]
   )
 
   const disappearWrapper = React.useMemo(
@@ -230,12 +226,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
       createEventHook(
         ['disappear'],
         !disableCss && {
-          disappearTo: transitionClassesObj?.disappearTo
+          disappearTo: transitionClassesObj.disappearTo
         },
-        timeoutMap?.disappear,
+        timeoutMap.disappear,
         disappear
       ),
-    [disableCss, transitionClassesObj?.disappearTo, timeoutMap?.disappear, disappear]
+    [disableCss, transitionClassesObj, timeoutMap, disappear]
   )
   const afterDisappearWrapper = React.useMemo(() => createAfterEventHook(afterDisappear), [
     afterDisappear
@@ -384,11 +380,10 @@ const createEventHook = (
           cancelEvent = onTransitionEnd(el, doneCb)
         }
       }
-      nativeHook && nativeHook(el, doneCb, isCancelled)
     })
+    nativeHook && nativeHook(el, doneCb, isCancelled)
 
-    // for TransitionGroup
-    el._done = () => {
+    el._done = (cancel) => {
       isInterrupt = true
       // 清除事件
       cancelEvent && cancelEvent()
@@ -396,18 +391,15 @@ const createEventHook = (
       if (!el._ctc) {
         return
       }
-      // 移除所有样式
-      for (const clazz of Object.values(el._ctc)) {
-        clazz && el.classList.remove(clazz)
+
+      if (!cancel) {
+        doneCb()
       }
-      doneCb()
     }
   }
 }
 
-const createAfterOrCancelledEventHook = (
-  nativeHook?: AfterEventHook | EventCancelledHook
-): NonNullable<typeof nativeHook> => {
+const createAfterEventHook = (nativeHook?: AfterEventHook): AfterEventHook => {
   return (el: TransitionElement) => {
     for (const name of Object.keys(el._ctc!)) {
       const key = name as keyof CSSTransitionClassesObject
@@ -419,10 +411,16 @@ const createAfterOrCancelledEventHook = (
   }
 }
 
-const createAfterEventHook: (
-  nativeHook?: AfterEventHook
-) => AfterEventHook = createAfterOrCancelledEventHook
-
-const createEventCancelledHook: (
-  nativeHook?: EventCancelledHook
-) => EventCancelledHook = createAfterOrCancelledEventHook
+const createEventCancelledHook = (nativeHook?: EventCancelledHook): EventCancelledHook => {
+  return (el: TransitionElement) => {
+    // 清除所有事件
+    el._done && el._done(true)
+    for (const name of Object.keys(el._ctc!)) {
+      const key = name as keyof CSSTransitionClassesObject
+      const clazz = el._ctc![key]
+      clazz && removeClass(el, clazz)
+      delete el._ctc![key]
+    }
+    nativeHook && nativeHook(el)
+  }
+}
