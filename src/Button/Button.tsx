@@ -45,10 +45,10 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     ...others
   } = props
 
-  const theme = cTheme || _theme
-  const variant = cVariant || _variant || 'contained'
-  const disableElevation = cDisableElevation || _disableElevation
-  const disableRipple = cDisableRipple || _disableRipple
+  const theme = groupClsPrefix ? cTheme : _theme
+  const variant = (groupClsPrefix ? cVariant : _variant) || 'contained'
+  const disableElevation = groupClsPrefix ? cDisableElevation : _disableElevation
+  const disableRipple = groupClsPrefix ? cDisableRipple : _disableRipple
 
   let prefixIcon = _prefixIcon
   let suffixIcon = _suffixIcon

@@ -6,7 +6,7 @@ import ConfigContext from '../ConfigProvider/ConfigContext'
 import ButtonContext, { ButtonContextProps } from './ButtonContext'
 
 export interface ButtonGroupProps
-  extends Omit<ButtonContextProps, 'isGroup'>,
+  extends Omit<ButtonContextProps, 'groupClsPrefix'>,
     React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<ButtonProps> | Array<React.ReactElement<ButtonProps>>
   clsPrefix?: string
