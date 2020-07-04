@@ -161,18 +161,7 @@ Ripple.propTypes = {
   clsPrefix: PropTypes.string,
   leaveAfterEnter: PropTypes.bool,
   className: PropTypes.string,
-  transitionClasses: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      enter: PropTypes.string,
-      enterActive: PropTypes.string,
-      enterTo: PropTypes.string,
-      leave: PropTypes.string,
-      leaveActive: PropTypes.string,
-      leaveTo: PropTypes.string,
-      move: PropTypes.string
-    })
-  ])
+  transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 }
 
 export default Ripple

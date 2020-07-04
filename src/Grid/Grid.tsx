@@ -83,17 +83,7 @@ Grid.propTypes = {
     PropTypes.arrayOf(PropTypes.element.isRequired)
   ]).isRequired,
   className: PropTypes.string,
-  gutter: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      lg: PropTypes.number,
-      md: PropTypes.number,
-      sm: PropTypes.number,
-      xl: PropTypes.number,
-      xs: PropTypes.number,
-      xxl: PropTypes.number
-    })
-  ]),
+  gutter: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
   justify: PropTypes.oneOf<'start' | 'end' | 'center' | 'space-around' | 'space-between'>([
     'start',
     'end',

@@ -40,9 +40,19 @@ const routes: Array<Route> = [
     name: '布局',
     children: [
       {
-        name: 'Grid 栅格布局',
+        name: '栅格布局',
         path: '/Grid',
         component: import('../src/Grid/__doc__/index.mdx')
+      }
+    ]
+  },
+  {
+    name: '视图',
+    children: [
+      {
+        name: '文字提醒',
+        path: '/Tooltip',
+        component: import('../src/Tooltip/__doc__/index.mdx')
       }
     ]
   },

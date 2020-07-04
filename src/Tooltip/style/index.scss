@@ -1,0 +1,47 @@
+@use '../../Popper/style';
+@use './var' as *;
+@use '../../style/mixins/arrow' as *;
+
+$tooltip: #{$cls-prefix}-tooltip;
+
+.#{$tooltip} {
+  position: relative;
+
+  &__content {
+    box-sizing: border-box;
+    padding: $tooltip-padding;
+    color: $tooltip-color;
+    font-size: $tooltip-font-size;
+    line-height: $tooltip-line-height;
+    background-color: $tooltip-bg;
+    border-radius: $tooltip-border-radius;
+
+    &--with-width {
+      white-space: pre-wrap;
+      text-align: justify;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+  }
+
+  @include arrow(#{$tooltip}__arrow, $tooltip-arrow-size, $tooltip-bg);
+
+  &--zoom {
+    &-enter-active,
+    &-leave-active {
+      transition: $tooltip-aniamtion;
+    }
+
+    &-enter,
+    &-leave-to {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    &-enter-to,
+    &-leave {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

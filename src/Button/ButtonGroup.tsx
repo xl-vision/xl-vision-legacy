@@ -43,6 +43,8 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
   )
 }
 
+ButtonGroup.displayName = 'ButtonGroup'
+
 ButtonGroup.propTypes = {
   theme: PropTypes.oneOf(['primary', 'error', 'warning', 'secondary', 'success', 'info']),
   variant: PropTypes.oneOf(['contained', 'text', 'outlined']),

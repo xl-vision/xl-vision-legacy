@@ -47,6 +47,8 @@ const Portal: React.FunctionComponent<PortalProp> = (props) => {
   return ReactDOM.createPortal(children, container)
 }
 
+Portal.displayName = 'Portal'
+
 Portal.propTypes = {
   children: PropTypes.element.isRequired,
   getContainer: PropTypes.any

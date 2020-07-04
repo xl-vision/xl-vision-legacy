@@ -267,32 +267,8 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
 CSSTransition.displayName = 'CSSTransition'
 
 CSSTransition.propTypes = {
-  transitionClasses: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      appear: PropTypes.string,
-      appearActive: PropTypes.string,
-      appearTo: PropTypes.string,
-      enter: PropTypes.string,
-      enterActive: PropTypes.string,
-      enterTo: PropTypes.string,
-      leave: PropTypes.string,
-      leaveActive: PropTypes.string,
-      leaveTo: PropTypes.string,
-      disappear: PropTypes.string,
-      disappearActive: PropTypes.string,
-      disappearTo: PropTypes.string
-    })
-  ]),
-  timeout: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      appear: PropTypes.number,
-      enter: PropTypes.number,
-      leave: PropTypes.number,
-      disappear: PropTypes.number
-    })
-  ]),
+  transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  timeout: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
   disableCss: PropTypes.bool,
   beforeAppear: PropTypes.func,
   appear: PropTypes.func,
