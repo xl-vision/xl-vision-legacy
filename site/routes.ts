@@ -36,11 +36,6 @@ const routes: Array<Route> = [
             name: '按钮',
             path: '/Button',
             component: import('../src/Button/__doc__/index.mdx')
-          },
-          {
-            name: '基础按钮',
-            path: '/BaseButton',
-            component: import('../src/BaseButton/__doc__/index.mdx')
           }
         ]
       }
@@ -89,6 +84,11 @@ const routes: Array<Route> = [
   {
     name: '基础组件',
     children: [
+      {
+        name: 'BaseButton',
+        path: '/BaseButton',
+        component: import('../src/BaseButton/__doc__/index.mdx')
+      },
       {
         name: 'Portal',
         path: '/Portal',

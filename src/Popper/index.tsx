@@ -15,6 +15,7 @@ import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import { addClass, removeClass } from '../commons/utils/class'
 import { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow'
 import { FlipModifier } from '@popperjs/core/lib/modifiers/flip'
+import { reflow } from '../commons/utils/transition'
 
 export { Placement }
 
@@ -384,8 +385,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
     updatePopper()
     addClass(el, el._ctc?.enter || '')
-    // eslint-disable-next-line no-unused-expressions
-    el.scrollHeight
+    reflow()
     addClass(el, el._ctc?.enterActive || '')
   })
 

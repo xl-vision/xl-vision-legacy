@@ -105,6 +105,13 @@ export const nextFrame = (fn: Function) => {
   })
 }
 
+export const reflow = () => {
+  if (isBrowser) {
+    // eslint-disable-next-line no-unused-expressions
+    document.body.scrollHeight
+  }
+}
+
 const _getTimeout = (delays: Array<string>, durations: Array<string>) => {
   while (delays.length < durations.length) {
     delays = delays.concat(delays)

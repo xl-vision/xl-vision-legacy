@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import CSSTransition from '../CSSTransition'
+import { reflow } from '../commons/utils/transition'
 
 export interface CollapseTransitionProp extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
@@ -53,6 +54,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
       },
       enter(el: HTMLElement, _done: () => void, isCancelled: () => boolean) {
         if (!isCancelled()) {
+          reflow()
           // 高度设置为内容高度
           el.style[key] = size + 'px'
         }
@@ -74,6 +76,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
       },
       leave(el: HTMLElement, _done: () => void, isCancelled: () => boolean) {
         if (!isCancelled()) {
+          reflow()
           el.style[key] = '0'
         }
       },
