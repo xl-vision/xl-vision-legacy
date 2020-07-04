@@ -2,9 +2,10 @@
 import * as React from 'react'
 import classes from './index.module.scss'
 import { DemoBoxProps } from '@xl-vision/scripts'
-import { CollapseTransition } from '../../../src'
+import { CollapseTransition, Button } from '../../../src'
 
 import 'prismjs/themes/prism.css'
+import { CodeSlash, Code } from '../../../src/icon'
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -24,7 +25,12 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
         <div className={classes.desc}>{desc}</div>
       </div>
       <div className={classes.actions}>
-        <button onClick={onClick}>{expand ? '收起' : '展开'}</button>
+        <Button
+          onClick={onClick}
+          variant='text'
+          theme='primary'
+          prefixIcon={expand ? <CodeSlash /> : <Code />}
+        />
       </div>
       <CollapseTransition in={expand} mountOnEnter={true}>
         <div className={classes.codes}>
