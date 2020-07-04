@@ -210,6 +210,24 @@ export default () => {
 
 :::
 
+:::demo 禁用
+
+禁止 tooltip 展示。
+
+```jsx
+import React from 'react'
+import { Tooltip, Button } from 'xl-vision'
+export default () => {
+  return (
+    <Tooltip disabled placement='top' content='this is a popper'>
+      <Button theme='primary'>button</Button>
+    </Tooltip>
+  )
+}
+```
+
+:::
+
 ## Tooltip API
 
 > 更多参数请参考<Link to="Popper">**Popper**</Link>属性
@@ -236,3 +254,4 @@ export default () => {
 | preventOverflow | 调整弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
 | disableGpuAcceleration | 禁用 gpu 渲染 | boolean | - | - | false |
 | disableTransformOrigin | 禁用默认的`transform-origin`行为 | boolean | - | - | false |
+| disabled | 禁用 | boolean | - | - | false |

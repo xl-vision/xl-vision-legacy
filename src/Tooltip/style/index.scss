@@ -16,6 +16,8 @@ $tooltip: #{$cls-prefix}-tooltip;
     background-color: $tooltip-bg;
     border-radius: $tooltip-border-radius;
 
+    @include elevation(2);
+
     &--with-width {
       white-space: pre-wrap;
       text-align: justify;

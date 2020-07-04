@@ -42,6 +42,7 @@ export interface PopperProps {
   flip?: Boundary | (() => Boundary)
   disableGpuAcceleration?: boolean
   disableTransformOrigin?: boolean
+  disabled?: boolean
 }
 
 const defaultGetContainer = () => document.body
@@ -57,6 +58,15 @@ const TIME_DELAY = 1000 / 60
  * @param props
  */
 const Popper: React.FunctionComponent<PopperProps> = (props) => {
+  /**
+   * 处理父popper
+   */
+  const {
+    visible: parentVisible,
+    addCloseHandler: addParentCloseHandler,
+    removeCloseHandler: removeParentCloseHandler
+  } = React.useContext(PopperContext)
+
   const {
     placement = 'auto',
     getPopupContainer = defaultGetContainer,
@@ -77,7 +87,8 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     preventOverflow = true,
     flip = true,
     disableGpuAcceleration,
-    disableTransformOrigin
+    disableTransformOrigin,
+    disabled
   } = props
 
   const popperJsRef = React.useRef<Instance>()
@@ -88,7 +99,8 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
   const delayTimerRef = React.useRef<NodeJS.Timeout>()
 
-  const [actualVisible, setActualVisible] = React.useState(visible)
+  // 父组件显示，子组件才能显示
+  const [actualVisible, setActualVisible] = React.useState(!disabled && parentVisible && visible)
 
   // popper是否需要挂载的状态
   // visible为true时就直接挂载
@@ -134,14 +146,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       }
     }, Math.max(isVisible ? showDelay : hideDelay, TIME_DELAY))
   })
-
-  /**
-   * 处理父popper
-   */
-  const {
-    addCloseHandler: addParentCloseHandler,
-    removeCloseHandler: removeParentCloseHandler
-  } = React.useContext(PopperContext)
 
   // 将本popper的关闭函数加入父popper中
   React.useEffect(() => {
@@ -236,7 +240,13 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     actualVisibleTrigger(actualVisible)
   }, [actualVisible, actualVisibleTrigger])
 
-  const visibleTrigger = useConstantCallback((visible: boolean) => {
+  const visibleTrigger = useConstantCallback(() => {
+    if (disabled) {
+      return
+    }
+    if (!parentVisible) {
+      return
+    }
     setTimeout(() => {
       setActualWrapper(visible)
       // 增加延时保证这个方法最后调用,时间不能大于TIME_DELAY,否则上一个任务就执行完了
@@ -245,7 +255,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
   // visible修改时触发actualVisible更新
   React.useEffect(() => {
-    visibleTrigger(visible)
+    visibleTrigger()
   }, [
     visible,
     // 常量
@@ -301,6 +311,12 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   })
 
   const onMouseEnter = useConstantCallback(() => {
+    if (disabled) {
+      return
+    }
+    if (!parentVisible) {
+      return
+    }
     // 如果是从popup移动过来，需要先清除popup的定时关闭
     clearTimeout(delayTimerRef.current!)
     if (trigger === 'hover') {
@@ -315,6 +331,12 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   })
 
   const onFocus = useConstantCallback(() => {
+    if (disabled) {
+      return
+    }
+    if (!parentVisible) {
+      return
+    }
     if (trigger === 'focus') {
       setActualWrapper(true)
     }
@@ -327,12 +349,24 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   })
 
   const onContextMenu = useConstantCallback(() => {
+    if (disabled) {
+      return
+    }
+    if (!parentVisible) {
+      return
+    }
     if (trigger === 'contextMenu') {
       setActualWrapper(true)
     }
   })
 
   const onReferenceClick = useConstantCallback(() => {
+    if (disabled) {
+      return
+    }
+    if (!parentVisible) {
+      return
+    }
     if (trigger === 'click') {
       setActualWrapper(true)
     }
@@ -421,6 +455,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     <Portal getContainer={getPopupContainer}>
       <PopperContext.Provider
         value={{
+          visible: actualVisible,
           addCloseHandler,
           removeCloseHandler
         }}
@@ -506,6 +541,7 @@ Popper.propTypes = {
   popup: PropTypes.element.isRequired,
   children: PropTypes.element.isRequired,
   visible: PropTypes.bool,
+  disabled: PropTypes.bool,
   onVisibleChange: PropTypes.func,
   showDelay: PropTypes.number,
   hideDelay: PropTypes.number,

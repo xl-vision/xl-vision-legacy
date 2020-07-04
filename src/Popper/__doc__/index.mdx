@@ -154,6 +154,17 @@ export default () => {
           <Button>flip</Button>
         </Popper>
         <Popper
+          disabled
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>disabled</Button>
+        </Popper>
+        <Popper
           trigger='click'
           preventOverflow={false}
           transitionClasses='transition'
@@ -164,6 +175,31 @@ export default () => {
           arrow={<div className='arrow' />}
         >
           <Button>prevent overflow</Button>
+        </Popper>
+      </Button.Group>
+      <Button.Group theme='error'>
+        <Popper
+          transitionClasses='transition'
+          placement='top'
+          offset={10}
+          popupClassName='overlay'
+          popup={
+            <span className='popup'>
+              <Popper
+                transitionClasses='transition'
+                placement='right'
+                offset={10}
+                popupClassName='overlay'
+                popup={<span className='popup'>this is a popper</span>}
+                arrow={<div className='arrow' />}
+              >
+                <Button>button</Button>
+              </Popper>
+            </span>
+          }
+          arrow={<div className='arrow' />}
+        >
+          <Button>nest</Button>
         </Popper>
       </Button.Group>
     </div>
@@ -273,3 +309,4 @@ export default () => {
 | preventOverflow | 调整弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
 | disableGpuAcceleration | 禁用 gpu 渲染 | boolean | - | - | false |
 | disableTransformOrigin | 禁用默认的`transform-origin`行为 | boolean | - | - | false |
+| disabled | 禁用 | boolean | - | - | false |
