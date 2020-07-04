@@ -41,6 +41,7 @@ export interface PopperProps {
   preventOverflow?: Boundary | (() => Boundary)
   flip?: Boundary | (() => Boundary)
   disableGpuAcceleration?: boolean
+  disableTransformOrigin?: boolean
 }
 
 const defaultGetContainer = () => document.body
@@ -77,7 +78,8 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     popupClassName,
     preventOverflow = true,
     flip = true,
-    disableGpuAcceleration
+    disableGpuAcceleration,
+    disableTransformOrigin
   } = props
 
   const hideDelay = Math.max(_hideDelay, HIDE_TIME_DELAY)
@@ -204,13 +206,25 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         enabled: true,
         phase: 'main',
         fn({ state }: { state: State }) {
-          if (innerPopupNodeRef.current) {
-            innerPopupNodeRef.current.dataset.placement = state.placement
+          const el = innerPopupNodeRef.current
+          if (el) {
+            const [direction] = (el.dataset.placement = state.placement).split('-')
+            if (!disableTransformOrigin) {
+              if (direction === 'top') {
+                el.style.transformOrigin = `${state.modifiersData.arrow?.x}px 100%`
+              } else if (direction === 'bottom') {
+                el.style.transformOrigin = `${state.modifiersData.arrow?.x}px 0%`
+              } else if (direction === 'left') {
+                el.style.transformOrigin = `100% ${state.modifiersData.arrow?.y}px`
+              } else {
+                el.style.transformOrigin = `0% ${state.modifiersData.arrow?.y}px`
+              }
+            }
           }
         }
       }
     ]
-  }, [offset, preventOverflow, flip, disableGpuAcceleration])
+  }, [offset, preventOverflow, flip, disableGpuAcceleration, disableTransformOrigin])
 
   const actualVisibleTrigger = useConstantCallback((actualVisible: boolean) => {
     onVisibleChange && onVisibleChange(actualVisible)
@@ -366,7 +380,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
     // 必须强制刷新placement
     popperJs.forceUpdate()
-    el.dataset.placement = popperJs.state.placement
   })
 
   // 默认就是true，不触发beforeEnter，需要特殊处理
@@ -482,6 +495,8 @@ const validateOffset: PropTypes.Validator<[number, number]> = (props, propName, 
   return null
 }
 
+Popper.displayName = 'Popper'
+
 Popper.propTypes = {
   getPopupContainer: PropTypes.any,
   placement: PropTypes.oneOf([
@@ -517,7 +532,8 @@ Popper.propTypes = {
   offset: PropTypes.oneOfType([PropTypes.number, validateOffset]),
   preventOverflow: PropTypes.oneOfType([PropTypes.bool, PropTypes.array, PropTypes.func]),
   flip: PropTypes.oneOfType([PropTypes.bool, PropTypes.array, PropTypes.func]),
-  disableGpuAcceleration: PropTypes.bool
+  disableGpuAcceleration: PropTypes.bool,
+  disableTransformOrigin: PropTypes.bool
 }
 
 export default Popper

@@ -206,25 +206,21 @@ export default () => {
 
   .overlay {
     &[data-placement^='bottom'] {
-      transform-origin: 50% 0%;
       .arrow {
         top: -4px;
       }
     }
     &[data-placement^='left'] {
-      transform-origin: 100% 50%;
       .arrow {
         right: -4px;
       }
     }
     &[data-placement^='right'] {
-      transform-origin: 0% 50%;
       .arrow {
         left: -4px;
       }
     }
     &[data-placement^='top'] {
-      transform-origin: 50% 100%;
       .arrow {
         bottom: -4px;
       }
@@ -275,3 +271,5 @@ export default () => {
 | popupClassName | 弹出框类名 | string | - | - | false |
 | flip | 反转弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
 | preventOverflow | 调整弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
+| disableGpuAcceleration | 禁用 gpu 渲染 | boolean | - | - | false |
+| disableTransformOrigin | 禁用默认的`transform-origin`行为 | boolean | - | - | false |
