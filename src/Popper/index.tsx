@@ -13,8 +13,12 @@ import fillRef from '../commons/utils/fillRef'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import { addClass, removeClass } from '../commons/utils/class'
+import { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow'
+import { FlipModifier } from '@popperjs/core/lib/modifiers/flip'
 
 export { Placement }
+
+export type Boundary = boolean | HTMLElement | Array<HTMLElement>
 
 export interface PopperProps {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
@@ -33,12 +37,14 @@ export interface PopperProps {
   offset?: number | [number, number]
   popupStyle?: React.CSSProperties
   popupClassName?: string
-  enableOverflow?: boolean
+  preventOverflow?: Boundary | (() => Boundary)
+  flip?: Boundary | (() => Boundary)
+  disableGpuAcceleration?: boolean
 }
 
 const defaultGetContainer = () => document.body
 
-const HIDE_TIME_DELAY = 200
+const HIDE_TIME_DELAY = 150
 const SHOW_TIME_DELAY = 20
 
 const VISIBLE_TIME_DELAY = 15
@@ -68,7 +74,9 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     offset,
     popupStyle,
     popupClassName,
-    enableOverflow
+    preventOverflow = true,
+    flip = true,
+    disableGpuAcceleration
   } = props
 
   const hideDelay = Math.max(_hideDelay, HIDE_TIME_DELAY)
@@ -151,7 +159,36 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const modifiers = React.useMemo<Array<Partial<Modifier<any, any>>>>(() => {
+    const preventOverflowObj =
+      typeof preventOverflow === 'function' ? preventOverflow() : preventOverflow
+    const preventOverflowModifier: Partial<PreventOverflowModifier> = {
+      name: 'preventOverflow',
+      enabled: !!preventOverflowObj
+    }
+    if (typeof preventOverflowObj === 'object') {
+      preventOverflowModifier.options = {
+        boundary: preventOverflowObj
+      }
+    }
+
+    const flipObj = typeof flip === 'function' ? flip() : flip
+    const flipModifier: Partial<FlipModifier> = {
+      name: 'flip',
+      enabled: !!flipObj
+    }
+    if (typeof flipObj === 'object') {
+      flipModifier.options = {
+        boundary: flipObj
+      }
+    }
+
     return [
+      {
+        name: 'computeStyles',
+        options: {
+          gpuAcceleration: !disableGpuAcceleration
+        }
+      },
       {
         name: 'offset',
         enabled: !!offset,
@@ -159,10 +196,8 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           offset: typeof offset === 'number' ? [0, offset] : offset
         }
       },
-      {
-        name: 'preventOverflow',
-        enabled: !enableOverflow
-      },
+      preventOverflowModifier,
+      flipModifier,
       {
         name: 'applyPlacement',
         enabled: true,
@@ -174,7 +209,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         }
       }
     ]
-  }, [offset, enableOverflow])
+  }, [offset, preventOverflow, flip, disableGpuAcceleration])
 
   const actualVisibleTrigger = useConstantCallback((actualVisible: boolean) => {
     onVisibleChange && onVisibleChange(actualVisible)
@@ -328,6 +363,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       })
     }
 
+    // 必须强制刷新placement
     popperJs.forceUpdate()
     el.dataset.placement = popperJs.state.placement
   })
@@ -341,16 +377,12 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     isFirstVisibleRef.current = false
   }, [actualVisible, updatePopper])
 
-  // 移除transition class对定位的干扰
   const beforeEnter = useConstantCallback((el: TransitionElement) => {
+    // 移除transition class对定位的干扰
     removeClass(el, el._ctc?.enterActive || '')
     removeClass(el, el._ctc?.enter || '')
 
     updatePopper()
-  })
-
-  // 将beforeEnter中的transition class添加在enter中
-  const enter = useConstantCallback((el: TransitionElement) => {
     addClass(el, el._ctc?.enter || '')
     // eslint-disable-next-line no-unused-expressions
     el.scrollHeight
@@ -365,7 +397,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         ...modifiers,
         {
           name: 'eventListeners',
-          enabled: true
+          enabled: false
         }
       ]
     })
@@ -387,7 +419,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         >
           <CSSTransition
             beforeEnter={beforeEnter}
-            enter={enter}
             afterLeave={afterLeave}
             in={actualVisible}
             transitionClasses={transitionClasses}
@@ -436,8 +467,21 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   )
 }
 
+const validateOffset: PropTypes.Validator<[number, number]> = (props, propName, componentName) => {
+  const propValue = props[propName]
+  if (!Array.isArray(propValue)) {
+    throw new Error(`prop '${propName}' supplied to '${componentName}' is not an array.`)
+  }
+  if (propValue.length !== 2) {
+    throw new Error(
+      `prop '${propName}' supplied to '${componentName}' is an array, but its length is not equal to 2.`
+    )
+  }
+  return null
+}
+
 Popper.propTypes = {
-  getPopupContainer: PropTypes.func,
+  getPopupContainer: PropTypes.any,
   placement: PropTypes.oneOf([
     'auto',
     'auto-start',
@@ -468,12 +512,10 @@ Popper.propTypes = {
   arrow: PropTypes.element,
   popupStyle: PropTypes.object,
   popupClassName: PropTypes.string,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-  // @ts-ignore
-  offset: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-  overlayStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  overlayClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  enableOverflow: PropTypes.bool
+  offset: PropTypes.oneOfType([PropTypes.number, validateOffset]),
+  preventOverflow: PropTypes.oneOfType([PropTypes.bool, PropTypes.array, PropTypes.func]),
+  flip: PropTypes.oneOfType([PropTypes.bool, PropTypes.array, PropTypes.func]),
+  disableGpuAcceleration: PropTypes.bool
 }
 
 export default Popper

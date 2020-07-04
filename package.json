@@ -105,7 +105,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
-    "@popperjs/core": "^2.4.0",
+    "@popperjs/core": "^2.4.4",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"
   },

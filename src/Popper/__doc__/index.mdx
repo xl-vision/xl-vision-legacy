@@ -13,6 +13,7 @@ import React from 'react'
 import { Popper, Button } from 'xl-vision'
 
 export default () => {
+  const [visible, setVisible] = React.useState(false)
   return (
     <div className='container'>
       <Button.Group theme='primary'>
@@ -58,12 +59,126 @@ export default () => {
           <Button>right</Button>
         </Popper>
       </Button.Group>
+      <Button.Group theme='secondary'>
+        <Popper
+          trigger='click'
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>click</Button>
+        </Popper>
+        <Popper
+          trigger='contextMenu'
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>contextMenu</Button>
+        </Popper>
+        <Popper
+          trigger='focus'
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>focus</Button>
+        </Popper>
+        <Popper
+          trigger='custom'
+          visible={visible}
+          onVisibleChange={(visible) => setVisible(visible)}
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button onClick={() => setVisible((prev) => !prev)}>custom(double click)</Button>
+        </Popper>
+      </Button.Group>
+      <Button.Group theme='info'>
+        <Popper
+          disablePopupEnter
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>disable Popup Enter</Button>
+        </Popper>
+        <Popper
+          showDelay={2000}
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>show delay 2s</Button>
+        </Popper>
+        <Popper
+          hideDelay={2000}
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>hide delay 2s</Button>
+        </Popper>
+        <Popper
+          trigger='click'
+          flip={false}
+          transitionClasses='transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>flip</Button>
+        </Popper>
+        <Popper
+          trigger='click'
+          preventOverflow={false}
+          transitionClasses='transition'
+          placement='right'
+          offset={10}
+          popupClassName='overlay'
+          popup={<span className='popup'>This is popper</span>}
+          arrow={<div className='arrow' />}
+        >
+          <Button>prevent overflow</Button>
+        </Popper>
+      </Button.Group>
     </div>
   )
 }
 ```
 
 ```scss
+.container {
+  &::deep {
+    .xl-button-group:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
 .popup {
   display: inline-block;
   background-color: #fff;
@@ -158,4 +273,5 @@ export default () => {
 | offset | 弹出框偏移 | `[number, number]` | - | - | false |
 | popupStyle | 弹出框样式 | React.CSSProperties | - | - | false |
 | popupClassName | 弹出框类名 | string | - | - | false |
-| enableOverflow | 允许弹出框被遮挡 | boolean | - | - | false |
+| flip | 反转弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
+| preventOverflow | 调整弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
