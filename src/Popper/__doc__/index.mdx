@@ -187,24 +187,8 @@ export default () => {
   border-radius: 4px;
 }
 ::deep {
-  .arrow {
-    &,
-    &::before {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      z-index: -1;
-      box-sizing: border-box;
-      background-color: #fff;
-    }
-    &::before {
-      content: '';
-      transform: rotate(45deg);
-      border: 1px solid #ccc;
-    }
-  }
-
   .overlay {
+    position: relative;
     &[data-placement^='bottom'] {
       .arrow {
         top: -4px;
@@ -224,6 +208,22 @@ export default () => {
       .arrow {
         bottom: -4px;
       }
+    }
+  }
+  .arrow {
+    &,
+    &::before {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      z-index: -1;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+    &::before {
+      content: '';
+      transform: rotate(45deg);
+      border: 1px solid #ccc;
     }
   }
   .transition {
@@ -266,7 +266,7 @@ export default () => {
 | transitionClasses | 动画 class，参看<Link to='CSSTransition'>CSSTransition</Link> | boolean | - | - | false |
 | forceRender | 强制弹出框立即挂载到 dom 中，即使弹出框还没有显示 | boolean | - | - | false |
 | arrow | 箭头 | React.ReactElement | - | - | false |
-| offset | 弹出框偏移 | `number`&#x007c;`[number, number]` | - | - | false |
+| offset | 弹出框偏移 | `number` | - | 0 | false |
 | popupStyle | 弹出框样式 | React.CSSProperties | - | - | false |
 | popupClassName | 弹出框类名 | string | - | - | false |
 | flip | 反转弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |

@@ -4,6 +4,26 @@ import Popper from '..'
 import wait from '../../../test/wait'
 import { act } from 'react-dom/test-utils'
 
+const findPopper = (wrapper: ReactWrapper, popupClass: string) => {
+  return wrapper
+    .findWhere((it) => {
+      const node1 = it.childAt(0)
+      if (!node1.exists()) {
+        return false
+      }
+      const node2 = node1.childAt(0)
+      if (!node2.exists()) {
+        return false
+      }
+      const node3 = node2.childAt(0)
+      if (!node3.exists()) {
+        return false
+      }
+      return node3.hasClass(popupClass)
+    })
+    .first()
+}
+
 describe('Popper', () => {
   let wrapper: ReactWrapper
 
@@ -169,8 +189,9 @@ describe('Popper', () => {
     expect(popup.style.display).toBe('')
 
     wrapper.find('.btn').simulate('mouseleave')
-    await act(() => wait(50))
-    wrapper.find('.popup').simulate('mouseenter')
+    await act(() => wait(5))
+
+    findPopper(wrapper, 'popup').simulate('mouseenter')
     await act(() => wait(200))
     expect(popup.style.display).toBe('')
 
@@ -178,9 +199,9 @@ describe('Popper', () => {
       disablePopupEnter: true
     })
 
-    wrapper.find('.btn').simulate('mouseleave')
-    await act(() => wait(50))
-    wrapper.find('.popup').simulate('mouseenter')
+    findPopper(wrapper, 'popup').simulate('mouseleave')
+    await act(() => wait(5))
+    findPopper(wrapper, 'popup').simulate('mouseenter')
     await act(() => wait(200))
     expect(popup.style.display).toBe('none')
   })
@@ -250,8 +271,8 @@ describe('Popper', () => {
     expect(document.querySelector('.popup2')).toBeNull()
 
     wrapper.find('.btn').simulate('mouseleave')
-    await act(() => wait(50))
-    wrapper.find('.popup').simulate('mouseenter')
+    await act(() => wait(5))
+    findPopper(wrapper, 'popup').simulate('mouseenter')
     wrapper.find('.btn2').simulate('mouseenter')
     await act(() => wait(200))
     const popup2 = document.querySelector('.popup2') as HTMLElement
@@ -260,14 +281,14 @@ describe('Popper', () => {
 
     // btn2 popup2都属于popup
     wrapper.find('.btn2').simulate('mouseleave')
-    await act(() => wait(50))
-    wrapper.find('.popup2').simulate('mouseenter')
+    await act(() => wait(5))
+    findPopper(wrapper, 'popup2').simulate('mouseenter')
     await act(() => wait(200))
     expect(popup.style.display).toBe('')
     expect(popup2.style.display).toBe('')
 
-    wrapper.find('.popup2').simulate('mouseleave')
-    wrapper.find('.popup').simulate('mouseleave')
+    findPopper(wrapper, 'popup2').simulate('mouseleave')
+    findPopper(wrapper, 'popup').simulate('mouseleave')
     await act(() => wait(200))
     expect(popup.style.display).toBe('none')
     expect(popup2.style.display).toBe('none')

@@ -35,7 +35,7 @@ export interface PopperProps {
   transitionClasses?: CSSTransitionProps['transitionClasses']
   forceRender?: boolean
   arrow?: React.ReactElement
-  offset?: number | [number, number]
+  offset?: number
   popupStyle?: React.CSSProperties
   popupClassName?: string
   preventOverflow?: Boundary | (() => Boundary)
@@ -46,10 +46,8 @@ export interface PopperProps {
 
 const defaultGetContainer = () => document.body
 
-const HIDE_TIME_DELAY = 150
-const SHOW_TIME_DELAY = 20
-
-const VISIBLE_TIME_DELAY = 15
+// 进来操作在一帧内完成
+const TIME_DELAY = 1000 / 60
 
 /**
  * 此组件是所有弹出框组件的基础组件
@@ -66,14 +64,14 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     children,
     visible = false,
     onVisibleChange,
-    hideDelay: _hideDelay = 0,
-    showDelay: _showDelay = 0,
+    hideDelay = 0,
+    showDelay = 0,
     trigger = 'hover',
     disablePopupEnter,
     transitionClasses,
     forceRender,
     arrow,
-    offset,
+    offset = 0,
     popupStyle,
     popupClassName,
     preventOverflow = true,
@@ -81,9 +79,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     disableGpuAcceleration,
     disableTransformOrigin
   } = props
-
-  const hideDelay = Math.max(_hideDelay, HIDE_TIME_DELAY)
-  const showDelay = Math.max(_showDelay, SHOW_TIME_DELAY)
 
   const popperJsRef = React.useRef<Instance>()
 
@@ -127,20 +122,17 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     // 取消上次定时器的执行
     clearTimeout(delayTimerRef.current!)
     // 重设定时器，最少需要等待TIME_DELAY时间
-    delayTimerRef.current = setTimeout(
-      () => {
-        // 判断组件是否已经被卸载
-        // 由于setTimeout在组件卸载后可能才执行，必须进行必要的判断
-        if (mountedCallback()) {
-          // 关闭popper时需要关闭所有子popper
-          if (!isVisible) {
-            closeHandlerRef.current.forEach((it) => it())
-          }
-          setActualVisible(isVisible)
+    delayTimerRef.current = setTimeout(() => {
+      // 判断组件是否已经被卸载
+      // 由于setTimeout在组件卸载后可能才执行，必须进行必要的判断
+      if (mountedCallback()) {
+        // 关闭popper时需要关闭所有子popper
+        if (!isVisible) {
+          closeHandlerRef.current.forEach((it) => it())
         }
-      },
-      isVisible ? showDelay : hideDelay
-    )
+        setActualVisible(isVisible)
+      }
+    }, Math.max(isVisible ? showDelay : hideDelay, TIME_DELAY))
   })
 
   /**
@@ -192,13 +184,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           gpuAcceleration: !disableGpuAcceleration
         }
       },
-      {
-        name: 'offset',
-        enabled: !!offset,
-        options: {
-          offset: typeof offset === 'number' ? [0, offset] : offset
-        }
-      },
       preventOverflowModifier,
       flipModifier,
       {
@@ -206,19 +191,35 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         enabled: true,
         phase: 'main',
         fn({ state }: { state: State }) {
+          const [direction] = state.placement.split('-')
           const el = innerPopupNodeRef.current
+          const popup = popupNodeRef.current
           if (el) {
-            const [direction] = (el.dataset.placement = state.placement).split('-')
+            let transformOrigin
             if (!disableTransformOrigin) {
               if (direction === 'top') {
-                el.style.transformOrigin = `${state.modifiersData.arrow?.x}px 100%`
+                transformOrigin = `${state.modifiersData.arrow?.x}px 100%`
               } else if (direction === 'bottom') {
-                el.style.transformOrigin = `${state.modifiersData.arrow?.x}px 0%`
+                transformOrigin = `${state.modifiersData.arrow?.x}px 0%`
               } else if (direction === 'left') {
-                el.style.transformOrigin = `100% ${state.modifiersData.arrow?.y}px`
+                transformOrigin = `100% ${state.modifiersData.arrow?.y}px`
               } else {
-                el.style.transformOrigin = `0% ${state.modifiersData.arrow?.y}px`
+                transformOrigin = `0% ${state.modifiersData.arrow?.y}px`
               }
+              el.style.transformOrigin = transformOrigin
+              el.dataset.placement = state.placement
+            }
+          }
+
+          if (popup) {
+            if (direction === 'top') {
+              popup.style.paddingBottom = `${offset}px`
+            } else if (direction === 'bottom') {
+              popup.style.paddingTop = `${offset}px`
+            } else if (direction === 'left') {
+              popup.style.paddingRight = `${offset}px`
+            } else {
+              popup.style.paddingLeft = `${offset}px`
             }
           }
         }
@@ -239,7 +240,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     setTimeout(() => {
       setActualWrapper(visible)
       // 增加延时保证这个方法最后调用,时间不能大于TIME_DELAY,否则上一个任务就执行完了
-    }, VISIBLE_TIME_DELAY)
+    }, TIME_DELAY * 0.5)
   })
 
   // visible修改时触发actualVisible更新
@@ -295,7 +296,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    */
   const onPopupClick = useConstantCallback(() => {
     if (trigger === 'click' || trigger === 'contextMenu') {
-      setTimeout(() => setActualWrapper(true), VISIBLE_TIME_DELAY * 0.5)
+      setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
     }
   })
 
@@ -424,21 +425,19 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           removeCloseHandler
         }}
       >
-        <div ref={popupNodeRef}>
+        <div
+          ref={popupNodeRef}
+          onMouseEnter={onPopupMouseEnter}
+          onMouseLeave={onPopupMouseLeave}
+          onClick={onPopupClick}
+        >
           <CSSTransition
             beforeEnter={beforeEnter}
             afterLeave={afterLeave}
             in={actualVisible}
             transitionClasses={transitionClasses}
           >
-            <div
-              style={popupStyle}
-              className={popupClassName}
-              ref={innerPopupNodeRef}
-              onMouseEnter={onPopupMouseEnter}
-              onMouseLeave={onPopupMouseLeave}
-              onClick={onPopupClick}
-            >
+            <div style={popupStyle} className={popupClassName} ref={innerPopupNodeRef}>
               {arrow &&
                 React.cloneElement(arrow, {
                   'data-popper-arrow': ''
@@ -482,19 +481,6 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   )
 }
 
-const validateOffset: PropTypes.Validator<[number, number]> = (props, propName, componentName) => {
-  const propValue = props[propName]
-  if (!Array.isArray(propValue)) {
-    throw new Error(`prop '${propName}' supplied to '${componentName}' is not an array.`)
-  }
-  if (propValue.length !== 2) {
-    throw new Error(
-      `prop '${propName}' supplied to '${componentName}' is an array, but its length is not equal to 2.`
-    )
-  }
-  return null
-}
-
 Popper.displayName = 'Popper'
 
 Popper.propTypes = {
@@ -529,7 +515,7 @@ Popper.propTypes = {
   arrow: PropTypes.element,
   popupStyle: PropTypes.object,
   popupClassName: PropTypes.string,
-  offset: PropTypes.oneOfType([PropTypes.number, validateOffset]),
+  offset: PropTypes.number,
   preventOverflow: PropTypes.oneOfType([PropTypes.bool, PropTypes.array, PropTypes.func]),
   flip: PropTypes.oneOfType([PropTypes.bool, PropTypes.array, PropTypes.func]),
   disableGpuAcceleration: PropTypes.bool,

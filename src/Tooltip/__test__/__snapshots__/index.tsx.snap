@@ -6,7 +6,7 @@ Array [
     data-popper-escaped=""
     data-popper-placement="top"
     data-popper-reference-hidden=""
-    style="z-index: 1001; position: absolute; left: 0px; top: 0px; margin: 0px; bottom: 0px; transform: translate(0px, -10px);"
+    style="z-index: 1001; position: absolute; left: 0px; top: 0px; margin: 0px; padding-bottom: 10px; bottom: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="xl-tooltip popup"
@@ -39,7 +39,7 @@ Array [
     data-popper-escaped=""
     data-popper-placement="top"
     data-popper-reference-hidden=""
-    style="z-index: 1002; position: absolute; left: 0px; top: 0px; margin: 0px; bottom: 0px; transform: translate(0px, -10px);"
+    style="z-index: 1002; position: absolute; left: 0px; top: 0px; margin: 0px; padding-bottom: 10px; bottom: 0px; transform: translate(0px, 0px);"
   >
     <div
       class="xl-tooltip popup"
