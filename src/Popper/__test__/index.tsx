@@ -3,8 +3,6 @@ import * as React from 'react'
 import Popper from '..'
 import wait from '../../../test/wait'
 import { act } from 'react-dom/test-utils'
-// import Popper from '..'
-// import wait from '../../../test/wait'
 
 describe('Popper', () => {
   let wrapper: ReactWrapper

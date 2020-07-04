@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip render 1`] = `
+Array [
+  <div
+    data-popper-escaped=""
+    data-popper-placement="top"
+    data-popper-reference-hidden=""
+    style="z-index: 1001; position: absolute; left: 0px; top: 0px; margin: 0px; bottom: 0px; transform: translate(0px, -10px);"
+  >
+    <div
+      class="xl-tooltip popup"
+      data-placement="top"
+      style="transform-origin: 0px 100%;"
+    >
+      <div
+        class="xl-tooltip__arrow"
+        data-popper-arrow=""
+        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
+      />
+      <div
+        class="xl-tooltip__content"
+      >
+        this is a tooltip
+      </div>
+    </div>
+  </div>,
+  <button
+    class="btn"
+  >
+    button
+  </button>,
+]
+`;
+
+exports[`Tooltip render:maxWidth 1`] = `
+Array [
+  <div
+    data-popper-escaped=""
+    data-popper-placement="top"
+    data-popper-reference-hidden=""
+    style="z-index: 1002; position: absolute; left: 0px; top: 0px; margin: 0px; bottom: 0px; transform: translate(0px, -10px);"
+  >
+    <div
+      class="xl-tooltip popup"
+      data-placement="top"
+      style="transform-origin: 0px 100%;"
+    >
+      <div
+        class="xl-tooltip__arrow"
+        data-popper-arrow=""
+        style="position: absolute; left: 0px; transform: translate(0px, 0px);"
+      />
+      <div
+        class="xl-tooltip__content xl-tooltip__content--with-width"
+        style="max-width: 100px;"
+      >
+        this is a tooltip
+      </div>
+    </div>
+  </div>,
+  <button
+    class="btn"
+  >
+    button
+  </button>,
+]
+`;

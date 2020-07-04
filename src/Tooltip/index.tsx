@@ -4,7 +4,8 @@ import ConfigContext from '../ConfigProvider/ConfigContext'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
-export interface TooltipProps extends Omit<PopperProps, 'arrow' | 'popup'> {
+export interface TooltipProps
+  extends Omit<PopperProps, 'arrow' | 'popup' | 'popupClassName' | 'popupStyle'> {
   clsPrefix?: string
   content: React.ReactNode
   maxWidth?: number
