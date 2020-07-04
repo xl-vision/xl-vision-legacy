@@ -226,4 +226,52 @@ describe('Popper', () => {
     await act(() => wait(200))
     expect(popup.style.display).toBe('none')
   })
+
+  it('测试多popper嵌套', async () => {
+    wrapper = mount(
+      <Popper
+        popupClassName='popup'
+        popup={
+          <Popper popupClassName='popup2' popup={<div />}>
+            <button className='btn2'>button</button>
+          </Popper>
+        }
+      >
+        <button className='btn'>button</button>
+      </Popper>
+    )
+
+    await act(() => wait(200))
+    expect(document.querySelector('.popup')).toBeNull()
+    expect(document.querySelector('.popup2')).toBeNull()
+
+    wrapper.find('.btn').simulate('mouseenter')
+    await act(() => wait(200))
+    const popup = document.querySelector('.popup') as HTMLElement
+    expect(popup.style.display).toBe('')
+    expect(document.querySelector('.popup2')).toBeNull()
+
+    wrapper.find('.btn').simulate('mouseleave')
+    await act(() => wait(50))
+    wrapper.find('.popup').simulate('mouseenter')
+    wrapper.find('.btn2').simulate('mouseenter')
+    await act(() => wait(200))
+    const popup2 = document.querySelector('.popup2') as HTMLElement
+    expect(popup.style.display).toBe('')
+    expect(popup2.style.display).toBe('')
+
+    // btn2 popup2都属于popup
+    wrapper.find('.btn2').simulate('mouseleave')
+    await act(() => wait(50))
+    wrapper.find('.popup2').simulate('mouseenter')
+    await act(() => wait(200))
+    expect(popup.style.display).toBe('')
+    expect(popup2.style.display).toBe('')
+
+    wrapper.find('.popup2').simulate('mouseleave')
+    wrapper.find('.popup').simulate('mouseleave')
+    await act(() => wait(200))
+    expect(popup.style.display).toBe('none')
+    expect(popup2.style.display).toBe('none')
+  })
 })
