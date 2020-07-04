@@ -19,8 +19,8 @@ $icon: #{$cls-prefix}-icon;
 .#{$button} {
   min-width: $button-min-width;
   padding: $button-padding-y $button-padding-x;
-  border-radius: $border-radius-medium;
-  transition: all $fast-out-slow-in-timing-function $standard-duration;
+  border-radius: $button-border-radius;
+  transition: $btton-transition;
 
   @include button();
 
@@ -29,7 +29,7 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &__icon--loading {
-    animation: #{$button}-loading $button-loading-duration $fast-out-slow-in-timing-function infinite;
+    animation: #{$button}-loading $button-loading-duration $button-loading-function infinite;
   }
 
   &__prefix {
@@ -79,25 +79,25 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--variant-contained {
-    color: $dark-primary-text;
+    color: $button-default-color;
     background-color: $button-default-bg;
 
     &.#{$button}--disabled,
     &.#{$button}--loading {
-      background-color: overlay-color($button-default-bg, $overlay-disabled);
+      background-color: overlay-color($button-default-bg, $button-opacity-disabled);
     }
 
     &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
-        background-color: overlay-color($button-default-bg, $overlay-hover);
+        background-color: overlay-color($button-default-bg, $button-opacity-hover);
       }
 
       &:focus {
-        background-color: overlay-color($button-default-bg, $overlay-focus);
+        background-color: overlay-color($button-default-bg, $button-opacity-focus);
       }
 
       &:active {
-        background-color: overlay-color($button-default-bg, $overlay-activated);
+        background-color: overlay-color($button-default-bg, $button-opacity-activated);
       }
     }
 
@@ -110,21 +110,21 @@ $icon: #{$cls-prefix}-icon;
 
         &:not(.#{$button}--disabled):not(.#{$button}--loading) {
           &:hover {
-            background-color: overlay-color($background-color, $overlay-hover);
+            background-color: overlay-color($background-color, $button-opacity-hover);
           }
 
           &:focus {
-            background-color: overlay-color($background-color, $overlay-focus);
+            background-color: overlay-color($background-color, $button-opacity-focus);
           }
 
           &:active {
-            background-color: overlay-color($background-color, $overlay-activated);
+            background-color: overlay-color($background-color, $button-opacity-activated);
           }
         }
 
         &.#{$button}--disabled,
         &.#{$button}--loading {
-          background-color: overlay-color($background-color, $overlay-disabled);
+          background-color: overlay-color($background-color, $button-opacity-disabled);
         }
       }
     }
@@ -132,7 +132,7 @@ $icon: #{$cls-prefix}-icon;
 
   &--variant-outlined {
     padding: $button-padding-y-outlined $button-padding-x-outlined;
-    color: $dark-primary-text;
+    color: $button-default-color;
     background-color: transparent;
     border: $button-border-width solid $button-default-border-color;
 
@@ -143,26 +143,26 @@ $icon: #{$cls-prefix}-icon;
 
     &.#{$button}--disabled,
     &.#{$button}--loading {
-      background-color: overlay-color($button-default-bg-outline, $overlay-disabled);
-      border-color: overlay-color($button-default-border-color, $overlay-disabled);
+      background-color: overlay-color($button-default-bg-outline, $button-opacity-disabled);
+      border-color: overlay-color($button-default-border-color, $button-opacity-disabled);
 
       @include elevation(0);
     }
 
     &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
-        background-color: overlay-color($button-default-bg-outline, $overlay-hover);
-        border-color: overlay-color($button-default-border-color, $overlay-hover);
+        background-color: overlay-color($button-default-bg-outline, $button-opacity-hover);
+        border-color: overlay-color($button-default-border-color, $button-opacity-hover);
       }
 
       &:focus {
-        background-color: overlay-color($button-default-bg-outline, $overlay-focus);
-        border-color: overlay-color($button-default-border-color, $overlay-focus);
+        background-color: overlay-color($button-default-bg-outline, $button-opacity-focus);
+        border-color: overlay-color($button-default-border-color, $button-opacity-focus);
       }
 
       &:active {
-        background-color: overlay-color($button-default-bg-outline, $overlay-activated);
-        border-color: overlay-color($button-default-border-color, $overlay-activated);
+        background-color: overlay-color($button-default-bg-outline, $button-opacity-activated);
+        border-color: overlay-color($button-default-border-color, $button-opacity-activated);
       }
     }
 
@@ -176,54 +176,54 @@ $icon: #{$cls-prefix}-icon;
 
         &:not(.#{$button}--disabled):not(.#{$button}--loading) {
           &:hover {
-            background-color: overlay-color($color, 1 - $overlay-hover);
-            border-color: overlay-color($border-color, $overlay-hover);
+            background-color: overlay-color($color, 1 - $button-opacity-hover);
+            border-color: overlay-color($border-color, $button-opacity-hover);
           }
 
           &:focus {
-            background-color: overlay-color($color, 1 - $overlay-focus);
-            border-color: overlay-color($border-color, $overlay-focus);
+            background-color: overlay-color($color, 1 - $button-opacity-focus);
+            border-color: overlay-color($border-color, $button-opacity-focus);
           }
 
           &:active {
-            background-color: overlay-color($color, 1 - $overlay-activated);
-            border-color: overlay-color($border-color, $overlay-activated);
+            background-color: overlay-color($color, 1 - $button-opacity-activated);
+            border-color: overlay-color($border-color, $button-opacity-activated);
           }
         }
 
         &.#{$button}--disabled,
         &.#{$button}--loading {
-          color: overlay-color($color, $overlay-disabled);
-          border-color: overlay-color($border-color, $overlay-disabled);
+          color: overlay-color($color, $button-opacity-disabled);
+          border-color: overlay-color($border-color, $button-opacity-disabled);
         }
       }
     }
   }
 
   &--variant-text {
-    $color: $dark-primary-text;
+    $color: $button-default-color;
 
     color: $color;
     background-color: transparent;
 
     &.#{$button}--disabled,
     &.#{$button}--loading {
-      color: overlay-color($color, $overlay-disabled);
+      color: overlay-color($color, $button-opacity-disabled);
 
       @include elevation(0);
     }
 
     &:not(.#{$button}--disabled):not(.#{$button}--loading) {
       &:hover {
-        background-color: overlay-color($button-default-bg-text, $overlay-hover);
+        background-color: overlay-color($button-default-bg-text, $button-opacity-hover);
       }
 
       &:focus {
-        background-color: overlay-color($button-default-bg-text, $overlay-focus);
+        background-color: overlay-color($button-default-bg-text, $button-opacity-focus);
       }
 
       &:active {
-        background-color: overlay-color($button-default-bg-text, $overlay-activated);
+        background-color: overlay-color($button-default-bg-text, $button-opacity-activated);
       }
     }
 
@@ -235,21 +235,21 @@ $icon: #{$cls-prefix}-icon;
 
         &:not(.#{$button}--disabled):not(.#{$button}--loading) {
           &:hover {
-            background-color: overlay-color($color, 1 - $overlay-hover);
+            background-color: overlay-color($color, 1 - $button-opacity-hover);
           }
 
           &:focus {
-            background-color: overlay-color($color, 1 - $overlay-focus);
+            background-color: overlay-color($color, 1 - $button-opacity-focus);
           }
 
           &:active {
-            background-color: overlay-color($color, 1 - $overlay-activated);
+            background-color: overlay-color($color, 1 - $button-opacity-activated);
           }
         }
 
         &.#{$button}--disabled,
         &.#{$button}--loading {
-          color: overlay-color($color, $overlay-disabled);
+          color: overlay-color($color, $button-opacity-disabled);
         }
       }
     }

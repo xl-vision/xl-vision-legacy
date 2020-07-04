@@ -2,6 +2,13 @@
 @use 'sass:map';
 @forward '../../style/theme';
 
+$btton-transition: all $fast-out-slow-in-timing-function $standard-duration;
+
+$button-opacity-disabled: $overlay-disabled;
+$button-opacity-hover: $overlay-hover;
+$button-opacity-focus: $overlay-focus;
+$button-opacity-activated: $overlay-activated;
+
 $button-border-width: px2rem(1px);
 
 $button-min-width: px2rem(64px);
@@ -16,11 +23,15 @@ $button-icon-padding-content: px2rem(8px);
 $button-icon-size: px2rem(18px);
 $button-icon-line-height: 1;
 
+$button-border-radius: $border-radius-medium;
 $button-border-radius-round: px2rem($button-font-size * $button-line-height) + $button-padding-y * 2;
 
 $button-loading-duration: 1s;
+$button-loading-function: $fast-out-slow-in-timing-function;
 
 $button-default-bg: theme-pick($gray, 300);
+$button-default-color: $dark-primary-text;
+
 $button-default-bg-outline: theme-pick($gray, 100);
 $button-default-border-color: theme-pick($gray, 400);
 $button-default-bg-text: theme-pick($gray, 100);

@@ -35,17 +35,17 @@ $ripple: #{$cls-prefix}-ripple;
 
   .#{$ripple} {
     transform: scale(1);
-    opacity: $overlay-pressed;
+    opacity: $base-button-ripple-opacity-pressed;
   }
 
   &__ripple {
     &-enter-active {
-      transition: all $standard-duration $fast-out-slow-in-timing-function;
+      transition: $base-button-ripple-transition;
     }
 
     &-enter {
       transform: scale(0);
-      opacity: 0.1;
+      opacity: $base-button-ripple-opacity-enter;
     }
   }
 }

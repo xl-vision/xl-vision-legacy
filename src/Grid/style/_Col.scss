@@ -11,25 +11,25 @@ $col: #{$cls-prefix}-col;
     display: none;
   }
 
-  @for $i from 1 to $span + 1 {
+  @for $i from 1 to $col-span + 1 {
     &-span-#{$i} {
       display: block;
-      width: $i / $span * 100%;
+      width: $i / $col-span * 100%;
       min-height: 1px;
     }
 
     &-offset-#{$i} {
-      margin-left: $i / $span * 100%;
+      margin-left: $i / $col-span * 100%;
     }
 
     &-push-#{$i} {
       position: relative;
-      left: $i / $span * 100%;
+      left: $i / $col-span * 100%;
     }
 
     &-pull-#{$i} {
       position: relative;
-      right: $i / $span * 100%;
+      right: $i / $col-span * 100%;
     }
 
     &-order-#{$i} {

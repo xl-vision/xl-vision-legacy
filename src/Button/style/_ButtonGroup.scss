@@ -12,13 +12,13 @@ $button-group: #{$cls-prefix}-button-group;
     }
 
     &:first-child {
-      border-top-left-radius: $border-radius-medium;
-      border-bottom-left-radius: $border-radius-medium;
+      border-top-left-radius: $button-border-radius;
+      border-bottom-left-radius: $button-border-radius;
     }
 
     &:last-child {
-      border-top-right-radius: $border-radius-medium;
-      border-bottom-right-radius: $border-radius-medium;
+      border-top-right-radius: $button-border-radius;
+      border-bottom-right-radius: $button-border-radius;
     }
 
     &.#{$button}--variant-contained {
