@@ -256,7 +256,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   const onPopupMouseEnter = useConstantCallback(() => {
     // 取消定时器
     clearTimeout(delayTimerRef.current!)
-    if (disablePopupEnter) {
+    if (disablePopupEnter && trigger !== 'custom') {
       setActualWrapper(false)
     }
   })
@@ -411,19 +411,21 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           removeCloseHandler
         }}
       >
-        <div
-          onMouseEnter={onPopupMouseEnter}
-          onMouseLeave={onPopupMouseLeave}
-          onClick={onPopupClick}
-          ref={popupNodeRef}
-        >
+        <div ref={popupNodeRef}>
           <CSSTransition
             beforeEnter={beforeEnter}
             afterLeave={afterLeave}
             in={actualVisible}
             transitionClasses={transitionClasses}
           >
-            <div style={popupStyle} className={popupClassName} ref={innerPopupNodeRef}>
+            <div
+              style={popupStyle}
+              className={popupClassName}
+              ref={innerPopupNodeRef}
+              onMouseEnter={onPopupMouseEnter}
+              onMouseLeave={onPopupMouseLeave}
+              onClick={onPopupClick}
+            >
               {arrow &&
                 React.cloneElement(arrow, {
                   'data-popper-arrow': ''
