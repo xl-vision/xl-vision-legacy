@@ -2,9 +2,13 @@ import { RefObject, useCallback, useEffect } from 'react'
 import { include } from '../../utils/dom'
 import { off, on } from '../../utils/event'
 
-const useClickOutside = (ref: RefObject<HTMLElement>, handler: (e: MouseEvent) => void) => {
+const useEventOutside = <K extends keyof WindowEventMap>(
+  eventType: K,
+  ref: RefObject<HTMLElement>,
+  handler: (e: Event) => void
+) => {
   const fn = useCallback(
-    (e: MouseEvent) => {
+    (e: Event) => {
       const el = ref.current
       if (!el) {
         return
@@ -16,11 +20,11 @@ const useClickOutside = (ref: RefObject<HTMLElement>, handler: (e: MouseEvent) =
     [handler, ref]
   )
   useEffect(() => {
-    on('click', fn)
+    on(eventType, fn)
     return () => {
-      off('click', fn)
+      off(eventType, fn)
     }
-  }, [fn])
+  }, [eventType, fn])
 }
 
-export default useClickOutside
+export default useEventOutside

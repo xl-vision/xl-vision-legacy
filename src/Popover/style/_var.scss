@@ -1,0 +1,19 @@
+@use '../../style/theme' as *;
+@forward '../../style/theme';
+
+$popover-bg: $white;
+$popover-color: $dark-primary-text;
+
+$popover-padding-x: px2rem(16px);
+$popover-title-padding-y: px2rem(4px);
+$popover-content-padding-y: px2rem(12px);
+
+$popover-border-width: 1px;
+$popover-border-color: $dark-dividers;
+$popover-border-radius: $border-radius-medium;
+
+$popover-min-width: px2rem(160px);
+
+$popover-arrow-size: 5px;
+
+$popover-aniamtion: all $standard-duration $fast-out-slow-in-timing-function;

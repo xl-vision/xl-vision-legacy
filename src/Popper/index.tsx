@@ -7,7 +7,7 @@ import useMountStateCallback from '../commons/hooks/useMountStateCallback'
 import PopperContext from './popper-context'
 import { mergeEvents } from '../commons/utils/event'
 import CSSTransition, { CSSTransitionProps, TransitionElement } from '../CSSTransition'
-import useClickOutside from '../commons/hooks/useClickOutside'
+import useEventOutside from '../commons/hooks/useEventOutside'
 import { increaseZIndex } from '../commons/utils/zIndex-manager'
 import fillRef from '../commons/utils/fillRef'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
@@ -379,7 +379,8 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   })
 
   // 在reference外点击时触发
-  useClickOutside(referenceNodeRef, onClickOutside)
+  useEventOutside('click', referenceNodeRef, onClickOutside)
+  useEventOutside('contextmenu', referenceNodeRef, onClickOutside)
 
   const updatePopper = useConstantCallback(() => {
     const reference = referenceNodeRef.current

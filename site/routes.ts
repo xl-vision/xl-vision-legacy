@@ -53,6 +53,11 @@ const routes: Array<Route> = [
         name: '文字提醒',
         path: '/Tooltip',
         component: import('../src/Tooltip/__doc__/index.mdx')
+      },
+      {
+        name: '气泡卡片',
+        path: '/Popover',
+        component: import('../src/Popover/__doc__/index.mdx')
       }
     ]
   },

@@ -11,12 +11,11 @@ $tooltip: #{$cls-prefix}-tooltip;
     box-sizing: border-box;
     padding: $tooltip-padding;
     color: $tooltip-color;
-    font-size: $tooltip-font-size;
-    line-height: $tooltip-line-height;
     background-color: $tooltip-bg;
     border-radius: $tooltip-border-radius;
 
     @include elevation(2);
+    @include body2();
 
     &--with-width {
       white-space: pre-wrap;

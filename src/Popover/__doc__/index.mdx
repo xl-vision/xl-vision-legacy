@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 
-# Tooltip
+# Popover
 
-简单的文字提示气泡框。
+点击/鼠标移入元素，弹出气泡式的卡片浮层。
 
 ## 何时使用
 
-鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。
+当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。
 
-可用来代替系统默认的`title`提示，提供一个`按钮/文字/操作`的文案解释。
+和<Link to='Tooltip'>Tooltip</Link>的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。
 
 :::demo 基本用法
 
@@ -16,56 +16,64 @@ import { Link } from 'react-router-dom'
 
 ```jsx
 import React from 'react'
-import { Tooltip, Button } from 'xl-vision'
+import { Popover, Button } from 'xl-vision'
 
 export default () => {
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+
   return (
     <div className='container'>
       <div className='top'>
-        <Tooltip placement='top-start' content='top-start'>
+        <Popover placement='top-start' title={title} content={content}>
           <Button theme='primary'>tl</Button>
-        </Tooltip>
-        <Tooltip placement='top' content='top'>
+        </Popover>
+        <Popover placement='top' title={title} content={content}>
           <Button theme='primary'>top</Button>
-        </Tooltip>
-        <Tooltip placement='top-end' content='top-end'>
+        </Popover>
+        <Popover placement='top-end' title={title} content={content}>
           <Button theme='primary'>tr</Button>
-        </Tooltip>
+        </Popover>
       </div>
       <div className='center'>
         <div className='left'>
-          <Tooltip placement='left-start' content='left-start'>
+          <Popover placement='left-start' title={title} content={content}>
             <Button theme='primary'>lt</Button>
-          </Tooltip>
-          <Tooltip placement='left' content='left'>
+          </Popover>
+          <Popover placement='left' title={title} content={content}>
             <Button theme='primary'>left</Button>
-          </Tooltip>
-          <Tooltip placement='left-end' content='left-end'>
+          </Popover>
+          <Popover placement='left-end' title={title} content={content}>
             <Button theme='primary'>lb</Button>
-          </Tooltip>
+          </Popover>
         </div>
         <div className='right'>
-          <Tooltip placement='right-start' content='right-start'>
+          <Popover placement='right-start' title={title} content={content}>
             <Button theme='primary'>rt</Button>
-          </Tooltip>
-          <Tooltip placement='right' content='right'>
+          </Popover>
+          <Popover placement='right' title={title} content={content}>
             <Button theme='primary'>right</Button>
-          </Tooltip>
-          <Tooltip placement='right-end' content='right-end'>
+          </Popover>
+          <Popover placement='right-end' title={title} content={content}>
             <Button theme='primary'>rb</Button>
-          </Tooltip>
+          </Popover>
         </div>
       </div>
       <div className='bottom'>
-        <Tooltip placement='bottom-start' content='bottom-start'>
+        <Popover placement='bottom-start' title={title} content={content}>
           <Button theme='primary'>bl</Button>
-        </Tooltip>
-        <Tooltip placement='bottom' content='bottom'>
+        </Popover>
+        <Popover placement='bottom' title={title} content={content}>
           <Button theme='primary'>bottom</Button>
-        </Tooltip>
-        <Tooltip placement='bottom-end' content='bottom-end'>
+        </Popover>
+        <Popover placement='bottom-end' title={title} content={content}>
           <Button theme='primary'>br</Button>
-        </Tooltip>
+        </Popover>
       </div>
     </div>
   )
@@ -107,7 +115,7 @@ export default () => {
 
 ```jsx
 import React from 'react'
-import { Tooltip, Button } from 'xl-vision'
+import { Popover, Button } from 'xl-vision'
 export default () => {
   const [visible, setVisible] = React.useState(false)
 
@@ -115,23 +123,31 @@ export default () => {
     setVisible((prev) => !prev)
   }, [])
 
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+
   return (
     <Button.Group theme='info'>
-      <Tooltip placement='top' trigger='hover' content='hover'>
+      <Popover placement='top' trigger='hover' title={title} content={content}>
         <Button>hover</Button>
-      </Tooltip>
-      <Tooltip placement='top' trigger='click' content='click'>
+      </Popover>
+      <Popover placement='top' trigger='click' title={title} content={content}>
         <Button>click</Button>
-      </Tooltip>
-      <Tooltip placement='top' trigger='focus' content='focus'>
+      </Popover>
+      <Popover placement='top' trigger='focus' title={title} content={content}>
         <Button>focus</Button>
-      </Tooltip>
-      <Tooltip placement='top' trigger='contextMenu' content='contextMenu'>
+      </Popover>
+      <Popover placement='top' trigger='contextMenu' title={title} content={content}>
         <Button>contextMenu</Button>
-      </Tooltip>
-      <Tooltip placement='top' trigger='custom' content='custom' visible={visible}>
+      </Popover>
+      <Popover placement='top' trigger='custom' visible={visible} title={title} content={content}>
         <Button onClick={onClick}>custom(double click)</Button>
-      </Tooltip>
+      </Popover>
     </Button.Group>
   )
 }
@@ -145,16 +161,24 @@ export default () => {
 
 ```jsx
 import React from 'react'
-import { Tooltip, Button } from 'xl-vision'
+import { Popover, Button } from 'xl-vision'
 export default () => {
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+
   return (
     <Button.Group theme='secondary'>
-      <Tooltip placement='top' showDelay={2000} content='this is a tooltip'>
+      <Popover placement='top' showDelay={2000} title={title} content={content}>
         <Button>show after 2s</Button>
-      </Tooltip>
-      <Tooltip placement='top' hideDelay={2000} content='this is a tooltip'>
+      </Popover>
+      <Popover placement='top' hideDelay={2000} title={title} content={content}>
         <Button>hide after 2s</Button>
-      </Tooltip>
+      </Popover>
     </Button.Group>
   )
 }
@@ -162,50 +186,24 @@ export default () => {
 
 :::
 
-:::demo 长文本
+:::demo 只显示内容
 
-当文本内容过长时，可以通过`maxWidth`换行显示。
+只显示内容。
 
 ```jsx
 import React from 'react'
-import { Tooltip, Button } from 'xl-vision'
+import { Popover, Button } from 'xl-vision'
 export default () => {
-  return (
-    <Tooltip
-      placement='top'
-      maxWidth={200}
-      content='史蒂夫·乔布斯（Steve Jobs），1955年2月24日生于美国加利福尼亚州旧金山，美国发明家、企业家、美国苹果公司联合创办人。'
-    >
-      <Button theme='primary'>button</Button>
-    </Tooltip>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
   )
-}
-```
-
-:::
-
-:::demo 自定义 tooltip 内容
-
-`content`可以接受任何`React.ReactNode`类型的数据，所以可以很方便地进行自定义。
-
-```jsx
-import React from 'react'
-import { Tooltip, Button } from 'xl-vision'
-export default () => {
   return (
-    <Tooltip
-      placement='top'
-      content={
-        <>
-          <p>Display multiple lines of information</p>
-          <p>
-            <i>Can customize the style</i>
-          </p>
-        </>
-      }
-    >
+    <Popover placement='top' content={content}>
       <Button theme='primary'>button</Button>
-    </Tooltip>
+    </Popover>
   )
 }
 ```
@@ -214,33 +212,40 @@ export default () => {
 
 :::demo 禁用
 
-禁止 tooltip 展示。
+禁止 popover 展示。
 
 ```jsx
 import React from 'react'
-import { Tooltip, Button } from 'xl-vision'
+import { Popover, Button } from 'xl-vision'
 export default () => {
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
   return (
-    <Tooltip disabled placement='top' content='this is a popper'>
+    <Popover disabled placement='top' title={title} content={content}>
       <Button theme='primary'>button</Button>
-    </Tooltip>
+    </Popover>
   )
 }
 ```
 
 :::
 
-## Tooltip API
+## Popover API
 
 > 更多参数请参考<Link to="Popper">**Popper**</Link>属性
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | clsPrefix | 自定义类名前缀 | string | - | - | false |
-| content | tooltip 内容 | React.ReactNode | - | - | true |
-| maxWidth | tooltip 最大宽度 | number | - | - | false |
+| title | popover 标题 | React.ReactNode | - | - | false |
+| content | popover 内容 | React.ReactNode | - | - | true |
 | placement | 指定弹出框的方位 | `auto`&#x007c;`auto-start`&#x007c;`auto-end`&#x007c;`top`&#x007c;`top-start`&#x007c;`top-end`&#x007c;`right`&#x007c;`right-start`&#x007c;`right-end`&#x007c;`bottom`&#x007c;`bottom-start`&#x007c;`bottom-end`&#x007c;`left`&#x007c;`left-start`&#x007c;`left-end` | - | `auto` | false |
-| transitionClasses | 动画 class，参看<Link to='CSSTransition'>CSSTransition</Link> | boolean | - | `xl-tooltip--zoom` | false |
+| transitionClasses | 动画 class，参看<Link to='CSSTransition'>CSSTransition</Link> | boolean | - | `xl-popover--zoom` | false |
 | getPopupContainer | 指定弹出框的父容器 | string &#x007c; HTMLElement &#x007c; (() => string &#x007c; HTMLElement) | - | 默认为`body` | false |
 | visible | 是否显示弹出框 | boolean | - | false | false |
 | onVisibleChange | 弹出框状态改变时的回调 | (visible: boolean) => void | - | - | false |
