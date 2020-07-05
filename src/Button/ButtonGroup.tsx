@@ -24,6 +24,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
     disableElevation,
     theme,
     variant,
+    size,
     ...others
   } = props
   const classes = classnames(
@@ -36,7 +37,14 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
 
   return (
     <ButtonContext.Provider
-      value={{ groupClsPrefix: `${clsPrefix}`, disableRipple, disableElevation, theme, variant }}
+      value={{
+        groupClsPrefix: `${clsPrefix}`,
+        size,
+        disableRipple,
+        disableElevation,
+        theme,
+        variant
+      }}
     >
       <div {...others} className={classes} />
     </ButtonContext.Provider>
@@ -48,6 +56,7 @@ ButtonGroup.displayName = 'ButtonGroup'
 ButtonGroup.propTypes = {
   theme: PropTypes.oneOf(['primary', 'error', 'warning', 'secondary', 'success', 'info']),
   variant: PropTypes.oneOf(['contained', 'text', 'outlined']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   disableRipple: PropTypes.bool,
   disableElevation: PropTypes.bool,
   className: PropTypes.string,

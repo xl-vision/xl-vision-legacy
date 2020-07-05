@@ -7,6 +7,7 @@ export type ButtonContextProps = {
   disableElevation?: boolean
   disableRipple?: boolean
   groupClsPrefix?: string
+  size?: string
 }
 
 export default React.createContext<ButtonContextProps>({})

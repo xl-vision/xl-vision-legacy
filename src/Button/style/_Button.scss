@@ -17,34 +17,12 @@ $icon: #{$cls-prefix}-icon;
 }
 
 .#{$button} {
-  min-width: $button-min-width;
-  padding: $button-padding-y $button-padding-x;
-  border-radius: $button-border-radius;
-  transition: $btton-transition;
+  transition: $button-transition;
 
   @include button();
 
-  .#{$icon} {
-    font-size: $button-icon-size;
-  }
-
   &__icon--loading {
     animation: #{$button}-loading $button-loading-duration $button-loading-function infinite;
-  }
-
-  &__prefix {
-    margin-right: $button-icon-padding-content;
-    margin-left: $button-icon-padding-border - $button-padding-x;
-  }
-
-  &__suffix {
-    margin-right: $button-icon-padding-border - $button-padding-x;
-    margin-left: $button-icon-padding-content;
-  }
-
-  &--only-icon {
-    min-width: $button-border-radius-round;
-    padding: $button-padding-y;
   }
 
   &--long {
@@ -52,8 +30,98 @@ $icon: #{$cls-prefix}-icon;
     width: 100%;
   }
 
-  &--round {
-    border-radius: $button-border-radius-round;
+  .#{$icon} {
+    vertical-align: $button-icon-vertical-align;
+  }
+
+  &--size-medium {
+    min-width: $button-medium-min-width;
+    padding: $button-medium-padding-y $button-medium-padding-x;
+    font-size: $button-medium-font-size;
+    border-radius: $button-medium-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $button-medium-border-radius-round;
+    }
+
+    &.#{$button}--only-icon {
+      min-width: $button-medium-border-radius-round;
+      padding: $button-medium-padding-y;
+    }
+
+    .#{$icon} {
+      font-size: $button-medium-icon-size;
+    }
+
+    .#{$button}__prefix {
+      margin-right: $button-medium-icon-padding-content;
+      margin-left: $button-medium-icon-padding-border - $button-medium-padding-x;
+    }
+
+    .#{$button}__suffix {
+      margin-right: $button-medium-icon-padding-border - $button-medium-padding-x;
+      margin-left: $button-medium-icon-padding-content;
+    }
+  }
+
+  &--size-large {
+    min-width: $button-large-min-width;
+    padding: $button-large-padding-y $button-large-padding-x;
+    font-size: $button-large-font-size;
+    border-radius: $button-large-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $button-large-border-radius-round;
+    }
+
+    &.#{$button}--only-icon {
+      min-width: $button-large-border-radius-round;
+      padding: $button-large-padding-y;
+    }
+
+    .#{$icon} {
+      font-size: $button-large-icon-size;
+    }
+
+    .#{$button}__prefix {
+      margin-right: $button-large-icon-padding-content;
+      margin-left: $button-large-icon-padding-border - $button-large-padding-x;
+    }
+
+    .#{$button}__suffix {
+      margin-right: $button-large-icon-padding-border - $button-large-padding-x;
+      margin-left: $button-large-icon-padding-content;
+    }
+  }
+
+  &--size-small {
+    min-width: $button-small-min-width;
+    padding: $button-small-padding-y $button-small-padding-x;
+    font-size: $button-small-font-size;
+    border-radius: $button-small-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $button-small-border-radius-round;
+    }
+
+    &.#{$button}--only-icon {
+      min-width: $button-small-border-radius-round;
+      padding: $button-small-padding-y;
+    }
+
+    .#{$icon} {
+      font-size: $button-small-icon-size;
+    }
+
+    .#{$button}__prefix {
+      margin-right: $button-small-icon-padding-content;
+      margin-left: $button-small-icon-padding-border - $button-small-padding-x;
+    }
+
+    .#{$button}__suffix {
+      margin-right: $button-small-icon-padding-border - $button-small-padding-x;
+      margin-left: $button-small-icon-padding-content;
+    }
   }
 
   &--elevation {
@@ -131,14 +199,35 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--variant-outlined {
-    padding: $button-padding-y-outlined $button-padding-x-outlined;
     color: $button-default-color;
     background-color: transparent;
     border: $button-border-width solid $button-default-border-color;
 
-    &.#{$button}--only-icon {
-      min-width: $button-border-radius-round;
-      padding: $button-padding-y-outlined;
+    &.#{$button}--size-medium {
+      padding: $button-medium-padding-y-outlined $button-medium-padding-x-outlined;
+
+      &.#{$button}--only-icon {
+        min-width: $button-medium-border-radius-round;
+        padding: $button-medium-padding-y-outlined;
+      }
+    }
+
+    &.#{$button}--size-small {
+      padding: $button-small-padding-y-outlined $button-small-padding-x-outlined;
+
+      &.#{$button}--only-icon {
+        min-width: $button-small-border-radius-round;
+        padding: $button-small-padding-y-outlined;
+      }
+    }
+
+    &.#{$button}--size-large {
+      padding: $button-large-padding-y-outlined $button-large-padding-x-outlined;
+
+      &.#{$button}--only-icon {
+        min-width: $button-large-border-radius-round;
+        padding: $button-large-padding-y-outlined;
+      }
     }
 
     &.#{$button}--disabled,

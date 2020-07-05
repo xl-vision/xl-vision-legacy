@@ -15,6 +15,7 @@ export type ButtonTheme =
   | 'success'
   | 'info'
 export type ButtonVariant = 'contained' | 'text' | 'outlined'
+export type ButtonSize = 'large' | 'medium' | 'small'
 
 export interface ButtonProps extends BaseButtonProps {
   theme?: ButtonTheme
@@ -24,12 +25,14 @@ export interface ButtonProps extends BaseButtonProps {
   long?: boolean
   prefixIcon?: React.ReactNode
   suffixIcon?: React.ReactNode
+  size?: ButtonSize
 }
 
 const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
   const {
     groupClsPrefix,
+    size: cSize,
     theme: cTheme,
     variant: cVariant,
     disableElevation: cDisableElevation,
@@ -43,6 +46,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     long,
     disableElevation = cDisableElevation,
     disableRipple = cDisableRipple,
+    size = cSize || 'medium',
     prefixIcon: _prefixIcon,
     suffixIcon: _suffixIcon,
     children,
@@ -75,6 +79,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     clsPrefix,
     `${clsPrefix}--variant-${variant}`,
     `${clsPrefix}--theme-${theme}`,
+    `${clsPrefix}--size-${size}`,
     {
       [`${groupClsPrefix}__child`]: groupClsPrefix,
       [`${clsPrefix}--disabled`]: disabled,
@@ -109,6 +114,7 @@ Button.displayName = 'Button'
 Button.propTypes = {
   theme: PropTypes.oneOf(['primary', 'error', 'warning', 'secondary', 'success', 'info']),
   variant: PropTypes.oneOf(['contained', 'text', 'outlined']),
+  size: PropTypes.oneOf(['large', 'medium', 'small']),
   disableRipple: PropTypes.bool,
   disableElevation: PropTypes.bool,
   disabled: PropTypes.bool,

@@ -402,6 +402,76 @@ export default () => {
 
 :::
 
+:::demo 不同大小的按钮
+
+通过`size`指定按钮大小
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Trash, Close } from 'xl-vision/lib/icon'
+
+export default () => {
+  return (
+    <div>
+      <div className='column'>
+        <Button size='large' theme='primary'>
+          button
+        </Button>
+        <Button size='large' theme='primary' variant='outlined'>
+          button
+        </Button>
+        <Button size='large' theme='primary' variant='text'>
+          button
+        </Button>
+        <Button size='large' theme='primary' prefixIcon={<Trash />}>
+          button
+        </Button>
+        <Button size='large' theme='primary' round prefixIcon={<Close />} />
+      </div>
+      <div className='column'>
+        <Button size='medium' theme='primary'>
+          button
+        </Button>
+        <Button size='medium' theme='primary' variant='outlined'>
+          button
+        </Button>
+        <Button size='medium' theme='primary' variant='text'>
+          button
+        </Button>
+        <Button size='medium' theme='primary' prefixIcon={<Trash />}>
+          button
+        </Button>
+        <Button size='medium' theme='primary' round prefixIcon={<Close />} />
+      </div>
+      <div className='column'>
+        <Button size='small' theme='primary'>
+          button
+        </Button>
+        <Button size='small' theme='primary' variant='outlined'>
+          button
+        </Button>
+        <Button size='small' theme='primary' variant='text'>
+          button
+        </Button>
+        <Button size='small' theme='primary' prefixIcon={<Trash />}>
+          button
+        </Button>
+        <Button size='small' theme='primary' round prefixIcon={<Close />} />
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
 :::demo 更长的按钮
 
 通过`long`是按钮占据一整行
@@ -446,45 +516,54 @@ import { Button } from 'xl-vision'
 import { Trash, Close } from 'xl-vision/lib/icon'
 
 export default () => {
+  const [size, setSize] = React.useState('medium')
+
   return (
     <div>
       <div className='column'>
         <Button.Group theme='primary'>
+          <Button onClick={() => setSize('small')}>small</Button>
+          <Button onClick={() => setSize('medium')}>medium</Button>
+          <Button onClick={() => setSize('large')}>large</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group size={size} theme='primary'>
           <Button>button1</Button>
           <Button disabled>button2</Button>
           <Button>button3</Button>
         </Button.Group>
       </div>
       <div className='column'>
-        <Button.Group theme='primary' variant='outlined'>
+        <Button.Group size={size} theme='primary' variant='outlined'>
           <Button suffixIcon={<Close />}></Button>
           <Button disabled>button2</Button>
           <Button>button3</Button>
         </Button.Group>
       </div>
       <div className='column'>
-        <Button.Group theme='primary' variant='text'>
+        <Button.Group size={size} theme='primary' variant='text'>
           <Button prefixIcon={<Trash />}>button1</Button>
           <Button disabled>button2</Button>
           <Button>button3</Button>
         </Button.Group>
       </div>
       <div className='column'>
-        <Button.Group round theme='primary'>
+        <Button.Group size={size} round theme='primary'>
           <Button prefixIcon={<Trash />}></Button>
           <Button disabled>button2</Button>
           <Button>button3</Button>
         </Button.Group>
       </div>
       <div className='column'>
-        <Button.Group round theme='primary' variant='outlined'>
+        <Button.Group size={size} round theme='primary' variant='outlined'>
           <Button suffixIcon={<Close />}>button1</Button>
           <Button disabled>button2</Button>
           <Button>button3</Button>
         </Button.Group>
       </div>
       <div className='column'>
-        <Button.Group round theme='primary' variant='text'>
+        <Button.Group size={size} round theme='primary' variant='text'>
           <Button prefixIcon={<Trash />}>button1</Button>
           <Button disabled>button2</Button>
           <Button>button3</Button>
@@ -512,24 +591,33 @@ import React from 'react'
 import { Button } from 'xl-vision'
 
 export default () => {
+  const [size, setSize] = React.useState('medium')
+
   return (
     <div>
       <div className='column'>
         <Button.Group theme='primary'>
+          <Button onClick={() => setSize('small')}>small</Button>
+          <Button onClick={() => setSize('medium')}>medium</Button>
+          <Button onClick={() => setSize('large')}>large</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group size={size} theme='primary'>
           <Button>button1</Button>
           <Button theme='error'>button2</Button>
           <Button>button3</Button>
         </Button.Group>
       </div>
       <div className='column'>
-        <Button.Group variant='outlined' theme='primary'>
+        <Button.Group size={size} variant='outlined' theme='primary'>
           <Button>button1</Button>
           <Button theme='error'>button2</Button>
           <Button>button3</Button>
         </Button.Group>
       </div>
       <div className='column'>
-        <Button.Group variant='text' theme='primary'>
+        <Button.Group size={size} variant='text' theme='primary'>
           <Button>button1</Button>
           <Button theme='error'>button2</Button>
           <Button>button3</Button>
@@ -566,6 +654,7 @@ export default () => {
 | round | 圆角按钮 | boolean | - | - | false |
 | disableElevation | 禁止阴影效果，仅对`variant=contained` | boolean | - | - | false |
 | children | 子节点，在指定了`prefixIcon`或`suffixIcon`时可以为空 | ReactNode | - | - | false |
+| size | 设置按钮大小 | medium &#x007c; large &#x007c; small | - | - | false |
 
 ## Group API
 
@@ -580,3 +669,4 @@ export default () => {
 | theme | 设置按钮主题 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
 | variant | 设置按钮类型 | string | contained &#x007c; outlined &#x007c; text | contained | false |
 | children | 按钮数组 | Button &#x007c; Button[] | - | - | true |
+| size | 设置按钮大小 | medium &#x007c; large &#x007c; small | - | - | false |

@@ -11,14 +11,40 @@ $button-group: #{$cls-prefix}-button-group;
       border-right: $button-border-width solid $button-default-bg;
     }
 
-    &:first-child {
-      border-top-left-radius: $button-border-radius;
-      border-bottom-left-radius: $button-border-radius;
+    &.#{$button}--size-medium {
+      &:first-child {
+        border-top-left-radius: $button-medium-border-radius;
+        border-bottom-left-radius: $button-medium-border-radius;
+      }
+
+      &:last-child {
+        border-top-right-radius: $button-medium-border-radius;
+        border-bottom-right-radius: $button-medium-border-radius;
+      }
     }
 
-    &:last-child {
-      border-top-right-radius: $button-border-radius;
-      border-bottom-right-radius: $button-border-radius;
+    &.#{$button}--size-small {
+      &:first-child {
+        border-top-left-radius: $button-small-border-radius;
+        border-bottom-left-radius: $button-small-border-radius;
+      }
+
+      &:last-child {
+        border-top-right-radius: $button-small-border-radius;
+        border-bottom-right-radius: $button-small-border-radius;
+      }
+    }
+
+    &.#{$button}--size-large {
+      &:first-child {
+        border-top-left-radius: $button-large-border-radius;
+        border-bottom-left-radius: $button-large-border-radius;
+      }
+
+      &:last-child {
+        border-top-right-radius: $button-large-border-radius;
+        border-bottom-right-radius: $button-large-border-radius;
+      }
     }
 
     &.#{$button}--variant-contained {
@@ -32,32 +58,93 @@ $button-group: #{$cls-prefix}-button-group;
     }
 
     &.#{$button}--variant-outlined {
+      &.#{$button}--size-medium {
+        &:not(:last-child) {
+          // appead width
+          padding-right: $button-medium-padding-x;
+        }
+
+        &:not(:first-child) {
+          // appead width
+          padding-left: $button-medium-padding-x;
+          border-left-width: 0;
+        }
+      }
+
+      &.#{$button}--size-small {
+        &:not(:last-child) {
+          // appead width
+          padding-right: $button-small-padding-x;
+        }
+
+        &:not(:first-child) {
+          // appead width
+          padding-left: $button-small-padding-x;
+          border-left-width: 0;
+        }
+      }
+
+      &.#{$button}--size-large {
+        &:not(:last-child) {
+          // appead width
+          padding-right: $button-large-padding-x;
+        }
+
+        &:not(:first-child) {
+          // appead width
+          padding-left: $button-large-padding-x;
+          border-left-width: 0;
+        }
+      }
+
       @each $key, $value in $button-theme {
         &.#{$button}--theme-#{$key} {
           &:not(:last-child) {
-            // appead width
-            padding-right: $button-padding-x;
             border-right-color: theme-pick($value, dark);
-          }
-
-          &:not(:first-child) {
-            // appead width
-            padding-left: $button-padding-x;
-            border-left-width: 0;
           }
         }
       }
 
       &.#{$button}--only-icon {
-        &:not(:last-child) {
-          // appead width
-          padding-right: $button-padding-y;
+        &.#{$button}--size-medium {
+          &:not(:last-child) {
+            // appead width
+            padding-right: $button-medium-padding-y;
+          }
+
+          &:not(:first-child) {
+            &.#{$button}--only-icon {
+              // appead width
+              padding-left: $button-medium-padding-y;
+            }
+          }
         }
 
-        &:not(:first-child) {
-          &.#{$button}--only-icon {
+        &.#{$button}--size-small {
+          &:not(:last-child) {
             // appead width
-            padding-left: $button-padding-y;
+            padding-right: $button-small-padding-y;
+          }
+
+          &:not(:first-child) {
+            &.#{$button}--only-icon {
+              // appead width
+              padding-left: $button-small-padding-y;
+            }
+          }
+        }
+
+        &.#{$button}--size-large {
+          &:not(:last-child) {
+            // appead width
+            padding-right: $button-large-padding-y;
+          }
+
+          &:not(:first-child) {
+            &.#{$button}--only-icon {
+              // appead width
+              padding-left: $button-large-padding-y;
+            }
           }
         }
       }
@@ -66,14 +153,40 @@ $button-group: #{$cls-prefix}-button-group;
 
   &--round {
     .#{$button-group}__child {
-      &:first-child {
-        border-top-left-radius: $button-border-radius-round;
-        border-bottom-left-radius: $button-border-radius-round;
+      &.#{$button}--size-medium {
+        &:first-child {
+          border-top-left-radius: $button-medium-border-radius-round;
+          border-bottom-left-radius: $button-medium-border-radius-round;
+        }
+
+        &:last-child {
+          border-top-right-radius: $button-medium-border-radius-round;
+          border-bottom-right-radius: $button-medium-border-radius-round;
+        }
       }
 
-      &:last-child {
-        border-top-right-radius: $button-border-radius-round;
-        border-bottom-right-radius: $button-border-radius-round;
+      &.#{$button}--size-small {
+        &:first-child {
+          border-top-left-radius: $button-small-border-radius-round;
+          border-bottom-left-radius: $button-small-border-radius-round;
+        }
+
+        &:last-child {
+          border-top-right-radius: $button-small-border-radius-round;
+          border-bottom-right-radius: $button-small-border-radius-round;
+        }
+      }
+
+      &.#{$button}--size-large {
+        &:first-child {
+          border-top-left-radius: $button-large-border-radius-round;
+          border-bottom-left-radius: $button-large-border-radius-round;
+        }
+
+        &:last-child {
+          border-top-right-radius: $button-large-border-radius-round;
+          border-bottom-right-radius: $button-large-border-radius-round;
+        }
       }
     }
   }

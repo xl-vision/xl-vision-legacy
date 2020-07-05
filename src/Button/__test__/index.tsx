@@ -47,5 +47,17 @@ describe('ButtonGroup', () => {
     )
 
     expect(wrapper.render()).toMatchSnapshot()
+
+    wrapper.setProps({
+      size: 'large'
+    })
+    wrapper.update()
+    expect(wrapper.render()).toMatchSnapshot()
+
+    wrapper.setProps({
+      size: 'small'
+    })
+    wrapper.update()
+    expect(wrapper.render()).toMatchSnapshot()
   })
 })
