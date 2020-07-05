@@ -505,6 +505,51 @@ export default () => {
 
 :::
 
+:::demo 针对按钮组中某些按钮进行设置
+
+按钮组中的按钮也可以单独设置
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+
+export default () => {
+  return (
+    <div>
+      <div className='column'>
+        <Button.Group theme='primary'>
+          <Button>button1</Button>
+          <Button theme='error'>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group variant='outlined' theme='primary'>
+          <Button>button1</Button>
+          <Button theme='error'>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group variant='text' theme='primary'>
+          <Button>button1</Button>
+          <Button theme='error'>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button-group {
+  margin: 0.5rem;
+}
+```
+
+:::
+
 ## Button API
 
 > 其余参数请参考<Link to='BaseButton'>`BaseButton`</Link>
@@ -526,7 +571,7 @@ export default () => {
 
 ## Group API
 
-> 使用按钮组时，按钮样式以下属性在`Button`中设置无效
+> 使用按钮组时，请不要设置`Button`的`round`和`long`属性，否则会导致显示异常。
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |

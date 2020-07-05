@@ -36,19 +36,14 @@ $button-group: #{$cls-prefix}-button-group;
         &.#{$button}--theme-#{$key} {
           &:not(:last-child) {
             // appead width
-            padding-right: $button-padding-x-outlined + $button-border-width;
+            padding-right: $button-padding-x;
             border-right-color: theme-pick($value, dark);
           }
 
           &:not(:first-child) {
             // appead width
-            padding-left: $button-padding-x-outlined + $button-border-width;
+            padding-left: $button-padding-x;
             border-left-width: 0;
-
-            &.#{$button}--only-icon {
-              // appead width
-              padding-left: $button-padding-y-outlined + $button-border-width;
-            }
           }
         }
       }
@@ -56,13 +51,13 @@ $button-group: #{$cls-prefix}-button-group;
       &.#{$button}--only-icon {
         &:not(:last-child) {
           // appead width
-          padding-right: $button-padding-y-outlined + $button-border-width;
+          padding-right: $button-padding-y;
         }
 
         &:not(:first-child) {
           &.#{$button}--only-icon {
             // appead width
-            padding-left: $button-padding-y-outlined + $button-border-width;
+            padding-left: $button-padding-y;
           }
         }
       }

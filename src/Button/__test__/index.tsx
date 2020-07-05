@@ -30,7 +30,7 @@ describe('Button', () => {
 describe('ButtonGroup', () => {
   it('基本测试', () => {
     const wrapper = mount(
-      <Button.Group theme='error' variant='outlined'>
+      <Button.Group theme='primary' variant='contained'>
         <Button>button</Button>
         <Button theme='error'>button</Button>
         <Button variant='outlined'>button</Button>

@@ -6,7 +6,14 @@ import ConfigContext from '../ConfigProvider/ConfigContext'
 import BaseButton, { BaseButtonProps, ButtonElement } from '../BaseButton'
 import ButtonContext from './ButtonContext'
 
-export type ButtonTheme = 'primary' | 'error' | 'warning' | 'secondary' | 'success' | 'info'
+export type ButtonTheme =
+  | 'default'
+  | 'primary'
+  | 'error'
+  | 'warning'
+  | 'secondary'
+  | 'success'
+  | 'info'
 export type ButtonVariant = 'contained' | 'text' | 'outlined'
 
 export interface ButtonProps extends BaseButtonProps {
@@ -30,25 +37,20 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   } = React.useContext(ButtonContext)
   const {
     clsPrefix = `${rootClsPrefix}-button`,
-    theme: _theme,
-    variant: _variant,
+    theme = cTheme || 'default',
+    variant = cVariant || 'contained',
     round,
     long,
-    disableElevation: _disableElevation,
+    disableElevation = cDisableElevation,
+    disableRipple = cDisableRipple,
     prefixIcon: _prefixIcon,
     suffixIcon: _suffixIcon,
-    disableRipple: _disableRipple,
     children,
     disabled,
     loading,
     className,
     ...others
   } = props
-
-  const theme = groupClsPrefix ? cTheme : _theme
-  const variant = (groupClsPrefix ? cVariant : _variant) || 'contained'
-  const disableElevation = groupClsPrefix ? cDisableElevation : _disableElevation
-  const disableRipple = groupClsPrefix ? cDisableRipple : _disableRipple
 
   let prefixIcon = _prefixIcon
   let suffixIcon = _suffixIcon
@@ -72,13 +74,13 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   const classes = classnames(
     clsPrefix,
     `${clsPrefix}--variant-${variant}`,
+    `${clsPrefix}--theme-${theme}`,
     {
       [`${groupClsPrefix}__child`]: groupClsPrefix,
-      [`${clsPrefix}--theme-${theme}`]: theme,
       [`${clsPrefix}--disabled`]: disabled,
       [`${clsPrefix}--loading`]: loading,
-      [`${clsPrefix}--round`]: round && !groupClsPrefix,
-      [`${clsPrefix}--long`]: long && !groupClsPrefix,
+      [`${clsPrefix}--round`]: round,
+      [`${clsPrefix}--long`]: long,
       [`${clsPrefix}--only-icon`]:
         !children && ((prefixIcon && !suffixIcon) || (suffixIcon && !prefixIcon)),
       [`${clsPrefix}--elevation`]: !disableElevation && variant === 'contained'

@@ -9,14 +9,14 @@ $button-opacity-hover: $overlay-hover;
 $button-opacity-focus: $overlay-focus;
 $button-opacity-activated: $overlay-activated;
 
-$button-border-width: px2rem(1px);
+$button-border-width: 1px;
 
 $button-min-width: px2rem(64px);
 
 $button-padding-x: px2rem(16px);
 $button-padding-y: px2rem(6px);
-$button-padding-x-outlined: $button-padding-x - $button-border-width;
-$button-padding-y-outlined: $button-padding-y - $button-border-width;
+$button-padding-x-outlined: $button-padding-x - px2rem($button-border-width);
+$button-padding-y-outlined: $button-padding-y - px2rem($button-border-width);
 $button-icon-padding-border: px2rem(12px);
 $button-icon-padding-content: px2rem(8px);
 
@@ -29,7 +29,7 @@ $button-border-radius-round: px2rem($button-font-size * $button-line-height) + $
 $button-loading-duration: 1s;
 $button-loading-function: $fast-out-slow-in-timing-function;
 
-$button-default-bg: theme-pick($gray, 300);
+$button-default-bg: theme-pick($gray, 200);
 $button-default-color: $dark-primary-text;
 
 $button-default-bg-outline: theme-pick($gray, 100);
