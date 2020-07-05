@@ -1,20 +1,18 @@
-import { MDXProvider } from '@xl-vision/scripts'
-import classnames from 'classnames'
 import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
 // import { Spin } from 'xl-vision'
 import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
-import DemoBox from '../DemoBox'
 
 import classes from './index.module.scss'
+import Markdown from '../Markdown'
 
 const routeComponents: Array<React.ReactNode> = []
 
-type MarkdownProps = {
+type LazyRouteProps = {
   route: ComponentRoute
 }
 
-const Markdown: React.FunctionComponent<MarkdownProps> = (props) => {
+const LazyRoute: React.FunctionComponent<LazyRouteProps> = (props) => {
   // eslint-disable-next-line react/prop-types
   const { route } = props
   // eslint-disable-next-line react/prop-types
@@ -40,7 +38,7 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
           exact={true}
           key={key}
           path={componentRoute.path}
-          render={() => <Markdown route={componentRoute} />}
+          render={() => <LazyRoute route={componentRoute} />}
         />
       )
     } else if ((it as RedirectRoute).redirect) {
@@ -58,30 +56,13 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
 
 addRoute(routes)
 
-const components = {
-  DemoBox,
-  a: (props: {}) => <a {...props} className='md_a' />,
-  blockquote: (props: {}) => <blockquote {...props} className='md_blockquote' />,
-  inlineCode: (props: {}) => <code {...props} className='md_code_inline' />,
-  li: (props: {}) => <ol {...props} className='md_li' />,
-  ol: (props: {}) => <ol {...props} className='md_ol' />,
-  table: (props: {}) => (
-    <div className='md_table-wrapper'>
-      <table {...props} className='md_table' />
-    </div>
-  ),
-  wrapper: (props: { children: React.ReactNode }) => (
-    <div className={classnames('md')}>{props.children}</div>
-  )
-}
-
 const Content: React.FunctionComponent<{}> = () => {
   return (
     <div className={classes.content}>
-      <MDXProvider components={components}>
+      <Markdown>
         {/* <React.Suspense fallback={<Spin cover={true} />}>{routeComponents}</React.Suspense> */}
         <React.Suspense fallback={<div />}>{routeComponents}</React.Suspense>
-      </MDXProvider>
+      </Markdown>
     </div>
   )
 }

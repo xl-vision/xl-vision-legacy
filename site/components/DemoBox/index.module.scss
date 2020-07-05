@@ -1,4 +1,5 @@
 @use '../../assets/style/var' as *;
+@use '../../assets/style/mixins/link' as *;
 
 $padding: 16px;
 
@@ -27,13 +28,24 @@ $padding: 16px;
   top: -8px;
   // 对齐desc
   left: $padding - 5px;
+  display: inline-block;
   padding: 0 5px;
   font-weight: bold;
   font-size: 16px;
+  line-height: 1;
   background-color: #ffffff;
+
   p {
+    display: inline-block;
     margin: 0;
     padding: 0;
+  }
+
+  .anchor {
+    display: inline-block;
+    padding-left: 5px;
+
+    @include link();
   }
 }
 

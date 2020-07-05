@@ -1,0 +1,21 @@
+@use '../var' as *;
+
+@mixin link {
+  $color: theme-pick($primary, main);
+
+  color: $color;
+  text-decoration: none;
+  transition: all $standard-duration $fast-out-slow-in-timing-function;
+
+  &:hover {
+    color: overlay-color($color, $overlay-hover);
+  }
+
+  &:focus {
+    color: overlay-color($color, $overlay-focus);
+  }
+
+  &:active {
+    color: overlay-color($color, $overlay-activated);
+  }
+}

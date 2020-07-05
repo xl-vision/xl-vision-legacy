@@ -3,9 +3,10 @@ import * as React from 'react'
 import classes from './index.module.scss'
 import { DemoBoxProps } from '@xl-vision/scripts'
 import { CollapseTransition, Button } from '../../../src'
+import { CodeSlash, Code, Link } from '../../../src/icon'
+import getText from '../../utils/getText'
 
 import 'prismjs/themes/prism.css'
-import { CodeSlash, Code } from '../../../src/icon'
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -17,11 +18,17 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
     setExpand((prev) => !prev)
   }, [])
 
+  const text = getText(title)
   return (
-    <div className={classes.demoBox}>
+    <div className={classes.demoBox} id={text}>
       <div className={classes.preview}>{children}</div>
       <div className={classes.info}>
-        <div className={classes.title}>{title}</div>
+        <div className={classes.title}>
+          {title}
+          <a className={classes.anchor} href={`#${text}`}>
+            <Link />
+          </a>
+        </div>
         <div className={classes.desc}>{desc}</div>
       </div>
       <div className={classes.actions}>
