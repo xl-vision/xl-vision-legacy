@@ -273,6 +273,7 @@ describe('Popper', () => {
     wrapper.find('.btn').simulate('mouseleave')
     await act(() => wait(5))
     findPopper(wrapper, 'popup').simulate('mouseenter')
+    await act(() => wait(5))
     wrapper.find('.btn2').simulate('mouseenter')
     await act(() => wait(50))
     const popup2 = document.querySelector('.popup2') as HTMLElement
@@ -288,6 +289,7 @@ describe('Popper', () => {
     expect(popup2.style.display).toBe('')
 
     findPopper(wrapper, 'popup2').simulate('mouseleave')
+    await act(() => wait(5))
     findPopper(wrapper, 'popup').simulate('mouseleave')
     await act(() => wait(50))
     expect(popup.style.display).toBe('none')
