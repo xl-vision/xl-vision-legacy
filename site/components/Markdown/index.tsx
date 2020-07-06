@@ -14,11 +14,28 @@ export type MarkdownProps = {
   children: React.ReactNode
 }
 
+const Wrapper: React.FunctionComponent<{ children: React.ReactNode }> = (props) => {
+  const { children } = props
+  React.useEffect(() => {
+    const hash = location.hash
+    if (!hash) {
+      return
+    }
+    const el = document.querySelector(decodeURI(hash))
+    if (!el) {
+      document.body.scrollTo(0, 0)
+      return
+    }
+    el.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }, [])
+  return <div className={classes.md}>{children}</div>
+}
+
 const components: MDXProviderComponents = {
   DemoBox,
-  wrapper(props) {
-    return <div className={classes.md}>{props.children}</div>
-  },
+  wrapper: Wrapper,
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore
   Link(props) {

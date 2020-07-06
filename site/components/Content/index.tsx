@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
 // import { Spin } from 'xl-vision'
@@ -13,14 +15,11 @@ type LazyRouteProps = {
 }
 
 const LazyRoute: React.FunctionComponent<LazyRouteProps> = (props) => {
-  // eslint-disable-next-line react/prop-types
   const { route } = props
-  // eslint-disable-next-line react/prop-types
   const Loadable = React.lazy(() => route.component)
 
   React.useEffect(() => {
     if (document) {
-      // eslint-disable-next-line react/prop-types
       document.title = route.name
     }
   }, [route])
