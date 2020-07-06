@@ -2,6 +2,11 @@
 
 exports[`Tooltip render 1`] = `
 Array [
+  <button
+    class="btn"
+  >
+    button
+  </button>,
   <div
     data-popper-escaped=""
     data-popper-placement="top"
@@ -25,16 +30,16 @@ Array [
       </div>
     </div>
   </div>,
-  <button
-    class="btn"
-  >
-    button
-  </button>,
 ]
 `;
 
 exports[`Tooltip render:maxWidth 1`] = `
 Array [
+  <button
+    class="btn"
+  >
+    button
+  </button>,
   <div
     data-popper-escaped=""
     data-popper-placement="top"
@@ -59,10 +64,5 @@ Array [
       </div>
     </div>
   </div>,
-  <button
-    class="btn"
-  >
-    button
-  </button>,
 ]
 `;

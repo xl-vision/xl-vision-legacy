@@ -260,12 +260,12 @@ describe('Popper', () => {
       </Popper>
     )
 
-    await act(() => wait(50))
+    await act(() => wait(100))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(100))
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
     expect(document.querySelector('.popup2')).toBeNull()
@@ -275,7 +275,7 @@ describe('Popper', () => {
     findPopper(wrapper, 'popup').simulate('mouseenter')
     await act(() => wait(5))
     wrapper.find('.btn2').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(100))
     const popup2 = document.querySelector('.popup2') as HTMLElement
     expect(popup.style.display).toBe('')
     expect(popup2.style.display).toBe('')
@@ -284,14 +284,14 @@ describe('Popper', () => {
     wrapper.find('.btn2').simulate('mouseleave')
     await act(() => wait(5))
     findPopper(wrapper, 'popup2').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(100))
     expect(popup.style.display).toBe('')
     expect(popup2.style.display).toBe('')
 
     findPopper(wrapper, 'popup2').simulate('mouseleave')
     await act(() => wait(5))
     findPopper(wrapper, 'popup').simulate('mouseleave')
-    await act(() => wait(50))
+    await act(() => wait(100))
     expect(popup.style.display).toBe('none')
     expect(popup2.style.display).toBe('none')
   })

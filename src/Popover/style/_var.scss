@@ -4,9 +4,8 @@
 $popover-bg: $white;
 $popover-color: $dark-primary-text;
 
-$popover-padding-x: px2rem(16px);
-$popover-title-padding-y: px2rem(4px);
-$popover-content-padding-y: px2rem(12px);
+$popover-title-padding: px2rem(4px) px2rem(16px);
+$popover-content-padding: px2rem(12px) px2rem(16px);
 
 $popover-border-width: 1px;
 $popover-border-color: $dark-dividers;

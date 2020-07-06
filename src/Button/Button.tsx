@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import { Reload } from '../icon'
+import Reload from '../icon/Reload'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import BaseButton, { BaseButtonProps, ButtonElement } from '../BaseButton'
 import ButtonContext from './ButtonContext'
@@ -112,7 +112,15 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 Button.displayName = 'Button'
 
 Button.propTypes = {
-  theme: PropTypes.oneOf(['primary', 'error', 'warning', 'secondary', 'success', 'info']),
+  theme: PropTypes.oneOf([
+    'default',
+    'primary',
+    'error',
+    'warning',
+    'secondary',
+    'success',
+    'info'
+  ]),
   variant: PropTypes.oneOf(['contained', 'text', 'outlined']),
   size: PropTypes.oneOf(['large', 'medium', 'small']),
   disableRipple: PropTypes.bool,

@@ -19,14 +19,14 @@ $popover: #{$cls-prefix}-popover;
     @include elevation(8);
   }
   &__title {
-    padding: $popover-title-padding-y $popover-padding-x;
+    padding: $popover-title-padding;
     border-bottom: $popover-border-width solid $popover-border-color;
 
     @include subtitle2();
   }
 
   &__content {
-    padding: $popover-content-padding-y $popover-padding-x;
+    padding: $popover-content-padding;
 
     @include body2();
   }

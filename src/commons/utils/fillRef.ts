@@ -3,7 +3,7 @@ import React from 'react'
 const call = <T extends Element>(node: T | null, ref: React.Ref<T | undefined>) => {
   if (typeof ref === 'function') {
     ref(node)
-  } else if (typeof ref === 'object' && ref && 'current' in ref) {
+  } else if (ref && typeof ref === 'object' && 'current' in ref) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(ref as any).current = node
   }
