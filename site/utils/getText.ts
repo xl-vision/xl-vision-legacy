@@ -16,7 +16,7 @@ const getText = (children: React.ReactNode) => {
       text += getText(child)
     }
   })
-  return text
+  return text.replace(/\s+/g, '_')
 }
 
 export default getText

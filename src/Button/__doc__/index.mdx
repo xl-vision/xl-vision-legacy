@@ -78,6 +78,39 @@ export default () => {
 
 :::
 
+:::demo 超链接按钮
+
+通过指定`href`,即可实现和`a`标签一样的效果。
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+
+export default () => {
+  return (
+    <div className='column'>
+      <Button theme='primary' variant='contained' href='#'>
+        Link
+      </Button>
+      <Button theme='primary' variant='outlined' href='#'>
+        Link
+      </Button>
+      <Button theme='primary' variant='text' href='#'>
+        Link
+      </Button>
+    </div>
+  )
+}
+```
+
+```scss
+.column::deep .xl-button {
+  margin: 0.5rem;
+}
+```
+
+:::
+
 :::demo 添加图标
 
 添加图标可以使按钮更加醒目

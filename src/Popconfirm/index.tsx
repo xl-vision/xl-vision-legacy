@@ -92,6 +92,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
       {footer || (
         <>
           <Button
+            disableElevation={true}
             variant='contained'
             theme='default'
             size='small'
@@ -101,6 +102,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
             {cancelText}
           </Button>
           <Button
+            disableElevation={true}
             variant='contained'
             theme='primary'
             size='small'

@@ -1,9 +1,11 @@
 import React from 'react'
 import locale from '../locale/en-US'
 
-const ConfigContext = React.createContext({
+export const defaultConfig = {
   clsPrefix: 'xl',
   locale
-})
+}
+
+const ConfigContext = React.createContext(defaultConfig)
 
 export default ConfigContext

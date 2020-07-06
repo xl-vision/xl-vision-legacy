@@ -51,7 +51,7 @@ Array [
           class="xl-popconfirm__footer"
         >
           <button
-            class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-small xl-button--elevation"
+            class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-small"
             tabindex="0"
           >
             <span
@@ -64,7 +64,7 @@ Array [
             />
           </button>
           <button
-            class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation"
+            class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small"
             tabindex="0"
           >
             <span
