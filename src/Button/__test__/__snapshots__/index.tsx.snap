@@ -100,7 +100,7 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -124,7 +124,7 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -148,7 +148,7 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--long xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--long"
     tabindex="0"
   >
     <span
@@ -161,7 +161,7 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -197,7 +197,7 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--loading xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--only-icon xl-button--loading"
     tabindex="0"
   >
     <span
@@ -228,7 +228,7 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -271,7 +271,7 @@ exports[`ButtonGroup 基本测试 1`] = `
   class="xl-button-group"
 >
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -284,7 +284,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-error xl-button--size-medium xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-error xl-button--size-medium xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -297,7 +297,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-outlined xl-button--theme-primary xl-button--size-medium xl-button-group__child"
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button--theme-primary xl-button--size-medium"
     tabindex="0"
   >
     <span
@@ -310,7 +310,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -339,7 +339,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -368,7 +368,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -392,7 +392,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -416,7 +416,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -452,7 +452,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--loading xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--only-icon xl-button--loading"
     tabindex="0"
   >
     <span
@@ -483,7 +483,7 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button-group__child xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -526,7 +526,7 @@ exports[`ButtonGroup 基本测试 2`] = `
   class="xl-button-group"
 >
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -539,7 +539,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-error xl-button--size-large xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-error xl-button--size-large xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -552,7 +552,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-outlined xl-button--theme-primary xl-button--size-large xl-button-group__child"
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button--theme-primary xl-button--size-large"
     tabindex="0"
   >
     <span
@@ -565,7 +565,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -594,7 +594,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -623,7 +623,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -647,7 +647,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -671,7 +671,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -707,7 +707,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--loading xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--only-icon xl-button--loading"
     tabindex="0"
   >
     <span
@@ -738,7 +738,7 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button-group__child xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -781,7 +781,7 @@ exports[`ButtonGroup 基本测试 3`] = `
   class="xl-button-group"
 >
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -794,7 +794,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-error xl-button--size-small xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-error xl-button--size-small xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -807,7 +807,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-outlined xl-button--theme-primary xl-button--size-small xl-button-group__child"
+    class="xl-base-button xl-button xl-button--variant-outlined xl-button--theme-primary xl-button--size-small"
     tabindex="0"
   >
     <span
@@ -820,7 +820,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -849,7 +849,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation"
     tabindex="0"
   >
     <span
@@ -878,7 +878,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -902,7 +902,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--only-icon"
     tabindex="0"
   >
     <span
@@ -926,7 +926,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -962,7 +962,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--loading xl-button--only-icon xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--only-icon xl-button--loading"
     tabindex="0"
   >
     <span
@@ -993,7 +993,7 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button-group__child xl-button--loading xl-button--elevation"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span

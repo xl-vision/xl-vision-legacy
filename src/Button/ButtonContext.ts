@@ -6,7 +6,6 @@ export type ButtonContextProps = {
   variant?: ButtonVariant
   disableElevation?: boolean
   disableRipple?: boolean
-  groupClsPrefix?: string
   size?: string
 }
 

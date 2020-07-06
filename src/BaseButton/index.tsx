@@ -91,6 +91,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
   return (
     <Component
       {...others}
+      disabled={disabled}
       onClick={onClickWrap}
       onKeyDown={onKeyDownWrap}
       onKeyUp={onKeyUpWrap}

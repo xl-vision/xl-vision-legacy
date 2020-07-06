@@ -26,11 +26,11 @@ $ripple: #{$cls-prefix}-ripple;
   -webkit-tap-highlight-color: transparent;
 
   &--disabled {
-    pointer-events: none;
+    cursor: not-allowed;
   }
 
   &--loading {
-    cursor: not-allowed;
+    pointer-events: none;
   }
 
   .#{$ripple} {

@@ -1,5 +1,6 @@
-@use '../../Popper/style';
 @use './var' as *;
+@use '../../Popper/style' as Popper;
+@use '../../Button/style/Button' as Button;
 @use '../../style/mixins/arrow' as *;
 
 $popconfirm: #{$cls-prefix}-popconfirm;

@@ -31,7 +31,6 @@ export interface ButtonProps extends BaseButtonProps {
 const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
   const {
-    groupClsPrefix,
     size: cSize,
     theme: cTheme,
     variant: cVariant,
@@ -81,14 +80,13 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     `${clsPrefix}--theme-${theme}`,
     `${clsPrefix}--size-${size}`,
     {
-      [`${groupClsPrefix}__child`]: groupClsPrefix,
-      [`${clsPrefix}--disabled`]: disabled,
-      [`${clsPrefix}--loading`]: loading,
+      [`${clsPrefix}--elevation`]: !disableElevation && variant === 'contained',
       [`${clsPrefix}--round`]: round,
       [`${clsPrefix}--long`]: long,
       [`${clsPrefix}--only-icon`]:
         !children && ((prefixIcon && !suffixIcon) || (suffixIcon && !prefixIcon)),
-      [`${clsPrefix}--elevation`]: !disableElevation && variant === 'contained'
+      [`${clsPrefix}--loading`]: loading,
+      [`${clsPrefix}--disabled`]: disabled
     },
     className
   )

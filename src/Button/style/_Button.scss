@@ -125,24 +125,28 @@ $icon: #{$cls-prefix}-icon;
   }
 
   &--elevation {
-    &.#{$button}--disabled,
-    &.#{$button}--loading {
-      @include elevation(0);
+    @include elevation(2);
+    &:hover {
+      @include elevation(4);
     }
 
-    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
-      @include elevation(2);
-      &:hover {
-        @include elevation(4);
-      }
+    &:focus {
+      @include elevation(6);
+    }
 
-      &:focus {
-        @include elevation(6);
-      }
+    &:active {
+      @include elevation(8);
+    }
 
-      &:active {
-        @include elevation(8);
-      }
+    &.#{$button}--disabled,
+    &.#{$button}--disabled:hover,
+    &.#{$button}--disabled:focus,
+    &.#{$button}--disabled:active,
+    &.#{$button}--loading,
+    &.#{$button}--loading:hover,
+    &.#{$button}--loading:focus,
+    &.#{$button}--loading:active {
+      @include elevation(0);
     }
   }
 
@@ -150,23 +154,27 @@ $icon: #{$cls-prefix}-icon;
     color: $button-default-color;
     background-color: $button-default-bg;
 
-    &.#{$button}--disabled,
-    &.#{$button}--loading {
-      background-color: overlay-color($button-default-bg, $button-opacity-disabled);
+    &:hover {
+      background-color: overlay-color($button-default-bg, $button-opacity-hover);
     }
 
-    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
-      &:hover {
-        background-color: overlay-color($button-default-bg, $button-opacity-hover);
-      }
+    &:focus {
+      background-color: overlay-color($button-default-bg, $button-opacity-focus);
+    }
 
-      &:focus {
-        background-color: overlay-color($button-default-bg, $button-opacity-focus);
-      }
+    &:active {
+      background-color: overlay-color($button-default-bg, $button-opacity-activated);
+    }
 
-      &:active {
-        background-color: overlay-color($button-default-bg, $button-opacity-activated);
-      }
+    &.#{$button}--disabled,
+    &.#{$button}--disabled:hover,
+    &.#{$button}--disabled:focus,
+    &.#{$button}--disabled:active,
+    &.#{$button}--loading,
+    &.#{$button}--loading:hover,
+    &.#{$button}--loading:focus,
+    &.#{$button}--loading:active {
+      background-color: overlay-color($button-default-bg, $button-opacity-disabled);
     }
 
     @each $key, $value in $button-theme {
@@ -176,22 +184,26 @@ $icon: #{$cls-prefix}-icon;
         color: theme-pick($value, main, true);
         background-color: $background-color;
 
-        &:not(.#{$button}--disabled):not(.#{$button}--loading) {
-          &:hover {
-            background-color: overlay-color($background-color, $button-opacity-hover);
-          }
+        &:hover {
+          background-color: overlay-color($background-color, $button-opacity-hover);
+        }
 
-          &:focus {
-            background-color: overlay-color($background-color, $button-opacity-focus);
-          }
+        &:focus {
+          background-color: overlay-color($background-color, $button-opacity-focus);
+        }
 
-          &:active {
-            background-color: overlay-color($background-color, $button-opacity-activated);
-          }
+        &:active {
+          background-color: overlay-color($background-color, $button-opacity-activated);
         }
 
         &.#{$button}--disabled,
-        &.#{$button}--loading {
+        &.#{$button}--disabled:hover,
+        &.#{$button}--disabled:focus,
+        &.#{$button}--disabled:active,
+        &.#{$button}--loading,
+        &.#{$button}--loading:hover,
+        &.#{$button}--loading:focus,
+        &.#{$button}--loading:active {
           background-color: overlay-color($background-color, $button-opacity-disabled);
         }
       }
@@ -230,29 +242,31 @@ $icon: #{$cls-prefix}-icon;
       }
     }
 
-    &.#{$button}--disabled,
-    &.#{$button}--loading {
-      background-color: overlay-color($button-default-bg-outline, $button-opacity-disabled);
-      border-color: overlay-color($button-default-border-color, $button-opacity-disabled);
-
-      @include elevation(0);
+    &:hover {
+      background-color: overlay-color($button-default-bg-outline, $button-opacity-hover);
+      border-color: overlay-color($button-default-border-color, $button-opacity-hover);
     }
 
-    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
-      &:hover {
-        background-color: overlay-color($button-default-bg-outline, $button-opacity-hover);
-        border-color: overlay-color($button-default-border-color, $button-opacity-hover);
-      }
+    &:focus {
+      background-color: overlay-color($button-default-bg-outline, $button-opacity-focus);
+      border-color: overlay-color($button-default-border-color, $button-opacity-focus);
+    }
 
-      &:focus {
-        background-color: overlay-color($button-default-bg-outline, $button-opacity-focus);
-        border-color: overlay-color($button-default-border-color, $button-opacity-focus);
-      }
+    &:active {
+      background-color: overlay-color($button-default-bg-outline, $button-opacity-activated);
+      border-color: overlay-color($button-default-border-color, $button-opacity-activated);
+    }
 
-      &:active {
-        background-color: overlay-color($button-default-bg-outline, $button-opacity-activated);
-        border-color: overlay-color($button-default-border-color, $button-opacity-activated);
-      }
+    &.#{$button}--disabled,
+    &.#{$button}--disabled:hover,
+    &.#{$button}--disabled:focus,
+    &.#{$button}--disabled:active,
+    &.#{$button}--loading,
+    &.#{$button}--loading:hover,
+    &.#{$button}--loading:focus,
+    &.#{$button}--loading:active {
+      background-color: overlay-color($button-default-bg-outline, $button-opacity-disabled);
+      border-color: overlay-color($button-default-border-color, $button-opacity-disabled);
     }
 
     @each $key, $value in $button-theme {
@@ -263,26 +277,31 @@ $icon: #{$cls-prefix}-icon;
         color: $color;
         border-color: $border-color;
 
-        &:not(.#{$button}--disabled):not(.#{$button}--loading) {
-          &:hover {
-            background-color: overlay-color($color, 1 - $button-opacity-hover);
-            border-color: overlay-color($border-color, $button-opacity-hover);
-          }
+        &:hover {
+          background-color: overlay-color($color, 1 - $button-opacity-hover);
+          border-color: overlay-color($border-color, $button-opacity-hover);
+        }
 
-          &:focus {
-            background-color: overlay-color($color, 1 - $button-opacity-focus);
-            border-color: overlay-color($border-color, $button-opacity-focus);
-          }
+        &:focus {
+          background-color: overlay-color($color, 1 - $button-opacity-focus);
+          border-color: overlay-color($border-color, $button-opacity-focus);
+        }
 
-          &:active {
-            background-color: overlay-color($color, 1 - $button-opacity-activated);
-            border-color: overlay-color($border-color, $button-opacity-activated);
-          }
+        &:active {
+          background-color: overlay-color($color, 1 - $button-opacity-activated);
+          border-color: overlay-color($border-color, $button-opacity-activated);
         }
 
         &.#{$button}--disabled,
-        &.#{$button}--loading {
+        &.#{$button}--disabled:hover,
+        &.#{$button}--disabled:focus,
+        &.#{$button}--disabled:active,
+        &.#{$button}--loading,
+        &.#{$button}--loading:hover,
+        &.#{$button}--loading:focus,
+        &.#{$button}--loading:active {
           color: overlay-color($color, $button-opacity-disabled);
+          background-color: transparent;
           border-color: overlay-color($border-color, $button-opacity-disabled);
         }
       }
@@ -295,25 +314,28 @@ $icon: #{$cls-prefix}-icon;
     color: $color;
     background-color: transparent;
 
-    &.#{$button}--disabled,
-    &.#{$button}--loading {
-      color: overlay-color($color, $button-opacity-disabled);
-
-      @include elevation(0);
+    &:hover {
+      background-color: overlay-color($button-default-bg-text, $button-opacity-hover);
     }
 
-    &:not(.#{$button}--disabled):not(.#{$button}--loading) {
-      &:hover {
-        background-color: overlay-color($button-default-bg-text, $button-opacity-hover);
-      }
+    &:focus {
+      background-color: overlay-color($button-default-bg-text, $button-opacity-focus);
+    }
 
-      &:focus {
-        background-color: overlay-color($button-default-bg-text, $button-opacity-focus);
-      }
+    &:active {
+      background-color: overlay-color($button-default-bg-text, $button-opacity-activated);
+    }
 
-      &:active {
-        background-color: overlay-color($button-default-bg-text, $button-opacity-activated);
-      }
+    &.#{$button}--disabled,
+    &.#{$button}--disabled:hover,
+    &.#{$button}--disabled:focus,
+    &.#{$button}--disabled:active,
+    &.#{$button}--loading,
+    &.#{$button}--loading:hover,
+    &.#{$button}--loading:focus,
+    &.#{$button}--loading:active {
+      color: overlay-color($color, $button-opacity-disabled);
+      background-color: transparent;
     }
 
     @each $key, $value in $button-theme {
@@ -322,23 +344,28 @@ $icon: #{$cls-prefix}-icon;
 
         color: $color;
 
-        &:not(.#{$button}--disabled):not(.#{$button}--loading) {
-          &:hover {
-            background-color: overlay-color($color, 1 - $button-opacity-hover);
-          }
+        &:hover {
+          background-color: overlay-color($color, 1 - $button-opacity-hover);
+        }
 
-          &:focus {
-            background-color: overlay-color($color, 1 - $button-opacity-focus);
-          }
+        &:focus {
+          background-color: overlay-color($color, 1 - $button-opacity-focus);
+        }
 
-          &:active {
-            background-color: overlay-color($color, 1 - $button-opacity-activated);
-          }
+        &:active {
+          background-color: overlay-color($color, 1 - $button-opacity-activated);
         }
 
         &.#{$button}--disabled,
-        &.#{$button}--loading {
+        &.#{$button}--disabled:hover,
+        &.#{$button}--disabled:focus,
+        &.#{$button}--disabled:active,
+        &.#{$button}--loading,
+        &.#{$button}--loading:hover,
+        &.#{$button}--loading:focus,
+        &.#{$button}--loading:active {
           color: overlay-color($color, $button-opacity-disabled);
+          background-color: transparent;
         }
       }
     }

@@ -14,8 +14,8 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/xl-vision/xl-vision.svg)](http://isitmaintained.com/project/xl-vision/xl-vision "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/xl-vision/xl-vision.svg)](http://isitmaintained.com/project/xl-vision/xl-vision "Percentage of issues still open")
 [![License used](https://img.shields.io/github/license/xl-vision/xl-vision.svg)](https://mit-license.org/)
-[![js gzip](http://img.badgesize.io/https://unpkg.com/xl-vision/dist/index.min.js?compression=gzip&label=gzip%20size:%20JS)](https://unpkg.com/xl-vision/dist/index.min.js)
-[![css gzip](http://img.badgesize.io/https://unpkg.com/xl-vision/dist/index.min.css?compression=gzip&label=gzip%20size:%20css)](https://unpkg.com/xl-vision/dist/index.min.css)
+[![js gzip](http://img.badgesize.io/https://unpkg.com/xl-vision/dist/xl-vision.min.js?compression=gzip&label=gzip%20size:%20JS)](https://unpkg.com/xl-vision/dist/xl-vision.min.js)
+[![css gzip](http://img.badgesize.io/https://unpkg.com/xl-vision/dist/xl-vision.min.css?compression=gzip&label=gzip%20size:%20css)](https://unpkg.com/xl-vision/dist/xl-vision.min.css)
 
 # :sparkles: Features
 

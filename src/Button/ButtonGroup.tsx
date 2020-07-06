@@ -38,7 +38,6 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
   return (
     <ButtonContext.Provider
       value={{
-        groupClsPrefix: `${clsPrefix}`,
         size,
         disableRipple,
         disableElevation,
