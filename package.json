@@ -65,7 +65,7 @@
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "@xl-vision/icon-generator": "^0.0.1-beta.16",
-    "@xl-vision/scripts": "^0.0.1-beta.95",
+    "@xl-vision/scripts": "^0.0.1-beta.96",
     "chalk": "^4.0.0",
     "clipboard": "^2.0.6",
     "commitizen": "^4.0.3",
@@ -86,7 +86,7 @@
     "fs-extra": "^9.0.0",
     "husky": "^4.2.3",
     "inquirer": "^7.1.0",
-    "jest": "^25.5.1",
+    "jest": "^26.1.0",
     "node-fetch": "^2.6.0",
     "npm-check": "^5.9.2",
     "prettier": "^2.0.2",
@@ -102,7 +102,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.16.0",
-    "ts-jest": "^25.5.1"
+    "ts-jest": "^26.1.1"
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
