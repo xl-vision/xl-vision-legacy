@@ -6,7 +6,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/391165543cfc4c0985d714660f86fa0f)](https://www.codacy.com/app/xl-vision/xl-vision?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xl-vision/xl-vision&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/xl-vision/xl-vision/branch/master/graph/badge.svg)](https://codecov.io/gh/xl-vision/xl-vision)
-[![Build Status](https://api.travis-ci.com/xl-vision/xl-vision.svg?branch=master)](https://travis-ci.com/xl-vision/xl-vision)
+[![Build Status](https://github.com/xl-vision/xl-vision/workflows/build/badge.svg)](https://github.com/xl-vision/xl-vision/actions)
 [![Dependencies](https://david-dm.org/xl-vision/xl-vision/status.svg)](https://david-dm.org/xl-vision/xl-vision)
 [![DevDependencies](https://david-dm.org/xl-vision/xl-vision/dev-status.svg)](https://david-dm.org/xl-vision/xl-vision?type=dev)
 [![npm package](https://img.shields.io/npm/v/xl-vision.svg)](https://www.npmjs.org/package/xl-vision)
@@ -50,7 +50,7 @@ Then import style manually
 import 'xl-vision/lib/style/index.css'
 ```
 
-Please refer to the [documentation](https://xl-vision.github.io/xl-vision/) for detailed usage.
+Please refer to the [documentation](https://xl-vision.rhysxia.me) for detailed usage.
 
 
 # :keyboard: Development
