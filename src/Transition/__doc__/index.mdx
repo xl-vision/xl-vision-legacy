@@ -58,7 +58,9 @@ export default () => {
 
   return (
     <div>
-      <Button onClick={() => setShow(!show)}>Click</Button>
+      <Button theme='primary' onClick={() => setShow(!show)}>
+        Click
+      </Button>
       <Transition in={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
         <div className='demo'>DEMO</div>
       </Transition>
@@ -76,6 +78,8 @@ export default () => {
   color: #fff;
   font-size: 3rem;
   background-color: #007bff;
+
+  margin-top: 16px;
 }
 ```
 
@@ -134,7 +138,9 @@ export default () => {
 
   return (
     <div>
-      <Button onClick={() => setShow(!show)}>Click</Button>
+      <Button theme='primary' onClick={() => setShow(!show)}>
+        Click
+      </Button>
       <p>进场动画</p>
       <Transition transitionOnFirst in={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
         <div className='demo'>DEMO</div>
@@ -219,7 +225,9 @@ export default () => {
 
   return (
     <div>
-      <Button onClick={() => setShow(!show)}>Click</Button>
+      <Button theme='primary' onClick={() => setShow(!show)}>
+        Click
+      </Button>
       <Transition mountOnEnter in={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
         <div className='demo'>DEMO</div>
       </Transition>
@@ -237,6 +245,7 @@ export default () => {
   color: #fff;
   font-size: 3rem;
   background-color: #007bff;
+  margin-top: 16px;
 }
 ```
 
@@ -293,7 +302,9 @@ export default () => {
 
   return (
     <div>
-      <Button onClick={() => setShow(!show)}>Click</Button>
+      <Button theme='primary' onClick={() => setShow(!show)}>
+        Click
+      </Button>
       <Transition unmountOnLeave in={show} beforeEnter={beforeEnter} enter={enter} leave={leave}>
         <div className='demo'>DEMO</div>
       </Transition>
@@ -311,6 +322,7 @@ export default () => {
   color: #fff;
   font-size: 3rem;
   background-color: #007bff;
+  margin-top: 16px;
 }
 ```
 

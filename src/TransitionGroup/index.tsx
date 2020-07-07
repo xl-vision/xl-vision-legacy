@@ -7,7 +7,7 @@ import CSSTransition, {
 } from '../CSSTransition'
 import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass } from '../commons/utils/class'
-import { onTransitionEnd, getTransitionInfo, raf } from '../commons/utils/transition'
+import { onTransitionEnd, getTransitionInfo, reflow } from '../commons/utils/transition'
 import computeQuene, { Data } from './computeQuene'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
@@ -48,6 +48,7 @@ export interface TransitionGroupProps
 type TransitionGroupElement = TransitionElement & {
   _move?: () => void
   _oldPos?: DOMRect
+  _newPos?: DOMRect
   _NEED_LEAVE_CANCEL?: boolean
 }
 
@@ -217,7 +218,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     computedRef.current = true
   })
 
-  useLayoutEffect(() => {
+  React.useEffect(() => {
     childrenTrigger(children)
   }, [children, childrenTrigger])
 
@@ -227,7 +228,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     if (computedRef.current) {
       setFlag((prev) => !prev)
     }
-  }, [elements, childrenTrigger])
+  }, [elements])
 
   const elementsTrigger = useConstantCallback(() => {
     if (!computedRef.current) {
@@ -284,21 +285,24 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 
     // 使元素尽快归位，防止插入元素动画太突兀
     sameNodes.forEach(clearTransition)
+    sameNodes.forEach((node) => {
+      node._newPos = node.getBoundingClientRect()
+    })
     const moveNodes = sameNodes.filter(applyTransition)
 
-    raf(() => {
-      moveNodes.forEach((node) => {
-        addClass(node, moveClass!)
-        const style = node.style
-        style.transform = style.webkitTransform = style.transitionDuration = ''
-        const cb = onTransitionEnd(node, () => {
-          removeClass(node, moveClass!)
-        })
-        node._move = () => {
-          cb()
-          removeClass(node, moveClass!)
-        }
+    reflow()
+    moveNodes.forEach((node) => {
+      const style = node.style
+      addClass(node, moveClass!)
+      style.transform = style.webkitTransform = style.transitionDuration = ''
+      const cb = onTransitionEnd(node, () => {
+        removeClass(node, moveClass!)
       })
+      node._move = () => {
+        cb()
+        node._move = undefined
+        removeClass(node, moveClass!)
+      }
     })
   })
 
@@ -313,18 +317,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 TransitionGroup.displayName = 'TransitionGroup'
 
 TransitionGroup.propTypes = {
-  transitionClasses: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      enter: PropTypes.string,
-      enterActive: PropTypes.string,
-      enterTo: PropTypes.string,
-      leave: PropTypes.string,
-      leaveActive: PropTypes.string,
-      leaveTo: PropTypes.string,
-      move: PropTypes.string
-    })
-  ]),
+  transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
 }
 
@@ -361,10 +354,10 @@ const clearTransition = (el: TransitionGroupElement) => {
 
 const applyTransition = (el: TransitionGroupElement) => {
   const oldPos = el._oldPos
-  if (!oldPos) {
+  const newPos = el._newPos
+  if (!oldPos || !newPos) {
     return
   }
-  const newPos = el.getBoundingClientRect()
   const dx = oldPos.left - newPos.left
   const dy = oldPos.top - newPos.top
   if (dx || dy) {

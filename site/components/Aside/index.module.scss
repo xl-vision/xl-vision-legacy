@@ -1,6 +1,8 @@
 @use '../../assets/style/var' as *;
+@use '../../assets/style/mixins/link' as *;
 
 .aside {
+  font-size: 20px;
   background-color: #ffffff;
 }
 
@@ -8,18 +10,22 @@
   margin: 0;
   margin-left: 0.5rem;
   padding: 0;
+  font-size: 0.9em;
   list-style: none;
 }
 
-.menu {
-  font-weight: bold;
+.menu-name {
+  display: block;
+  padding: 0.5rem 0.3rem;
 }
 
-.menuName {
-  padding: 0.5rem 0.3rem;
-
+.menu {
+  margin-left: 8px;
+  font-weight: bold;
   a {
-    color: #333333;
-    text-decoration: none;
+    display: inline-block;
+    padding: 4px 0;
+
+    @include link();
   }
 }

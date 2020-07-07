@@ -36,14 +36,14 @@ export default () => {
 
   return (
     <div>
-      <Button.Group>
+      <Button.Group theme='primary'>
         <Button onClick={add}>add</Button>
         <Button onClick={remove}>remove</Button>
       </Button.Group>
       <div className='list'>
         <TransitionGroup transitionClasses='item'>
           {items.map((it) => (
-            <span key={it} className={'item'}>
+            <span key={it} className='item'>
               {it}
             </span>
           ))}
@@ -58,6 +58,11 @@ export default () => {
 .list {
   position: relative;
   margin-top: 10px;
+
+  .item {
+    display: inline-block;
+    margin-right: 10px;
+  }
 
   &::deep {
     .item-enter-active,
@@ -83,11 +88,6 @@ export default () => {
       transform: translateY(30px);
     }
   }
-}
-
-.item {
-  display: inline-block;
-  margin-right: 10px;
 }
 ```
 
@@ -137,7 +137,7 @@ export default () => {
 
   return (
     <div>
-      <Button.Group>
+      <Button.Group theme='primary'>
         <Button onClick={shuffle}>shuffle</Button>
         <Button onClick={add}>add</Button>
         <Button onClick={remove}>remove</Button>
@@ -161,13 +161,20 @@ export default () => {
   position: relative;
   margin-top: 10px;
 
-  .item {
-    transition: all 1s ease-in-out;
-  }
   &::deep {
+    .item-leave-active,
+    .item-enter-active {
+      transition: all 1s ease-in-out;
+    }
+
     // 使离开动画更加平滑
     .item-leave-active {
       position: absolute;
+    }
+
+    // 这是重点
+    .item-move {
+      transition: transform 1s ease-in-out;
     }
 
     .item-leave-to,
@@ -186,11 +193,6 @@ export default () => {
     }
     .item-leave-to {
       transform: translateY(30px);
-    }
-
-    // 这是重点
-    .item-move {
-      // transition: transform 1s ease-in-out;
     }
   }
 }
@@ -213,7 +215,7 @@ import { CssTransition, TransitionGroup, Button } from 'xl-vision'
 export default () => {
   const [items, setItems] = React.useState(() => {
     const arr = []
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 81; i++) {
       arr.push(i)
     }
     return arr
@@ -235,13 +237,13 @@ export default () => {
 
   return (
     <div>
-      <Button.Group>
+      <Button.Group theme='primary'>
         <Button onClick={shuffle}>shuffle</Button>
       </Button.Group>
       <div className='box'>
         <TransitionGroup transitionClasses='item'>
           {items.map((it) => (
-            <div key={it} className={'item'}>
+            <div key={it} className='item'>
               {it}
             </div>
           ))}
@@ -254,54 +256,33 @@ export default () => {
 
 ```scss
 .box {
-  margin-top: 10px;
-  position: flex;
+  display: flex;
   flex-wrap: wrap;
-  width: (25+1) * 10px;
-  &::deep {
-    .item-enter-active,
-    .item-leave-active {
-      transition: all 1s ease-in-out;
-    }
+  margin-top: 10px;
+  width: 238px;
 
-    // 使离开动画更加平滑
-    .item-leave-active {
-      position: absolute;
-    }
+  .item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #aaa;
+    margin: 0 -1px -1px 0;
 
-    .item-leave-to,
-    .item-enter {
-      opacity: 0;
+    &:nth-child(3n) {
+      margin-right: 0;
     }
-
-    .item-leave,
-    .item-enter-to {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-
-    .item-enter {
-      transform: translateY(-30px);
-    }
-    .item-leave-to {
-      transform: translateY(30px);
-    }
-
-    // 这是重点
-    .item-move {
-      transition: transform 1s ease-in-out;
+    &:nth-child(27n) {
+      margin-bottom: 0;
     }
   }
-}
-
-.item {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  height: 25px;
-  margin: 0 -1px -1px 0;
-  border: 1px solid #aaa;
+  &::deep {
+    // 这是重点
+    .item-move {
+      transition: transform 1s;
+    }
+  }
 }
 ```
 
@@ -338,6 +319,8 @@ export default () => {
   }, [])
 
   const enter = React.useCallback((el, done, isCancelled) => {
+    // reflow
+    document.body.scrollHeight
     el.style.opacity = 1
     el.style.height = '1.6em'
     done()
@@ -350,6 +333,8 @@ export default () => {
   }, [])
 
   const leave = React.useCallback((el, done, isCancelled) => {
+    // reflow
+    document.body.scrollHeight
     el.style.opacity = 0
     el.style.height = 0
   }, [])

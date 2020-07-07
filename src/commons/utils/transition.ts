@@ -67,7 +67,7 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   let count = 0
 
   const end = () => {
-    el.removeEventListener(eventName, onEnd)
+    cancelCb()
     done()
   }
 
@@ -87,10 +87,12 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   }, timeout + 1)
 
   el.addEventListener(eventName, onEnd)
-  return () => {
+  const cancelCb = () => {
     clearTimeout(id)
     el.removeEventListener(eventName, onEnd)
   }
+
+  return cancelCb
 }
 
 export const raf = isBrowser
