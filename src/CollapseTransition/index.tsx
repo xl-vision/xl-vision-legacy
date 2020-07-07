@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import CSSTransition from '../CSSTransition'
+import Transition from '../Transition'
 import { reflow } from '../commons/utils/transition'
 
 export interface CollapseTransitionProp extends React.HTMLAttributes<HTMLDivElement> {
@@ -87,7 +87,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
   }, [horizontal])
 
   return (
-    <CSSTransition
+    <Transition
       {...transitionEvents}
       transitionOnFirst={transitionOnFirst}
       in={inProp}
@@ -99,7 +99,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
           {children}
         </div>
       </div>
-    </CSSTransition>
+    </Transition>
   )
 }
 
