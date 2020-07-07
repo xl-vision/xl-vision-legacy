@@ -6,24 +6,10 @@ $base-button: #{$cls-prefix}-base-button;
 $ripple: #{$cls-prefix}-ripple;
 $icon: #{$cls-prefix}-icon;
 
-@keyframes #{$button}-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .#{$button} {
   transition: $button-transition;
 
   @include button();
-
-  &__icon--loading {
-    animation: #{$button}-loading $button-loading-duration $button-loading-function infinite;
-  }
 
   &--long {
     display: block;

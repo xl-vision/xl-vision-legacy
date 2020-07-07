@@ -171,7 +171,7 @@ exports[`Button 基本测试 1`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -204,7 +204,7 @@ exports[`Button 基本测试 1`] = `
       class="xl-base-button__inner"
     >
       <i
-        class="xl-icon xl-button__icon--loading"
+        class="xl-icon xl-icon--spin"
       >
         <svg
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -238,7 +238,7 @@ exports[`Button 基本测试 1`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -426,7 +426,7 @@ exports[`ButtonGroup 基本测试 1`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -459,7 +459,7 @@ exports[`ButtonGroup 基本测试 1`] = `
       class="xl-base-button__inner"
     >
       <i
-        class="xl-icon xl-button__icon--loading"
+        class="xl-icon xl-icon--spin"
       >
         <svg
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -493,7 +493,7 @@ exports[`ButtonGroup 基本测试 1`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -681,7 +681,7 @@ exports[`ButtonGroup 基本测试 2`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -714,7 +714,7 @@ exports[`ButtonGroup 基本测试 2`] = `
       class="xl-base-button__inner"
     >
       <i
-        class="xl-icon xl-button__icon--loading"
+        class="xl-icon xl-icon--spin"
       >
         <svg
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -748,7 +748,7 @@ exports[`ButtonGroup 基本测试 2`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -936,7 +936,7 @@ exports[`ButtonGroup 基本测试 3`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -969,7 +969,7 @@ exports[`ButtonGroup 基本测试 3`] = `
       class="xl-base-button__inner"
     >
       <i
-        class="xl-icon xl-button__icon--loading"
+        class="xl-icon xl-icon--spin"
       >
         <svg
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
@@ -1003,7 +1003,7 @@ exports[`ButtonGroup 基本测试 3`] = `
         class="xl-button__prefix"
       >
         <i
-          class="xl-icon xl-button__icon--loading"
+          class="xl-icon xl-icon--spin"
         >
           <svg
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"

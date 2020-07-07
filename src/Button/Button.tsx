@@ -60,9 +60,9 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 
   if (loading) {
     if (prefixIcon || !suffixIcon) {
-      prefixIcon = <Reload className={`${clsPrefix}__icon--loading`} />
+      prefixIcon = <Reload spin={true} />
     } else {
-      suffixIcon = <Reload className={`${clsPrefix}__icon--loading`} />
+      suffixIcon = <Reload spin={true} />
     }
   }
 
