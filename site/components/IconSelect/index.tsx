@@ -50,7 +50,7 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
   )
 }
 
-const IconSelect: React.FunctionComponent<{}> = () => {
+const IconSelect: React.FunctionComponent<void> = () => {
   const [search, setSearch] = React.useState('')
 
   const [type, setType] = React.useState('fill')

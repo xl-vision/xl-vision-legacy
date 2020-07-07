@@ -23,7 +23,9 @@ describe('TransitionGroup', () => {
 
   it('测试afterLeave是否正确触发', () => {
     const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-    nextFrameSpy.mockImplementation((fn) => fn())
+    nextFrameSpy.mockImplementation((fn) => {
+      fn()
+    })
     const prevArr = [1]
     const nextArr = [2]
     const nextArr2 = [3]

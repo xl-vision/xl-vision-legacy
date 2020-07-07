@@ -5,16 +5,10 @@ let TRANSITION_NAME = 'transition'
 let ANIMATION_NAME = 'animation'
 
 if (isBrowser) {
-  if (
-    window.ontransitionend === undefined &&
-    (window as { onwebkittransitionend?: Function }).onwebkittransitionend !== undefined
-  ) {
+  if (window.ontransitionend === undefined && (window as any).onwebkittransitionend !== undefined) {
     TRANSITION_NAME = 'WebkitTransition'
   }
-  if (
-    window.onanimationend === undefined &&
-    (window as { onwebkitanimationend?: Function }).onwebkitanimationend !== undefined
-  ) {
+  if (window.onanimationend === undefined && (window as any).onwebkitanimationend !== undefined) {
     ANIMATION_NAME = 'WebkitAnimation'
   }
 }
@@ -99,9 +93,9 @@ export const raf = isBrowser
   ? window.requestAnimationFrame
     ? window.requestAnimationFrame.bind(window)
     : setTimeout
-  : (fn: Function) => fn()
+  : (fn: () => void) => fn()
 
-export const nextFrame = (fn: Function) => {
+export const nextFrame = (fn: () => void) => {
   raf(() => {
     raf(fn)
   })

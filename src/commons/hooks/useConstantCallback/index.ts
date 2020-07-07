@@ -9,7 +9,7 @@ import useLayoutEffect from '../useLayoutEffect'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const useConstantCallback = <T extends (...args: any) => any>(value: T) => {
   const valueRef = useRef(value)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps, @typescript-eslint/no-unsafe-return
   const getValue = useCallback(((...args) => valueRef.current(...args)) as T, [])
   useLayoutEffect(() => {
     valueRef.current = value

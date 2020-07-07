@@ -8,7 +8,7 @@ import Header from '../Header'
 
 import classes from './index.module.scss'
 
-const Layout: React.FunctionComponent<{}> = () => {
+const Layout: React.FunctionComponent<void> = () => {
   return (
     <React.StrictMode>
       <Router>

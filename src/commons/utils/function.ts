@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const throttle = <Fn extends Function>(
   func: Fn,
   wait: number,

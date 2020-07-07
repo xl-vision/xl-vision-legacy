@@ -26,12 +26,12 @@ describe('CSSTransition', () => {
 
     onTransitionEndSpy = jest.spyOn(TransitionUtils, 'onTransitionEnd')
     // 保证动画有一定的时间
-    onTransitionEndSpy.mockImplementation((_el, done) => {
+    onTransitionEndSpy.mockImplementation((_el, done: () => void) => {
       setTimeout(done, 50)
     })
 
     nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-    nextFrameSpy.mockImplementation((done) => {
+    nextFrameSpy.mockImplementation((done: () => void) => {
       setTimeout(done, 50)
     })
   })
@@ -42,7 +42,9 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={true}
         transitionOnFirst={true}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         transitionClasses={classnameMap}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -50,35 +52,57 @@ describe('CSSTransition', () => {
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
-        beforeDisappear={(el) => call('beforeDisappear', el)}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
+        beforeDisappear={(el) => {
+          call('beforeDisappear', el)
+        }}
         disappear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`disappear`, el)
             done()
           }
         }}
-        afterDisappear={(el) => call('afterDisappear', el)}
-        disappearCancelled={(el) => call('disappearCancelled', el)}
+        afterDisappear={(el) => {
+          call('afterDisappear', el)
+        }}
+        disappearCancelled={(el) => {
+          call('disappearCancelled', el)
+        }}
       >
         <div />
       </CSSTransition>
@@ -121,42 +145,66 @@ describe('CSSTransition', () => {
         in={false}
         transitionOnFirst={true}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
-        beforeDisappear={(el) => call('beforeDisappear', el)}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
+        beforeDisappear={(el) => {
+          call('beforeDisappear', el)
+        }}
         disappear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`disappear`, el)
             done()
           }
         }}
-        afterDisappear={(el) => call('afterDisappear', el)}
-        disappearCancelled={(el) => call('disappearCancelled', el)}
+        afterDisappear={(el) => {
+          call('afterDisappear', el)
+        }}
+        disappearCancelled={(el) => {
+          call('disappearCancelled', el)
+        }}
       >
         <div />
       </CSSTransition>
@@ -211,33 +259,51 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={false}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
       >
         <div />
       </CSSTransition>
@@ -287,33 +353,51 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={true}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
       >
         <div />
       </CSSTransition>
@@ -356,33 +440,51 @@ describe('CSSTransition', () => {
         in={true}
         transitionOnFirst={true}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             // done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             // done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             // done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
       >
         <div />
       </CSSTransition>

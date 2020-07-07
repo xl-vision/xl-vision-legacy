@@ -36,7 +36,7 @@ const Wrapper: React.FunctionComponent<{ children: React.ReactNode }> = (props) 
 const components: MDXProviderComponents = {
   DemoBox,
   wrapper: Wrapper,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   Link(props) {
     const { className, ...others } = props

@@ -16,6 +16,7 @@ type LazyRouteProps = {
 
 const LazyRoute: React.FunctionComponent<LazyRouteProps> = (props) => {
   const { route } = props
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   const Loadable = React.lazy(() => route.component)
 
   React.useEffect(() => {
@@ -55,7 +56,7 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
 
 addRoute(routes)
 
-const Content: React.FunctionComponent<{}> = () => {
+const Content: React.FunctionComponent<void> = () => {
   return (
     <div className={classes.content}>
       <Markdown>
