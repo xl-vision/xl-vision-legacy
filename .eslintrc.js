@@ -17,8 +17,9 @@ module.exports = {
       parserOptions: {
         ecmaVersion: 2018
       },
-      plugins: ['standard', 'prettier'],
-      extends: ['standard', 'plugin:prettier/recommended']
+      plugins: [],
+      extends: ['airbnb', 'airbnb/hooks', 'prettier', 'prettier/react'],
+      rules: {}
     },
     {
       files: ['*.ts', '*.tsx'],
@@ -28,21 +29,33 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: './tsconfig.json'
       },
-      plugins: ['@typescript-eslint', 'standard', 'react', 'react-hooks'],
+      plugins: ['@typescript-eslint', 'react-hooks'],
       extends: [
-        'standard',
-        'plugin:@typescript-eslint/recommended',
+        'airbnb',
+        'airbnb/hooks',
+        'prettier',
+        'plugin:import/typescript',
+        'prettier/react',
+        // 'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:react/recommended',
-        'plugin:prettier/recommended',
-        'prettier/standard',
-        'prettier/@typescript-eslint',
-        'prettier/react'
+        // 'plugin:react/recommended',
+        // 'plugin:prettier/recommended',
+        // 'prettier/standard',
+        'prettier/@typescript-eslint'
       ],
       rules: {
-        // 'no-void': 'off',
-        'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error',
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            mjs: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never'
+          }
+        ],
+        'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
         'react/display-name': 'error',
         'react/jsx-boolean-value': ['error', 'always'],
         '@typescript-eslint/explicit-function-return-type': 'off',

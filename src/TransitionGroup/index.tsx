@@ -75,7 +75,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     }
     // 组件实际上是使用CSSTransition的appear和disappear钩子实现动画，但是向用户隐藏实现细节，
     // 所以这里需要将enter和leave的class设置到appear和disappear上
-    else if (typeof transitionClasses === 'object') {
+    if (typeof transitionClasses === 'object') {
       obj = { ...transitionClasses }
       obj.appear = obj.enter
       obj.appearActive = obj.enterActive

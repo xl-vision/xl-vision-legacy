@@ -1,12 +1,11 @@
-// import classnames from 'classnames'
 import * as React from 'react'
 import classes from './index.module.scss'
-import { DemoBoxProps } from '@xl-vision/scripts'
 import { CollapseTransition, Button } from '../../../src'
 import { CodeSlash, Code, Link } from '../../../src/icon'
 import getText from '../../utils/getText'
-
+import { DemoBoxProps } from '@xl-vision/scripts'
 import 'prismjs/themes/prism.css'
+
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
   // eslint-disable-next-line react/prop-types

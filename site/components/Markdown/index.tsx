@@ -1,12 +1,11 @@
-/* eslint-disable react/prop-types */
-import React from 'react'
-import DemoBox from '../DemoBox'
 import classnames from 'classnames'
 import { MDXProvider } from '@xl-vision/scripts'
 import { MDXProviderComponents } from '@mdx-js/react'
+import React from 'react'
 import { Link as LinkIcon } from '../../../src/icon'
-import { Link, LinkProps } from 'react-router-dom'
 import getText from '../../utils/getText'
+import { Link, LinkProps } from 'react-router-dom'
+import DemoBox from '../DemoBox.'
 
 import classes from './index.module.scss'
 
