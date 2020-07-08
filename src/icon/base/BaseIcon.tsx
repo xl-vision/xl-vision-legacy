@@ -15,7 +15,7 @@ export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
 
 const getSize = (size: number | string) => {
   if (typeof size === 'number') {
-    return size + 'px'
+    return `${size}px`
   }
   return size
 }

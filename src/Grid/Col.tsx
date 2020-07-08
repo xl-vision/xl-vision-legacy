@@ -51,8 +51,9 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
         arr.push(`${clsPrefix}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
         for (const breakPoint of breakPointArray) {
-          if (media[breakPoint] && propValue[breakPoint] !== undefined) {
-            arr.push(`${clsPrefix}-${prop}-${propValue[breakPoint]}`)
+          const value = propValue[breakPoint]
+          if (media[breakPoint] && value !== undefined) {
+            arr.push(`${clsPrefix}-${prop}-${value}`)
             // 只需要满足最高的条件
             break
           }
@@ -97,7 +98,9 @@ const spanValidator = (props: ColProps, propName: keyof ColProps, componentName:
       if (Number.isInteger(val)) {
         if (propValue < 0 || propValue > 24) {
           return new Error(
-            `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`
+            `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${
+              val as number
+            }'.`
           )
         }
       } else {
@@ -108,7 +111,8 @@ const spanValidator = (props: ColProps, propName: keyof ColProps, componentName:
     }
   } else {
     return new Error(
-      `prop '${propName}' supplied to '${componentName}' should be a number or suitable object. It can't be '${propValue}'`
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+      `prop '${propName}' supplied to '${componentName}' should be a integer or suitable object. It's type can't be '${propValue}'`
     )
   }
   return null

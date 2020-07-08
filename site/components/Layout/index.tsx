@@ -8,7 +8,7 @@ import Header from '../Header'
 
 import classes from './index.module.scss'
 
-const Layout: React.FunctionComponent<void> = () => {
+const Layout: React.FunctionComponent<Record<string, unknown>> = () => {
   return (
     <React.StrictMode>
       <Router>

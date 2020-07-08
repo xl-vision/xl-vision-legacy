@@ -50,9 +50,9 @@ const Grid: React.FunctionComponent<GridProps> = (props) => {
   const classes = classnames(
     {
       [clsPrefix]: !type,
-      [`${clsPrefix}-${type}`]: type,
-      [`${clsPrefix}-${type}--${justify}`]: type && justify,
-      [`${clsPrefix}-${type}--${align}`]: type && align
+      [`${clsPrefix}-${type!}`]: type,
+      [`${clsPrefix}-${type!}--${justify!}`]: type && justify,
+      [`${clsPrefix}-${type!}--${align!}`]: type && align
     },
     className
   )

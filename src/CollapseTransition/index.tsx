@@ -45,7 +45,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
     return {
       beforeEnter(el: HTMLElement) {
         if (isCancelled) {
-          el.style[key] = el[offsetKey] + 'px'
+          el.style[key] = `${el[offsetKey]}px`
           isCancelled = false
         } else {
           size = wrapperRef.current![offsetKey]
@@ -56,7 +56,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         if (!isCancelled()) {
           reflow()
           // 高度设置为内容高度
-          el.style[key] = size + 'px'
+          el.style[key] = `${size}px`
         }
       },
       afterEnter(el: HTMLElement) {
@@ -67,12 +67,13 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         isCancelled = true
       },
       beforeLeave(el: HTMLElement) {
+        const offsetValue = wrapperRef.current![offsetKey]
         if (isCancelled) {
           isCancelled = false
         } else {
-          size = wrapperRef.current![offsetKey]
+          size = offsetValue
         }
-        el.style[key] = wrapperRef.current![offsetKey] + 'px'
+        el.style[key] = `${offsetValue}px`
       },
       leave(el: HTMLElement, _done: () => void, isCancelled: () => boolean) {
         if (!isCancelled()) {

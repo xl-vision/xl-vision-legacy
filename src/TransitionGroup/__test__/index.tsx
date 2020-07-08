@@ -14,11 +14,11 @@ describe('TransitionGroup', () => {
       return <TransitionGroup transitionClasses='demo'>{children}</TransitionGroup>
     }
     const wrapper = mount(<Comp arr={prevArr} />)
-    expect(wrapper.text()).toBe(prevArr.map((it) => it + '').reduce((a, b) => a + b))
+    expect(wrapper.text()).toBe(prevArr.map((it) => it.toString()).reduce((a, b) => a + b))
     wrapper.setProps({ arr: nextArr })
     wrapper.update()
 
-    expect(wrapper.text()).toBe(expectArr.map((it) => it + '').reduce((a, b) => a + b))
+    expect(wrapper.text()).toBe(expectArr.map((it) => it.toString()).reduce((a, b) => a + b))
   })
 
   it('测试afterLeave是否正确触发', () => {

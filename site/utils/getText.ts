@@ -7,11 +7,11 @@ const getText = (children: React.ReactNode) => {
       return
     }
     if (typeof it !== 'object') {
-      text += it || ''
+      text += it.toString()
       return
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const child = (it as any).props.children
+    const child = (it as any).props?.children
     if (child) {
       text += getText(child)
     }

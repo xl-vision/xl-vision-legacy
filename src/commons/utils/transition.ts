@@ -5,26 +5,31 @@ let TRANSITION_NAME = 'transition'
 let ANIMATION_NAME = 'animation'
 
 if (isBrowser) {
-  if (window.ontransitionend === undefined && (window as any).onwebkittransitionend !== undefined) {
-    TRANSITION_NAME = 'WebkitTransition'
+  if (window.ontransitionend === undefined && 'onwebkittransitionend' in window) {
+    TRANSITION_NAME = 'webkitTransition'
   }
-  if (window.onanimationend === undefined && (window as any).onwebkitanimationend !== undefined) {
-    ANIMATION_NAME = 'WebkitAnimation'
+  if (window.onanimationend === undefined && 'onwebkitanimationend' in window) {
+    ANIMATION_NAME = 'webkitAnimation'
   }
 }
 
 export const getTransitionInfo = (el: HTMLElement) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const styles: any = getComputedStyle(el)
+  const styles = getComputedStyle(el)
 
-  const getStyleProperties = (key: string) => (styles[key] || '').split(', ')
+  const getStyleProperties = (
+    key: 'transitionDelay' | 'transitionDuration' | 'animationDelay' | 'animationDuration'
+  ) => styles[key].split(', ')
 
-  const transitionDelays = getStyleProperties(TRANSITION_NAME + 'Delay')
-  const transitionDurations = getStyleProperties(TRANSITION_NAME + 'Duration')
+  const transitionDelays = getStyleProperties((TRANSITION_NAME + 'Delay') as 'transitionDelay')
+  const transitionDurations = getStyleProperties(
+    (TRANSITION_NAME + 'Duration') as 'transitionDuration'
+  )
   const transitionTimeout: number = _getTimeout(transitionDelays, transitionDurations)
 
-  const animationDelays = getStyleProperties(ANIMATION_NAME + 'Delay')
-  const animationDurations = getStyleProperties(ANIMATION_NAME + 'Duration')
+  const animationDelays = getStyleProperties((ANIMATION_NAME + 'Delay') as 'animationDelay')
+  const animationDurations = getStyleProperties(
+    (ANIMATION_NAME + 'Duration') as 'animationDuration'
+  )
   const animationTimeout: number = _getTimeout(animationDelays, animationDurations)
 
   const timeout = Math.max(transitionTimeout, animationTimeout)
@@ -38,7 +43,8 @@ export const getTransitionInfo = (el: HTMLElement) => {
     : 0
 
   const hasTransform =
-    type === TRANSITION_NAME && /\b(transform|all)(,|$)/.test(styles[TRANSITION_NAME + 'Property'])
+    type === TRANSITION_NAME &&
+    /\b(transform|all)(,|$)/.test(styles[(TRANSITION_NAME + 'Property') as 'transitionProperty'])
 
   return {
     type,
@@ -51,12 +57,12 @@ export const getTransitionInfo = (el: HTMLElement) => {
 export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   const { timeout, durationCount, type } = getTransitionInfo(el)
 
-  const eventName = type + 'end'
-
   if (timeout <= 0) {
     done()
     return voidFn
   }
+
+  const eventName = type! + 'end'
 
   let count = 0
 
@@ -89,7 +95,7 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   return cancelCb
 }
 
-export const raf = isBrowser
+export const raf: (cb: () => void) => void = isBrowser
   ? window.requestAnimationFrame
     ? window.requestAnimationFrame.bind(window)
     : setTimeout

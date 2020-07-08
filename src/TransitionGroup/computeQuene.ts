@@ -22,7 +22,12 @@ const computeQuene = <T extends React.ReactElement>(
   const quene: Array<Data<T>> = []
 
   // 记录前后都存在的key
-  const sameKeyObj = Object.create(null)
+  const sameKeyObj = Object.create(null) as {
+    [key: string]: {
+      prevIndex: number
+      nextIndex: number
+    }
+  }
 
   for (let i = 0; i < prevChildren.length; i++) {
     const prev = prevChildren[i]
@@ -32,7 +37,7 @@ const computeQuene = <T extends React.ReactElement>(
       const next = nextChildren[j]
       warning(!next.key, '<TransitioGroup> must has a key')
       if (prev.key === next.key) {
-        sameKeyObj[prevKey + ''] = {
+        sameKeyObj[prevKey!.toString()] = {
           prevIndex: i,
           nextIndex: j
         }
@@ -52,8 +57,8 @@ const computeQuene = <T extends React.ReactElement>(
   while (i < prevChildren.length && j < nextChildren.length) {
     const prev = prevChildren[i]
     const next = nextChildren[j]
-    const isPrevExist = sameKeys.includes(prev.key + '')
-    const isNextExist = sameKeys.includes(next.key + '')
+    const isPrevExist = sameKeys.includes(prev.key!.toString())
+    const isNextExist = sameKeys.includes(next.key!.toString())
 
     // prev存在，next也存在，
     if (isPrevExist && isNextExist) {
@@ -68,7 +73,7 @@ const computeQuene = <T extends React.ReactElement>(
       }
       // 2. i++,j++，保存记录，
       // 找到和next相同key的prev
-      const prevIndex = sameKeyObj[next.key + ''].prevIndex
+      const prevIndex = sameKeyObj[next.key!.toString()].prevIndex
       quene.push({
         prev: [prevChildren[prevIndex]],
         next: [next],

@@ -151,7 +151,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         // 这里在dom上添加标记，提示自定义的afterLeave方法取消执行
         // 为什么不直接将in=false？因为这里添加的，是在下一次循环才会真正渲染到dom tree，
         // 在那之前可能afterLeave执行了，删除了节点
-        if (prev.type === CSSTransition && prev.props.in === false) {
+        if (prev.type === CSSTransition && (prev.props as CSSTransitionProps).in === false) {
           const node = nodeMap?.get(prev.key!)
           node && (node._NEED_LEAVE_CANCEL = true)
 
@@ -175,11 +175,11 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       }
       const prev = data.prev.map((it) => {
         const isTransition = it.type === CSSTransition
-        if (isTransition && it.props.in === false) {
+        if (isTransition && (it.props as CSSTransitionProps).in === false) {
           return it
         }
 
-        const child = isTransition ? it.props.children : it
+        const child = isTransition ? (it.props as CSSTransitionProps).children : it
         const { afterLeave, ...others2 } = others
 
         const afterLeaveWrap = (el: TransitionGroupElement) => {

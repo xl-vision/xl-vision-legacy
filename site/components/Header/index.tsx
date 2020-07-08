@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
 import classes from './index.module.scss'
 
-const Header: React.FunctionComponent<void> = () => {
+const Header: React.FunctionComponent<Record<string, unknown>> = () => {
   return (
     <header className={classes.header}>
       <Link to='/' className={classes.logo}>

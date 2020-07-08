@@ -5,10 +5,10 @@ import classnames from 'classnames'
 import { MDXProvider } from '@xl-vision/scripts'
 import { MDXProviderComponents } from '@mdx-js/react'
 import { Link as LinkIcon } from '../../../src/icon'
-import { Link } from 'react-router-dom'
+import { Link, LinkProps } from 'react-router-dom'
+import getText from '../../utils/getText'
 
 import classes from './index.module.scss'
-import getText from '../../utils/getText'
 
 export type MarkdownProps = {
   children: React.ReactNode
@@ -36,9 +36,7 @@ const Wrapper: React.FunctionComponent<{ children: React.ReactNode }> = (props) 
 const components: MDXProviderComponents = {
   DemoBox,
   wrapper: Wrapper,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  Link(props) {
+  Link(props: LinkProps) {
     const { className, ...others } = props
     return <Link {...others} className={classnames(classes.a, className)} />
   },

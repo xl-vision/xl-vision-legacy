@@ -6,11 +6,9 @@ import useLayoutEffect from '../useLayoutEffect'
  * 将给定的函数常量话
  * @param value
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const useConstantCallback = <T extends (...args: any) => any>(value: T) => {
+const useConstantCallback = <P, R>(value: (...args: Array<P>) => R) => {
   const valueRef = useRef(value)
-  // eslint-disable-next-line react-hooks/exhaustive-deps, @typescript-eslint/no-unsafe-return
-  const getValue = useCallback(((...args) => valueRef.current(...args)) as T, [])
+  const getValue = useCallback((...args) => valueRef.current(...args), [])
   useLayoutEffect(() => {
     valueRef.current = value
   }, [value])

@@ -198,33 +198,12 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           const [direction] = state.placement.split('-')
           const el = innerPopupNodeRef.current
           const popup = popupNodeRef.current
-          if (el) {
-            let transformOrigin
-            if (!disableTransformOrigin) {
-              if (direction === 'top') {
-                transformOrigin = `${state.modifiersData.arrow?.x}px 100%`
-              } else if (direction === 'bottom') {
-                transformOrigin = `${state.modifiersData.arrow?.x}px 0%`
-              } else if (direction === 'left') {
-                transformOrigin = `100% ${state.modifiersData.arrow?.y}px`
-              } else {
-                transformOrigin = `0% ${state.modifiersData.arrow?.y}px`
-              }
-              el.style.transformOrigin = transformOrigin
-              el.dataset.placement = state.placement
-            }
+          if (el && !disableTransformOrigin) {
+            applyTransformOrigin(el, direction, state)
           }
 
           if (popup) {
-            if (direction === 'top') {
-              popup.style.paddingBottom = `${offset}px`
-            } else if (direction === 'bottom') {
-              popup.style.paddingTop = `${offset}px`
-            } else if (direction === 'left') {
-              popup.style.paddingRight = `${offset}px`
-            } else {
-              popup.style.paddingLeft = `${offset}px`
-            }
+            applyPopupPadding(popup, direction, offset)
           }
         }
       }
@@ -264,8 +243,10 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
   useLayoutEffect(() => {
     const popperJs = popperJsRef.current
-    // eslint-disable-next-line no-unused-expressions
-    popperJs?.setOptions({ placement })
+    if (!popperJs) {
+      return
+    }
+    void popperJs.setOptions({ placement })
   }, [placement])
 
   React.useEffect(() => {
@@ -391,7 +372,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       return
     }
 
-    popup.style.zIndex = increaseZIndex() + ''
+    popup.style.zIndex = increaseZIndex()
 
     let popperJs = popperJsRef.current
 
@@ -402,7 +383,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       }
       popperJs = popperJsRef.current = createPopper(reference, popup, options)
     } else {
-      popperJs.setOptions({
+      void popperJs.setOptions({
         placement,
         modifiers: [
           ...modifiers,
@@ -439,8 +420,11 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   })
 
   const afterLeave = useConstantCallback(() => {
-    // eslint-disable-next-line no-unused-expressions
-    popperJsRef.current?.setOptions({
+    const popperJs = popperJsRef.current
+    if (!popperJs) {
+      return
+    }
+    void popperJs.setOptions({
       placement,
       modifiers: [
         ...modifiers,
@@ -566,3 +550,39 @@ Popper.propTypes = {
 }
 
 export default Popper
+
+const applyTransformOrigin = (el: HTMLElement, direction: string, state: State) => {
+  const arrow = state.modifiersData.arrow
+  if (!arrow) {
+    return
+  }
+
+  const x = arrow.x || '50%'
+  const y = arrow.y || '50%'
+
+  let transformOrigin
+
+  if (direction === 'top') {
+    transformOrigin = `${x}px 100%`
+  } else if (direction === 'bottom') {
+    transformOrigin = `${x}px 0%`
+  } else if (direction === 'left') {
+    transformOrigin = `100% ${y}px`
+  } else {
+    transformOrigin = `0% ${y}px`
+  }
+  el.style.transformOrigin = transformOrigin
+  el.dataset.placement = state.placement
+}
+
+const applyPopupPadding = (el: HTMLElement, direction: string, offset: number) => {
+  if (direction === 'top') {
+    el.style.paddingBottom = `${offset}px`
+  } else if (direction === 'bottom') {
+    el.style.paddingTop = `${offset}px`
+  } else if (direction === 'left') {
+    el.style.paddingRight = `${offset}px`
+  } else {
+    el.style.paddingLeft = `${offset}px`
+  }
+}

@@ -1,3 +1,5 @@
+import React from 'react'
+
 export interface ChildrenRoute {
   children: Array<Route>
   name: string
@@ -9,7 +11,7 @@ export interface RedirectRoute {
 }
 
 export interface ComponentRoute {
-  component: Promise<any> // eslint-disable-line @typescript-eslint/no-explicit-any
+  component: Promise<React.ComponentType>
   name: string
   path: string
 }

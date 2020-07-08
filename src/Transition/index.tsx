@@ -211,7 +211,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     }
   }
 
-  const style = { ...children.props.style }
+  const style: React.CSSProperties = { ...children.props.style }
   if (!display) {
     style.display = 'none'
   }

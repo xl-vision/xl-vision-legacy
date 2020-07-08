@@ -40,28 +40,34 @@ module.exports = {
         'prettier/react'
       ],
       rules: {
+        'no-void': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
-        // 'react/prop-types': 'off',
-        'react/display-name': 'off',
+        'react/display-name': 'error',
         'react/jsx-boolean-value': ['error', 'always'],
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/array-type': [
           'error',
           {
             default: 'generic'
           }
         ],
-        '@typescript-eslint/no-unsafe-member-access': 'warn',
-        '@typescript-eslint/no-unsafe-assignment': 'warn',
-        '@typescript-eslint/no-unsafe-return': 'warn',
-        '@typescript-eslint/no-unsafe-call': 'warn',
-        '@typescript-eslint/restrict-plus-operands': 'warn',
-        '@typescript-eslint/restrict-template-expressions': 'warn',
-        '@typescript-eslint/no-floating-promises': 'warn',
-        '@typescript-eslint/explicit-module-boundary-types': 'warn'
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-return': 'error',
+        '@typescript-eslint/no-unsafe-call': 'error',
+        '@typescript-eslint/restrict-plus-operands': [
+          'error',
+          {
+            checkCompoundAssignments: true
+          }
+        ],
+        '@typescript-eslint/restrict-template-expressions': 'error',
+        '@typescript-eslint/no-floating-promises': 'error'
       }
     }
   ]

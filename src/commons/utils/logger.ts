@@ -1,4 +1,5 @@
 import { isDevelopment } from './env'
+import { voidFn } from './function'
 
 export const warning = isDevelopment
   ? (condition: boolean, format: string, ...args: Array<string>) => {
@@ -6,7 +7,7 @@ export const warning = isDevelopment
         printWarning(format, args)
       }
     }
-  : () => {} // eslint-disable-line  @typescript-eslint/no-empty-function
+  : voidFn
 
 const printWarning = (format: string, args: Array<string>) => {
   let index = 0

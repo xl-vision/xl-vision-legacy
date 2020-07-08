@@ -17,12 +17,12 @@ describe('useMountedState', () => {
 
     expect(refObj.isMounted).not.toBe(null)
 
-    expect(refObj.isMounted!()).toBe(true)
+    expect(refObj.isMounted?.()).toBe(true)
 
     wrapper.update()
-    expect(refObj.isMounted!()).toBe(true)
+    expect(refObj.isMounted?.()).toBe(true)
 
     wrapper.unmount()
-    expect(refObj.isMounted!()).toBe(false)
+    expect(refObj.isMounted?.()).toBe(false)
   })
 })
