@@ -40,7 +40,7 @@ module.exports = {
         'prettier/react'
       ],
       rules: {
-        'no-void': 'off',
+        // 'no-void': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'react/display-name': 'error',

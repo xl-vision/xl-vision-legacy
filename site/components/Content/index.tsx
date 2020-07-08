@@ -16,7 +16,6 @@ type LazyRouteProps = {
 
 const LazyRoute: React.FunctionComponent<LazyRouteProps> = (props) => {
   const { route } = props
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   const Loadable = React.lazy(() => route.component)
 
   React.useEffect(() => {
@@ -43,7 +42,7 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
-      const component = () => <Redirect to={redirectRoute.redirect} /> // eslint-disable-line react/display-name
+      const component = () => <Redirect to={redirectRoute.redirect} />
       routeComponents.push(
         <ReactRoute exact={true} key={key} path={redirectRoute.path} component={component} />
       )

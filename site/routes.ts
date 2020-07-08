@@ -11,7 +11,9 @@ export interface RedirectRoute {
 }
 
 export interface ComponentRoute {
-  component: Promise<React.ComponentType>
+  component: Promise<{
+    default: React.ComponentType
+  }>
   name: string
   path: string
 }

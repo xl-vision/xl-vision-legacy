@@ -16,6 +16,7 @@ import { addClass, removeClass } from '../commons/utils/class'
 import { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow'
 import { FlipModifier } from '@popperjs/core/lib/modifiers/flip'
 import { reflow } from '../commons/utils/transition'
+import { voidFn } from '../commons/utils/function'
 
 export { Placement }
 
@@ -246,13 +247,16 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     if (!popperJs) {
       return
     }
-    void popperJs.setOptions({ placement })
+    popperJs.setOptions({ placement }).then(voidFn, voidFn)
   }, [placement])
 
   React.useEffect(() => {
     return () => {
-      // eslint-disable-next-line no-unused-expressions
-      popperJsRef.current?.destroy()
+      const popperJs = popperJsRef.current
+      if (!popperJs) {
+        return
+      }
+      popperJs.destroy()
     }
   }, [])
 
@@ -383,16 +387,18 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       }
       popperJs = popperJsRef.current = createPopper(reference, popup, options)
     } else {
-      void popperJs.setOptions({
-        placement,
-        modifiers: [
-          ...modifiers,
-          {
-            name: 'eventListeners',
-            enabled: true
-          }
-        ]
-      })
+      popperJs
+        .setOptions({
+          placement,
+          modifiers: [
+            ...modifiers,
+            {
+              name: 'eventListeners',
+              enabled: true
+            }
+          ]
+        })
+        .then(voidFn, voidFn)
     }
 
     // 必须强制刷新placement
@@ -424,16 +430,18 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     if (!popperJs) {
       return
     }
-    void popperJs.setOptions({
-      placement,
-      modifiers: [
-        ...modifiers,
-        {
-          name: 'eventListeners',
-          enabled: false
-        }
-      ]
-    })
+    popperJs
+      .setOptions({
+        placement,
+        modifiers: [
+          ...modifiers,
+          {
+            name: 'eventListeners',
+            enabled: false
+          }
+        ]
+      })
+      .then(voidFn, voidFn)
   })
 
   const portal = (
@@ -557,8 +565,8 @@ const applyTransformOrigin = (el: HTMLElement, direction: string, state: State) 
     return
   }
 
-  const x = arrow.x || '50%'
-  const y = arrow.y || '50%'
+  const x = arrow.x === undefined ? '50%' : arrow.x
+  const y = arrow.y === undefined ? '50%' : arrow.y
 
   let transformOrigin
 

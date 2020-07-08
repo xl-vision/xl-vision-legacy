@@ -1,9 +1,11 @@
 import { isServer } from './env'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Listener<K extends keyof WindowEventMap> = (this: Window, ev: WindowEventMap[K]) => any
+
 export const on = <K extends keyof WindowEventMap>(
   type: K,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  listener: (this: Window, ev: WindowEventMap[K]) => any,
+  listener: Listener<K>,
   options?: boolean | AddEventListenerOptions
 ) => {
   if (isServer) {
@@ -14,8 +16,7 @@ export const on = <K extends keyof WindowEventMap>(
 
 export const off = <K extends keyof WindowEventMap>(
   type: K,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  listener: (this: Window, ev: WindowEventMap[K]) => any,
+  listener: Listener<K>,
   options?: boolean | EventListenerOptions
 ) => {
   if (isServer) {
@@ -24,10 +25,7 @@ export const off = <K extends keyof WindowEventMap>(
   window.removeEventListener(type, listener, options)
 }
 
-export const mergeEvents = <K extends keyof WindowEventMap>(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ...listeners: Array<(this: Window, ev: WindowEventMap[K]) => any>
-) => {
+export const mergeEvents = <K extends keyof WindowEventMap>(...listeners: Array<Listener<K>>) => {
   return function (this: Window, ev: WindowEventMap[K]) {
     for (const listener of listeners) {
       if (listener) {

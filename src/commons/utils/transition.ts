@@ -5,10 +5,10 @@ let TRANSITION_NAME = 'transition'
 let ANIMATION_NAME = 'animation'
 
 if (isBrowser) {
-  if (window.ontransitionend === undefined && 'onwebkittransitionend' in window) {
+  if (!('ontransitionend' in window) && 'onwebkittransitionend' in window) {
     TRANSITION_NAME = 'webkitTransition'
   }
-  if (window.onanimationend === undefined && 'onwebkitanimationend' in window) {
+  if (!('onanimationend' in window) && 'onwebkitanimationend' in window) {
     ANIMATION_NAME = 'webkitAnimation'
   }
 }

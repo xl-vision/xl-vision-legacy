@@ -1,3 +1,5 @@
+import { voidFn } from '../src/commons/utils/function'
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -128,6 +130,6 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
 
 export function unregister() {
   if ('serviceWorker' in navigator) {
-    void navigator.serviceWorker.ready.then((registration) => registration.unregister())
+    navigator.serviceWorker.ready.then((registration) => registration.unregister(), voidFn)
   }
 }
