@@ -27,6 +27,10 @@ const computeQuene = <T extends React.ReactElement>(
       prevIndex: number
       nextIndex: number
     }
+    [key: number]: {
+      prevIndex: number
+      nextIndex: number
+    }
   }
 
   for (let i = 0; i < prevChildren.length; i++) {
@@ -37,7 +41,7 @@ const computeQuene = <T extends React.ReactElement>(
       const next = nextChildren[j]
       warning(!next.key, '<TransitioGroup> must has a key')
       if (prev.key === next.key) {
-        sameKeyObj[prevKey!.toString()] = {
+        sameKeyObj[prevKey!] = {
           prevIndex: i,
           nextIndex: j
         }
@@ -73,7 +77,7 @@ const computeQuene = <T extends React.ReactElement>(
       }
       // 2. i++,j++，保存记录，
       // 找到和next相同key的prev
-      const prevIndex = sameKeyObj[next.key!.toString()].prevIndex
+      const { prevIndex } = sameKeyObj[next.key!]
       quene.push({
         prev: [prevChildren[prevIndex]],
         next: [next],

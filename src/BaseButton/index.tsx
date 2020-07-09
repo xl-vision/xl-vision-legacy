@@ -1,8 +1,8 @@
 import React from 'react'
-import Ripple, { RippleRef } from '../Ripple'
-import ConfigContext from '../ConfigProvider/ConfigContext'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
+import Ripple, { RippleRef } from '../Ripple'
+import ConfigContext from '../ConfigProvider/ConfigContext'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 
 export interface CommonBaseButtonProps {

@@ -1,2 +1,2 @@
-// eslint-disable-next-line  @typescript-eslint/no-empty-function
+// eslint-disable-next-line import/prefer-default-export
 export const voidFn = () => {}

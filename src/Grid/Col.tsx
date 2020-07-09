@@ -45,12 +45,13 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
       span
     }
     const arr = [clsPrefix]
-    for (const prop of Object.keys(obj)) {
+    Object.keys(obj).forEach((prop) => {
       const propValue = obj[prop as keyof typeof obj]
       if (typeof propValue === 'number') {
         arr.push(`${clsPrefix}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
-        for (const breakPoint of breakPointArray) {
+        for (let i = 0; i < breakPointArray.length; i++) {
+          const breakPoint = breakPointArray[i]
           const value = propValue[breakPoint]
           if (media[breakPoint] && value !== undefined) {
             arr.push(`${clsPrefix}-${prop}-${value}`)
@@ -59,7 +60,7 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
           }
         }
       }
-    }
+    })
     return classnames(arr, className)
   }, [media, span, order, offset, pull, push, clsPrefix, className])
 
@@ -80,21 +81,21 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
 }
 
 const spanValidator = (props: ColProps, propName: keyof ColProps, componentName: string) => {
+  // eslint-disable-next-line react/destructuring-assignment
   const propValue = props[propName]
   if (typeof propValue === 'undefined') {
     return null
-  } else if (typeof propValue === 'number') {
+  }
+  if (typeof propValue === 'number') {
     if (propValue < 0 || propValue > 24) {
       return new Error(
         `prop '${propName}' supplied to '${componentName} should be in 0-24 but actually '${propValue}'.`
       )
     }
   } else if (typeof propValue === 'object') {
-    for (const breakPoint of breakPointArray) {
+    for (let i = 0; i < breakPointArray.length; i++) {
+      const breakPoint = breakPointArray[i]
       const val = propValue[breakPoint]
-      if (val === undefined) {
-        continue
-      }
       if (Number.isInteger(val)) {
         if (propValue < 0 || propValue > 24) {
           return new Error(

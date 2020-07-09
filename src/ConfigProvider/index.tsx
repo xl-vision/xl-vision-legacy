@@ -1,6 +1,6 @@
 import React from 'react'
-import Context, { defaultConfig } from './ConfigContext'
 import PropTypes from 'prop-types'
+import Context, { defaultConfig } from './ConfigContext'
 
 export interface ConfigProviderProps extends Partial<typeof defaultConfig> {
   children: React.ReactNode

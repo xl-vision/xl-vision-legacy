@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { createPopper, Placement, Options, Instance, State, Modifier } from '@popperjs/core'
+import { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow'
+import { FlipModifier } from '@popperjs/core/lib/modifiers/flip'
 import Portal, { ContainerType } from '../Portal'
 import useUpdate from '../commons/hooks/useUpdate'
 import useMountStateCallback from '../commons/hooks/useMountStateCallback'
@@ -13,8 +15,6 @@ import fillRef from '../commons/utils/fillRef'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import { addClass, removeClass } from '../commons/utils/class'
-import { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow'
-import { FlipModifier } from '@popperjs/core/lib/modifiers/flip'
 import { reflow } from '../commons/utils/transition'
 import { voidFn } from '../commons/utils/function'
 
@@ -197,22 +197,22 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         phase: 'main',
         fn({ state }: { state: State }) {
           const [direction] = state.placement.split('-')
-          const el = innerPopupNodeRef.current
-          const popup = popupNodeRef.current
-          if (el && !disableTransformOrigin) {
-            applyTransformOrigin(el, direction, state)
+          const innerPopupNode = innerPopupNodeRef.current
+          const popupNode = popupNodeRef.current
+          if (innerPopupNode && !disableTransformOrigin) {
+            applyTransformOrigin(innerPopupNode, direction, state)
           }
 
-          if (popup) {
-            applyPopupPadding(popup, direction, offset)
+          if (popupNode) {
+            applyPopupPadding(popupNode, direction, offset)
           }
         }
       }
     ]
   }, [offset, preventOverflow, flip, disableGpuAcceleration, disableTransformOrigin])
 
-  const actualVisibleTrigger = useConstantCallback((actualVisible: boolean) => {
-    onVisibleChange && onVisibleChange(actualVisible)
+  const actualVisibleTrigger = useConstantCallback((_actualVisible: boolean) => {
+    onVisibleChange && onVisibleChange(_actualVisible)
   })
 
   // 更新actualVisible时触发onVisibleChange函数
@@ -368,15 +368,15 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   useEventOutside('contextmenu', referenceNodeRef, onClickOutside)
 
   const updatePopper = useConstantCallback(() => {
-    const reference = referenceNodeRef.current
-    const popup = popupNodeRef.current
-    const el = innerPopupNodeRef.current
+    const referenceNode = referenceNodeRef.current
+    const popupNode = popupNodeRef.current
+    const innerPopupNode = innerPopupNodeRef.current
 
-    if (!reference || !popup || !el) {
+    if (!referenceNode || !popupNode || !innerPopupNode) {
       return
     }
 
-    popup.style.zIndex = increaseZIndex()
+    popupNode.style.zIndex = increaseZIndex()
 
     let popperJs = popperJsRef.current
 
@@ -385,7 +385,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
         placement,
         modifiers
       }
-      popperJs = popperJsRef.current = createPopper(reference, popup, options)
+      popperJs = popperJsRef.current = createPopper(referenceNode, popupNode, options)
     } else {
       popperJs
         .setOptions({
@@ -560,7 +560,7 @@ Popper.propTypes = {
 export default Popper
 
 const applyTransformOrigin = (el: HTMLElement, direction: string, state: State) => {
-  const arrow = state.modifiersData.arrow
+  const {arrow} = state.modifiersData
   if (!arrow) {
     return
   }

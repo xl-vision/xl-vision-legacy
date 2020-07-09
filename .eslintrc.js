@@ -29,21 +29,26 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: './tsconfig.json'
       },
-      plugins: ['@typescript-eslint', 'react-hooks'],
+      plugins: ['@typescript-eslint'],
       extends: [
         'airbnb',
         'airbnb/hooks',
-        'prettier',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:import/typescript',
         'prettier/react',
+        'prettier',
+        'prettier/@typescript-eslint'
         // 'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
         // 'plugin:react/recommended',
         // 'plugin:prettier/recommended',
         // 'prettier/standard',
-        'prettier/@typescript-eslint'
       ],
       rules: {
+        'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+        'no-unused-vars': 'off',
+        'no-unused-expressions': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        'react/require-default-props': 'off',
         'import/extensions': [
           'error',
           'ignorePackages',
@@ -52,10 +57,31 @@ module.exports = {
             mjs: 'never',
             jsx: 'never',
             ts: 'never',
-            tsx: 'never'
+            tsx: 'never',
           }
         ],
-        'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+        'import/no-extraneous-dependencies': [
+          'error',
+          {
+            devDependencies: [
+              'site/**',
+              'tests/**',
+              'scripts/**',
+              '**/__tests__/*',
+              '*.config.js',
+              '**/*.mdx',
+            ],
+          },
+        ],
+        'no-plusplus': 'off',
+        'import/no-cycle': 'off',
+        'no-param-reassign': 'off',
+        'no-nested-ternary': 'off',
+        'no-underscore-dangle': 'off',
+        'no-use-before-define': 'off',
+        'no-multi-assign': 'off',
+        'react/forbid-prop-types': 'off', // todo remove
+
         'react/display-name': 'error',
         'react/jsx-boolean-value': ['error', 'always'],
         '@typescript-eslint/explicit-function-return-type': 'off',

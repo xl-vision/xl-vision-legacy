@@ -26,11 +26,11 @@ export const off = <K extends keyof WindowEventMap>(
 }
 
 export const mergeEvents = <K extends keyof WindowEventMap>(...listeners: Array<Listener<K>>) => {
-  return function (this: Window, ev: WindowEventMap[K]) {
-    for (const listener of listeners) {
-      if (listener) {
-        listener.apply(this, ev)
+  return function handler(this: Window, ev: WindowEventMap[K]) {
+    listeners.forEach((it) => {
+      if (it) {
+        it.apply(this, ev)
       }
-    }
+    })
   }
 }

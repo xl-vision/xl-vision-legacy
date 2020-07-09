@@ -13,7 +13,6 @@ export interface IconProps {
 
 const createIcon = (svgElement: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>) => {
   const fn: React.FunctionComponent<IconProps> = (props) => {
-    // eslint-disable-next-line react/jsx-filename-extension
     return <BaseIcon {...props}>{svgElement}</BaseIcon>
   }
   return fn

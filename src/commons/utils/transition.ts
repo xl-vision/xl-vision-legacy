@@ -20,16 +20,14 @@ export const getTransitionInfo = (el: HTMLElement) => {
     key: 'transitionDelay' | 'transitionDuration' | 'animationDelay' | 'animationDuration'
   ) => styles[key].split(', ')
 
-  const transitionDelays = getStyleProperties((TRANSITION_NAME + 'Delay') as 'transitionDelay')
+  const transitionDelays = getStyleProperties(`${TRANSITION_NAME}Delay` as 'transitionDelay')
   const transitionDurations = getStyleProperties(
-    (TRANSITION_NAME + 'Duration') as 'transitionDuration'
+    `${TRANSITION_NAME}Duration` as 'transitionDuration'
   )
   const transitionTimeout: number = _getTimeout(transitionDelays, transitionDurations)
 
-  const animationDelays = getStyleProperties((ANIMATION_NAME + 'Delay') as 'animationDelay')
-  const animationDurations = getStyleProperties(
-    (ANIMATION_NAME + 'Duration') as 'animationDuration'
-  )
+  const animationDelays = getStyleProperties(`${ANIMATION_NAME}Delay` as 'animationDelay')
+  const animationDurations = getStyleProperties(`${ANIMATION_NAME}Duration` as 'animationDuration')
   const animationTimeout: number = _getTimeout(animationDelays, animationDurations)
 
   const timeout = Math.max(transitionTimeout, animationTimeout)
@@ -44,7 +42,7 @@ export const getTransitionInfo = (el: HTMLElement) => {
 
   const hasTransform =
     type === TRANSITION_NAME &&
-    /\b(transform|all)(,|$)/.test(styles[(TRANSITION_NAME + 'Property') as 'transitionProperty'])
+    /\b(transform|all)(,|$)/.test(styles[`${TRANSITION_NAME}Property` as 'transitionProperty'])
 
   return {
     type,
@@ -62,7 +60,7 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
     return voidFn
   }
 
-  const eventName = type! + 'end'
+  const eventName = `${type!}end`
 
   let count = 0
 
@@ -99,7 +97,7 @@ export const raf: (cb: () => void) => void = isBrowser
   ? window.requestAnimationFrame
     ? window.requestAnimationFrame.bind(window)
     : setTimeout
-  : (fn: () => void) => fn()
+  : (fn) => fn()
 
 export const nextFrame = (fn: () => void) => {
   raf(() => {

@@ -41,12 +41,12 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
     const key = horizontal ? 'width' : 'height'
     const offsetKey = horizontal ? 'offsetWidth' : 'offsetHeight'
     let size: number
-    let isCancelled = false
+    let cancelled = false
     return {
       beforeEnter(el: HTMLElement) {
-        if (isCancelled) {
+        if (cancelled) {
           el.style[key] = `${el[offsetKey]}px`
-          isCancelled = false
+          cancelled = false
         } else {
           size = wrapperRef.current![offsetKey]
           el.style[key] = '0'
@@ -64,12 +64,12 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.style[key] = ''
       },
       enterCancelled() {
-        isCancelled = true
+        cancelled = true
       },
       beforeLeave(el: HTMLElement) {
         const offsetValue = wrapperRef.current![offsetKey]
-        if (isCancelled) {
-          isCancelled = false
+        if (cancelled) {
+          cancelled = false
         } else {
           size = offsetValue
         }
@@ -82,7 +82,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         }
       },
       leaveCancelled() {
-        isCancelled = true
+        cancelled = true
       }
     }
   }, [horizontal])

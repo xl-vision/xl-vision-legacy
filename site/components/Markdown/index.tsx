@@ -2,10 +2,10 @@ import classnames from 'classnames'
 import { MDXProvider } from '@xl-vision/scripts'
 import { MDXProviderComponents } from '@mdx-js/react'
 import React from 'react'
+import { Link, LinkProps } from 'react-router-dom'
 import { Link as LinkIcon } from '../../../src/icon'
 import getText from '../../utils/getText'
-import { Link, LinkProps } from 'react-router-dom'
-import DemoBox from '../DemoBox.'
+import DemoBox from '../DemoBox'
 
 import classes from './index.module.scss'
 

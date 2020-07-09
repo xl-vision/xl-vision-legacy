@@ -38,7 +38,8 @@ const Grid: React.FunctionComponent<GridProps> = (props) => {
       return gutter
     }
     if (typeof gutter === 'object') {
-      for (const breakPoint of breakPointArray) {
+      for (let i = 0; i < breakPointArray.length; i ++) {
+        const breakPoint = breakPointArray[i]
         if (media[breakPoint] && gutter[breakPoint] !== undefined) {
           return gutter[breakPoint] as number
         }

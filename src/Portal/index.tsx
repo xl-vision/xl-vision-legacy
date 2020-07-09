@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import ReactDOM from 'react-dom'
+import React from 'react'
 import { isServer } from '../commons/utils/env'
 import { warning } from '../commons/utils/logger'
 

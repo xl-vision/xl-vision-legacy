@@ -1,15 +1,16 @@
 import React, { TouchEvent, MouseEvent } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import TransitionGroup, { TransitionGroupClasses } from '../TransitionGroup'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
 
-export interface RippleProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface RippleProps {
   transitionClasses?: TransitionGroupClasses
   clsPrefix?: string
   leaveAfterEnter?: boolean
   disableEvents?: boolean
+  className?: string
 }
 
 export interface RippleRef {
@@ -45,7 +46,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
         top: -size / 2 + y,
         left: -size / 2 + x
       }
-      const ripple = <div className={`${clsPrefix}__inner`} key={key} style={styles}></div>
+      const ripple = <div className={`${clsPrefix}__inner`} key={key} style={styles} />
       setRipples((prev) => [...prev, ripple])
       keyRef.current++
     },
@@ -130,7 +131,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
 
   const events = React.useMemo(() => {
     if (disableEvents) {
-      return
+      return {}
     }
     return {
       onTouchStart: start,
@@ -146,7 +147,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const classes = classnames(clsPrefix, className)
 
   return (
-    <span {...others} {...events} className={classes} ref={containerRef}>
+    <span {...events} className={classes} ref={containerRef}>
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
       </TransitionGroup>

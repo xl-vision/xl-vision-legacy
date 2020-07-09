@@ -1,8 +1,8 @@
 import React from 'react'
+import classnames from 'classnames'
+import PropTypes from 'prop-types'
 import Popper, { PopperProps } from '../Popper'
 import ConfigContext from '../ConfigProvider/ConfigContext'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import { ButtonProps, Button } from '../Button'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import useUpdate from '../commons/hooks/useUpdate'
@@ -51,20 +51,20 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
-  const onVisibleChangeWrap = useConstantCallback((visible: boolean) => {
-    setActualVisible(visible)
+  const onVisibleChangeWrap = useConstantCallback((_visible: boolean) => {
+    setActualVisible(_visible)
   })
 
-  const actualVisibleTrigger = useConstantCallback((actualVisible: boolean) => {
-    onVisibleChange && onVisibleChange(actualVisible)
+  const actualVisibleTrigger = useConstantCallback((_actualVisible: boolean) => {
+    onVisibleChange && onVisibleChange(_actualVisible)
   })
 
   useUpdate(() => {
     actualVisibleTrigger(actualVisible)
   }, [actualVisible, actualVisibleTrigger])
 
-  const visibleTrigger = useConstantCallback((visible: boolean) => {
-    setActualVisible(visible)
+  const visibleTrigger = useConstantCallback((_visible: boolean) => {
+    setActualVisible(_visible)
   })
 
   React.useEffect(() => {

@@ -13,7 +13,7 @@ export const addClass = (element: HTMLElement, className: string) => {
   if (containClass(element, className)) {
     return
   }
-  const _className = (element.className || '') + ` ${className}`
+  const _className = `${element.className} ${className}`
   element.className = _className.replace(/\s+/, ' ').trim()
 }
 
@@ -21,6 +21,6 @@ export const removeClass = (element: HTMLElement, className: string) => {
   if (!containClass(element, className)) {
     return
   }
-  const _className = (element.className || '').replace(className, ' ')
+  const _className = element.className.replace(className, ' ')
   element.className = _className.replace(/\s+/, ' ').trim()
 }

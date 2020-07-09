@@ -1,8 +1,8 @@
 import React from 'react'
+import classnames from 'classnames'
+import PropTypes from 'prop-types'
 import Popper, { PopperProps } from '../Popper'
 import ConfigContext from '../ConfigProvider/ConfigContext'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
 
 export interface PopoverProps
   extends Omit<PopperProps, 'arrow' | 'popup' | 'popupClassName' | 'popupStyle'> {

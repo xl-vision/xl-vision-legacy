@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import ReactDOM from 'react-dom'
 import useMountStateCallback from '../commons/hooks/useMountStateCallback'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import fillRef from '../commons/utils/fillRef'
-import ReactDOM from 'react-dom'
 
 enum State {
   STATE_APPEARING, // 0
@@ -132,24 +133,22 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     }
   )
 
-  const stateTrigger = useConstantCallback((state: State) => {
+  const stateTrigger = useConstantCallback((_state: State) => {
     if (inProp) {
-      if (state === State.STATE_APPEARING) {
+      if (_state === State.STATE_APPEARING) {
         beforeAppear && beforeAppear(childrenNodeRef.current!)
         onTransitionEnd(State.STATE_APPEARED, appear, afterAppear)
         // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
-      } else if (state === State.STATE_ENTERING) {
+      } else if (_state === State.STATE_ENTERING) {
         beforeEnter && beforeEnter(childrenNodeRef.current!)
         onTransitionEnd(State.STATE_ENTERED, enter, afterEnter)
       }
-    } else {
-      if (state === State.STATE_LEAVING) {
-        beforeLeave && beforeLeave(childrenNodeRef.current!)
-        onTransitionEnd(State.STATE_LEAVED, leave, afterLeave)
-      } else if (state === State.STATE_DISAPPEARING) {
-        beforeDisappear && beforeDisappear(childrenNodeRef.current!)
-        onTransitionEnd(State.STATE_DISAPPEARED, disappear, afterDisappear)
-      }
+    } else if (_state === State.STATE_LEAVING) {
+      beforeLeave && beforeLeave(childrenNodeRef.current!)
+      onTransitionEnd(State.STATE_LEAVED, leave, afterLeave)
+    } else if (_state === State.STATE_DISAPPEARING) {
+      beforeDisappear && beforeDisappear(childrenNodeRef.current!)
+      onTransitionEnd(State.STATE_DISAPPEARED, disappear, afterDisappear)
     }
   })
 
@@ -162,8 +161,8 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     stateTrigger
   ])
 
-  const inPropTrigger = useConstantCallback((inProp: boolean) => {
-    if (inProp && state >= State.STATE_LEAVING) {
+  const inPropTrigger = useConstantCallback((_inProp: boolean) => {
+    if (_inProp && state >= State.STATE_LEAVING) {
       cbRef.current = undefined
       // 新的更改，之前的event取消
       setState(State.STATE_ENTERING)
@@ -172,7 +171,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
       } else if (state === State.STATE_LEAVING) {
         leaveCancelled && leaveCancelled(childrenNodeRef.current!)
       }
-    } else if (!inProp && state < State.STATE_LEAVING) {
+    } else if (!_inProp && state < State.STATE_LEAVING) {
       cbRef.current = undefined
       setState(State.STATE_LEAVING)
       if (state === State.STATE_APPEARING) {
@@ -205,10 +204,8 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     if (mountOnEnter && !display) {
       return null
     }
-  } else {
-    if (unmountOnLeave && !display) {
-      return null
-    }
+  } else if (unmountOnLeave && !display) {
+    return null
   }
 
   const style: React.CSSProperties = { ...children.props.style }
