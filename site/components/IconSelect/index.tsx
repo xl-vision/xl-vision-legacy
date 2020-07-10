@@ -77,10 +77,11 @@ const IconSelect: React.FunctionComponent<void> = () => {
 
     const arr: Array<string> = []
 
-    for (const name of iconNames) {
+    iconNames.forEach((name) => {
       const tags = data[name]
       const flag = keys.every((it) => {
-        for (const tag of tags) {
+        for (let i = 0; i < tags.length; i++) {
+          const tag = tags[i]
           if (tag.includes(it)) {
             return true
           }
@@ -90,14 +91,14 @@ const IconSelect: React.FunctionComponent<void> = () => {
       if (flag) {
         arr.push(name)
       }
-    }
+    })
 
     return arr
   }, [search, type])
 
   const iconNodes = React.useMemo(() => {
-    const arr = []
-    for (const name of icons) {
+    const arr: Array<React.ReactElement> = []
+    icons.forEach((name) => {
       const Icon = Icons[name as keyof typeof Icons] as React.FunctionComponent<Icons.IconProps>
       if (Icon) {
         arr.push(
@@ -106,7 +107,7 @@ const IconSelect: React.FunctionComponent<void> = () => {
           </IconWrapper>
         )
       }
-    }
+    })
     return arr
   }, [icons])
 
@@ -128,13 +129,13 @@ const IconSelect: React.FunctionComponent<void> = () => {
     <div className={classes.iconSelect}>
       <input onChange={searchClick} className={classes.input} placeholder='搜索图标' />
       <Button.Group theme='primary' className={classes.buttonGroup}>
-        <Button type='button' disabled={type==='fill'} onClick={fillClick}>
+        <Button type='button' disabled={type === 'fill'} onClick={fillClick}>
           fill
         </Button>
-        <Button type='button' disabled={type==='outline'} onClick={outlineClick}>
+        <Button type='button' disabled={type === 'outline'} onClick={outlineClick}>
           outline
         </Button>
-        <Button type='button' disabled={type==='sharp'} onClick={sharpClick}>
+        <Button type='button' disabled={type === 'sharp'} onClick={sharpClick}>
           sharp
         </Button>
       </Button.Group>

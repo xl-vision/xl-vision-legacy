@@ -298,14 +298,13 @@ const createBeforeEventHook = (
     // for TransitionGroup
     el._ctc = {}
     if (ctc) {
-      for (const _key of Object.keys(ctc)) {
-        const key = _key as keyof CSSTransitionClassesObject
+      Object.keys(ctc).forEach((key: keyof CSSTransitionClassesObject) => {
         const clazz = ctc[key]
         if (clazz) {
           addClass(el, clazz)
-          el._ctc[key] = clazz
+          el._ctc![key] = clazz
         }
-      }
+      })
     }
     nativeHook && nativeHook(el)
   }
@@ -333,22 +332,21 @@ const createEventHook = (
         return
       }
       if (!isCancelled()) {
-        for (const name of removedClassNames) {
+        removedClassNames.forEach((name) => {
           const clazz = el._ctc![name]
           if (clazz) {
             removeClass(el, clazz)
             delete el._ctc![name]
           }
-        }
+        })
         if (ctc) {
-          for (const _key of Object.keys(ctc)) {
-            const key = _key as keyof CSSTransitionClassesObject
+          Object.keys(ctc).forEach((key: keyof CSSTransitionClassesObject) => {
             const clazz = ctc[key]
             if (clazz) {
               addClass(el, clazz)
               el._ctc![key] = clazz
             }
-          }
+          })
         }
         if (timeout && timeout > 0) {
           timeoutId = setTimeout(doneCb, timeout)
@@ -377,12 +375,11 @@ const createEventHook = (
 
 const createAfterEventHook = (nativeHook?: AfterEventHook): AfterEventHook => {
   return (el: TransitionElement) => {
-    for (const _key of Object.keys(el._ctc!)) {
-      const key = _key as keyof CSSTransitionClassesObject
+    Object.keys(el._ctc!).forEach((key: keyof CSSTransitionClassesObject) => {
       const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
       delete el._ctc![key]
-    }
+    })
     nativeHook && nativeHook(el)
   }
 }
@@ -391,12 +388,11 @@ const createEventCancelledHook = (nativeHook?: EventCancelledHook): EventCancell
   return (el: TransitionElement) => {
     // 清除所有事件
     el._done && el._done(true)
-    for (const _key of Object.keys(el._ctc!)) {
-      const key = _key as keyof CSSTransitionClassesObject
+    Object.keys(el._ctc!).forEach((key: keyof CSSTransitionClassesObject) => {
       const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
       delete el._ctc![key]
-    }
+    })
     nativeHook && nativeHook(el)
   }
 }

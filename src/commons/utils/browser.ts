@@ -11,11 +11,8 @@ export const isStyleSupport = (styleProperty: string) => {
     return true
   }
   const vendors = ['ms', 'webkit', 'moz', 'o']
-  for (const vendor of vendors) {
+  return vendors.some((vendor) => {
     const prop = vendor + styleProperty.replace(/^[a-z]/, (val) => val.toUpperCase())
-    if (prop in styles) {
-      return true
-    }
-  }
-  return false
+    return prop in styles
+  })
 }

@@ -142,7 +142,8 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     const quene = (queneRef.current = computeQueue(prevChildren, refChildren))
     const arr: Array<React.ReactElement> = []
 
-    for (const data of quene) {
+    for (let i = 0; i < quene.length; i++) {
+      const data = quene[i]
       if (data.same) {
         let prev = data.prev[0]
 
@@ -243,7 +244,8 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     const arr: Array<React.ReactElement> = []
     const sameNodes: Array<TransitionGroupElement> = []
 
-    for (const data of quene) {
+    for (let i = 0; i < quene.length; i++) {
+      const data = quene[i]
       if (data.same) {
         const ele = data.prev[0]
         arr.push(ele)
@@ -334,9 +336,9 @@ const hasCSSTransform = (_el: HTMLElement, moveClass: string) => {
   // is applied.
   const clone = el.cloneNode() as HTMLElement
   if (el._ctc) {
-    for (const clazz of Object.values(el._ctc)) {
+    Object.values(el._ctc).forEach((clazz) => {
       clazz && clone.classList.remove(clazz)
-    }
+    })
   }
   moveClass.split(/\s+/).forEach((c) => c && clone.classList.add(c))
   clone.style.display = 'none'

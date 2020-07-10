@@ -38,7 +38,8 @@ const Row: React.FunctionComponent<GridProps> = (props) => {
       return gutter
     }
     if (typeof gutter === 'object') {
-      for (const breakPoint of breakPointArray) {
+      for (let i = 0; i < breakPointArray.length; i++) {
+        const breakPoint = breakPointArray[i]
         if (media[breakPoint] && gutter[breakPoint] !== undefined) {
           return gutter[breakPoint] as number
         }
@@ -59,10 +60,10 @@ const Row: React.FunctionComponent<GridProps> = (props) => {
   const rowStyle =
     computedGutter > 0
       ? {
-        marginLeft: computedGutter / -2,
-        marginRight: computedGutter / -2,
-        ...style
-      }
+          marginLeft: computedGutter / -2,
+          marginRight: computedGutter / -2,
+          ...style
+        }
       : style
 
   return (
