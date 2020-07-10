@@ -10,6 +10,7 @@ module.exports = [
           'test/**/*.ts?(x)',
           'test/**/*.js?(x)',
           'site/**/*.ts?(x)',
+          '*.js'
         ]
       }
     }
