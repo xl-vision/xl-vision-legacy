@@ -66,10 +66,10 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
   const colStyle =
     gutter > 0
       ? {
-        ...style,
-        paddingLeft: gutter / 2,
-        paddingRight: gutter / 2
-      }
+          ...style,
+          paddingLeft: gutter / 2,
+          paddingRight: gutter / 2
+        }
       : style
 
   return (
@@ -94,12 +94,13 @@ const spanValidator = (props: ColProps, propName: keyof ColProps, componentName:
   } else if (typeof propValue === 'object') {
     for (const breakPoint of breakPointArray) {
       const val = propValue[breakPoint]
-      if (val && Number.isInteger(val)) {
+      if (!val) {
+        return null
+      }
+      if (Number.isInteger(val)) {
         if (propValue < 0 || propValue > 24) {
           return new Error(
-            `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${
-              val
-            }'.`
+            `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${val}'.`
           )
         }
       } else {
