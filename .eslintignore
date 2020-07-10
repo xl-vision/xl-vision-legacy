@@ -3,4 +3,6 @@ lib/**
 dist/**
 docs/**
 script/icon/template/**
-src/icon/icons/**
+script/icon/icon/**
+src/icon/*.ts
+src/icon/*.tsx

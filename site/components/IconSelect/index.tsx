@@ -128,13 +128,13 @@ const IconSelect: React.FunctionComponent<void> = () => {
     <div className={classes.iconSelect}>
       <input onChange={searchClick} className={classes.input} placeholder='搜索图标' />
       <Button.Group theme='primary' className={classes.buttonGroup}>
-        <Button type='button' onClick={fillClick}>
+        <Button type='button' disabled={type==='fill'} onClick={fillClick}>
           fill
         </Button>
-        <Button type='button' onClick={outlineClick}>
+        <Button type='button' disabled={type==='outline'} onClick={outlineClick}>
           outline
         </Button>
-        <Button type='button' onClick={sharpClick}>
+        <Button type='button' disabled={type==='sharp'} onClick={sharpClick}>
           sharp
         </Button>
       </Button.Group>

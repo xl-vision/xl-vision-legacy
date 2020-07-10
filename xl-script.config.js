@@ -9,7 +9,7 @@ module.exports = [
           'src/**/*.ts?(x)',
           'test/**/*.ts?(x)',
           'test/**/*.js?(x)',
-          'site/**/*.ts?(x)'
+          'site/**/*.ts?(x)',
         ]
       }
     }
