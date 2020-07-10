@@ -6,10 +6,11 @@ module.exports = [
       options: {
         from: [
           'src/**/*.ts?(x)',
-          'site/**/*.ts?(x)',
-          'script/**/*.js',
-          'test/**/*.ts?(x)',
-          'test/**/*.js?(x)'
+          '!**/__test__/**'
+          // 'site/**/*.ts?(x)',
+          // 'script/**/*.js',
+          // 'test/**/*.ts?(x)',
+          // 'test/**/*.js?(x)'
         ]
       }
     }

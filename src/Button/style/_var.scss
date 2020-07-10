@@ -3,6 +3,7 @@
 @forward '../../style/theme';
 
 $button-transition: all $fast-out-slow-in-timing-function $standard-duration;
+$button-icon-transition: all $fast-out-slow-in-timing-function $standard-duration;
 
 $button-opacity-disabled: $overlay-disabled;
 $button-opacity-hover: $overlay-hover;

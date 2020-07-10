@@ -7,19 +7,15 @@ export const isStyleSupport = (styleProperty: string) => {
     return true
   }
   const styles = document.body.style
-  let result = false
   if (styleProperty in styles) {
-    result = true
-  } else {
-    const vendors = ['ms', 'Webkit', 'Moz', 'O']
-    for (let i = 0; i < vendors.length; i++) {
-      const vendor = vendors[i]
-      const prop = vendor + styleProperty.replace(/^[a-z]/, (val) => val.toUpperCase())
-      if (prop in styles) {
-        result = true
-        break
-      }
+    return true
+  }
+  const vendors = ['ms', 'webkit', 'moz', 'o']
+  for (const vendor of vendors) {
+    const prop = vendor + styleProperty.replace(/^[a-z]/, (val) => val.toUpperCase())
+    if (prop in styles) {
+      return true
     }
   }
-  return result
+  return false
 }

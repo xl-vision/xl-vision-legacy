@@ -5,10 +5,11 @@ import { off, on } from '../../utils/event'
 const useEventOutside = <K extends keyof WindowEventMap>(
   eventType: K,
   ref: RefObject<HTMLElement>,
-  handler: (e: Event) => void
+  handler: (e: WindowEventMap[K]) => void,
+  capture?: boolean
 ) => {
   const fn = useCallback(
-    (e: Event) => {
+    (e: WindowEventMap[K]) => {
       const el = ref.current
       if (!el) {
         return
@@ -20,11 +21,15 @@ const useEventOutside = <K extends keyof WindowEventMap>(
     [handler, ref]
   )
   useEffect(() => {
-    on(eventType, fn)
+    on(eventType, fn, {
+      capture
+    })
     return () => {
-      off(eventType, fn)
+      off(eventType, fn, {
+        capture
+      })
     }
-  }, [eventType, fn])
+  }, [eventType, fn, capture])
 }
 
 export default useEventOutside

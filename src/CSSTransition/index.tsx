@@ -3,11 +3,11 @@ import React from 'react'
 import { addClass, removeClass } from '../commons/utils/class'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import Transition, {
-  TransitionProps,
-  BeforeEventHook,
-  EventHook,
   AfterEventHook,
-  EventCancelledHook
+  BeforeEventHook,
+  EventCancelledHook,
+  EventHook,
+  TransitionProps
 } from '../Transition'
 
 export type CSSTransitionClassesObject = {
@@ -298,14 +298,14 @@ const createBeforeEventHook = (
     // for TransitionGroup
     el._ctc = {}
     if (ctc) {
-      Object.keys(ctc).forEach((it) => {
-        const key = it as keyof CSSTransitionClassesObject
+      for (const _key of Object.keys(ctc)) {
+        const key = _key as keyof CSSTransitionClassesObject
         const clazz = ctc[key]
         if (clazz) {
           addClass(el, clazz)
-          el._ctc![key] = clazz
+          el._ctc[key] = clazz
         }
-      })
+      }
     }
     nativeHook && nativeHook(el)
   }
@@ -333,22 +333,22 @@ const createEventHook = (
         return
       }
       if (!isCancelled()) {
-        removedClassNames.forEach(it => {
-          const clazz = el._ctc![it]
+        for (const name of removedClassNames) {
+          const clazz = el._ctc![name]
           if (clazz) {
             removeClass(el, clazz)
-            delete el._ctc![it]
+            delete el._ctc![name]
           }
-        })
+        }
         if (ctc) {
-          Object.keys(ctc).forEach(it => {
-            const key = it as keyof CSSTransitionClassesObject
+          for (const _key of Object.keys(ctc)) {
+            const key = _key as keyof CSSTransitionClassesObject
             const clazz = ctc[key]
             if (clazz) {
               addClass(el, clazz)
               el._ctc![key] = clazz
             }
-          })
+          }
         }
         if (timeout && timeout > 0) {
           timeoutId = setTimeout(doneCb, timeout)
@@ -377,12 +377,12 @@ const createEventHook = (
 
 const createAfterEventHook = (nativeHook?: AfterEventHook): AfterEventHook => {
   return (el: TransitionElement) => {
-    Object.keys(el._ctc!).forEach(it=> {
-      const key = it as keyof CSSTransitionClassesObject
+    for (const _key of Object.keys(el._ctc!)) {
+      const key = _key as keyof CSSTransitionClassesObject
       const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
       delete el._ctc![key]
-    })
+    }
     nativeHook && nativeHook(el)
   }
 }
@@ -391,12 +391,12 @@ const createEventCancelledHook = (nativeHook?: EventCancelledHook): EventCancell
   return (el: TransitionElement) => {
     // 清除所有事件
     el._done && el._done(true)
-    Object.keys(el._ctc!).forEach(it => {
-      const key = it as keyof CSSTransitionClassesObject
+    for (const _key of Object.keys(el._ctc!)) {
+      const key = _key as keyof CSSTransitionClassesObject
       const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
       delete el._ctc![key]
-    })
+    }
     nativeHook && nativeHook(el)
   }
 }

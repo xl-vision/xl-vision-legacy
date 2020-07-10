@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ColProps } from './Col'
 import useMedia, { BreakPoint, breakPointArray } from './useMedia'
-import RowContext from './GridContext'
+import RowContext from './RowContext'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -16,7 +16,7 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: 'flex'
 }
 
-const Grid: React.FunctionComponent<GridProps> = (props) => {
+const Row: React.FunctionComponent<GridProps> = (props) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
 
   const {
@@ -27,19 +27,18 @@ const Grid: React.FunctionComponent<GridProps> = (props) => {
     style,
     children,
     gutter,
-    clsPrefix = `${rootClsPrefix}-grid`,
+    clsPrefix = `${rootClsPrefix}-row`,
     ...others
   } = props
 
   const media = useMedia()
 
-  const computedGutter = React.useMemo<number>(() => {
+  const computedGutter = React.useMemo(() => {
     if (typeof gutter === 'number') {
       return gutter
     }
     if (typeof gutter === 'object') {
-      for (let i = 0; i < breakPointArray.length; i ++) {
-        const breakPoint = breakPointArray[i]
+      for (const breakPoint of breakPointArray) {
         if (media[breakPoint] && gutter[breakPoint] !== undefined) {
           return gutter[breakPoint] as number
         }
@@ -60,24 +59,24 @@ const Grid: React.FunctionComponent<GridProps> = (props) => {
   const rowStyle =
     computedGutter > 0
       ? {
-          marginLeft: computedGutter / -2,
-          marginRight: computedGutter / -2,
-          ...style
-        }
+        marginLeft: computedGutter / -2,
+        marginRight: computedGutter / -2,
+        ...style
+      }
       : style
 
   return (
     <RowContext.Provider value={{ gutter: computedGutter, media }}>
-      <div {...others} className={classes} style={rowStyle}>
+      <div role='row' {...others} className={classes} style={rowStyle}>
         {children}
       </div>
     </RowContext.Provider>
   )
 }
 
-Grid.displayName = 'Grid'
+Row.displayName = 'Row'
 
-Grid.propTypes = {
+Row.propTypes = {
   align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>(['top', 'middle', 'bottom']),
   children: PropTypes.oneOfType([
     PropTypes.element.isRequired,
@@ -96,4 +95,4 @@ Grid.propTypes = {
   type: PropTypes.oneOf<'flex'>(['flex']),
   style: PropTypes.object
 }
-export default Grid
+export default Row

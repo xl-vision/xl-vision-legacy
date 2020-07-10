@@ -20,6 +20,11 @@ $icon: #{$cls-prefix}-icon;
     vertical-align: $button-icon-vertical-align;
   }
 
+  .#{$button}__prefix,
+  .#{$button}__suffix {
+    display: inline-block;
+  }
+
   &--size-medium {
     min-width: $button-medium-min-width;
     padding: $button-medium-padding-y $button-medium-padding-x;
@@ -107,6 +112,23 @@ $icon: #{$cls-prefix}-icon;
     .#{$button}__suffix {
       margin-right: $button-small-icon-padding-border - $button-small-padding-x;
       margin-left: $button-small-icon-padding-content;
+    }
+  }
+
+  &__icon--loading {
+    &-enter-active,
+    &-leave-active {
+      transition: $button-icon-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+
+    &-enter-to,
+    &-leave {
+      opacity: 1;
     }
   }
 

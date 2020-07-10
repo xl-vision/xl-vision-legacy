@@ -51,10 +51,12 @@ exports[`Button 基本测试 1`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -62,7 +64,7 @@ exports[`Button 基本测试 1`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       button
     </span>
@@ -81,10 +83,12 @@ exports[`Button 基本测试 1`] = `
       <span
         class="xl-button__suffix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -92,7 +96,7 @@ exports[`Button 基本测试 1`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </span>
     <span
@@ -106,10 +110,12 @@ exports[`Button 基本测试 1`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -117,7 +123,7 @@ exports[`Button 基本测试 1`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
@@ -130,10 +136,12 @@ exports[`Button 基本测试 1`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -141,7 +149,7 @@ exports[`Button 基本测试 1`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
@@ -161,6 +169,7 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
@@ -168,27 +177,33 @@ exports[`Button 基本测试 1`] = `
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        style="display: inline-block; vertical-align: middle; line-height: 0;"
       >
-        <i
-          class="xl-icon xl-icon--spin"
+        <span
+          class="xl-button__prefix"
         >
-          <svg
-            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-            viewBox="0 0 512 512"
+          <span
+            class="xl-icon xl-icon--spin"
+            role="img"
           >
-            <path
-              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-              fill="none"
-              stroke-linecap="round"
-              stroke-miterlimit="10"
-              stroke-width="32"
-            />
-            <path
-              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-            />
-          </svg>
-        </i>
+            <svg
+              focusable="false"
+              style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+                fill="none"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+              />
+              <path
+                d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+              />
+            </svg>
+          </span>
+        </span>
       </span>
       button
     </span>
@@ -197,38 +212,8 @@ exports[`Button 基本测试 1`] = `
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
-  >
-    <span
-      class="xl-base-button__inner"
-    >
-      <i
-        class="xl-icon xl-icon--spin"
-      >
-        <svg
-          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-            fill="none"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="32"
-          />
-          <path
-            d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-          />
-        </svg>
-      </i>
-    </span>
-    <span
-      class="xl-ripple"
-    />
-  </button>
-  <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -237,10 +222,12 @@ exports[`Button 基本测试 1`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon xl-icon--spin"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -255,7 +242,45 @@ exports[`Button 基本测试 1`] = `
               d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
             />
           </svg>
-        </i>
+        </span>
+      </span>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    aria-readonly="true"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--loading"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <span
+          class="xl-icon xl-icon--spin"
+          role="img"
+        >
+          <svg
+            focusable="false"
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </span>
       </span>
       button
     </span>
@@ -268,7 +293,9 @@ exports[`Button 基本测试 1`] = `
 
 exports[`ButtonGroup 基本测试 1`] = `
 <div
+  aria-label="button group"
   class="xl-button-group"
+  role="group"
 >
   <button
     class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation"
@@ -319,10 +346,12 @@ exports[`ButtonGroup 基本测试 1`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -330,7 +359,7 @@ exports[`ButtonGroup 基本测试 1`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       button
     </span>
@@ -349,10 +378,12 @@ exports[`ButtonGroup 基本测试 1`] = `
       <span
         class="xl-button__suffix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -360,7 +391,7 @@ exports[`ButtonGroup 基本测试 1`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </span>
     <span
@@ -374,10 +405,12 @@ exports[`ButtonGroup 基本测试 1`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -385,7 +418,7 @@ exports[`ButtonGroup 基本测试 1`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
@@ -398,10 +431,12 @@ exports[`ButtonGroup 基本测试 1`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -409,13 +444,14 @@ exports[`ButtonGroup 基本测试 1`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
@@ -423,27 +459,33 @@ exports[`ButtonGroup 基本测试 1`] = `
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        style="display: inline-block; vertical-align: middle; line-height: 0;"
       >
-        <i
-          class="xl-icon xl-icon--spin"
+        <span
+          class="xl-button__prefix"
         >
-          <svg
-            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-            viewBox="0 0 512 512"
+          <span
+            class="xl-icon xl-icon--spin"
+            role="img"
           >
-            <path
-              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-              fill="none"
-              stroke-linecap="round"
-              stroke-miterlimit="10"
-              stroke-width="32"
-            />
-            <path
-              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-            />
-          </svg>
-        </i>
+            <svg
+              focusable="false"
+              style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+                fill="none"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+              />
+              <path
+                d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+              />
+            </svg>
+          </span>
+        </span>
       </span>
       button
     </span>
@@ -452,38 +494,8 @@ exports[`ButtonGroup 基本测试 1`] = `
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
-  >
-    <span
-      class="xl-base-button__inner"
-    >
-      <i
-        class="xl-icon xl-icon--spin"
-      >
-        <svg
-          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-            fill="none"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="32"
-          />
-          <path
-            d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-          />
-        </svg>
-      </i>
-    </span>
-    <span
-      class="xl-ripple"
-    />
-  </button>
-  <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -492,10 +504,12 @@ exports[`ButtonGroup 基本测试 1`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon xl-icon--spin"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -510,7 +524,45 @@ exports[`ButtonGroup 基本测试 1`] = `
               d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
             />
           </svg>
-        </i>
+        </span>
+      </span>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    aria-readonly="true"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--loading"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <span
+          class="xl-icon xl-icon--spin"
+          role="img"
+        >
+          <svg
+            focusable="false"
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </span>
       </span>
       button
     </span>
@@ -523,7 +575,9 @@ exports[`ButtonGroup 基本测试 1`] = `
 
 exports[`ButtonGroup 基本测试 2`] = `
 <div
+  aria-label="button group"
   class="xl-button-group"
+  role="group"
 >
   <button
     class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation"
@@ -574,10 +628,12 @@ exports[`ButtonGroup 基本测试 2`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -585,7 +641,7 @@ exports[`ButtonGroup 基本测试 2`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       button
     </span>
@@ -604,10 +660,12 @@ exports[`ButtonGroup 基本测试 2`] = `
       <span
         class="xl-button__suffix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -615,7 +673,7 @@ exports[`ButtonGroup 基本测试 2`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </span>
     <span
@@ -629,10 +687,12 @@ exports[`ButtonGroup 基本测试 2`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -640,7 +700,7 @@ exports[`ButtonGroup 基本测试 2`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
@@ -653,10 +713,12 @@ exports[`ButtonGroup 基本测试 2`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -664,13 +726,14 @@ exports[`ButtonGroup 基本测试 2`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--loading"
     tabindex="0"
   >
@@ -678,27 +741,33 @@ exports[`ButtonGroup 基本测试 2`] = `
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        style="display: inline-block; vertical-align: middle; line-height: 0;"
       >
-        <i
-          class="xl-icon xl-icon--spin"
+        <span
+          class="xl-button__prefix"
         >
-          <svg
-            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-            viewBox="0 0 512 512"
+          <span
+            class="xl-icon xl-icon--spin"
+            role="img"
           >
-            <path
-              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-              fill="none"
-              stroke-linecap="round"
-              stroke-miterlimit="10"
-              stroke-width="32"
-            />
-            <path
-              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-            />
-          </svg>
-        </i>
+            <svg
+              focusable="false"
+              style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+                fill="none"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+              />
+              <path
+                d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+              />
+            </svg>
+          </span>
+        </span>
       </span>
       button
     </span>
@@ -707,38 +776,8 @@ exports[`ButtonGroup 基本测试 2`] = `
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
-  >
-    <span
-      class="xl-base-button__inner"
-    >
-      <i
-        class="xl-icon xl-icon--spin"
-      >
-        <svg
-          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-            fill="none"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="32"
-          />
-          <path
-            d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-          />
-        </svg>
-      </i>
-    </span>
-    <span
-      class="xl-ripple"
-    />
-  </button>
-  <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -747,10 +786,12 @@ exports[`ButtonGroup 基本测试 2`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon xl-icon--spin"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -765,7 +806,45 @@ exports[`ButtonGroup 基本测试 2`] = `
               d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
             />
           </svg>
-        </i>
+        </span>
+      </span>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    aria-readonly="true"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--loading"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <span
+          class="xl-icon xl-icon--spin"
+          role="img"
+        >
+          <svg
+            focusable="false"
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </span>
       </span>
       button
     </span>
@@ -778,7 +857,9 @@ exports[`ButtonGroup 基本测试 2`] = `
 
 exports[`ButtonGroup 基本测试 3`] = `
 <div
+  aria-label="button group"
   class="xl-button-group"
+  role="group"
 >
   <button
     class="xl-base-button xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation"
@@ -829,10 +910,12 @@ exports[`ButtonGroup 基本测试 3`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -840,7 +923,7 @@ exports[`ButtonGroup 基本测试 3`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       button
     </span>
@@ -859,10 +942,12 @@ exports[`ButtonGroup 基本测试 3`] = `
       <span
         class="xl-button__suffix"
       >
-        <i
+        <span
           class="xl-icon"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -870,7 +955,7 @@ exports[`ButtonGroup 基本测试 3`] = `
               d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </span>
     <span
@@ -884,10 +969,12 @@ exports[`ButtonGroup 基本测试 3`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -895,7 +982,7 @@ exports[`ButtonGroup 基本测试 3`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
@@ -908,10 +995,12 @@ exports[`ButtonGroup 基本测试 3`] = `
     <span
       class="xl-base-button__inner"
     >
-      <i
+      <span
         class="xl-icon"
+        role="img"
       >
         <svg
+          focusable="false"
           style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
           viewBox="0 0 512 512"
         >
@@ -919,13 +1008,14 @@ exports[`ButtonGroup 基本测试 3`] = `
             d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <span
       class="xl-ripple"
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--loading"
     tabindex="0"
   >
@@ -933,27 +1023,33 @@ exports[`ButtonGroup 基本测试 3`] = `
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        style="display: inline-block; vertical-align: middle; line-height: 0;"
       >
-        <i
-          class="xl-icon xl-icon--spin"
+        <span
+          class="xl-button__prefix"
         >
-          <svg
-            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-            viewBox="0 0 512 512"
+          <span
+            class="xl-icon xl-icon--spin"
+            role="img"
           >
-            <path
-              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-              fill="none"
-              stroke-linecap="round"
-              stroke-miterlimit="10"
-              stroke-width="32"
-            />
-            <path
-              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-            />
-          </svg>
-        </i>
+            <svg
+              focusable="false"
+              style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+                fill="none"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width="32"
+              />
+              <path
+                d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+              />
+            </svg>
+          </span>
+        </span>
       </span>
       button
     </span>
@@ -962,38 +1058,8 @@ exports[`ButtonGroup 基本测试 3`] = `
     />
   </button>
   <button
+    aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
-  >
-    <span
-      class="xl-base-button__inner"
-    >
-      <i
-        class="xl-icon xl-icon--spin"
-      >
-        <svg
-          style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
-          viewBox="0 0 512 512"
-        >
-          <path
-            d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
-            fill="none"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="32"
-          />
-          <path
-            d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
-          />
-        </svg>
-      </i>
-    </span>
-    <span
-      class="xl-ripple"
-    />
-  </button>
-  <button
-    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--loading"
     tabindex="0"
   >
     <span
@@ -1002,10 +1068,12 @@ exports[`ButtonGroup 基本测试 3`] = `
       <span
         class="xl-button__prefix"
       >
-        <i
+        <span
           class="xl-icon xl-icon--spin"
+          role="img"
         >
           <svg
+            focusable="false"
             style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
             viewBox="0 0 512 512"
           >
@@ -1020,7 +1088,45 @@ exports[`ButtonGroup 基本测试 3`] = `
               d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
             />
           </svg>
-        </i>
+        </span>
+      </span>
+    </span>
+    <span
+      class="xl-ripple"
+    />
+  </button>
+  <button
+    aria-readonly="true"
+    class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--loading"
+    tabindex="0"
+  >
+    <span
+      class="xl-base-button__inner"
+    >
+      <span
+        class="xl-button__prefix"
+      >
+        <span
+          class="xl-icon xl-icon--spin"
+          role="img"
+        >
+          <svg
+            focusable="false"
+            style="height: 1em; width: 1em; fill: currentColor; stroke: currentColor;"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M400 148l-21.12-24.57A191.43 191.43 0 00240 64C134 64 48 150 48 256s86 192 192 192a192.09 192.09 0 00181.07-128"
+              fill="none"
+              stroke-linecap="round"
+              stroke-miterlimit="10"
+              stroke-width="32"
+            />
+            <path
+              d="M464 97.42V208a16 16 0 01-16 16H337.42c-14.26 0-21.4-17.23-11.32-27.31L436.69 86.1C446.77 76 464 83.16 464 97.42z"
+            />
+          </svg>
+        </span>
       </span>
       button
     </span>

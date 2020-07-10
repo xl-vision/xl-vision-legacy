@@ -1,7 +1,7 @@
 @use './var' as *;
 @use '../../style/mixins/clearfix' as *;
 
-$grid: #{$cls-prefix}-grid;
+$grid: #{$cls-prefix}-row;
 .#{$grid} {
   position: relative;
   box-sizing: border-box;

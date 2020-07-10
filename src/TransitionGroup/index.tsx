@@ -8,7 +8,7 @@ import CSSTransition, {
 import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass } from '../commons/utils/class'
 import { onTransitionEnd, getTransitionInfo, reflow } from '../commons/utils/transition'
-import computeQuene, { Data } from './computeQuene'
+import computeQueue, { Data } from './computeQueue'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import { warning } from '../commons/utils/logger'
@@ -139,11 +139,10 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 
     const refChildren = _children.map(fillRefForElement)
 
-    const quene = (queneRef.current = computeQuene(prevChildren, refChildren))
+    const quene = (queneRef.current = computeQueue(prevChildren, refChildren))
     const arr: Array<React.ReactElement> = []
 
-    for (let i = 0; i < quene.length; i++) {
-      const data = quene[i]
+    for (const data of quene) {
       if (data.same) {
         let prev = data.prev[0]
 
@@ -152,7 +151,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         // 这里在dom上添加标记，提示自定义的afterLeave方法取消执行
         // 为什么不直接将in=false？因为这里添加的，是在下一次循环才会真正渲染到dom tree，
         // 在那之前可能afterLeave执行了，删除了节点
-        if (prev.type === CSSTransition && (prev.props as CSSTransitionProps).in === false) {
+        if (prev.type === CSSTransition && !(prev.props as CSSTransitionProps).in) {
           const node = nodeMap?.get(prev.key!)
           node && (node._NEED_LEAVE_CANCEL = true)
 
@@ -175,7 +174,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       } else {
         const prev = data.prev.map((it) => {
           const isTransition = it.type === CSSTransition
-          if (isTransition && (it.props as CSSTransitionProps).in === false) {
+          if (isTransition && !(it.props as CSSTransitionProps).in) {
             return it
           }
 
@@ -215,7 +214,6 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
         arr.push(...next)
       }
     }
-
     setElements(arr)
 
     computedRef.current = true
@@ -245,8 +243,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     const arr: Array<React.ReactElement> = []
     const sameNodes: Array<TransitionGroupElement> = []
 
-    for (let i = 0; i < quene.length; i++) {
-      const data = quene[i]
+    for (const data of quene) {
       if (data.same) {
         const ele = data.prev[0]
         arr.push(ele)
@@ -272,42 +269,43 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
             </CSSTransition>
           )
         })
+
         arr.push(...prev)
         arr.push(...next)
       }
-      prevChildrenRef.current = arr
-      setElements(arr)
-
-      const moveClass = transitionClassesObj.move
-
-      const hasMove = sameNodes.length > 0 && moveClass && hasCSSTransform(sameNodes[0], moveClass)
-
-      if (!hasMove) {
-        return
-      }
-
-      // 使元素尽快归位，防止插入元素动画太突兀
-      sameNodes.forEach(clearTransition)
-      sameNodes.forEach((node) => {
-        node._newPos = node.getBoundingClientRect()
-      })
-      const moveNodes = sameNodes.filter(applyTransition)
-
-      reflow()
-      moveNodes.forEach((node) => {
-        const { style } = node
-        addClass(node, moveClass!)
-        style.transform = style.webkitTransform = style.transitionDuration = ''
-        const cb = onTransitionEnd(node, () => {
-          removeClass(node, moveClass!)
-        })
-        node._move = () => {
-          cb()
-          node._move = undefined
-          removeClass(node, moveClass!)
-        }
-      })
     }
+    prevChildrenRef.current = arr
+    setElements(arr)
+
+    const moveClass = transitionClassesObj.move
+
+    const hasMove = sameNodes.length > 0 && moveClass && hasCSSTransform(sameNodes[0], moveClass)
+
+    if (!hasMove) {
+      return
+    }
+
+    // 使元素尽快归位，防止插入元素动画太突兀
+    sameNodes.forEach(clearTransition)
+    sameNodes.forEach((node) => {
+      node._newPos = node.getBoundingClientRect()
+    })
+    const moveNodes = sameNodes.filter(applyTransition)
+
+    reflow()
+    moveNodes.forEach((node) => {
+      const { style } = node
+      addClass(node, moveClass!)
+      style.transform = style.webkitTransform = style.transitionDuration = ''
+      const cb = onTransitionEnd(node, () => {
+        removeClass(node, moveClass!)
+      })
+      node._move = () => {
+        cb()
+        node._move = undefined
+        removeClass(node, moveClass!)
+      }
+    })
   })
 
   // 同步执行，避免闪烁
@@ -336,9 +334,9 @@ const hasCSSTransform = (_el: HTMLElement, moveClass: string) => {
   // is applied.
   const clone = el.cloneNode() as HTMLElement
   if (el._ctc) {
-    Object.values(el._ctc).forEach((clazz) => {
+    for (const clazz of Object.values(el._ctc)) {
       clazz && clone.classList.remove(clazz)
-    })
+    }
   }
   moveClass.split(/\s+/).forEach((c) => c && clone.classList.add(c))
   clone.style.display = 'none'
@@ -364,10 +362,11 @@ const applyTransition = (el: TransitionGroupElement) => {
   }
   const dx = oldPos.left - newPos.left
   const dy = oldPos.top - newPos.top
-  if (dx || dy) {
-    const s = el.style
-    s.transform = s.webkitTransform = `translate(${dx}px,${dy}px)`
-    s.transitionDuration = '0s'
-    return true
+  if (!dx || !dy) {
+    return false
   }
+  const s = el.style
+  s.transform = s.webkitTransform = `translate(${dx}px,${dy}px)`
+  s.transitionDuration = '0s'
+  return true
 }

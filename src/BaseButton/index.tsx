@@ -90,6 +90,8 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
 
   return (
     <Component
+      aria-disabled={disabled}
+      aria-readonly={loading}
       {...others}
       disabled={disabled}
       onClick={onClickWrap}

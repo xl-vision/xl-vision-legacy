@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grid flex布局 1`] = `
+exports[`Row flex布局 1`] = `
 <div>
   <div
     class="box"
   >
     <div
-      class="xl-grid-flex xl-grid-flex--top"
+      class="xl-row-flex xl-row-flex--top"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -21,6 +23,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -31,6 +34,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -41,6 +45,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -55,11 +60,13 @@ exports[`Grid flex布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid-flex xl-grid-flex--middle"
+      class="xl-row-flex xl-row-flex--middle"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -70,6 +77,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -80,6 +88,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -90,6 +99,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -104,11 +114,13 @@ exports[`Grid flex布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid-flex xl-grid-flex--bottom"
+      class="xl-row-flex xl-row-flex--bottom"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -119,6 +131,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -129,6 +142,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -139,6 +153,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -153,11 +168,13 @@ exports[`Grid flex布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid-flex xl-grid-flex--start"
+      class="xl-row-flex xl-row-flex--start"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -168,6 +185,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -178,6 +196,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -192,11 +211,13 @@ exports[`Grid flex布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid-flex xl-grid-flex--center"
+      class="xl-row-flex xl-row-flex--center"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -207,6 +228,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -217,6 +239,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -231,11 +254,13 @@ exports[`Grid flex布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid-flex xl-grid-flex--end"
+      class="xl-row-flex xl-row-flex--end"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -246,6 +271,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -256,6 +282,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -270,11 +297,13 @@ exports[`Grid flex布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid-flex"
+      class="xl-row-flex"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-order-3 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -285,6 +314,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-order-1 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -295,6 +325,7 @@ exports[`Grid flex布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-order-2 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -308,17 +339,19 @@ exports[`Grid flex布局 1`] = `
 </div>
 `;
 
-exports[`Grid 偏移布局 1`] = `
+exports[`Row 偏移布局 1`] = `
 <div>
   <div
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -329,6 +362,7 @@ exports[`Grid 偏移布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-offset-6 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -339,6 +373,7 @@ exports[`Grid 偏移布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -353,11 +388,13 @@ exports[`Grid 偏移布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -368,6 +405,7 @@ exports[`Grid 偏移布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-push-6 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -378,6 +416,7 @@ exports[`Grid 偏移布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-pull-6 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -388,6 +427,7 @@ exports[`Grid 偏移布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -402,11 +442,13 @@ exports[`Grid 偏移布局 1`] = `
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-offset-6 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -417,6 +459,7 @@ exports[`Grid 偏移布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-pull-12 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -427,6 +470,7 @@ exports[`Grid 偏移布局 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -440,17 +484,19 @@ exports[`Grid 偏移布局 1`] = `
 </div>
 `;
 
-exports[`Grid 响应式偏移 1`] = `
+exports[`Row 响应式偏移 1`] = `
 <div>
   <div
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -461,6 +507,7 @@ exports[`Grid 响应式偏移 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -471,6 +518,7 @@ exports[`Grid 响应式偏移 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -485,11 +533,13 @@ exports[`Grid 响应式偏移 1`] = `
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -500,6 +550,7 @@ exports[`Grid 响应式偏移 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -510,6 +561,7 @@ exports[`Grid 响应式偏移 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -524,11 +576,13 @@ exports[`Grid 响应式偏移 1`] = `
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -539,6 +593,7 @@ exports[`Grid 响应式偏移 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -549,6 +604,7 @@ exports[`Grid 响应式偏移 1`] = `
       </div>
       <div
         class="xl-col xl-col-offset-6 xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -562,15 +618,17 @@ exports[`Grid 响应式偏移 1`] = `
 </div>
 `;
 
-exports[`Grid 响应式布局 1`] = `
+exports[`Row 响应式布局 1`] = `
 <div
   class="box"
 >
   <div
-    class="xl-grid"
+    class="xl-row"
+    role="row"
   >
     <div
       class="xl-col"
+      role="cell"
     >
       <div
         class="col"
@@ -580,6 +638,7 @@ exports[`Grid 响应式布局 1`] = `
     </div>
     <div
       class="xl-col"
+      role="cell"
     >
       <div
         class="col"
@@ -589,6 +648,7 @@ exports[`Grid 响应式布局 1`] = `
     </div>
     <div
       class="xl-col"
+      role="cell"
     >
       <div
         class="col"
@@ -598,6 +658,7 @@ exports[`Grid 响应式布局 1`] = `
     </div>
     <div
       class="xl-col"
+      role="cell"
     >
       <div
         class="col"
@@ -609,17 +670,19 @@ exports[`Grid 响应式布局 1`] = `
 </div>
 `;
 
-exports[`Grid 基本用法 1`] = `
+exports[`Row 基本用法 1`] = `
 <div>
   <div
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-4"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -630,6 +693,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-5"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -640,6 +704,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-7"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -650,6 +715,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-8"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -664,11 +730,13 @@ exports[`Grid 基本用法 1`] = `
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -679,6 +747,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -689,6 +758,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -699,6 +769,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-6"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -713,11 +784,13 @@ exports[`Grid 基本用法 1`] = `
     class="box"
   >
     <div
-      class="xl-grid"
+      class="xl-row"
+      role="row"
       style="margin-left:-5px;margin-right:-5px"
     >
       <div
         class="xl-col xl-col-span-8"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -728,6 +801,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-0"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -738,6 +812,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-8"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div
@@ -748,6 +823,7 @@ exports[`Grid 基本用法 1`] = `
       </div>
       <div
         class="xl-col xl-col-span-8"
+        role="cell"
         style="padding-left:5px;padding-right:5px"
       >
         <div

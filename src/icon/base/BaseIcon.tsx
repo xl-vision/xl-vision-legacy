@@ -20,7 +20,7 @@ const getSize = (size: number | string) => {
   return size
 }
 
-const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
+const BaseIcon = React.forwardRef<HTMLSpanElement, BaseIconProps>((props, ref) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
 
   const {
@@ -44,7 +44,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
   }
 
   const childrenProps = {
-    ...children.props
+    ...(children.props as React.HTMLAttributes<SVGSVGElement>)
   }
 
   const customChildrenStyle: React.CSSProperties = {
@@ -56,6 +56,7 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
   const childrenStyle = { ...customChildrenStyle, ...childrenProps.style }
 
   const cloneChildren = React.cloneElement(children, {
+    focusable: false,
     ...childrenProps,
     style: childrenStyle
   })
@@ -68,11 +69,11 @@ const BaseIcon: React.FunctionComponent<BaseIconProps> = (props) => {
     className
   )
   return (
-    <i {...others} className={classes} style={iconStyle}>
+    <span role='img' {...others} className={classes} style={iconStyle} ref={ref}>
       {cloneChildren}
-    </i>
+    </span>
   )
-}
+})
 
 BaseIcon.displayName = 'BaseIcon'
 

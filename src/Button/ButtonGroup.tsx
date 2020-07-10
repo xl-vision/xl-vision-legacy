@@ -45,7 +45,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
         variant
       }}
     >
-      <div {...others} className={classes} />
+      <div role='group' aria-label='button group' {...others} className={classes}/>
     </ButtonContext.Provider>
   )
 }

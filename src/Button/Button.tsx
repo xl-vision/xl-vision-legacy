@@ -1,10 +1,10 @@
 import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
-import Reload from '../icon/Reload'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import BaseButton, { BaseButtonProps, ButtonElement } from '../BaseButton'
 import ButtonContext from './ButtonContext'
+import LoadingIcon from './LoadingIcon'
 
 export type ButtonTheme =
   | 'default'
@@ -58,13 +58,6 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   let prefixIcon = _prefixIcon
   let suffixIcon = _suffixIcon
 
-  if (loading) {
-    if (prefixIcon || !suffixIcon) {
-      prefixIcon = <Reload spin={true} />
-    } else {
-      suffixIcon = <Reload spin={true} />
-    }
-  }
 
   if (prefixIcon && (children || suffixIcon)) {
     prefixIcon = <span className={`${clsPrefix}__prefix`}>{prefixIcon}</span>
@@ -72,6 +65,27 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 
   if (suffixIcon && (children || prefixIcon)) {
     suffixIcon = <span className={`${clsPrefix}__suffix`}>{suffixIcon}</span>
+  }
+
+  if (suffixIcon && !prefixIcon) {
+    if (loading) {
+      suffixIcon = (
+        <LoadingIcon
+          className={`${clsPrefix}__suffix`}
+          loading={true}
+          existIcon={true}
+        />
+      )
+    }
+  } else if (loading || !prefixIcon) {
+    prefixIcon = (
+      <LoadingIcon
+        className={`${clsPrefix}__prefix`}
+        transitionClassName={`${clsPrefix}__icon--loading`}
+        loading={!!loading}
+        existIcon={!!prefixIcon}
+      />
+    )
   }
 
   const classes = classnames(

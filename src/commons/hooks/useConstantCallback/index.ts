@@ -6,9 +6,9 @@ import useLayoutEffect from '../useLayoutEffect'
  * 将给定的函数常量话
  * @param value
  */
-const useConstantCallback = <P, R>(value: (...args: Array<P>) => R) => {
+const useConstantCallback = <P extends any, R extends any>(value: (...args: Array<P>) => R) => {
   const valueRef = useRef(value)
-  const getValue = useCallback((...args) => valueRef.current(...args), [])
+  const getValue = useCallback((...args: Array<P>) => valueRef.current(...args), [])
   useLayoutEffect(() => {
     valueRef.current = value
   }, [value])

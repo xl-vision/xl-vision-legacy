@@ -46,7 +46,7 @@ const routes: Array<Route> = [
       {
         name: '栅格布局',
         path: '/Grid',
-        component: import('../src/Grid/__doc__/index.mdx')
+        component: import('../src/Row/__doc__/index.mdx')
       }
     ]
   },

@@ -55,7 +55,7 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
 
 addRoute(routes)
 
-const Content: React.FunctionComponent<void> = () => {
+const Content: React.FunctionComponent<Record<string, unknown>> = () => {
   return (
     <div className={classes.content}>
       <Markdown>

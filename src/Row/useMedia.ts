@@ -31,35 +31,36 @@ const useMedia = () => {
   const [media, setMedia] = useState<Partial<Record<BreakPoint, boolean>>>({})
 
   useEffect(() => {
-    const handlerMap: {
-      [breakPoint: string]: {
-        listener: EventListener
-        meidaQuery: ReturnType<typeof matchMedia>
+      const handlerMap: {
+        [breakPoint: string]: {
+          listener: EventListener
+          mediaQuery: ReturnType<typeof matchMedia>
+        }
+      } = {}
+      for (const breakPoint of breakPointArray) {
+        const query = breakPointMap[breakPoint]
+        const mql = matchMedia(query)
+        const onChange = () => {
+          setMedia((prev) => ({
+            ...prev,
+            [breakPoint]: mql.matches
+          }))
+        }
+        handlerMap[breakPoint] = {
+          listener: onChange,
+          mediaQuery: mql
+        }
+        mql.addListener(onChange)
+        onChange()
       }
-    } = {}
-    breakPointArray.forEach((breakPoint) => {
-      const query = breakPointMap[breakPoint]
-      const mql = matchMedia(query)
-      const onChange = () => {
-        setMedia((prev) => ({
-          ...prev,
-          [breakPoint]: mql.matches
-        }))
+      return () => {
+        for (const breakPoint of breakPointArray) {
+          const { mediaQuery, listener } = handlerMap[breakPoint]
+          mediaQuery.removeListener(listener)
+        }
       }
-      handlerMap[breakPoint] = {
-        listener: onChange,
-        meidaQuery: mql
-      }
-      mql.addListener(onChange)
-      onChange()
-    })
-    return () => {
-      breakPointArray.forEach((breakPoint) => {
-        const { meidaQuery, listener } = handlerMap[breakPoint]
-        meidaQuery.removeListener(listener)
-      })
-    }
-  }, [])
+    }, []
+  )
 
   return media
 }

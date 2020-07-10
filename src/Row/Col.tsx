@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { BreakPoint, breakPointArray } from './useMedia'
-import RowContext from './GridContext'
+import RowContext from './RowContext'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
@@ -45,13 +45,12 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
       span
     }
     const arr = [clsPrefix]
-    Object.keys(obj).forEach((prop) => {
+    for (const prop of Object.keys(obj)) {
       const propValue = obj[prop as keyof typeof obj]
       if (typeof propValue === 'number') {
         arr.push(`${clsPrefix}-${prop}-${propValue}`)
       } else if (typeof propValue === 'object') {
-        for (let i = 0; i < breakPointArray.length; i++) {
-          const breakPoint = breakPointArray[i]
+        for (const breakPoint of breakPointArray) {
           const value = propValue[breakPoint]
           if (media[breakPoint] && value !== undefined) {
             arr.push(`${clsPrefix}-${prop}-${value}`)
@@ -60,21 +59,21 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
           }
         }
       }
-    })
+    }
     return classnames(arr, className)
   }, [media, span, order, offset, pull, push, clsPrefix, className])
 
   const colStyle =
     gutter > 0
       ? {
-          ...style,
-          paddingLeft: gutter / 2,
-          paddingRight: gutter / 2
-        }
+        ...style,
+        paddingLeft: gutter / 2,
+        paddingRight: gutter / 2
+      }
       : style
 
   return (
-    <div {...others} style={colStyle} className={classes}>
+    <div role='cell' {...others} style={colStyle} className={classes}>
       {children}
     </div>
   )
@@ -82,7 +81,7 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
 
 const spanValidator = (props: ColProps, propName: keyof ColProps, componentName: string) => {
   // eslint-disable-next-line react/destructuring-assignment
-  const propValue = props[propName]
+  const propValue = props[propName] as ColSpanType
   if (typeof propValue === 'undefined') {
     return null
   }
@@ -93,14 +92,13 @@ const spanValidator = (props: ColProps, propName: keyof ColProps, componentName:
       )
     }
   } else if (typeof propValue === 'object') {
-    for (let i = 0; i < breakPointArray.length; i++) {
-      const breakPoint = breakPointArray[i]
+    for (const breakPoint of breakPointArray) {
       const val = propValue[breakPoint]
-      if (Number.isInteger(val)) {
+      if (val && Number.isInteger(val)) {
         if (propValue < 0 || propValue > 24) {
           return new Error(
             `prop '${propName}' supplied to '${componentName}' is object, its prop '${breakPoint}' be in 0-24 but actually '${
-              val as number
+              val
             }'.`
           )
         }

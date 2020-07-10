@@ -93,11 +93,11 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   return cancelCb
 }
 
-export const raf: (cb: () => void) => void = isBrowser
+export const raf = isBrowser
   ? window.requestAnimationFrame
-    ? window.requestAnimationFrame.bind(window)
+    ? (window.requestAnimationFrame.bind(window) as (cb: () => void) => void)
     : setTimeout
-  : (fn) => fn()
+  : (cb: () => void) => cb()
 
 export const nextFrame = (fn: () => void) => {
   raf(() => {
@@ -112,7 +112,8 @@ export const reflow = () => {
   }
 }
 
-const _getTimeout = (delays: Array<string>, durations: Array<string>) => {
+const _getTimeout = (_delays: Array<string>, durations: Array<string>) => {
+  let delays = _delays
   while (delays.length < durations.length) {
     delays = delays.concat(delays)
   }
@@ -124,6 +125,10 @@ const _getTimeout = (delays: Array<string>, durations: Array<string>) => {
   )
 }
 
+// Old versions of Chromium (below 61.0.3163.100) formats floating pointer
+// numbers in a locale-dependent way, using a comma instead of a dot.
+// If comma is not replaced with a dot, the input will be rounded down
+// (i.e. acting as a floor function) causing unexpected behaviors
 const _toMs = (s: string) => {
-  return Number(s.slice(0, -1)) * 1000
+  return Number(s.slice(0, -1).replace(',', '.')) * 1000
 }

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { createPopper, Placement, Options, Instance, State, Modifier } from '@popperjs/core'
+import { createPopper, Instance, Modifier, Options, Placement, State } from '@popperjs/core'
 import { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow'
 import { FlipModifier } from '@popperjs/core/lib/modifiers/flip'
 import Portal, { ContainerType } from '../Portal'
@@ -220,7 +220,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     actualVisibleTrigger(actualVisible)
   }, [actualVisible, actualVisibleTrigger])
 
-  const visibleTrigger = useConstantCallback(() => {
+  const visibleTrigger = useConstantCallback((_visible: boolean) => {
     if (disabled) {
       return
     }
@@ -228,14 +228,14 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       return
     }
     setTimeout(() => {
-      setActualWrapper(visible)
+      setActualWrapper(_visible)
       // 增加延时保证这个方法最后调用,时间不能大于TIME_DELAY,否则上一个任务就执行完了
     }, TIME_DELAY * 0.5)
   })
 
   // visible修改时触发actualVisible更新
   React.useEffect(() => {
-    visibleTrigger()
+    visibleTrigger(visible)
   }, [
     visible,
     // 常量
@@ -457,7 +457,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           ref={popupNodeRef}
           onMouseEnter={onPopupMouseEnter}
           onMouseLeave={onPopupMouseLeave}
-          onClick={onPopupClick}
+          onClickCapture={onPopupClick}
         >
           <CSSTransition
             beforeEnter={beforeEnter}
@@ -467,9 +467,9 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           >
             <div style={popupStyle} className={popupClassName} ref={innerPopupNodeRef}>
               {arrow &&
-                React.cloneElement(arrow, {
-                  'data-popper-arrow': ''
-                })}
+              React.cloneElement(arrow, {
+                'data-popper-arrow': ''
+              })}
               {popup}
             </div>
           </CSSTransition>
@@ -481,30 +481,30 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 添加事件到children中，但是不能妨碍children中原来的事件，
    * 所以对于相同的事件需要合并
    */
-  // 不使用useMemo包裹，referenceNodeRef可能为空
-  // 猜测的原因是fillRef创建新的refCb,
-  // 所以react会先将referenceNodeRef设置为null，再设置为指定的值
-  // 这个执行时间迟于beforeEnter钩子
-  // 但是造成的这种现象的原因未知
+    // 不使用useMemo包裹，referenceNodeRef可能为空
+    // 猜测的原因是fillRef创建新的refCb,
+    // 所以react会先将referenceNodeRef设置为null，再设置为指定的值
+    // 这个执行时间迟于beforeEnter钩子
+    // 但是造成的这种现象的原因未知
   const childrenNode = (() => {
-    const {
-      onBlur: _onBlur,
-      onClick: _onClick,
-      onContextMenu: _onContextMenu,
-      onFocus: _onFocus,
-      onMouseEnter: _onMouseEnter,
-      onMouseLeave: _onMouseLeave
-    } = children.props
-    const clone = React.cloneElement(children, {
-      onBlur: mergeEvents(onBlur, _onBlur),
-      onClick: mergeEvents(onReferenceClick, _onClick),
-      onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
-      onFocus: mergeEvents(onFocus, _onFocus),
-      onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
-      onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave)
-    })
-    return fillRef(clone, referenceNodeRef)
-  })()
+      const {
+        onBlur: _onBlur,
+        onClick: _onClick,
+        onContextMenu: _onContextMenu,
+        onFocus: _onFocus,
+        onMouseEnter: _onMouseEnter,
+        onMouseLeave: _onMouseLeave
+      } = (children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props
+      const clone = React.cloneElement(children, {
+        onBlur: mergeEvents(onBlur, _onBlur),
+        onClick: mergeEvents(onReferenceClick, _onClick),
+        onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
+        onFocus: mergeEvents(onFocus, _onFocus),
+        onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
+        onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave)
+      })
+      return fillRef(clone, referenceNodeRef)
+    })()
 
   return (
     <>
@@ -560,7 +560,7 @@ Popper.propTypes = {
 export default Popper
 
 const applyTransformOrigin = (el: HTMLElement, direction: string, state: State) => {
-  const {arrow} = state.modifiersData
+  const { arrow } = state.modifiersData
   if (!arrow) {
     return
   }

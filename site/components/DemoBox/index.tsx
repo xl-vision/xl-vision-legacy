@@ -1,9 +1,9 @@
 import * as React from 'react'
+import { DemoBoxProps } from '@xl-vision/scripts'
 import classes from './index.module.scss'
 import { CollapseTransition, Button } from '../../../src'
-import { CodeSlash, Code, Link } from '../../../src/icon'
+import { CodeSlash, Code, Link as LinkIcon } from '../../../src/icon'
 import getText from '../../utils/getText'
-import { DemoBoxProps } from '@xl-vision/scripts'
 import 'prismjs/themes/prism.css'
 
 
@@ -25,7 +25,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
         <div className={classes.title}>
           {title}
           <a className={classes.anchor} href={`#${text}`}>
-            <Link />
+            <LinkIcon />
           </a>
         </div>
         <div className={classes.desc}>{desc}</div>
@@ -38,7 +38,10 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
           prefixIcon={expand ? <CodeSlash /> : <Code />}
         />
       </div>
-      <CollapseTransition in={expand} mountOnEnter={true}>
+      <CollapseTransition transitionClasses={{
+        enterActive: classes.collapse,
+        leaveActive: classes.collapse
+      }} in={expand} mountOnEnter={true}>
         <div className={classes.codes}>
           {
             // eslint-disable-next-line react/prop-types

@@ -87,7 +87,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   afterDisappear = afterDisappear || afterLeave
   disappearCancelled = disappearCancelled || leaveCancelled
 
-  const [state, setState] = React.useState(() =>
+  const [state, setState] = React.useState(
     inProp
       ? transitionOnFirst
         ? State.STATE_APPEARING
@@ -163,6 +163,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
 
   const inPropTrigger = useConstantCallback((_inProp: boolean) => {
     if (_inProp && state >= State.STATE_LEAVING) {
+      // 不能放到外面，会使appear和disappear失效
       cbRef.current = undefined
       // 新的更改，之前的event取消
       setState(State.STATE_ENTERING)
@@ -208,12 +209,14 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     return null
   }
 
-  const style: React.CSSProperties = { ...children.props.style }
+  const style: React.CSSProperties = {
+    ...(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props.style
+  }
   if (!display) {
     style.display = 'none'
   }
 
-  const clone = React.cloneElement<React.HTMLAttributes<HTMLElement>>(children, {
+  const clone = React.cloneElement(children, {
     ...children.props,
     style
   })
