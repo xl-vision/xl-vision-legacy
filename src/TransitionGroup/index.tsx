@@ -364,7 +364,7 @@ const applyTransition = (el: TransitionGroupElement) => {
   }
   const dx = oldPos.left - newPos.left
   const dy = oldPos.top - newPos.top
-  if (!dx || !dy) {
+  if (!dx && !dy) {
     return false
   }
   const s = el.style
