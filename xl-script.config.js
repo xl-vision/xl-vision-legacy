@@ -5,11 +5,11 @@ module.exports = [
       name: 'lint:es',
       options: {
         from: [
+          'script/**/*.js',
           'src/**/*.ts?(x)',
-          // 'site/**/*.ts?(x)',
-          // 'script/**/*.js',
-          // 'test/**/*.ts?(x)',
-          // 'test/**/*.js?(x)'
+          'test/**/*.ts?(x)',
+          'test/**/*.js?(x)',
+          'site/**/*.ts?(x)'
         ]
       }
     }

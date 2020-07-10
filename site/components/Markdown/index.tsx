@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import classnames from 'classnames'
-import { MDXProvider } from '@xl-vision/scripts'
 import { MDXProviderComponents } from '@mdx-js/react'
+import { MDXProvider } from '@xl-vision/scripts'
 import React from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 import { Link as LinkIcon } from '../../../src/icon'
@@ -16,7 +17,7 @@ export type MarkdownProps = {
 const Wrapper: React.FunctionComponent<{ children: React.ReactNode }> = (props) => {
   const { children } = props
   React.useEffect(() => {
-    const hash = location.hash
+    const { hash } = window.location
     if (!hash) {
       return
     }
@@ -40,7 +41,8 @@ const components: MDXProviderComponents = {
     return <Link {...others} className={classnames(classes.a, className)} />
   },
   h1(props) {
-    const children = props.children
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { children } = props
     const text = getText(children)
     return (
       <h1 id={text} className={classes.h1}>
@@ -52,7 +54,8 @@ const components: MDXProviderComponents = {
     )
   },
   h2(props) {
-    const children = props.children
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { children } = props
     const text = getText(children)
     return (
       <h2 id={text} className={classes.h2}>
@@ -64,7 +67,8 @@ const components: MDXProviderComponents = {
     )
   },
   h3(props) {
-    const children = props.children
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { children } = props
     const text = getText(children)
     return (
       <h3 id={text} className={classes.h3}>
@@ -76,7 +80,8 @@ const components: MDXProviderComponents = {
     )
   },
   h4(props) {
-    const children = props.children
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { children } = props
     const text = getText(children)
     return (
       <h4 id={text} className={classes.h4}>
@@ -88,7 +93,8 @@ const components: MDXProviderComponents = {
     )
   },
   h5(props) {
-    const children = props.children
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { children } = props
     const text = getText(children)
     return (
       <h5 id={text} className={classes.h5}>
@@ -100,8 +106,13 @@ const components: MDXProviderComponents = {
     )
   },
   a(props) {
-    const className = props.className
-    return <a {...props} className={classnames(classes.a, className)} />
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const { className, children, ...others } = props
+    return (
+      <a {...others} className={classnames(classes.a, className)}>
+        {children}
+      </a>
+    )
   },
   blockquote(props) {
     return <blockquote {...props} className={classes.blockquote} />

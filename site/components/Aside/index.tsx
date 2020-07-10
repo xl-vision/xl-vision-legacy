@@ -6,16 +6,16 @@ import classes from './index.module.scss'
 
 const buildMenus = (routeArray: Array<Route>) => {
   const nodes: Array<React.ReactNode> = []
-  routeArray.forEach((it, index) => {
+  routeArray.forEach((it) => {
     if (typeof (it as ComponentRoute).component !== 'undefined') {
       nodes.push(
-        <li key={index} className={classes.menu}>
+        <li key={(it as ComponentRoute).path} className={classes.menu}>
           <Link to={(it as ComponentRoute).path}>{(it as ComponentRoute).name}</Link>
         </li>
       )
     } else if ((it as ChildrenRoute).children) {
       nodes.push(
-        <li key={index} className={classes.menu}>
+        <li key={(it as ComponentRoute).path} className={classes.menu}>
           <span className={classes.menuName}>{(it as ChildrenRoute).name}</span>
           {buildMenus((it as ChildrenRoute).children)}
         </li>

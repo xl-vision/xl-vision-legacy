@@ -4,6 +4,7 @@ import * as Icons from '../../../src/icon'
 import data from './data.json'
 
 import classes from './index.module.scss'
+import { Button } from '../../../src'
 
 export interface IconWrapperProps {
   children: React.ReactNode
@@ -26,6 +27,7 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
   React.useEffect(() => {
     const clipboard = new Clipboard(iconRef.current!)
     clipboard.on('success', () => {
+      // eslint-disable-next-line no-alert
       alert('复制成功')
       clipboard.destroy()
     })
@@ -59,7 +61,8 @@ const IconSelect: React.FunctionComponent<void> = () => {
     const iconNames = (Object.keys(data) as Array<keyof typeof data>).filter((it) => {
       if (type === 'outline') {
         return it.endsWith('Outline')
-      } else if (type === 'sharp') {
+      }
+      if (type === 'sharp') {
         return it.endsWith('Sharp')
       }
       return !it.endsWith('Outline') && !it.endsWith('Sharp')
@@ -96,31 +99,45 @@ const IconSelect: React.FunctionComponent<void> = () => {
     const arr = []
     for (const name of icons) {
       const Icon = Icons[name as keyof typeof Icons] as React.FunctionComponent<Icons.IconProps>
-      if (!Icon) {
-        continue
+      if (Icon) {
+        arr.push(
+          <IconWrapper name={name} key={name}>
+            <Icon size={40} />
+          </IconWrapper>
+        )
       }
-      arr.push(
-        <IconWrapper name={name} key={name}>
-          <Icon size={40} />
-        </IconWrapper>
-      )
     }
     return arr
   }, [icons])
 
-  const searchClick: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const searchClick: React.ChangeEventHandler<HTMLInputElement> = React.useCallback((e) => {
     const content = e.target.value
     setSearch(() => content)
-  }
+  }, [])
 
+  const fillClick = React.useCallback(() => {
+    setType('fill')
+  }, [])
+  const outlineClick = React.useCallback(() => {
+    setType('outline')
+  }, [])
+  const sharpClick = React.useCallback(() => {
+    setType('sharp')
+  }, [])
   return (
     <div className={classes.iconSelect}>
       <input onChange={searchClick} className={classes.input} placeholder='搜索图标' />
-      <div className={classes.switch}>
-        <button onClick={() => setType('fill')}>fill</button>
-        <button onClick={() => setType('outline')}>outline</button>
-        <button onClick={() => setType('sharp')}>sharp</button>
-      </div>
+      <Button.Group theme='primary' className={classes.buttonGroup}>
+        <Button type='button' onClick={fillClick}>
+          fill
+        </Button>
+        <Button type='button' onClick={outlineClick}>
+          outline
+        </Button>
+        <Button type='button' onClick={sharpClick}>
+          sharp
+        </Button>
+      </Button.Group>
       <div className={classes.info}>点击下面图标可以直接复制组件代码</div>
       <div className={classes.list}>{iconNodes}</div>
     </div>

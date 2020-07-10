@@ -47,10 +47,13 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
             // eslint-disable-next-line react/prop-types
             blocks.map((it, index) => {
               return (
+                // eslint-disable-next-line react/no-array-index-key
                 <div className={classes.codeWrapper} key={index}>
                   <ul className={classes.lines}>
+                    {/* eslint-disable-next-line no-shadow */}
                     {it.content.split('\n').map((_, index) => {
                       return (
+                        // eslint-disable-next-line react/no-array-index-key
                         <li key={index} className={classes.line}>
                           {index + 1}
                         </li>

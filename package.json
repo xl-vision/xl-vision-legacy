@@ -53,6 +53,7 @@
     "@commitlint/cli": "^9.0.1",
     "@commitlint/config-conventional": "^9.0.1",
     "@commitlint/format": "^9.0.1",
+    "@mdx-js/react": "^1.6.6",
     "@types/classnames": "^2.2.10",
     "@types/clipboard": "^2.0.1",
     "@types/enzyme": "^3.10.5",
