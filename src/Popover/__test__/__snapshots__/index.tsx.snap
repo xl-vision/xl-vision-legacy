@@ -4,6 +4,7 @@ exports[`Popover render 1`] = `
 Array [
   <button
     class="btn"
+    type="button"
   >
     button
   </button>,

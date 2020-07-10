@@ -1,5 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
+// eslint-disable-next-line import/no-named-as-default
 import Button from '..'
 import { Close } from '../../icon'
 
@@ -12,11 +13,11 @@ describe('Button', () => {
         <Button variant='outlined'>button</Button>
         <Button prefixIcon={<Close />}>button</Button>
         <Button suffixIcon={<Close />}>button</Button>
-        <Button prefixIcon={<Close />}></Button>
-        <Button suffixIcon={<Close />}></Button>
+        <Button prefixIcon={<Close />} />
+        <Button suffixIcon={<Close />} />
         <Button long={true}>button</Button>
         <Button loading={true}>button</Button>
-        <Button loading={true} prefixIcon={<Close />}></Button>
+        <Button loading={true} prefixIcon={<Close />} />
         <Button loading={true} prefixIcon={<Close />}>
           button
         </Button>
@@ -36,10 +37,10 @@ describe('ButtonGroup', () => {
         <Button variant='outlined'>button</Button>
         <Button prefixIcon={<Close />}>button</Button>
         <Button suffixIcon={<Close />}>button</Button>
-        <Button prefixIcon={<Close />}></Button>
-        <Button suffixIcon={<Close />}></Button>
+        <Button prefixIcon={<Close />} />
+        <Button suffixIcon={<Close />} />
         <Button loading={true}>button</Button>
-        <Button loading={true} prefixIcon={<Close />}></Button>
+        <Button loading={true} prefixIcon={<Close />} />
         <Button loading={true} prefixIcon={<Close />}>
           button
         </Button>

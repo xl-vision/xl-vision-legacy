@@ -4,6 +4,7 @@ exports[`Tooltip render 1`] = `
 Array [
   <button
     class="btn"
+    type="button"
   >
     button
   </button>,
@@ -37,6 +38,7 @@ exports[`Tooltip render:maxWidth 1`] = `
 Array [
   <button
     class="btn"
+    type="button"
   >
     button
   </button>,

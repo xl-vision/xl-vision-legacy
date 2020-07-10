@@ -7,7 +7,7 @@ import CSSTransition, {
 } from '../CSSTransition'
 import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass } from '../commons/utils/class'
-import { onTransitionEnd, getTransitionInfo, reflow } from '../commons/utils/transition'
+import { onTransitionEnd, getTransitionInfo, forceReflow } from '../commons/utils/transition'
 import computeQueue, { Data } from './computeQueue'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
@@ -292,7 +292,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     })
     const moveNodes = sameNodes.filter(applyTransition)
 
-    reflow()
+    forceReflow()
     moveNodes.forEach((node) => {
       const { style } = node
       addClass(node, moveClass!)

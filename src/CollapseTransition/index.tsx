@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import CSSTransition, { CSSTransitionClasses, TransitionElement } from '../CSSTransition'
-import { reflow } from '../commons/utils/transition'
+import { forceReflow } from '../commons/utils/transition'
 import { removeClass, addClass } from '../commons/utils/class'
 
 export interface CollapseTransitionProp {
@@ -49,7 +49,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.style[padding2] = '0'
         if (!cancelled) {
           addClass(el, el._ctc?.enter || '')
-          reflow()
+          forceReflow()
           addClass(el, el._ctc?.enterActive || '')
         }
         cancelled = false
@@ -86,7 +86,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         cancelled = false
       },
       leave(el: HTMLElement) {
-        reflow()
+        forceReflow()
         el.style[padding1] = '0'
         el.style[padding2] = '0'
         el.style[size] = '0'

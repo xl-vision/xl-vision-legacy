@@ -15,7 +15,7 @@ import fillRef from '../commons/utils/fillRef'
 import useConstantCallback from '../commons/hooks/useConstantCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import { addClass, removeClass } from '../commons/utils/class'
-import { reflow } from '../commons/utils/transition'
+import { forceReflow } from '../commons/utils/transition'
 import { voidFn } from '../commons/utils/function'
 
 export { Placement }
@@ -421,7 +421,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
 
     updatePopper()
     addClass(el, el._ctc?.enter || '')
-    reflow()
+    forceReflow()
     addClass(el, el._ctc?.enterActive || '')
   })
 

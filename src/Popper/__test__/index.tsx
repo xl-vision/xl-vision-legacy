@@ -1,8 +1,8 @@
 import { mount, ReactWrapper } from 'enzyme'
 import * as React from 'react'
+import { act } from 'react-dom/test-utils'
 import Popper from '..'
 import wait from '../../../test/wait'
-import { act } from 'react-dom/test-utils'
 
 const findPopper = (wrapper: ReactWrapper, popupClass: string) => {
   return wrapper
@@ -36,9 +36,12 @@ describe('Popper', () => {
   })
 
   it('测试触发条件:hover', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popper trigger='hover' popupClassName='popup' popup={<div />}>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popper>
     )
 
@@ -57,9 +60,12 @@ describe('Popper', () => {
     expect(popup.style.display).toBe('none')
   })
   it('测试触发条件:click', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popper trigger='click' popupClassName='popup' popup={<div />}>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popper>
     )
 
@@ -78,9 +84,12 @@ describe('Popper', () => {
     expect(popup.style.display).toBe('none')
   })
   it('测试触发条件:focus', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popper trigger='focus' popupClassName='popup' popup={<div />}>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popper>
     )
 
@@ -100,9 +109,12 @@ describe('Popper', () => {
   })
 
   it('测试触发条件:contextMenu', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popper trigger='contextMenu' popupClassName='popup' popup={<div />}>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popper>
     )
 
@@ -124,10 +136,13 @@ describe('Popper', () => {
     const CustomPopper = ({ visible }: { visible: boolean }) => {
       return (
         <Popper trigger='custom' visible={visible} popupClassName='popup' popup={<div />}>
-          <button className='btn'>button</button>
+          <button type='button' className='btn'>
+            button
+          </button>
         </Popper>
       )
     }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper visible={false} />)
 
     await act(() => wait(50))
@@ -150,9 +165,12 @@ describe('Popper', () => {
   })
   it('测试onVisibleChange', async () => {
     const fn = jest.fn()
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popper popupClassName='popup' onVisibleChange={fn} popup={<div />}>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popper>
     )
     await act(() => wait(50))
@@ -161,6 +179,7 @@ describe('Popper', () => {
     await act(() => wait(50))
 
     expect(fn.mock.calls.length).toBe(1)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(fn.mock.calls[0][0]).toBe(true)
     fn.mockClear()
 
@@ -168,16 +187,20 @@ describe('Popper', () => {
     await act(() => wait(50))
 
     expect(fn.mock.calls.length).toBe(1)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     expect(fn.mock.calls[0][0]).toBe(false)
   })
   it('测试弹出框进入行为:disablePopupEnter', async () => {
     const CustomPopper = ({ disablePopupEnter }: { disablePopupEnter: boolean }) => {
       return (
         <Popper disablePopupEnter={disablePopupEnter} popupClassName='popup' popup={<div />}>
-          <button className='btn'>button</button>
+          <button type='button' className='btn'>
+            button
+          </button>
         </Popper>
       )
     }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper disablePopupEnter={false} />)
 
     await act(() => wait(50))
@@ -209,10 +232,13 @@ describe('Popper', () => {
     const CustomPopper = ({ forceRender }: { forceRender: boolean }) => {
       return (
         <Popper forceRender={forceRender} popupClassName='popup' popup={<div />}>
-          <button className='btn'>button</button>
+          <button type='button' className='btn'>
+            button
+          </button>
         </Popper>
       )
     }
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper forceRender={false} />)
 
     await act(() => wait(50))
@@ -229,6 +255,7 @@ describe('Popper', () => {
 
     wrapper.unmount()
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper forceRender={true} />)
 
     await act(() => wait(50))
@@ -247,16 +274,21 @@ describe('Popper', () => {
   })
 
   it('测试多popper嵌套', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popper
         popupClassName='popup'
         popup={
           <Popper popupClassName='popup2' popup={<div />}>
-            <button className='btn2'>button</button>
+            <button type='button' className='btn2'>
+              button
+            </button>
           </Popper>
         }
       >
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popper>
     )
 
@@ -294,17 +326,22 @@ describe('Popper', () => {
   })
 
   it('测试disabled', async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popper
         disabled={true}
         popupClassName='popup'
         popup={
           <Popper visible={true} popupClassName='popup2' popup={<div />}>
-            <button className='btn2'>button</button>
+            <button type='button' className='btn2'>
+              button
+            </button>
           </Popper>
         }
       >
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popper>
     )
 

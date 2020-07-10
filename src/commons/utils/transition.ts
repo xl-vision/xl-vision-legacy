@@ -105,7 +105,7 @@ export const nextFrame = (fn: () => void) => {
   })
 }
 
-export const reflow = () => {
+export const forceReflow = () => {
   if (isBrowser) {
     // eslint-disable-next-line no-unused-expressions
     document.body.scrollHeight

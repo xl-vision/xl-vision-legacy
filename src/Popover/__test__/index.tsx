@@ -14,9 +14,12 @@ describe('Popover', () => {
   })
 
   it('render', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popover className='popup' visible={true} title='title' content='content'>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>
+          button
+        </button>
       </Popover>
     )
 

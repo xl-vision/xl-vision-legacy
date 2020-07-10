@@ -182,7 +182,7 @@ describe('Row', () => {
     const wrapper = render(
       <div>
         <div className='box'>
-          <Row gutter={10} type={'flex'} align={'top'}>
+          <Row gutter={10} type='flex' align='top'>
             <Row.Col span={6}>
               <div className='col'>col1</div>
             </Row.Col>
@@ -198,7 +198,7 @@ describe('Row', () => {
           </Row>
         </div>
         <div className='box'>
-          <Row gutter={10} type={'flex'} align={'middle'}>
+          <Row gutter={10} type='flex' align='middle'>
             <Row.Col span={6}>
               <div className='col'>col1</div>
             </Row.Col>
@@ -214,7 +214,7 @@ describe('Row', () => {
           </Row>
         </div>
         <div className='box'>
-          <Row gutter={10} type={'flex'} align={'bottom'}>
+          <Row gutter={10} type='flex' align='bottom'>
             <Row.Col span={6}>
               <div className='col'>col1</div>
             </Row.Col>
@@ -230,7 +230,7 @@ describe('Row', () => {
           </Row>
         </div>
         <div className='box'>
-          <Row gutter={10} type={'flex'} justify={'start'}>
+          <Row gutter={10} type='flex' justify='start'>
             <Row.Col span={6}>
               <div className='col'>col1</div>
             </Row.Col>
@@ -243,7 +243,7 @@ describe('Row', () => {
           </Row>
         </div>
         <div className='box'>
-          <Row gutter={10} type={'flex'} justify={'center'}>
+          <Row gutter={10} type='flex' justify='center'>
             <Row.Col span={6}>
               <div className='col'>col1</div>
             </Row.Col>
@@ -256,7 +256,7 @@ describe('Row', () => {
           </Row>
         </div>
         <div className='box'>
-          <Row gutter={10} type={'flex'} justify={'end'}>
+          <Row gutter={10} type='flex' justify='end'>
             <Row.Col span={6}>
               <div className='col'>col1</div>
             </Row.Col>
@@ -269,7 +269,7 @@ describe('Row', () => {
           </Row>
         </div>
         <div className='box'>
-          <Row gutter={10} type={'flex'}>
+          <Row gutter={10} type='flex'>
             <Row.Col span={6} order={3}>
               <div className='col'>col1</div>
             </Row.Col>

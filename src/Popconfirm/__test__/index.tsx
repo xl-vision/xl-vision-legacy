@@ -1,7 +1,7 @@
 import { mount, ReactWrapper } from 'enzyme'
 import * as React from 'react'
-import Popconfirm from '..'
 import { act } from 'react-dom/test-utils'
+import Popconfirm from '..'
 import wait from '../../../test/wait'
 
 describe('Popconfirm', () => {
@@ -16,9 +16,10 @@ describe('Popconfirm', () => {
   })
 
   it('render', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popconfirm className='popup' visible={true} message='message'>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>button</button>
       </Popconfirm>
     )
 
@@ -27,9 +28,10 @@ describe('Popconfirm', () => {
 
   it('测试onConfirm', async () => {
     const fn = jest.fn()
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popconfirm className='popup' visible={true} message='message' onConfirm={fn}>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>button</button>
       </Popconfirm>
     )
 
@@ -49,9 +51,10 @@ describe('Popconfirm', () => {
 
   it('测试onCancel', async () => {
     const fn = jest.fn()
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
       <Popconfirm className='popup' visible={true} message='message' onCancel={fn}>
-        <button className='btn'>button</button>
+        <button type='button' className='btn'>button</button>
       </Popconfirm>
     )
 

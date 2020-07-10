@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
@@ -533,7 +534,7 @@ describe('CSSTransition', () => {
 
   it('测试包含className调用时机', async () => {
     const wrapper = mount(
-      <CSSTransition transitionOnFirst={true} in={true} transitionClasses={'test'}>
+      <CSSTransition transitionOnFirst={true} in={true} transitionClasses='test'>
         <div />
       </CSSTransition>
     )
@@ -595,7 +596,7 @@ describe('CSSTransition', () => {
 
   it('测试timeout调用时机', async () => {
     const wrapper = mount(
-      <CSSTransition transitionOnFirst={true} in={true} transitionClasses={'test'} timeout={10}>
+      <CSSTransition transitionOnFirst={true} in={true} transitionClasses='test' timeout={10}>
         <div />
       </CSSTransition>
     )

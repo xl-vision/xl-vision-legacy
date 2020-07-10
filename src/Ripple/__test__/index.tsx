@@ -1,6 +1,6 @@
 import { mount } from 'enzyme'
-import Ripple from '..'
 import React from 'react'
+import Ripple from '..'
 
 describe('Ripple', () => {
   it('基本测试', () => {
