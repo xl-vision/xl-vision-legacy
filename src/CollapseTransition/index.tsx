@@ -30,7 +30,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
     const padding2 = horizontal ? 'paddingRight' : 'paddingBottom'
     const size = horizontal ? 'width' : 'height'
     const actualSize = horizontal ? 'actualWidth' : 'actualHeight'
-    let cancelled = false
+
     return {
       beforeEnter(el: TransitionElement) {
         el.dataset[padding1] = el.style[padding1]
@@ -38,7 +38,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.dataset[size] = el.style[size]
         el.dataset.overflow = el.style.overflow
 
-        if (!cancelled) {
+        if (!el._cancelled) {
           removeClass(el, el._ctc?.enterActive || '')
           el.dataset[actualSize] = getComputedStyle(el)[size]
           removeClass(el, el._ctc?.enter || '')
@@ -47,12 +47,11 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.style[size] = '0'
         el.style[padding1] = '0'
         el.style[padding2] = '0'
-        if (!cancelled) {
+        if (!el._cancelled) {
           addClass(el, el._ctc?.enter || '')
           forceReflow()
           addClass(el, el._ctc?.enterActive || '')
         }
-        cancelled = false
       },
       enter(el: HTMLElement) {
         el.style[size] = `${el.dataset[actualSize]!}`
@@ -68,7 +67,6 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.style[padding2] = el.dataset[padding2]!
         el.style[size] = el.dataset[size]!
         el.style.overflow = el.dataset.overflow!
-        cancelled = true
       },
       beforeLeave(el: TransitionElement) {
         el.dataset[padding1] = el.style[padding1]
@@ -76,14 +74,12 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.dataset[size] = el.style[size]
         el.dataset.overflow = el.style.overflow
 
-        if (!cancelled) {
+        if (!el._cancelled) {
           el.dataset[actualSize] = getComputedStyle(el)[size]
         }
 
         el.style[size] = `${el.dataset[actualSize]!}`
         el.style.overflow = 'hidden'
-
-        cancelled = false
       },
       leave(el: HTMLElement) {
         forceReflow()
@@ -102,7 +98,6 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.style[padding2] = el.dataset[padding2]!
         el.style[size] = el.dataset[size]!
         el.style.overflow = el.dataset.overflow!
-        cancelled = true
       }
     }
   }, [horizontal])
@@ -110,6 +105,7 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
   return (
     <CSSTransition
       {...transitionEvents}
+      forceDisplay={true}
       transitionClasses={transitionClasses}
       transitionOnFirst={transitionOnFirst}
       in={inProp}

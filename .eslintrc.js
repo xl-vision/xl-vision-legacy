@@ -1,3 +1,5 @@
+const confusingBrowserGlobals = require('confusing-browser-globals')
+
 module.exports = {
   env: {
     commonjs: true,
@@ -20,7 +22,7 @@ module.exports = {
       'error',
       {
         packageDir: __dirname,
-        devDependencies: ['site/**', 'test/**', 'scripts/**', '**/__test__/**', '**/*.mdx', '*.js']
+        devDependencies: ['site/**', 'test/**', 'scripts/**', '**/__test__/**', '**/*.mdx', '*.js', '.*.js']
       }
     ],
     'react/jsx-props-no-spreading': 'off',
@@ -32,6 +34,7 @@ module.exports = {
         props: false
       }
     ],
+    'no-restricted-globals': ['error'].concat(confusingBrowserGlobals),
     'no-nested-ternary': 'off',
     'no-underscore-dangle': 'off',
     'no-use-before-define': 'off',

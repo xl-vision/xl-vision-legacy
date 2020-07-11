@@ -38,12 +38,14 @@ export interface CSSTransitionProps extends TransitionProps {
         leave?: number
         disappear?: number
       }
+  forceDisplay?: boolean
 }
 
 export type TransitionElement = HTMLElement & {
   _ctc?: CSSTransitionClassesObject
   _done?: (cancel?: boolean) => void
   _cancelled?: boolean
+  _originalDisplay?: string
 }
 
 const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
@@ -59,6 +61,7 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     afterLeave,
     leaveCancelled,
     timeout,
+    forceDisplay,
     ...others
   } = props
 
@@ -129,9 +132,10 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
           appear: transitionClassesObj.appear,
           appearActive: transitionClassesObj.appearActive
         },
-        beforeAppear
+        beforeAppear,
+        !forceDisplay
       ),
-    [disableCss, transitionClassesObj, beforeAppear]
+    [disableCss, transitionClassesObj, beforeAppear,forceDisplay]
   )
 
   const appearWrapper = React.useMemo(
@@ -158,9 +162,10 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
           enter: transitionClassesObj.enter,
           enterActive: transitionClassesObj.enterActive
         },
-        beforeEnter
+        beforeEnter,
+        !forceDisplay
       ),
-    [disableCss, transitionClassesObj, beforeEnter]
+    [disableCss, transitionClassesObj, beforeEnter, forceDisplay]
   )
 
   const enterWrapper = React.useMemo(
@@ -285,16 +290,24 @@ CSSTransition.propTypes = {
   beforeDisappear: PropTypes.func,
   disappear: PropTypes.func,
   afterDisappear: PropTypes.func,
-  disappearCancelled: PropTypes.func
+  disappearCancelled: PropTypes.func,
+  forceDisplay: PropTypes.bool
 }
 
 export default CSSTransition
 
 const createBeforeEventHook = (
   ctc: CSSTransitionClassesObject | false,
-  nativeHook?: BeforeEventHook
+  nativeHook?: BeforeEventHook,
+  displayNone?: boolean
 ): BeforeEventHook => {
   return (el: TransitionElement) => {
+    // 在ie11下，enter时如果不diplay=none，会导致行为和chrome不一致
+    if (!el._cancelled && displayNone) {
+      el._originalDisplay = el.style.display
+      el.style.display = 'none'
+    }
+
     // for TransitionGroup
     el._ctc = {}
     if (ctc) {
@@ -307,6 +320,13 @@ const createBeforeEventHook = (
       })
     }
     nativeHook && nativeHook(el)
+
+    el._cancelled = false
+
+    if (el._originalDisplay !== undefined) {
+      el.style.display = el._originalDisplay
+      el._originalDisplay = undefined
+    }
   }
 }
 
@@ -362,9 +382,6 @@ const createEventHook = (
       // 清除事件
       cancelEvent && cancelEvent()
       clearTimeout(timeoutId)
-      if (!el._ctc) {
-        return
-      }
 
       if (!cancel) {
         doneCb()
@@ -380,6 +397,7 @@ const createAfterEventHook = (nativeHook?: AfterEventHook): AfterEventHook => {
       clazz && removeClass(el, clazz)
       delete el._ctc![key]
     })
+    el._ctc = undefined
     nativeHook && nativeHook(el)
   }
 }
@@ -388,11 +406,15 @@ const createEventCancelledHook = (nativeHook?: EventCancelledHook): EventCancell
   return (el: TransitionElement) => {
     // 清除所有事件
     el._done && el._done(true)
-    Object.keys(el._ctc!).forEach((key: keyof CSSTransitionClassesObject) => {
+    Object.keys(el._ctc || {}).forEach((key: keyof CSSTransitionClassesObject) => {
       const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
       delete el._ctc![key]
     })
+    el._ctc = undefined
+
+    el._cancelled = true
+
     nativeHook && nativeHook(el)
   }
 }

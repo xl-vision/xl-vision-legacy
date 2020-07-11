@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import CSSTransition, {
   CSSTransitionProps,
   CSSTransitionClassesObject,
-  TransitionElement
+  TransitionElement,
+  CSSTransitionClasses
 } from '../CSSTransition'
 import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass } from '../commons/utils/class'
@@ -336,7 +337,8 @@ const hasCSSTransform = (_el: HTMLElement, moveClass: string) => {
   // is applied.
   const clone = el.cloneNode() as HTMLElement
   if (el._ctc) {
-    Object.values(el._ctc).forEach((clazz) => {
+    Object.keys(el._ctc).forEach((key: keyof CSSTransitionClasses) => {
+      const clazz = el._ctc![key]
       clazz && clone.classList.remove(clazz)
     })
   }

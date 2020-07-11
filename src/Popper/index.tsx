@@ -460,6 +460,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           onClickCapture={onPopupClick}
         >
           <CSSTransition
+            forceDisplay={true}
             beforeEnter={beforeEnter}
             afterLeave={afterLeave}
             in={actualVisible}
@@ -467,9 +468,9 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
           >
             <div style={popupStyle} className={popupClassName} ref={innerPopupNodeRef}>
               {arrow &&
-              React.cloneElement(arrow, {
-                'data-popper-arrow': ''
-              })}
+                React.cloneElement(arrow, {
+                  'data-popper-arrow': ''
+                })}
               {popup}
             </div>
           </CSSTransition>
@@ -481,30 +482,30 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 添加事件到children中，但是不能妨碍children中原来的事件，
    * 所以对于相同的事件需要合并
    */
-    // 不使用useMemo包裹，referenceNodeRef可能为空
-    // 猜测的原因是fillRef创建新的refCb,
-    // 所以react会先将referenceNodeRef设置为null，再设置为指定的值
-    // 这个执行时间迟于beforeEnter钩子
-    // 但是造成的这种现象的原因未知
+  // 不使用useMemo包裹，referenceNodeRef可能为空
+  // 猜测的原因是fillRef创建新的refCb,
+  // 所以react会先将referenceNodeRef设置为null，再设置为指定的值
+  // 这个执行时间迟于beforeEnter钩子
+  // 但是造成的这种现象的原因未知
   const childrenNode = (() => {
-      const {
-        onBlur: _onBlur,
-        onClick: _onClick,
-        onContextMenu: _onContextMenu,
-        onFocus: _onFocus,
-        onMouseEnter: _onMouseEnter,
-        onMouseLeave: _onMouseLeave
-      } = (children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props
-      const clone = React.cloneElement(children, {
-        onBlur: mergeEvents(onBlur, _onBlur),
-        onClick: mergeEvents(onReferenceClick, _onClick),
-        onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
-        onFocus: mergeEvents(onFocus, _onFocus),
-        onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
-        onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave)
-      })
-      return fillRef(clone, referenceNodeRef)
-    })()
+    const {
+      onBlur: _onBlur,
+      onClick: _onClick,
+      onContextMenu: _onContextMenu,
+      onFocus: _onFocus,
+      onMouseEnter: _onMouseEnter,
+      onMouseLeave: _onMouseLeave
+    } = (children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props
+    const clone = React.cloneElement(children, {
+      onBlur: mergeEvents(onBlur, _onBlur),
+      onClick: mergeEvents(onReferenceClick, _onClick),
+      onContextMenu: mergeEvents(onContextMenu, _onContextMenu),
+      onFocus: mergeEvents(onFocus, _onFocus),
+      onMouseEnter: mergeEvents(onMouseEnter, _onMouseEnter),
+      onMouseLeave: mergeEvents(onMouseLeave, _onMouseLeave)
+    })
+    return fillRef(clone, referenceNodeRef)
+  })()
 
   return (
     <>
