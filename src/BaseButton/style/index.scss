@@ -39,12 +39,17 @@ $ripple: #{$cls-prefix}-ripple;
   }
 
   &__ripple {
-    &-enter-active {
+    &-enter-active,
+    &-leave-active {
       transition: $base-button-ripple-transition;
     }
 
     &-enter {
       transform: scale(0);
+      opacity: $base-button-ripple-opacity-enter;
+    }
+
+    &-leave-to {
       opacity: $base-button-ripple-opacity-enter;
     }
   }

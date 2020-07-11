@@ -41,7 +41,6 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     onTouchEnd,
     onTouchMove,
     onDragLeave,
-    onFocus,
     onBlur,
     onKeyDown,
     onKeyUp,
@@ -97,7 +96,6 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
   const onTouchStartWrapper = useRippleHandler('start', onTouchStart)
   const onTouchEndWrapper = useRippleHandler('stop', onTouchEnd)
   const onTouchMoveWrapper = useRippleHandler('stop', onTouchMove)
-  const onFocusWrapper = useRippleHandler('start', onFocus)
   const onBlurWrapper = useRippleHandler('stop', onBlur, false)
 
   const onKeyDownWrapper = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
@@ -140,7 +138,6 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
       onMouseDown={onMouseDownWrapper}
       onMouseUp={onMouseUpWrapper}
       onMouseLeave={onMouseLeaveWrapper}
-      onFocus={onFocusWrapper}
       onBlur={onBlurWrapper}
       onTouchStart={onTouchStartWrapper}
       onTouchEnd={onTouchEndWrapper}
