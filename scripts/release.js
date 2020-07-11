@@ -65,7 +65,7 @@ async function run() {
         types: [
           { type: 'feat', section: 'Features' },
           { type: 'fix', section: 'Bug Fixes' },
-          { type: 'improvement', section: 'Improvement' },
+          { type: 'perf', section: 'Improvement' },
           { type: 'refactor', section: 'Refactor' }
         ]
       }

@@ -73,7 +73,6 @@
     "commitizen": "^4.0.3",
     "confusing-browser-globals": "^1.0.9",
     "cz-conventional-changelog": "^3.1.0",
-    "cz-customizable": "^6.2.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -119,10 +118,5 @@
     "dist/*",
     "es/**/style/*",
     "lib/**/style/*"
-  ],
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    }
-  }
+  ]
 }
