@@ -47,6 +47,15 @@ export default () => {
   .demo-fade-leave-active {
     transition: all 1s ease;
   }
+  .demo-fade-enter,
+  .demo-fade-leave-to {
+    opacity: 0;
+  }
+
+  .demo-fade-enter-to,
+  .demo-fade-leave {
+    opacity: 1;
+  }
 }
 ```
 
@@ -96,7 +105,17 @@ export default () => {
 .wrapper::deep {
   .demo-fade-enter-active,
   .demo-fade-leave-active {
-    transition: all 2s ease;
+    transition: all 1s ease;
+  }
+
+  .demo-fade-enter,
+  .demo-fade-leave-to {
+    opacity: 0;
+  }
+
+  .demo-fade-enter-to,
+  .demo-fade-leave {
+    opacity: 1;
   }
 }
 ```

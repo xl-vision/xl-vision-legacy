@@ -32,10 +32,20 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     loading,
     className,
     tabIndex = 0,
+    /* eslint-disable react/prop-types */
     onClick,
+    onMouseDown,
+    onMouseUp,
+    onMouseLeave,
+    onTouchStart,
+    onTouchEnd,
+    onTouchMove,
+    onDragLeave,
+    onFocus,
+    onBlur,
     onKeyDown,
     onKeyUp,
-    onBlur,
+    /* eslint-enable react/prop-types */
     ...others
   } = props
 
@@ -53,15 +63,44 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     className
   )
 
-  const onClickWrap = useConstantCallback((e: React.MouseEvent) => {
+  // 按钮切换到loading或者disabled时，强制触发stop
+  React.useEffect(() => {
     if (loading || disabled) {
-      e.preventDefault()
-      return
+      if (rippleRef.current) {
+        rippleRef.current.stop()
+      }
     }
-    onClick && onClick(e)
-  })
+  }, [loading, disabled])
 
-  const onKeyDownWrap = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
+  const shouldEnableRipple = !disableRipple && !disabled && !loading
+
+  const useRippleHandler = <E extends React.SyntheticEvent, H extends React.EventHandler<E>>(
+    action: keyof RippleRef,
+    defaultEventHandler?: H,
+    disableRippleAction = !shouldEnableRipple
+  ) => {
+    return useConstantCallback((e: E) => {
+      if (defaultEventHandler) {
+        defaultEventHandler(e)
+      }
+
+      if (!disableRippleAction && rippleRef.current) {
+        rippleRef.current[action](e)
+      }
+    })
+  }
+
+  const onMouseDownWrapper = useRippleHandler('start', onMouseDown)
+  const onMouseUpWrapper = useRippleHandler('stop', onMouseUp)
+  const onMouseLeaveWrapper = useRippleHandler('stop', onMouseLeave)
+  const onDragLeaveWrapper = useRippleHandler('stop', onDragLeave)
+  const onTouchStartWrapper = useRippleHandler('start', onTouchStart)
+  const onTouchEndWrapper = useRippleHandler('stop', onTouchEnd)
+  const onTouchMoveWrapper = useRippleHandler('stop', onTouchMove)
+  const onFocusWrapper = useRippleHandler('start', onFocus)
+  const onBlurWrapper = useRippleHandler('stop', onBlur, false)
+
+  const onKeyDownWrapper = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
     if (rippleRef.current && !isKeyDownRef.current && e.key === ' ') {
       isKeyDownRef.current = true
       rippleRef.current.start()
@@ -69,7 +108,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
 
     onKeyDown && onKeyDown(e)
   })
-  const onKeyUpWrap = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
+  const onKeyUpWrapper = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
     if (rippleRef.current && isKeyDownRef.current && e.key === ' ') {
       isKeyDownRef.current = false
       rippleRef.current.stop()
@@ -77,16 +116,13 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     onKeyUp && onKeyUp(e)
   })
 
-  // 防止按键按下时移除焦点了
-  const onBlurWrap = useConstantCallback((e: React.FocusEvent<ButtonElement>) => {
-    if (rippleRef.current && isKeyDownRef.current) {
-      isKeyDownRef.current = false
-      rippleRef.current.stop()
+  const onClickWrapper = useConstantCallback((e: React.MouseEvent) => {
+    if (loading || disabled) {
+      e.preventDefault()
+      return
     }
-    onBlur && onBlur(e)
+    onClick && onClick(e)
   })
-
-  const shouldEnableRipple = !disableRipple && !disabled && !loading
 
   return (
     <Component
@@ -94,22 +130,25 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
       aria-readonly={loading}
       {...others}
       disabled={disabled}
-      onClick={onClickWrap}
-      onKeyDown={onKeyDownWrap}
-      onKeyUp={onKeyUpWrap}
-      onBlur={onBlurWrap}
       className={classes}
       ref={ref}
       tabIndex={disabled ? -1 : tabIndex}
       href={href}
+      onClick={onClickWrapper}
+      onKeyDown={onKeyDownWrapper}
+      onKeyUp={onKeyUpWrapper}
+      onMouseDown={onMouseDownWrapper}
+      onMouseUp={onMouseUpWrapper}
+      onMouseLeave={onMouseLeaveWrapper}
+      onFocus={onFocusWrapper}
+      onBlur={onBlurWrapper}
+      onTouchStart={onTouchStartWrapper}
+      onTouchEnd={onTouchEndWrapper}
+      onTouchMove={onTouchMoveWrapper}
+      onDragLeave={onDragLeaveWrapper}
     >
       <span className={`${clsPrefix}__inner`}>{children}</span>
-      <Ripple
-        ref={rippleRef}
-        disableEvents={!shouldEnableRipple}
-        leaveAfterEnter={true}
-        transitionClasses={`${clsPrefix}__ripple`}
-      />
+      <Ripple ref={rippleRef} leaveAfterEnter={true} transitionClasses={`${clsPrefix}__ripple`} />
     </Component>
   )
 })
@@ -124,10 +163,6 @@ BaseButton.propTypes = {
   href: PropTypes.string,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
-  onClick: PropTypes.func,
-  onKeyUp: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onBlur: PropTypes.func,
   className: PropTypes.string
 }
 

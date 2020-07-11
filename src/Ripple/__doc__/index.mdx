@@ -11,10 +11,30 @@ import React from 'react'
 import { Ripple } from 'xl-vision'
 
 export default () => {
+  const rippleRef = React.useRef()
+
+  const events = React.useMemo(() => {
+    const start = (e) => {
+      rippleRef.current.start(e)
+    }
+    const stop = (e) => {
+      rippleRef.current.stop(e)
+    }
+    return {
+      onMouseDown: start,
+      onTouchStart: start,
+      onMouseUp: stop,
+      onTouchEnd: stop,
+      onTouchMove: stop,
+      onMouseLeave: stop,
+      onDragLeave: stop
+    }
+  }, [])
+
   return (
-    <div className='box'>
+    <div className='box' {...events}>
       click me
-      <Ripple transitionClasses='ripple' />
+      <Ripple transitionClasses='ripple' ref={rippleRef} />
     </div>
   )
 }
@@ -67,88 +87,30 @@ import React from 'react'
 import { Ripple } from 'xl-vision'
 
 export default () => {
-  return (
-    <div className='box'>
-      click me
-      <Ripple leaveAfterEnter transitionClasses='ripple' />
-    </div>
-  )
-}
-```
+  const rippleRef = React.useRef()
 
-```scss
-.box {
-  position: relative;
-  height: 100px;
-  background-color: #eee;
-  color: #80bdff;
-  font-size: 26px;
-  text-align: center;
-  line-height: 100px;
-
-  &::deep {
-    .xl-ripple {
-      opacity: 0.3;
+  const events = React.useMemo(() => {
+    const start = (e) => {
+      rippleRef.current.start(e)
     }
-    .ripple-enter-active,
-    .ripple-leave-active {
-      transition: all 0.4s ease;
+    const stop = (e) => {
+      rippleRef.current.stop(e)
     }
-    .ripple-enter,
-    .ripple-leave-to {
-      transform: scale(0);
-      opacity: 0.1;
-    }
-    .ripple-enter-to,
-    .ripple-leave {
-      transform: scale(1);
-      opacity: 0.3;
-    }
-  }
-}
-```
-
-:::
-
-:::demo 自定义触发方式
-
-通过传递 ref，可以轻松获取到`start`和`stop`方法，这两个方法就可以用来自定义触发方式。
-
-```jsx
-import React from 'react'
-import { Ripple } from 'xl-vision'
-
-export default () => {
-  const ref = React.useRef()
-  const keydownRef = React.useRef(false)
-
-  React.useEffect(() => {
-    const keyDown = (e) => {
-      if (!keydownRef.current && e.key === 'Enter') {
-        ref.current.start()
-        keydownRef.current = true
-      }
-    }
-    const keyUp = (e) => {
-      if (keydownRef.current && e.key === 'Enter') {
-        ref.current.stop()
-        keydownRef.current = false
-      }
-    }
-
-    document.body.addEventListener('keydown', keyDown)
-    document.body.addEventListener('keyup', keyUp)
-
-    return () => {
-      document.body.removeEventListener('keydown', keyDown)
-      document.body.removeEventListener('keyup', keyUp)
+    return {
+      onMouseDown: start,
+      onTouchStart: start,
+      onMouseUp: stop,
+      onTouchEnd: stop,
+      onTouchMove: stop,
+      onMouseLeave: stop,
+      onDragLeave: stop
     }
   }, [])
 
   return (
-    <div className='box'>
-      press key enter
-      <Ripple ref={ref} transitionClasses='ripple' />
+    <div className='box' {...events}>
+      click me
+      <Ripple leaveAfterEnter transitionClasses='ripple' ref={rippleRef} />
     </div>
   )
 }
@@ -195,4 +157,10 @@ export default () => {
 | clsPrefix | 自定义类名前缀 | string | - | - | false |
 | transitionClasses | 自定义动画过渡 class | string &#x007c; object | - | - | false |
 | leaveAfterEnter | 是否进场动画结束后再开始出场动画，而不是在取消动画时就结束 | boolean | - | - | false |
-| disableEvents | 禁用默认的事件行为 | boolean | - | false | false |
+
+## Ripple 方法
+
+| 参数  | 说明     |
+| ----- | -------- |
+| start | 开始动画 |
+| stop  | 结束动画 |

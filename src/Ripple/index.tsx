@@ -9,7 +9,6 @@ export interface RippleProps extends React.HTMLAttributes<HTMLDivElement> {
   transitionClasses?: TransitionGroupClasses
   clsPrefix?: string
   leaveAfterEnter?: boolean
-  disableEvents?: boolean
   className?: string
 }
 
@@ -19,10 +18,11 @@ export interface RippleRef {
   stop: () => void
 }
 
+const DELAY_RIPPLE = 80
+
 const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
   const {
-    disableEvents,
     clsPrefix = `${rootClsPrefix}-ripple`,
     transitionClasses,
     leaveAfterEnter,
@@ -37,6 +37,14 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const ignoreMouseDonwRef = React.useRef(false)
   const containerRef = React.useRef<HTMLDivElement>(null)
 
+  const startTimerRef = React.useRef<NodeJS.Timeout>()
+
+  React.useEffect(() => {
+    return () => {
+      startTimerRef.current && clearTimeout(startTimerRef.current)
+    }
+  }, [])
+
   const startCommit = React.useCallback(
     ({ x, y, size }: { x: number; y: number; size: number }) => {
       const key = keyRef.current
@@ -46,7 +54,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
         top: -size / 2 + y,
         left: -size / 2 + x
       }
-      const ripple = <div className={`${clsPrefix}__inner`} key={key} style={styles}/>
+      const ripple = <div className={`${clsPrefix}__inner`} key={key} style={styles} />
       setRipples((prev) => [...prev, ripple])
       keyRef.current++
     },
@@ -55,7 +63,12 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
 
   const start = React.useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (e: React.UIEvent | object = {}) => {
+    (e: React.SyntheticEvent | object = {}) => {
+      if (startTimerRef.current) {
+        clearTimeout(startTimerRef.current)
+        startTimerRef.current = undefined
+      }
+
       if ((e as React.MouseEvent).type === 'mousedown' && ignoreMouseDonwRef.current) {
         ignoreMouseDonwRef.current = false
         return
@@ -65,15 +78,17 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
         ignoreMouseDonwRef.current = true
       }
 
-      const el = (e as React.UIEvent).currentTarget ? ((e as React.UIEvent).currentTarget as HTMLElement) : containerRef.current
+      const el = (e as React.UIEvent).currentTarget
+        ? ((e as React.UIEvent).currentTarget as HTMLElement)
+        : containerRef.current
       const rect = el
         ? el.getBoundingClientRect()
         : {
-          left: 0,
-          top: 0,
-          width: 0,
-          height: 0
-        }
+            left: 0,
+            top: 0,
+            width: 0,
+            height: 0
+          }
 
       const { clientX, clientY } = (e as React.TouchEvent<HTMLDivElement>).touches
         ? (e as TouchEvent).touches[0]
@@ -86,7 +101,14 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
       const sizeX = Math.max(Math.abs(clientWidth - x), x) * 2 + 2
       const sizeY = Math.max(Math.abs(clientHeight - y), y) * 2 + 2
       const size = Math.round(Math.sqrt(sizeX ** 2 + sizeY ** 2))
-      startCommit({ x, y, size })
+
+      if ((e as React.TouchEvent).touches) {
+        startTimerRef.current = setTimeout(() => {
+          startCommit({ x, y, size })
+        }, DELAY_RIPPLE)
+      } else {
+        startCommit({ x, y, size })
+      }
     },
     [startCommit]
   )
@@ -129,25 +151,10 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
     stop
   }))
 
-  const events = React.useMemo(() => {
-    if (disableEvents) {
-      return {}
-    }
-    return {
-      onTouchStart: start,
-      onTouchEnd: stop,
-      onTouchMove: stop,
-      onMouseDown: start,
-      onMouseUp: stop,
-      onMouseLeave: stop,
-      onDragLeave: stop
-    }
-  }, [disableEvents, start, stop])
-
   const classes = classnames(clsPrefix, className)
 
   return (
-    <span {...others} {...events} className={classes} ref={containerRef}>
+    <span {...others} className={classes} ref={containerRef}>
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
       </TransitionGroup>
@@ -158,7 +165,6 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
 Ripple.displayName = 'Ripple'
 
 Ripple.propTypes = {
-  disableEvents: PropTypes.bool,
   clsPrefix: PropTypes.string,
   leaveAfterEnter: PropTypes.bool,
   className: PropTypes.string,
