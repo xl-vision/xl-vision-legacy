@@ -171,7 +171,7 @@ exports[`Button 基本测试 1`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
@@ -214,13 +214,13 @@ exports[`Button 基本测试 1`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        class=""
       >
         <span
           class="xl-icon xl-icon--spin"
@@ -252,7 +252,7 @@ exports[`Button 基本测试 1`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-default xl-button--size-medium xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
@@ -453,7 +453,7 @@ exports[`ButtonGroup 基本测试 1`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
@@ -496,13 +496,13 @@ exports[`ButtonGroup 基本测试 1`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        class=""
       >
         <span
           class="xl-icon xl-icon--spin"
@@ -534,7 +534,7 @@ exports[`ButtonGroup 基本测试 1`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-medium xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
@@ -735,7 +735,7 @@ exports[`ButtonGroup 基本测试 2`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
@@ -778,13 +778,13 @@ exports[`ButtonGroup 基本测试 2`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        class=""
       >
         <span
           class="xl-icon xl-icon--spin"
@@ -816,7 +816,7 @@ exports[`ButtonGroup 基本测试 2`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-large xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
@@ -1017,7 +1017,7 @@ exports[`ButtonGroup 基本测试 3`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
@@ -1060,13 +1060,13 @@ exports[`ButtonGroup 基本测试 3`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--only-icon xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"
     >
       <span
-        class="xl-button__prefix"
+        class=""
       >
         <span
           class="xl-icon xl-icon--spin"
@@ -1098,7 +1098,7 @@ exports[`ButtonGroup 基本测试 3`] = `
   <button
     aria-readonly="true"
     class="xl-base-button xl-base-button--loading xl-button xl-button--variant-contained xl-button--theme-primary xl-button--size-small xl-button--elevation xl-button--loading"
-    tabindex="0"
+    tabindex="-1"
   >
     <span
       class="xl-base-button__inner"

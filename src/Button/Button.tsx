@@ -58,6 +58,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   let prefixIcon = _prefixIcon
   let suffixIcon = _suffixIcon
 
+  const onlyIcon = !children && ((prefixIcon && !suffixIcon) || (suffixIcon && !prefixIcon))
 
   if (prefixIcon && (children || suffixIcon)) {
     prefixIcon = <span className={`${clsPrefix}__prefix`}>{prefixIcon}</span>
@@ -69,18 +70,18 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 
   if (suffixIcon && !prefixIcon) {
     if (loading) {
-      suffixIcon = (
-        <LoadingIcon
-          className={`${clsPrefix}__suffix`}
-          loading={true}
-          existIcon={true}
-        />
-      )
+      const classes = classnames({
+        [`${clsPrefix}__suffix`]: !onlyIcon
+      })
+      suffixIcon = <LoadingIcon className={classes} loading={true} existIcon={true} />
     }
   } else if (loading || !prefixIcon) {
+    const classes = classnames({
+      [`${clsPrefix}__prefix`]: !onlyIcon
+    })
     prefixIcon = (
       <LoadingIcon
-        className={`${clsPrefix}__prefix`}
+        className={classes}
         transitionClassName={`${clsPrefix}__icon--loading`}
         loading={!!loading}
         existIcon={!!prefixIcon}
@@ -97,8 +98,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
       [`${clsPrefix}--elevation`]: !disableElevation && variant === 'contained',
       [`${clsPrefix}--round`]: round,
       [`${clsPrefix}--long`]: long,
-      [`${clsPrefix}--only-icon`]:
-        !children && ((prefixIcon && !suffixIcon) || (suffixIcon && !prefixIcon)),
+      [`${clsPrefix}--only-icon`]: onlyIcon,
       [`${clsPrefix}--loading`]: loading,
       [`${clsPrefix}--disabled`]: disabled
     },
