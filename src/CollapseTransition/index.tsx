@@ -39,14 +39,15 @@ const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (pro
         el.dataset.overflow = el.style.overflow
 
         if (!el._cancelled) {
+          removeClass(el, el._ctc?.enter || '')
           removeClass(el, el._ctc?.enterActive || '')
           el.dataset[actualSize] = getComputedStyle(el)[size]
-          removeClass(el, el._ctc?.enter || '')
         }
         el.style.overflow = 'hidden'
         el.style[size] = '0'
         el.style[padding1] = '0'
         el.style[padding2] = '0'
+
         if (!el._cancelled) {
           addClass(el, el._ctc?.enter || '')
           forceReflow()

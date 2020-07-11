@@ -45,17 +45,17 @@ describe('Popper', () => {
       </Popper>
     )
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
 
     wrapper.find('.btn').simulate('mouseleave')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     expect(popup.style.display).toBe('none')
   })
@@ -69,17 +69,17 @@ describe('Popper', () => {
       </Popper>
     )
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
 
     wrapper.find('.btn').simulate('click')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
 
     document.body.click()
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     expect(popup.style.display).toBe('none')
   })
@@ -93,17 +93,17 @@ describe('Popper', () => {
       </Popper>
     )
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
 
     wrapper.find('.btn').simulate('focus')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
 
     wrapper.find('.btn').simulate('blur')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     expect(popup.style.display).toBe('none')
   })
@@ -118,17 +118,17 @@ describe('Popper', () => {
       </Popper>
     )
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
 
     wrapper.find('.btn').simulate('contextmenu')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
 
     document.body.click()
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     expect(popup.style.display).toBe('none')
   })
@@ -145,13 +145,13 @@ describe('Popper', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper visible={false} />)
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
 
     wrapper.setProps({
       visible: true
     })
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
@@ -159,7 +159,7 @@ describe('Popper', () => {
     wrapper.setProps({
       visible: false
     })
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     expect(popup.style.display).toBe('none')
   })
@@ -173,10 +173,10 @@ describe('Popper', () => {
         </button>
       </Popper>
     )
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     expect(fn.mock.calls.length).toBe(1)
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -184,7 +184,7 @@ describe('Popper', () => {
     fn.mockClear()
 
     wrapper.find('.btn').simulate('mouseleave')
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     expect(fn.mock.calls.length).toBe(1)
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -203,11 +203,11 @@ describe('Popper', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper disablePopupEnter={false} />)
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
 
@@ -215,7 +215,7 @@ describe('Popper', () => {
     await act(() => wait(5))
 
     findPopper(wrapper, 'popup').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(popup.style.display).toBe('')
 
     wrapper.setProps({
@@ -225,7 +225,7 @@ describe('Popper', () => {
     findPopper(wrapper, 'popup').simulate('mouseleave')
     await act(() => wait(5))
     findPopper(wrapper, 'popup').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(popup.style.display).toBe('none')
   })
   it('测试弹出框延迟挂载', async () => {
@@ -241,16 +241,16 @@ describe('Popper', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper forceRender={false} />)
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     let popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
 
     wrapper.find('.btn').simulate('mouseleave')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(popup.style.display).toBe('none')
 
     wrapper.unmount()
@@ -258,18 +258,18 @@ describe('Popper', () => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(<CustomPopper forceRender={true} />)
 
-    await act(() => wait(50))
+    await act(() => wait(80))
 
     popup = document.querySelector('.popup') as HTMLElement
 
     expect(popup.style.display).toBe('none')
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(popup.style.display).toBe('')
 
     wrapper.find('.btn').simulate('mouseleave')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(popup.style.display).toBe('none')
   })
 
@@ -292,12 +292,12 @@ describe('Popper', () => {
       </Popper>
     )
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     const popup = document.querySelector('.popup') as HTMLElement
     expect(popup.style.display).toBe('')
     expect(document.querySelector('.popup2')).toBeNull()
@@ -305,7 +305,7 @@ describe('Popper', () => {
     wrapper.find('.btn').simulate('mouseleave')
     findPopper(wrapper, 'popup').simulate('mouseenter')
     wrapper.find('.btn2').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     const popup2 = document.querySelector('.popup2') as HTMLElement
     expect(popup.style.display).toBe('')
     expect(popup2.style.display).toBe('')
@@ -313,14 +313,14 @@ describe('Popper', () => {
     // btn2 popup2都属于popup
     wrapper.find('.btn2').simulate('mouseleave')
     findPopper(wrapper, 'popup2').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(popup.style.display).toBe('')
     expect(popup2.style.display).toBe('')
 
     // TODO: 有时候通过，有时候不通过，原因未知
     // findPopper(wrapper, 'popup2').simulate('mouseleave')
     // findPopper(wrapper, 'popup').simulate('mouseleave')
-    // await act(() => wait(50))
+    // await act(() => wait(80))
     // expect(popup.style.display).toBe('none')
     // expect(popup2.style.display).toBe('none')
   })
@@ -345,12 +345,12 @@ describe('Popper', () => {
       </Popper>
     )
 
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
 
     wrapper.find('.btn').simulate('mouseenter')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
 
@@ -359,7 +359,7 @@ describe('Popper', () => {
     })
     wrapper.update()
     wrapper.find('.btn').simulate('click')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
 
@@ -368,7 +368,7 @@ describe('Popper', () => {
     })
     wrapper.update()
     wrapper.find('.btn').simulate('focus')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
 
@@ -377,7 +377,7 @@ describe('Popper', () => {
     })
     wrapper.update()
     wrapper.find('.btn').simulate('contextmenu')
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
 
@@ -386,7 +386,7 @@ describe('Popper', () => {
       visible: true
     })
     wrapper.update()
-    await act(() => wait(50))
+    await act(() => wait(80))
     expect(document.querySelector('.popup')).toBeNull()
     expect(document.querySelector('.popup2')).toBeNull()
   })

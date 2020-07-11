@@ -1,5 +1,6 @@
 const fs = require('fs-extra')
 const path = require('path')
+// eslint-disable-next-line import/no-unresolved
 const data = require('./icons/ionicons/src/data.json')
 const toCamel = require('./toCamel')
 
@@ -14,6 +15,6 @@ icons.forEach((icon) => {
 
 // 写入icon-select目录
 fs.outputFileSync(
-  path.join(__dirname, '../..', 'site/components/icon-select/data.json'),
+  path.join(__dirname, '../..', 'site/components/IconSelect/data.json'),
   JSON.stringify(ret)
 )
