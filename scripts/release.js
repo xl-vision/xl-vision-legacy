@@ -1,4 +1,4 @@
-'use strict'
+/* eslint-disable no-console */
 const inquirer = require('inquirer')
 const chalk = require('chalk')
 const semver = require('semver')
@@ -25,6 +25,7 @@ async function run() {
     return
   }
 
+  // eslint-disable-next-line import/no-dynamic-require, global-require
   const pkg = require(resolvePath('package.json'))
 
   const oldVersion = pkg.version
@@ -41,10 +42,10 @@ async function run() {
         choices: versionList.map((it) => it.version)
       }
     ])
-    .then(async function (answers) {
+    .then(async (answers) => {
       const oldCommitId = (await git.log()).latest.hash
 
-      const version = answers.version
+      const { version } = answers
 
       const { versions } = await fetch('http://registry.npmjs.org/xl-vision').then((res) =>
         res.json()
@@ -99,7 +100,7 @@ function getVersionList(version) {
   ]
   const opts = []
 
-  levels.forEach(function (item) {
+  levels.forEach((item) => {
     const val = semver.inc(version, item[0], item[1])
     const isReleased = item[0] !== 'prerelease'
     opts.push({

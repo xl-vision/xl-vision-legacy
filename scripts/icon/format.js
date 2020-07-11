@@ -1,17 +1,16 @@
-const data = require('./icons/ionicons/src/data.json')
 const fs = require('fs-extra')
-const toCamel = require('./toCamel')
 const path = require('path')
+const data = require('./icons/ionicons/src/data.json')
+const toCamel = require('./toCamel')
 
-const icons = data.icons
+const { icons } = data
 
 const ret = {}
-for (const icon of icons) {
-  const name = icon.name
-  const tags = icon.tags
+icons.forEach((icon) => {
+  const { name, tags } = icon
   const relName = toCamel(name)
   ret[relName] = tags
-}
+})
 
 // 写入icon-select目录
 fs.outputFileSync(

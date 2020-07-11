@@ -6,7 +6,7 @@ module.exports = [
       options: {
         dot: true,
         from: [
-          'script/**/*.js',
+          'scripts/**/*.js',
           'src/**/*.ts?(x)',
           'test/**/*.ts?(x)',
           'test/**/*.js?(x)',

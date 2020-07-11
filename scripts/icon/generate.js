@@ -11,13 +11,15 @@ const run = async () => {
   // 获取icons目录下所有的icon，生成index.ts文件
   let files = await fs.readdir(iconDestPath)
 
-  for (const file of files) {
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i]
     const filePath = path.join(iconDestPath, file)
+    // eslint-disable-next-line no-await-in-loop
     const stat = await fs.stat(filePath)
     if (stat.isDirectory()) {
-      continue
+      // eslint-disable-next-line no-await-in-loop
+      await fs.remove(filePath)
     }
-    await fs.remove(filePath)
   }
 
   await generate(config)
@@ -27,14 +29,16 @@ const run = async () => {
   content += "export { IconProps } from './base/createIcon'\n"
   content += "export { default as createIcon } from './base/createIcon'\n"
   files = await fs.readdir(iconDestPath)
-  for (const file of files) {
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i]
     const filePath = path.join(iconDestPath, file)
+    // eslint-disable-next-line no-await-in-loop
     const stat = await fs.stat(filePath)
-    if (stat.isDirectory()) {
-      continue
+    if (!stat.isDirectory()) {
+      const name = file.substring(0, file.length - path.extname(file).length)
+      content += `export { default as ${toCamel(name)} } from './${name}'\n`
     }
-    const name = file.substring(0, file.length - path.extname(file).length)
-    content += `export { default as ${toCamel(name)} } from './${name}'\n`
   }
 
   fs.writeFileSync(iconIndexPath, content)

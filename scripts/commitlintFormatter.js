@@ -1,7 +1,7 @@
 const formatter = require('@commitlint/format')
 const chalk = require('chalk')
 
-module.exports = function (report, options) {
+module.exports = (report, options) => {
   const isError = report.errorCount > 0
   let result = formatter.default(report, options)
   if (isError) {

@@ -1,5 +1,5 @@
-const toCamel = require('./toCamel')
 const path = require('path')
+const toCamel = require('./toCamel')
 
 module.exports = {
   icons: [
