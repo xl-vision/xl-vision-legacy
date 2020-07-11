@@ -61,4 +61,37 @@ describe('ButtonGroup', () => {
     wrapper.update()
     expect(wrapper.render()).toMatchSnapshot()
   })
+
+  it('垂直方向', () => {
+    const wrapper = mount(
+      <Button.Group theme='primary' variant='contained' direction='vertical'>
+        <Button>button</Button>
+        <Button theme='error'>button</Button>
+        <Button variant='outlined'>button</Button>
+        <Button prefixIcon={<Close />}>button</Button>
+        <Button suffixIcon={<Close />}>button</Button>
+        <Button prefixIcon={<Close />} />
+        <Button suffixIcon={<Close />} />
+        <Button loading={true}>button</Button>
+        <Button loading={true} prefixIcon={<Close />} />
+        <Button loading={true} prefixIcon={<Close />}>
+          button
+        </Button>
+      </Button.Group>
+    )
+
+    expect(wrapper.render()).toMatchSnapshot()
+
+    wrapper.setProps({
+      size: 'large'
+    })
+    wrapper.update()
+    expect(wrapper.render()).toMatchSnapshot()
+
+    wrapper.setProps({
+      size: 'small'
+    })
+    wrapper.update()
+    expect(wrapper.render()).toMatchSnapshot()
+  })
 })

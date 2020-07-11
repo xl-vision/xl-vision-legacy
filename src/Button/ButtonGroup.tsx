@@ -11,6 +11,7 @@ export interface ButtonGroupProps
   children: React.ReactElement<ButtonProps> | Array<React.ReactElement<ButtonProps>>
   clsPrefix?: string
   round?: boolean
+  direction?: 'vertical' | 'horizontal'
 }
 
 const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
@@ -25,12 +26,14 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
     theme,
     variant,
     size,
+    direction = 'horizontal',
     ...others
   } = props
   const classes = classnames(
+    clsPrefix,
+    `${clsPrefix}--${direction}`,
     {
-      [clsPrefix]: true,
-      [`${clsPrefix}--round`]: round
+      [`${clsPrefix}--round`]: round && direction !== 'vertical'
     },
     className
   )
@@ -45,7 +48,7 @@ const ButtonGroup: React.FunctionComponent<ButtonGroupProps> = (props) => {
         variant
       }}
     >
-      <div role='group' aria-label='button group' {...others} className={classes}/>
+      <div role='group' aria-label='button group' {...others} className={classes} />
     </ButtonContext.Provider>
   )
 }
@@ -63,6 +66,7 @@ ButtonGroup.propTypes = {
     'info'
   ]),
   variant: PropTypes.oneOf(['contained', 'text', 'outlined']),
+  direction: PropTypes.oneOf(['vertical', 'horizontal']),
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   disableRipple: PropTypes.bool,
   disableElevation: PropTypes.bool,

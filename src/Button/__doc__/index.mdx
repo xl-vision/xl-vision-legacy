@@ -608,8 +608,64 @@ export default () => {
 ```
 
 ```scss
-.column::deep .xl-button-group {
+.column {
   margin: 0.5rem;
+}
+```
+
+:::
+
+:::demo 垂直方向的按钮组
+
+垂直方向的按钮组，**注意：** 此时不支持`round`属性
+
+```jsx
+import React from 'react'
+import { Button } from 'xl-vision'
+import { Trash, Close } from 'xl-vision/lib/icon'
+
+export default () => {
+  const [size, setSize] = React.useState('medium')
+
+  return (
+    <div>
+      <div className='column'>
+        <Button.Group theme='primary' direction='vertical'>
+          <Button onClick={() => setSize('small')}>small</Button>
+          <Button onClick={() => setSize('medium')}>medium</Button>
+          <Button onClick={() => setSize('large')}>large</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group size={size} theme='primary' direction='vertical'>
+          <Button>button1</Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group size={size} theme='primary' variant='outlined' direction='vertical'>
+          <Button suffixIcon={<Close />}></Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+      <div className='column'>
+        <Button.Group size={size} theme='primary' variant='text' direction='vertical'>
+          <Button prefixIcon={<Trash />}>button1</Button>
+          <Button disabled>button2</Button>
+          <Button>button3</Button>
+        </Button.Group>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.column {
+  display: inline-block;
+  margin: 10px;
 }
 ```
 
@@ -696,10 +752,11 @@ export default () => {
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
 | --- | --- | --- | --- | --- | --- |
 | clsPrefix | 自定义类名前缀 | string | - | - | false |
-| round | 指定按钮组中按钮的圆角样式 | boolean | - | false | false |
+| round | 指定按钮组中按钮的圆角样式，仅在水平方向可用 | boolean | - | false | false |
 | disableElevation | 禁止阴影效果，仅对`variant=contained` | boolean | - | - | false |
 | disableRipple | 禁止水波纹 | boolean | - | - | false |
 | theme | 设置按钮主题 | string | default &#x007c; primary &#x007c; success &#x007c; warning &#x007c; error &#x007c; secondary | default | false |
 | variant | 设置按钮类型 | string | contained &#x007c; outlined &#x007c; text | contained | false |
 | children | 按钮数组 | Button &#x007c; Button[] | - | - | true |
 | size | 设置按钮大小 | medium &#x007c; large &#x007c; small | - | - | false |
+| direction | 按钮组方向 | vertical &#x007c; horizontal | - | horizontal | false |
