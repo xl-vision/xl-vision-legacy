@@ -10,8 +10,9 @@ $button-group: #{$cls-prefix}-button-group;
 
   &--horizontal {
     > .#{$button} {
-      &:not(:last-child) {
-        border-right: $button-border-width solid $button-default-bg;
+      &:not(:first-child) {
+        margin-left: -$button-border-width;
+        border-left: $button-border-width solid $button-default-bg;
       }
     }
 
@@ -54,101 +55,18 @@ $button-group: #{$cls-prefix}-button-group;
     > .#{$button}--variant-contained {
       @each $key, $value in $button-theme {
         &.#{$button}--theme-#{$key} {
-          &:not(:last-child) {
-            border-right-color: theme-pick($value, dark);
+          &:not(:first-child) {
+            border-left-color: theme-pick($value, dark);
           }
         }
       }
     }
 
     > .#{$button}--variant-outlined {
-      &.#{$button}--size-medium {
-        &:not(:last-child) {
-          // appead width
-          padding-right: $button-medium-padding-x;
-        }
-
-        &:not(:first-child) {
-          // appead width
-          padding-left: $button-medium-padding-x;
-          border-left-width: 0;
-        }
-
-        &.#{$button}--size-small {
-          &:not(:last-child) {
-            // appead width
-            padding-right: $button-small-padding-x;
-          }
-
+      @each $key, $value in $button-theme {
+        &.#{$button}--theme-#{$key} {
           &:not(:first-child) {
-            // appead width
-            padding-left: $button-small-padding-x;
-            border-left-width: 0;
-          }
-        }
-
-        &.#{$button}--size-large {
-          &:not(:last-child) {
-            // appead width
-            padding-right: $button-large-padding-x;
-          }
-
-          &:not(:first-child) {
-            // appead width
-            padding-left: $button-large-padding-x;
-            border-left-width: 0;
-          }
-        }
-
-        @each $key, $value in $button-theme {
-          &.#{$button}--theme-#{$key} {
-            &:not(:last-child) {
-              border-right-color: theme-pick($value, dark);
-            }
-          }
-        }
-
-        &.#{$button}--only-icon {
-          &.#{$button}--size-medium {
-            &:not(:last-child) {
-              // appead width
-              padding-right: $button-medium-padding-y;
-            }
-
-            &:not(:first-child) {
-              &.#{$button}--only-icon {
-                // appead width
-                padding-left: $button-medium-padding-y;
-              }
-            }
-          }
-
-          &.#{$button}--size-small {
-            &:not(:last-child) {
-              // appead width
-              padding-right: $button-small-padding-y;
-            }
-
-            &:not(:first-child) {
-              &.#{$button}--only-icon {
-                // appead width
-                padding-left: $button-small-padding-y;
-              }
-            }
-          }
-
-          &.#{$button}--size-large {
-            &:not(:last-child) {
-              // appead width
-              padding-right: $button-large-padding-y;
-            }
-
-            &:not(:first-child) {
-              &.#{$button}--only-icon {
-                // appead width
-                padding-left: $button-large-padding-y;
-              }
-            }
+            border-left-color: theme-pick($value, dark);
           }
         }
       }
