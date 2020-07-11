@@ -33,6 +33,11 @@ $ripple: #{$cls-prefix}-ripple;
     pointer-events: none;
   }
 
+  &__inner {
+    // 阻止ie下 focus时文字移动
+    position: relative;
+  }
+
   .#{$ripple} {
     transform: scale(1);
     opacity: $base-button-ripple-opacity-pressed;
