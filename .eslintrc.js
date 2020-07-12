@@ -17,6 +17,7 @@ module.exports = {
     ecmaVersion: 2018
   },
   extends: ['airbnb', 'airbnb/hooks', 'prettier', 'prettier/react'],
+  plugins: ['unicorn'],
   rules: {
     'import/no-extraneous-dependencies': [
       'error',
@@ -67,7 +68,25 @@ module.exports = {
     'react/jsx-boolean-value': ['error', 'always'],
     'react/display-name': 'error',
     'react/jsx-props-no-spreading': 'off',
-    'react/require-default-props': 'off'
+    'react/require-default-props': 'off',
+    'unicorn/filename-case': [
+      'error',
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true
+        },
+        ignore: [/^.*\.config.js$/, /^en-US.ts$/, /^zh-CN.ts$/]
+      }
+    ],
+    'unicorn/better-regex': 'error',
+    'unicorn/expiring-todo-comments': 'error',
+    'unicorn/consistent-function-scoping': 'error',
+    'unicorn/import-index': 'error',
+    // forbid passing object as default value to props of function component
+    // 'unicorn/no-object-as-default-parameter': 'error',
+    'unicorn/prefer-query-selector': 'error',
+    'unicorn/no-abusive-eslint-disable': 'error',
   },
   overrides: [
     {

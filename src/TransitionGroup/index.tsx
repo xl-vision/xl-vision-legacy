@@ -57,7 +57,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   const { children, transitionClasses, ...others } = props
 
   // 阻止用户故意传入appear和disappear钩子
-  /* eslint-disable */
+  /* eslint-disable @typescript-eslint/no-unsafe-member-access */
   delete (others as any).beforeAppear
   delete (others as any).appear
   delete (others as any).afterAppear
@@ -66,7 +66,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   delete (others as any).disappear
   delete (others as any).afterDisappeard
   delete (others as any).disappearCancelled
-  /* eslint-enable */
+  /* eslint-enable @typescript-eslint/no-unsafe-member-access */
 
   const transitionClassesObj = React.useMemo(() => {
     let obj: CSSTransitionClassesObject & { move?: string } = {}
