@@ -13,7 +13,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
 
   const [expand, setExpand] = React.useState(false)
 
-  const onClick = React.useCallback(() => {
+  const handleClick = React.useCallback(() => {
     setExpand((prev) => !prev)
   }, [])
 
@@ -32,7 +32,7 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
       </div>
       <div className={classes.actions}>
         <Button
-          onClick={onClick}
+          onClick={handleClick}
           variant='text'
           theme='primary'
           prefixIcon={expand ? <CodeSlash /> : <Code />}

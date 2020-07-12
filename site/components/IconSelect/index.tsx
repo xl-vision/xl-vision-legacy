@@ -17,8 +17,8 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
   const [hover, setHover] = React.useState(false)
   const iconRef = React.useRef<HTMLDivElement>(null)
 
-  const mouseEnter = () => setHover(true)
-  const mouseLeave = () => setHover(false)
+  const handleMouseEnter = () => setHover(true)
+  const handleMouseLeave = () => setHover(false)
 
   const style = React.useMemo(() => {
     return { display: hover ? 'block' : 'none', opacity: hover ? 1 : 0 }
@@ -39,8 +39,8 @@ const IconWrapper: React.FunctionComponent<IconWrapperProps> = (props) => {
   return (
     <div
       className={classes.iconWrapper}
-      onMouseEnter={mouseEnter}
-      onMouseLeave={mouseLeave}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       ref={iconRef}
       data-clipboard-text={`<Icon.${name} />`}
     >
@@ -111,31 +111,31 @@ const IconSelect: React.FunctionComponent<void> = () => {
     return arr
   }, [icons])
 
-  const searchClick: React.ChangeEventHandler<HTMLInputElement> = React.useCallback((e) => {
+  const handleSearchClick: React.ChangeEventHandler<HTMLInputElement> = React.useCallback((e) => {
     const content = e.target.value
     setSearch(() => content)
   }, [])
 
-  const fillClick = React.useCallback(() => {
+  const handleFillClick = React.useCallback(() => {
     setType('fill')
   }, [])
-  const outlineClick = React.useCallback(() => {
+  const handleOutlineClick = React.useCallback(() => {
     setType('outline')
   }, [])
-  const sharpClick = React.useCallback(() => {
+  const handleSharpClick = React.useCallback(() => {
     setType('sharp')
   }, [])
   return (
     <div className={classes.iconSelect}>
-      <input onChange={searchClick} className={classes.input} placeholder='搜索图标' />
+      <input onChange={handleSearchClick} className={classes.input} placeholder='搜索图标' />
       <Button.Group theme='primary' className={classes.buttonGroup}>
-        <Button type='button' disabled={type === 'fill'} onClick={fillClick}>
+        <Button type='button' disabled={type === 'fill'} onClick={handleFillClick}>
           fill
         </Button>
-        <Button type='button' disabled={type === 'outline'} onClick={outlineClick}>
+        <Button type='button' disabled={type === 'outline'} onClick={handleOutlineClick}>
           outline
         </Button>
-        <Button type='button' disabled={type === 'sharp'} onClick={sharpClick}>
+        <Button type='button' disabled={type === 'sharp'} onClick={handleSharpClick}>
           sharp
         </Button>
       </Button.Group>

@@ -164,10 +164,10 @@ describe('Popper', () => {
     expect(popup.style.display).toBe('none')
   })
   it('测试onVisibleChange', async () => {
-    const fn = jest.fn()
+    const handleVisibleChange = jest.fn()
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
-      <Popper popupClassName='popup' onVisibleChange={fn} popup={<div />}>
+      <Popper popupClassName='popup' onVisibleChange={handleVisibleChange} popup={<div />}>
         <button type='button' className='btn'>
           button
         </button>
@@ -178,17 +178,17 @@ describe('Popper', () => {
     wrapper.find('.btn').simulate('mouseenter')
     await act(() => wait(80))
 
-    expect(fn.mock.calls.length).toBe(1)
+    expect(handleVisibleChange.mock.calls.length).toBe(1)
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    expect(fn.mock.calls[0][0]).toBe(true)
-    fn.mockClear()
+    expect(handleVisibleChange.mock.calls[0][0]).toBe(true)
+    handleVisibleChange.mockClear()
 
     wrapper.find('.btn').simulate('mouseleave')
     await act(() => wait(80))
 
-    expect(fn.mock.calls.length).toBe(1)
+    expect(handleVisibleChange.mock.calls.length).toBe(1)
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    expect(fn.mock.calls[0][0]).toBe(false)
+    expect(handleVisibleChange.mock.calls[0][0]).toBe(false)
   })
   it('测试弹出框进入行为:disablePopupEnter', async () => {
     const CustomPopper = ({ disablePopupEnter }: { disablePopupEnter: boolean }) => {

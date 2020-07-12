@@ -51,10 +51,6 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
-  const onVisibleChangeWrap = useEventCallback((_visible: boolean) => {
-    setActualVisible(_visible)
-  })
-
   const actualVisibleTrigger = useEventCallback((_actualVisible: boolean) => {
     onVisibleChange && onVisibleChange(_actualVisible)
   })
@@ -71,12 +67,16 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
     visibleTrigger(visible)
   }, [visible, visibleTrigger])
 
-  const onCancelWrap = useEventCallback((e: React.MouseEvent) => {
+  const handleVisibleChange = useEventCallback((_visible: boolean) => {
+    setActualVisible(_visible)
+  })
+
+  const handleCancel = useEventCallback((e: React.MouseEvent) => {
     onCancel && onCancel(e)
     setActualVisible(false)
   })
 
-  const onConfirmWrap = useEventCallback((e: React.MouseEvent) => {
+  const handleConfirm = useEventCallback((e: React.MouseEvent) => {
     onConfirm && onConfirm(e)
     setActualVisible(false)
   })
@@ -96,7 +96,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
             variant='contained'
             theme='default'
             size='small'
-            onClick={onCancelWrap}
+            onClick={handleCancel}
             {...cancelButtonProps}
           >
             {cancelText}
@@ -106,7 +106,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
             variant='contained'
             theme='primary'
             size='small'
-            onClick={onConfirmWrap}
+            onClick={handleConfirm}
             {...confirmButtonProps}
           >
             {confirmText}
@@ -132,7 +132,7 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
     <Popper
       {...others}
       visible={actualVisible}
-      onVisibleChange={onVisibleChangeWrap}
+      onVisibleChange={handleVisibleChange}
       trigger={trigger}
       placement={placement}
       offset={offset}

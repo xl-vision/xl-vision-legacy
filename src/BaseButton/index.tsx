@@ -89,16 +89,16 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     })
   }
 
-  const onMouseDownWrapper = useRippleHandler('start', onMouseDown)
-  const onMouseUpWrapper = useRippleHandler('stop', onMouseUp)
-  const onMouseLeaveWrapper = useRippleHandler('stop', onMouseLeave)
-  const onDragLeaveWrapper = useRippleHandler('stop', onDragLeave)
-  const onTouchStartWrapper = useRippleHandler('start', onTouchStart)
-  const onTouchEndWrapper = useRippleHandler('stop', onTouchEnd)
-  const onTouchMoveWrapper = useRippleHandler('stop', onTouchMove)
-  const onBlurWrapper = useRippleHandler('stop', onBlur, false)
+  const handleMouseDown = useRippleHandler('start', onMouseDown)
+  const handleMouseUp = useRippleHandler('stop', onMouseUp)
+  const handleMouseLeave = useRippleHandler('stop', onMouseLeave)
+  const handleDragLeave = useRippleHandler('stop', onDragLeave)
+  const handleTouchStart = useRippleHandler('start', onTouchStart)
+  const handleTouchEnd = useRippleHandler('stop', onTouchEnd)
+  const handleTouchMove = useRippleHandler('stop', onTouchMove)
+  const handleBlur = useRippleHandler('stop', onBlur, false)
 
-  const onKeyDownWrapper = useEventCallback((e: React.KeyboardEvent<ButtonElement>) => {
+  const handleKeyDown = useEventCallback((e: React.KeyboardEvent<ButtonElement>) => {
     if (rippleRef.current && !isKeyDownRef.current && e.key === ' ') {
       isKeyDownRef.current = true
       rippleRef.current.start()
@@ -106,7 +106,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
 
     onKeyDown && onKeyDown(e)
   })
-  const onKeyUpWrapper = useEventCallback((e: React.KeyboardEvent<ButtonElement>) => {
+  const handleKeyUp = useEventCallback((e: React.KeyboardEvent<ButtonElement>) => {
     if (rippleRef.current && isKeyDownRef.current && e.key === ' ') {
       isKeyDownRef.current = false
       rippleRef.current.stop()
@@ -114,7 +114,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     onKeyUp && onKeyUp(e)
   })
 
-  const onClickWrapper = useEventCallback((e: React.MouseEvent) => {
+  const handleClick = useEventCallback((e: React.MouseEvent) => {
     if (loading || disabled) {
       e.preventDefault()
       return
@@ -132,17 +132,17 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
       ref={ref}
       tabIndex={disabled || loading ? -1 : tabIndex}
       href={href}
-      onClick={onClickWrapper}
-      onKeyDown={onKeyDownWrapper}
-      onKeyUp={onKeyUpWrapper}
-      onMouseDown={onMouseDownWrapper}
-      onMouseUp={onMouseUpWrapper}
-      onMouseLeave={onMouseLeaveWrapper}
-      onBlur={onBlurWrapper}
-      onTouchStart={onTouchStartWrapper}
-      onTouchEnd={onTouchEndWrapper}
-      onTouchMove={onTouchMoveWrapper}
-      onDragLeave={onDragLeaveWrapper}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      onKeyUp={handleKeyUp}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+      onBlur={handleBlur}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onDragLeave={handleDragLeave}
     >
       <span className={`${clsPrefix}__inner`}>{children}</span>
       <Ripple ref={rippleRef} leaveAfterEnter={true} transitionClasses={`${clsPrefix}__ripple`} />

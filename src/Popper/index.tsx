@@ -264,7 +264,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 进入popup区域时触发。
    * 鼠标有可能从reference区域出来，此时需要清除定时器，否则reference的鼠标移出事件会关闭popper
    */
-  const onPopupMouseEnter = useEventCallback(() => {
+  const handlePopupMouseEnter = useEventCallback(() => {
     // 取消定时器
     clearTimeout(delayTimerRef.current!)
     if (disablePopupEnter && trigger !== 'custom') {
@@ -275,7 +275,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   /**
    * 如果触发器是hover，则移出popup需要关闭popup
    */
-  const onPopupMouseLeave = useEventCallback(() => {
+  const handlePopupMouseLeave = useEventCallback(() => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
@@ -289,7 +289,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 延迟时间必须小于VISIBLE_TIME_DELAY,否则onClickOutside就执行了.也要小于VISIBLE_TIME_DELAY * 0.5.
    * 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
    */
-  const onPopupClick = useEventCallback(() => {
+  const handlePopupClick = useEventCallback(() => {
     if (trigger === 'click' || trigger === 'contextMenu') {
       setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
     }
@@ -455,9 +455,9 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
       >
         <div
           ref={popupNodeRef}
-          onMouseEnter={onPopupMouseEnter}
-          onMouseLeave={onPopupMouseLeave}
-          onClickCapture={onPopupClick}
+          onMouseEnter={handlePopupMouseEnter}
+          onMouseLeave={handlePopupMouseLeave}
+          onClickCapture={handlePopupClick}
         >
           <CSSTransition
             forceDisplay={true}

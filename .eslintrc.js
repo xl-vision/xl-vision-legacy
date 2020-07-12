@@ -55,6 +55,14 @@ module.exports = {
         additionalHooks: '(useLayoutEffect|useUpdated)'
       }
     ],
+    'react/jsx-handler-names': [
+      'error',
+      {
+        eventHandlerPrefix: 'handle',
+        eventHandlerPropPrefix: 'on',
+        checkLocalVariables: true
+      }
+    ],
     'react/forbid-prop-types': 'off', // todo remove
     'react/jsx-boolean-value': ['error', 'always'],
     'react/display-name': 'error',

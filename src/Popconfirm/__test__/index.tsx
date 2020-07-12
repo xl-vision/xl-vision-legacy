@@ -27,10 +27,10 @@ describe('Popconfirm', () => {
   })
 
   it('测试onConfirm', async () => {
-    const fn = jest.fn()
+    const handleConfirm = jest.fn()
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
-      <Popconfirm className='popup' visible={true} message='message' onConfirm={fn}>
+      <Popconfirm className='popup' visible={true} message='message' onConfirm={handleConfirm}>
         <button type='button' className='btn'>button</button>
       </Popconfirm>
     )
@@ -45,15 +45,15 @@ describe('Popconfirm', () => {
 
     await act(() => wait(50))
 
-    expect(fn.mock.calls.length).toBe(1)
+    expect(handleConfirm.mock.calls.length).toBe(1)
     expect(popup.style.display).toBe('none')
   })
 
   it('测试onCancel', async () => {
-    const fn = jest.fn()
+    const handleConfirm = jest.fn()
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     wrapper = mount(
-      <Popconfirm className='popup' visible={true} message='message' onCancel={fn}>
+      <Popconfirm className='popup' visible={true} message='message' onCancel={handleConfirm}>
         <button type='button' className='btn'>button</button>
       </Popconfirm>
     )
@@ -68,7 +68,7 @@ describe('Popconfirm', () => {
 
     await act(() => wait(50))
 
-    expect(fn.mock.calls.length).toBe(1)
+    expect(handleConfirm.mock.calls.length).toBe(1)
     expect(popup.style.display).toBe('none')
   })
 })
