@@ -2,7 +2,7 @@
 @forward '../../style/theme';
 
 $popconfirm-bg: $white;
-$popconfirm-color: $dark-primary-text;
+$popconfirm-color: $primary-text-color;
 
 $popconfirm-icon-color: theme-pick($warning, main);
 $popconfirm-icon-font-size: px2rem(18px);

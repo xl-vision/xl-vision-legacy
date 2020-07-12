@@ -2,13 +2,13 @@
 @forward '../../style/theme';
 
 $popover-bg: $white;
-$popover-color: $dark-primary-text;
+$popover-color: $primary-text-color;
 
 $popover-title-padding: px2rem(4px) px2rem(16px);
 $popover-content-padding: px2rem(12px) px2rem(16px);
 
 $popover-border-width: 1px;
-$popover-border-color: $dark-dividers;
+$popover-border-color: $divider-color;
 $popover-border-radius: $border-radius-medium;
 
 $popover-min-width: px2rem(160px);

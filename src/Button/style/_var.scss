@@ -20,10 +20,10 @@ $button-loading-function: $fast-out-slow-in-timing-function;
 
 $button-default-bg: theme-pick($gray, 200);
 $button-default-bg-action: theme-pick($gray, 300);
-$button-default-color: $dark-primary-text;
+$button-default-color: $primary-text-color;
 
 $button-default-bg-outline: theme-pick($gray, 100);
-$button-default-border-color: $dark-dividers;
+$button-default-border-color: $divider-color;
 $button-default-bg-text: theme-pick($gray, 100);
 
 $button-theme: $theme;

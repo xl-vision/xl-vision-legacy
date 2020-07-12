@@ -6,16 +6,11 @@ $white: #ffffff;
 $black: #000000;
 
 // text
-$dark-primary-text: palette.$dark-primary-text;
-$dark-secondary-text: palette.$dark-secondary-text;
-$dark-disabled-text: palette.$dark-disabled-text;
-$dark-dividers: palette.$dark-dividers;
-$dark-focused: palette.$dark-focused;
-$light-primary-text: palette.$light-primary-text;
-$light-secondary-text: palette.$light-secondary-text;
-$light-disabled-text: palette.$light-disabled-text;
-$light-dividers: palette.$light-dividers;
-$light-focused: palette.$light-focused;
+$primary-text-color: palette.$dark-primary-text;
+$secondary-text-color: palette.$dark-secondary-text;
+$disabled-text-color: palette.$dark-disabled-text;
+$divider-color: palette.$dark-divider;
+$focused-color: palette.$dark-focused;
 
 @function theme-pick($map, $key, $contrast: false) {
   @if ($contrast) {
