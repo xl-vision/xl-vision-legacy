@@ -566,19 +566,19 @@ const applyTransformOrigin = (el: HTMLElement, direction: string, state: State) 
     return
   }
 
-  const x = arrow.x === undefined ? '50%' : arrow.x
-  const y = arrow.y === undefined ? '50%' : arrow.y
+  const x = arrow.x === undefined ? '50%' : `${arrow.x}px`
+  const y = arrow.y === undefined ? '50%' : `${arrow.y}px`
 
   let transformOrigin
 
   if (direction === 'top') {
-    transformOrigin = `${x}px 100%`
+    transformOrigin = `${x} 100%`
   } else if (direction === 'bottom') {
-    transformOrigin = `${x}px 0%`
+    transformOrigin = `${x} 0%`
   } else if (direction === 'left') {
-    transformOrigin = `100% ${y}px`
+    transformOrigin = `100% ${y}`
   } else {
-    transformOrigin = `0% ${y}px`
+    transformOrigin = `0% ${y}`
   }
   el.style.transformOrigin = transformOrigin
   el.dataset.placement = state.placement
