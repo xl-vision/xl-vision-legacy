@@ -1,12 +1,12 @@
 import { mount } from 'enzyme'
 import React from 'react'
-import useMountStateCallback from '..'
+import useIsMounted from '..'
 
-describe('useMountedState', () => {
+describe('useIsMounted', () => {
   it('测试是否能够正确获取组件挂载状态', () => {
     const TestUseMountedState = (props: { refObj: { isMounted?: () => boolean } }) => {
       const { refObj } = props
-      const isMounted = useMountStateCallback()
+      const isMounted = useIsMounted()
       refObj.isMounted = isMounted
       return <div />
     }

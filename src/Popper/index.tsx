@@ -4,15 +4,15 @@ import { createPopper, Instance, Modifier, Options, Placement, State } from '@po
 import { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow'
 import { FlipModifier } from '@popperjs/core/lib/modifiers/flip'
 import Portal, { ContainerType } from '../Portal'
-import useUpdate from '../commons/hooks/useUpdate'
-import useMountStateCallback from '../commons/hooks/useMountStateCallback'
+import useUpdated from '../commons/hooks/useUpdated'
+import useIsMounted from '../commons/hooks/useIsMounted'
 import PopperContext from './popper-context'
 import { mergeEvents } from '../commons/utils/event'
 import CSSTransition, { CSSTransitionProps, TransitionElement } from '../CSSTransition'
 import useEventOutside from '../commons/hooks/useEventOutside'
 import { increaseZIndex } from '../commons/utils/zIndexManager'
 import fillRef from '../commons/utils/fillRef'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+import useEventCallback from '../commons/hooks/useEventCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import { addClass, removeClass } from '../commons/utils/class'
 import { forceReflow } from '../commons/utils/transition'
@@ -107,7 +107,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   // visible为true时就直接挂载
   const [needMount, setNeedMount] = React.useState(visible)
 
-  const mountedCallback = useMountStateCallback()
+  const mountedCallback = useIsMounted()
 
   // 子popper关闭函数集合
   const closeHandlerRef = React.useRef<Array<() => void>>([])
@@ -127,7 +127,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 设置popper显示状态，处理特殊情况。
    * 通常需要调用这个方法进行状态设置
    */
-  const setActualWrapper = useConstantCallback((isVisible: boolean) => {
+  const setActualWrapper = useEventCallback((isVisible: boolean) => {
     // 第一次显示时需要设置popper为可挂载状态
     if (isVisible) {
       setNeedMount(true)
@@ -211,16 +211,16 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     ]
   }, [offset, preventOverflow, flip, disableGpuAcceleration, disableTransformOrigin])
 
-  const actualVisibleTrigger = useConstantCallback((_actualVisible: boolean) => {
+  const actualVisibleTrigger = useEventCallback((_actualVisible: boolean) => {
     onVisibleChange && onVisibleChange(_actualVisible)
   })
 
   // 更新actualVisible时触发onVisibleChange函数
-  useUpdate(() => {
+  useUpdated(() => {
     actualVisibleTrigger(actualVisible)
   }, [actualVisible, actualVisibleTrigger])
 
-  const visibleTrigger = useConstantCallback((_visible: boolean) => {
+  const visibleTrigger = useEventCallback((_visible: boolean) => {
     if (disabled) {
       return
     }
@@ -264,7 +264,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 进入popup区域时触发。
    * 鼠标有可能从reference区域出来，此时需要清除定时器，否则reference的鼠标移出事件会关闭popper
    */
-  const onPopupMouseEnter = useConstantCallback(() => {
+  const onPopupMouseEnter = useEventCallback(() => {
     // 取消定时器
     clearTimeout(delayTimerRef.current!)
     if (disablePopupEnter && trigger !== 'custom') {
@@ -275,7 +275,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   /**
    * 如果触发器是hover，则移出popup需要关闭popup
    */
-  const onPopupMouseLeave = useConstantCallback(() => {
+  const onPopupMouseLeave = useEventCallback(() => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
@@ -289,13 +289,13 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
    * 延迟时间必须小于VISIBLE_TIME_DELAY,否则onClickOutside就执行了.也要小于VISIBLE_TIME_DELAY * 0.5.
    * 即使频繁触发此方法，也不需要清除此定时器，因为在setActualWrapper中已经清除了相关定时器
    */
-  const onPopupClick = useConstantCallback(() => {
+  const onPopupClick = useEventCallback(() => {
     if (trigger === 'click' || trigger === 'contextMenu') {
       setTimeout(() => setActualWrapper(true), TIME_DELAY * 0.3)
     }
   })
 
-  const onMouseEnter = useConstantCallback(() => {
+  const onMouseEnter = useEventCallback(() => {
     if (disabled) {
       return
     }
@@ -309,13 +309,13 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     }
   })
 
-  const onMouseLeave = useConstantCallback(() => {
+  const onMouseLeave = useEventCallback(() => {
     if (trigger === 'hover') {
       setActualWrapper(false)
     }
   })
 
-  const onFocus = useConstantCallback(() => {
+  const onFocus = useEventCallback(() => {
     if (disabled) {
       return
     }
@@ -327,13 +327,13 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     }
   })
 
-  const onBlur = useConstantCallback(() => {
+  const onBlur = useEventCallback(() => {
     if (trigger === 'focus') {
       setActualWrapper(false)
     }
   })
 
-  const onContextMenu = useConstantCallback(() => {
+  const onContextMenu = useEventCallback(() => {
     if (disabled) {
       return
     }
@@ -345,7 +345,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     }
   })
 
-  const onReferenceClick = useConstantCallback(() => {
+  const onReferenceClick = useEventCallback(() => {
     if (disabled) {
       return
     }
@@ -357,7 +357,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     }
   })
 
-  const onClickOutside = useConstantCallback(() => {
+  const onClickOutside = useEventCallback(() => {
     if (trigger === 'click' || trigger === 'contextMenu') {
       setActualWrapper(false)
     }
@@ -367,7 +367,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
   useEventOutside('click', referenceNodeRef, onClickOutside)
   useEventOutside('contextmenu', referenceNodeRef, onClickOutside)
 
-  const updatePopper = useConstantCallback(() => {
+  const updatePopper = useEventCallback(() => {
     const referenceNode = referenceNodeRef.current
     const popupNode = popupNodeRef.current
     const innerPopupNode = innerPopupNodeRef.current
@@ -414,7 +414,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     isFirstVisibleRef.current = false
   }, [actualVisible, updatePopper])
 
-  const beforeEnter = useConstantCallback((el: TransitionElement) => {
+  const beforeEnter = useEventCallback((el: TransitionElement) => {
     // 移除transition class对定位的干扰
     removeClass(el, el._ctc?.enterActive || '')
     removeClass(el, el._ctc?.enter || '')
@@ -425,7 +425,7 @@ const Popper: React.FunctionComponent<PopperProps> = (props) => {
     addClass(el, el._ctc?.enterActive || '')
   })
 
-  const afterLeave = useConstantCallback(() => {
+  const afterLeave = useEventCallback(() => {
     const popperJs = popperJsRef.current
     if (!popperJs) {
       return

@@ -1,7 +1,7 @@
 import { useRef, useCallback } from 'react'
 import useLayoutEffect from '../useLayoutEffect'
 
-const useMountStateCallback = () => {
+const useIsMounted = () => {
   const ref = useRef(false)
   const get = useCallback(() => ref.current, [])
   useLayoutEffect(() => {
@@ -13,4 +13,4 @@ const useMountStateCallback = () => {
   return get
 }
 
-export default useMountStateCallback
+export default useIsMounted

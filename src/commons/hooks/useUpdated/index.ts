@@ -1,6 +1,6 @@
 import { useEffect, useRef, DependencyList } from 'react'
 
-const useUpdate = (update: () => void, dependencies?: DependencyList) => {
+const useUpdated = (update: () => void, dependencies?: DependencyList) => {
   const updateRef = useRef(false)
 
   useEffect(() => {
@@ -13,4 +13,4 @@ const useUpdate = (update: () => void, dependencies?: DependencyList) => {
   }, dependencies)
 }
 
-export default useUpdate
+export default useUpdated

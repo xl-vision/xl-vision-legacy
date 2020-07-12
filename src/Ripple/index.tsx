@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import TransitionGroup, { TransitionGroupClasses } from '../TransitionGroup'
 import ConfigContext from '../ConfigProvider/ConfigContext'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+import useEventCallback from '../commons/hooks/useEventCallback'
 
 export interface RippleProps extends React.HTMLAttributes<HTMLDivElement> {
   transitionClasses?: TransitionGroupClasses
@@ -113,7 +113,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
     [startCommit]
   )
 
-  const stop = useConstantCallback(() => {
+  const stop = useEventCallback(() => {
     if (leaveAfterEnter) {
       if (finishedCountRef.current > 0) {
         setRipples((prev) => prev.slice(1))
@@ -135,7 +135,7 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
     }
   })
 
-  const afterEnter = useConstantCallback(() => {
+  const afterEnter = useEventCallback(() => {
     if (leaveAfterEnter) {
       if (waitFinishedCountRef.current > 0) {
         setRipples((prev) => prev.slice(1))

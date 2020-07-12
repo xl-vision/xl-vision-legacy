@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ReactDOM from 'react-dom'
-import useMountStateCallback from '../commons/hooks/useMountStateCallback'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+import useIsMounted from '../commons/hooks/useIsMounted'
+import useEventCallback from '../commons/hooks/useEventCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import fillRef from '../commons/utils/fillRef'
 
@@ -71,40 +71,34 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
 
   const isFirstTransitionRef = React.useRef(transitionOnFirst)
 
-  // after或者hook触发后才能才能将isFirstTransitionRef
-  const hookWrappper = useConstantCallback((hook?: AfterEventHook | EventCancelledHook) => {
-    const wrapper: AfterEventHook = (el) => {
-      hook && hook(el)
-      isFirstTransitionRef.current = false
-    }
-    return wrapper
-  })
-
   // 如果开启transitionOnFirst,默认使用enter和leave的生命周期方法
   const appear = _appear || enter
   const disappear = _disappear || leave
   const beforeAppear = _beforeAppear || beforeEnter
   const beforeDisappear = _beforeDisappear || beforeLeave
 
-  const afterAppear = React.useMemo(() => {
+  const afterAppear = useEventCallback((el: HTMLElement) => {
     const fn = _afterAppear || afterEnter
-    return hookWrappper(fn)
-  }, [_afterAppear, afterEnter, hookWrappper])
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
 
-  const appearCancelled = React.useMemo(() => {
+  const appearCancelled = useEventCallback((el: HTMLElement) => {
     const fn = _appearCancelled || enterCancelled
-    return hookWrappper(fn)
-  }, [_appearCancelled, enterCancelled, hookWrappper])
-
-  const afterDisappear = React.useMemo(() => {
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
+  const afterDisappear = useEventCallback((el: HTMLElement) => {
     const fn = _afterDisappear || afterLeave
-    return hookWrappper(fn)
-  }, [_afterDisappear, afterLeave, hookWrappper])
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
 
-  const disappearCancelled = React.useMemo(() => {
+  const disappearCancelled = useEventCallback((el: HTMLElement) => {
     const fn = _disappearCancelled || leaveCancelled
-    return hookWrappper(fn)
-  }, [_disappearCancelled, leaveCancelled, hookWrappper])
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
 
   const [state, setState] = React.useState(
     inProp
@@ -117,14 +111,14 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   )
 
   // 标记当前组件是否被卸载
-  const mountStateCallback = useMountStateCallback()
+  const mountStateCallback = useIsMounted()
 
   const childrenNodeRef = React.useRef<HTMLElement>()
 
   // 保存回调
   const cbRef = React.useRef<() => void>()
 
-  const onTransitionEnd = useConstantCallback(
+  const onTransitionEnd = useEventCallback(
     (nextState: State, eventHook?: EventHook, afterEventHook?: AfterEventHook) => {
       const afterEventHookWrap = () => afterEventHook && afterEventHook(childrenNodeRef.current!)
       cbRef.current = afterEventHookWrap
@@ -152,7 +146,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     }
   )
 
-  const stateTrigger = useConstantCallback((_state: State) => {
+  const stateTrigger = useEventCallback((_state: State) => {
     // 展示
     if (inProp) {
       if (_state === State.STATE_ENTERING) {
@@ -180,7 +174,7 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     stateTrigger
   ])
 
-  const inPropTrigger = useConstantCallback((_inProp: boolean) => {
+  const inPropTrigger = useEventCallback((_inProp: boolean) => {
     if (_inProp && state >= State.STATE_LEAVING) {
       // 不能放到外面，会使appear和disappear失效
       cbRef.current = undefined

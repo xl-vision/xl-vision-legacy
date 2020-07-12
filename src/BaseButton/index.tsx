@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import Ripple, { RippleRef } from '../Ripple'
 import ConfigContext from '../ConfigProvider/ConfigContext'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+import useEventCallback from '../commons/hooks/useEventCallback'
 
 export interface CommonBaseButtonProps {
   href?: string
@@ -78,7 +78,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     defaultEventHandler?: H,
     disableRippleAction = !shouldEnableRipple
   ) => {
-    return useConstantCallback((e: E) => {
+    return useEventCallback((e: E) => {
       if (defaultEventHandler) {
         defaultEventHandler(e)
       }
@@ -98,7 +98,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
   const onTouchMoveWrapper = useRippleHandler('stop', onTouchMove)
   const onBlurWrapper = useRippleHandler('stop', onBlur, false)
 
-  const onKeyDownWrapper = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
+  const onKeyDownWrapper = useEventCallback((e: React.KeyboardEvent<ButtonElement>) => {
     if (rippleRef.current && !isKeyDownRef.current && e.key === ' ') {
       isKeyDownRef.current = true
       rippleRef.current.start()
@@ -106,7 +106,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
 
     onKeyDown && onKeyDown(e)
   })
-  const onKeyUpWrapper = useConstantCallback((e: React.KeyboardEvent<ButtonElement>) => {
+  const onKeyUpWrapper = useEventCallback((e: React.KeyboardEvent<ButtonElement>) => {
     if (rippleRef.current && isKeyDownRef.current && e.key === ' ') {
       isKeyDownRef.current = false
       rippleRef.current.stop()
@@ -114,7 +114,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     onKeyUp && onKeyUp(e)
   })
 
-  const onClickWrapper = useConstantCallback((e: React.MouseEvent) => {
+  const onClickWrapper = useEventCallback((e: React.MouseEvent) => {
     if (loading || disabled) {
       e.preventDefault()
       return

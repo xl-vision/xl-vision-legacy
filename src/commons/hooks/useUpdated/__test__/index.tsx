@@ -1,13 +1,13 @@
 import { mount } from 'enzyme'
 import React from 'react'
-import useUpdate from '..'
+import useUpdated from '..'
 
-describe('useUpdate', () => {
+describe('useUpdated', () => {
   it('测试组件更新时触发，其余时候不触发', () => {
     const fn = jest.fn()
     const TestUseUpdate = (props: { value: number }) => {
       const { value } = props
-      useUpdate(fn, [value])
+      useUpdated(fn, [value])
       return <div>{value}</div>
     }
 

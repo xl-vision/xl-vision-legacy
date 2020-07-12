@@ -11,7 +11,7 @@ import { addClass, removeClass } from '../commons/utils/class'
 import { onTransitionEnd, getTransitionInfo, forceReflow } from '../commons/utils/transition'
 import computeQueue, { Data } from './computeQueue'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+import useEventCallback from '../commons/hooks/useEventCallback'
 import { warning } from '../commons/utils/logger'
 
 export interface TransitionGroupClassesObject
@@ -128,7 +128,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     children.filter(Boolean).map(fillRefForElement)
   )
 
-  const childrenTrigger = useConstantCallback((_children: Array<React.ReactElement>) => {
+  const childrenTrigger = useEventCallback((_children: Array<React.ReactElement>) => {
     const nodeMap = nodeMapRef.current
     if (nodeMap) {
       nodeMap.forEach((node) => {
@@ -233,7 +233,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     }
   }, [elements])
 
-  const elementsTrigger = useConstantCallback(() => {
+  const elementsTrigger = useEventCallback(() => {
     if (!computedRef.current) {
       return
     }

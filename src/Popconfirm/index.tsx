@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import Popper, { PopperProps } from '../Popper'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import { ButtonProps, Button } from '../Button'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
-import useUpdate from '../commons/hooks/useUpdate'
+import useEventCallback from '../commons/hooks/useEventCallback'
+import useUpdated from '../commons/hooks/useUpdated'
 import AlertCircle from '../icon/AlertCircle'
 
 export interface PopconfirmProps
@@ -51,19 +51,19 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
 
   const [actualVisible, setActualVisible] = React.useState(visible)
 
-  const onVisibleChangeWrap = useConstantCallback((_visible: boolean) => {
+  const onVisibleChangeWrap = useEventCallback((_visible: boolean) => {
     setActualVisible(_visible)
   })
 
-  const actualVisibleTrigger = useConstantCallback((_actualVisible: boolean) => {
+  const actualVisibleTrigger = useEventCallback((_actualVisible: boolean) => {
     onVisibleChange && onVisibleChange(_actualVisible)
   })
 
-  useUpdate(() => {
+  useUpdated(() => {
     actualVisibleTrigger(actualVisible)
   }, [actualVisible, actualVisibleTrigger])
 
-  const visibleTrigger = useConstantCallback((_visible: boolean) => {
+  const visibleTrigger = useEventCallback((_visible: boolean) => {
     setActualVisible(_visible)
   })
 
@@ -71,12 +71,12 @@ const Popconfirm: React.FunctionComponent<PopconfirmProps> = (props) => {
     visibleTrigger(visible)
   }, [visible, visibleTrigger])
 
-  const onCancelWrap = useConstantCallback((e: React.MouseEvent) => {
+  const onCancelWrap = useEventCallback((e: React.MouseEvent) => {
     onCancel && onCancel(e)
     setActualVisible(false)
   })
 
-  const onConfirmWrap = useConstantCallback((e: React.MouseEvent) => {
+  const onConfirmWrap = useEventCallback((e: React.MouseEvent) => {
     onConfirm && onConfirm(e)
     setActualVisible(false)
   })
