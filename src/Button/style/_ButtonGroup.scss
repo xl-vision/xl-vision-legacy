@@ -130,13 +130,13 @@ $button-group: #{$cls-prefix}-button-group;
         }
       }
     }
-  }
 
-  > .#{$button}--variant-outlined {
-    @each $key, $value in $button-theme {
-      &.#{$button}--theme-#{$key} {
-        &:not(:first-child) {
-          border-top-color: theme-pick($value, dark);
+    > .#{$button}--variant-outlined {
+      @each $key, $value in $button-theme {
+        &.#{$button}--theme-#{$key} {
+          &:not(:first-child) {
+            border-top-color: theme-pick($value, dark);
+          }
         }
       }
     }
