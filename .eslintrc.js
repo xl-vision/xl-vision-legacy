@@ -16,17 +16,26 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018
   },
-  extends: ['airbnb', 'airbnb/hooks', 'airbnb/hooks', 'prettier', 'prettier/react'],
+  extends: ['airbnb', 'airbnb/hooks', 'prettier', 'prettier/react'],
   rules: {
     'import/no-extraneous-dependencies': [
       'error',
       {
         packageDir: __dirname,
-        devDependencies: ['site/**', 'test/**', 'scripts/**', '**/__test__/**', '**/*.mdx', '*.js', '.*.js']
+        devDependencies: [
+          'site/**',
+          'test/**',
+          'scripts/**',
+          '**/__test__/**',
+          '**/*.mdx',
+          '*.js',
+          '.*.js'
+        ]
       }
     ],
-    'react/jsx-props-no-spreading': 'off',
-    'react/require-default-props': 'off',
+    // Strict, airbnb is using warn; allow warn and error for dev environments
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'nonblock-statement-body-position': 'error',
     'no-plusplus': 'off',
     'no-param-reassign': [
       'error',
@@ -35,12 +44,22 @@ module.exports = {
       }
     ],
     'no-restricted-globals': ['error'].concat(confusingBrowserGlobals),
-    'no-nested-ternary': 'off',
     'no-underscore-dangle': 'off',
+    'no-nested-ternary': 'off',
     'no-use-before-define': 'off',
     'no-multi-assign': 'off',
+    'react-hooks/exhaustive-deps': [
+      'error',
+      {
+        // custom hooks
+        additionalHooks: '(useLayoutEffect|useUpdated)'
+      }
+    ],
     'react/forbid-prop-types': 'off', // todo remove
-    'react/jsx-boolean-value': ['error', 'always']
+    'react/jsx-boolean-value': ['error', 'always'],
+    'react/display-name': 'error',
+    'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off'
   },
   overrides: [
     {
@@ -56,9 +75,6 @@ module.exports = {
         'plugin:import/typescript',
         'prettier/@typescript-eslint'
         // 'plugin:@typescript-eslint/recommended',
-        // 'plugin:react/recommended',
-        // 'plugin:prettier/recommended',
-        // 'prettier/standard',
       ],
       rules: {
         'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],

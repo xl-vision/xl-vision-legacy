@@ -21,6 +21,8 @@ const createIcon = (svgElement: React.ReactElement<React.HTMLAttributes<SVGSVGEl
       )
     }
   )
+  fn.displayName = 'CreatedIcon'
+
   return fn
 }
 

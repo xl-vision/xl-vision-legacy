@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-
 import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
-// import { Spin } from 'xl-vision'
 import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
 
 import classes from './index.module.scss'

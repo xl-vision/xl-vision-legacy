@@ -15,7 +15,6 @@ const printWarning = (format: string, args: Array<string>) => {
   const message = `Warning: ${format.replace(/%s/g, () => args[index++])}`
 
   if (typeof console !== 'undefined') {
-    // eslint-disable-next-line no-console
     console.error(message)
   }
 

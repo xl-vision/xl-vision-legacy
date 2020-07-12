@@ -23,8 +23,6 @@ const Affix: React.FunctionComponent<AffixProps> = (props) => {
   return children
 }
 
-Affix.displayName = 'Affix'
-
 Affix.propTypes = {
   children: PropTypes.element.isRequired
 }
