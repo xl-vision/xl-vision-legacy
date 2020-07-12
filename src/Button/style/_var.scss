@@ -19,6 +19,7 @@ $button-loading-duration: 1s;
 $button-loading-function: $fast-out-slow-in-timing-function;
 
 $button-default-bg: theme-pick($gray, 200);
+$button-default-bg-action: theme-pick($gray, 300);
 $button-default-color: $dark-primary-text;
 
 $button-default-bg-outline: theme-pick($gray, 100);
