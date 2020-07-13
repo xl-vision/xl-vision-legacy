@@ -2,6 +2,7 @@ import { mount } from 'enzyme'
 import React from 'react'
 import TransitionGroup from '..'
 import * as TransitionUtils from '../../commons/utils/transition'
+import { voidFn } from '../../commons/utils/function'
 
 describe('TransitionGroup', () => {
   it('测试顺序是否正确', () => {
@@ -23,9 +24,11 @@ describe('TransitionGroup', () => {
 
   it('测试afterLeave是否正确触发', () => {
     const nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-    nextFrameSpy.mockImplementation((fn) => {
+    nextFrameSpy.mockImplementation((fn: () => void) => {
       fn()
+      return voidFn
     })
+
     const prevArr = [1]
     const nextArr = [2]
     const nextArr2 = [3]
