@@ -49,6 +49,12 @@ module.exports = {
     'no-nested-ternary': 'off',
     'no-use-before-define': 'off',
     'no-multi-assign': 'off',
+    'consistent-return': [
+      'off',
+      {
+        treatUndefinedAsUnspecified: true
+      }
+    ],
     'react-hooks/exhaustive-deps': [
       'error',
       {
@@ -86,7 +92,7 @@ module.exports = {
     // forbid passing object as default value to props of function component
     // 'unicorn/no-object-as-default-parameter': 'error',
     'unicorn/prefer-query-selector': 'error',
-    'unicorn/no-abusive-eslint-disable': 'error',
+    'unicorn/no-abusive-eslint-disable': 'error'
   },
   overrides: [
     {

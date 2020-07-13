@@ -21,11 +21,11 @@ const useEventOutside = <K extends keyof WindowEventMap>(
     [handler, ref]
   )
   useEffect(() => {
-    on(eventType, fn, {
+    on(window, eventType, fn, {
       capture
     })
     return () => {
-      off(eventType, fn, {
+      off(window, eventType, fn, {
         capture
       })
     }

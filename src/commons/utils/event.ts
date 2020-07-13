@@ -1,33 +1,66 @@
 import { EventHandler, SyntheticEvent } from 'react'
 import { isServer } from './env'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type Listener<K extends keyof WindowEventMap> = (this: Window, ev: WindowEventMap[K], options?: boolean | AddEventListenerOptions) => any
+export type EventNameForElement<T extends Window | HTMLElement | Document> = T extends Window
+  ? keyof WindowEventMap
+  : T extends Document
+  ? keyof DocumentEventMap
+  : T extends HTMLElement
+  ? keyof HTMLElementEventMap
+  : never
 
-export const on = <K extends keyof WindowEventMap>(
-  type: K,
-  listener: Listener<K>,
+export type EventForElement<
+  T extends Window | HTMLElement | Document,
+  K extends EventNameForElement<T>
+> = K extends keyof WindowEventMap
+  ? WindowEventMap[K]
+  : K extends keyof DocumentEventMap
+  ? DocumentEventMap[K]
+  : K extends keyof HTMLElementEventMap
+  ? HTMLElementEventMap[K]
+  : never
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Listener<
+  T extends Window | HTMLElement | Document,
+  K extends EventNameForElement<T>
+> = (this: T, ev: EventForElement<T, K>, options?: boolean | AddEventListenerOptions) => any
+
+export const on = <T extends Window | HTMLElement | Document>(
+  element: T,
+  type: EventNameForElement<T>,
+  listener: Listener<T, EventNameForElement<T>>,
   options?: boolean | AddEventListenerOptions
 ) => {
   if (isServer) {
     return
   }
-  window.addEventListener(type, listener, options)
+  element.addEventListener(type, listener, options)
 }
 
-export const off = <K extends keyof WindowEventMap>(
-  type: K,
-  listener: Listener<K>,
+export const off = <T extends Window | HTMLElement | Document>(
+  element: T,
+  type: EventNameForElement<T>,
+  listener: Listener<T, EventNameForElement<T>>,
   options?: boolean | EventListenerOptions
 ) => {
   if (isServer) {
     return
   }
-  window.removeEventListener(type, listener, options)
+  element.removeEventListener(type, listener, options)
 }
 
-export const mergeNativeEvents = <K extends keyof WindowEventMap>(...listeners: Array<Listener<K> | undefined>) => {
-  return function listener(this: Window, e: WindowEventMap[K], options?: boolean | EventListenerOptions) {
+export const mergeNativeEvents = <
+  T extends Window | HTMLElement | Document,
+  K extends EventNameForElement<T>
+>(
+  ...listeners: Array<Listener<T, K> | undefined>
+) => {
+  return function listener(
+    this: T,
+    e: EventForElement<T, K>,
+    options?: boolean | EventListenerOptions
+  ) {
     listeners.forEach((it) => {
       if (it) {
         it.call(this, e, options)
@@ -36,7 +69,9 @@ export const mergeNativeEvents = <K extends keyof WindowEventMap>(...listeners: 
   }
 }
 
-export const mergeEvents = <E extends SyntheticEvent<any>>(...handlers: Array<EventHandler<E> | undefined>) => {
+export const mergeEvents = <E extends SyntheticEvent<any>>(
+  ...handlers: Array<EventHandler<E> | undefined>
+) => {
   return (e: E) => {
     handlers.forEach((it) => {
       if (it) {
@@ -45,5 +80,3 @@ export const mergeEvents = <E extends SyntheticEvent<any>>(...handlers: Array<Ev
     })
   }
 }
-
-

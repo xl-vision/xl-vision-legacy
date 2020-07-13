@@ -337,7 +337,6 @@ const createEventHook = (
   nativeHook?: EventHook
 ): EventHook => {
   return (el: TransitionElement, done: () => void, isCancelled: () => boolean) => {
-    let isInterrupt = false
     let cancelEvent: () => void
     let timeoutId: NodeJS.Timeout
 
@@ -346,11 +345,7 @@ const createEventHook = (
       done()
     }
 
-    nextFrame(() => {
-      // 被用户强制中断
-      if (isInterrupt) {
-        return
-      }
+    const cancelNextFrame = nextFrame(() => {
       if (!isCancelled()) {
         removedClassNames.forEach((name) => {
           const clazz = el._ctc![name]
@@ -378,8 +373,8 @@ const createEventHook = (
     nativeHook && nativeHook(el, doneCb, isCancelled)
 
     el._done = (cancel) => {
-      isInterrupt = true
       // 清除事件
+      cancelNextFrame()
       cancelEvent && cancelEvent()
       clearTimeout(timeoutId)
 

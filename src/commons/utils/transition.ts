@@ -1,4 +1,4 @@
-import { isBrowser } from './env'
+import { isBrowser, isServer } from './env'
 import { voidFn } from './function'
 
 let TRANSITION_NAME = 'transition'
@@ -93,16 +93,41 @@ export const onTransitionEnd = (el: HTMLElement, done: () => void) => {
   return cancelCb
 }
 
-export const raf = isBrowser
-  ? window.requestAnimationFrame
-    ? (window.requestAnimationFrame.bind(window) as (cb: () => void) => void)
-    : setTimeout
-  : (cb: () => void) => cb()
+export const raf = (fn: () => void) => {
+  if (isServer) {
+    fn()
+    return voidFn
+  }
+  if (window.requestAnimationFrame) {
+    let id: number | undefined = window.requestAnimationFrame(fn)
+    return () => {
+      if (id) {
+        cancelAnimationFrame(id)
+      }
+      id = undefined
+    }
+  }
+  let id: number | undefined = setTimeout(fn)
+  return () => {
+    if (id) {
+      clearTimeout(id)
+    }
+    id = undefined
+  }
+}
 
 export const nextFrame = (fn: () => void) => {
-  raf(() => {
-    raf(fn)
+  let cancel2: () => void
+  const cancel1 = raf(() => {
+    cancel2 = raf(fn)
   })
+
+  return () => {
+    cancel1()
+    if (cancel2) {
+      cancel2()
+    }
+  }
 }
 
 export const forceReflow = () => {
