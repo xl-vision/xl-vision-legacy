@@ -102,7 +102,7 @@ export const raf = (fn: () => void) => {
     let id: number | undefined = window.requestAnimationFrame(fn)
     return () => {
       if (id) {
-        cancelAnimationFrame(id)
+        window.cancelAnimationFrame(id)
       }
       id = undefined
     }

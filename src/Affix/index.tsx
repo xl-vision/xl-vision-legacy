@@ -42,30 +42,30 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   }>({})
 
   const measure = useEventCallback(() => {
-    const placeholderNode = containerNodeRef.current
+    const containerNode = containerNodeRef.current
 
     const target = getTarget()
 
-    if (!placeholderNode || !target) {
+    if (!containerNode || !target) {
       return
     }
 
-    const placeholderNodeRect = getTargetRect(placeholderNode)
+    const containerNodeRect = getTargetRect(containerNode)
     const targetNodeRect = getTargetRect(target)
 
     const isAffix = affixState.placeholder
 
-    if (offsetTop !== undefined && placeholderNodeRect.top - targetNodeRect.top < offsetTop) {
+    if (offsetTop !== undefined && containerNodeRect.top - targetNodeRect.top < offsetTop) {
       setAffixState({
         fixed: {
           position: 'fixed',
           top: offsetTop + targetNodeRect.top,
-          width: placeholderNodeRect.width,
-          height: placeholderNodeRect.height
+          width: containerNodeRect.width,
+          height: containerNodeRect.height
         },
         placeholder: {
-          width: placeholderNodeRect.width,
-          height: placeholderNodeRect.height
+          width: containerNodeRect.width,
+          height: containerNodeRect.height
         }
       })
       if (!isAffix) {
@@ -75,18 +75,18 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     }
     if (
       offsetBottom !== undefined &&
-      targetNodeRect.bottom - placeholderNodeRect.bottom < offsetBottom
+      targetNodeRect.bottom - containerNodeRect.bottom < offsetBottom
     ) {
       setAffixState({
         fixed: {
           position: 'fixed',
           bottom: offsetBottom + window.innerHeight - targetNodeRect.bottom,
-          width: placeholderNodeRect.width,
-          height: placeholderNodeRect.height
+          width: containerNodeRect.width,
+          height: containerNodeRect.height
         },
         placeholder: {
-          width: placeholderNodeRect.width,
-          height: placeholderNodeRect.height
+          width: containerNodeRect.width,
+          height: containerNodeRect.height
         }
       })
       if (!isAffix) {
@@ -130,7 +130,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
 
   return (
     <div ref={containerNodeRef}>
-      {placeholderStyle && <div style={placeholderStyle} />}
+      {placeholderStyle && <div style={placeholderStyle} aria-hidden={true} />}
       <div className={fixedClasses} ref={fixedNodeRef} style={affixState.fixed}>
         {children}
       </div>
