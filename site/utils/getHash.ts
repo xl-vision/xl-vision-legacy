@@ -16,7 +16,19 @@ const getText = (children: React.ReactNode) => {
       text += getText(child)
     }
   })
-  return text.replace(/\s+/g, '_')
+  return text
 }
 
-export default getText
+const getHash = (children: React.ReactNode) => {
+  const text = getText(children)
+  let hash = 0
+  for (let i = 0; i < text.length; i++) {
+    // eslint-disable-next-line no-bitwise
+    hash = (hash << 5) - hash + text.charCodeAt(i)
+    // eslint-disable-next-line no-bitwise
+    hash |= 0
+  }
+  return `id_${hash}`
+}
+
+export default getHash

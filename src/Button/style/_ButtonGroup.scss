@@ -1,4 +1,4 @@
-@use './var' as *;
+@use './variables' as *;
 
 $button: #{$cls-prefix}-button;
 $button-group: #{$cls-prefix}-button-group;
@@ -12,7 +12,10 @@ $button-group: #{$cls-prefix}-button-group;
     > .#{$button} {
       &:not(:first-child) {
         margin-left: -$button-border-width;
-        border-left: $button-border-width solid $button-default-bg;
+        border-left: $button-border-width solid transparent;
+      }
+      &:not(:last-child) {
+        border-right: $button-border-width solid transparent;
       }
     }
 
@@ -52,21 +55,19 @@ $button-group: #{$cls-prefix}-button-group;
       }
     }
 
-    > .#{$button}--variant-contained {
-      @each $key, $value in $button-theme {
-        &.#{$button}--theme-#{$key} {
-          &:not(:first-child) {
-            border-left-color: theme-pick($value, dark);
-          }
+    @each $key, $value in $button-themes {
+      .#{$button}--theme-#{$key} {
+        &:not(:first-child) {
+          border-left-color: text-color('divider');
         }
       }
     }
 
-    > .#{$button}--variant-outlined {
-      @each $key, $value in $button-theme {
+    > .#{$button}--variant-contained {
+      @each $key, $value in $button-themes {
         &.#{$button}--theme-#{$key} {
           &:not(:first-child) {
-            border-left-color: theme-pick($value, dark);
+            border-left-color: text-color('divider', $value);
           }
         }
       }
@@ -81,7 +82,11 @@ $button-group: #{$cls-prefix}-button-group;
 
       &:not(:first-child) {
         margin-top: -$button-border-width;
-        border-top: $button-border-width solid $button-default-bg;
+        border-top: $button-border-width solid transparent;
+      }
+
+      &:not(:last-child) {
+        border-bottom: $button-border-width solid transparent;
       }
     }
 
@@ -121,21 +126,19 @@ $button-group: #{$cls-prefix}-button-group;
       }
     }
 
-    > .#{$button}--variant-contained {
-      @each $key, $value in $button-theme {
-        &.#{$button}--theme-#{$key} {
-          &:not(:first-child) {
-            border-top-color: theme-pick($value, dark);
-          }
+    @each $key, $value in $button-themes {
+      > .#{$button}--theme-#{$key} {
+        &:not(:first-child) {
+          border-top-color: text-color(divider);
         }
       }
     }
 
-    > .#{$button}--variant-outlined {
-      @each $key, $value in $button-theme {
-        &.#{$button}--theme-#{$key} {
+    > .#{$button}--variant-contained {
+      @each $key, $value in $button-themes {
+        .#{$button}--theme-#{$key} {
           &:not(:first-child) {
-            border-top-color: theme-pick($value, dark);
+            border-top-color: text-color(divider, $value);
           }
         }
       }

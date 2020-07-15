@@ -57,6 +57,11 @@ const routes: Array<Route> = [
         name: '图钉 Affix',
         path: '/Affix',
         component: import('../src/Affix/__doc__/index.mdx')
+      },
+      {
+        name: '锚点 Anchor',
+        path: '/Anchor',
+        component: import('../src/Anchor/__doc__/index.mdx')
       }
     ]
   },

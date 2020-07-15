@@ -1,6 +1,0 @@
-@use '../../style/theme' as *;
-@forward '../../style/theme';
-
-$base-button-ripple-transition: all $standard-duration $fast-out-slow-in-timing-function;
-$base-button-ripple-opacity-pressed: $overlay-pressed;
-$base-button-ripple-opacity-enter: 0.1;

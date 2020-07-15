@@ -1,21 +1,21 @@
-@use '../var' as *;
+@use '../variables' as *;
 
 @mixin link {
-  $color: theme-pick($primary, main);
+  $color: $primary;
 
   color: $color;
   text-decoration: none;
-  transition: all $standard-duration $fast-out-slow-in-timing-function;
+  transition: standard();
 
   &:hover {
-    color: overlay-color($color, $overlay-hover);
+    color: state-overlay('hover', $background, $color);
   }
 
   &:focus {
-    color: overlay-color($color, $overlay-focus);
+    color: state-overlay('focus', $background, $color);
   }
 
   &:active {
-    color: overlay-color($color, $overlay-activated);
+    color: state-overlay('active', $background, $color);
   }
 }

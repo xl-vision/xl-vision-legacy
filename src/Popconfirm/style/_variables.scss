@@ -1,10 +1,10 @@
 @use '../../style/theme' as *;
 @forward '../../style/theme';
 
-$popconfirm-bg: $white;
-$popconfirm-color: $primary-text-color;
+$popconfirm-bg: $background;
+$popconfirm-color: text-color('primary', $popconfirm-bg);
 
-$popconfirm-icon-color: theme-pick($warning, main);
+$popconfirm-icon-color: $warning;
 $popconfirm-icon-font-size: px2rem(18px);
 $popconfirm-icon-vertical-align: -0.2em;
 
@@ -20,4 +20,4 @@ $popconfirm-arrow-size: 5px;
 
 $popconfirm-button-margin: px2rem(8px);
 
-$popconfirm-aniamtion: all $standard-duration $fast-out-slow-in-timing-function;
+$popconfirm-aniamtion: standard();

@@ -1,23 +1,23 @@
-@use '../theme' as *;
+@use '../theme';
 
 html {
   box-sizing: border-box;
-  font-size: $html-font-size;
+  font-size: theme.$base-font-size;
 }
 
 body {
-  color: $primary-text-color;
-  font-family: $font-family;
-  background-color: $background-default;
+  color: theme.text-color(primary);
+  font-family: theme.$font-family;
+  background-color: theme.$background;
 
   @media print {
-    background-color: $white;
+    background-color: theme.$white;
   }
 }
 
 strong,
 b {
-  font-weight: $font-weight-bold;
+  font-weight: theme.$font-weight-bold;
 }
 
 // h1 {

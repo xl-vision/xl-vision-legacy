@@ -2,31 +2,26 @@
 @use '../../style/theme' as *;
 @forward '../../style/theme';
 
-$button-transition: all $fast-out-slow-in-timing-function $standard-duration;
-$button-icon-transition: all $fast-out-slow-in-timing-function $standard-duration;
+$button-transition: standard();
+$button-icon-transition: standard();
 
-$button-opacity-disabled: $overlay-disabled;
-$button-opacity-hover: $overlay-hover;
-$button-opacity-focus: $overlay-focus;
-$button-opacity-activated: $overlay-activated;
-
-$button-border-width: 1px;
-
-$button-icon-line-height: 1;
 $button-icon-vertical-align: -0.2em;
 
-$button-loading-duration: 1s;
-$button-loading-function: $fast-out-slow-in-timing-function;
+$button-border-opacity: 0.65;
+$button-disabled-opacity: state-opacity('disabled');
 
-$button-default-bg: theme-pick($gray, 200);
-$button-default-bg-action: theme-pick($gray, 300);
-$button-default-color: $primary-text-color;
+$button-theme-default: emphasize($background, 0.05);
 
-$button-default-bg-outline: theme-pick($gray, 100);
-$button-default-border-color: $divider-color;
-$button-default-bg-text: theme-pick($gray, 100);
+$button-themes: map.merge(
+  $themes,
+  (
+    default: $button-theme-default
+  )
+);
 
-$button-theme: $theme;
+$button-line-height: map.get($button-properties, line-height);
+
+$button-border-width: 1px;
 
 $button-medium-padding-x: px2rem(16px);
 $button-medium-padding-y: px2rem(6px);
@@ -38,7 +33,8 @@ $button-medium-border-radius: $border-radius-medium;
 $button-medium-icon-size: px2rem(18px);
 $button-medium-font-size: px2rem(14px);
 // stylelint-disable-next-line
-$button-medium-border-radius-round: $button-medium-font-size * $button-line-height + $button-medium-padding-y * 2;
+$button-medium-border-radius-round: $button-medium-font-size * $button-line-height / 1rem +
+  $button-medium-padding-y * 2;
 $button-medium-min-width: px2rem(64px);
 
 $button-large-padding-x: px2rem(22px);
@@ -51,7 +47,8 @@ $button-large-border-radius: $border-radius-medium;
 $button-large-icon-size: px2rem(20px);
 $button-large-font-size: px2rem(16px);
 // stylelint-disable-next-line
-$button-large-border-radius-round: $button-large-font-size * $button-line-height + $button-large-padding-y * 2;
+$button-large-border-radius-round: $button-large-font-size * $button-line-height / 1rem +
+  $button-large-padding-y * 2;
 $button-large-min-width: px2rem(70px);
 
 $button-small-padding-x: px2rem(10px);
@@ -64,5 +61,6 @@ $button-small-border-radius: $border-radius-medium;
 $button-small-icon-size: px2rem(16px);
 $button-small-font-size: px2rem(12px);
 // stylelint-disable-next-line
-$button-small-border-radius-round: $button-small-font-size * $button-line-height + $button-small-padding-y * 2;
+$button-small-border-radius-round: $button-small-font-size * $button-line-height / 1rem +
+  $button-small-padding-y * 2;
 $button-small-min-width: px2rem(50px);

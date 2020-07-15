@@ -1,10 +1,9 @@
-@use '../../assets/style/var' as *;
+@use '../../assets/style/variables' as *;
 
 .footer {
   padding: 1rem;
   text-align: center;
-  background-color: #ffffff;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid text-color(divider);
   // .copyright{
   // }
 }

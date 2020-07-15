@@ -37,6 +37,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     disableElevation: cDisableElevation,
     disableRipple: cDisableRipple
   } = React.useContext(ButtonContext)
+
   const {
     clsPrefix = `${rootClsPrefix}-button`,
     theme = cTheme || 'default',
@@ -95,7 +96,8 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     `${clsPrefix}--theme-${theme}`,
     `${clsPrefix}--size-${size}`,
     {
-      [`${clsPrefix}--elevation`]: !disableElevation && variant === 'contained',
+      [`${clsPrefix}--elevation`]:
+        !disableElevation && !disabled && !loading && variant === 'contained',
       [`${clsPrefix}--round`]: round,
       [`${clsPrefix}--long`]: long,
       [`${clsPrefix}--only-icon`]: onlyIcon,

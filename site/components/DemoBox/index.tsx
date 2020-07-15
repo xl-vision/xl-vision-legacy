@@ -3,9 +3,9 @@ import { DemoBoxProps } from '@xl-vision/scripts'
 import classes from './index.module.scss'
 import { CollapseTransition, Button } from '../../../src'
 import { CodeSlash, Code, Link as LinkIcon } from '../../../src/icon'
-import getText from '../../utils/getText'
-import 'prismjs/themes/prism.css'
+import getHash from '../../utils/getHash'
 
+import './preview.scss'
 
 const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
   // eslint-disable-next-line react/prop-types
@@ -17,14 +17,14 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
     setExpand((prev) => !prev)
   }, [])
 
-  const text = getText(title)
+  const hash = getHash(title)
   return (
-    <div className={classes.demoBox} id={text}>
+    <div className={classes.demoBox} id={hash}>
       <div className={classes.preview}>{children}</div>
       <div className={classes.info}>
         <div className={classes.title}>
           {title}
-          <a className={classes.anchor} href={`#${text}`}>
+          <a className={classes.anchor} href={`#${hash}`}>
             <LinkIcon />
           </a>
         </div>
@@ -38,10 +38,14 @@ const DemoBox: React.FunctionComponent<DemoBoxProps> = (props) => {
           prefixIcon={expand ? <CodeSlash /> : <Code />}
         />
       </div>
-      <CollapseTransition transitionClasses={{
-        enterActive: classes.collapse,
-        leaveActive: classes.collapse
-      }} in={expand} mountOnEnter={true}>
+      <CollapseTransition
+        transitionClasses={{
+          enterActive: classes.collapse,
+          leaveActive: classes.collapse
+        }}
+        in={expand}
+        mountOnEnter={true}
+      >
         <div className={classes.codes}>
           {
             // eslint-disable-next-line react/prop-types

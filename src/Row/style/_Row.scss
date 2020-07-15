@@ -1,4 +1,4 @@
-@use './var' as *;
+@use './variables' as *;
 @use '../../style/mixins/clearfix' as *;
 
 $grid: #{$cls-prefix}-row;

@@ -1,7 +1,8 @@
+@use 'sass:map';
 @use '../../style/theme' as *;
 @forward '../../style/theme';
 
-$tooltip-bg: rgba(theme-pick($gray, 800), 0.9);
+$tooltip-bg: rgba(map.get($gray, 800), 0.9);
 $tooltip-color: $white;
 
 $tooltip-padding: px2rem(8px) px2rem(16px);
@@ -9,4 +10,4 @@ $tooltip-border-radius: $border-radius-medium;
 
 $tooltip-arrow-size: 5px;
 
-$tooltip-aniamtion: all $standard-duration $fast-out-slow-in-timing-function;
+$tooltip-aniamtion: standard();

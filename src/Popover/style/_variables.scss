@@ -1,18 +1,18 @@
 @use '../../style/theme' as *;
 @forward '../../style/theme';
 
-$popover-bg: $white;
-$popover-color: $primary-text-color;
+$popover-bg: $background;
+$popover-color: text-color('primary', $popover-bg);
 
 $popover-title-padding: px2rem(4px) px2rem(16px);
 $popover-content-padding: px2rem(12px) px2rem(16px);
 
 $popover-border-width: 1px;
-$popover-border-color: $divider-color;
+$popover-border-color: text-color('divider', $popover-bg);
 $popover-border-radius: $border-radius-medium;
 
 $popover-min-width: px2rem(160px);
 
 $popover-arrow-size: 5px;
 
-$popover-aniamtion: all $standard-duration $fast-out-slow-in-timing-function;
+$popover-aniamtion: standard();

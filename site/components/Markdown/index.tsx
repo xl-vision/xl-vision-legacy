@@ -5,7 +5,7 @@ import { MDXProvider } from '@xl-vision/scripts'
 import React from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 import { Link as LinkIcon } from '../../../src/icon'
-import getText from '../../utils/getText'
+import getHash from '../../utils/getHash'
 import DemoBox from '../DemoBox'
 
 import classes from './index.module.scss'
@@ -43,11 +43,11 @@ const components: MDXProviderComponents = {
   h1(props) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { children } = props
-    const text = getText(children)
+    const hash = getHash(children)
     return (
-      <h1 id={text} className={classes.h1}>
+      <h1 id={hash} className={classes.h1}>
         {children}
-        <a href={`#${text}`} className={classnames(classes.a, classes.anchor)}>
+        <a href={`#${hash}`} className={classnames(classes.a, classes.anchor)}>
           <LinkIcon />
         </a>
       </h1>
@@ -56,11 +56,11 @@ const components: MDXProviderComponents = {
   h2(props) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { children } = props
-    const text = getText(children)
+    const hash = getHash(children)
     return (
-      <h2 id={text} className={classes.h2}>
+      <h2 id={hash} className={classes.h2}>
         {children}
-        <a href={`#${text}`} className={classnames(classes.a, classes.anchor)}>
+        <a href={`#${hash}`} className={classnames(classes.a, classes.anchor)}>
           <LinkIcon />
         </a>
       </h2>
@@ -69,11 +69,11 @@ const components: MDXProviderComponents = {
   h3(props) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { children } = props
-    const text = getText(children)
+    const hash = getHash(children)
     return (
-      <h3 id={text} className={classes.h3}>
+      <h3 id={hash} className={classes.h3}>
         {children}
-        <a href={`#${text}`} className={classnames(classes.a, classes.anchor)}>
+        <a href={`#${hash}`} className={classnames(classes.a, classes.anchor)}>
           <LinkIcon />
         </a>
       </h3>
@@ -82,11 +82,11 @@ const components: MDXProviderComponents = {
   h4(props) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { children } = props
-    const text = getText(children)
+    const hash = getHash(children)
     return (
-      <h4 id={text} className={classes.h4}>
+      <h4 id={hash} className={classes.h4}>
         {children}
-        <a href={`#${text}`} className={classnames(classes.a, classes.anchor)}>
+        <a href={`#${hash}`} className={classnames(classes.a, classes.anchor)}>
           <LinkIcon />
         </a>
       </h4>
@@ -95,11 +95,12 @@ const components: MDXProviderComponents = {
   h5(props) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { children } = props
-    const text = getText(children)
+    const hash = getHash(children)
+
     return (
-      <h5 id={text} className={classes.h5}>
+      <h5 id={hash} className={classes.h5}>
         {children}
-        <a href={`#${text}`} className={classnames(classes.a, classes.anchor)}>
+        <a href={`#${hash}`} className={classnames(classes.a, classes.anchor)}>
           <LinkIcon />
         </a>
       </h5>

@@ -28,7 +28,7 @@ const LoadingIcon: React.FunctionComponent<LoadingIconProps> = (props) => {
       unmountOnLeave={true}
       in={loading}
     >
-      <span style={{ display: 'inline-block', verticalAlign: 'middle', lineHeight: 0 }}>
+      <span style={{ display: 'inline-block', verticalAlign: 'text-bottom', lineHeight: 0 }}>
         <span className={className}>
           <Reload {...others} spin={true} />
         </span>

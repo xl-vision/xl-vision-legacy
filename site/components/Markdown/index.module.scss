@@ -1,4 +1,4 @@
-@use '../../assets/style/var' as *;
+@use '../../assets/style/variables' as *;
 @use '../../assets/style/mixins/link' as *;
 
 .a {
@@ -55,7 +55,7 @@
   padding: 0.1em 0.4em;
   font-size: 0.8em;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  background-color: rgba(27, 31, 35, 0.05);
+  background-color: rgba(text-color(primary), 0.05);
   border-radius: 3px;
 }
 
@@ -63,14 +63,14 @@
   margin: 1rem 0;
   padding: 0.25rem 0 0.25rem 1rem;
   line-height: 2;
-  background-color: lighten(#dfe2e5, 8%);
-  border-left: 4px solid #dfe2e5;
+  background-color: rgba(text-color(primary), 0.05);
+  border-left: 4px solid rgba(text-color(primary), 0.2);
   p {
     margin: 0;
   }
 
   & + & {
-    margin-top: -1rem - 0.5rem;
+    margin-top: -1rem;
   }
 }
 // &_fence{
@@ -99,7 +99,7 @@
   td,
   th {
     padding: 1rem;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid text-color(divider);
   }
 
   th {

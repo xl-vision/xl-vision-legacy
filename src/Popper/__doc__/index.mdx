@@ -16,43 +16,43 @@ export default () => {
     <div className='container'>
       <Button.Group theme='primary'>
         <Popper
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='left'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>left</Button>
         </Popper>
         <Popper
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='top'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>top</Button>
         </Popper>
         <Popper
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>bottom</Button>
         </Popper>
 
         <Popper
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='right'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>right</Button>
         </Popper>
@@ -60,34 +60,34 @@ export default () => {
       <Button.Group theme='secondary'>
         <Popper
           trigger='click'
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>click</Button>
         </Popper>
         <Popper
           trigger='contextMenu'
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>contextMenu</Button>
         </Popper>
         <Popper
           trigger='focus'
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>focus</Button>
         </Popper>
@@ -95,12 +95,12 @@ export default () => {
           trigger='custom'
           visible={visible}
           onVisibleChange={(visible) => setVisible(visible)}
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button onClick={() => setVisible((prev) => !prev)}>custom(double click)</Button>
         </Popper>
@@ -108,94 +108,94 @@ export default () => {
       <Button.Group theme='info'>
         <Popper
           disablePopupEnter
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>disable Popup Enter</Button>
         </Popper>
         <Popper
           showDelay={2000}
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>show delay 2s</Button>
         </Popper>
         <Popper
           hideDelay={2000}
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>hide delay 2s</Button>
         </Popper>
         <Popper
           trigger='click'
           flip={false}
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>flip</Button>
         </Popper>
         <Popper
           disabled
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='bottom'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>disabled</Button>
         </Popper>
         <Popper
           trigger='click'
           preventOverflow={false}
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='right'
           offset={10}
-          popupClassName='overlay'
-          popup={<span className='popup'>This is popper</span>}
-          arrow={<div className='arrow' />}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>prevent overflow</Button>
         </Popper>
       </Button.Group>
       <Button.Group theme='error'>
         <Popper
-          transitionClasses='transition'
+          transitionClasses='popper_transition'
           placement='top'
           offset={10}
-          popupClassName='overlay'
+          popupClassName='popper_overlay'
           popup={
-            <span className='popup'>
+            <span className='popper_popup'>
               <Popper
-                transitionClasses='transition'
+                transitionClasses='popper_transition'
                 placement='right'
                 offset={10}
-                popupClassName='overlay'
-                popup={<span className='popup'>this is a popper</span>}
-                arrow={<div className='arrow' />}
+                popupClassName='popper_overlay'
+                popup={<span className='popper_popup'>this is a popper</span>}
+                arrow={<div className='popper_arrow' />}
               >
                 <Button theme='primary'>button</Button>
               </Popper>
             </span>
           }
-          arrow={<div className='arrow' />}
+          arrow={<div className='popper_arrow' />}
         >
           <Button>nest</Button>
         </Popper>
@@ -213,7 +213,7 @@ export default () => {
     }
   }
 }
-.popup {
+.popper_popup {
   display: inline-block;
   background-color: #fff;
   padding: 10px;
@@ -221,7 +221,7 @@ export default () => {
   border-radius: 4px;
 }
 ::deep {
-  .overlay {
+  .popper_overlay {
     position: relative;
     &[data-placement^='bottom'] {
       .arrow {
@@ -244,7 +244,7 @@ export default () => {
       }
     }
   }
-  .arrow {
+  .popper_arrow {
     &,
     &::before {
       position: absolute;
@@ -260,7 +260,7 @@ export default () => {
       border: 1px solid #ccc;
     }
   }
-  .transition {
+  .popper_transition {
     &-enter-active,
     &-leave-active {
       transition: all 0.4s ease-in-out;

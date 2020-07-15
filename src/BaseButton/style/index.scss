@@ -1,4 +1,4 @@
-@use './var' as *;
+@use './variables' as *;
 @use '../../Ripple/style';
 
 $button: #{$cls-prefix}-base-button;
@@ -36,6 +36,9 @@ $ripple: #{$cls-prefix}-ripple;
   &__inner {
     // 阻止ie下 focus时文字移动
     position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
   }
 
   .#{$ripple} {
@@ -44,9 +47,11 @@ $ripple: #{$cls-prefix}-ripple;
   }
 
   &__ripple {
-    &-enter-active,
+    &-enter-active {
+      transition: $base-button-ripple-enter-transition;
+    }
     &-leave-active {
-      transition: $base-button-ripple-transition;
+      transition: $base-button-ripple-leave-transition;
     }
 
     &-enter {

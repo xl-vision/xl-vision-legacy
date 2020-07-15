@@ -1,9 +1,8 @@
-@use '../../assets/style/var' as *;
+@use '../../assets/style/variables' as *;
 @use '../../assets/style/mixins/link' as *;
 
 .aside {
   font-size: 20px;
-  background-color: #ffffff;
 }
 
 .menus {

@@ -1,5 +1,5 @@
 @use '../../Popper/style';
-@use './var' as *;
+@use './variables' as *;
 @use '../../style/mixins/arrow' as *;
 
 $popover: #{$cls-prefix}-popover;
@@ -22,13 +22,13 @@ $popover: #{$cls-prefix}-popover;
     padding: $popover-title-padding;
     border-bottom: $popover-border-width solid $popover-border-color;
 
-    @include subtitle2();
+    @include subtitle2-style();
   }
 
   &__content {
     padding: $popover-content-padding;
 
-    @include body2();
+    @include body2-style();
   }
 
   &--zoom {
