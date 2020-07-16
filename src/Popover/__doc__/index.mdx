@@ -1,0 +1,262 @@
+# Popover
+
+点击/鼠标移入元素，弹出气泡式的卡片浮层。
+
+## 何时使用
+
+当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。
+
+和<Link to='Tooltip'>Tooltip</Link>的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。
+
+:::demo 基本用法
+
+基本用法
+
+```jsx
+import React from 'react'
+import { Popover, Button } from 'xl-vision'
+
+export default () => {
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+
+  return (
+    <div className='container'>
+      <div className='top'>
+        <Popover placement='top-start' title={title} content={content}>
+          <Button theme='primary'>tl</Button>
+        </Popover>
+        <Popover placement='top' title={title} content={content}>
+          <Button theme='primary'>top</Button>
+        </Popover>
+        <Popover placement='top-end' title={title} content={content}>
+          <Button theme='primary'>tr</Button>
+        </Popover>
+      </div>
+      <div className='center'>
+        <div className='left'>
+          <Popover placement='left-start' title={title} content={content}>
+            <Button theme='primary'>lt</Button>
+          </Popover>
+          <Popover placement='left' title={title} content={content}>
+            <Button theme='primary'>left</Button>
+          </Popover>
+          <Popover placement='left-end' title={title} content={content}>
+            <Button theme='primary'>lb</Button>
+          </Popover>
+        </div>
+        <div className='right'>
+          <Popover placement='right-start' title={title} content={content}>
+            <Button theme='primary'>rt</Button>
+          </Popover>
+          <Popover placement='right' title={title} content={content}>
+            <Button theme='primary'>right</Button>
+          </Popover>
+          <Popover placement='right-end' title={title} content={content}>
+            <Button theme='primary'>rb</Button>
+          </Popover>
+        </div>
+      </div>
+      <div className='bottom'>
+        <Popover placement='bottom-start' title={title} content={content}>
+          <Button theme='primary'>bl</Button>
+        </Popover>
+        <Popover placement='bottom' title={title} content={content}>
+          <Button theme='primary'>bottom</Button>
+        </Popover>
+        <Popover placement='bottom-end' title={title} content={content}>
+          <Button theme='primary'>br</Button>
+        </Popover>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.container {
+  &::deep {
+    .xl-button {
+      margin: 10px;
+      min-width: 100px;
+    }
+  }
+
+  .top,
+  .bottom {
+    margin-left: 100px + 10px;
+  }
+  .center {
+    display: flex;
+  }
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+  }
+  .right {
+    margin-left: (100px + 10px) * 3;
+  }
+}
+```
+
+:::
+
+:::demo 不同的触发方式
+
+通过`trigger`指定触发方式，默认值是`hover`，如果有复杂需求，可以设置为`custom`，以获得完全的控制能力。
+
+```jsx
+import React from 'react'
+import { Popover, Button } from 'xl-vision'
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+
+  const onClick = React.useCallback(() => {
+    setVisible((prev) => !prev)
+  }, [])
+
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+
+  return (
+    <Button.Group theme='info'>
+      <Popover placement='top' trigger='hover' title={title} content={content}>
+        <Button>hover</Button>
+      </Popover>
+      <Popover placement='top' trigger='click' title={title} content={content}>
+        <Button>click</Button>
+      </Popover>
+      <Popover placement='top' trigger='focus' title={title} content={content}>
+        <Button>focus</Button>
+      </Popover>
+      <Popover placement='top' trigger='contextMenu' title={title} content={content}>
+        <Button>contextMenu</Button>
+      </Popover>
+      <Popover placement='top' trigger='custom' visible={visible} title={title} content={content}>
+        <Button onClick={onClick}>custom(double click)</Button>
+      </Popover>
+    </Button.Group>
+  )
+}
+```
+
+:::
+
+:::demo 延迟触发
+
+通过`hideDelay`和`showDelay`指定延时触发时间。
+
+```jsx
+import React from 'react'
+import { Popover, Button } from 'xl-vision'
+export default () => {
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+
+  return (
+    <Button.Group theme='secondary'>
+      <Popover placement='top' showDelay={2000} title={title} content={content}>
+        <Button>show after 2s</Button>
+      </Popover>
+      <Popover placement='top' hideDelay={2000} title={title} content={content}>
+        <Button>hide after 2s</Button>
+      </Popover>
+    </Button.Group>
+  )
+}
+```
+
+:::
+
+:::demo 只显示内容
+
+只显示内容。
+
+```jsx
+import React from 'react'
+import { Popover, Button } from 'xl-vision'
+export default () => {
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+  return (
+    <Popover placement='top' content={content}>
+      <Button theme='primary'>button</Button>
+    </Popover>
+  )
+}
+```
+
+:::
+
+:::demo 禁用
+
+禁止 popover 展示。
+
+```jsx
+import React from 'react'
+import { Popover, Button } from 'xl-vision'
+export default () => {
+  const title = <span>Title</span>
+  const content = (
+    <div>
+      <p style={{ margin: 0 }}>Content</p>
+      <p style={{ margin: 0 }}>Content</p>
+    </div>
+  )
+  return (
+    <Popover disabled placement='top' title={title} content={content}>
+      <Button theme='primary'>button</Button>
+    </Popover>
+  )
+}
+```
+
+:::
+
+## Popover API
+
+> 更多参数请参考<Link to="Popper">**Popper**</Link>属性
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| clsPrefix | 自定义类名前缀 | string | - | - | false |
+| title | popover 标题 | React.ReactNode | - | - | false |
+| content | popover 内容 | React.ReactNode | - | - | true |
+| placement | 指定弹出框的方位 | `auto`&#x007c;`auto-start`&#x007c;`auto-end`&#x007c;`top`&#x007c;`top-start`&#x007c;`top-end`&#x007c;`right`&#x007c;`right-start`&#x007c;`right-end`&#x007c;`bottom`&#x007c;`bottom-start`&#x007c;`bottom-end`&#x007c;`left`&#x007c;`left-start`&#x007c;`left-end` | - | `auto` | false |
+| transitionClasses | 动画 class，参看<Link to='CSSTransition'>CSSTransition</Link> | boolean | - | `xl-popover--zoom` | false |
+| getPopupContainer | 指定弹出框的父容器 | string &#x007c; HTMLElement &#x007c; (() => string &#x007c; HTMLElement) | - | 默认为`body` | false |
+| visible | 是否显示弹出框 | boolean | - | false | false |
+| onVisibleChange | 弹出框状态改变时的回调 | (visible: boolean) => void | - | - | false |
+| hideDelay | 延时关闭 | number | - | - | false |
+| showDelay | 延时显示 | number | - | - | false |
+| trigger | 触发方式 | `hover`&#x007c;`focus`&#x007c;`click`&#x007c;`contextMenu`&#x007c;`custom` | - | `hover` | false |
+| disablePopupEnter | 禁止鼠标进入弹出框 | boolean | - | - | false |
+| forceRender | 强制弹出框立即挂载到 dom 中，即使弹出框还没有显示 | boolean | - | - | false |
+| offset | 弹出框偏移 | `number` | - | `10` | false |
+| style | 弹出框样式 | React.CSSProperties | - | - | false |
+| className | 弹出框类名 | string | - | - | false |
+| flip | 反转弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
+| preventOverflow | 调整弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
+| disableGpuAcceleration | 禁用 gpu 渲染 | boolean | - | - | false |
+| disableTransformOrigin | 禁用默认的`transform-origin`行为 | boolean | - | - | false |
+| disabled | 禁用 | boolean | - | - | false |

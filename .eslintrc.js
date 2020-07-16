@@ -1,3 +1,5 @@
+const confusingBrowserGlobals = require('confusing-browser-globals')
+
 module.exports = {
   env: {
     commonjs: true,
@@ -11,43 +13,119 @@ module.exports = {
       version: '16.8'
     }
   },
+  parserOptions: {
+    ecmaVersion: 2018
+  },
+  extends: ['airbnb', 'airbnb/hooks', 'prettier', 'prettier/react'],
+  plugins: ['unicorn'],
+  rules: {
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        packageDir: __dirname,
+        devDependencies: [
+          'site/**',
+          'test/**',
+          'scripts/**',
+          '**/__test__/**',
+          '**/*.mdx',
+          '*.js',
+          '.*.js'
+        ]
+      }
+    ],
+    // Strict, airbnb is using warn; allow warn and error for dev environments
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'nonblock-statement-body-position': 'error',
+    'no-plusplus': 'off',
+    'no-param-reassign': [
+      'error',
+      {
+        props: false
+      }
+    ],
+    'no-restricted-globals': ['error'].concat(confusingBrowserGlobals),
+    'no-underscore-dangle': 'off',
+    'no-nested-ternary': 'off',
+    'no-use-before-define': 'off',
+    'no-multi-assign': 'off',
+    'consistent-return': [
+      'off',
+      {
+        treatUndefinedAsUnspecified: true
+      }
+    ],
+    'react-hooks/exhaustive-deps': [
+      'error',
+      {
+        // custom hooks
+        additionalHooks: '(useLayoutEffect|useUpdated)'
+      }
+    ],
+    'react/jsx-handler-names': [
+      'error',
+      {
+        eventHandlerPrefix: 'handle',
+        eventHandlerPropPrefix: 'on',
+        checkLocalVariables: true
+      }
+    ],
+    'react/forbid-prop-types': 'off', // todo remove
+    'react/jsx-boolean-value': ['error', 'always'],
+    'react/display-name': 'error',
+    'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
+    'unicorn/filename-case': [
+      'error',
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true
+        },
+        ignore: [/^.*\.config.js$/, /^en-US.ts$/, /^zh-CN.ts$/]
+      }
+    ],
+    'unicorn/better-regex': 'error',
+    'unicorn/expiring-todo-comments': 'error',
+    'unicorn/consistent-function-scoping': 'error',
+    'unicorn/import-index': 'error',
+    // forbid passing object as default value to props of function component
+    // 'unicorn/no-object-as-default-parameter': 'error',
+    'unicorn/prefer-query-selector': 'error',
+    'unicorn/no-abusive-eslint-disable': 'error'
+  },
   overrides: [
-    {
-      files: ['*.js', '*.jsx'],
-      parserOptions: {
-        ecmaVersion: 2018
-      },
-      plugins: ['standard', 'prettier'],
-      extends: ['standard', 'plugin:prettier/recommended']
-    },
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 2018,
-        tsconfigRootDir: __dirname,
         project: './tsconfig.json'
       },
-      plugins: ['@typescript-eslint', 'standard', 'react', 'react-hooks'],
+      plugins: ['@typescript-eslint'],
       extends: [
-        'standard',
-        'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:react/recommended',
-        'plugin:prettier/recommended',
-        'prettier/standard',
-        'prettier/@typescript-eslint',
-        'prettier/react'
+        'plugin:import/typescript',
+        'prettier/@typescript-eslint'
+        // 'plugin:@typescript-eslint/recommended',
       ],
       rules: {
-        'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error',
-        // 'react/prop-types': 'off',
-        'react/display-name': 'off',
-        'react/jsx-boolean-value': ['error', 'always'],
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/no-use-before-define': 'off',
-        '@typescript-eslint/no-non-null-assertion': 'off',
+        'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+        'no-unused-vars': 'off',
+        'no-unused-expressions': 'off',
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            mjs: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never'
+          }
+        ],
+
+        'import/no-cycle': 'off',
         '@typescript-eslint/array-type': [
           'error',
           {

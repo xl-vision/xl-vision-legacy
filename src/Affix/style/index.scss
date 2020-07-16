@@ -1,0 +1,7 @@
+@use './variables' as *;
+
+$affix: #{$cls-prefix}-affix;
+
+.#{$affix} {
+  z-index: $affix-zindex;
+}

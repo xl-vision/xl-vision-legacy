@@ -4,3 +4,7 @@
 [context.production]
   publish = ""
   command = ""
+
+[[redirects]]
+  from = "/*"
+  to = "/"

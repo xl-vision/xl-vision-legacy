@@ -1,4 +1,4 @@
-import { mount, render } from 'enzyme'
+import { render } from 'enzyme'
 import React from 'react'
 import { createIcon } from '..'
 
@@ -22,13 +22,5 @@ describe('icon', () => {
       />
     )
     expect(wrapper).toMatchSnapshot()
-  })
-
-  it('click测试', () => {
-    const clickHandler = jest.fn()
-
-    const wrapper = mount(<TestIcon onClick={clickHandler} />)
-    wrapper.find('i').simulate('click')
-    expect(clickHandler.mock.calls.length).toBe(1)
   })
 })

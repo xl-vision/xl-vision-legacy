@@ -5,7 +5,7 @@ module.exports = {
   setupFiles: ['./test/setup.js'],
   testMatch: ['**/src/**/__test__/*.ts?(x)'],
   // collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/__*__/**', '!src/icon/icons/**'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/__*__/**', '!src/icon/*.tsx'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {

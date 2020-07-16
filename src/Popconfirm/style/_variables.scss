@@ -1,0 +1,23 @@
+@use '../../style/theme' as *;
+@forward '../../style/theme';
+
+$popconfirm-bg: $background;
+$popconfirm-color: text-color('primary', $popconfirm-bg);
+
+$popconfirm-icon-color: $warning;
+$popconfirm-icon-font-size: px2rem(18px);
+$popconfirm-icon-vertical-align: -0.2em;
+
+$popconfirm-padding: px2rem(12px) px2rem(16px);
+$popconfirm-message-padding: px2rem(4px) 0 px2rem(12px);
+$popconfirm-title-padding-left: px2rem(6px);
+
+$popconfirm-border-radius: $border-radius-large;
+
+$popconfirm-min-width: px2rem(180px);
+
+$popconfirm-arrow-size: 5px;
+
+$popconfirm-button-margin: px2rem(8px);
+
+$popconfirm-aniamtion: standard();

@@ -1,53 +1,160 @@
-name: Test And Build
-on: 
+name: build
+on:
   pull_request:
   push:
     branches:
       - master
       - dev
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: cache package-lock.json
+        uses: actions/cache@master
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only
+
+      - name: hack for singe file
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
   lint:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - name: lint:es
-      run: npm run lint:es
-    - name: lint:style
-      run: npm run lint:style
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@master
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: lint:es
+        run: npm run lint:es
+
+      - name: lint:style
+        run: npm run lint:style
+
   test:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - name: test
-      run: npm run test -- --coverage --bail
-    - name: codecov
-      run: bash <(curl -s https://codecov.io/bash)
-    - name: codacy-coverage
-      uses: codacy/codacy-coverage-reporter-action@master
-      with:
-        project-token: ${{secrets.CODACY_TOKEN}}
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@master
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: test
+        run: npm run test -- --coverage --bail
+
+      - name: codecov
+        run: bash <(curl -s https://codecov.io/bash)
+
+      - name: codacy-coverage
+        uses: codacy/codacy-coverage-reporter-action@master
+        with:
+          project-token: ${{secrets.CODACY_TOKEN}}
   compile:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - name: compile:lib
-      run: npm run compile:lib
-    - name: compile:es
-      run: npm run compile:es
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@master
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: compile:lib
+        run: npm run compile:lib
+
+      - name: compile:es
+        run: npm run compile:es
   dist:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - name: dist
-      run: npm run dist
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@master
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: dist
+        run: npm run dist
   docs:
     runs-on: ubuntu-latest
+    needs: setup
     steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - name: docs
-      run: npm run docs
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@master
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: docs
+        run: npm run docs

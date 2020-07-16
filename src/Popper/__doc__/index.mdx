@@ -1,0 +1,310 @@
+# Popper
+
+基础的弹出框定位组件
+
+:::demo 基础用法
+
+基础用法
+
+```jsx
+import React from 'react'
+import { Popper, Button } from 'xl-vision'
+
+export default () => {
+  const [visible, setVisible] = React.useState(false)
+  return (
+    <div className='container'>
+      <Button.Group theme='primary'>
+        <Popper
+          transitionClasses='popper_transition'
+          placement='left'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>left</Button>
+        </Popper>
+        <Popper
+          transitionClasses='popper_transition'
+          placement='top'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>top</Button>
+        </Popper>
+        <Popper
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>bottom</Button>
+        </Popper>
+
+        <Popper
+          transitionClasses='popper_transition'
+          placement='right'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>right</Button>
+        </Popper>
+      </Button.Group>
+      <Button.Group theme='secondary'>
+        <Popper
+          trigger='click'
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>click</Button>
+        </Popper>
+        <Popper
+          trigger='contextMenu'
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>contextMenu</Button>
+        </Popper>
+        <Popper
+          trigger='focus'
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>focus</Button>
+        </Popper>
+        <Popper
+          trigger='custom'
+          visible={visible}
+          onVisibleChange={(visible) => setVisible(visible)}
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button onClick={() => setVisible((prev) => !prev)}>custom(double click)</Button>
+        </Popper>
+      </Button.Group>
+      <Button.Group theme='info'>
+        <Popper
+          disablePopupEnter
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>disable Popup Enter</Button>
+        </Popper>
+        <Popper
+          showDelay={2000}
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>show delay 2s</Button>
+        </Popper>
+        <Popper
+          hideDelay={2000}
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>hide delay 2s</Button>
+        </Popper>
+        <Popper
+          trigger='click'
+          flip={false}
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>flip</Button>
+        </Popper>
+        <Popper
+          disabled
+          transitionClasses='popper_transition'
+          placement='bottom'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>disabled</Button>
+        </Popper>
+        <Popper
+          trigger='click'
+          preventOverflow={false}
+          transitionClasses='popper_transition'
+          placement='right'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={<span className='popper_popup'>This is popper</span>}
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>prevent overflow</Button>
+        </Popper>
+      </Button.Group>
+      <Button.Group theme='error'>
+        <Popper
+          transitionClasses='popper_transition'
+          placement='top'
+          offset={10}
+          popupClassName='popper_overlay'
+          popup={
+            <span className='popper_popup'>
+              <Popper
+                transitionClasses='popper_transition'
+                placement='right'
+                offset={10}
+                popupClassName='popper_overlay'
+                popup={<span className='popper_popup'>this is a popper</span>}
+                arrow={<div className='popper_arrow' />}
+              >
+                <Button theme='primary'>button</Button>
+              </Popper>
+            </span>
+          }
+          arrow={<div className='popper_arrow' />}
+        >
+          <Button>nest</Button>
+        </Popper>
+      </Button.Group>
+    </div>
+  )
+}
+```
+
+```scss
+.container {
+  &::deep {
+    .xl-button-group:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+.popper_popup {
+  display: inline-block;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+::deep {
+  .popper_overlay {
+    position: relative;
+    &[data-placement^='bottom'] {
+      .arrow {
+        top: -4px;
+      }
+    }
+    &[data-placement^='left'] {
+      .arrow {
+        right: -4px;
+      }
+    }
+    &[data-placement^='right'] {
+      .arrow {
+        left: -4px;
+      }
+    }
+    &[data-placement^='top'] {
+      .arrow {
+        bottom: -4px;
+      }
+    }
+  }
+  .popper_arrow {
+    &,
+    &::before {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      z-index: -1;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+    &::before {
+      content: '';
+      transform: rotate(45deg);
+      border: 1px solid #ccc;
+    }
+  }
+  .popper_transition {
+    &-enter-active,
+    &-leave-active {
+      transition: all 0.4s ease-in-out;
+    }
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+
+    &-enter-to,
+    &-leave {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+```
+
+:::
+
+## Popper API
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| children | 子元素 | React.ReactElement | - | — | true |
+| popup | 弹出框 | React.ReactElement | - | - | true |
+| placement | 指定弹出框的方位 | `auto`&#x007c;`auto-start`&#x007c;`auto-end`&#x007c;`top`&#x007c;`top-start`&#x007c;`top-end`&#x007c;`right`&#x007c;`right-start`&#x007c;`right-end`&#x007c;`bottom`&#x007c;`bottom-start`&#x007c;`bottom-end`&#x007c;`left`&#x007c;`left-start`&#x007c;`left-end` | - | `auto` | false |
+| getPopupContainer | 指定弹出框的父容器 | string &#x007c; HTMLElement &#x007c; (() => string &#x007c; HTMLElement) | - | 默认为`body` | false |
+| visible | 是否显示弹出框 | boolean | - | false | false |
+| onVisibleChange | 弹出框状态改变时的回调 | (visible: boolean) => void | - | - | false |
+| hideDelay | 延时关闭 | number | - | - | false |
+| showDelay | 延时显示 | number | - | - | false |
+| trigger | 触发方式 | `hover`&#x007c;`focus`&#x007c;`click`&#x007c;`contextMenu`&#x007c;`custom` | - | `hover` | false |
+| disablePopupEnter | 禁止鼠标进入弹出框 | boolean | - | - | false |
+| transitionClasses | 动画 class，参看<Link to='CSSTransition'>CSSTransition</Link> | boolean | - | - | false |
+| forceRender | 强制弹出框立即挂载到 dom 中，即使弹出框还没有显示 | boolean | - | - | false |
+| arrow | 箭头 | React.ReactElement | - | - | false |
+| offset | 弹出框偏移 | `number` | - | 0 | false |
+| popupStyle | 弹出框样式 | React.CSSProperties | - | - | false |
+| popupClassName | 弹出框类名 | string | - | - | false |
+| flip | 反转弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
+| preventOverflow | 调整弹出框以避免遮挡 | boolean | HTMLElement | HTMLElement[] | (() =>)boolean | HTMLElement | HTMLElement[] | - | true | false |
+| disableGpuAcceleration | 禁用 gpu 渲染 | boolean | - | - | false |
+| disableTransformOrigin | 禁用默认的`transform-origin`行为 | boolean | - | - | false |
+| disabled | 禁用 | boolean | - | - | false |

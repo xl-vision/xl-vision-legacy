@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
     "strictNullChecks": true,
-    "target": "es6",
+    "target": "ESNext",
     "jsx": "preserve",
     "moduleResolution": "node",
     "noUnusedParameters": true,

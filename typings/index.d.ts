@@ -1,10 +1,17 @@
+declare module '*.png' {
+  const value: string
+  export default value
+}
 declare module '*.md'
-declare module '*.mdx'
-declare module '*.scss'
-declare module '*.png'
+declare module '*.mdx' {
+  import React from 'react'
 
-declare module '*.json' {
-  const value: any
-  export const version: string
+  const value: React.ComponentType
+  export default value
+}
+declare module '*.scss' {
+  const value: {
+    [key: string]: string
+  }
   export default value
 }

@@ -1,44 +1,44 @@
-@use '../theme' as *;
+@use '../theme';
 
 html {
   box-sizing: border-box;
-  font-size: $html-font-size;
+  font-size: theme.$base-font-size;
 }
 
 body {
-  color: $dark-primary-text;
-  font-family: $font-family;
-  background-color: $background-default;
+  color: theme.text-color(primary);
+  font-family: theme.$font-family;
+  background-color: theme.$background;
 
   @media print {
-    background-color: $white;
+    background-color: theme.$white;
   }
 }
 
 strong,
 b {
-  font-weight: $font-weight-bold;
+  font-weight: theme.$font-weight-bold;
 }
 
-h1 {
-  @include h1();
-}
-h2 {
-  @include h2();
-}
+// h1 {
+//   @include h1();
+// }
+// h2 {
+//   @include h2();
+// }
 
-h3 {
-  @include h3();
-}
+// h3 {
+//   @include h3();
+// }
 
-h4 {
-  @include h4();
-}
+// h4 {
+//   @include h4();
+// }
 
-h5 {
-  @include h5();
-}
+// h5 {
+//   @include h5();
+// }
 
-h6 {
-  @include h6();
-}
+// h6 {
+//   @include h6();
+// }
