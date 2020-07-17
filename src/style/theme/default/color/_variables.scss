@@ -1,14 +1,18 @@
 @use "sass:map";
-@use "./palette";
+@use "../../../palette";
 
 $white: white !default;
 $black: black !default;
 
 $background: $white !default;
 
-$minimum-contrast: 3.1 !default;
+// // for element float on background
+// $paper-bg: $background !default;
 
-$text-colors: (
+// for tooltip only
+$tooltip-bg: rgba(map.get(palette.$gray, 800), 0.9);
+
+$base-colors: (
   dark: (
     primary: rgba($black, 0.87),
     secondary: rgba($black, 0.54),
@@ -28,18 +32,27 @@ $text-colors: (
 ) !default;
 
 $state-opacities: (
-  enabled: 0,
-  hover: 0.04,
-  focus: 0.12,
-  active: 0.12,
-  disabled: 0.38,
-  selected: 0.08,
-  pressed: 0.12,
-  dragged: 0.08
+  light: (
+    enabled: 0,
+    hover: 0.04,
+    focus: 0.12,
+    selected: 0.08,
+    active: 0.12,
+    pressed: 0.12,
+    dragged: 0.08,
+    disabled: 0.38
+  ),
+  dark: (
+    enabled: 0,
+    hover: 0.08,
+    focus: 0.24,
+    selected: 0.16,
+    active: 0.24,
+    pressed: 0.32,
+    dragged: 0.16,
+    disabled: 0.38
+  )
 ) !default;
-
-// gary
-$gray: palette.$gray !default;
 
 //theme
 $primary: map.get(palette.$indigo, 500) !default;

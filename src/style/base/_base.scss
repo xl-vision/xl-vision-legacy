@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  color: theme.text-color(primary);
+  color: theme.base-color(primary);
   font-family: theme.$font-family;
   background-color: theme.$background;
 

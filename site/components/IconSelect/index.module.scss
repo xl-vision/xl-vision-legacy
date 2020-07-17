@@ -9,10 +9,10 @@
   display: inline-block;
   width: 70%;
   padding: 0.5rem;
-  // color: $--text-color;
+  // color: $--base-color;
   font-size: 1.2rem;
   line-height: 1.5;
-  border: 1px solid text-color(divider);
+  border: 1px solid base-color(divider);
   border-radius: 5px;
   outline: none;
   transition: border-color 0.4s ease-in-out;
@@ -28,7 +28,7 @@
 
 .info {
   padding: 1rem 0;
-  // color: color-level($--text-color, -2);
+  // color: color-level($--base-color, -2);
 }
 
 .list {

@@ -5,6 +5,7 @@ import ConfigContext from '../ConfigProvider/ConfigContext'
 import BaseButton, { BaseButtonProps, ButtonElement } from '../BaseButton'
 import ButtonContext from './ButtonContext'
 import LoadingIcon from './LoadingIcon'
+import createUseClasses from '../styles/createUseClasses'
 
 export type ButtonTheme =
   | 'default'
@@ -37,6 +38,8 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     disableElevation: cDisableElevation,
     disableRipple: cDisableRipple
   } = React.useContext(ButtonContext)
+
+  const classes = useClasses(props)
 
   const {
     clsPrefix = `${rootClsPrefix}-button`,
@@ -71,18 +74,18 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 
   if (suffixIcon && !prefixIcon) {
     if (loading) {
-      const classes = classnames({
+      const _classes = classnames({
         [`${clsPrefix}__suffix`]: !onlyIcon
       })
-      suffixIcon = <LoadingIcon className={classes} loading={true} existIcon={true} />
+      suffixIcon = <LoadingIcon className={_classes} loading={true} existIcon={true} />
     }
   } else if (loading || !prefixIcon) {
-    const classes = classnames({
+    const _classes = classnames({
       [`${clsPrefix}__prefix`]: !onlyIcon
     })
     prefixIcon = (
       <LoadingIcon
-        className={classes}
+        className={_classes}
         transitionClassName={`${clsPrefix}__icon--loading`}
         loading={!!loading}
         existIcon={!!prefixIcon}
@@ -90,8 +93,8 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     )
   }
 
-  const classes = classnames(
-    clsPrefix,
+  const _classes = classnames(
+    classes.root,
     `${clsPrefix}--variant-${variant}`,
     `${clsPrefix}--theme-${theme}`,
     `${clsPrefix}--size-${size}`,
@@ -113,7 +116,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>((props, ref) => {
       disableRipple={disableRipple}
       disabled={disabled}
       loading={loading}
-      className={classes}
+      className={_classes}
       ref={ref}
     >
       {prefixIcon}
@@ -151,3 +154,12 @@ Button.propTypes = {
 }
 
 export default Button
+
+const useClasses = createUseClasses((themes) => {
+  return {
+    root: (_props: ButtonProps) => ({
+      ...themes.typography.button,
+      transition: themes.animation.standard('all'),
+    })
+  }
+})

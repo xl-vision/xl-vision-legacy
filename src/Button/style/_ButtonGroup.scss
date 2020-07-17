@@ -58,7 +58,7 @@ $button-group: #{$cls-prefix}-button-group;
     @each $key, $value in $button-themes {
       .#{$button}--theme-#{$key} {
         &:not(:first-child) {
-          border-left-color: text-color('divider');
+          border-left-color: base-color('divider');
         }
       }
     }
@@ -67,7 +67,7 @@ $button-group: #{$cls-prefix}-button-group;
       @each $key, $value in $button-themes {
         &.#{$button}--theme-#{$key} {
           &:not(:first-child) {
-            border-left-color: text-color('divider', $value);
+            border-left-color: base-color('divider', $value);
           }
         }
       }
@@ -129,7 +129,7 @@ $button-group: #{$cls-prefix}-button-group;
     @each $key, $value in $button-themes {
       > .#{$button}--theme-#{$key} {
         &:not(:first-child) {
-          border-top-color: text-color(divider);
+          border-top-color: base-color(divider);
         }
       }
     }
@@ -138,7 +138,7 @@ $button-group: #{$cls-prefix}-button-group;
       @each $key, $value in $button-themes {
         .#{$button}--theme-#{$key} {
           &:not(:first-child) {
-            border-top-color: text-color(divider, $value);
+            border-top-color: base-color(divider, $value);
           }
         }
       }

@@ -109,7 +109,10 @@
     "@babel/runtime": "^7.10.4",
     "@popperjs/core": "^2.4.4",
     "classnames": "^2.2.6",
-    "prop-types": "^15.7.2"
+    "clsx": "^1.1.1",
+    "jss": "^10.3.0",
+    "prop-types": "^15.7.2",
+    "react-jss": "^10.3.0"
   },
   "peerDependencies": {
     "react": "^16.9.0"

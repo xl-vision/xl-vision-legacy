@@ -10,7 +10,7 @@ $button-icon-vertical-align: -0.2em;
 $button-border-opacity: 0.65;
 $button-disabled-opacity: state-opacity('disabled');
 
-$button-theme-default: emphasize($background, 0.05);
+$button-theme-default: emphasize($background, 0.1);
 
 $button-themes: map.merge(
   $themes,

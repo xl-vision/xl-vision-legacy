@@ -38,12 +38,7 @@ module.exports = {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'nonblock-statement-body-position': 'error',
     'no-plusplus': 'off',
-    'no-param-reassign': [
-      'error',
-      {
-        props: false
-      }
-    ],
+    'no-param-reassign': 'off',
     'no-restricted-globals': ['error'].concat(confusingBrowserGlobals),
     'no-underscore-dangle': 'off',
     'no-nested-ternary': 'off',

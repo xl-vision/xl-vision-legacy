@@ -2,7 +2,7 @@
 @use '../../style/theme' as *;
 @forward '../../style/theme';
 
-$tooltip-bg: rgba(map.get($gray, 800), 0.9);
+$tooltip-bg: $tooltip-bg;
 $tooltip-color: $white;
 
 $tooltip-padding: px2rem(8px) px2rem(16px);

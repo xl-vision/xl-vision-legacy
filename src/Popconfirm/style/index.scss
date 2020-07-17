@@ -16,10 +16,10 @@ $icon: #{$cls-prefix}-icon;
     min-width: $popconfirm-min-width;
     padding: $popconfirm-padding;
     color: $popconfirm-color;
-    background-color: $popconfirm-bg;
+    background-color: elevation-overlay(4, $popconfirm-bg);
     border-radius: $popconfirm-border-radius;
 
-    @include elevation(8);
+    @include elevation(4);
   }
   &__message {
     padding: $popconfirm-message-padding;

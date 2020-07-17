@@ -1,15 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import clsx from 'clsx'
 import TransitionGroup, { TransitionGroupClasses } from '../TransitionGroup'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import useEventCallback from '../commons/hooks/useEventCallback'
+import createUseClasses from '../styles/createUseClasses'
 
 export interface RippleProps extends React.HTMLAttributes<HTMLDivElement> {
   transitionClasses?: TransitionGroupClasses
   clsPrefix?: string
   leaveAfterEnter?: boolean
   className?: string
+  classes?: Partial<{
+    root: string
+    inner: string
+  }>
 }
 
 export interface RippleRef {
@@ -22,13 +27,17 @@ const DELAY_RIPPLE = 80
 
 const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
+
   const {
     clsPrefix = `${rootClsPrefix}-ripple`,
     transitionClasses,
     leaveAfterEnter,
     className,
+    classes,
     ...others
   } = props
+
+  const buildinClasses = useClasses()
 
   const [ripples, setRipples] = React.useState<Array<React.ReactElement>>([])
   const finishedCountRef = React.useRef(0)
@@ -48,17 +57,19 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
   const startCommit = React.useCallback(
     ({ x, y, size }: { x: number; y: number; size: number }) => {
       const key = keyRef.current
-      const styles: React.CSSProperties = {
+      const style: React.CSSProperties = {
         width: size,
         height: size,
         top: -size / 2 + y,
         left: -size / 2 + x
       }
-      const ripple = <div className={`${clsPrefix}__inner`} key={key} style={styles} />
+      const ripple = (
+        <div className={clsx(buildinClasses.inner, classes?.inner)} key={key} style={style} />
+      )
       setRipples((prev) => [...prev, ripple])
       keyRef.current++
     },
-    [clsPrefix]
+    [buildinClasses.inner, classes?.inner]
   )
 
   const start = React.useCallback(
@@ -151,10 +162,12 @@ const Ripple = React.forwardRef<RippleRef, RippleProps>((props, ref) => {
     stop
   }))
 
-  const classes = classnames(clsPrefix, className)
-
   return (
-    <span {...others} className={classes} ref={containerRef}>
+    <span
+      {...others}
+      className={clsx(buildinClasses.root, classes?.root, className)}
+      ref={containerRef}
+    >
       <TransitionGroup transitionClasses={transitionClasses} afterEnter={afterEnter}>
         {ripples}
       </TransitionGroup>
@@ -168,7 +181,27 @@ Ripple.propTypes = {
   clsPrefix: PropTypes.string,
   leaveAfterEnter: PropTypes.bool,
   className: PropTypes.string,
+  classes: PropTypes.object,
   transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 }
 
 export default Ripple
+
+const useClasses = createUseClasses({
+  root: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    zIndex: 0,
+    overflow: 'hidden',
+    borderRadius: 'inherit',
+    pointerEvents: 'none'
+  },
+  inner: {
+    position: 'absolute',
+    backgroundColor: 'currentColor',
+    borderRadius: '50%'
+  }
+})

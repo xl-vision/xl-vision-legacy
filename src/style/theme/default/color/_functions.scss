@@ -26,8 +26,10 @@
   @return math.max($backLum, $foreLum) / math.min($backLum, $foreLum);
 }
 
-$base-light-color: variables.$white !default;
-$base-dark-color: rgba(variables.$black, 0.87) !default;
+$base-light-color: map.get(map.get(variables.$base-colors, 'light'), 'primary');
+$base-dark-color: map.get(map.get(variables.$base-colors, 'dark'), 'primary');
+
+$minimum-contrast: 3 !default;
 
 // Determine whether the color is "light" or "dark".
 @function tone($color) {
@@ -38,7 +40,7 @@ $base-dark-color: rgba(variables.$black, 0.87) !default;
   $lightContrast: contrast($color, $base-light-color);
   $darkContrast: contrast($color, $base-dark-color);
 
-  @if ($lightContrast < variables.$minimum-contrast) and ($darkContrast > $lightContrast) {
+  @if ($lightContrast < $minimum-contrast) and ($darkContrast > $lightContrast) {
     @return 'light';
   } @else {
     @return 'dark';
@@ -61,24 +63,28 @@ $base-dark-color: rgba(variables.$black, 0.87) !default;
   @return color.scale($color, $lightness: - $coefficient * 100%);
 }
 
-@function text-color($text-type, $fill-color: variables.$background) {
-  $contrast-tone: contrast-tone($fill-color);
+@function base-color($type, $bg-color: variables.$background) {
+  $contrast-tone: contrast-tone($bg-color);
 
-  $color: map.get(map.get(variables.$text-colors, $contrast-tone), $text-type);
+  $color: map.get(map.get(variables.$base-colors, $contrast-tone), $type);
 
-  @if (contrast($color, $fill-color) < variables.$minimum-contrast) {
-    @warn 'the contrast between #{$fill-color} and #{$color} is less than #{variables.$minimum-contrast}';
+  @if (contrast($color, $bg-color) < $minimum-contrast) {
+    @warn 'the contrast between #{$bg-color} and #{$color} is less than #{$minimum-contrast}';
   }
 
   @return $color;
 }
 
-@function state-opacity($state) {
-  @return map.get(variables.$state-opacities, $state);
+@function state-opacity($state, $bg-color: variables.$background) {
+  $bg-color: if($bg-color == 'transparent', variables.$background, $bg-color);
+
+  $tone: tone($bg-color);
+
+  @return map.get(map.get(variables.$state-opacities, $tone), $state);
 }
 
 @function state-overlay($state, $front, $back: variables.$background) {
-  $opacity: state-opacity($state);
+  $opacity: state-opacity($state, $back);
 
   @if ($front == 'transparent') {
     @return rgba($back, 1 - $opacity);

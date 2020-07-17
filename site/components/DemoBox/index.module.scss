@@ -5,7 +5,7 @@ $padding: 16px;
 
 .demo-box {
   overflow: hidden;
-  border: 1px solid text-color('divider', $background);
+  border: 1px solid base-color('divider', $background);
   border-radius: 5px;
   & + & {
     margin-top: 16px;
@@ -20,7 +20,7 @@ $padding: 16px;
 .info {
   position: relative;
   padding: 0 $padding;
-  border-top: 1px solid text-color('divider', $background);
+  border-top: 1px solid base-color('divider', $background);
 }
 
 .title {
@@ -60,7 +60,7 @@ $padding: 16px;
 .actions {
   padding: 0 $padding;
   text-align: right;
-  border-top: 1px solid text-color('divider', $background);
+  border-top: 1px solid base-color('divider', $background);
 }
 
 // .codes {
@@ -68,7 +68,7 @@ $padding: 16px;
 
 .code-wrapper {
   position: relative;
-  border-top: 1px solid text-color('divider', $background);
+  border-top: 1px solid base-color('divider', $background);
 }
 
 .lang {
@@ -76,7 +76,7 @@ $padding: 16px;
   top: $padding / 2;
   right: $padding / 2;
   padding: 6px 12px;
-  color: text-color('primary');
+  color: base-color('primary');
   background-color: rgba($background, 0.75);
   border-radius: 3px;
 }
@@ -102,11 +102,11 @@ $padding: 16px;
   padding: $padding/2 0;
   line-height: 2;
   list-style: none;
-  border-right: 1px solid text-color(divider);
+  border-right: 1px solid base-color(divider);
 }
 
 .line {
   width: 30px;
-  color: 1px solid text-color(secondary);
+  color: 1px solid base-color(secondary);
   text-align: center;
 }

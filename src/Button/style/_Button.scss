@@ -1,5 +1,4 @@
 @use './variables' as *;
-@use '../../BaseButton/style';
 
 $button: #{$cls-prefix}-button;
 $base-button: #{$cls-prefix}-base-button;
@@ -151,7 +150,7 @@ $icon: #{$cls-prefix}-icon;
     @each $key, $value in $button-themes {
       &.#{$button}--theme-#{$key} {
         $background-color: $value;
-        $color: text-color(primary, $background-color);
+        $color: base-color(primary, $background-color);
 
         color: $color;
         background-color: $background-color;
@@ -218,10 +217,10 @@ $icon: #{$cls-prefix}-icon;
 
     @each $key, $value in $button-themes {
       &.#{$button}--theme-#{$key} {
-        $color: if($key == 'default', text-color(primary, $value), $value);
+        $color: if($key == 'default', base-color(primary, $value), $value);
         $border-color: if(
           $key == 'default',
-          text-color(divider, $value),
+          base-color(divider, $value),
           rgba($color, $button-border-opacity)
         );
 
@@ -262,7 +261,7 @@ $icon: #{$cls-prefix}-icon;
 
     @each $key, $value in $button-themes {
       &.#{$button}--theme-#{$key} {
-        $color: if($key== 'default', text-color(primary, $value), $value);
+        $color: if($key== 'default', base-color(primary, $value), $value);
 
         color: $color;
 

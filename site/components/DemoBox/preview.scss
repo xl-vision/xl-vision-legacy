@@ -3,7 +3,7 @@
 
 code[class*='language-'],
 pre[class*='language-'] {
-  color: text-color('primary');
+  color: base-color('primary');
   font-size: 1em;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   line-height: 1.5;
@@ -19,7 +19,7 @@ pre[class*='language-'] {
 
   // &::selection {
   //   text-shadow: none;
-  //   background: text-color(primary);
+  //   background: base-color(primary);
   // }
 
   @media print {
@@ -48,7 +48,7 @@ pre[class*='language-'] {
 }
 
 .token.punctuation {
-  color: text-color('primary');
+  color: base-color('primary');
 }
 .token.property,
 .token.keyword {
@@ -73,9 +73,9 @@ pre[class*='language-'] {
 }
 
 .token.tag {
-  color: text-color('primary');
+  color: base-color('primary');
   .token.punctuation {
-    color: text-color('secondary');
+    color: base-color('secondary');
   }
   .token.class-name {
     color: $warning;

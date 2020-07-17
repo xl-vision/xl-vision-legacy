@@ -1,4 +1,6 @@
 @use "./variables";
+@use "../color" as theme-color;
+@use 'sass:map';
 
 @function transition-value(
   $duration: variables.$transition-duration,
@@ -12,4 +14,13 @@
   $easing: variables.$transition-timing-function
 ) {
   @return #{variables.$overlay-property} #{$duration} #{$easing};
+}
+
+@function elevation-overlay($z-value, $background: variables.$overlay-color) {
+  @if (theme-color.tone($background) == 'light') {
+    @return $background;
+  }
+  $opacity: map.get(variables.$opacity-map, $z-value);
+
+  @return theme-color.emphasize($background, $opacity);
 }

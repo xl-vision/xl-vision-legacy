@@ -1,7 +1,0 @@
-@use '../../style/theme' as *;
-@forward '../../style/theme';
-
-$base-button-ripple-enter-transition: enter();
-$base-button-ripple-leave-transition: leave-permanent();
-$base-button-ripple-opacity-pressed: state-opacity('pressed');
-$base-button-ripple-opacity-enter: 0.1;

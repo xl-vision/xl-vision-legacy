@@ -22,7 +22,6 @@ export default () => {
 ```
 
 ```scss
-@use '../style/variables' as *;
 
 .container {
   &::deep {
@@ -32,8 +31,8 @@ export default () => {
       background-color: #9c27b0;
       color: #fff;
 
-      @include button-style();
-      @include elevation(2);
+      // @include button-style();
+      // @include elevation(2);
 
       &:focus {
         opacity: 0.85;
@@ -109,7 +108,7 @@ export default () => {
         opacity: 0.85;
       }
     }
-    
+
     .img {
       display: block;
       position: absolute;

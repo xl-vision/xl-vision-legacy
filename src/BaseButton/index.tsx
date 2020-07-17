@@ -1,9 +1,10 @@
 import React from 'react'
-import classnames from 'classnames'
+import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import Ripple, { RippleRef } from '../Ripple'
 import ConfigContext from '../ConfigProvider/ConfigContext'
 import useEventCallback from '../commons/hooks/useEventCallback'
+import createUseClasses from '../styles/createUseClasses'
 
 export interface CommonBaseButtonProps {
   href?: string
@@ -12,6 +13,13 @@ export interface CommonBaseButtonProps {
   disabled?: boolean
   loading?: boolean
   onClick?: React.EventHandler<React.MouseEvent>
+  classes?: Partial<{
+    root: string
+    inner: string
+    ripple: string
+    disabled: string
+    loading: string
+  }>
 }
 
 export type BaseButtonProps = CommonBaseButtonProps &
@@ -32,6 +40,7 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     loading,
     className,
     tabIndex = 0,
+    classes,
     /* eslint-disable react/prop-types */
     onClick,
     onMouseDown,
@@ -47,20 +56,12 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     /* eslint-enable react/prop-types */
     ...others
   } = props
+  const buildinClasses = useClasses({ loading, disabled })
 
   const rippleRef = React.useRef<RippleRef>(null)
   const isKeyDownRef = React.useRef(false)
 
   const Component = href ? 'a' : 'button'
-
-  const classes = classnames(
-    clsPrefix,
-    {
-      [`${clsPrefix}--disabled`]: disabled,
-      [`${clsPrefix}--loading`]: loading && !disabled
-    },
-    className
-  )
 
   // 按钮切换到loading或者disabled时，强制触发stop
   React.useEffect(() => {
@@ -122,13 +123,21 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
     onClick && onClick(e)
   })
 
+  const rootClasses = clsx(
+    buildinClasses.root,
+    classes?.root,
+    disabled && classes?.disabled,
+    loading && !disabled && classes?.loading,
+    className
+  )
+
   return (
     <Component
       aria-disabled={disabled}
       aria-readonly={loading}
       {...others}
       disabled={disabled}
-      className={classes}
+      className={rootClasses}
       ref={ref}
       tabIndex={disabled || loading ? -1 : tabIndex}
       href={href}
@@ -144,8 +153,13 @@ const BaseButton = React.forwardRef<ButtonElement, BaseButtonProps>((props, ref)
       onTouchMove={handleTouchMove}
       onDragLeave={handleDragLeave}
     >
-      <span className={`${clsPrefix}__inner`}>{children}</span>
-      <Ripple ref={rippleRef} leaveAfterEnter={true} transitionClasses={`${clsPrefix}__ripple`} />
+      <span className={clsx(buildinClasses.inner, classes?.inner)}>{children}</span>
+      <Ripple
+        ref={rippleRef}
+        className={clsx(buildinClasses.ripple, classes?.ripple)}
+        leaveAfterEnter={true}
+        transitionClasses={clsx(buildinClasses.ripple, classes?.ripple)}
+      />
     </Component>
   )
 })
@@ -160,7 +174,59 @@ BaseButton.propTypes = {
   href: PropTypes.string,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  classes: PropTypes.object
 }
 
 export default BaseButton
+
+const useClasses = createUseClasses((theme) => {
+  return {
+    root: {
+      position: 'relative',
+      display: 'inline-block',
+      boxSizing: 'border-box',
+      margin: 0,
+      padding: 0,
+      whiteSpace: 'nowrap',
+      textAlign: 'center',
+      textDecoration: 'none',
+      verticalAlign: 'middle',
+      backgroundColor: 'transparent',
+      border: 0,
+      borderRadius: 0,
+      outline: 'none',
+      WebkitAppearance: 'none',
+      userSelect: 'none',
+      touchAction: 'manipulation',
+      // 阻止在移动端按下按钮后闪烁的问题
+      WebkitTapHighlightColor: 'transparent',
+      cursor: ({ loading, disabled }) => (disabled || loading ? 'not-allowed' : 'pointer'),
+      pointerEvents: ({ loading }) => (loading ? 'none' : '')
+    },
+    inner: {
+      // 阻止ie下 focus时文字移动
+      position: 'relative',
+      display: 'inline-block',
+      width: '100%',
+      height: '100%'
+    },
+    ripple: {
+      transform: 'scale(1)',
+      opacity: theme.color.getContrastType().action.pressed,
+      '&-enter-active': {
+        transition: theme.animation.enter('all')
+      },
+      '&-leave-active': {
+        transition: theme.animation.leavePermanent('all')
+      },
+      '&-enter': {
+        transform: 'scale(0)',
+        opacity: 0.1
+      },
+      '&-leave-to': {
+        opacity: 0
+      }
+    }
+  }
+})

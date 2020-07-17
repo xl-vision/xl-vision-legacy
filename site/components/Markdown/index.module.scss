@@ -55,7 +55,7 @@
   padding: 0.1em 0.4em;
   font-size: 0.8em;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  background-color: rgba(text-color(primary), 0.05);
+  background-color: rgba(base-color(primary), 0.05);
   border-radius: 3px;
 }
 
@@ -63,8 +63,8 @@
   margin: 1rem 0;
   padding: 0.25rem 0 0.25rem 1rem;
   line-height: 2;
-  background-color: rgba(text-color(primary), 0.05);
-  border-left: 4px solid rgba(text-color(primary), 0.2);
+  background-color: rgba(base-color(primary), 0.05);
+  border-left: 4px solid rgba(base-color(primary), 0.2);
   p {
     margin: 0;
   }
@@ -99,7 +99,7 @@
   td,
   th {
     padding: 1rem;
-    border-bottom: 1px solid text-color(divider);
+    border-bottom: 1px solid base-color(divider);
   }
 
   th {
@@ -110,7 +110,7 @@
   }
 
   td {
-    // color: $text-color;
+    // color: $base-color;
   }
 }
 .li,

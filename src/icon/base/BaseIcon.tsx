@@ -1,7 +1,7 @@
-import classnames from 'classnames'
+import clsx from 'clsx'
 import PropTypes from 'prop-types'
 import React from 'react'
-import ConfigContext from '../../ConfigProvider/ConfigContext'
+import createUseClasses from '../../styles/createUseClasses'
 
 export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>
@@ -11,6 +11,10 @@ export interface BaseIconProps extends React.HTMLAttributes<HTMLElement> {
   rotate?: number
   size?: number | string
   spin?: boolean
+  classes?: Partial<{
+    root: string
+    spin: string
+  }>
 }
 
 const getSize = (size: number | string) => {
@@ -21,19 +25,9 @@ const getSize = (size: number | string) => {
 }
 
 const BaseIcon = React.forwardRef<HTMLSpanElement, BaseIconProps>((props, ref) => {
-  const { clsPrefix: rootClsPrefix } = React.useContext(ConfigContext)
+  const { className, spin, size, style, color, rotate, children, classes, ...others } = props
 
-  const {
-    className,
-    spin,
-    size,
-    style,
-    color,
-    rotate,
-    children,
-    clsPrefix = `${rootClsPrefix}-icon`,
-    ...others
-  } = props
+  const buildinClasses = useClasses({})
 
   const iconStyle: React.CSSProperties = { ...style }
   if (size !== undefined) {
@@ -61,15 +55,9 @@ const BaseIcon = React.forwardRef<HTMLSpanElement, BaseIconProps>((props, ref) =
     style: childrenStyle
   })
 
-  const classes = classnames(
-    {
-      [clsPrefix]: true,
-      [`${clsPrefix}--spin`]: spin
-    },
-    className
-  )
+  const rootClassName = clsx(buildinClasses.root, classes?.root, spin && classes?.spin, className)
   return (
-    <span role='img' {...others} className={classes} style={iconStyle} ref={ref}>
+    <span role='img' {...others} className={rootClassName} style={iconStyle} ref={ref}>
       {cloneChildren}
     </span>
   )
@@ -85,7 +73,36 @@ BaseIcon.propTypes = {
   rotate: PropTypes.number,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   spin: PropTypes.bool,
-  style: PropTypes.object
+  style: PropTypes.object,
+  classes: PropTypes.object
 }
 
 export default BaseIcon
+
+const useClasses = createUseClasses((theme) => ({
+  '@keyframes spin': {
+    from: {
+      transform: 'rotate(0deg)'
+    },
+    to: {
+      transform: 'rotate(360deg)'
+    }
+  },
+  root: ({ spin }) => ({
+    display: 'inline-block',
+    lineHeight: 0,
+    // for SVG icon, see https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4text-align: center;
+    verticalAlign: '-0.125em',
+    textRendering: 'optimizeLegibility',
+    WebkitFontSmoothing: 'antialiased',
+    MozOsxFontSmoothing: 'grayscale',
+    animation: spin ? `$spin 1s ${theme.animation.functions.standard} infinite` : '',
+
+    '& > *': {
+      lineHeight: 1
+    },
+    '& svg': {
+      display: 'inline-block'
+    }
+  })
+}))

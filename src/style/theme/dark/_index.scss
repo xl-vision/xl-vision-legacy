@@ -1,0 +1,7 @@
+@use '../../palette';
+@use 'sass:map';
+
+@forward '../default' with (
+  $background: map.get(palette.$gray, 900),
+  $primary: map.get(palette.$blue, 200)
+);
