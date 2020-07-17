@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import useMountStateCallback from '../commons/hooks/useMountStateCallback'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import ReactDOM from 'react-dom'
+import useIsMounted from '../commons/hooks/useIsMounted'
+import useEventCallback from '../commons/hooks/useEventCallback'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
 import fillRef from '../commons/utils/fillRef'
-import ReactDOM from 'react-dom'
 
 enum State {
-  STATE_APPEARING, // 0
-  STATE_APPEARED, // 1
-  STATE_ENTERING, // 2
-  STATE_ENTERED, // 3
-  STATE_LEAVING, // 4
-  STATE_LEAVED, // 5
-  STATE_DISAPPEARING, // 6
-  STATE_DISAPPEARED // 7
+  STATE_ENTERING, // 1
+  STATE_ENTERED, // 2
+  STATE_LEAVING, // 3
+  STATE_LEAVED // 4
 }
 
 export type BeforeEventHook = (el: HTMLElement) => void
@@ -40,7 +37,8 @@ export interface TransitionProps {
   afterDisappear?: AfterEventHook
   disappearCancelled?: EventCancelledHook
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  forceRender?: boolean
+  mountOnEnter?: boolean
+  unmountOnLeave?: boolean
   transitionOnFirst?: boolean
   in: boolean
 }
@@ -54,55 +52,73 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     afterLeave,
     beforeEnter,
     beforeLeave,
-    children,
     enter,
     enterCancelled,
     leave,
     leaveCancelled,
-    forceRender
+    beforeAppear: _beforeAppear,
+    appear: _appear,
+    appearCancelled: _appearCancelled,
+    afterAppear: _afterAppear,
+    beforeDisappear: _beforeDisappear,
+    disappear: _disappear,
+    afterDisappear: _afterDisappear,
+    disappearCancelled: _disappearCancelled,
+    children,
+    mountOnEnter,
+    unmountOnLeave
   } = props
 
-  let {
-    beforeAppear,
-    appear,
-    appearCancelled,
-    afterAppear,
-    beforeDisappear,
-    disappear,
-    afterDisappear,
-    disappearCancelled
-  } = props
+  const isFirstTransitionRef = React.useRef(transitionOnFirst)
 
   // 如果开启transitionOnFirst,默认使用enter和leave的生命周期方法
-  beforeAppear = beforeAppear || beforeEnter
-  appear = appear || enter
-  afterAppear = afterAppear || afterEnter
-  appearCancelled = appearCancelled || enterCancelled
+  const appear = _appear || enter
+  const disappear = _disappear || leave
+  const beforeAppear = _beforeAppear || beforeEnter
+  const beforeDisappear = _beforeDisappear || beforeLeave
 
-  beforeDisappear = beforeDisappear || beforeLeave
-  disappear = disappear || leave
-  afterDisappear = afterDisappear || afterLeave
-  disappearCancelled = disappearCancelled || leaveCancelled
+  const afterAppear = useEventCallback((el: HTMLElement) => {
+    const fn = _afterAppear || afterEnter
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
 
-  const [state, setState] = React.useState(() =>
+  const appearCancelled = useEventCallback((el: HTMLElement) => {
+    const fn = _appearCancelled || enterCancelled
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
+  const afterDisappear = useEventCallback((el: HTMLElement) => {
+    const fn = _afterDisappear || afterLeave
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
+
+  const disappearCancelled = useEventCallback((el: HTMLElement) => {
+    const fn = _disappearCancelled || leaveCancelled
+    fn && fn(el)
+    isFirstTransitionRef.current = false
+  })
+
+  const [state, setState] = React.useState(
     inProp
       ? transitionOnFirst
-        ? State.STATE_APPEARING
+        ? State.STATE_ENTERING
         : State.STATE_ENTERED
       : transitionOnFirst
-      ? State.STATE_DISAPPEARING
+      ? State.STATE_LEAVING
       : State.STATE_LEAVED
   )
 
   // 标记当前组件是否被卸载
-  const mountStateCallback = useMountStateCallback()
+  const mountStateCallback = useIsMounted()
 
   const childrenNodeRef = React.useRef<HTMLElement>()
 
   // 保存回调
   const cbRef = React.useRef<() => void>()
 
-  const onTransitionEnd = useConstantCallback(
+  const onTransitionEnd = useEventCallback(
     (nextState: State, eventHook?: EventHook, afterEventHook?: AfterEventHook) => {
       const afterEventHookWrap = () => afterEventHook && afterEventHook(childrenNodeRef.current!)
       cbRef.current = afterEventHookWrap
@@ -130,24 +146,22 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     }
   )
 
-  const stateTrigger = useConstantCallback((state: State) => {
+  const stateTrigger = useEventCallback((_state: State) => {
+    // 展示
     if (inProp) {
-      if (state === State.STATE_APPEARING) {
-        beforeAppear && beforeAppear(childrenNodeRef.current!)
-        onTransitionEnd(State.STATE_APPEARED, appear, afterAppear)
-        // 当前是离开或者正在离开状态，下一个状态为STATE_ENTERING
-      } else if (state === State.STATE_ENTERING) {
-        beforeEnter && beforeEnter(childrenNodeRef.current!)
-        onTransitionEnd(State.STATE_ENTERED, enter, afterEnter)
+      if (_state === State.STATE_ENTERING) {
+        const beforeHook = isFirstTransitionRef.current ? beforeAppear : beforeEnter
+        const hook = isFirstTransitionRef.current ? appear : enter
+        const afterHook = isFirstTransitionRef.current ? afterAppear : afterEnter
+        beforeHook && beforeHook(childrenNodeRef.current!)
+        onTransitionEnd(State.STATE_ENTERED, hook, afterHook)
       }
-    } else {
-      if (state === State.STATE_LEAVING) {
-        beforeLeave && beforeLeave(childrenNodeRef.current!)
-        onTransitionEnd(State.STATE_LEAVED, leave, afterLeave)
-      } else if (state === State.STATE_DISAPPEARING) {
-        beforeDisappear && beforeDisappear(childrenNodeRef.current!)
-        onTransitionEnd(State.STATE_DISAPPEARED, disappear, afterDisappear)
-      }
+    } else if (_state === State.STATE_LEAVING) {
+      const beforeHook = isFirstTransitionRef.current ? beforeDisappear : beforeLeave
+      const hook = isFirstTransitionRef.current ? disappear : leave
+      const afterHook = isFirstTransitionRef.current ? afterDisappear : afterLeave
+      beforeHook && beforeHook(childrenNodeRef.current!)
+      onTransitionEnd(State.STATE_LEAVED, hook, afterHook)
     }
   })
 
@@ -160,23 +174,23 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     stateTrigger
   ])
 
-  const inPropTrigger = useConstantCallback((inProp: boolean) => {
-    if (inProp && state >= State.STATE_LEAVING) {
+  const inPropTrigger = useEventCallback((_inProp: boolean) => {
+    if (_inProp && state >= State.STATE_LEAVING) {
+      // 不能放到外面，会使appear和disappear失效
       cbRef.current = undefined
       // 新的更改，之前的event取消
       setState(State.STATE_ENTERING)
-      if (state === State.STATE_DISAPPEARING) {
-        disappearCancelled && disappearCancelled(childrenNodeRef.current!)
-      } else if (state === State.STATE_LEAVING) {
-        leaveCancelled && leaveCancelled(childrenNodeRef.current!)
+
+      if (state === State.STATE_LEAVING) {
+        const cancelledHook = isFirstTransitionRef.current ? disappearCancelled : leaveCancelled
+        cancelledHook && cancelledHook(childrenNodeRef.current!)
       }
-    } else if (!inProp && state < State.STATE_LEAVING) {
+    } else if (!_inProp && state < State.STATE_LEAVING) {
       cbRef.current = undefined
       setState(State.STATE_LEAVING)
-      if (state === State.STATE_APPEARING) {
-        appearCancelled && appearCancelled(childrenNodeRef.current!)
-      } else if (state === State.STATE_ENTERING) {
-        enterCancelled && enterCancelled(childrenNodeRef.current!)
+      if (state === State.STATE_ENTERING) {
+        const cancelledHook = isFirstTransitionRef.current ? appearCancelled : enterCancelled
+        cancelledHook && cancelledHook(childrenNodeRef.current!)
       }
     }
   })
@@ -190,17 +204,31 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
     inPropTrigger
   ])
 
-  const display = state !== State.STATE_LEAVED && state !== State.STATE_DISAPPEARED
+  const display = state !== State.STATE_LEAVED
 
-  if (!forceRender && !display) {
+  // 判断是否是第一次挂载
+  const isFirstMountRef = React.useRef(true)
+
+  if (transitionOnFirst || inProp) {
+    isFirstMountRef.current = false
+  }
+
+  if (isFirstMountRef.current) {
+    if (mountOnEnter && !display) {
+      return null
+    }
+  } else if (unmountOnLeave && !display) {
     return null
   }
-  const style = { ...children.props.style }
+
+  const style: React.CSSProperties = {
+    ...(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>).props.style
+  }
   if (!display) {
     style.display = 'none'
   }
 
-  const clone = React.cloneElement<React.HTMLAttributes<HTMLElement>>(children, {
+  const clone = React.cloneElement(children, {
     ...children.props,
     style
   })
@@ -208,6 +236,8 @@ const Transition: React.FunctionComponent<TransitionProps> = (props) => {
   // 保证children上原有的ref能够触发
   return fillRef(clone, childrenNodeRef)
 }
+
+Transition.displayName = 'Transition'
 
 Transition.propTypes = {
   beforeAppear: PropTypes.func,
@@ -227,7 +257,8 @@ Transition.propTypes = {
   afterDisappear: PropTypes.func,
   disappearCancelled: PropTypes.func,
   children: PropTypes.element.isRequired,
-  forceRender: PropTypes.bool,
+  mountOnEnter: PropTypes.bool,
+  unmountOnLeave: PropTypes.bool,
   transitionOnFirst: PropTypes.bool,
   in: PropTypes.bool.isRequired
 }

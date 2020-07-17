@@ -1,8 +1,7 @@
-@use '../../assets/style/var' as *;
+@use '../../assets/style/variables' as *;
 
 .content {
   position: relative;
   min-height: 100%;
   margin-left: 1rem;
-  background-color: #ffffff;
 }

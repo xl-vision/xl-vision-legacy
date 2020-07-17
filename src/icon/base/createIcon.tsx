@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseIcon from './BaseIcon'
+import BaseIcon, { BaseIconProps } from './BaseIcon'
 
 export interface IconProps {
   className?: string
@@ -12,9 +12,17 @@ export interface IconProps {
 }
 
 const createIcon = (svgElement: React.ReactElement<React.HTMLAttributes<SVGSVGElement>>) => {
-  const fn: React.FunctionComponent<IconProps> = (props) => {
-    return <BaseIcon {...props}>{svgElement}</BaseIcon>
-  }
+  const fn: React.FunctionComponent<IconProps> = React.forwardRef<HTMLSpanElement, BaseIconProps>(
+    (props, ref) => {
+      return (
+        <BaseIcon {...props} ref={ref}>
+          {svgElement}
+        </BaseIcon>
+      )
+    }
+  )
+  fn.displayName = 'CreatedIcon'
+
   return fn
 }
 

@@ -1,28 +1,23 @@
-import { MDXProvider } from '@xl-vision/scripts'
-import classnames from 'classnames'
+/* eslint-disable react/prop-types */
 import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
-// import { Spin } from 'xl-vision'
 import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
-import DemoBox from '../DemoBox'
 
 import classes from './index.module.scss'
+import Markdown from '../Markdown'
 
 const routeComponents: Array<React.ReactNode> = []
 
-type MarkdownProps = {
+type LazyRouteProps = {
   route: ComponentRoute
 }
 
-const Markdown: React.FunctionComponent<MarkdownProps> = (props) => {
-  // eslint-disable-next-line react/prop-types
+const LazyRoute: React.FunctionComponent<LazyRouteProps> = (props) => {
   const { route } = props
-  // eslint-disable-next-line react/prop-types
   const Loadable = React.lazy(() => route.component)
 
   React.useEffect(() => {
     if (document) {
-      // eslint-disable-next-line react/prop-types
       document.title = route.name
     }
   }, [route])
@@ -40,12 +35,12 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
           exact={true}
           key={key}
           path={componentRoute.path}
-          render={() => <Markdown route={componentRoute} />}
+          render={() => <LazyRoute route={componentRoute} />}
         />
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
-      const component = () => <Redirect to={redirectRoute.redirect} /> // eslint-disable-line react/display-name
+      const component = () => <Redirect to={redirectRoute.redirect} />
       routeComponents.push(
         <ReactRoute exact={true} key={key} path={redirectRoute.path} component={component} />
       )
@@ -58,30 +53,13 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
 
 addRoute(routes)
 
-const components = {
-  DemoBox,
-  a: (props: {}) => <a {...props} className='md_a' />,
-  blockquote: (props: {}) => <blockquote {...props} className='md_blockquote' />,
-  inlineCode: (props: {}) => <code {...props} className='md_code_inline' />,
-  li: (props: {}) => <ol {...props} className='md_li' />,
-  ol: (props: {}) => <ol {...props} className='md_ol' />,
-  table: (props: {}) => (
-    <div className='md_table-wrapper'>
-      <table {...props} className='md_table' />
-    </div>
-  ),
-  wrapper: (props: { children: React.ReactNode }) => (
-    <div className={classnames('md')}>{props.children}</div>
-  )
-}
-
-const Content: React.FunctionComponent<{}> = () => {
+const Content: React.FunctionComponent<Record<string, unknown>> = () => {
   return (
     <div className={classes.content}>
-      <MDXProvider components={components}>
+      <Markdown>
         {/* <React.Suspense fallback={<Spin cover={true} />}>{routeComponents}</React.Suspense> */}
         <React.Suspense fallback={<div />}>{routeComponents}</React.Suspense>
-      </MDXProvider>
+      </Markdown>
     </div>
   )
 }

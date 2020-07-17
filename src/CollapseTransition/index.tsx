@@ -1,12 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import CSSTransition from '../CSSTransition'
+import CSSTransition, { CSSTransitionClasses, TransitionElement } from '../CSSTransition'
+import { forceReflow } from '../commons/utils/transition'
+import { removeClass, addClass } from '../commons/utils/class'
 
 export interface CollapseTransitionProp {
   children: React.ReactElement<React.HTMLAttributes<HTMLElement>>
-  forceRender?: boolean
+  mountOnEnter?: boolean
+  unmountOnLeave?: boolean
   in: boolean
-  transitionClassName?: string
+  transitionClasses?: CSSTransitionClasses
   horizontal?: boolean
   transitionOnFirst?: boolean
 }
@@ -14,94 +17,116 @@ export interface CollapseTransitionProp {
 const CollapseTransition: React.FunctionComponent<CollapseTransitionProp> = (props) => {
   const {
     children,
-    transitionClassName,
+    transitionClasses,
     in: inProp,
-    forceRender,
+    mountOnEnter,
+    unmountOnLeave,
     horizontal,
     transitionOnFirst
   } = props
 
-  const wrapperRef = React.useRef<HTMLDivElement>(null)
-
-  const styles: React.CSSProperties = React.useMemo(() => {
-    return {
-      boxSizing: 'border-box',
-      overflow: 'hidden',
-      paddingBottom: '0',
-      paddingTop: '0',
-      transition: transitionClassName ? '' : `${horizontal ? 'width' : 'height'} 1s ease`
-    }
-  }, [transitionClassName, horizontal])
-
   const transitionEvents = React.useMemo(() => {
-    const key = horizontal ? 'width' : 'height'
-    const offsetKey = horizontal ? 'offsetWidth' : 'offsetHeight'
-    let size: number
-    let isCancelled = false
+    const padding1 = horizontal ? 'paddingLeft' : 'paddingTop'
+    const padding2 = horizontal ? 'paddingRight' : 'paddingBottom'
+    const size = horizontal ? 'width' : 'height'
+    const actualSize = horizontal ? 'actualWidth' : 'actualHeight'
+
     return {
-      beforeEnter(el: HTMLElement) {
-        if (isCancelled) {
-          el.style[key] = el[offsetKey] + 'px'
-          isCancelled = false
-        } else {
-          size = wrapperRef.current![offsetKey]
-          el.style[key] = '0'
+      beforeEnter(el: TransitionElement) {
+        el.dataset[padding1] = el.style[padding1]
+        el.dataset[padding2] = el.style[padding2]
+        el.dataset[size] = el.style[size]
+        el.dataset.overflow = el.style.overflow
+
+        if (!el._cancelled) {
+          removeClass(el, el._ctc?.enter || '')
+          removeClass(el, el._ctc?.enterActive || '')
+          el.dataset[actualSize] = getComputedStyle(el)[size]
+        }
+        el.style.overflow = 'hidden'
+        el.style[size] = '0'
+        el.style[padding1] = '0'
+        el.style[padding2] = '0'
+
+        if (!el._cancelled) {
+          addClass(el, el._ctc?.enter || '')
+          forceReflow()
+          addClass(el, el._ctc?.enterActive || '')
         }
       },
-      enter(el: HTMLElement, _done: () => void, isCancelled: () => boolean) {
-        if (!isCancelled()) {
-          // 高度设置为内容高度
-          el.style[key] = size + 'px'
-        }
+      enter(el: HTMLElement) {
+        el.style[size] = `${el.dataset[actualSize]!}`
+        el.style[padding1] = el.dataset[padding1]!
+        el.style[padding2] = el.dataset[padding2]!
       },
       afterEnter(el: HTMLElement) {
-        // 防止内容高度变更后高度不会自动改变
-        el.style[key] = ''
+        el.style[size] = el.dataset[size]!
+        el.style.overflow = el.dataset.overflow!
       },
-      enterCancelled() {
-        isCancelled = true
+      enterCancelled(el: HTMLElement) {
+        el.style[padding1] = el.dataset[padding1]!
+        el.style[padding2] = el.dataset[padding2]!
+        el.style[size] = el.dataset[size]!
+        el.style.overflow = el.dataset.overflow!
       },
-      beforeLeave(el: HTMLElement) {
-        if (isCancelled) {
-          isCancelled = false
-        } else {
-          size = wrapperRef.current![offsetKey]
+      beforeLeave(el: TransitionElement) {
+        el.dataset[padding1] = el.style[padding1]
+        el.dataset[padding2] = el.style[padding2]
+        el.dataset[size] = el.style[size]
+        el.dataset.overflow = el.style.overflow
+
+        if (!el._cancelled) {
+          el.dataset[actualSize] = getComputedStyle(el)[size]
         }
-        el.style[key] = wrapperRef.current![offsetKey] + 'px'
+
+        el.style[size] = `${el.dataset[actualSize]!}`
+        el.style.overflow = 'hidden'
       },
-      leave(el: HTMLElement, _done: () => void, isCancelled: () => boolean) {
-        if (!isCancelled()) {
-          el.style[key] = '0'
-        }
+      leave(el: HTMLElement) {
+        forceReflow()
+        el.style[padding1] = '0'
+        el.style[padding2] = '0'
+        el.style[size] = '0'
       },
-      leaveCancelled() {
-        isCancelled = true
+      afterLeave(el: HTMLElement) {
+        el.style[padding1] = el.dataset[padding1]!
+        el.style[padding2] = el.dataset[padding2]!
+        el.style[size] = el.dataset[size]!
+        el.style.overflow = el.dataset.overflow!
+      },
+      leaveCancelled(el: HTMLElement) {
+        el.style[padding1] = el.dataset[padding1]!
+        el.style[padding2] = el.dataset[padding2]!
+        el.style[size] = el.dataset[size]!
+        el.style.overflow = el.dataset.overflow!
       }
     }
   }, [horizontal])
 
   return (
     <CSSTransition
-      transitionOnFirst={transitionOnFirst}
       {...transitionEvents}
+      forceDisplay={true}
+      transitionClasses={transitionClasses}
+      transitionOnFirst={transitionOnFirst}
       in={inProp}
-      forceRender={forceRender}
+      mountOnEnter={mountOnEnter}
+      unmountOnLeave={unmountOnLeave}
     >
-      <div className={transitionClassName} style={styles}>
-        <div ref={wrapperRef} style={{ position: 'relative' }}>
-          {children}
-        </div>
-      </div>
+      {children}
     </CSSTransition>
   )
 }
 
+CollapseTransition.displayName = 'CollapseTransition'
+
 CollapseTransition.propTypes = {
-  transitionClassName: PropTypes.string,
+  transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   horizontal: PropTypes.bool,
   children: PropTypes.element.isRequired,
   in: PropTypes.bool.isRequired,
-  forceRender: PropTypes.bool,
+  mountOnEnter: PropTypes.bool,
+  unmountOnLeave: PropTypes.bool,
   transitionOnFirst: PropTypes.bool
 }
 

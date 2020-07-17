@@ -2,5 +2,7 @@ es/**
 lib/**
 dist/**
 docs/**
-script/icon/template/**
-src/icon/icons/**
+scripts/icon/template/**
+scripts/icon/icon/**
+src/icon/*.ts
+src/icon/*.tsx

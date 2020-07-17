@@ -1,0 +1,55 @@
+@use './variables';
+
+@mixin apply-typography($typography) {
+  @each $key, $value in $typography {
+    #{$key}: $value;
+  }
+}
+
+@mixin headline1-style {
+  @include apply-typography(variables.$headline1-properties);
+}
+
+@mixin headline2-style {
+  @include apply-typography(variables.$headline2-properties);
+}
+
+@mixin headline3-style {
+  @include apply-typography(variables.$headline3-properties);
+}
+
+@mixin headline4-style {
+  @include apply-typography(variables.$headline4-properties);
+}
+
+@mixin headline5-style {
+  @include apply-typography(variables.$headline5-properties);
+}
+
+@mixin subtitle1-style {
+  @include apply-typography(variables.$subtitle1-properties);
+}
+
+@mixin subtitle2-style {
+  @include apply-typography(variables.$subtitle2-properties);
+}
+
+@mixin body1-style {
+  @include apply-typography(variables.$body1-properties);
+}
+
+@mixin body2-style {
+  @include apply-typography(variables.$body2-properties);
+}
+
+@mixin caption-style {
+  @include apply-typography(variables.$caption-properties);
+}
+
+@mixin button-style {
+  @include apply-typography(variables.$button-properties);
+}
+
+@mixin overline-style {
+  @include apply-typography(variables.$overline-properties);
+}

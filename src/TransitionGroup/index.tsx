@@ -3,15 +3,17 @@ import PropTypes from 'prop-types'
 import CSSTransition, {
   CSSTransitionProps,
   CSSTransitionClassesObject,
-  TransitionElement
+  TransitionElement,
+  CSSTransitionClasses
 } from '../CSSTransition'
 import fillRef from '../commons/utils/fillRef'
 import { addClass, removeClass } from '../commons/utils/class'
-import { onTransitionEnd, getTransitionInfo, raf } from '../commons/utils/transition'
-import computeQuene, { Data } from './computeQuene'
+import { onTransitionEnd, getTransitionInfo, forceReflow } from '../commons/utils/transition'
+import computeQueue, { Data } from './computeQueue'
 import useLayoutEffect from '../commons/hooks/useLayoutEffect'
-import useConstantCallback from '../commons/hooks/useConstantCallback'
+import useEventCallback from '../commons/hooks/useEventCallback'
 import { warning } from '../commons/utils/logger'
+import { omit } from '../commons/utils/function'
 
 export interface TransitionGroupClassesObject
   extends Omit<
@@ -37,8 +39,9 @@ export interface TransitionGroupProps
     | 'children'
     | 'transitionOnFirst'
     | 'in'
-    | 'css'
     | 'classNames'
+    | 'mountOnEnter'
+    | 'unmountOnLeave'
   > {
   children: Array<CSSTransitionProps['children']>
   transitionClasses?: TransitionGroupClasses
@@ -47,23 +50,25 @@ export interface TransitionGroupProps
 type TransitionGroupElement = TransitionElement & {
   _move?: () => void
   _oldPos?: DOMRect
-  _NEED_CANCEL?: boolean
+  _newPos?: DOMRect
+  _NEED_LEAVE_CANCEL?: boolean
 }
 
 const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) => {
-  const { children, transitionClasses, ...others } = props
+  const { children, transitionClasses, ..._others } = props
 
   // 阻止用户故意传入appear和disappear钩子
-  /* eslint-disable */
-  delete (others as any).beforeAppear
-  delete (others as any).appear
-  delete (others as any).afterAppear
-  delete (others as any).appearCancelled
-  delete (others as any).beforeDisappear
-  delete (others as any).disappear
-  delete (others as any).afterDisappeard
-  delete (others as any).disappearCancelled
-  /* eslint-enable */
+  const others = omit(
+    _others as CSSTransitionProps,
+    'beforeAppear',
+    'appear',
+    'afterAppear',
+    'appearCancelled',
+    'beforeDisappear',
+    'disappear',
+    'afterDisappear',
+    'disappearCancelled'
+  )
 
   const transitionClassesObj = React.useMemo(() => {
     let obj: CSSTransitionClassesObject & { move?: string } = {}
@@ -73,7 +78,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     }
     // 组件实际上是使用CSSTransition的appear和disappear钩子实现动画，但是向用户隐藏实现细节，
     // 所以这里需要将enter和leave的class设置到appear和disappear上
-    else if (typeof transitionClasses === 'object') {
+    if (typeof transitionClasses === 'object') {
       obj = { ...transitionClasses }
       obj.appear = obj.enter
       obj.appearActive = obj.enterActive
@@ -108,7 +113,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   const fillRefForElement = React.useCallback((element: React.ReactElement) => {
     const nodeMap = (nodeMapRef.current =
       nodeMapRef.current || new Map<string | number, TransitionGroupElement>())
-    const key = element.key
+    const { key } = element
     warning(!key, '<TransitioGroup> must has a key')
 
     const cb = (node: HTMLElement) => {
@@ -125,7 +130,7 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     children.filter(Boolean).map(fillRefForElement)
   )
 
-  const childrenTrigger = useConstantCallback((children: Array<React.ReactElement>) => {
+  const childrenTrigger = useEventCallback((_children: Array<React.ReactElement>) => {
     const nodeMap = nodeMapRef.current
     if (nodeMap) {
       nodeMap.forEach((node) => {
@@ -135,77 +140,90 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
 
     const prevChildren = prevChildrenRef.current
 
-    const refChildren = children.map(fillRefForElement)
+    const refChildren = _children.map(fillRefForElement)
 
-    const quene = (queneRef.current = computeQuene(prevChildren, refChildren))
+    const quene = (queneRef.current = computeQueue(prevChildren, refChildren))
     const arr: Array<React.ReactElement> = []
 
-    for (const data of quene) {
+    for (let i = 0; i < quene.length; i++) {
+      const data = quene[i]
       if (data.same) {
         let prev = data.prev[0]
 
-        // 如果删除后立即添加同一个元素，由于删除的afterLeave还没有执行，会导致此节点缺失
+        // 如果删除后立即添加同一个元素，由于会对same中的元素执行clearTransition操作，
+        // 间接执行了afterLeave，会会导致元素被添加后又删除了。
         // 这里在dom上添加标记，提示自定义的afterLeave方法取消执行
         // 为什么不直接将in=false？因为这里添加的，是在下一次循环才会真正渲染到dom tree，
         // 在那之前可能afterLeave执行了，删除了节点
-        if (prev.type === CSSTransition && prev.props.in === false) {
+        if (prev.type === CSSTransition && !(prev.props as CSSTransitionProps).in) {
           const node = nodeMap?.get(prev.key!)
-          node && (node._NEED_CANCEL = true)
+          node && (node._NEED_LEAVE_CANCEL = true)
+
+          const { beforeEnter } = others
+
+          // beforeEnter可能先执行，此时不用考虑afterLeave
+          const beforeEnterWrap = (el: TransitionGroupElement) => {
+            el._NEED_LEAVE_CANCEL = false
+            beforeEnter && beforeEnter(el)
+          }
+
           prev = React.cloneElement(prev, {
-            in: true
+            in: true,
+            beforeEnter: beforeEnterWrap
           })
         }
 
         arr.push(prev)
         data.prev[0] = prev
-        continue
-      }
-      const prev = data.prev.map((it) => {
-        const isTransition = it.type === CSSTransition
-        if (isTransition && it.props.in === false) {
-          return it
-        }
-
-        const child = isTransition ? it.props.children : it
-        const { afterLeave, ...others2 } = others
-
-        const afterLeaveWrap = (el: TransitionGroupElement) => {
-          // 如果标记取消leave
-          // 触发leaveCancelled
-          if (el._NEED_CANCEL) {
-            others2.leaveCancelled && others2.leaveCancelled(el)
-            el._NEED_CANCEL = false
-            return
+      } else {
+        const prev = data.prev.map((it) => {
+          const isTransition = it.type === CSSTransition
+          if (isTransition && !(it.props as CSSTransitionProps).in) {
+            return it
           }
-          afterLeave && afterLeave(el)
-          prevChildrenRef.current = prevChildrenRef.current.filter((prev) => prev.key !== it.key)
-        }
 
-        return (
-          <CSSTransition
-            {...others2}
-            transitionOnFirst={true}
-            afterLeave={afterLeaveWrap}
-            transitionClasses={transitionClassesObj}
-            in={false}
-            key={it.key!}
-          >
-            {child}
-          </CSSTransition>
-        )
-      })
-      data.prev = prev
-      arr.push(...prev)
-      const next = data.next
-      arr.push(...next)
+          const child = isTransition ? (it.props as CSSTransitionProps).children : it
+          const { afterLeave, ...others2 } = others
+
+          const afterLeaveWrap = (el: TransitionGroupElement) => {
+            // 如果标记取消leave
+            // 触发leaveCancelled
+            if (el._NEED_LEAVE_CANCEL) {
+              others2.leaveCancelled && others2.leaveCancelled(el)
+              el._NEED_LEAVE_CANCEL = false
+              return
+            }
+            afterLeave && afterLeave(el)
+            prevChildrenRef.current = prevChildrenRef.current.filter(
+              (_prev) => _prev.key !== it.key
+            )
+          }
+
+          return (
+            <CSSTransition
+              {...others2}
+              transitionOnFirst={true}
+              afterLeave={afterLeaveWrap}
+              transitionClasses={transitionClassesObj}
+              in={false}
+              key={it.key!}
+            >
+              {child}
+            </CSSTransition>
+          )
+        })
+        data.prev = prev
+        arr.push(...prev)
+        const { next } = data
+        arr.push(...next)
+      }
     }
-
     setElements(arr)
 
     computedRef.current = true
   })
 
-  useLayoutEffect(() => {
+  React.useEffect(() => {
     childrenTrigger(children)
   }, [children, childrenTrigger])
 
@@ -215,9 +233,9 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     if (computedRef.current) {
       setFlag((prev) => !prev)
     }
-  }, [elements, childrenTrigger])
+  }, [elements])
 
-  const elementsTrigger = useConstantCallback(() => {
+  const elementsTrigger = useEventCallback(() => {
     if (!computedRef.current) {
       return
     }
@@ -229,7 +247,8 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
     const arr: Array<React.ReactElement> = []
     const sameNodes: Array<TransitionGroupElement> = []
 
-    for (const data of quene) {
+    for (let i = 0; i < quene.length; i++) {
+      const data = quene[i]
       if (data.same) {
         const ele = data.prev[0]
         arr.push(ele)
@@ -239,25 +258,26 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
             sameNodes.push(node)
           }
         }
-        continue
-      }
-      const prev = data.prev
+      } else {
+        const { prev } = data
 
-      const next = data.next.map((it) => {
-        return (
-          <CSSTransition
-            {...others}
-            transitionOnFirst={true}
-            key={it.key!}
-            transitionClasses={transitionClassesObj}
-            in={true}
-          >
-            {it}
-          </CSSTransition>
-        )
-      })
-      arr.push(...prev)
-      arr.push(...next)
+        const next = data.next.map((it) => {
+          return (
+            <CSSTransition
+              {...others}
+              transitionOnFirst={true}
+              key={it.key!}
+              transitionClasses={transitionClassesObj}
+              in={true}
+            >
+              {it}
+            </CSSTransition>
+          )
+        })
+
+        arr.push(...prev)
+        arr.push(...next)
+      }
     }
     prevChildrenRef.current = arr
     setElements(arr)
@@ -270,22 +290,26 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
       return
     }
 
+    // 使元素尽快归位，防止插入元素动画太突兀
     sameNodes.forEach(clearTransition)
+    sameNodes.forEach((node) => {
+      node._newPos = node.getBoundingClientRect()
+    })
     const moveNodes = sameNodes.filter(applyTransition)
 
-    raf(() => {
-      moveNodes.forEach((node) => {
-        addClass(node, moveClass!)
-        const style = node.style
-        style.transform = style.webkitTransform = style.transitionDuration = ''
-        const cb = onTransitionEnd(node, () => {
-          removeClass(node, moveClass!)
-        })
-        node._move = () => {
-          cb()
-          removeClass(node, moveClass!)
-        }
+    forceReflow()
+    moveNodes.forEach((node) => {
+      const { style } = node
+      addClass(node, moveClass!)
+      style.transform = style.webkitTransform = style.transitionDuration = ''
+      const cb = onTransitionEnd(node, () => {
+        removeClass(node, moveClass!)
       })
+      node._move = () => {
+        cb()
+        node._move = undefined
+        removeClass(node, moveClass!)
+      }
     })
   })
 
@@ -297,19 +321,10 @@ const TransitionGroup: React.FunctionComponent<TransitionGroupProps> = (props) =
   return <>{elements}</>
 }
 
+TransitionGroup.displayName = 'TransitionGroup'
+
 TransitionGroup.propTypes = {
-  transitionClasses: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      enter: PropTypes.string,
-      enterActive: PropTypes.string,
-      enterTo: PropTypes.string,
-      leave: PropTypes.string,
-      leaveActive: PropTypes.string,
-      leaveTo: PropTypes.string,
-      move: PropTypes.string
-    })
-  ]),
+  transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.arrayOf(PropTypes.element.isRequired).isRequired
 }
 
@@ -324,9 +339,10 @@ const hasCSSTransform = (_el: HTMLElement, moveClass: string) => {
   // is applied.
   const clone = el.cloneNode() as HTMLElement
   if (el._ctc) {
-    for (const clazz of Object.values(el._ctc)) {
+    Object.keys(el._ctc).forEach((key: keyof CSSTransitionClasses) => {
+      const clazz = el._ctc![key]
       clazz && clone.classList.remove(clazz)
-    }
+    })
   }
   moveClass.split(/\s+/).forEach((c) => c && clone.classList.add(c))
   clone.style.display = 'none'
@@ -346,16 +362,17 @@ const clearTransition = (el: TransitionGroupElement) => {
 
 const applyTransition = (el: TransitionGroupElement) => {
   const oldPos = el._oldPos
-  if (!oldPos) {
-    return
+  const newPos = el._newPos
+  if (!oldPos || !newPos) {
+    return false
   }
-  const newPos = el.getBoundingClientRect()
   const dx = oldPos.left - newPos.left
   const dy = oldPos.top - newPos.top
-  if (dx || dy) {
-    const s = el.style
-    s.transform = s.webkitTransform = `translate(${dx}px,${dy}px)`
-    s.transitionDuration = '0s'
-    return el
+  if (!dx && !dy) {
+    return false
   }
+  const s = el.style
+  s.transform = s.webkitTransform = `translate(${dx}px,${dy}px)`
+  s.transitionDuration = '0s'
+  return true
 }

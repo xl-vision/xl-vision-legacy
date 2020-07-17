@@ -3,11 +3,11 @@ import React from 'react'
 import { addClass, removeClass } from '../commons/utils/class'
 import { nextFrame, onTransitionEnd } from '../commons/utils/transition'
 import Transition, {
-  TransitionProps,
-  BeforeEventHook,
-  EventHook,
   AfterEventHook,
-  EventCancelledHook
+  BeforeEventHook,
+  EventCancelledHook,
+  EventHook,
+  TransitionProps
 } from '../Transition'
 
 export type CSSTransitionClassesObject = {
@@ -28,7 +28,7 @@ export type CSSTransitionClassesObject = {
 export type CSSTransitionClasses = CSSTransitionClassesObject | string
 
 export interface CSSTransitionProps extends TransitionProps {
-  css?: boolean
+  disableCss?: boolean
   transitionClasses?: CSSTransitionClasses
   timeout?:
     | number
@@ -38,16 +38,19 @@ export interface CSSTransitionProps extends TransitionProps {
         leave?: number
         disappear?: number
       }
+  forceDisplay?: boolean
 }
 
 export type TransitionElement = HTMLElement & {
   _ctc?: CSSTransitionClassesObject
-  _done?: () => void
+  _done?: (cancel?: boolean) => void
+  _cancelled?: boolean
+  _originalDisplay?: string
 }
 
 const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const {
-    css = true,
+    disableCss,
     transitionClasses,
     beforeEnter,
     enter,
@@ -58,6 +61,7 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
     afterLeave,
     leaveCancelled,
     timeout,
+    forceDisplay,
     ...others
   } = props
 
@@ -85,7 +89,7 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
 
   const transitionClassesObj = React.useMemo(() => {
     if (!transitionClasses) {
-      return null
+      return {}
     }
     if (typeof transitionClasses === 'object') {
       return transitionClasses
@@ -108,7 +112,7 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
 
   const timeoutMap = React.useMemo(() => {
     if (!timeout) {
-      return null
+      return {}
     }
     if (typeof timeout === 'object') {
       return timeout
@@ -124,26 +128,27 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const beforeAppearWrapper = React.useMemo(
     () =>
       createBeforeEventHook(
-        css && {
-          appear: transitionClassesObj?.appear,
-          appearActive: transitionClassesObj?.appearActive
+        !disableCss && {
+          appear: transitionClassesObj.appear,
+          appearActive: transitionClassesObj.appearActive
         },
-        beforeAppear
+        beforeAppear,
+        !forceDisplay
       ),
-    [css, transitionClassesObj?.appear, transitionClassesObj?.appearActive, beforeAppear]
+    [disableCss, transitionClassesObj, beforeAppear,forceDisplay]
   )
 
   const appearWrapper = React.useMemo(
     () =>
       createEventHook(
         ['appear'],
-        css && {
-          appearTo: transitionClassesObj?.appearTo
+        !disableCss && {
+          appearTo: transitionClassesObj.appearTo
         },
-        timeoutMap?.appear,
+        timeoutMap.appear,
         appear
       ),
-    [css, transitionClassesObj?.appearTo, timeoutMap?.appear, appear]
+    [disableCss, transitionClassesObj, timeoutMap, appear]
   )
   const afterAppearWrapper = React.useMemo(() => createAfterEventHook(afterAppear), [afterAppear])
   const appearCancelledWrapper = React.useMemo(() => createEventCancelledHook(appearCancelled), [
@@ -153,26 +158,27 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const beforeEnterWrapper = React.useMemo(
     () =>
       createBeforeEventHook(
-        css && {
-          enter: transitionClassesObj?.enter,
-          enterActive: transitionClassesObj?.enterActive
+        !disableCss && {
+          enter: transitionClassesObj.enter,
+          enterActive: transitionClassesObj.enterActive
         },
-        beforeEnter
+        beforeEnter,
+        !forceDisplay
       ),
-    [css, transitionClassesObj?.enter, transitionClassesObj?.enterActive, beforeEnter]
+    [disableCss, transitionClassesObj, beforeEnter, forceDisplay]
   )
 
   const enterWrapper = React.useMemo(
     () =>
       createEventHook(
         ['enter'],
-        css && {
-          enterTo: transitionClassesObj?.enterTo
+        !disableCss && {
+          enterTo: transitionClassesObj.enterTo
         },
-        timeoutMap?.enter,
+        timeoutMap.enter,
         enter
       ),
-    [css, transitionClassesObj?.enterTo, timeoutMap?.enter, enter]
+    [disableCss, transitionClassesObj, timeoutMap, enter]
   )
   const afterEnterWrapper = React.useMemo(() => createAfterEventHook(afterEnter), [afterEnter])
   const enterCancelledWrapper = React.useMemo(() => createEventCancelledHook(enterCancelled), [
@@ -182,26 +188,26 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const beforeLeaveWrapper = React.useMemo(
     () =>
       createBeforeEventHook(
-        css && {
-          leave: transitionClassesObj?.leave,
-          leaveActive: transitionClassesObj?.leaveActive
+        !disableCss && {
+          leave: transitionClassesObj.leave,
+          leaveActive: transitionClassesObj.leaveActive
         },
         beforeLeave
       ),
-    [css, transitionClassesObj?.leave, transitionClassesObj?.leaveActive, beforeLeave]
+    [disableCss, transitionClassesObj, beforeLeave]
   )
 
   const leaveWrapper = React.useMemo(
     () =>
       createEventHook(
         ['leave'],
-        css && {
-          leaveTo: transitionClassesObj?.leaveTo
+        !disableCss && {
+          leaveTo: transitionClassesObj.leaveTo
         },
-        timeoutMap?.leave,
+        timeoutMap.leave,
         leave
       ),
-    [css, transitionClassesObj?.leaveTo, timeoutMap?.leave, leave]
+    [disableCss, transitionClassesObj, timeoutMap, leave]
   )
   const afterLeaveWrapper = React.useMemo(() => createAfterEventHook(afterLeave), [afterLeave])
   const leaveCancelledWrapper = React.useMemo(() => createEventCancelledHook(leaveCancelled), [
@@ -211,26 +217,26 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   const beforeDisappearWrapper = React.useMemo(
     () =>
       createBeforeEventHook(
-        css && {
-          disappear: transitionClassesObj?.disappear,
-          disappearActive: transitionClassesObj?.disappearActive
+        !disableCss && {
+          disappear: transitionClassesObj.disappear,
+          disappearActive: transitionClassesObj.disappearActive
         },
         beforeDisappear
       ),
-    [css, transitionClassesObj?.disappear, transitionClassesObj?.disappearActive, beforeDisappear]
+    [disableCss, transitionClassesObj, beforeDisappear]
   )
 
   const disappearWrapper = React.useMemo(
     () =>
       createEventHook(
         ['disappear'],
-        css && {
-          disappearTo: transitionClassesObj?.disappearTo
+        !disableCss && {
+          disappearTo: transitionClassesObj.disappearTo
         },
-        timeoutMap?.disappear,
+        timeoutMap.disappear,
         disappear
       ),
-    [css, transitionClassesObj?.disappearTo, timeoutMap?.disappear, disappear]
+    [disableCss, transitionClassesObj, timeoutMap, disappear]
   )
   const afterDisappearWrapper = React.useMemo(() => createAfterEventHook(afterDisappear), [
     afterDisappear
@@ -263,34 +269,12 @@ const CSSTransition: React.FunctionComponent<CSSTransitionProps> = (props) => {
   )
 }
 
+CSSTransition.displayName = 'CSSTransition'
+
 CSSTransition.propTypes = {
-  transitionClasses: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      appear: PropTypes.string,
-      appearActive: PropTypes.string,
-      appearTo: PropTypes.string,
-      enter: PropTypes.string,
-      enterActive: PropTypes.string,
-      enterTo: PropTypes.string,
-      leave: PropTypes.string,
-      leaveActive: PropTypes.string,
-      leaveTo: PropTypes.string,
-      disappear: PropTypes.string,
-      disappearActive: PropTypes.string,
-      disappearTo: PropTypes.string
-    })
-  ]),
-  timeout: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      appear: PropTypes.number,
-      enter: PropTypes.number,
-      leave: PropTypes.number,
-      disappear: PropTypes.number
-    })
-  ]),
-  css: PropTypes.bool,
+  transitionClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  timeout: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
+  disableCss: PropTypes.bool,
   beforeAppear: PropTypes.func,
   appear: PropTypes.func,
   afterAppear: PropTypes.func,
@@ -306,29 +290,43 @@ CSSTransition.propTypes = {
   beforeDisappear: PropTypes.func,
   disappear: PropTypes.func,
   afterDisappear: PropTypes.func,
-  disappearCancelled: PropTypes.func
+  disappearCancelled: PropTypes.func,
+  forceDisplay: PropTypes.bool
 }
 
 export default CSSTransition
 
 const createBeforeEventHook = (
   ctc: CSSTransitionClassesObject | false,
-  nativeHook?: BeforeEventHook
+  nativeHook?: BeforeEventHook,
+  displayNone?: boolean
 ): BeforeEventHook => {
   return (el: TransitionElement) => {
+    // 在ie11下，enter时如果不diplay=none，会导致行为和chrome不一致
+    if (!el._cancelled && displayNone) {
+      el._originalDisplay = el.style.display
+      el.style.display = 'none'
+    }
+
     // for TransitionGroup
     el._ctc = {}
     if (ctc) {
-      for (const name of Object.keys(ctc)) {
-        const key = name as keyof CSSTransitionClassesObject
+      Object.keys(ctc).forEach((key: keyof CSSTransitionClassesObject) => {
         const clazz = ctc[key]
         if (clazz) {
           addClass(el, clazz)
-          el._ctc[key] = clazz
+          el._ctc![key] = clazz
         }
-      }
+      })
     }
     nativeHook && nativeHook(el)
+
+    el._cancelled = false
+
+    if (el._originalDisplay !== undefined) {
+      el.style.display = el._originalDisplay
+      el._originalDisplay = undefined
+    }
   }
 }
 
@@ -339,7 +337,6 @@ const createEventHook = (
   nativeHook?: EventHook
 ): EventHook => {
   return (el: TransitionElement, done: () => void, isCancelled: () => boolean) => {
-    let isInterrupt = false
     let cancelEvent: () => void
     let timeoutId: NodeJS.Timeout
 
@@ -348,28 +345,23 @@ const createEventHook = (
       done()
     }
 
-    nextFrame(() => {
-      // 被用户强制中断
-      if (isInterrupt) {
-        return
-      }
+    const cancelNextFrame = nextFrame(() => {
       if (!isCancelled()) {
-        for (const name of removedClassNames) {
+        removedClassNames.forEach((name) => {
           const clazz = el._ctc![name]
           if (clazz) {
             removeClass(el, clazz)
             delete el._ctc![name]
           }
-        }
+        })
         if (ctc) {
-          for (const name of Object.keys(ctc)) {
-            const key = name as keyof CSSTransitionClassesObject
+          Object.keys(ctc).forEach((key: keyof CSSTransitionClassesObject) => {
             const clazz = ctc[key]
             if (clazz) {
               addClass(el, clazz)
               el._ctc![key] = clazz
             }
-          }
+          })
         }
         if (timeout && timeout > 0) {
           timeoutId = setTimeout(doneCb, timeout)
@@ -377,45 +369,47 @@ const createEventHook = (
           cancelEvent = onTransitionEnd(el, doneCb)
         }
       }
-      nativeHook && nativeHook(el, doneCb, isCancelled)
     })
+    nativeHook && nativeHook(el, doneCb, isCancelled)
 
-    // for TransitionGroup
-    el._done = () => {
-      isInterrupt = true
+    el._done = (cancel) => {
       // 清除事件
+      cancelNextFrame()
       cancelEvent && cancelEvent()
       clearTimeout(timeoutId)
-      if (!el._ctc) {
-        return
+
+      if (!cancel) {
+        doneCb()
       }
-      // 移除所有样式
-      for (const clazz of Object.values(el._ctc)) {
-        clazz && el.classList.remove(clazz)
-      }
-      doneCb()
     }
   }
 }
 
-const createAfterOrCancelledEventHook = (
-  nativeHook?: AfterEventHook | EventCancelledHook
-): NonNullable<typeof nativeHook> => {
+const createAfterEventHook = (nativeHook?: AfterEventHook): AfterEventHook => {
   return (el: TransitionElement) => {
-    for (const name of Object.keys(el._ctc!)) {
-      const key = name as keyof CSSTransitionClassesObject
+    Object.keys(el._ctc!).forEach((key: keyof CSSTransitionClassesObject) => {
       const clazz = el._ctc![key]
       clazz && removeClass(el, clazz)
       delete el._ctc![key]
-    }
+    })
+    el._ctc = undefined
     nativeHook && nativeHook(el)
   }
 }
 
-const createAfterEventHook: (
-  nativeHook?: AfterEventHook
-) => AfterEventHook = createAfterOrCancelledEventHook
+const createEventCancelledHook = (nativeHook?: EventCancelledHook): EventCancelledHook => {
+  return (el: TransitionElement) => {
+    // 清除所有事件
+    el._done && el._done(true)
+    Object.keys(el._ctc || {}).forEach((key: keyof CSSTransitionClassesObject) => {
+      const clazz = el._ctc![key]
+      clazz && removeClass(el, clazz)
+      delete el._ctc![key]
+    })
+    el._ctc = undefined
 
-const createEventCancelledHook: (
-  nativeHook?: EventCancelledHook
-) => EventCancelledHook = createAfterOrCancelledEventHook
+    el._cancelled = true
+
+    nativeHook && nativeHook(el)
+  }
+}

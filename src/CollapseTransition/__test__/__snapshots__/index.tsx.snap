@@ -1,29 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CollapseTransition 基本使用 1`] = `null`;
+exports[`CollapseTransition 基本使用 1`] = `
+<div
+  style="display: none;"
+/>
+`;
 
 exports[`CollapseTransition 基本使用 2`] = `
 <div
-  style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; transition: height 1s ease; height: 0px;"
->
-  <div
-    style="position: relative;"
-  >
-    <div />
-  </div>
-</div>
+  class=""
+  data-actual-height=""
+  data-height=""
+  data-overflow=""
+  data-padding-bottom=""
+  data-padding-top=""
+  style="overflow: hidden; padding-top: 0px; padding-bottom: 0px;"
+/>
 `;
 
-exports[`CollapseTransition 测试horizontal 1`] = `null`;
+exports[`CollapseTransition 测试horizontal 1`] = `
+<div
+  style="display: none;"
+/>
+`;
 
 exports[`CollapseTransition 测试horizontal 2`] = `
 <div
-  style="box-sizing: border-box; overflow: hidden; padding-bottom: 0px; padding-top: 0px; transition: width 1s ease; width: 0px;"
->
-  <div
-    style="position: relative;"
-  >
-    <div />
-  </div>
-</div>
+  class=""
+  data-actual-width=""
+  data-overflow=""
+  data-padding-left=""
+  data-padding-right=""
+  data-width=""
+  style="overflow: hidden; padding-left: 0px; padding-right: 0px;"
+/>
 `;

@@ -1,0 +1,147 @@
+# 图钉
+
+## 代码演示
+
+:::demo 基本用法
+
+基本用法
+
+```jsx
+import React from 'react'
+import { Affix } from 'xl-vision'
+
+export default () => {
+  return (
+    <div>
+      <Affix offsetTop={20}>
+        <span className='affix'>固定在距离顶部20px的位置</span>
+      </Affix>
+      <br />
+      <Affix offsetBottom={20}>
+        <span className='affix'>固定在距离底部20px的位置</span>
+      </Affix>
+    </div>
+  )
+}
+```
+
+```scss
+.affix {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #1890ff;
+  color: #fff;
+}
+```
+
+:::
+
+:::demo 状态改变回调
+
+affix 状态改变时的回调
+
+```jsx
+import React from 'react'
+import { Affix } from 'xl-vision'
+
+export default () => {
+  const handleChange = React.useCallback((visible) => {
+    console.log(visible)
+  }, [])
+
+  return (
+    <div>
+      <Affix offsetTop={50} offsetBottom={50} onChange={handleChange}>
+        <span className='affix'>固定在距离顶部50px和距离底部50px的位置</span>
+      </Affix>
+    </div>
+  )
+}
+```
+
+```scss
+.affix {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #1890ff;
+  color: #fff;
+}
+```
+
+:::
+
+:::demo 指定固定在的父元素
+
+通过`getTarget`指定固定的父元素，默认为`window`。
+
+注意，为了性能考虑，此时只会监听`target`的滚动事件，所以，当页面滚动时，就会出现定位错误。
+
+如果有特殊需要，可以调用`Affix`的`updatePosition`方法。
+
+```jsx
+import React from 'react'
+import { Affix } from 'xl-vision'
+
+export default () => {
+  const parentRef = React.useRef()
+  const affixRef = React.useRef()
+
+  const getTarget = React.useCallback(() => parentRef.current, [])
+
+  React.useEffect(() => {
+    if (!affixRef.current) {
+      return
+    }
+
+    window.addEventListener('scroll', affixRef.current.updatePosition)
+    window.addEventListener('resize', affixRef.current.updatePosition)
+    return () => {
+      window.removeEventListener('scroll', affixRef.current.updatePosition)
+      window.removeEventListener('resize', affixRef.current.updatePosition)
+    }
+  }, [])
+
+  return (
+    <div className='container' ref={parentRef}>
+      <div className='parent'>
+        <Affix offsetTop={50} getTarget={getTarget} ref={affixRef}>
+          <span className='affix'>固定在距离target顶部50px处</span>
+        </Affix>
+      </div>
+    </div>
+  )
+}
+```
+
+```scss
+.container {
+  position: relative;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.parent {
+  height: 1000px;
+  background-color: #eee;
+}
+
+.affix {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #1890ff;
+  color: #fff;
+}
+```
+
+:::
+
+## Affix API
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 是否必填 |
+| --- | --- | --- | --- | --- | --- |
+| clsPrefix | 自定义类名前缀 | string | - | - | false |
+| children | 被定位元素 | React.ReactNode | - | - | true |
+| offsetTop | 距离顶部距离，如果不设置，则不对顶部进行定位 | number | - | - | false |
+| offsetBottom | 距离底部距离，如果不设置，则不对底部进行定位 | number | - | - | false |
+| getTarget | 定位参考元素 | () => HTMLElement &#x007c; Document &#x007c; Window | - | () => window | false |
+| onChange | 定位状态发生变化的回调 | (affix :boolean) => void | - | - | false |

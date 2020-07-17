@@ -1,65 +1,296 @@
-@use './var' as *;
-@use '../../Ripple/style/' as ripple;
+@use './variables' as *;
+@use '../../BaseButton/style';
 
 $button: #{$cls-prefix}-button;
+$base-button: #{$cls-prefix}-base-button;
 $ripple: #{$cls-prefix}-ripple;
+$icon: #{$cls-prefix}-icon;
 
 .#{$button} {
-  position: relative;
-  display: inline-block;
-  box-sizing: border-box;
-  min-width: $button-min-width;
-  padding: $button-padding-6 $button-padding-16;
-  white-space: nowrap;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  border: 0;
-  border-radius: $border-radius-medium;
-  outline: none;
-  cursor: pointer;
-  -webkit-appearance: none;
-  user-select: none;
-  touch-action: manipulation;
-  // 阻止在移动端按下按钮后闪烁的问题
-  -webkit-tap-highlight-color: transparent;
+  transition: $button-transition;
 
-  @include button();
+  @include button-style();
 
-  > * {
-    vertical-align: middle;
+  &--long {
+    display: block;
+    width: 100%;
   }
 
-  &__icon {
-    margin: 0 $button-padding-12 - $button-padding-16;
-    font-size: $button-icon-size;
+  .#{$icon} {
+    vertical-align: $button-icon-vertical-align;
   }
 
-  &__icon--prefix {
-    margin-right: 4px;
-    margin-left: -4px;
+  .#{$button}__prefix,
+  .#{$button}__suffix {
+    display: inline-block;
   }
 
-  &__icon--suffix {
-    margin-right: -4px;
-    margin-left: 4px;
-  }
+  &--size-medium {
+    min-width: $button-medium-min-width;
+    padding: $button-medium-padding-y $button-medium-padding-x;
+    font-size: $button-medium-font-size;
+    border-radius: $button-medium-border-radius;
 
-  .#{$ripple} {
-    &__inner {
-      opacity: $opacity-selected;
+    &.#{$button}--round {
+      border-radius: $button-medium-border-radius-round;
+    }
+
+    &.#{$button}--only-icon {
+      min-width: $button-medium-border-radius-round;
+      padding: $button-medium-padding-y;
+    }
+
+    .#{$icon} {
+      font-size: $button-medium-icon-size;
+    }
+
+    .#{$button}__prefix {
+      margin-right: $button-medium-icon-padding-content;
+      margin-left: $button-medium-icon-padding-border - $button-medium-padding-x;
+    }
+
+    .#{$button}__suffix {
+      margin-right: $button-medium-icon-padding-border - $button-medium-padding-x;
+      margin-left: $button-medium-icon-padding-content;
     }
   }
 
-  &__ripple {
-    &-enter-active {
-      transform: scale(1);
-      transition: all $standard-duration $fast-out-slow-in-timing-function;
+  &--size-large {
+    min-width: $button-large-min-width;
+    padding: $button-large-padding-y $button-large-padding-x;
+    font-size: $button-large-font-size;
+    border-radius: $button-large-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $button-large-border-radius-round;
     }
 
-    &-enter {
-      transform: scale(0);
-      opacity: 0.1;
+    &.#{$button}--only-icon {
+      min-width: $button-large-border-radius-round;
+      padding: $button-large-padding-y;
+    }
+
+    .#{$icon} {
+      font-size: $button-large-icon-size;
+    }
+
+    .#{$button}__prefix {
+      margin-right: $button-large-icon-padding-content;
+      margin-left: $button-large-icon-padding-border - $button-large-padding-x;
+    }
+
+    .#{$button}__suffix {
+      margin-right: $button-large-icon-padding-border - $button-large-padding-x;
+      margin-left: $button-large-icon-padding-content;
+    }
+  }
+
+  &--size-small {
+    min-width: $button-small-min-width;
+    padding: $button-small-padding-y $button-small-padding-x;
+    font-size: $button-small-font-size;
+    border-radius: $button-small-border-radius;
+
+    &.#{$button}--round {
+      border-radius: $button-small-border-radius-round;
+    }
+
+    &.#{$button}--only-icon {
+      min-width: $button-small-border-radius-round;
+      padding: $button-small-padding-y;
+    }
+
+    .#{$icon} {
+      font-size: $button-small-icon-size;
+    }
+
+    .#{$button}__prefix {
+      margin-right: $button-small-icon-padding-content;
+      margin-left: $button-small-icon-padding-border - $button-small-padding-x;
+    }
+
+    .#{$button}__suffix {
+      margin-right: $button-small-icon-padding-border - $button-small-padding-x;
+      margin-left: $button-small-icon-padding-content;
+    }
+  }
+
+  &__icon--loading {
+    &-enter-active,
+    &-leave-active {
+      transition: $button-icon-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+
+    &-enter-to,
+    &-leave {
+      opacity: 1;
+    }
+  }
+
+  &--elevation {
+    @include elevation(2);
+    &:hover {
+      @include elevation(4);
+    }
+
+    &:focus {
+      @include elevation(6);
+    }
+
+    &:active {
+      @include elevation(8);
+    }
+  }
+
+  &--variant-contained {
+    @each $key, $value in $button-themes {
+      &.#{$button}--theme-#{$key} {
+        $background-color: $value;
+        $color: text-color(primary, $background-color);
+
+        color: $color;
+        background-color: $background-color;
+
+        &:hover {
+          background-color: state-overlay('hover', $color, $background-color);
+        }
+
+        &:focus {
+          background-color: state-overlay('focus', $color, $background-color);
+        }
+
+        &:active {
+          background-color: state-overlay('active', $color, $background-color);
+        }
+
+        &.#{$button}--disabled,
+        &.#{$button}--disabled:hover,
+        &.#{$button}--disabled:focus,
+        &.#{$button}--disabled:active,
+        &.#{$button}--loading,
+        &.#{$button}--loading:hover,
+        &.#{$button}--loading:focus,
+        &.#{$button}--loading:active {
+          color: $color;
+          background-color: $background-color;
+          opacity: $button-disabled-opacity;
+        }
+      }
+    }
+  }
+
+  &--variant-outlined {
+    // color: $button-default-color;
+    background-color: transparent;
+    border: $button-border-width solid transparent;
+
+    &.#{$button}--size-medium {
+      padding: $button-medium-padding-y-outlined $button-medium-padding-x-outlined;
+
+      &.#{$button}--only-icon {
+        min-width: $button-medium-border-radius-round;
+        padding: $button-medium-padding-y-outlined;
+      }
+    }
+
+    &.#{$button}--size-small {
+      padding: $button-small-padding-y-outlined $button-small-padding-x-outlined;
+
+      &.#{$button}--only-icon {
+        min-width: $button-small-border-radius-round;
+        padding: $button-small-padding-y-outlined;
+      }
+    }
+
+    &.#{$button}--size-large {
+      padding: $button-large-padding-y-outlined $button-large-padding-x-outlined;
+
+      &.#{$button}--only-icon {
+        min-width: $button-large-border-radius-round;
+        padding: $button-large-padding-y-outlined;
+      }
+    }
+
+    @each $key, $value in $button-themes {
+      &.#{$button}--theme-#{$key} {
+        $color: if($key == 'default', text-color(primary, $value), $value);
+        $border-color: if(
+          $key == 'default',
+          text-color(divider, $value),
+          rgba($color, $button-border-opacity)
+        );
+
+        color: $color;
+        border-color: $border-color;
+
+        &:hover {
+          background-color: state-overlay(hover, $color, 'transparent');
+        }
+
+        &:focus {
+          background-color: state-overlay(focus, $color, 'transparent');
+        }
+
+        &:active {
+          background-color: state-overlay(active, $color, 'transparent');
+        }
+
+        &.#{$button}--disabled,
+        &.#{$button}--disabled:hover,
+        &.#{$button}--disabled:focus,
+        &.#{$button}--disabled:active,
+        &.#{$button}--loading,
+        &.#{$button}--loading:hover,
+        &.#{$button}--loading:focus,
+        &.#{$button}--loading:active {
+          color: $color;
+          background-color: transparent;
+          border-color: $border-color;
+          opacity: $button-disabled-opacity;
+        }
+      }
+    }
+  }
+
+  &--variant-text {
+    background-color: transparent;
+
+    @each $key, $value in $button-themes {
+      &.#{$button}--theme-#{$key} {
+        $color: if($key== 'default', text-color(primary, $value), $value);
+
+        color: $color;
+
+        &:hover {
+          background-color: state-overlay(hover, $color, 'transparent');
+        }
+
+        &:focus {
+          background-color: state-overlay(focus, $color, 'transparent');
+        }
+
+        &:active {
+          background-color: state-overlay('active', $color, 'transparent');
+        }
+
+        &.#{$button}--disabled,
+        &.#{$button}--disabled:hover,
+        &.#{$button}--disabled:focus,
+        &.#{$button}--disabled:active,
+        &.#{$button}--loading,
+        &.#{$button}--loading:hover,
+        &.#{$button}--loading:focus,
+        &.#{$button}--loading:active {
+          color: $color;
+          background-color: transparent;
+          opacity: $button-disabled-opacity;
+        }
+      }
     }
   }
 }

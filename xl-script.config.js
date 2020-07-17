@@ -4,7 +4,15 @@ module.exports = [
     tasks: {
       name: 'lint:es',
       options: {
-        from: ['src/**/*.ts?(x)', 'site/**/*.ts?(x)', 'script/**/*.js']
+        dot: true,
+        from: [
+          'scripts/**/*.js',
+          'src/**/*.ts?(x)',
+          'test/**/*.ts?(x)',
+          'test/**/*.js?(x)',
+          'site/**/*.ts?(x)',
+          '*.js'
+        ]
       }
     }
   },

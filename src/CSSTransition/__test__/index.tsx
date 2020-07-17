@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import CSSTransition, { CSSTransitionClasses } from '..'
 import wait from '../../../test/wait'
 import * as TransitionUtils from '../../commons/utils/transition'
+import { voidFn } from '../../commons/utils/function'
 
 const classnameMap: CSSTransitionClasses = {
   appear: 'appear',
@@ -26,13 +28,16 @@ describe('CSSTransition', () => {
 
     onTransitionEndSpy = jest.spyOn(TransitionUtils, 'onTransitionEnd')
     // 保证动画有一定的时间
-    onTransitionEndSpy.mockImplementation((_el, done) => {
+    onTransitionEndSpy.mockImplementation((_el, done: () => void) => {
       setTimeout(done, 50)
     })
 
     nextFrameSpy = jest.spyOn(TransitionUtils, 'nextFrame')
-    nextFrameSpy.mockImplementation((done) => {
-      setTimeout(done, 50)
+    nextFrameSpy.mockImplementation((done: () => void) => {
+      const id = setTimeout(done, 50)
+      return () => {
+        clearTimeout(id)
+      }
     })
   })
 
@@ -42,7 +47,9 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={true}
         transitionOnFirst={true}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         transitionClasses={classnameMap}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
@@ -50,35 +57,57 @@ describe('CSSTransition', () => {
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
-        beforeDisappear={(el) => call('beforeDisappear', el)}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
+        beforeDisappear={(el) => {
+          call('beforeDisappear', el)
+        }}
         disappear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`disappear`, el)
             done()
           }
         }}
-        afterDisappear={(el) => call('afterDisappear', el)}
-        disappearCancelled={(el) => call('disappearCancelled', el)}
+        afterDisappear={(el) => {
+          call('afterDisappear', el)
+        }}
+        disappearCancelled={(el) => {
+          call('disappearCancelled', el)
+        }}
       >
         <div />
       </CSSTransition>
@@ -121,42 +150,66 @@ describe('CSSTransition', () => {
         in={false}
         transitionOnFirst={true}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
-        beforeDisappear={(el) => call('beforeDisappear', el)}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
+        beforeDisappear={(el) => {
+          call('beforeDisappear', el)
+        }}
         disappear={(el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`disappear`, el)
             done()
           }
         }}
-        afterDisappear={(el) => call('afterDisappear', el)}
-        disappearCancelled={(el) => call('disappearCancelled', el)}
+        afterDisappear={(el) => {
+          call('afterDisappear', el)
+        }}
+        disappearCancelled={(el) => {
+          call('disappearCancelled', el)
+        }}
       >
         <div />
       </CSSTransition>
@@ -211,33 +264,51 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={false}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
       >
         <div />
       </CSSTransition>
@@ -287,33 +358,51 @@ describe('CSSTransition', () => {
       <CSSTransition
         in={true}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
       >
         <div />
       </CSSTransition>
@@ -348,41 +437,58 @@ describe('CSSTransition', () => {
 
   it('测试包含cancelled的生命周期', async () => {
     // 阻止onTransitionEnd完成
-    // eslint-disable-next-line  @typescript-eslint/no-empty-function
-    onTransitionEndSpy.mockImplementation(() => {})
+    onTransitionEndSpy.mockImplementation(voidFn)
     const call = jest.fn()
     const wrapper = mount(
       <CSSTransition
         in={true}
         transitionOnFirst={true}
         transitionClasses={classnameMap}
-        beforeAppear={() => call('beforeAppear')}
+        beforeAppear={() => {
+          call('beforeAppear')
+        }}
         appear={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`appear`)
             // done()
           }
         }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
+        afterAppear={() => {
+          call('afterAppear')
+        }}
+        appearCancelled={() => {
+          call('appearCancelled')
+        }}
+        beforeEnter={() => {
+          call('beforeEnter')
+        }}
         enter={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`enter`)
             // done()
           }
         }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
+        afterEnter={() => {
+          call('afterEnter')
+        }}
+        enterCancelled={() => {
+          call('enterCancelled')
+        }}
+        beforeLeave={() => {
+          call('beforeLeave')
+        }}
         leave={(_el, _done, isCancelled) => {
           if (!isCancelled()) {
             call(`leave`)
             // done()
           }
         }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
+        afterLeave={() => {
+          call('afterLeave')
+        }}
+        leaveCancelled={() => {
+          call('leaveCancelled')
+        }}
       >
         <div />
       </CSSTransition>
@@ -431,7 +537,7 @@ describe('CSSTransition', () => {
 
   it('测试包含className调用时机', async () => {
     const wrapper = mount(
-      <CSSTransition transitionOnFirst={true} in={true} transitionClasses={'test'}>
+      <CSSTransition transitionOnFirst={true} in={true} transitionClasses='test'>
         <div />
       </CSSTransition>
     )
@@ -493,7 +599,7 @@ describe('CSSTransition', () => {
 
   it('测试timeout调用时机', async () => {
     const wrapper = mount(
-      <CSSTransition transitionOnFirst={true} in={true} transitionClasses={'test'} timeout={10}>
+      <CSSTransition transitionOnFirst={true} in={true} transitionClasses='test' timeout={10}>
         <div />
       </CSSTransition>
     )
@@ -552,137 +658,5 @@ describe('CSSTransition', () => {
 
     expect(wrapper.getDOMNode().classList).not.toContain('test-enter-active')
     expect(wrapper.getDOMNode().classList).not.toContain('test-enter-to')
-  })
-
-  it('测试css调用时机', async () => {
-    const call = jest.fn()
-
-    const wrapper = mount(
-      <CSSTransition
-        transitionOnFirst={true}
-        in={true}
-        css={false}
-        transitionClasses={'test'}
-        beforeAppear={() => call('beforeAppear')}
-        appear={(_el, done, isCancelled) => {
-          if (!isCancelled()) {
-            call(`appear`)
-            // 尝试等待transitionEnd执行
-            wait(60).then(done)
-          }
-        }}
-        afterAppear={() => call('afterAppear')}
-        appearCancelled={() => call('appearCancelled')}
-        beforeEnter={() => call('beforeEnter')}
-        enter={(_el, done, isCancelled) => {
-          if (!isCancelled()) {
-            call(`enter`)
-            // 尝试等待transitionEnd执行
-            wait(60).then(done)
-          }
-        }}
-        afterEnter={() => call('afterEnter')}
-        enterCancelled={() => call('enterCancelled')}
-        beforeLeave={() => call('beforeLeave')}
-        leave={(_el, done, isCancelled) => {
-          if (!isCancelled()) {
-            call(`leave`)
-            // 尝试等待transitionEnd执行
-            wait(60).then(done)
-          }
-        }}
-        afterLeave={() => call('afterLeave')}
-        leaveCancelled={() => call('leaveCancelled')}
-      >
-        <div />
-      </CSSTransition>
-    )
-    // enter beforeAppear
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('beforeAppear')
-    call.mockClear()
-
-    await act(() => wait(50))
-    // enter appear
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('appear')
-    call.mockClear()
-
-    // try to wait transitionEnd
-    await act(() => wait(40))
-
-    expect(call.mock.calls.length).toBe(0)
-
-    // enter afterAppear,给个时间盈余
-    await act(() => wait(20))
-
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('afterAppear')
-    call.mockClear()
-
-    wrapper.setProps({
-      in: false
-    })
-
-    // enter beforeLeave
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('beforeLeave')
-    call.mockClear()
-
-    await act(() => wait(50))
-    // enter leave
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('leave')
-    call.mockClear()
-
-    // try to wait transitionEnd
-    await act(() => wait(40))
-
-    expect(call.mock.calls.length).toBe(0)
-
-    // enter afterLeave,给个时间盈余
-    await act(() => wait(20))
-
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('afterLeave')
-    call.mockClear()
-
-    wrapper.setProps({
-      in: true
-    })
-
-    wrapper.update()
-
-    // enter beforeLeave
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('beforeEnter')
-    call.mockClear()
-
-    await act(() => wait(50))
-    // enter leave
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('enter')
-    call.mockClear()
-
-    // try to wait transitionEnd
-    await act(() => wait(40))
-
-    expect(call.mock.calls.length).toBe(0)
-
-    // enter afterLeave,给个时间盈余
-    await act(() => wait(20))
-
-    expect(wrapper.getDOMNode().className).not.toContain('test')
-    expect(call.mock.calls.length).toBe(1)
-    expect(call.mock.calls[0][0]).toBe('afterEnter')
-    call.mockClear()
   })
 })

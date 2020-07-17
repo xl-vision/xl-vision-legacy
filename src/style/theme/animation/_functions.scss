@@ -1,0 +1,17 @@
+@use "./variables";
+
+@function enter($name: all, $duration: variables.$enter-duration, $delay: 0ms) {
+  @return $name $duration $delay variables.$deceleration-curve-timing-function;
+}
+
+@function leave-permanent($name: all, $duration: variables.$leave-duration, $delay: 0ms) {
+  @return $name $duration $delay variables.$acceleration-curve-timing-function;
+}
+
+@function leave-temporary($name: all, $duration: variables.$leave-duration, $delay: 0ms) {
+  @return $name $duration $delay variables.$sharp-curve-timing-function;
+}
+
+@function standard($name: all, $duration: variables.$standard-duration, $delay: 0ms) {
+  @return $name $duration $delay variables.$standard-curve-timing-function;
+}

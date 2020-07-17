@@ -1,10 +1,12 @@
 import React from 'react'
-import { ButtonSize } from './Button'
+import { ButtonTheme, ButtonVariant } from './Button'
 
-export interface ButtonContextState {
-  size?: ButtonSize
+export type ButtonContextProps = {
+  theme?: ButtonTheme
+  variant?: ButtonVariant
+  disableElevation?: boolean
+  disableRipple?: boolean
+  size?: string
 }
 
-const ButtonContext = React.createContext<ButtonContextState>({})
-
-export default ButtonContext
+export default React.createContext<ButtonContextProps>({})

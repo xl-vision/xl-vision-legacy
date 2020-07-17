@@ -1,4 +1,4 @@
-@use '../../assets/style/var' as *;
+@use '../../assets/style/variables' as *;
 
 .icon-select {
   width: 100%;
@@ -12,7 +12,7 @@
   // color: $--text-color;
   font-size: 1.2rem;
   line-height: 1.5;
-  border: 1px #eeeeee solid;
+  border: 1px solid text-color(divider);
   border-radius: 5px;
   outline: none;
   transition: border-color 0.4s ease-in-out;
@@ -34,6 +34,10 @@
 .list {
   display: inline-block;
   width: 100%;
+}
+
+.button-group {
+  margin-top: 16px;
 }
 
 .icon-wrapper {
@@ -60,7 +64,7 @@
   }
 
   &:hover {
-    background-color: #80bdff;
+    background-color: theme-pick($primary, main);
 
     svg {
       color: #ffffff;
