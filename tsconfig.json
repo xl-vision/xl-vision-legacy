@@ -9,7 +9,17 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
-  },
-  "include": ["src", "site", "typings", "test/wait.ts"]
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@xl-vision/commons": ["./packages/commons/src"],
+      "@xl-vision/commons/*": ["./packages/commons/src/*"],
+      "@xl-vision/styles": ["./packages/styles/src"],
+      "@xl-vision/styles/*": ["./packages/styles/src/*"],
+      "@xl-vision/icons": ["./packages/icons/src"],
+      "@xl-vision/icons/*": ["./packages/icons/src/*"],
+      "@xl-vision/core": ["./packages/core/src"],
+      "@xl-vision/core/*": ["./packages/core/src/*"]
+    }
+  }
 }

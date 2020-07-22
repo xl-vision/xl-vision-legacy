@@ -1,0 +1,53 @@
+{
+  "name": "@xl-vision/styles",
+  "version": "0.0.0",
+  "description": "tool for css which uses javascript as a host language",
+  "keywords": [
+    "jss",
+    "xl-vision",
+    "css-in-js"
+  ],
+  "author": "Rhys Xia <xrs4433@outlook.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "build:es": "scripts compileTs --es",
+    "build:lib": "scripts compileTs",
+    "build": "npm run build:es && npm run build:lib",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.5",
+    "@xl-vision/commons": "^0.0.0",
+    "jss": "^10.3.0",
+    "jss-plugin-camel-case": "^10.3.0",
+    "jss-plugin-default-unit": "^10.3.0",
+    "jss-plugin-global": "^10.3.0",
+    "jss-plugin-nested": "^10.3.0",
+    "jss-plugin-props-sort": "^10.3.0",
+    "jss-plugin-rule-value-function": "^10.3.0",
+    "jss-plugin-vendor-prefixer": "^10.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.43",
+    "@xl-vision/scripts": "^0.0.0",
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
+}

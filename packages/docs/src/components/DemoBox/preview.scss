@@ -1,0 +1,83 @@
+@use '../../assets/style/variables' as *;
+@use 'sass:color';
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: base-color('primary');
+  font-size: 1em;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  line-height: 1.5;
+  white-space: pre;
+  text-align: left;
+  word-wrap: normal;
+  word-break: normal;
+  word-spacing: normal;
+  tab-size: 4;
+  hyphens: none;
+  background: none;
+  // text-shadow: 0 1px $background-default;
+
+  // &::selection {
+  //   text-shadow: none;
+  //   background: base-color(primary);
+  // }
+
+  @media print {
+    text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  margin: 0.5em 0;
+  padding: 1em;
+  overflow: auto;
+  background: emphasize($background, 0.05);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.punctuation {
+  color: base-color('primary');
+}
+.token.property,
+.token.keyword {
+  color: $warning;
+}
+
+.token.string {
+  color: $success;
+}
+
+.token.function,
+.token.property-access {
+  color: $error;
+}
+.token.attr-name,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.unit {
+  color: $info;
+}
+
+.token.tag {
+  color: base-color('primary');
+  .token.punctuation {
+    color: base-color('secondary');
+  }
+  .token.class-name {
+    color: $warning;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "@xl-vision/core",
+  "version": "0.0.0",
+  "description": "the components library for react",
+  "keywords": [
+    "library",
+    "component",
+    "react",
+    "jss",
+    "xl-vision"
+  ],
+  "author": "Rhys Xia <xrs4433@outlook.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "build:es": "scripts compileTs --es",
+    "build:lib": "scripts compileTs",
+    "build": "npm run build:es && npm run build:lib",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.5",
+    "@xl-vision/commons": "^0.0.0",
+    "@xl-vision/styles": "^0.0.0",
+    "clsx": "^1.1.1",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@xl-vision/scripts": "^0.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

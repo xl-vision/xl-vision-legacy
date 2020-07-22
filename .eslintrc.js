@@ -10,7 +10,15 @@ module.exports = {
   },
   settings: {
     react: {
-      version: '16.8'
+      version: '16.9'
+    },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': {
+      typescript: {
+        directory: './tsconfig.json'
+      }
     }
   },
   parserOptions: {
@@ -20,7 +28,7 @@ module.exports = {
   plugins: ['unicorn'],
   rules: {
     'import/no-extraneous-dependencies': [
-      'error',
+      'off',
       {
         packageDir: __dirname,
         devDependencies: [
@@ -34,16 +42,12 @@ module.exports = {
         ]
       }
     ],
+    'no-continue': 'off',
     // Strict, airbnb is using warn; allow warn and error for dev environments
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'nonblock-statement-body-position': 'error',
     'no-plusplus': 'off',
-    'no-param-reassign': [
-      'error',
-      {
-        props: false
-      }
-    ],
+    'no-param-reassign': 'off',
     'no-restricted-globals': ['error'].concat(confusingBrowserGlobals),
     'no-underscore-dangle': 'off',
     'no-nested-ternary': 'off',
@@ -96,6 +100,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['**/__doc__/*'],
+      rules: {
+        'react/display-name': 'off'
+      }
+    },
+    {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
@@ -124,7 +134,6 @@ module.exports = {
             tsx: 'never'
           }
         ],
-
         'import/no-cycle': 'off',
         '@typescript-eslint/array-type': [
           'error',

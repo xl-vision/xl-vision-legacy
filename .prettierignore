@@ -1,9 +1,6 @@
 es/**
 lib/**
 dist/**
-docs/**
-scripts/icon/template/**
-scripts/icon/icon/**
-src/icon/*.ts
-src/icon/*.tsx
+site/**
 
+packages/icons/src/*.tsx

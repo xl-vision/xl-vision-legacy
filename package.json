@@ -1,122 +1,39 @@
 {
-  "name": "xl-vision",
-  "version": "0.1.0-beta.8",
-  "description": "the high quality UI library for react",
-  "author": "Rhys Xia",
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "component",
-    "libaray"
-  ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "module": "es/index.js",
-  "files": [
-    "dist",
-    "lib",
-    "es",
-    "style"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xl-vision/xl-vision.git"
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "commit": "git-cz",
+    "lint": "eslint . --report-unused-disable-directives --ext .js,.ts,.tsx"
   },
-  "bugs": {
-    "url": "https://github.com/xl-vision/xl-vision/issues"
-  },
-  "homepage": "https://xl-vision.github.io/xl-vision/",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && npm run test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "scripts": {
-    "commit": "git-cz",
-    "lint:es": "xl-scripts task:lintEs",
-    "lint:style": "xl-scripts task:lintStyle",
-    "lint": "xl-scripts task:lint",
-    "compile:lib": "xl-scripts task:compileLib",
-    "compile:es": "xl-scripts task:compileEs",
-    "compile": "xl-scripts task:compile",
-    "dist": "xl-scripts task:dist",
-    "dev": "xl-scripts task:dev",
-    "docs": "xl-scripts task:docs",
-    "test": "jest",
-    "icon": "node scripts/icon/generate.js && node scripts/icon/format.js",
-    "release": "node scripts/release.js",
-    "prepublishOnly": "node scripts/checkPublish.js",
-    "upgrade": "npm-check -u"
-  },
   "devDependencies": {
-    "@commitlint/cli": "^9.0.1",
-    "@commitlint/config-conventional": "^9.0.1",
-    "@commitlint/format": "^9.0.1",
-    "@mdx-js/react": "^1.6.6",
-    "@types/classnames": "^2.2.10",
-    "@types/clipboard": "^2.0.1",
-    "@types/enzyme": "^3.10.5",
-    "@types/jest": "^26.0.4",
-    "@types/mdx-js__react": "^1.5.2",
-    "@types/prop-types": "^15.7.3",
-    "@types/react": "^16.9.41",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-router-dom": "^5.1.3",
-    "@typescript-eslint/eslint-plugin": "^3.6.0",
-    "@typescript-eslint/parser": "^3.6.0",
-    "@xl-vision/icon-generator": "^0.0.1-beta.16",
-    "@xl-vision/scripts": "^0.0.1-beta.99",
-    "autoprefixer": "^9.8.4",
-    "chalk": "^4.0.0",
-    "clipboard": "^2.0.6",
-    "commitizen": "^4.0.3",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@commitlint/format": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
+    "chalk": "^4.1.0",
+    "commitizen": "^4.1.2",
     "confusing-browser-globals": "^1.0.9",
-    "cz-conventional-changelog": "^3.1.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.4.4",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.5.0",
     "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "^4.0.5",
-    "eslint-plugin-unicorn": "^20.1.0",
-    "fs-extra": "^9.0.0",
-    "husky": "^4.2.3",
-    "inquirer": "^7.3.0",
-    "jest": "^26.1.0",
-    "node-fetch": "^2.6.0",
-    "npm-check": "^5.9.2",
-    "prettier": "^2.0.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.0.1",
-    "semver": "^7.1.3",
-    "simple-git": "^2.7.2",
-    "standard-version": "^8.0.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.18.0",
-    "ts-jest": "^26.1.1"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.10.4",
-    "@popperjs/core": "^2.4.4",
-    "classnames": "^2.2.6",
-    "prop-types": "^15.7.2"
-  },
-  "peerDependencies": {
-    "react": "^16.9.0"
-  },
-  "sideEffects": [
-    "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*"
-  ]
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-unicorn": "^21.0.0",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.7"
+  }
 }
