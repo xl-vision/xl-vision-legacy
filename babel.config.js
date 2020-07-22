@@ -2,9 +2,9 @@ module.exports = (api) => {
   const es = api.env('es')
   return {
     presets: [
-      require.resolve('@babel/preset-react'),
+      '@babel/preset-react',
       [
-        require.resolve('@babel/preset-env'),
+        '@babel/preset-env',
         {
           targets: {
             browsers: [
@@ -22,7 +22,7 @@ module.exports = (api) => {
     ],
     plugins: [
       [
-        require.resolve('@babel/plugin-transform-runtime'),
+        '@babel/plugin-transform-runtime',
         {
           helpers: true
         }
