@@ -1,5 +1,6 @@
+import * as css from 'csstype'
 import { useLayoutEffect, warning } from '@xl-vision/commons'
-import { getDynamicStyles, SheetsManager, StyleSheet, Styles as BaseStyle } from 'jss'
+import { getDynamicStyles, SheetsManager, StyleSheet } from 'jss'
 import React from 'react'
 import getSheetIndex from './utils/getSheetIndex'
 import JssContext from './JssContext'
@@ -14,7 +15,31 @@ export type CreateUseStylesOptions<Theme> = {
 
 export type StyleName = string | number | symbol
 
-export type Styles<C extends StyleName = string> = BaseStyle<C>
+export type JssValue =
+  | string
+  | number
+  | Array<string | number | Array<string | number> | '!important'>
+  | null
+  | false
+
+type NormalCssProperties = css.Properties<string | number>
+type NormalCssValues<K> = K extends keyof NormalCssProperties
+  ? NormalCssProperties[K] | JssValue
+  : JssValue
+
+export type JssStyle = {
+  [K in keyof NormalCssProperties | string]:
+    | NormalCssValues<K>
+    | JssStyle
+    | Func<NormalCssValues<K> | JssStyle | undefined>
+}
+
+type Func<R> = (data: any) => R
+
+export type Styles<Name extends StyleName = string> = Record<
+  Name,
+  JssStyle | string | Func<JssStyle | string | null | undefined>
+>
 
 const sheetManagers = new Map<number, SheetsManager>()
 

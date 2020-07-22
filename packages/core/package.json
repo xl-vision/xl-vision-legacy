@@ -20,9 +20,7 @@
     "es"
   ],
   "scripts": {
-    "build:es": "scripts compileTs --es",
-    "build:lib": "scripts compileTs",
-    "build": "npm run build:es && npm run build:lib",
+    "build": "scripts compileTs",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "publishConfig": {

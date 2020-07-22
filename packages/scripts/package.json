@@ -36,7 +36,10 @@
     "commander": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-changed": "^4.0.2",
     "gulp-typescript": "^6.0.0-alpha.1",
+    "merge2": "^1.4.1",
+    "stream-to-promise": "^3.0.0",
     "typescript": "^3.9.7"
   }
 }

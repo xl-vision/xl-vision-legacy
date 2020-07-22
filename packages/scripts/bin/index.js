@@ -9,13 +9,7 @@ const scripts = [
     name: 'compileTs',
     desc: 'compileTs',
     script: compileTs,
-    options: [
-      {
-        name: 'es',
-        bool: true,
-        desc: 'whether if compile to esmodule format.'
-      }
-    ]
+    options: []
   }
 ]
 
