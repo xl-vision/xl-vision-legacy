@@ -7,7 +7,6 @@ export interface IconProps {
   onClick?: React.MouseEventHandler
   rotate?: number
   size?: number | string
-  spin?: boolean
   style?: React.CSSProperties
 }
 

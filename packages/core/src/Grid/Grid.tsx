@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { ColProps } from './Col'
 import useMedia, { BreakPoint, breakPointArray } from './useMedia'
-import RowContext from './RowContext'
+import RowContext from './GridContext'
 import createUseStyles from '../styles/createUseStyles'
 
 export type ClassesKey =

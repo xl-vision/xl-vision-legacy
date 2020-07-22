@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { mount } from 'enzyme'
 import React from 'react'
 import Transition from '..'

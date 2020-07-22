@@ -40,10 +40,7 @@
     "jss-plugin-rule-value-function": "^10.3.0",
     "jss-plugin-vendor-prefixer": "^10.3.0"
   },
-  "devDependencies": {
-    "@types/react": "^16.9.43",
-    "react": "^16.13.1"
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "react": "^16.13.1"
   }

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import clsx from 'clsx'
-import { BreakPoint, breakPointArray } from './useMedia'
-import RowContext from './RowContext'
-import createUseStyles from '../styles/createUseStyles'
 import { Styles } from '@xl-vision/styles'
+import { BreakPoint, breakPointArray } from './useMedia'
+import RowContext from './GridContext'
+import createUseStyles from '../styles/createUseStyles'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 

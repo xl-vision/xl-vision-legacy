@@ -1,15 +1,6 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "ESNext",
-    "strictNullChecks": true,
-    "target": "ESNext",
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
     "baseUrl": "."
-  },
+  }
 }

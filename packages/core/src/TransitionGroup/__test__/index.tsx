@@ -1,8 +1,8 @@
 import { mount } from 'enzyme'
 import React from 'react'
+import { voidFn } from '@xl-vision/commons'
 import TransitionGroup from '..'
 import * as TransitionUtils from '../../commons/utils/transition'
-import { voidFn } from '../../commons/utils/function'
 
 describe('TransitionGroup', () => {
   it('测试顺序是否正确', () => {

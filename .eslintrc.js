@@ -100,7 +100,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/__doc__/*'],
+      files: ['**/__doc__/**'],
       rules: {
         'react/display-name': 'off'
       }
@@ -141,6 +141,14 @@ module.exports = {
             default: 'generic'
           }
         ]
+      }
+    },
+    {
+      files: ['**/__test__/**/*.ts?(x)'],
+      rules: {
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
       }
     }
   ]

@@ -1,7 +1,7 @@
-es/**
-lib/**
-dist/**
-site/**
+**/es/**
+**/lib/**
+**/dist/**
+**/site/**
 
 packages/icons/src/*.tsx
 

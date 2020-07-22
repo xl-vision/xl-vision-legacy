@@ -338,7 +338,7 @@ const createEventHook = (
 ): EventHook => {
   return (el: TransitionElement, done: () => void, isCancelled: () => boolean) => {
     let cancelEvent: () => void
-    let timeoutId: number
+    let timeoutId: NodeJS.Timeout
 
     const doneCb = () => {
       el._done = undefined

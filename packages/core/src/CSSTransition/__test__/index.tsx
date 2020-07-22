@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
+import { voidFn } from '@xl-vision/commons'
 import CSSTransition, { CSSTransitionClasses } from '..'
-import wait from '../../../test/wait'
 import * as TransitionUtils from '../../commons/utils/transition'
-import { voidFn } from '../../commons/utils/function'
+import wait from '../../../../../test/utils/wait'
 
 const classnameMap: CSSTransitionClasses = {
   appear: 'appear',

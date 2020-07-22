@@ -1,25 +1,3 @@
 {
-  "compilerOptions": {
-    "module": "ESNext",
-    "strictNullChecks": true,
-    "target": "ESNext",
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "baseUrl": ".",
-    "paths": {
-      "@xl-vision/commons": ["../commons/src"],
-      "@xl-vision/commons/*": ["../commons/src/*"],
-      "@xl-vision/styles": ["../styles/src"],
-      "@xl-vision/styles/*": ["../styles/src/*"],
-      "@xl-vision/icons": ["../icons/src"],
-      "@xl-vision/icons/*": ["../icons/src/*"],
-      "@xl-vision/core": ["../core/src"],
-      "@xl-vision/core/*": ["../core/src/*"]
-    }
-  }
+  "extends": "../../tsconfig.json"
 }
