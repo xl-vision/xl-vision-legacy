@@ -1,9 +1,9 @@
 import { createUseStyles as createUseNativeStyles, StyleName, Styles } from '@xl-vision/styles'
 import React from 'react'
 import createTheme from './createTheme'
-import themeContext from './themeContext'
+import themeContext from './ThemeContext'
 
-type Theme = ReturnType<typeof createTheme>
+export type Theme = ReturnType<typeof createTheme>
 
 const createUseStyles = <C extends StyleName = string>(
   styles: Styles<C> | ((theme: Theme) => Styles<C>), name?: string

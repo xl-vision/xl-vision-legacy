@@ -12,11 +12,8 @@ const Footer: React.FunctionComponent<Record<string, unknown>> = () => {
 
 export default Footer
 
-
-const useStyles = createUseStyles(() => {
-  return {
-    root: {
-      backgroundColor: 'red'
-    }
+const useStyles = createUseStyles({
+  root: {
+    backgroundColor: 'red'
   }
 })

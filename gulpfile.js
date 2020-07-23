@@ -40,22 +40,29 @@ const build = (packageName, es) => {
   return merge2(s1, s2).pipe(gulp.dest(to))
 }
 
-const mergeBuild = (packageName) => {
-  return gulp.parallel(
-    () => build(packageName, true),
-    () => build(packageName, false)
-  )
-}
+gulp.task('compileEs:commons', () => build('commons', true))
+gulp.task('compileLib:commons', () => build('commons', false))
 
-gulp.task('compile:commons', mergeBuild('commons'))
-gulp.task('compile:styles', mergeBuild('styles'))
-gulp.task('compile:icons', mergeBuild('icons'))
-gulp.task('compile:core', mergeBuild('core'))
+gulp.task('compileEs:styles', () => build('styles', true))
+gulp.task('compileLib:styles', () => build('styles', false))
+
+gulp.task('compileEs:icons', () => build('icons', true))
+gulp.task('compileLib:icons', () => build('icons', false))
+
+gulp.task('compileEs:core', () => build('core', true))
+gulp.task('compileLib:core', () => build('core', false))
 
 gulp.task(
-  'compile',
-  gulp.series('compile:commons', 'compile:styles', 'compile:icons', 'compile:core')
+  'compileLib',
+  gulp.series('compileLib:commons', 'compileLib:styles', 'compileLib:icons', 'compileLib:core')
 )
+
+gulp.task(
+  'compileEs',
+  gulp.series('compileEs:commons', 'compileEs:styles', 'compileEs:icons', 'compileEs:core')
+)
+
+gulp.task('compile', gulp.parallel('compileLib', 'compileEs'))
 
 gulp.task('watch', () => {
   gulp.watch(

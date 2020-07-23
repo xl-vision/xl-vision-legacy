@@ -6,8 +6,8 @@ import useMedia, { BreakPoint, breakPointArray } from './useMedia'
 import RowContext from './GridContext'
 import createUseStyles from '../styles/createUseStyles'
 
-export type ClassesKey =
-  'root'
+export type GridClassesKey =
+  | 'root'
   | 'flex'
   | 'align-top'
   | 'align-middle'
@@ -27,25 +27,12 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   gutter?: number | Partial<Record<BreakPoint, number>>
   justify?: Justify
-  clsPrefix?: string
   type?: 'flex'
-  classes?: Partial<Record<ClassesKey, string>>
+  classes?: Partial<Record<GridClassesKey, string>>
 }
 
-const Row: React.FunctionComponent<GridProps> = (props) => {
-
-
-  const {
-    type,
-    justify,
-    align,
-    className,
-    style,
-    children,
-    gutter,
-    classes,
-    ...others
-  } = props
+const Grid: React.FunctionComponent<GridProps> = (props) => {
+  const { type, justify, align, className, style, children, gutter, classes, ...others } = props
 
   const builtinStyles = useStyles(classes)
 
@@ -66,7 +53,8 @@ const Row: React.FunctionComponent<GridProps> = (props) => {
     return 0
   }, [media, gutter])
 
-  const rootClassName = clsx(type === 'flex' ? builtinStyles.flex : builtinStyles.root,
+  const rootClassName = clsx(
+    type === 'flex' ? builtinStyles.flex : builtinStyles.root,
     type === 'flex' && align && builtinStyles[`align-${align}` as 'align-top'],
     type === 'flex' && justify && builtinStyles[`justify-${justify}` as 'justify-start'],
     className
@@ -74,10 +62,10 @@ const Row: React.FunctionComponent<GridProps> = (props) => {
   const rowStyle =
     computedGutter > 0
       ? {
-        marginLeft: computedGutter / -2,
-        marginRight: computedGutter / -2,
-        ...style
-      }
+          marginLeft: computedGutter / -2,
+          marginRight: computedGutter / -2,
+          ...style
+        }
       : style
 
   return (
@@ -89,9 +77,9 @@ const Row: React.FunctionComponent<GridProps> = (props) => {
   )
 }
 
-Row.displayName = 'Row'
+Grid.displayName = 'Row'
 
-Row.propTypes = {
+Grid.propTypes = {
   align: PropTypes.oneOf<'top' | 'middle' | 'bottom'>(['top', 'middle', 'bottom']),
   children: PropTypes.oneOfType([
     PropTypes.element.isRequired,
@@ -106,55 +94,50 @@ Row.propTypes = {
     'space-around',
     'space-between'
   ]),
-  clsPrefix: PropTypes.string,
   type: PropTypes.oneOf<'flex'>(['flex']),
   style: PropTypes.object,
   classes: PropTypes.object
 }
-export default Row
-
+export default Grid
 
 const useStyles = createUseStyles((theme) => {
-    return {
-      root: {
-        position: 'relative',
-        boxSizing: 'border-box',
-        ...theme.mixins.clearfix
-      },
+  return {
+    root: {
+      position: 'relative',
+      boxSizing: 'border-box',
+      ...theme.mixins.clearfix
+    },
 
-      flex: {
-        display: 'flex',
-        flexDirection: 'row',
-        '&:after': {
-          display: 'none'
-        }
-      },
-      'justify-start': {
-        justifyContent: 'start'
-      },
-      'justify-end': {
-        justifyContent: 'end'
-      },
-      'justify-center': {
-        justifyContent: 'center'
-      },
-      'justify-space-around': {
-        justifyContent: 'space-around'
-      },
-      'justify-space-between': {
-        justifyContent: 'space-between'
-      },
-      'align-top': {
-        alignItems: 'flex-start'
-      },
-      'align-middle': {
-        alignItems: 'center'
-      },
-      'align-bottom': {
-        alignItems: 'flex-end'
+    flex: {
+      display: 'flex',
+      flexDirection: 'row',
+      '&:after': {
+        display: 'none'
       }
-
+    },
+    'justify-start': {
+      justifyContent: 'start'
+    },
+    'justify-end': {
+      justifyContent: 'end'
+    },
+    'justify-center': {
+      justifyContent: 'center'
+    },
+    'justify-space-around': {
+      justifyContent: 'space-around'
+    },
+    'justify-space-between': {
+      justifyContent: 'space-between'
+    },
+    'align-top': {
+      alignItems: 'flex-start'
+    },
+    'align-middle': {
+      alignItems: 'center'
+    },
+    'align-bottom': {
+      alignItems: 'flex-end'
     }
-  },
-  'Row'
-)
+  }
+}, 'Row')

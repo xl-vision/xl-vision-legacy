@@ -2,8 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "dev": "cd packages/docs && npm run dev",
-    "compile": "gulp compile",
+    "docs": "cd packages/docs && npm run build",
+    "compileEs": "gulp compileEs",
+    "compileLib": "gulp compileLib",
     "watch": "gulp watch",
     "commit": "git-cz",
     "lint": "eslint . --report-unused-disable-directives --ext .js,.ts,.tsx",

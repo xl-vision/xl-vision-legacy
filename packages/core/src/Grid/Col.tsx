@@ -8,10 +8,9 @@ import createUseStyles from '../styles/createUseStyles'
 
 export type ColSpanType = number | Partial<Record<BreakPoint, number>>
 
-export type ClassesKey =
-  'root'
-  |
-  'span-0'
+export type ColClassesKey =
+  | 'root'
+  | 'span-0'
   | 'span-1'
   | 'span-2'
   | 'span-3'
@@ -36,8 +35,7 @@ export type ClassesKey =
   | 'span-22'
   | 'span-23'
   | 'span-24'
-  |
-  'offset-1'
+  | 'offset-1'
   | 'offset-2'
   | 'offset-3'
   | 'offset-4'
@@ -61,8 +59,7 @@ export type ClassesKey =
   | 'offset-22'
   | 'offset-23'
   | 'offset-24'
-  |
-  'push-1'
+  | 'push-1'
   | 'push-2'
   | 'push-3'
   | 'push-4'
@@ -86,8 +83,7 @@ export type ClassesKey =
   | 'push-22'
   | 'push-23'
   | 'push-24'
-  |
-  'pull-1'
+  | 'pull-1'
   | 'pull-2'
   | 'pull-3'
   | 'pull-4'
@@ -111,8 +107,7 @@ export type ClassesKey =
   | 'pull-22'
   | 'pull-23'
   | 'pull-24'
-  |
-  'order-1'
+  | 'order-1'
   | 'order-2'
   | 'order-3'
   | 'order-4'
@@ -142,28 +137,16 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
   offset?: ColSpanType
   order?: ColSpanType
-  clsPrefix?: string
   pull?: ColSpanType
   push?: ColSpanType
   span: ColSpanType
-  classes?: Partial<Record<ClassesKey, string>>
+  classes?: Partial<Record<ColClassesKey, string>>
 }
 
 const Col: React.FunctionComponent<ColProps> = (props) => {
   const { media, gutter } = React.useContext(RowContext)
 
-  const {
-    className,
-    children,
-    style,
-    span,
-    order,
-    offset,
-    pull,
-    push,
-    classes,
-    ...others
-  } = props
+  const { className, children, style, span, order, offset, pull, push, classes, ...others } = props
 
   const builtinStyles = useStyles(classes)
 
@@ -198,10 +181,10 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
   const colStyle =
     gutter > 0
       ? {
-        ...style,
-        paddingLeft: gutter / 2,
-        paddingRight: gutter / 2
-      }
+          ...style,
+          paddingLeft: gutter / 2,
+          paddingRight: gutter / 2
+        }
       : style
 
   return (
@@ -258,53 +241,49 @@ Col.propTypes = {
   className: PropTypes.string,
   offset: spanValidator,
   order: spanValidator,
-  clsPrefix: PropTypes.string,
   pull: spanValidator,
   push: spanValidator,
   span: spanValidator,
   style: PropTypes.object,
-  classes: PropTypes.object,
+  classes: PropTypes.object
 }
 
 export default Col
 
-
-const useStyles = createUseStyles(theme => {
-    const styles: Styles<string> = {
-      root: {
-        float: 'left',
-        boxSizing: 'border-box'
-      }
+const useStyles = createUseStyles((theme) => {
+  const styles: Styles<string> = {
+    root: {
+      float: 'left',
+      boxSizing: 'border-box'
     }
-    const { span } = theme
-    for (let i = 0; i <= span; i++) {
-      if (i === 0) {
-        styles[`spin-${i}`] = {
-          display: 'none'
-        }
-        continue
+  }
+  const { span } = theme
+  for (let i = 0; i <= span; i++) {
+    if (i === 0) {
+      styles[`spin-${i}`] = {
+        display: 'none'
       }
-      styles[`span-${i}`] = {
-        display: 'block',
-        width: `${i / span * 100}%`,
-        minHeight: 1
-      }
-      styles[`offset-${i}`] = {
-        marginLeft: `${i / span * 100}%`
-      }
-      styles[`push-${i}`] = {
-        position: 'relative',
-        left: `${i / span * 100}%`
-      }
-      styles[`pull-${i}`] = {
-        position: 'relative',
-        right: `${i / span * 100}%`
-      }
-      styles[`order-${i}`] = {
-        order: i
-      }
+      continue
     }
-    return styles
-  },
-  'Col'
-)
+    styles[`span-${i}`] = {
+      display: 'block',
+      width: `${(i / span) * 100}%`,
+      minHeight: 1
+    }
+    styles[`offset-${i}`] = {
+      marginLeft: `${(i / span) * 100}%`
+    }
+    styles[`push-${i}`] = {
+      position: 'relative',
+      left: `${(i / span) * 100}%`
+    }
+    styles[`pull-${i}`] = {
+      position: 'relative',
+      right: `${(i / span) * 100}%`
+    }
+    styles[`order-${i}`] = {
+      order: i
+    }
+  }
+  return styles
+}, 'Col')

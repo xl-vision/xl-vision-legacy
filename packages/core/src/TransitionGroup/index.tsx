@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import PropTypes from 'prop-types'
+import { warning } from '@xl-vision/commons'
 import CSSTransition, {
   CSSTransitionProps,
   CSSTransitionClassesObject,
@@ -12,7 +13,6 @@ import { onTransitionEnd, getTransitionInfo, forceReflow } from '../commons/util
 import computeQueue, { Data } from './computeQueue'
 import useEventCallback from '../commons/hooks/useEventCallback'
 import { omit } from '../commons/utils/function'
-import { warning } from '@xl-vision/commons'
 
 export interface TransitionGroupClassesObject
   extends Omit<
