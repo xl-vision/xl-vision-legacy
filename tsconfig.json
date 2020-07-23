@@ -12,14 +12,14 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@xl-vision/commons": ["packages/commons/src"],
-      "@xl-vision/commons/*": ["packages/commons/src/*"],
-      "@xl-vision/styles": ["packages/styles/src"],
-      "@xl-vision/styles/*": ["packages/styles/src/*"],
-      "@xl-vision/icons": ["packages/icons/src"],
-      "@xl-vision/icons/*": ["packages/icons/src/*"],
-      "@xl-vision/core": ["packages/core/src"],
-      "@xl-vision/core/*": ["packages/core/src/*"]
+      "@xl-vision/commons": ["./packages/commons/src"],
+      "@xl-vision/commons/*": ["./packages/commons/src/*"],
+      "@xl-vision/styles": ["./packages/styles/src"],
+      "@xl-vision/styles/*": ["./packages/styles/src/*"],
+      "@xl-vision/icons": ["./packages/icons/src"],
+      "@xl-vision/icons/*": ["./packages/icons/src/*"],
+      "@xl-vision/core": ["./packages/core/src"],
+      "@xl-vision/core/*": ["./packages/core/src/*"]
     }
   },
   "include": ["packages/*/src", "test/utils"]
