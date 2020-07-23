@@ -10,7 +10,7 @@
     "watch": "gulp watch",
     "commit": "git-cz",
     "lint": "eslint . --report-unused-disable-directives --ext .js,.ts,.tsx",
-    "test": "jest"
+    "test": "npm run compileLib && jest"
   },
   "husky": {
     "hooks": {

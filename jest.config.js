@@ -9,7 +9,7 @@ module.exports = {
     'packages/*/src/**/*.{ts,tsx}',
     '!packages/docs/**',
     '!packages/icons/src/*.tsx',
-    '!**/__*__/**',
+    '!**/__*__/**'
   ],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
@@ -18,5 +18,6 @@ module.exports = {
       diagnostics: true
     }
   },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testURL: 'http://localhost'
 }
