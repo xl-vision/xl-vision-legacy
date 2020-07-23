@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.5",
+    "@mdx-js/react": "^1.6.14",
     "@xl-vision/commons": "^0.0.0",
     "@xl-vision/core": "^0.0.0",
     "@xl-vision/icons": "^0.0.0",

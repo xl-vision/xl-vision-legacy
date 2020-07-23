@@ -41,7 +41,7 @@ export type Styles<Name extends StyleName = string> = Record<
   JssStyle | string | Func<JssStyle | string | null | undefined>
 >
 
-const sheetManagers = new Map<number, SheetsManager>()
+const sheetManagers = new Map<object, SheetsManager>()
 
 const defaultTheme = {}
 
@@ -66,40 +66,45 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const useTheme = () => (themeContext ? React.useContext(themeContext) : defaultTheme) as Theme
 
+  const key = {
+    index,
+    name
+  }
+
   const useStyles = (props?: object) => {
     const theme = useTheme()
     const { sheetsRegistry, jss, generateId } = React.useContext(JssContext)
 
-    const [sheet, dynamicStyles] = React.useMemo(() => {
+    const [staticSheet, dynamicStyles] = React.useMemo(() => {
       const styles =
         typeof stylesOrCreator === 'function' ? stylesOrCreator(theme) : stylesOrCreator
 
-      let sheetManager = sheetManagers.get(index)
+      let sheetManager = sheetManagers.get(key)
       if (!sheetManager) {
         sheetManager = new SheetsManager()
-        sheetManagers.set(index, sheetManager)
+        sheetManagers.set(key, sheetManager)
       }
 
-      let staticSheet = sheetManager.get(theme) as StyleSheet<C>
+      let _staticSheet = sheetManager.get(theme) as StyleSheet<C>
 
-      if (!staticSheet) {
-        staticSheet = jss.createStyleSheet(styles as Partial<Styles<C>>, {
+      if (!_staticSheet) {
+        _staticSheet = jss.createStyleSheet(styles as Partial<Styles<C>>, {
           link: false,
           classNamePrefix,
           generateId,
           index,
           meta: name ? `${name} static` : 'static'
         })
-        sheetManager.add(theme, staticSheet as StyleSheet<StyleName>)
-        sheetManager.manage(theme)
-        if (staticSheet) {
-          sheetsRegistry && sheetsRegistry.add(staticSheet)
+        sheetManager.add(theme, _staticSheet as StyleSheet<StyleName>)
+        if (_staticSheet) {
+          sheetsRegistry && sheetsRegistry.add(_staticSheet)
         }
       }
+      sheetManager.manage(theme)
 
       const _dynamicStyles = getDynamicStyles(styles) as Styles<C>
 
-      return [staticSheet, _dynamicStyles]
+      return [_staticSheet, _dynamicStyles]
     }, [generateId, jss, theme, sheetsRegistry])
 
     const dynamicSheet = React.useMemo(() => {
@@ -123,16 +128,12 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
 
     useLayoutEffect(() => {
       return () => {
-        const sheetManager = sheetManagers.get(index)
-
+        const sheetManager = sheetManagers.get(key)
         if (sheetManager) {
-          const staticSheet = sheetManager.get(theme) as StyleSheet<C>
-          sheetsRegistry && sheetsRegistry.remove(staticSheet)
+          sheetManager.unmanage(theme)
         }
-
-        sheetManager && sheetManager.unmanage(theme)
       }
-    }, [sheetsRegistry, sheet, theme])
+    }, [sheetsRegistry, staticSheet, theme])
 
     useLayoutEffect(() => {
       return () => {
@@ -143,7 +144,8 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
       }
     }, [sheetsRegistry, dynamicSheet])
 
-    return mergeClasses(sheet.classes, dynamicSheet?.classes)
+
+    return mergeClasses(staticSheet.classes, dynamicSheet?.classes)
   }
 
   return useStyles
