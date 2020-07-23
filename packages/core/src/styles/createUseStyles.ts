@@ -6,7 +6,8 @@ import themeContext from './ThemeContext'
 export type Theme = ReturnType<typeof createTheme>
 
 const createUseStyles = <C extends StyleName = string>(
-  styles: Styles<C> | ((theme: Theme) => Styles<C>), name?: string
+  styles: Styles<C> | ((theme: Theme) => Styles<C>),
+  name?: string
 ) => {
   const useNativeStyles = createUseNativeStyles(styles, {
     themeContext,
@@ -21,7 +22,7 @@ const createUseStyles = <C extends StyleName = string>(
         return builtinClasses
       }
       const obj = { ...builtinClasses }
-      Object.keys(obj).forEach(key => {
+      Object.keys(obj).forEach((key) => {
         const classKey = key as C
         const clazz = classes[classKey]
         if (clazz) {
@@ -32,7 +33,6 @@ const createUseStyles = <C extends StyleName = string>(
     }, [classes, builtinClasses])
     return mergeClasses
   }
-
 }
 
 export default createUseStyles

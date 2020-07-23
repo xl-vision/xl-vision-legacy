@@ -76,4 +76,4 @@ const useStyles = createUseStyles((theme) => {
       borderRadius: '4px'
     }
   }
-})
+}, 'Demo')

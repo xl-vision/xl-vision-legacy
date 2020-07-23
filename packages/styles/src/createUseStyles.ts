@@ -75,10 +75,12 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
     const theme = useTheme()
     const { sheetsRegistry, jss, generateId } = React.useContext(JssContext)
 
+    // 在并发模式或者开发模式下，可能会执行多次，所以需要消除副作用代码
+    // https://github.com/facebook/react/issues/17186#issuecomment-546553979
     const [staticSheet, dynamicStyles] = React.useMemo(() => {
       const styles =
-        typeof stylesOrCreator === 'function' ? stylesOrCreator(theme) : stylesOrCreator
-
+      typeof stylesOrCreator === 'function' ? stylesOrCreator(theme) : stylesOrCreator
+      
       let sheetManager = sheetManagers.get(key)
       if (!sheetManager) {
         sheetManager = new SheetsManager()
@@ -96,17 +98,16 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
           meta: name ? `${name} static` : 'static'
         })
         sheetManager.add(theme, _staticSheet as StyleSheet<StyleName>)
-        if (_staticSheet) {
-          sheetsRegistry && sheetsRegistry.add(_staticSheet)
-        }
+        sheetsRegistry && sheetsRegistry.add(_staticSheet)
       }
-      sheetManager.manage(theme)
 
       const _dynamicStyles = getDynamicStyles(styles) as Styles<C>
 
       return [_staticSheet, _dynamicStyles]
     }, [generateId, jss, theme, sheetsRegistry])
 
+    // 在并发模式或者开发模式下，可能会执行多次，所以需要消除副作用代码
+    // https://github.com/facebook/react/issues/17186#issuecomment-546553979
     const dynamicSheet = React.useMemo(() => {
       if (!dynamicStyles) {
         return
@@ -118,32 +119,36 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
         index,
         classNamePrefix
       })
-      if (props) {
-        _dynamicSheet.update(props)
-      }
-      _dynamicSheet.attach()
-      sheetsRegistry && sheetsRegistry.add(_dynamicSheet)
+
       return _dynamicSheet
-    }, [generateId, jss, dynamicStyles, sheetsRegistry, props])
+    }, [generateId, jss, dynamicStyles])
 
     useLayoutEffect(() => {
+      const sheetManager = sheetManagers.get(key)
+      if (sheetManager) {
+        sheetManager.manage(theme)
+      }
       return () => {
-        const sheetManager = sheetManagers.get(key)
         if (sheetManager) {
           sheetManager.unmanage(theme)
         }
       }
-    }, [sheetsRegistry, staticSheet, theme])
+    }, [theme])
 
     useLayoutEffect(() => {
-      return () => {
-        if (dynamicSheet) {
-          dynamicSheet.detach()
-          sheetsRegistry && sheetsRegistry.remove(dynamicSheet)
-        }
+      if (!dynamicSheet) {
+        return
       }
-    }, [sheetsRegistry, dynamicSheet])
-
+      if (props) {
+        dynamicSheet.update(props)
+      }
+      dynamicSheet.attach()
+      sheetsRegistry && sheetsRegistry.add(dynamicSheet)
+      return () => {
+        dynamicSheet.detach()
+        sheetsRegistry && sheetsRegistry.remove(dynamicSheet)
+      }
+    }, [sheetsRegistry, dynamicSheet, props])
 
     return mergeClasses(staticSheet.classes, dynamicSheet?.classes)
   }
