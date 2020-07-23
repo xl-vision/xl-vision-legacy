@@ -22,10 +22,12 @@ export type JssValue =
   | null
   | false
 
-type NormalCssProperties = css.Properties<string | number>
+export type NormalCssProperties = css.Properties<string | number>
 type NormalCssValues<K> = K extends keyof NormalCssProperties
   ? NormalCssProperties[K] | JssValue
   : JssValue
+
+type Func<R> = (data: any) => R
 
 export type JssStyle = {
   [K in keyof NormalCssProperties | string]:
@@ -33,8 +35,6 @@ export type JssStyle = {
     | JssStyle
     | Func<NormalCssValues<K> | JssStyle | undefined>
 }
-
-type Func<R> = (data: any) => R
 
 export type Styles<Name extends StyleName = string> = Record<
   Name,
@@ -56,7 +56,7 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
     classNamePrefix: baseClassNamePrefix
   } = options
 
-  const classNamePrefix = baseClassNamePrefix || name || 'createUseStyles'
+  const classNamePrefix = baseClassNamePrefix || 'createUseStyles-'
 
   warning(
     typeof stylesOrCreator === 'function' && themeContext === undefined,

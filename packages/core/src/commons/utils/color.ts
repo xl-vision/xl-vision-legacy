@@ -128,6 +128,48 @@ const hslColorToRgbColor: (color: HSLColor) => RGBColor = (color) => {
   return rgbColor
 }
 
+const rgbColorToHslColor: (color: RGBColor) => HSLColor = (color) => {
+  let { r, g, b } = color
+
+  r /= 255
+  g /= 255
+  b /= 255
+
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+
+  const l = (max + min) / 2
+
+  let h: number
+  let s: number
+
+  if (max === min) {
+    h = s = 0
+  } else {
+    const d = max - min
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0)
+        break
+      case g:
+        h = (b - r) / d + 2
+        break
+      default:
+        h = (r - g) / d + 4
+        break
+    }
+    h /= 6
+  }
+
+  return {
+    h: h * 360,
+    s: s * 100,
+    l: l * 100,
+    a: color.a
+  }
+}
+
 const toColor: (color: string | Color) => Color = (color) => {
   if (typeof color === 'object') {
     return color
@@ -156,6 +198,19 @@ const toRgbColor: (color: string | Color) => RGBColor = (color) => {
 const colorToRgb: (color: Color) => string = (color) => {
   const rgb = toRgbColor(color)
   return `rgb${rgb.a ? 'a' : ''}(${rgb.r},${rgb.g},${rgb.b}${rgb.a ? `,${rgb.a}` : ''})`
+}
+
+const toHslColor: (color: string | Color) => HSLColor = (color) => {
+  const obj = toColor(color)
+  if ('h' in obj) {
+    return obj
+  }
+  return rgbColorToHslColor(obj)
+}
+
+const colorToHsl: (color: Color) => string = (color) => {
+  const hsl = toHslColor(color)
+  return `hsl${hsl.a ? 'a' : ''}(${hsl.h},${hsl.s}%,${hsl.l}%${hsl.a ? `,${hsl.a}` : ''})`
 }
 
 const rgbNormalize = (val: number) => {
@@ -192,4 +247,41 @@ export const mix = (color1: string, color2: string, amount = 0.5) => {
   }
 
   return colorToRgb(rgbColor)
+}
+
+export const darken = (color: string, amount: number) => {
+  const obj = toColor(color)
+
+  if ('r' in obj) {
+    return colorToRgb({
+      r: obj.r * (1 - amount),
+      g: obj.g * (1 - amount),
+      b: obj.b * (1 - amount),
+      a: obj.a
+    })
+  }
+
+  obj.l *= 1 - amount
+
+  return colorToHsl(obj)
+}
+
+export const lighten = (color: string, amount: number) => {
+  const obj = toColor(color)
+
+  if ('r' in obj) {
+    return colorToRgb({
+      r: obj.r * (1 + amount),
+      g: obj.g * (1 + amount),
+      b: obj.b * (1 + amount),
+      a: obj.a
+    })
+  }
+  obj.l *= 1 + amount
+
+  return colorToHsl(obj)
+}
+
+export function emphasize(color: string, coefficient = 0.1) {
+  return getLuminance(color) > 0.5 ? darken(color, coefficient) : lighten(color, coefficient)
 }

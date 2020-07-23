@@ -21,6 +21,5 @@
       "@xl-vision/core": ["./packages/core/src"],
       "@xl-vision/core/*": ["./packages/core/src/*"]
     }
-  },
-  "include": ["packages/*/src", "test/utils"]
+  }
 }

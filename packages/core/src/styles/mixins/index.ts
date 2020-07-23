@@ -1,17 +1,15 @@
-const createMixins = () => {
-  return {
-    clearfix: {
-      zoom: 1,
-      '&:before, &::after': {
-        display: 'table',
-        boxSizing: 'border-box',
-        content: ' '
-      },
-      '&:after': {
-        clear: 'both'
-      }
+const mixins = {
+  clearfix: {
+    zoom: 1,
+    '&:before, &:after': {
+      display: 'table',
+      boxSizing: 'border-box',
+      content: '" "'
+    },
+    '&:after': {
+      clear: 'both'
     }
   }
 }
 
-export default createMixins
+export default mixins

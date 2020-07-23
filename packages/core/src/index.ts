@@ -2,6 +2,8 @@ export { version } from '../package.json'
 
 export { default as createUseStyles } from './styles'
 
+export { default as CssBaseline } from './CssBaseline'
+
 export { default as ThemeProvider } from './ThemeProvider'
 
 export { default as ConfigProvider } from './ConfigProvider'

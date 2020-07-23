@@ -1,7 +1,8 @@
 import createColors, { Color } from './color'
 import createAnimation, { Animation } from './animation'
 import createTypography, { Typography } from './typography'
-import createMixins from './mixins'
+import mixins from './mixins'
+import createElevations from './elevations'
 
 export type Theme = Partial<{
   color: Color
@@ -17,13 +18,14 @@ export default (theme: Theme = {}) => {
   const outputAnimation = createAnimation(animation)
   const outputTypography = createTypography(typography)
 
-  const mixins = createMixins()
+  const elevations = createElevations()
 
   return {
     color: outputColor,
     animation: outputAnimation,
     typography: outputTypography,
     mixins,
+    elevations,
     span
   }
 }

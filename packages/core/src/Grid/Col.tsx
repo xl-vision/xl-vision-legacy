@@ -187,8 +187,10 @@ const Col: React.FunctionComponent<ColProps> = (props) => {
         }
       : style
 
+  const isHidden = rootClassName.indexOf(builtinStyles['span-0']) !== -1
+
   return (
-    <div role='cell' {...others} style={colStyle} className={rootClassName}>
+    <div role='cell' aria-hidden={isHidden} {...others} style={colStyle} className={rootClassName}>
       {children}
     </div>
   )
@@ -260,7 +262,7 @@ const useStyles = createUseStyles((theme) => {
   const { span } = theme
   for (let i = 0; i <= span; i++) {
     if (i === 0) {
-      styles[`spin-${i}`] = {
+      styles[`span-${i}`] = {
         display: 'none'
       }
       continue

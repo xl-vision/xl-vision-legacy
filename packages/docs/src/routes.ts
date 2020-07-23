@@ -32,7 +32,17 @@ const routes: Array<Route> = [
         name: '图标 icon',
         path: '/icon',
         component: import('@xl-vision/icons/__doc__/index.mdx')
-      },
+      }
+    ]
+  },
+  {
+    name: '布局',
+    children: [
+      {
+        name: '栅格布局 Row',
+        path: '/Row',
+        component: import('@xl-vision/core/Grid/__doc__/index.mdx')
+      }
     ]
   }
 ]

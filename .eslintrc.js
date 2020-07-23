@@ -59,6 +59,7 @@ module.exports = {
         treatUndefinedAsUnspecified: true
       }
     ],
+    'import/no-named-as-default': 'off',
     'react-hooks/exhaustive-deps': [
       'error',
       {

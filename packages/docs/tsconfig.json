@@ -1,3 +1,4 @@
 {
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.json",
+  "include": ["src", "typings", "../icons/src/__doc__/IconSelect"]
 }

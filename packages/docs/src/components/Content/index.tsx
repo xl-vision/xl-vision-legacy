@@ -4,6 +4,7 @@ import { Redirect, Route as ReactRoute } from 'react-router-dom'
 import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
 
 import Markdown from '../Markdown'
+import { createUseStyles } from '@xl-vision/core'
 
 const routeComponents: Array<React.ReactNode> = []
 
@@ -21,7 +22,7 @@ const LazyRoute: React.FunctionComponent<LazyRouteProps> = (props) => {
     }
   }, [route])
 
-  return <Loadable/>
+  return <Loadable />
 }
 
 const addRoute = (routeArray: Array<Route>, level = '1') => {
@@ -34,14 +35,14 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
           exact={true}
           key={key}
           path={componentRoute.path}
-          render={() => <LazyRoute route={componentRoute}/>}
+          render={() => <LazyRoute route={componentRoute} />}
         />
       )
     } else if ((it as RedirectRoute).redirect) {
       const redirectRoute = it as RedirectRoute
-      const component = () => <Redirect to={redirectRoute.redirect}/>
+      const component = () => <Redirect to={redirectRoute.redirect} />
       routeComponents.push(
-        <ReactRoute exact={true} key={key} path={redirectRoute.path} component={component}/>
+        <ReactRoute exact={true} key={key} path={redirectRoute.path} component={component} />
       )
     } else {
       const childrenRoute = it as ChildrenRoute
@@ -53,14 +54,24 @@ const addRoute = (routeArray: Array<Route>, level = '1') => {
 addRoute(routes)
 
 const Content: React.FunctionComponent<Record<string, unknown>> = () => {
+  const styles = useStyles()
   return (
-    <div>
+    <div className={styles.root}>
       <Markdown>
         {/* <React.Suspense fallback={<Spin cover={true} />}>{routeComponents}</React.Suspense> */}
-        <React.Suspense fallback={<div/>}>{routeComponents}</React.Suspense>
+        <React.Suspense fallback={<div />}>{routeComponents}</React.Suspense>
       </Markdown>
     </div>
   )
 }
 
 export default Content
+
+const useStyles = createUseStyles((_theme) => {
+  return {
+    root: {
+      position: 'relative',
+      minHeight: '100%'
+    }
+  }
+})

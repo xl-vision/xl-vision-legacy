@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Grid } from '@xl-vision/core'
+import { Grid, CssBaseline } from '@xl-vision/core'
 import Aside from '../Aside'
 import Content from '../Content'
 import Footer from '../Footer'
@@ -9,18 +9,19 @@ import Header from '../Header'
 const Layout: React.FunctionComponent<Record<string, unknown>> = () => {
   return (
     <React.StrictMode>
+      <CssBaseline />
       <Router>
         <div>
-          <Header/>
+          <Header />
           <Grid type='flex'>
             <Grid.Col span={6}>
-              <Aside/>
+              <Aside />
             </Grid.Col>
             <Grid.Col span={18}>
-              <Content/>
+              <Content />
             </Grid.Col>
           </Grid>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </React.StrictMode>

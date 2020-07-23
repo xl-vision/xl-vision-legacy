@@ -140,4 +140,4 @@ const useStyles = createUseStyles((theme) => {
       alignItems: 'flex-end'
     }
   }
-}, 'Row')
+}, 'Grid')

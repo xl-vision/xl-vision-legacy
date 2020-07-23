@@ -5,13 +5,45 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const prism = require('@mapbox/rehype-prism')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CleanUpStatsPlugin = require('./CleanUpStatsPlugin')
-const demoBoxPlugin = require('./demoBoxPlugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 
 const isDev = !isProd
+
+const getStyleLoaders = (cssOptions, preProcessor) => {
+  const loaders = [
+    isDev
+      ? require.resolve('style-loader')
+      : {
+          loader: MiniCssExtractPlugin.loader,
+          options: {}
+        },
+    {
+      loader: require.resolve('css-loader'),
+      options: { sourceMap: true, ...cssOptions }
+    },
+    {
+      loader: require.resolve('postcss-loader'),
+      options: {
+        ident: 'postcss',
+        sourceMap: true
+      }
+    }
+  ].filter(Boolean)
+  if (preProcessor) {
+    const options = {
+      sourceMap: true
+    }
+    loaders.push({
+      loader: require.resolve(preProcessor),
+      options
+    })
+  }
+  return loaders
+}
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/index.tsx'),
@@ -49,6 +81,14 @@ module.exports = {
   optimization: {
     minimize: isProd,
     minimizer: [
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true
+          }
+        }
+      }),
       new TerserPlugin({
         terserOptions: {
           parse: {
@@ -113,13 +153,26 @@ module.exports = {
             }
           },
           {
-            loader: '@mdx-js/loader',
-            options: {
-              remarkPlugins: [demoBoxPlugin],
-              rehypePlugins: [prism]
-            }
+            loader: require.resolve('./mdxLoader')
           }
         ]
+      },
+      {
+        test: /\.css$/,
+        use: getStyleLoaders({
+          esModule: true,
+          importLoaders: 1
+        })
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: getStyleLoaders(
+          {
+            esModule: true,
+            importLoaders: 2
+          },
+          'sass-loader'
+        )
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -182,7 +235,12 @@ module.exports = {
               minifyURLs: true
             }
           })
-    })
+    }),
+    !isDev &&
+      new MiniCssExtractPlugin({
+        filename: 'static/css/[name].[contenthash:8].css',
+        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
+      })
   ].filter(Boolean),
   devServer: {
     compress: true,

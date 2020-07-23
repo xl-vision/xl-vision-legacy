@@ -1,10 +1,9 @@
 import * as React from 'react'
 import Clipboard from 'clipboard'
-import * as Icons from '../../../src/icon'
+import * as Icons from '@xl-vision/icons'
 import data from './data.json'
 
-import classes from './index.module.scss'
-import { Button } from '../../../src'
+// import { Button } from '@xl-vision/core'
 
 export interface IconWrapperProps {
   children: React.ReactNode
