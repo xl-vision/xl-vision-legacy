@@ -34,7 +34,7 @@ jobs:
         run: bash <(curl -s https://codecov.io/bash)
 
       - name: codacy-coverage
-        uses: codacy/codacy-coverage-reporter-action@v2
+        uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{secrets.CODACY_TOKEN}}
 
