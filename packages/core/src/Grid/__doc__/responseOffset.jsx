@@ -7,17 +7,24 @@ export default () => {
     <div>
       <div className={styles.root}>
         <Grid gutter={10}>
-          <Grid.Col span={4}>
+          <Grid.Col span={6}>
             <div className={styles.box}>col1</div>
           </Grid.Col>
-          <Grid.Col span={5}>
+          <Grid.Col
+            span={6}
+            offset={{
+              xs: 1,
+              sm: 2,
+              md: 3,
+              lg: 4,
+              xl: 5,
+              xxl: 6
+            }}
+          >
             <div className={styles.box}>col2</div>
           </Grid.Col>
-          <Grid.Col span={7}>
+          <Grid.Col span={6}>
             <div className={styles.box}>col3</div>
-          </Grid.Col>
-          <Grid.Col span={8}>
-            <div className={styles.box}>col4</div>
           </Grid.Col>
         </Grid>
       </div>
@@ -29,27 +36,42 @@ export default () => {
           <Grid.Col span={6}>
             <div className={styles.box}>col2</div>
           </Grid.Col>
-          <Grid.Col span={6}>
+          <Grid.Col
+            span={6}
+            push={{
+              xs: 1,
+              sm: 2,
+              md: 3,
+              lg: 4,
+              xl: 5,
+              xxl: 6
+            }}
+          >
             <div className={styles.box}>col3</div>
-          </Grid.Col>
-          <Grid.Col span={6}>
-            <div className={styles.box}>col4</div>
           </Grid.Col>
         </Grid>
       </div>
       <div className={styles.root}>
         <Grid gutter={10}>
-          <Grid.Col span={8}>
+          <Grid.Col span={6}>
             <div className={styles.box}>col1</div>
           </Grid.Col>
-          <Grid.Col span={0}>
+          <Grid.Col span={6}>
             <div className={styles.box}>col2</div>
           </Grid.Col>
-          <Grid.Col span={8}>
+          <Grid.Col
+            span={6}
+            pull={{
+              xs: 1,
+              sm: 2,
+              md: 3,
+              lg: 4,
+              xl: 5,
+              xxl: 6
+            }}
+            offset={6}
+          >
             <div className={styles.box}>col3</div>
-          </Grid.Col>
-          <Grid.Col span={8}>
-            <div className={styles.box}>col4</div>
           </Grid.Col>
         </Grid>
       </div>
