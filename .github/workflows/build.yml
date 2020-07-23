@@ -13,7 +13,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: install
-        run: npm install && npm run bootstrap
+        run: npm install
+
+      - name: lerna bootstrap
+        run: lerna bootstrap
 
       - name: lint
         run: npm run lint
@@ -25,7 +28,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: install
-        run: npm install && npm run bootstrap
+        run: npm install
+
+      - name: lerna bootstrap
+        run: lerna bootstrap
 
       - name: test
         run: npm run test -- --coverage --bail
@@ -45,7 +51,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: install
-        run: npm install && npm run bootstrap
+        run: npm install
+
+      - name: lerna bootstrap
+        run: lerna bootstrap
 
       - name: compileEs
         run: npm run compileEs
@@ -60,7 +69,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: install
-        run: npm install && npm run bootstrap
+        run: npm install
+
+      - name: lerna bootstrap
+        run: lerna bootstrap
 
       - name: dist
         run: npm run dist
@@ -71,7 +83,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: install
-        run: npm install && npm run bootstrap
+        run: npm install
+
+      - name: lerna bootstrap
+        run: lerna bootstrap
 
       - name: docs
         run: npm run docs

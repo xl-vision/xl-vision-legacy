@@ -2,7 +2,6 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "dev": "cd packages/docs && npm run dev",
     "docs": "cd packages/docs && npm run build",
     "compileEs": "gulp compileEs",
