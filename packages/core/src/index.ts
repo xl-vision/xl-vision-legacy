@@ -17,3 +17,5 @@ export { default as TransitionGroup } from './TransitionGroup'
 export { default as CollapseTransition } from './CollapseTransition'
 
 export { default as Grid } from './Grid'
+
+export { default as Button } from './Button'

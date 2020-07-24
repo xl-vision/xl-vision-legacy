@@ -6,58 +6,9 @@
 
 通过`CollaseTrannsition`包裹对应的元素来触发折叠和展开的动画效果。通过`transitionClassName`自定义动画方式。如果不指定，将使用默认动画`width/height 1s ease`
 
-```jsx
-import React from 'react'
-import { CollapseTransition, Button } from 'xl-vision'
-export default () => {
-  const [active, setActive] = React.useState(false)
+---
 
-  return (
-    <div className='wrapper'>
-      <Button
-        theme='primary'
-        onClick={() => {
-          setActive(!active)
-        }}
-      >
-        Click
-      </Button>
-      <CollapseTransition in={active} transitionClasses={'demo-fade'}>
-        <div className='demo'>DEMO</div>
-      </CollapseTransition>
-    </div>
-  )
-}
-```
-
-```scss
-.demo {
-  height: 10rem;
-  color: #fff;
-  font-size: 3rem;
-  line-height: 10rem;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #007bff;
-  margin: 10px;
-}
-
-.wrapper::deep {
-  .demo-fade-enter-active,
-  .demo-fade-leave-active {
-    transition: all 1s ease;
-  }
-  .demo-fade-enter,
-  .demo-fade-leave-to {
-    opacity: 0;
-  }
-
-  .demo-fade-enter-to,
-  .demo-fade-leave {
-    opacity: 1;
-  }
-}
-```
+./base.jsx
 
 :::
 
@@ -65,60 +16,9 @@ export default () => {
 
 通过属性`horizontal`在水平方向进行展开和折叠动画
 
-```jsx
-import React from 'react'
-import { CollapseTransition, Button } from 'xl-vision'
-export default () => {
-  const [active, setActive] = React.useState(false)
+---
 
-  return (
-    <div className='wrapper'>
-      <Button
-        theme='primary'
-        onClick={() => {
-          setActive(!active)
-        }}
-      >
-        Click
-      </Button>
-      <CollapseTransition in={active} transitionClasses={'demo-fade'} horizontal>
-        <div className='demo'>DEMO</div>
-      </CollapseTransition>
-    </div>
-  )
-}
-```
-
-```scss
-.demo {
-  height: 10rem;
-  width: 100%;
-  color: #fff;
-  font-size: 3rem;
-  line-height: 10rem;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #007bff;
-  margin: 10px;
-}
-
-.wrapper::deep {
-  .demo-fade-enter-active,
-  .demo-fade-leave-active {
-    transition: all 1s ease;
-  }
-
-  .demo-fade-enter,
-  .demo-fade-leave-to {
-    opacity: 0;
-  }
-
-  .demo-fade-enter-to,
-  .demo-fade-leave {
-    opacity: 1;
-  }
-}
-```
+./horizontal.jsx
 
 :::
 

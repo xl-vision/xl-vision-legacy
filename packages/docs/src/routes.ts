@@ -44,6 +44,36 @@ const routes: Array<Route> = [
         component: import('@xl-vision/core/Grid/__doc__/index.mdx')
       }
     ]
+  },
+  {
+    name: '动画',
+    children: [
+      {
+        name: '过渡 Transition',
+        path: '/Transition',
+        component: import('@xl-vision/core/Transition/__doc__/index.mdx')
+      },
+      {
+        name: 'CSS过渡 CSSTransition',
+        path: '/CSSTransition',
+        component: import('@xl-vision/core/CSSTransition/__doc__/index.mdx')
+      },
+      {
+        name: '列表过渡 TransitionGroup',
+        path: '/TransitionGroup',
+        component: import('@xl-vision/core/TransitionGroup/__doc__/index.mdx')
+      },
+      {
+        name: '折叠 CollapseTransition',
+        path: '/CollapseTransition',
+        component: import('@xl-vision/core/CollapseTransition/__doc__/index.mdx')
+      },
+      // {
+      //   name: '水波纹 Ripple',
+      //   path: '/Ripple',
+      //   component: import('@xl-vision/core/Ripple/__doc__/index.mdx')
+      // }
+    ]
   }
 ]
 
