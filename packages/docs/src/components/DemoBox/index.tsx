@@ -91,7 +91,7 @@ const useStyles = createUseStyles((theme) => {
     },
     preview: {
       position: 'relative',
-      padding
+      padding: `${padding}px`
     },
     info: {
       position: 'relative',
@@ -102,7 +102,7 @@ const useStyles = createUseStyles((theme) => {
       position: 'absolute',
       top: `-${padding / 2}px`,
       left: `${padding - 5}px`,
-      display: 'inlineBlock',
+      display: 'inline-block',
       padding: `0 5px`,
       fontWeight: theme.typography.fontWeight.bold,
       fontSize: '16px',

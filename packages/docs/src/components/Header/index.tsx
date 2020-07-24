@@ -2,14 +2,24 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { createUseStyles } from '@xl-vision/core'
 import logo from '../../assets/img/logo.png'
+import ColorContext from '../Layout/ColorContext'
 
 const Header: React.FunctionComponent<Record<string, unknown>> = () => {
+  const { setDark } = React.useContext(ColorContext)
   const styles = useStyles()
+
+  const handleClick = React.useCallback(() => {
+    setDark((prev) => !prev)
+  }, [setDark])
+
   return (
     <header className={styles.header}>
       <Link to='/' className={styles.logo}>
         <img src={logo} alt='' />
       </Link>
+      <button type='button' onClick={handleClick}>
+        click
+      </button>
       {/* <div>
         <Button type='text' ghost href='https://github.com/xl-vision/xl-vision' target='_black'>
           <FabGithub />

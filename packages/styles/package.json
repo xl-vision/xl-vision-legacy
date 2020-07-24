@@ -33,7 +33,6 @@
     "@xl-vision/commons": "^0.0.0",
     "jss": "^10.3.0",
     "jss-plugin-camel-case": "^10.3.0",
-    "jss-plugin-default-unit": "^10.3.0",
     "jss-plugin-global": "^10.3.0",
     "jss-plugin-nested": "^10.3.0",
     "jss-plugin-props-sort": "^10.3.0",

@@ -4,14 +4,14 @@ import createTypography, { Typography } from './typography'
 import mixins from './mixins'
 import createElevations from './elevations'
 
-export type Theme = Partial<{
+export type BaseTheme = Partial<{
   color: Color
   animation: Animation
   typography: Typography
   span: number
 }>
 
-export default (theme: Theme = {}) => {
+export default (theme: BaseTheme = {}) => {
   const { color, animation, typography, span = 24 } = theme
 
   const outputColor = createColors(color)

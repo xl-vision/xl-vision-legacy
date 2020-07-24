@@ -4,11 +4,11 @@ import React from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 import { createUseStyles } from '@xl-vision/core'
 // import { Link as LinkIcon } from '@xl-vision/icons'
+import { fade } from '@xl-vision/core/commons/utils/color'
 import DemoBox from '../DemoBox'
 import getHash from '../../utils/getHash'
 
 import 'prismjs/themes/prism-okaidia.css'
-import { fade } from '@xl-vision/core/commons/utils/color'
 
 export type MarkdownProps = {
   children: React.ReactNode
@@ -124,15 +124,21 @@ const components: MDXProviderComponents = {
     return <code {...props} className={styles.codeInline} />
   },
   li(props) {
-    return <ol {...props} /*className={classes.li}*/ />
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const styles = useStyles()
+    return <ol {...props} className={styles.liAndOl} />
   },
   ol(props) {
-    return <ol {...props} /*className={classes.ol}*/ />
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const styles = useStyles()
+    return <ol {...props} className={styles.liAndOl} />
   },
   table(props) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const styles = useStyles()
     return (
-      <div /*className={classes.tableWrapper}*/>
-        <table {...props} /*className={classes.table}*/ />
+      <div className={styles.tableWrapper}>
+        <table {...props} className={styles.table} />
       </div>
     )
   }
@@ -154,9 +160,14 @@ const useStyles = createUseStyles((theme) => {
       padding: '1rem',
       fontSize: '1rem',
 
-      '& pre': {
-        margin: 0,
-        backgroundColor: '#272c34'
+      '@global': {
+        pre: {
+          margin: 0,
+          backgroundColor: '#272c34'
+        },
+        a: {
+          color: theme.color.themes.primary
+        }
       }
     },
     codeInline: {
@@ -176,6 +187,40 @@ const useStyles = createUseStyles((theme) => {
       borderLeft: `4px solid ${fade(theme.color.getContrastColor().text.primary, 0.2)}`,
       '& p': {
         margin: 0
+      }
+    },
+    tableWrapper: {
+      overflowX: 'auto',
+      boxSizing: 'border-box',
+      maxWidth: '100%'
+    },
+    table: {
+      fontSize: '1rem',
+      lineHeight: '1.5rem',
+      borderCollapse: 'collapse',
+      borderSpacing: 0,
+      minWidth: '800px',
+      '@global': {
+        'td, th': {
+          padding: '1rem',
+          borderBottom: `1px solid ${theme.color.getContrastColor().divider}`
+        },
+        th: {
+          fontWeight: theme.typography.fontWeight.bold,
+          whiteSpace: 'nowrap',
+          textAlign: 'left',
+          color: theme.color.getContrastColor().text.primary
+        },
+        td: {
+          color: theme.color.getContrastColor().text.primary
+        }
+      }
+    },
+    liAndOl: {
+      '@global': {
+        li: {
+          marginBottom: '0.5rem'
+        }
       }
     }
   }

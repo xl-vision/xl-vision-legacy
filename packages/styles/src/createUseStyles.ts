@@ -79,8 +79,7 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
     // https://github.com/facebook/react/issues/17186#issuecomment-546553979
     const [staticSheet, dynamicStyles] = React.useMemo(() => {
       const styles =
-      typeof stylesOrCreator === 'function' ? stylesOrCreator(theme) : stylesOrCreator
-      
+        typeof stylesOrCreator === 'function' ? stylesOrCreator(theme) : stylesOrCreator
       let sheetManager = sheetManagers.get(key)
       if (!sheetManager) {
         sheetManager = new SheetsManager()
@@ -125,13 +124,12 @@ const createUseStyles = <Theme extends {}, C extends StyleName = string>(
 
     useLayoutEffect(() => {
       const sheetManager = sheetManagers.get(key)
-      if (sheetManager) {
-        sheetManager.manage(theme)
+      if (!sheetManager) {
+        return
       }
+      sheetManager.manage(theme)
       return () => {
-        if (sheetManager) {
-          sheetManager.unmanage(theme)
-        }
+        sheetManager.unmanage(theme)
       }
     }, [theme])
 

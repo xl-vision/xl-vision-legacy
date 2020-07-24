@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { Redirect, Route as ReactRoute } from 'react-router-dom'
+import { createUseStyles } from '@xl-vision/core'
 import routes, { ChildrenRoute, ComponentRoute, RedirectRoute, Route } from '../../routes'
 
 import Markdown from '../Markdown'
-import { createUseStyles } from '@xl-vision/core'
 
 const routeComponents: Array<React.ReactNode> = []
 
@@ -14,7 +14,8 @@ type LazyRouteProps = {
 
 const LazyRoute: React.FunctionComponent<LazyRouteProps> = (props) => {
   const { route } = props
-  const Loadable = React.lazy(() => route.component)
+  // https://github.com/facebook/react/issues/14299
+  const Loadable = React.useMemo(() => React.lazy(() => route.component), [route.component])
 
   React.useEffect(() => {
     if (document) {
